@@ -27,7 +27,7 @@
 
 | Етап | Папка | Статус |
 |---|---|---|
-| Дослідження | [`research/`](research/) | 🟡 список конкурентів зафіксовано, аудит і скріншоти — ні |
+| Дослідження | [`research/`](research/) | 🟡 конкурентний аудит закритий; персони, JTBD, карта болів, ринок/регуляторка — ні |
 | Концепт | [`concept/`](concept/) | ⚪ чекає |
 | Вайрфрейми | [`wireframes/`](wireframes/) | ⚪ чекає |
 | Токени | [`tokens/`](tokens/) | ⚪ чекає |
@@ -45,6 +45,7 @@ nestwood/
 ├── README.md              цей індекс
 ├── research/
 │   ├── competitors.md     стартовий список конкурентів (хард/софт/аспіраційні)
+│   ├── audit.md           конкурентний аудит: 15 продуктів за 5 осями, синтез
 │   └── screens/           скріншоти конкурентів
 ├── concept/               візія, IA, флоу, модель даних
 ├── wireframes/            каркаси екранів
@@ -66,13 +67,13 @@ research → concept → wireframes → tokens → components → design-system 
 
 ## Що зараз у роботі
 
-[`research/competitors.md`](research/competitors.md) — стартовий список конкурентів, три групи по п'ять:
+[`research/audit.md`](research/audit.md) — конкурентний аудит 15 продуктів зі стартового списку ([`research/competitors.md`](research/competitors.md)):
 
 1. **Хард** — STF, Naturkartan, Outdooractive, Hipcamp, Camping.se
 2. **Софт** — Komoot, AllTrails, Park4Night, Airbnb, GetYourGuide
 3. **Аспіраційні** — Roadtrippers, Wanderlog, TripIt, Booking.com, Google Maps
 
-Список — гіпотеза до валідації, не остаточний перелік. Наступний крок — захід у живі продукти зі списку, збір скріншотів у `research/screens/`.
+Порівняно за 5 осями (аудиторія, основа продукту, ключовий механізм, довіра, монетизація), зведено в 3 спільні патерни ринку, 3 відмінності й 3 відкриті питання до PM. 15 скріншотів у [`research/screens/`](research/screens/), реєстр — [`research/screens/INDEX.md`](research/screens/INDEX.md).
 
 ---
 
