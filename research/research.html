@@ -128,14 +128,21 @@
   table.scores td, table.scores th{text-align:center}
   table.scores td:first-child, table.scores th:first-child{text-align:left}
   .score{
-    display:inline-flex;align-items:center;justify-content:center;
-    width:26px;height:26px;border-radius:7px;font-weight:700;font-size:13px;
+    display:inline-block;padding:4px 10px;border-radius:7px;
+    font-weight:650;font-size:12.5px;white-space:nowrap;
   }
-  .s5{background:#e4efe8;color:#1f5138}
-  .s4{background:#eef2ec;color:#35594a}
-  .s3{background:#f6f1e6;color:#8a6a2f}
-  .s2{background:#f7e9e2;color:#a8763e}
-  .s1{background:#f6e2de;color:#a8422e}
+  .g-strong{background:#e4efe8;color:#1f5138}
+  .g-part{background:#f6f1e6;color:#8a6a2f}
+  .g-weak{background:#f6e2de;color:#a8422e}
+
+  /* disclaimer */
+  .disclaimer{
+    margin:0 0 28px 44px;padding:16px 20px;
+    background:#fdf6ec;border:1px solid #ecdfc8;border-left:3px solid var(--accent-2);
+    border-radius:0 var(--radius) var(--radius) 0;font-size:13.5px;color:var(--ink-soft);
+  }
+  .disclaimer b{color:var(--accent-2)}
+  @media (max-width:640px){.disclaimer{margin-left:0}}
 
   /* ---- tags ---- */
   .tag{
@@ -364,7 +371,11 @@
 <section id="benchmark">
   <div class="wrap">
     <div class="section-head"><span class="section-num">2</span><h2>Бенчмарк</h2></div>
-    <p class="section-intro">Вимір — «зведення розрізненого планування в одне ціле», взятий напряму зі спільного болю. Пʼять продуктів поза й у категорії, оцінені за 8 критеріями (1–5).</p>
+    <p class="section-intro">Вимір — «зведення розрізненого планування в одне ціле», взятий напряму зі спільного болю. Пʼять продуктів поза й у категорії, оцінені за 8 критеріями у трьох градаціях.</p>
+
+    <div class="disclaimer">
+      <b>Це експертне судження, а не вимір.</b> Оцінки виставлені за публічними сторінками продуктів, без проходження реальних флоу пошуку й чекауту, без рубрики на клітинку і без другого оцінювача; Zola й Wanderlog — узагалі лише з резюме маркетингової сторінки. Шкала свідомо груба, щоб точність оцінки відповідала точності доказу. Продукти відбиралися за те, що вони добрі саме в цьому вимірі, тому висновки читаються як «навіть серед найкращих», а не як твердження про весь ринок.
+    </div>
 
     <div class="table-wrap">
       <table class="scores">
@@ -372,14 +383,15 @@
           <tr><th>Продукт</th><th>1. Флоу</th><th>2. Агрегація</th><th>3. Контекст</th><th>4. Чекаут</th><th>5. Гнучкість</th><th>6. Ціна</th><th>7. Місце</th><th>8. Гарантія</th></tr>
         </thead>
         <tbody>
-          <tr><td><b>Expedia</b></td><td><span class="score s5">5</span></td><td><span class="score s4">4</span></td><td><span class="score s3">3</span></td><td><span class="score s5">5</span></td><td><span class="score s2">2</span></td><td><span class="score s5">5</span></td><td><span class="score s3">3</span></td><td><span class="score s3">3</span></td></tr>
-          <tr><td><b>Omio</b></td><td><span class="score s4">4</span></td><td><span class="score s5">5</span></td><td><span class="score s4">4</span></td><td><span class="score s3">3</span></td><td><span class="score s2">2</span></td><td><span class="score s4">4</span></td><td><span class="score s3">3</span></td><td><span class="score s2">2</span></td></tr>
-          <tr><td><b>G Adventures</b></td><td><span class="score s5">5</span></td><td><span class="score s4">4</span></td><td><span class="score s5">5</span></td><td><span class="score s5">5</span></td><td><span class="score s2">2</span></td><td><span class="score s5">5</span></td><td><span class="score s4">4</span></td><td><span class="score s5">5</span></td></tr>
-          <tr><td><b>Zola</b></td><td><span class="score s3">3</span></td><td><span class="score s4">4</span></td><td><span class="score s4">4</span></td><td><span class="score s2">2</span></td><td><span class="score s4">4</span></td><td><span class="score s5">5</span></td><td><span class="score s4">4</span></td><td><span class="score s2">2</span></td></tr>
-          <tr><td><b>Wanderlog</b></td><td><span class="score s4">4</span></td><td><span class="score s5">5</span></td><td><span class="score s4">4</span></td><td><span class="score s1">1</span></td><td><span class="score s3">3</span></td><td><span class="score s2">2</span></td><td><span class="score s5">5</span></td><td><span class="score s1">1</span></td></tr>
+          <tr><td><b>Expedia</b></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-part">частково</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-weak">слабо</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-part">частково</span></td><td><span class="score g-part">частково</span></td></tr>
+          <tr><td><b>Omio</b></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-part">частково</span></td><td><span class="score g-weak">слабо</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-part">частково</span></td><td><span class="score g-weak">слабо</span></td></tr>
+          <tr><td><b>G Adventures</b></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-weak">слабо</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td></tr>
+          <tr><td><b>Zola</b></td><td><span class="score g-part">частково</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-weak">слабо</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-weak">слабо</span></td></tr>
+          <tr><td><b>Wanderlog</b></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-weak">слабо</span></td><td><span class="score g-part">частково</span></td><td><span class="score g-weak">слабо</span></td><td><span class="score g-strong">сильно</span></td><td><span class="score g-weak">слабо</span></td></tr>
         </tbody>
       </table>
     </div>
+    <p class="section-intro" style="margin-top:-14px;font-size:14px">Критерії 5 і 8 — єдині два, де три продукти з пʼяти отримали «слабо» (у критерія 4 таких два, у критеріїв 1, 2, 3, 7 — жодного). Саме звідси й обрані механізми нижче.</p>
 
     <div class="gallery">
       <figure><img src="screens/expedia--bundle-search--mobile.png" alt="Expedia" onclick="openLightbox(this.src)"><figcaption><b>Expedia</b><span>2026-08-03</span></figcaption></figure>
@@ -401,11 +413,11 @@
       </div>
       <div class="mech card">
         <div class="num">3</div>
-        <div><h4>Гнучка заміна компонента без втрати коштів</h4><p>Якщо ночівля скасовується через погоду — перенести кошти на інший пітч/дату без штрафу. Спільно найслабший критерій у таблиці (середнє 2,6, разом із критерієм 8) — реальна диференціація.</p><span class="src">Джерело: Zola, «Virtual exchanges» — zola.com, 2026-08-03</span></div>
+        <div><h4>Гнучка заміна компонента без втрати коштів</h4><p>Якщо ночівля скасовується через погоду — перенести кошти на інший пітч/дату без штрафу. Критерії 5 і 8 — єдині, де більшість вибірки отримала «слабо», тож це реальна диференціація.</p><span class="src">Джерело: Zola, «Virtual exchanges» — zola.com, 2026-08-03</span></div>
       </div>
       <div class="mech card fail">
         <div class="num">✕</div>
-        <div><h4>Не спрацює: повністю фіксований, наперед укомплектований пакет</h4><p>Найсильніший за гарантією й контекстністю (5/5), але побудований на протилежному припущенні — маршрут курується компанією заздалегідь. Наше ядро — гість сам будує маршрут з будь-яких стежок і дат.</p><span class="src">Джерело: G Adventures, REI Travel/Intrepid</span></div>
+        <div><h4>Не спрацює: повністю фіксований, наперед укомплектований пакет</h4><p>Найсильніший за гарантією й контекстністю («сильно» в обох), але побудований на протилежному припущенні — маршрут курується компанією заздалегідь. Наше ядро — гість сам будує маршрут з будь-яких стежок і дат.</p><span class="src">Джерело: G Adventures, REI Travel/Intrepid</span></div>
       </div>
     </div>
   </div>
