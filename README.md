@@ -23,11 +23,11 @@
 
 ## Статус
 
-**Фаза 1 — дизайн-дослідження**, старт з нуля. Короткий бриф зафіксовано в [`CLAUDE.md`](CLAUDE.md), повний ресерч попереду.
+**Фаза 1 — дизайн-дослідження**, старт з нуля. Короткий бриф зафіксовано в [`CLAUDE.md`](CLAUDE.md), стартовий список конкурентів зафіксовано, аудит попереду.
 
 | Етап | Папка | Статус |
 |---|---|---|
-| Дослідження | [`research/`](research/) | ⚪ чекає |
+| Дослідження | [`research/`](research/) | 🟡 список конкурентів зафіксовано, аудит і скріншоти — ні |
 | Концепт | [`concept/`](concept/) | ⚪ чекає |
 | Вайрфрейми | [`wireframes/`](wireframes/) | ⚪ чекає |
 | Токени | [`tokens/`](tokens/) | ⚪ чекає |
@@ -44,6 +44,7 @@ nestwood/
 ├── CLAUDE.md              бриф — джерело правди
 ├── README.md              цей індекс
 ├── research/
+│   ├── competitors.md     стартовий список конкурентів (хард/софт/аспіраційні)
 │   └── screens/           скріншоти конкурентів
 ├── concept/               візія, IA, флоу, модель даних
 ├── wireframes/            каркаси екранів
@@ -60,6 +61,18 @@ research → concept → wireframes → tokens → components → design-system 
 ```
 
 Кожна папка має власний README з описом вмісту й статусом.
+
+---
+
+## Що зараз у роботі
+
+[`research/competitors.md`](research/competitors.md) — стартовий список конкурентів, три групи по п'ять:
+
+1. **Хард** — STF, Naturkartan, Outdooractive, Hipcamp, Camping.se
+2. **Софт** — Komoot, AllTrails, Park4Night, Airbnb, GetYourGuide
+3. **Аспіраційні** — Roadtrippers, Wanderlog, TripIt, Booking.com, Google Maps
+
+Список — гіпотеза до валідації, не остаточний перелік. Наступний крок — захід у живі продукти зі списку, збір скріншотів у `research/screens/`.
 
 ---
 
