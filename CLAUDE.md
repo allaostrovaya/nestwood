@@ -84,7 +84,9 @@
 | **Список конкурентів** ([`research/competitors.md`](research/competitors.md)) | Зафіксовано: хард (STF, Naturkartan, Outdooractive, Hipcamp, Camping.se), софт (Komoot, AllTrails, Park4Night, Airbnb, GetYourGuide), аспіраційні (Roadtrippers, Wanderlog, TripIt, Booking.com, Google Maps) |
 | **Конкурентний аудит** ([`research/audit.md`](research/audit.md)) | Готово — 15 конкурентів за 5 осями (аудиторія, основа продукту, ключовий механізм, довіра, монетизація), 3 спільні патерни, 3 відмінності, 3 відкриті питання. Скріншоти в `research/screens/`, реєстр — `research/screens/INDEX.md` |
 | **Бенчмарк** ([`research/benchmark.md`](research/benchmark.md)) | Готово — вимір «зведення розрізненого планування в одне ціле», 8 критеріїв, 5 продуктів поза й у категорії (Expedia, Omio, G Adventures, Zola, Wanderlog), 3 механізми для MVP, 1 що не спрацює |
-| **Персони, JTBD, карта болів, UX-патерни** | _TBD_ |
+| **UX-патерни** ([`research/patterns.md`](research/patterns.md)) | Готово — 5 принципово різних патернів вибору маршруту й бронювання, обраний патерн (карта-дослідник) із трьома причинами |
+| **Зведений research.md** ([`research/research.md`](research/research.md)) | Готово — 4 секції (конкуренти, бенчмарк, патерни, висновки), 8 прогалин із гіпотезами й джерелом розділу |
+| **Персони, JTBD, карта болів** | _TBD_ |
 
 ---
 
@@ -104,6 +106,8 @@ nestwood/
 │   ├── competitors.md     стартовий список конкурентів (хард/софт/аспіраційні)
 │   ├── audit.md           конкурентний аудит: 15 продуктів за 5 осями, синтез
 │   ├── benchmark.md       бенчмарк виміру «зведення планування», 5 продуктів, 8 критеріїв
+│   ├── patterns.md        пʼять UX-патернів вибору маршруту й бронювання
+│   ├── research.md        зведений документ фази 1: конкуренти, бенчмарк, патерни, висновки
 │   └── screens/           скріншоти конкурентів
 ├── concept/               візія, IA, флоу, модель даних лістингу
 ├── wireframes/            каркаси екранів
