@@ -50,7 +50,7 @@
 | **Wanderlog** | Форвард імейлів бронювання → автозбір в один таймлайн | Freemium (AI/автоматизація — підписка) | [wanderlog.com](https://wanderlog.com/) — WebFetch + `screens/wanderlog--home-search--mobile.png`, 2026-08-03 |
 | **TripIt** | Агрегатор підтверджень у один таймлайн без ручного введення | TripIt Pro — підписка за алерти й трекінг миль | Живий сайт — `screens/tripit--home-search--mobile.png`, 2026-08-03. WebFetch — timeout, опис із загальновідомих публічних фактів |
 | **Booking.com** | Instant confirmation, «Free cancellation»/«No prepayment needed» | Комісія з бронювання від постачальника | Живий сайт — `screens/bookingcom--home-search--mobile.png`, 2026-08-03. WebFetch — порожній контент, опис із загальновідомих публічних фактів |
-| **Google Maps** | Шари контексту (POI, погода, транспорт) поверх карти | Не монетизує подорож напряму — реклама/екосистема Google | Живий сайт, консент-екран — `screens/googlemaps--consent-access-limited--mobile.png`, 2026-08-03. **Доступ обмежений**: глибший шар Trips/Layers за акаунтом Google, знято лише публічний вхід |
+| **Google Maps** | Шари контексту поверх карти: категорійні чіпи (Restaurants / Hotels / Things to do), погода, картка трафіку, кнопка Layers | Не монетизує подорож напряму — реклама/екосистема Google | Живий сайт — `screens/googlemaps--map-layers--mobile.png`, 2026-08-03. **Частково обмежений доступ**: персоналізований шар (збережені місця, Trips) за акаунтом Google; гео браузера — Хорватія, тому карта центрована на Загребі |
 
 ### Три спільні патерни ринку
 
