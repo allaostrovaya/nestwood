@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Редактори
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Робочі артефакти інструментів
+.playwright-mcp/
+.claude/settings.local.json
+
+# Node — знадобиться на фазі прототипу
+node_modules/
+.next/
+dist/
+build/
+*.log
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Змінні середовища
+.env
+.env.local
+.env.*.local
