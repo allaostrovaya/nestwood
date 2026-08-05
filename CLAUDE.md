@@ -4,7 +4,7 @@ AI multi-day itinerary layer for Nordic outdoor trekking. Mobile-first web, adap
 
 ## Elevator pitch
 
-Google Maps, Komoot, and AllTrails all shipped AI route assistants in 2026 — none go past a single day or a single track. None build a full multi-day trip: route + overnight stays (huts, campsites) + gear, adapted to fitness and weather. Nestwood is the AI-orchestration layer that does this, grounded on official open government geodata for Sweden and Norway (Lantmäteriet, Kartverket, DNT/UT.no) — legally, without depending on AllTrails'/Komoot's APIs or ToS.
+Google Maps, Komoot, and AllTrails all shipped AI route/trip features in 2026 — Komoot's Multi-Day Planner already auto-splits a route into stages and suggests generic lodging, and AllTrails-in-Claude already generates multi-day itineraries with packing lists. But none of them pair generative AI with *official* hut infrastructure data (bed availability, keys, opening dates) and day-by-day weather adaptation in one flow — that combination is what's still open. Nestwood is the AI-orchestration layer that does this, grounded on official open government geodata for Sweden and Norway (Lantmäteriet, Kartverket, DNT/UT.no) — legally, without depending on AllTrails'/Komoot's APIs or ToS for the *trail/basic-hut* data (see the caveat on DNT/UT.no's operational hut data under "Why now, why here").
 
 ## Problem
 
@@ -16,7 +16,7 @@ An AI agent that takes fitness level, budget, time, existing gear, and preferenc
 
 ## Why now, why here
 
-- Open Nordic government data (CC0, documented APIs) removes the legal risk that blocks this kind of aggregation in the US/DACH (closed AllTrails/Komoot ToS).
+- Open Nordic government data (Lantmäteriet: CC0; Kartverket: CC BY 4.0 with attribution — corrected 2026-08-05, research/research.md) removes the legal risk that blocks this kind of aggregation in the US/DACH (closed AllTrails/Komoot ToS). **Caveat**: this holds for trail/basic-hut-location data from Kartverket and Lantmäteriet. It does not yet hold for DNT/UT.no's operational hut data (bed availability, booking status, opening dates) — see Open questions below.
 - Nordic *allemansrätten* culture already normalizes multi-day trekking with clear camping rules — a ready use case, not an invented one.
 - The giants are already investing in an AI layer (proven product-market fit for the pattern), but none cover multi-day + overnight stays + Nordic open data — a specific, narrow, still-unclaimed gap in their own roadmap.
 
@@ -75,6 +75,7 @@ Repo was just cleared for this restart; the previous project's phase pipeline is
 
 ## Open questions for the research phase
 
+- **⚠ Highest priority, found 2026-08-05 (research/research.md, research/competitors.md)**: DNT closed the previously-open Nasjonal Turbase (NTB) API — the platform that technically feeds UT.no's hut/trail data. Verified directly (curl against `api.nasjonalturbase.no`: uniform 404 across all documented versions/endpoints) and via DNT's own open-data page (closed "for economic, security, and strategic reasons"). Kartverket's open "Friluftsliv" dataset (CC BY 4.0) still covers basic hut attributes (location, service level, owner) independent of DNT — but the *operational* hut data (bed availability, booking status, opening dates) that's supposed to differentiate Nestwood from Komoot's generic lodging has no confirmed open or licensed access path right now. Needs direct contact with DNT before the Data sources phase locks in a data strategy — this blocks the tech-stack decision below, not the other way around.
 - Final tech stack for the mobile-first frontend.
 - Visual/brand direction — the previous cycle had settled on a light Scandinavian-minimalist style; evaluate whether it carries over to Nestwood.
 - Concrete demo scenario and success criteria to use when pitching to acquisition targets.

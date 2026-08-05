@@ -372,12 +372,12 @@
     <section class="block" id="product">
       <div class="block-head"><span class="block-num mono">01</span><h2 class="block-title">Про продукт</h2></div>
       <div class="lede">
-        <p><b>Самарі пітчу.</b> Google Maps, Komoot і AllTrails у 2026 р. запустили AI-асистентів для планування маршруту — жоден не йде далі одного дня й одного треку. Ти вказуєш фізичну форму, бюджет, час і спорядження — Nestwood віддає готовий персоналізований маршрут на кілька днів: дні переходу, прив'язані ночівлі, список спорядження й погоду на кожен день.</p>
+        <p><b>Самарі пітчу.</b> Google Maps, Komoot і AllTrails у 2026 р. запустили AI-фічі для планування маршруту — і хоч Komoot і AllTrails уже вміють дещо більше за один день (Komoot автоматично ділить маршрут на етапи й пропонує житло; AllTrails-in-Claude генерує multi-day itineraries й packing lists), жоден не зшиває маршрут з <i>офіційними</i> hut-даними (доступність, ключ, дати відкриття) і погодною адаптацією по кожному дню в одному AI-потоці. Ти вказуєш фізичну форму, бюджет, час і спорядження — Nestwood віддає готовий персоналізований маршрут на кілька днів: дні переходу, прив'язані ночівлі на офіційній інфраструктурі, список спорядження й погоду на кожен день.</p>
         <p><b>Бізнес-модель.</b> Це не окремий стартап — готова фіча, яку може підключити гравець із власною аудиторією: AllTrails, Komoot, Google Geospatial AI team або сама DNT/UT.no.</p>
       </div>
       <h3 class="sub">Як ми вирішимо цей біль</h3>
       <ol class="plainlist">
-        <li><b>Ми не намагаємось замінити DNT чи STF.</b> Nestwood підключається до того, що вже офіційно існує — маршрути Kartverket/Lantmäteriet, хижі DNT/UT.no — і збирає це в один план. Так само вже зробив Outdooractive, підключивши свою платформу до німецького й австрійського альпклубів: це перевірений шлях, не гіпотеза.</li>
+        <li><b>Ми не намагаємось замінити DNT чи STF.</b> Nestwood підключається до того, що вже офіційно існує — маршрути Kartverket/Lantmäteriet, хижі DNT/UT.no — і збирає це в один план. Так само вже зробив Outdooractive, підключивши свою платформу до німецького й австрійського альпклубів: це перевірений шлях, не гіпотеза. Для живої інтеграції з операційними даними хиж (доступність, бронювання) знадобиться прямий контакт з DNT — питання майбутньої фази, не поточного прототипу.</li>
         <li><b>Кожне рішення в плані видно й пояснено.</b> Чому саме ця хижа на третій день? Бо стільки кілометрів ти проходиш за день при своїй формі, і завтра обіцяють дощ. Якщо одне з офіційних джерел даних тимчасово недоступне, план не ламається — він чесно показує, чого не вистачає.</li>
         <li><b>Ти відповідаєш на кілька зрозумілих питань — і відразу отримуєш готовий план</b>, замість вести діалог із чат-ботом і сподіватись, що він усе правильно зрозумів. Це свідомий вибір: передбачуваність важливіша, ніж виглядати "ще більш AI".</li>
       </ol>
@@ -396,9 +396,9 @@
             <tr class="grouprow"><td colspan="4">Хард — той самий продукт, ринок Скандинавія</td></tr>
             <tr><td class="rowhead">UT.no (DNT)</td><td class="country">Скандинавія</td><td>Пошук маршруту + хижі DNT — держ./асоціаційний сайт-планувальник.</td><td><span class="chip chip-no">Немає</span></td></tr>
             <tr><td class="rowhead">STF</td><td class="country">Скандинавія</td><td>Мережа гірських хиж на Kungsleden + трекінг.</td><td><span class="chip chip-no">Немає</span></td></tr>
-            <tr><td class="rowhead">Komoot</td><td class="country">Скандинавія</td><td>Route-планувальник (піші/вело/біг).</td><td><span class="chip chip-yes">Так</span> — застосунок для ChatGPT: <i>рекомендує</i> маршрут із готової бази 7М маршрутів за текстовим запитом, не генерує нову послідовність.</td></tr>
-            <tr><td class="rowhead">AllTrails</td><td class="country">Скандинавія</td><td>Пошук і навігація трейлів, community-каталог.</td><td><span class="chip chip-yes">Так</span> — AI Smart Routing (тар Peak): перебудовує маршрут у реальному часі, якщо стежка закрита чи йде шторм, + розмовний пошук через Claude/ChatGPT. Лише один трек, один день.</td></tr>
-            <tr><td class="rowhead">Outdooractive</td><td class="country">Скандинавія</td><td>Hut-to-hut multi-day route-планувальник, 33 000+ хиж.</td><td><span class="chip chip-yes">Так</span> — White-label AI Assistant, вбудований на сайтах дестинацій-партнерів (напр. Heidiland Tourismus): відповідає на inspiration-питання про дестинацію, не генерує персоналізований план користувача.</td></tr>
+            <tr><td class="rowhead">Komoot</td><td class="country">Скандинавія</td><td>Route-планувальник (піші/вело/біг).</td><td><span class="chip chip-yes">Так</span> — застосунок для ChatGPT <i>рекомендує</i> маршрут із бази 7М маршрутів, не генерує; окремо Premium Multi-Day Planner <b>автоматично</b> ділить маршрут на етапи й пропонує житло в кінці кожного (rule-based, не AI, без офіційних hut-даних).</td></tr>
+            <tr><td class="rowhead">AllTrails</td><td class="country">Скандинавія</td><td>Пошук і навігація трейлів, community-каталог.</td><td><span class="chip chip-yes">Так</span> — Smart Routes (тар Peak, $79.99/рік): редагує один трек на один день; окремо AllTrails-in-Claude (з квітня 2026) генерує <b>multi-day national-park itineraries + packing lists</b> у діалозі — без ночівлі й офіційних hut-даних.</td></tr>
+            <tr><td class="rowhead">Outdooractive</td><td class="country">Скандинавія</td><td>Hut-to-hut multi-day route-планувальник, 33 000+ хиж.</td><td><span class="chip chip-yes">Так</span> — White-label AI Assistant, вбудований на сайтах дестинацій-партнерів (напр. Heidiland Tourismus): за описом Outdooractive, відповідає на inspiration-питання про дестинацію; сама компанія називає його "highly personalized" у власному прес-релізі — незалежного підтвердження цього не знайдено.</td></tr>
 
             <tr class="grouprow"><td colspan="4">Софт — інший продукт, та сама базова задача</td></tr>
             <tr><td class="rowhead">Gaia GPS</td><td class="country">США</td><td>Backcountry-навігація й трек-планування в полі.</td><td><span class="chip chip-no">Немає</span></td></tr>
@@ -424,10 +424,10 @@
           <thead><tr><th style="width:120px;">Ось</th><th>UT.no (DNT)</th><th>STF</th><th>Komoot</th><th>AllTrails</th><th>Outdooractive</th></tr></thead>
           <tbody>
             <tr><td class="rowhead">Аудиторія</td><td>Норвезькі трекери всіх рівнів; сильний національний бренд-звʼязок (DNT-членство).</td><td>Шведські трекери, історично орієнтовані на гірські станції Лапландії (Kungsleden); теж membership-модель.</td><td>Глобальна аудиторія піших/вело/бігових маршрутів; Nordic — велика органічна підгрупа.</td><td>Наймасовіша аудиторія з усіх пʼяти.</td><td>Європейська Alps-first аудиторія, поширюється на Скандинавію через партнерства/білейбл.</td></tr>
-            <tr><td class="rowhead">Основа продукту</td><td>Держ./асоціаційна база маршрутів + хиж — DNT сам володіє хижами.</td><td>Те саме, вужче: 16 хиж на Kungsleden.</td><td>Community-генерований route-граф (7М маршрутів) — не володіє інфраструктурою ночівлі.</td><td>Community-review трейл-каталог — не володіє інфраструктурою.</td><td>Ліцензована B2B2C платформа (33 000+ хиж) — продає технологію, не володіє хижами.</td></tr>
-            <tr><td class="rowhead">Ключовий механізм</td><td>Планування на карті → окремий перехід у booking-домен — <b>два різні застосунки</b>, вручну зшиті користувачем.</td><td>Info-сторінки + окремий booking-модуль; ще менш інтегровано, ніж DNT.</td><td>Route builder + ручне розбиття на multi-day stages (Premium); нема прив'язки до ночівлі.</td><td>Trail search/filter; AI Smart Routing перебудовує маршрут у реальному часі — лише в межах одного дня.</td><td>Hut finder з transitions between huts і weather-at-hut — єдиний, хто моделює "маршрут↔хижа", але як фільтр, не агент.</td></tr>
-            <tr><td class="rowhead">Довіра</td><td>Максимальна: держ./асоціаційний бренд, дані з першоджерела.</td><td>Та ж модель довіри; no-booking-but-guaranteed-floor-space як прояв цієї довіри.</td><td>Community-довіра, не інституційна.</td><td>Найслабша інституційна довіра: публічна критика SAR-фахівців за "надмірну довіру" до AI.</td><td>B2B-довіра; кінцевий користувач бачить чужий бренд (alpenvereinaktiv), не "Outdooractive".</td></tr>
-            <tr><td class="rowhead">Монетизація</td><td>Непряма — DNT-членство, UT.no безкоштовна.</td><td>Аналогічно — STF-членство зі знижками.</td><td>Freemium + Premium-підписка.</td><td>Freemium + Peak-підписка (≈$59.99/рік) за AI-фічі.</td><td>B2B SaaS/лейбл-контракти — <span class="chip chip-flag">дані не підтверджені</span></td></tr>
+            <tr><td class="rowhead">Основа продукту</td><td>Держ./асоціаційна база маршрутів + хиж — DNT сам володіє хижами.</td><td>Нац. мережа ~250 обʼєктів (не лише 16 хиж на Kungsleden — це підмножина на одному трейлі).</td><td>Community-генерований route-граф (7М маршрутів) — не володіє інфраструктурою ночівлі.</td><td>Community-review трейл-каталог — не володіє інфраструктурою.</td><td>Ліцензована B2B2C платформа (33 000+ хиж) — продає технологію, не володіє хижами.</td></tr>
+            <tr><td class="rowhead">Ключовий механізм</td><td>Планування на карті → окремий перехід у booking-домен — <b>два різні застосунки</b>, вручну зшиті користувачем; онлайн-бронювання охоплює вже 530+ хиж.</td><td>Info-сторінки + окремий booking-модуль; ще менш інтегровано, ніж DNT.</td><td><b>Автоматичне</b> розбиття на multi-day stages + пропозиція житла в кінці кожного (Premium) — rule-based, без офіційних hut-даних.</td><td>Smart Routes редагує один трек на один день; окремо AllTrails-in-Claude генерує multi-day itineraries + packing lists.</td><td>Hut finder з transitions between huts і weather-at-hut — єдиний, хто моделює "маршрут↔хижа", але як фільтр, не агент.</td></tr>
+            <tr><td class="rowhead">Довіра</td><td>Максимальна: держ./асоціаційний бренд, дані з першоджерела.</td><td>Не однорідна: guaranteed-floor-space — лише для fjällstugor; fjällstationer бронюються, без броні місце не гарантується.</td><td>Community-довіра, не інституційна.</td><td>Найслабша інституційна довіра: публічна критика канадських SAR-фахівців за "надмірну довіру" до Smart Routes — конкретна фахова спільнота, не універсальний консенсус.</td><td>B2B-довіра; кінцевий користувач бачить чужий бренд (alpenvereinaktiv), не "Outdooractive".</td></tr>
+            <tr><td class="rowhead">Монетизація</td><td>Непряма — DNT-членство, UT.no безкоштовна.</td><td>Аналогічно — STF-членство зі знижками.</td><td>Freemium + Premium-підписка.</td><td>Freemium + Peak-підписка (<b>$79.99/рік</b>) за AI-фічі.</td><td>B2B SaaS/лейбл-контракти — <span class="chip chip-flag">дані не підтверджені</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -435,15 +435,15 @@
 
       <h3 class="sub">Три спільні патерни ринку</h3>
       <div class="cardgrid">
-        <div class="card"><span class="idx">01</span><h4>Ніхто не зшиває маршрут і ночівлю в одному AI-потоці</h4><p>Навіть Outdooractive подає hut-finder як фільтр/карту, не як агента, що сам підбирає ночівлю під денний перехід.</p></div>
-        <div class="card"><span class="idx">02</span><h4>Довіра будується на джерелі даних, а не на AI</h4><p>Де AI з'являється (AllTrails), це радше викликає підозру (SAR-критика), ніж довіру.</p></div>
+        <div class="card"><span class="idx">01</span><h4>Ніхто не поєднує AI + офіційні hut-дані в одному потоці</h4><p>Komoot уже автоматично зшиває маршрут+етапи+generic-житло (rule-based, не AI, без офіційних hut-даних); Outdooractive подає hut-finder як фільтр/карту, не як агента. Розрив вужчий, ніж "нема інтеграції взагалі".</p></div>
+        <div class="card"><span class="idx">02</span><h4>Довіра будується на джерелі даних, а не на AI</h4><p>Де AI з'являється (AllTrails), це викликає підозру в конкретній фаховій спільноті (канадські SAR), не інституційну довіру взагалі.</p></div>
         <div class="card"><span class="idx">03</span><h4>Монетизація завжди відв'язана від AI-шару</h4><p>Підписка продається за карти/офлайн/фічі або за B2B-ліцензію — пропозиції "AI, що спланує трип" з ціною ще не існує.</p></div>
       </div>
 
       <h3 class="sub">Три відмінності</h3>
       <div class="cardgrid">
         <div class="card"><span class="idx">01</span><h4>Хто володіє нічлігом</h4><p>DNT/STF — напряму; Komoot/AllTrails — ніхто; Outdooractive — посередник-технологія.</p></div>
-        <div class="card"><span class="idx">02</span><h4>Ступінь інтеграції маршрут↔ночівля</h4><p>Від двох окремих застосунків (DNT/STF) до повної відсутності (Komoot/AllTrails) до фільтра-не-агента (Outdooractive).</p></div>
+        <div class="card"><span class="idx">02</span><h4>Ступінь інтеграції маршрут↔ночівля</h4><p>Від двох окремих застосунків (DNT/STF) до rule-based generic-житла в одному застосунку (Komoot) до multi-day без ночівлі (AllTrails) до фільтра-не-агента (Outdooractive).</p></div>
         <div class="card"><span class="idx">03</span><h4>Модель монетизації</h4><p>B2C-підписка vs. B2C-членство зі знижкою vs. B2B2C-ліцензування — три структурно різні моделі в одній категорії.</p></div>
       </div>
 
@@ -505,9 +505,9 @@
           <tbody>
             <tr><td class="rowhead">Monarch Money</td><td>Особисті фінанси</td><td>Банки, кредитки, інвестиції, пенсійні рахунки, борги — потрійна аггрегація (Plaid+MX+Finicity) з fallback, у net-worth dashboard.</td></tr>
             <tr><td class="rowhead">Zillow (Zestimate)</td><td>Нерухомість</td><td>MLS-фіди, дані асесора, публічні реєстри, user-корекції — neural-network модель в один номер вартості.</td></tr>
-            <tr><td class="rowhead">Uber</td><td>Мобільність</td><td>Геолокація, ETA, доступність водіїв, ціноутворення й оплата — в один потік, live-локація кожні 4с через WebSocket.</td></tr>
-            <tr><td class="rowhead">TurboTax</td><td>Податки</td><td>W-2/1099 від 100 000+ банків/payroll-провайдерів — автоімпорт в одну декларацію.</td></tr>
-            <tr><td class="rowhead">Oura Ring</td><td>Здоровʼя/wearables</td><td>Sleep score, HRV vs. 28-денний бейзлайн, RHR, температура, активність — пасивно в одну Readiness-оцінку з видимими контрибʼюторами.</td></tr>
+            <tr><td class="rowhead">Uber</td><td>Мобільність</td><td>Геолокація, ETA, доступність водіїв, ціноутворення й оплата — в один потік, live-локація приблизно кожні 4с через WebSocket (оцінка з кількох незалежних технічних аналізів, не з офіційного джерела Uber).</td></tr>
+            <tr><td class="rowhead">TurboTax</td><td>Податки</td><td>W-2/1099 від 1М+ роботодавців/фінустанов — автоімпорт в одну декларацію.</td></tr>
+            <tr><td class="rowhead">Oura Ring</td><td>Здоровʼя/wearables</td><td>Sleep score, HRV Balance (14-денне середнє vs. 2–3-місячний бейзлайн), RHR, температура, активність — пасивно в одну Readiness-оцінку з видимими контрибʼюторами.</td></tr>
           </tbody>
         </table>
       </div>
@@ -561,7 +561,7 @@
         <div class="pcard chosen">
           <div><div class="pcard-name">Гід-візард<small>guided wizard / progressive disclosure</small></div><span class="verdict pick">Обрано</span></div>
           <dl>
-            <dt>Де</dt><dd>TurboTax interview-flow, PackPoint trip setup, Roadtrippers Autopilot.</dd>
+            <dt>Де</dt><dd>TurboTax interview-flow, PackPoint trip setup, Roadtrippers Autopilot (38М+ трипів).</dd>
             <dt>Підходить</dt><dd>Коли вхідна схема добре визначена й скінченна — наш case: фіз. підготовка/бюджет/час/спорядження/уподобання вже названі в CLAUDE.md.</dd>
             <dt>Ламається</dt><dd>Не масштабується на нетипові побажання; результат generic, якщо розгалуження недостатньо глибоке.</dd>
           </dl>
@@ -586,9 +586,9 @@
         </div>
 
         <div class="pcard">
-          <div><div class="pcard-name">Параметричний конфігуратор<small>constraint-based / live-recompute</small></div></div>
+          <div><div class="pcard-name">Параметричний конфігуратор<small>constraint-based / live-recompute</small></div><span class="chip chip-flag" style="margin-top:.5rem;">доказова база найтонша з пʼяти</span></div>
           <dl>
-            <dt>Де</dt><dd>The Dyrt Trip Planner (кастомізація за авто/маршрутом).</dd>
+            <dt>Де</dt><dd>The Dyrt Trip Planner (кастомізація за авто/маршрутом) — єдиний перевірений приклад; решта (іпотечні калькулятори, PC-builder) — загальновідомі, окремо не перевірені.</dd>
             <dt>Підходить</dt><dd>Коли користувач хоче досліджувати компроміси інтерактивно; обчислення дешеве й миттєве.</dd>
             <dt>Ламається</dt><dd>Хижа-прив'язка+terrain-темп+gear-список технічно важчі для живого рекомпʼюту, ніж маршрут за типом авто.</dd>
           </dl>
@@ -624,26 +624,26 @@
           <tbody>
             <tr>
               <td><span class="gapnum">1</span></td>
-              <td>Ніхто не зшиває маршрут+ночівлю+gear+погоду в одному AI-потоці.</td>
-              <td>Orchestration-шар, що генерує всі чотири елементи одним поясненим планом, сприймуть acquisition-таргети як конкретно новий продукт, не варіацію існуючого.</td>
+              <td>Ніхто не поєднує generative AI + офіційні hut-дані + погодну адаптацію по днях в одному потоці (не "нема інтеграції взагалі" — Komoot і AllTrails уже роблять частини цього).</td>
+              <td>Orchestration-шар, що генерує всі чотири елементи одним поясненим планом на офіційних даних, сприймуть acquisition-таргети як конкретно новий продукт, не варіацію існуючого.</td>
               <td>§1 Біль, §2 Конкуренти (патерн 1)</td>
             </tr>
             <tr>
               <td><span class="gapnum">2</span></td>
-              <td>Там, де AI уже є (Komoot, AllTrails, Wanderlog, Outdooractive), він рекомендує з бази, обмежений одним днем, або про контент дестинації.</td>
-              <td>Гід-візард з generative-виходом, grounded на офіційних Nordic-даних, займе саме цю незайняту AI-generation-нішу.</td>
+              <td>Там, де AI уже є (Komoot, AllTrails, Wanderlog, Outdooractive, Google Gemini — 5, не 4), він рекомендує з бази, зшиває маршрут+generic-житло rule-based, дає multi-day без ночівлі, або про контент дестинації.</td>
+              <td>Гід-візард з generative-виходом, grounded на офіційних Nordic hut-даних, займе саме цю незайняту нішу.</td>
               <td>§2 Конкуренти</td>
             </tr>
             <tr>
               <td><span class="gapnum">3</span></td>
-              <td>Довіра до AI-рекомендацій крихка — AllTrails отримав публічну критику SAR за "надмірну довіру".</td>
+              <td>Довіра до AI-рекомендацій крихка — AllTrails отримав публічну критику канадських SAR-фахівців за "надмірну довіру" до Smart Routes.</td>
               <td>Видима, іменована прив'язка кожного елементу плану до офіційного джерела дозволить уникнути тієї ж критики й обжене crowd-grounded конкурентів на довірі.</td>
               <td>§3 Бенчмарк (мех. №2), §2 Довіра</td>
             </tr>
             <tr>
               <td><span class="gapnum">4</span></td>
-              <td>Бронювання хиж DNT/STF частково не онлайн (операційний бар'єр).</td>
-              <td>Явний guidance-шар (офіційна формула гарантії ночівлі + action-картка) із multi-provider-fallback знімає блокер без потреби ставати оператором бронювання.</td>
+              <td>DNT уже бронює 530+ хиж онлайн (більшість мережі) — лишається невелика частка хиж поза системою, ключ/членство для self-service хиж, і STF fjällstugor без броні (гарантія лише "мattress on the floor").</td>
+              <td>Явний guidance-шар (офіційна формула гарантії ночівлі + action-картка) закриває саме ці залишкові випадки без потреби ставати оператором бронювання.</td>
               <td>§2 Ключовий механізм, §3 мех. №1</td>
             </tr>
             <tr>
