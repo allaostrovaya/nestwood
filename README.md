@@ -1,101 +1,33 @@
 # Nestwood
 
-> **Кореневий індекс репо** і єдине джерело правди про статус. README всередині папок — статичні заглушки з описом призначення папки.
+AI multi-day itinerary layer for Nordic outdoor trekking — route, overnight stays, and gear in one plan, grounded on open Nordic government geodata (Kartverket, Lantmäteriet, UT.no/DNT).
 
----
+Google Maps, Komoot, and AllTrails all shipped single-day AI route assistants in 2026; none plan a full multi-day trip. Nestwood fills that gap as an AI-orchestration layer, not a proprietary geo database — legally, on CC0 open data.
 
-Сервіс планування активних подорожей на природі: маршрут як хребет, бронювання ночівлі, спорядження й активностей — контекстні шари навколо нього.
+Not a standalone venture — a feature-pitch / acquisition target for AllTrails, Komoot, Google's Geospatial AI team, or DNT/UT.no.
 
-**Коротко:**
+Mobile-first web, current phase targets Scandinavia (Norway + Sweden) with a working frontend on mock data shaped like the real APIs.
 
-| | |
-|---|---|
-| **Ринок** | Швеція (гіпотеза) |
-| **Аудиторія** | Активні туристи: хайкінг, каякінг, велосипед, гори |
-| **Платформа** | Mobile-first веб, далі адаптив до десктопа |
-| **Мова v1** | Англійська |
-| **Шари бронювання** | Ночівля (перший) → спорядження → активності й гіди |
-| **Модель** | Комісія з бронювання. Наповнення на старті — не вирішено |
+Full brief, scope, and open questions: [CLAUDE.md](./CLAUDE.md).
 
-**Ціннісна пропозиція:** маршрут + актуальні умови на місці + ночівля/спорядження/активності поруч із треком — в одному сервісі, замість розкиданих застосунків.
+## Repo index
 
----
+Phase pipeline — each folder tracks its own status; update the table below as phases progress.
 
-## Статус
-
-**Фаза 1 — дизайн-дослідження**, старт з нуля. Короткий бриф зафіксовано в [`CLAUDE.md`](CLAUDE.md), стартовий список конкурентів зафіксовано, аудит попереду.
-
-| Етап | Папка | Статус |
+| Phase | Folder | Status |
 |---|---|---|
-| Дослідження | [`research/`](research/) | ⚪ очищено, ресерч починається знову з нуля |
-| Концепт | [`concept/`](concept/) | ⚪ чекає |
-| Вайрфрейми | [`wireframes/`](wireframes/) | ⚪ чекає |
-| Токени | [`tokens/`](tokens/) | ⚪ чекає |
-| Компоненти | [`components/`](components/) | ⚪ чекає |
-| Дизайн-система | [`design-system/`](design-system/) | ⚪ чекає |
-| Хендофф | [`handoff/`](handoff/) | ⚪ чекає |
+| 1. Concept | [concept/](./concept/) | Not started |
+| 2. Research | [research/](./research/) ([research.md](./research/research.md), [screens/](./research/screens/)) | Not started |
+| 3. Design system & tokens | [design-system/](./design-system/), [tokens/](./tokens/) | Not started |
+| 4. Wireframes | [wireframes/](./wireframes/) | Not started |
+| 5. Components | [components/](./components/) | Not started |
+| 6. Handoff | [handoff/](./handoff/) | Not started |
 
----
+## What's in each folder
 
-## Структура репо
-
-```
-nestwood/
-├── CLAUDE.md              бриф — джерело правди
-├── README.md              цей індекс
-├── research/
-│   ├── competitors.md     стартовий список конкурентів (хард/софт/аспіраційні)
-│   ├── audit.md           конкурентний аудит: 15 продуктів за 5 осями, синтез
-│   ├── benchmark.md       бенчмарк виміру «зведення планування», 5 продуктів, 8 критеріїв
-│   ├── patterns.md        пʼять UX-патернів вибору маршруту й бронювання
-│   ├── research.md        зведений документ фази 1: конкуренти, бенчмарк, патерни, висновки
-│   ├── research.html      той самий зміст, односторінкова верстка
-│   └── screens/           скріншоти конкурентів
-├── concept/               візія, IA, флоу, модель даних
-├── wireframes/            каркаси екранів
-├── tokens/                колір, типографіка, простір, моушн
-├── components/            специфікації компонентів
-├── design-system/         принципи, патерни, доступність, контент
-└── handoff/               передача в розробку
-```
-
-**Як це звʼязано:**
-
-```
-research → concept → wireframes → tokens → components → design-system → handoff
-```
-
-Кожна папка має власний README з описом вмісту й статусом.
-
----
-
-## Що зараз у роботі
-
-[`research/research.md`](research/research.md) — зведений документ фази 1, чотири секції:
-
-1. **Конкуренти** — матриця пʼятьох за пʼятьма осями, три спільні патерни ринку, три відмінності
-2. **Бенчмарк** — продукти поза категорією, що найкраще відповідають на придатність; три механізми в MVP і один, що не спрацює
-3. **Патерни** — пʼять патернів взаємодії, обраний і чому
-4. **Висновки** — вісім прогалин, для кожної гіпотеза й походження
-
-**Метод:** desk research із заходом у живі продукти через Playwright, 19 скріншотів у [`research/screens/`](research/screens/). Доступу до реальних користувачів немає — тому кожен факт має посилання на джерело або скрін, а де джерела нема, написано «дані не підтверджені».
-
-**Обраний напрям:** карта-дослідник (map-first) замість фільтрувальної воронки чи фіксованого пакета. Гість малює/обирає маршрут на карті, бронювання ночівлі/спорядження/активностей — контекстні піни вздовж нього.
-
----
-
-## Документи
-
-- [`CLAUDE.md`](CLAUDE.md) — повний бриф: ринок, аудиторія, скоуп продукту, метод, робочі домовленості, відкриті питання
-- [`research/research.md`](research/research.md) — дослідження, джерело правди
-- [`research/research.html`](research/research.html) — те саме сторінкою: світла верстка в скандинавському стилі, галерея скрінів, лайтбокс. Відкривати локально в браузері
-- [`research/screens/INDEX.md`](research/screens/INDEX.md) — реєстр 19 скріншотів з URL і датами
-
----
-
-## Домовленості
-
-- Робоча мова — українська, індустріальні терміни англійською
-- Твердження без джерела позначається як гіпотеза
-- Скріншоти конкурентів — у `research/screens/`, з URL і датою збору
-- Бриф оновлюємо при зміні рішень, історію не переписуємо
+- **concept/** — problem framing, personas, core scenarios
+- **research/** — competitor audit, data source research (Kartverket, Lantmäteriet, UT.no/DNT), benchmark, tech stack evaluation, visual direction; screenshots in `research/screens/`
+- **design-system/** + **tokens/** — visual language and design tokens
+- **wireframes/** — low/mid-fidelity flows for the core input → itinerary journey
+- **components/** — built UI components
+- **handoff/** — engineering handoff docs (incl. swapping mock data for live APIs)

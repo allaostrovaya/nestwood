@@ -1,19 +1,5 @@
-# Токени
+# Tokens — Nestwood
 
-> Папка `tokens/` · Кореневий індекс репо — [`../README.md`](../README.md)
+Status: **not started** (phase 3, alongside design-system/).
 
-Атомарні значення дизайну — єдине джерело правди для всього візуального шару. Ні компонент, ні екран не має права на «магічне число» повз токен.
-
-**Тут буде:**
-- Колір: палітра, семантичні ролі, теми (світла / темна)
-- Типографіка: шкала, гарнітури, накреслення, міжрядковий інтервал
-- Простір: базова сітка й шкала відступів
-- Радіуси, тіні, межі
-- Моушн: тривалості й криві
-- Брейкпоінти
-
-**Формат:** JSON як джерело правди (сумісно з W3C Design Tokens), звідти генерація в CSS-змінні на фазі коду.
-
-**Особливий виклик:** контраст і читабельність на яскравому сонці. Продукт відкривають надворі, часто на пляжі — це впливає на вибір кольорів і мінімальні розміри тексту.
-
-**Залежність:** потребує визначеного бренду — див. відкриті питання в [`../CLAUDE.md`](../CLAUDE.md).
+Design tokens (color, type, spacing, etc.) underpinning the design system. Visual direction TBD in [research](../research/research.md) — the previous project cycle used a light Scandinavian-minimalist style; whether that carries over to Nestwood is an open question.

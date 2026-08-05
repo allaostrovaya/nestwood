@@ -1,20 +1,5 @@
-# Компоненти
+# Components — Nestwood
 
-> Папка `components/` · Кореневий індекс репо — [`../README.md`](../README.md)
+Status: **not started** (phase 5, after wireframes).
 
-Специфікації окремих компонентів інтерфейсу. Один файл — один компонент.
-
-**Що описує кожна специфікація:**
-- Анатомія й слоти
-- Варіанти й розміри
-- Стани: типовий, наведення, натиснутий, фокус, вимкнений, завантаження, помилка
-- Правила застосування — і коли брати щось інше
-- Доступність: роль, керування з клавіатури, підказки для скрінрідера
-- Використані токени — жодних захардкоджених значень
-
-**Очікуване ядро:**
-`ListingCard` · `AmenityChip` · `AmenityGroup` · `FilterSheet` · `DateRangePicker` · `GuestPicker` · `MapPin` · `PriceBreakdown` · `BookingSummary` · `ReviewCard` · `Gallery` · `EmptyState` · `OfflineBanner`
-
-**Ключовий виклик:** `ListingCard` і сторінка обʼєкта мають однаково добре працювати для купола за 200 €/ніч і для кемп-пітча за 15 €/особу. Чотири типи інвентарю з різною ціновою логікою в одному компоненті.
-
-**Залежність:** [`../tokens/`](../tokens/) — жодного захардкодженого значення повз токен.
+Built UI components implementing the [design system](../design-system/README.md) and [wireframes](../wireframes/README.md). Frontend framework/stack TBD — see open questions in [../CLAUDE.md](../CLAUDE.md).

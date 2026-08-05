@@ -1,18 +1,5 @@
-# Хендофф
+# Handoff — Nestwood
 
-> Папка `handoff/` · Кореневий індекс репо — [`../README.md`](../README.md)
+Status: **not started** (phase 6, final).
 
-Передача в розробку. Усе, що потрібно інженеру, щоб зібрати інтерфейс без здогадок.
-
-**Тут буде:**
-- Специфікації екранів з розмірами й поведінкою
-- Повний перелік станів, включно з крайніми випадками
-- Логіка адаптиву по брейкпоінтах
-- Правила валідації й тексти помилок трьома мовами
-- Специфікації анімацій і переходів
-- Чекліст доступності
-- Чекліст готовності до передачі
-
-**Принцип:** якщо інженер має щось домислити — специфікація неповна.
-
-**Залежність:** остання ланка ланцюжка — усе попереднє має бути закрите.
+Engineering handoff docs once [components](../components/README.md) are built: integration notes for swapping the mock data layer for live Kartverket/Lantmäteriet/UT.no APIs, and anything an acquiring team would need to pick this up.

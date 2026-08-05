@@ -1,16 +1,5 @@
-# Вайрфрейми
+# Wireframes — Nestwood
 
-> Папка `wireframes/` · Кореневий індекс репо — [`../README.md`](../README.md)
+Status: **not started** (phase 4, after concept, research, and design-system/tokens).
 
-Низькодеталізовані каркаси екранів. Перевіряють структуру, ієрархію й потоки — без кольору, шрифтів і фінальних зображень.
-
-**Тут буде:**
-- Каркаси ключових екранів у мобільній ширині: пошук, результати, карта, картка обʼєкта, зручності, чекаут, мої поїздки
-- Потоки між екранами
-- Стани: порожній, завантаження, помилка, офлайн
-- Адаптив до десктопа — після того, як мобільна логіка стабілізується
-
-**Правило:** мобільна ширина первинна. Десктоп — похідний, не навпаки.
-
-**Вхід:** [`../concept/`](../concept/)
-**Вихід:** [`../design-system/`](../design-system/), [`../components/`](../components/)
+Low- and mid-fidelity flows for the core user journey: input (fitness, budget, time, gear, preferences) → multi-day itinerary output (route, overnight stays, gear checklist, weather adaptation).

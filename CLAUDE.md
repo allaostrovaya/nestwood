@@ -1,164 +1,77 @@
-# Nestwood — бриф проєкту
+# Nestwood
 
-> Живий документ. Оновлюється, коли змінюються рішення. Останнє оновлення: 2026-08-03.
+AI multi-day itinerary layer for Nordic outdoor trekking. Mobile-first web, adapting to desktop later.
 
----
+## Elevator pitch
 
-## 1. Що це
+Google Maps, Komoot, and AllTrails all shipped AI route assistants in 2026 — none go past a single day or a single track. None build a full multi-day trip: route + overnight stays (huts, campsites) + gear, adapted to fitness and weather. Nestwood is the AI-orchestration layer that does this, grounded on official open government geodata for Sweden and Norway (Lantmäteriet, Kartverket, DNT/UT.no) — legally, without depending on AllTrails'/Komoot's APIs or ToS.
 
-**Nestwood** — сервіс планування активних подорожей на природі, де маршрут є хребтом, а бронювання ночівлі, спорядження й активностей — контекстні шари, привʼязані до конкретного маршруту.
+## Problem
 
-Забронювати активну подорож на природі — ночівлю, спорядження, локальних гідів — має відбуватися навколо одного маршруту в одному сервісі, а не розкидано по десятку різних застосунків.
+A hiker stitches a multi-day trip together by hand across disconnected sources: track in one tool, lodging in another, weather in a third, gear from experience/forums. 2026's AI features from the giants solve only the first slice (single-day route/search) — the multi-day planning gap remains open.
 
-**Головна проблемна теза (гіпотеза з непрямим підтвердженням, [`research/audit.md`](research/audit.md#спільний-біль-гіпотеза-з-непрямим-підтвердженням)):** активні туристи не мають проблеми «де забронювати одну річ» — у них проблема фрагментації планування. Маршрут, умови на місці (погода, доступ, складність), ночівля, спорядження й локальні активності живуть у різних застосунках, і немає одного місця, яке зводить план подорожі в ціле. Конкурентний аудит підтверджує це непрямо: TripIt і Wanderlog існують саме для ручного «зшивання» розрізнених бронювань, а маршрут-продукти (Komoot, AllTrails) і ночівля-продукти (Hipcamp, Camping.se) ніде не звʼязані одне з одним. Прямого підтвердження від реальних користувачів (відгуки, форуми) ще немає.
+## Solution
 
-**Спостереження з побіжного огляду ринку (гіпотеза, підтвердити ресерчем):** ніхто з існуючих гравців не зводить маршрут + умови + ночівля + спорядження/активності в один флоу з бронюванням. Найближче — Komoot з боку планування маршрутів і Hipcamp з боку бронювання дикої ночівлі, але вони не перетинаються.
+An AI agent that takes fitness level, budget, time, existing gear, and preferences as input, and outputs a full personalized multi-day itinerary: daily walking legs, matched overnight stays (DNT huts/campsites), a gear checklist, and day-by-day adaptation to the weather forecast. Technically, this is a grounding layer (in the spirit of Google's Travel Concierge / ADK patterns) over Kartverket/Lantmäteriet/UT.no open data — not a proprietary geo database.
 
----
+## Why now, why here
 
-## 2. Поточна фаза
+- Open Nordic government data (CC0, documented APIs) removes the legal risk that blocks this kind of aggregation in the US/DACH (closed AllTrails/Komoot ToS).
+- Nordic *allemansrätten* culture already normalizes multi-day trekking with clear camping rules — a ready use case, not an invented one.
+- The giants are already investing in an AI layer (proven product-market fit for the pattern), but none cover multi-day + overnight stays + Nordic open data — a specific, narrow, still-unclaimed gap in their own roadmap.
 
-**Фаза 1 — дизайн-дослідження.**
+## Business model
 
-| | |
-|---|---|
-| Робимо | Тільки дослідження. Артефакти — див. §7 |
-| Не робимо | Код. UI-макети. Вибір техстеку |
+Not a standalone venture (small, infrequent market, weak moat) — a feature-pitch / acquisition target for a player with distribution:
 
----
+- **AllTrails / Komoot** — regional Nordic expansion + multi-day extension of their already-shipped AI assistant
+- **Google Maps Geospatial AI agents team** — a concrete vertical use case for an existing grounding pattern
+- **DNT/UT.no** — a non-profit-funded AI layer over their own hut/trail infrastructure, no venture model needed
 
-## 3. Ринок і контекст
+What makes this pitchable rather than just an idea: a working prototype on real, legally accessible data (not a mockup) — concrete proof that the multi-day-orchestration layer is technically and legally feasible exactly where AllTrails/Komoot haven't gone.
 
-**Основний ринок (гіпотеза): Швеція.**
+## Target audience for the current prototype
 
-Чому Швеція:
-- **Allemansrätt** (право вільного доступу до природи) робить дике кемпування законним і культурно нормальним — знімає типовий юридичний барʼєр для цього виду відпочинку
-- Ринок P2P-бронювання дільниць/пітчів виглядає менш зайнятим великими гравцями
-- Культурна близькість до friluftsliv-естетики (активний відпочинок на природі) відповідає цільовій аудиторії активних туристів
+External pitch to acquisition targets (AllTrails, Komoot, Google's Geospatial AI agents team, DNT/UT.no). This shapes what the prototype needs to prove: legal cleanliness of the data, technical soundness, and a clear, specific gap versus what the giants already shipped — not consumer growth metrics.
 
-**Компроміси Швеції (визнані в обговоренні, перевірити цифрами):**
-- Коротший сезон (переважно літо), можливо менший туристичний потік
-- Мовний і довірчий барʼєр входу для місцевих постачальників (шведська мова, локальна довіра)
+## Scope for v1
 
-⚠️ Усі кількісні твердження про ринок — попередні гіпотези до підтвердження джерелом.
+- **Geography / data**: Scandinavia — Norway (Kartverket + UT.no/DNT hut and trail data) and Sweden (Lantmäteriet), pitch-driven rather than phased by country.
+- **Fidelity**: hybrid — a working frontend backed by mock data shaped like the real Kartverket/Lantmäteriet/UT.no API responses. No live integration yet; the mock layer is shaped so a real integration can be swapped in later without a rewrite.
+- **Tech stack**: not yet decided — deferred to the research phase (`research/`), which should include a stack evaluation before it's locked in.
+- **UI language**: English (the audience is an international acquisition target, not a Nordic end-user yet).
+- **Timeline**: no hard deadline — iterate phase by phase.
 
----
+## Core user flow
 
-## 4. Аудиторія
+**Input**: fitness level, budget, time window, existing gear, preferences.
+**Output**: multi-day itinerary — daily walking legs, matched overnight stays (DNT huts/campsites), a gear checklist, and weather-driven adaptation per day.
 
-**Первинний фокус: активні туристи.**
+## Non-goals for now
 
-Робочий портрет: люди, що планують маршрут (хайкінг, каякінг, велосипед, гори), і для кого локація й активність важливіші за рівень комфорту. Потребують: маршрут, актуальні умови на місці, ночівлю поруч із маршрутом, спорядження й локальних гідів/активності — все привʼязане до конкретного треку, а не до загального каталогу.
+- Not building a standalone consumer venture or growth loop.
+- Not wiring up live third-party APIs yet (mock data shaped like real responses instead).
+- Not covering regions outside Scandinavia.
 
----
+## Repo / workflow structure
 
-## 5. Скоуп продукту
+Repo was just cleared for this restart; the previous project's phase pipeline is being reused for this new product:
 
-**Ядро продукту:** маршрут/трип-планер із live-умовами (доступ до землі, погода, складність).
+- `concept/` — problem framing, personas, scenarios
+- `research/` — competitor audit, data source research, benchmarks, patterns
+- `design-system/` + `tokens/` — visual language, design tokens
+- `wireframes/` — low/mid-fidelity flows
+- `components/` — built UI components
+- `handoff/` — engineering handoff docs
 
-**Шари бронювання навколо маршруту, за пріоритетом v1:**
-1. **Ночівля** — дикі дільниці, пітчі, за потреби глемпінг/хатини. Перший шар — найближче до базової цінності «де переночувати», найпростіше довести до ринку
-2. **Спорядження** — оренда наметів та іншого інвентарю
-3. **Активності й гіди** — каяки, оренда човнів/яхт, гірський транспорт, привʼязані географічно до маршруту
+## Key external data sources
 
-Усі три шари в скоупі дослідження фази 1, навіть якщо в продукт вони заходять послідовно.
+- Kartverket (Norway) — https://kartverket.no
+- Lantmäteriet (Sweden) — https://www.lantmateriet.se
+- UT.no / DNT (Norway hut & trail data) — https://ut.no
 
-**Модель наповнення (відкрите питання — не вирішено):** як залучаємо перших постачальників (землевласників, гідів, оренду спорядження) і перші маршрути. Варіанти для розгляду в наступній фазі: ручний онбординг однієї регіону, партнерство з існуючою базою (туристична асоціація, Naturkartan-подібний сервіс), гібрид власного instant-book і інтеграцій із зовнішніми букінг-сервісами.
+## Open questions for the research phase
 
-**Сезонність:** ціль — працювати цілий рік (літо — вода й пішохідні/велосипедні маршрути, зима — гірський транспорт).
-
----
-
-## 6. Платформа й локалізація
-
-- **Mobile-first веб** — адаптивний сайт, оптимізований під мобільний, з подальшим адаптивом до десктопа. Нативний застосунок — не в v1
-- **Мова v1:** англійська. Охоплює міжнародних туристів і експатів, що подорожують Швецією; не потребує локального перекладу на старті
-- **Валюта:** _TBD_
-
----
-
-## 7. Артефакти дослідження
-
-| Артефакт | Стан |
-|---|---|
-| **Список конкурентів** ([`research/competitors.md`](research/competitors.md)) | Зафіксовано: хард (STF, Naturkartan, Outdooractive, Hipcamp, Camping.se), софт (Komoot, AllTrails, Park4Night, Airbnb, GetYourGuide), аспіраційні (Roadtrippers, Wanderlog, TripIt, Booking.com, Google Maps) |
-| **Конкурентний аудит** ([`research/audit.md`](research/audit.md)) | Готово — 15 конкурентів за 5 осями (аудиторія, основа продукту, ключовий механізм, довіра, монетизація), 3 спільні патерни, 3 відмінності, 3 відкриті питання. Скріншоти в `research/screens/`, реєстр — `research/screens/INDEX.md` |
-| **Бенчмарк** ([`research/benchmark.md`](research/benchmark.md)) | Готово — вимір «зведення розрізненого планування в одне ціле», 8 критеріїв, 5 продуктів поза й у категорії (Expedia, Omio, G Adventures, Zola, Wanderlog), 3 механізми для MVP, 1 що не спрацює |
-| **UX-патерни** ([`research/patterns.md`](research/patterns.md)) | Готово — 5 принципово різних патернів вибору маршруту й бронювання, обраний патерн (карта-дослідник) із трьома причинами |
-| **Зведений research.md** ([`research/research.md`](research/research.md)) | Готово — 4 секції (конкуренти, бенчмарк, патерни, висновки), 8 прогалин із гіпотезами й джерелом розділу |
-| **research.html** ([`research/research.html`](research/research.html)) | Готово — односторінкова світла верстка в скандинавському стилі того самого змісту, галереї скріншотів, лайтбокс. Відкривати локально в браузері |
-| **Персони, JTBD, карта болів** | _TBD_ |
-
----
-
-## 8. Метод
-
-**Тільки desk research** — доступу до реальних користувачів немає. Кожне твердження або має джерело, або позначене як гіпотеза.
-
----
-
-## 9. Формат видачі
-
-```
-nestwood/
-├── CLAUDE.md              цей бриф — джерело правди
-├── README.md              живий індекс репо
-├── research/
-│   ├── competitors.md     стартовий список конкурентів (хард/софт/аспіраційні)
-│   ├── audit.md           конкурентний аудит: 15 продуктів за 5 осями, синтез
-│   ├── benchmark.md       бенчмарк виміру «зведення планування», 5 продуктів, 8 критеріїв
-│   ├── patterns.md        пʼять UX-патернів вибору маршруту й бронювання
-│   ├── research.md        зведений документ фази 1: конкуренти, бенчмарк, патерни, висновки
-│   ├── research.html      той самий зміст, односторінкова верстка
-│   └── screens/           скріншоти конкурентів
-├── concept/               візія, IA, флоу, модель даних лістингу
-├── wireframes/            каркаси екранів
-├── tokens/                колір, типографіка, простір, моушн
-├── components/            специфікації компонентів
-├── design-system/         принципи, патерни, доступність, контент
-└── handoff/               передача в розробку
-```
-
-Кожна папка має власний README з описом вмісту й статусом.
-
----
-
-## 10. Робочі домовленості
-
-- **Спілкування українською.** Терміни індустрії — англійською, де це природно
-- **Статус живе тільки в кореневому README.**
-- Твердження без джерела позначаємо як гіпотезу — завжди
-- Скріншоти конкурентів — у `research/screens/`, з посиланням на URL і датою збору
-- Бриф оновлюємо при зміні рішень, а не переписуємо історію
-- **Команда:** тільки один засновник, без зовнішнього дедлайну. Темп роботи визначається органічно, а не жорсткими термінами
-
----
-
-## 11. Мета й метрики
-
-**Мета фази 1:** зібрати достатньо доказової бази (конкуренти, аудиторія, ринок), щоб перейти до концепту з упевненістю, а не здогадками.
-
-**Метрика успіху продукту (гіпотеза для v1):** кількість бронювань / GMV — прямий сигнал, що маршрут-планер конвертується в реальні гроші, а не залишається інструментом планування без монетизації.
-
----
-
-## 12. Монетизація
-
-**Комісія з бронювання** (маркетплейс, % з кожного бронювання ночівлі/спорядження/активності). Дохід масштабується з GMV, нульовий барʼєр входу для постачальників. Точний відсоток і те, з якої сторони стягується комісія (з гостя, постачальника чи split) — відкрите питання, вирішити в фазі концепту.
-
----
-
-## 13. Бренд
-
-Назва **Nestwood** зафіксована. Походження назви, тон голосу, візуальний напрям — відкрите питання для фази концепту, не блокує ресерч.
-
----
-
-## 14. Відкриті питання
-
-1. **Модель наповнення на старті** — ручний онбординг однієї region, партнерство з існуючою базою, чи гібрид власного інвентарю й інтеграцій
-2. **Список конкурентів** для аудиту — стартовий список зафіксовано в [`research/competitors.md`](research/competitors.md), валідувати заходом у живі продукти
-3. **Валюта** та інші деталі локалізації
-4. **Комісія** — з гостя, постачальника чи split
-5. **Політика скасування** — власна чи на розсуд постачальника
-6. **Бренд і айдентика** — походження назви, тон голосу, візуальний напрям
+- Final tech stack for the mobile-first frontend.
+- Visual/brand direction — the previous cycle had settled on a light Scandinavian-minimalist style; evaluate whether it carries over to Nestwood.
+- Concrete demo scenario and success criteria to use when pitching to acquisition targets.

@@ -1,16 +1,5 @@
-# Концепт
+# Concept — Nestwood
 
-> Папка `concept/` · Кореневий індекс репо — [`../README.md`](../README.md)
+Status: **not started** (phase 1).
 
-Продуктовий концепт — місток між дослідженням і дизайном. Відповідає на «що саме ми будуємо і чому», перш ніж зʼявиться перший екран.
-
-**Тут буде:**
-- Уточнена ціннісна пропозиція й позиціонування — вже на доказах з дослідження
-- Продуктова стратегія: що у v1, що свідомо відкладаємо
-- Інформаційна архітектура
-- Ключові користувацькі сценарії й user flows
-- Модель даних лістингу — насамперед таксономія зручностей, головний диференціатор
-- Концептуальні рішення, які потім перевіряємо вайрфреймами
-
-**Вхід:** [`../research/research.md`](../research/research.md)
-**Вихід:** [`../wireframes/`](../wireframes/)
+Problem framing, personas, and core scenarios for the multi-day Nordic trekking itinerary flow (fitness/budget/time/gear input → route + overnight stays + gear checklist + weather adaptation output). See [../CLAUDE.md](../CLAUDE.md) for the underlying pitch.
