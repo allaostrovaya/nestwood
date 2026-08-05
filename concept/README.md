@@ -1,8 +1,15 @@
 # Concept — Nestwood
 
-Status: **not started** (phase 1).
+Status: **in progress** (phase 1) — Steps 1–3 done: people data inventory, 4 proto-personas, and Jobs-to-be-Done. Core scenarios are next.
 
 Problem framing, personas, and core scenarios for the multi-day Nordic trekking itinerary flow (fitness/budget/time/gear input → route + overnight stays + gear checklist + weather adaptation output). See [../CLAUDE.md](../CLAUDE.md) for the underlying pitch.
+
+## Done so far
+
+- [personas-step1-data-inventory.md](./personas-step1-data-inventory.md) — Step 1: every people-related observation extractable from `research.md`, plus an explicit list of what's unknown.
+- [personas.md](./personas.md) — Step 2: 4 proto-personas (Kristin/primary, Anders, Claire, Noah), each field traced to a research.md observation or a real quote, `[?]` where unconfirmed.
+- [jtbd.md](./jtbd.md) — Step 3: Jobs-to-be-Done hierarchy (1 main, 5 related, 3 emotional, 3 social) plus a hypotheses list, derived from personas.md.
+- [personas.html](./personas.html) — static summary of the two files above, styled like `research/research.html`.
 
 ## Constraints this phase must design around (added 2026-08-05, from research)
 

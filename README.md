@@ -16,7 +16,7 @@ Phase pipeline — each folder tracks its own status; update the table below as 
 
 | Phase | Folder | Status |
 |---|---|---|
-| 1. Concept | [concept/](./concept/) | Not started |
+| 1. Concept | [concept/](./concept/) | In progress — people data inventory, 4 proto-personas, and Jobs-to-be-Done done (Steps 1–3); scenarios next |
 | 2. Research | [research/](./research/) ([research.md](./research/research.md), [competitors.md](./research/competitors.md), [benchmark.md](./research/benchmark.md), [patterns.md](./research/patterns.md), [screens/](./research/screens/)) | In progress — competitors, benchmark, UX patterns synthesized (Steps 3–7); data sources & tech stack next |
 | 3. Design system & tokens | [design-system/](./design-system/), [tokens/](./tokens/) | Not started |
 | 4. Wireframes | [wireframes/](./wireframes/) | Not started |
@@ -25,7 +25,7 @@ Phase pipeline — each folder tracks its own status; update the table below as 
 
 ## What's in each folder
 
-- **concept/** — problem framing, personas, core scenarios
+- **concept/** — problem framing, personas, core scenarios. [personas.md](./concept/personas.md) holds 4 proto-personas (Kristin/primary — Norwegian DNT trekker — plus a Swedish STF trekker, an international purpose-driven trekker, and a first-timer with self-doubt), each traced back to research.md observations or a real forum/blog quote; [jtbd.md](./concept/jtbd.md) holds the Jobs-to-be-Done hierarchy derived from them (1 main job, 5 related, 3 emotional, 3 social, plus a hypotheses list) and a JTBD matrix; [personas.html](./concept/personas.html) is a static summary page mirroring `research/research.html`'s style. `[?]`/hypothesis markers are kept visible throughout — none of the four are validated by primary interviews yet.
 - **research/** — `research.md` is the synthesized entry point (product, competitors, benchmark, patterns, conclusions); `competitors.md`, `benchmark.md`, `patterns.md` hold the full sourced detail; screenshots in `research/screens/`; data source research (Kartverket, Lantmäteriet, UT.no/DNT) and tech stack evaluation still open
 - **design-system/** + **tokens/** — visual language and design tokens
 - **wireframes/** — low/mid-fidelity flows for the core input → itinerary journey

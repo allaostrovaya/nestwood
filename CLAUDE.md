@@ -50,6 +50,19 @@ External pitch to acquisition targets (AllTrails, Komoot, Google's Geospatial AI
 **Input**: fitness level, budget, time window, existing gear, preferences.
 **Output**: multi-day itinerary — daily walking legs, matched overnight stays (DNT huts/campsites), a gear checklist, and weather-driven adaptation per day.
 
+## People & top jobs
+
+Full detail, sourcing, and the other three proto-personas: [concept/personas.md](./concept/personas.md), [concept/jtbd.md](./concept/jtbd.md).
+
+**Primary persona**: Kristin, 34, Norwegian trekker with DNT membership — experienced, takes regular multi-day mountain trips. Even with full institutional knowledge of the DNT system, she still has to be her own "integration layer" across DNT's own disconnected tools (route planning vs. hut booking) — proof this pain is structural, not a novice problem.
+
+**Main job**: *When I plan a multi-day mountain trip, I want one coordinated plan — route, lodging, gear, and weather together — so I'm not the one stitching four disconnected sources myself.*
+
+**Top 3 jobs for MVP**:
+1. Know exactly what's needed for each night's lodging (hut type, key/membership, booking rules) — the core differentiator vs. Komoot's/AllTrails' generic lodging.
+2. Learn how a change in the weather forecast affects the plan already made — the other differentiator named in the elevator pitch above.
+3. Understand why the plan makes each choice it makes — defends against the AllTrails/SAR "black-box AI" criticism (research/research.md); now backed by national AI-trust data for Norway and Sweden, not just a hypothesis.
+
 ## Non-goals for now
 
 - Not building a standalone consumer venture or growth loop — the demo is a full app by packaging (see Packaging decision), but the business model stays acquisition-target, not an independent product with its own GTM.
