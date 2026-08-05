@@ -17,7 +17,7 @@ Phase pipeline — each folder tracks its own status; update the table below as 
 | Phase | Folder | Status |
 |---|---|---|
 | 1. Concept | [concept/](./concept/) | Not started |
-| 2. Research | [research/](./research/) ([research.md](./research/research.md), [screens/](./research/screens/)) | Not started |
+| 2. Research | [research/](./research/) ([research.md](./research/research.md), [competitors.md](./research/competitors.md), [benchmark.md](./research/benchmark.md), [patterns.md](./research/patterns.md), [screens/](./research/screens/)) | In progress — competitors, benchmark, UX patterns synthesized (Steps 3–7); data sources & tech stack next |
 | 3. Design system & tokens | [design-system/](./design-system/), [tokens/](./tokens/) | Not started |
 | 4. Wireframes | [wireframes/](./wireframes/) | Not started |
 | 5. Components | [components/](./components/) | Not started |
@@ -26,7 +26,7 @@ Phase pipeline — each folder tracks its own status; update the table below as 
 ## What's in each folder
 
 - **concept/** — problem framing, personas, core scenarios
-- **research/** — competitor audit, data source research (Kartverket, Lantmäteriet, UT.no/DNT), benchmark, tech stack evaluation, visual direction; screenshots in `research/screens/`
+- **research/** — `research.md` is the synthesized entry point (product, competitors, benchmark, patterns, conclusions); `competitors.md`, `benchmark.md`, `patterns.md` hold the full sourced detail; screenshots in `research/screens/`; data source research (Kartverket, Lantmäteriet, UT.no/DNT) and tech stack evaluation still open
 - **design-system/** + **tokens/** — visual language and design tokens
 - **wireframes/** — low/mid-fidelity flows for the core input → itinerary journey
 - **components/** — built UI components
