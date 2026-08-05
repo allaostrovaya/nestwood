@@ -214,6 +214,14 @@
   .tablewrap{overflow-x:auto; margin:1.2rem 0 1.8rem; border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow);}
   table{border-collapse:collapse; width:100%; min-width:640px; background:var(--surface);}
   table.wide{min-width:920px;}
+  tr.grouprow td{
+    background:var(--accent-soft); border-bottom:1px solid var(--accent-soft-2);
+    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.72rem;
+    text-transform:uppercase; letter-spacing:.08em; color:var(--accent-strong);
+    padding:.55rem .95rem;
+  }
+  tr.grouprow:not(:first-child) td{border-top:1px solid var(--line-strong);}
+  td.country{color:var(--ink-muted); font-family:'IBM Plex Mono',monospace; font-size:.8rem; white-space:nowrap;}
   th,td{text-align:left; padding:.75rem .95rem; font-size:.88rem; vertical-align:top; border-bottom:1px solid var(--line);}
   thead th{
     font-family:'Archivo',sans-serif; font-weight:700; font-size:.72rem;
@@ -370,8 +378,38 @@
     <!-- ============ 2. КОНКУРЕНТИ ============ -->
     <section class="block" id="competitors">
       <div class="block-head"><span class="block-num mono">02</span><h2 class="block-title">Конкуренти</h2></div>
-      <p class="block-sub">15 продуктів у трьох групах — Хард (той самий продукт, ринок Скандинавія), Софт (інший продукт, той самий job-to-be-done) і Аспіраційні (міжнародні еталони категорії). Повний список — <a href="./competitors.md">competitors.md</a>. Нижче — UX-матриця пʼятьох Хард-конкурентів (Крок 4).</p>
+      <p class="block-sub">15 продуктів у трьох групах — Хард (той самий продукт, ринок Скандинавія), Софт (інший продукт, той самий job-to-be-done) і Аспіраційні (міжнародні еталони категорії). Повний розбір по кожному — <a href="./competitors.md">competitors.md</a>.</p>
 
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:230px;">Продукт</th><th style="width:160px;">Країна</th><th>Про що він</th><th>AI-інтеграція — як виглядає і що робить</th></tr></thead>
+          <tbody>
+            <tr class="grouprow"><td colspan="4">Хард — той самий продукт, ринок Скандинавія</td></tr>
+            <tr><td class="rowhead">UT.no (DNT)</td><td class="country">Норвегія</td><td>Пошук маршруту + хижі DNT — держ./асоціаційний сайт-планувальник.</td><td><span class="chip chip-no">Немає</span></td></tr>
+            <tr><td class="rowhead">STF</td><td class="country">Швеція</td><td>Мережа гірських хиж на Kungsleden + трекінг.</td><td><span class="chip chip-no">Немає</span></td></tr>
+            <tr><td class="rowhead">Komoot</td><td class="country">Німеччина</td><td>Route-планувальник (піші/вело/біг).</td><td><span class="chip chip-yes">Так</span> — застосунок для ChatGPT: <i>рекомендує</i> маршрут із готової бази 7М маршрутів за текстовим запитом, не генерує нову послідовність.</td></tr>
+            <tr><td class="rowhead">AllTrails</td><td class="country">США</td><td>Пошук і навігація трейлів, community-каталог.</td><td><span class="chip chip-yes">Так</span> — AI Smart Routing (тар Peak): перебудовує маршрут у реальному часі, якщо стежка закрита чи йде шторм, + розмовний пошук через Claude/ChatGPT. Лише один трек, один день.</td></tr>
+            <tr><td class="rowhead">Outdooractive</td><td class="country">Німеччина</td><td>Hut-to-hut multi-day route-планувальник, 33 000+ хиж.</td><td><span class="chip chip-yes">Так</span> — White-label AI Assistant, вбудований на сайтах дестинацій-партнерів (напр. Heidiland Tourismus): відповідає на inspiration-питання про дестинацію, не генерує персоналізований план користувача.</td></tr>
+
+            <tr class="grouprow"><td colspan="4">Софт — інший продукт, та сама базова задача</td></tr>
+            <tr><td class="rowhead">Gaia GPS</td><td class="country">США</td><td>Backcountry-навігація й трек-планування в полі.</td><td><span class="chip chip-no">Немає</span></td></tr>
+            <tr><td class="rowhead">PiNCAMP</td><td class="country">Швейцарія/Німеччина/Нідерланди</td><td>Маркетплейс бронювання кемпінгів (Європа).</td><td><span class="chip chip-no">Немає</span></td></tr>
+            <tr><td class="rowhead">WikiCamps</td><td class="country">Австралія/Нова Зеландія</td><td>Кемпінг-трипланер з бронюванням сайтів.</td><td><span class="chip chip-no">Немає</span></td></tr>
+            <tr><td class="rowhead">Wanderlog</td><td class="country">США</td><td>Загальний трипланер для будь-якого типу подорожі.</td><td><span class="chip chip-yes">Так</span> — генеративний AI-шар над картою: будує itinerary з опису подорожі, але визнаний "менш конкретним" за конкурентів (generic-рекомендації, без вузького grounding).</td></tr>
+            <tr><td class="rowhead">PackPoint</td><td class="country">США</td><td>Gear-checklist під погоду й тип активності.</td><td><span class="chip chip-no">Немає</span> — правило-based логіка (погода + тривалість + профіль активності), не AI.</td></tr>
+
+            <tr class="grouprow"><td colspan="4">Аспіраційні — міжнародні еталони категорії</td></tr>
+            <tr><td class="rowhead">onX Backcountry</td><td class="country">США</td><td>Premium route-builder з 3D-рельєфом і waypoints.</td><td><span class="chip chip-no">Немає</span></td></tr>
+            <tr><td class="rowhead">FarOut</td><td class="country">США <span class="chip chip-flag" style="margin-left:.3rem;">міжнар. покриття не підтверджено</span></td><td>Waypoint-гайди для thru-hiking / бекпекінгу.</td><td><span class="chip chip-no">Немає</span></td></tr>
+            <tr><td class="rowhead">DOC Great Walks</td><td class="country">Нова Зеландія</td><td>Держ. система бронювання хиж/треків.</td><td><span class="chip chip-no">Немає</span></td></tr>
+            <tr><td class="rowhead">YAMAP</td><td class="country">Японія</td><td>Соціальний хайкінг-застосунок з офлайн-GPS.</td><td><span class="chip chip-no">Немає</span></td></tr>
+            <tr><td class="rowhead">Google Gemini / Travel Concierge</td><td class="country">США</td><td>AI travel-агент з grounding на Maps Platform.</td><td><span class="chip chip-yes">Так</span> — це і є продукт: розмовний multi-agent, groundить відповіді через Places API + Search Grounding + MCP-сервер, реагує на "живі" зміни (погода, дорожні умови).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Джерела по кожному продукту — <a href="./competitors.md">competitors.md</a>. "AI-інтеграція" тут — conversational/generative AI-шар, не rule-based фільтри чи анкети.</p>
+
+      <h3 class="sub">UX-матриця пʼятьох Хард-конкурентів (Крок 4)</h3>
       <div class="tablewrap">
         <table class="wide">
           <thead><tr><th style="width:120px;">Ось</th><th>UT.no (DNT)</th><th>STF</th><th>Komoot</th><th>AllTrails</th><th>Outdooractive</th></tr></thead>
