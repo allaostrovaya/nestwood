@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nestwood — Research Readout</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --bg:#f6f8f5;
+    --surface:#ffffff;
+    --surface-2:#eef2ec;
+    --ink:#1c2420;
+    --ink-muted:#5c6b63;
+    --ink-faint:#8b978f;
+    --accent:#2f6b57;
+    --accent-strong:#204a3c;
+    --accent-soft:#e3ede6;
+    --accent-soft-2:#cfe2d7;
+    --line:#dee6df;
+    --line-strong:#c7d2c9;
+    --flag:#95562a;
+    --flag-soft:#f3e4d7;
+    --shadow: 0 1px 2px rgba(28,36,32,0.04), 0 8px 24px -12px rgba(28,36,32,0.10);
+  }
+  :root[data-theme="dark"]{
+    --bg:#10140f;
+    --surface:#171d17;
+    --surface-2:#1e251d;
+    --ink:#e9efe6;
+    --ink-muted:#a3b0a4;
+    --ink-faint:#6d7a6d;
+    --accent:#7fc0a2;
+    --accent-strong:#a6d9bd;
+    --accent-soft:#22322a;
+    --accent-soft-2:#2b3d31;
+    --line:#2a332a;
+    --line-strong:#374232;
+    --flag:#d99a66;
+    --flag-soft:#3a2c1f;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 28px -12px rgba(0,0,0,0.5);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#10140f;
+      --surface:#171d17;
+      --surface-2:#1e251d;
+      --ink:#e9efe6;
+      --ink-muted:#a3b0a4;
+      --ink-faint:#6d7a6d;
+      --accent:#7fc0a2;
+      --accent-strong:#a6d9bd;
+      --accent-soft:#22322a;
+      --accent-soft-2:#2b3d31;
+      --line:#2a332a;
+      --line-strong:#374232;
+      --flag:#d99a66;
+      --flag-soft:#3a2c1f;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 28px -12px rgba(0,0,0,0.5);
+    }
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-strong);text-decoration-thickness:1px;}
+  a:hover{color:var(--accent);}
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:2px;
+    border-radius:2px;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Archivo', sans-serif;
+    color:var(--ink);
+    text-wrap:balance;
+    margin:0;
+  }
+
+  .mono{font-family:'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric:tabular-nums;}
+
+  /* ---------- layout shell ---------- */
+  .shell{
+    display:grid;
+    grid-template-columns:220px minmax(0,1fr);
+    gap:0;
+    max-width:1240px;
+    margin:0 auto;
+  }
+  .rail{
+    position:sticky;
+    top:0;
+    align-self:start;
+    height:100vh;
+    padding:2.75rem 1.5rem 2rem 2rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.75rem;
+  }
+  .rail-brand{
+    font-family:'Archivo', sans-serif;
+    font-weight:800;
+    font-size:1.05rem;
+    letter-spacing:-0.01em;
+  }
+  .rail-brand span{display:block; font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:0.68rem; color:var(--ink-muted); letter-spacing:.08em; margin-top:.3rem;}
+  .rail nav{display:flex; flex-direction:column; gap:.15rem;}
+  .rail nav a{
+    font-family:'Archivo', sans-serif;
+    font-size:.82rem;
+    font-weight:600;
+    color:var(--ink-muted);
+    text-decoration:none;
+    padding:.45rem .6rem;
+    border-radius:6px;
+    display:flex;
+    align-items:baseline;
+    gap:.5rem;
+  }
+  .rail nav a .num{font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--ink-faint);}
+  .rail nav a:hover{background:var(--accent-soft); color:var(--accent-strong);}
+  .rail-foot{margin-top:auto; font-size:.72rem; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; line-height:1.7;}
+  .rail-foot a{color:var(--ink-muted);}
+
+  main{padding:3rem 3rem 6rem 3rem; min-width:0;}
+
+  @media (max-width:860px){
+    .shell{grid-template-columns:1fr;}
+    .rail{position:static; height:auto; padding:1.5rem 1.25rem; border-bottom:1px solid var(--line);}
+    .rail nav{flex-direction:row; flex-wrap:wrap;}
+    main{padding:2rem 1.25rem 4rem;}
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead{max-width:640px; margin-bottom:1.75rem;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+    margin-bottom:.9rem;
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+  }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;}
+  h1.title{font-size:2.15rem; font-weight:800; line-height:1.12; letter-spacing:-0.015em;}
+  .dek{font-size:1.05rem; color:var(--ink-muted); margin-top:.9rem; max-width:58ch;}
+  .meta-row{display:flex; gap:1.25rem; margin-top:1.6rem; flex-wrap:wrap;}
+  .meta-item{font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--ink-faint);}
+  .meta-item b{color:var(--ink-muted); font-weight:500;}
+  .pill{
+    display:inline-flex; align-items:center; gap:.4rem;
+    font-family:'IBM Plex Mono',monospace; font-size:.72rem; font-weight:500;
+    padding:.3rem .65rem; border-radius:100px;
+    background:var(--accent-soft); color:var(--accent-strong);
+    border:1px solid var(--accent-soft-2);
+  }
+
+  .lede{
+    max-width:640px;
+    margin:2.4rem 0 0;
+    padding:1.4rem 1.6rem;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    box-shadow:var(--shadow);
+  }
+  .lede p{margin:0 0 .8rem;}
+  .lede p:last-child{margin-bottom:0;}
+  blockquote.pain{
+    margin:2.4rem 0 0;
+    max-width:640px;
+    padding:1.5rem 1.7rem;
+    border-left:3px solid var(--accent);
+    background:var(--accent-soft);
+    border-radius:0 10px 10px 0;
+    font-size:1.05rem;
+    color:var(--accent-strong);
+    font-style:italic;
+  }
+  blockquote.pain p{margin:0;}
+
+  /* ---------- sections ---------- */
+  section.block{
+    padding-top:4.5rem;
+    margin-top:1rem;
+    border-top:1px solid var(--line);
+    max-width:900px;
+  }
+  section.block:first-of-type{border-top:none;}
+  .block-head{display:flex; align-items:baseline; gap:.9rem; margin-bottom:.6rem;}
+  .block-num{font-family:'IBM Plex Mono',monospace; font-size:1rem; color:var(--ink-faint);}
+  h2.block-title{font-size:1.55rem; letter-spacing:-0.01em;}
+  .block-sub{color:var(--ink-muted); font-size:.98rem; max-width:62ch; margin-top:.6rem; margin-bottom:1.9rem;}
+
+  h3.sub{font-family:'Archivo',sans-serif; font-size:1.08rem; font-weight:700; margin:2.4rem 0 1rem; color:var(--ink);}
+  h3.sub:first-of-type{margin-top:1.8rem;}
+
+  p{margin:0 0 1rem; max-width:70ch;}
+
+  /* ---------- tables ---------- */
+  .tablewrap{overflow-x:auto; margin:1.2rem 0 1.8rem; border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow);}
+  table{border-collapse:collapse; width:100%; min-width:640px; background:var(--surface);}
+  table.wide{min-width:920px;}
+  th,td{text-align:left; padding:.75rem .95rem; font-size:.88rem; vertical-align:top; border-bottom:1px solid var(--line);}
+  thead th{
+    font-family:'Archivo',sans-serif; font-weight:700; font-size:.72rem;
+    text-transform:uppercase; letter-spacing:.05em; color:var(--ink-muted);
+    background:var(--surface-2); border-bottom:1px solid var(--line-strong);
+    position:sticky; top:0;
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:var(--accent-soft);}
+  td.rowhead, th[scope="row"]{font-family:'Archivo',sans-serif; font-weight:700; font-size:.85rem; white-space:nowrap;}
+  td.num, th.num{font-family:'IBM Plex Mono',monospace; text-align:center; font-variant-numeric:tabular-nums;}
+
+  .chip{
+    display:inline-flex; align-items:center; font-family:'IBM Plex Mono',monospace;
+    font-size:.68rem; font-weight:500; padding:.18rem .5rem; border-radius:100px;
+    white-space:nowrap;
+  }
+  .chip-yes{background:var(--accent-soft); color:var(--accent-strong); border:1px solid var(--accent-soft-2);}
+  .chip-no{background:var(--surface-2); color:var(--ink-faint); border:1px solid var(--line);}
+  .chip-flag{background:var(--flag-soft); color:var(--flag); border:1px solid var(--flag-soft);}
+
+  .score{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:1.9rem; height:1.9rem; border-radius:6px;
+    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.82rem;
+  }
+  .s1{background:color-mix(in srgb, var(--flag) 22%, var(--surface));}
+  .s2{background:color-mix(in srgb, var(--flag) 12%, var(--surface));}
+  .s3{background:var(--surface-2);}
+  .s4{background:color-mix(in srgb, var(--accent) 18%, var(--surface));}
+  .s5{background:color-mix(in srgb, var(--accent) 32%, var(--surface));}
+  .avgcell{font-weight:700;}
+
+  .footnote{font-size:.82rem; color:var(--ink-muted); margin-top:-.6rem; margin-bottom:1.8rem; max-width:70ch;}
+  .footnote a{color:var(--ink-muted);}
+
+  /* ---------- card grids ---------- */
+  .cardgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:1.4rem 0 2rem;}
+  @media (max-width:760px){.cardgrid{grid-template-columns:1fr;}}
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    padding:1.2rem 1.3rem; box-shadow:var(--shadow);
+  }
+  .card h4{font-size:.95rem; margin-bottom:.5rem; line-height:1.35;}
+  .card p{font-size:.88rem; color:var(--ink-muted); margin:0;}
+  .card .idx{font-family:'IBM Plex Mono',monospace; color:var(--accent); font-size:.78rem; display:block; margin-bottom:.4rem;}
+
+  .patterncards{display:grid; grid-template-columns:1fr; gap:1rem; margin:1.4rem 0 2rem;}
+  .pcard{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    padding:1.3rem 1.4rem 1.4rem; box-shadow:var(--shadow);
+    display:grid; grid-template-columns:200px 1fr; gap:1.4rem;
+  }
+  .pcard.chosen{border-color:var(--accent-soft-2); background:linear-gradient(180deg, var(--accent-soft), var(--surface) 60%);}
+  .pcard.rejected{opacity:.82;}
+  @media (max-width:700px){.pcard{grid-template-columns:1fr;}}
+  .pcard-name{font-family:'Archivo',sans-serif; font-weight:700; font-size:1rem; margin-bottom:.35rem;}
+  .pcard-name small{display:block; font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:.68rem; color:var(--ink-faint); text-transform:none; margin-top:.25rem; letter-spacing:0;}
+  .verdict{display:inline-block; margin-top:.6rem; font-family:'IBM Plex Mono',monospace; font-size:.68rem; padding:.2rem .5rem; border-radius:100px;}
+  .verdict.pick{background:var(--accent); color:var(--surface);}
+  .verdict.maybe{background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line-strong);}
+  .verdict.no{background:var(--flag-soft); color:var(--flag);}
+  .pcard dl{margin:0; font-size:.86rem;}
+  .pcard dt{font-family:'Archivo',sans-serif; font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); margin-top:.75rem;}
+  .pcard dt:first-child{margin-top:0;}
+  .pcard dd{margin:.2rem 0 0; color:var(--ink-muted);}
+
+  .decision{
+    margin-top:2rem; padding:1.6rem 1.8rem; border-radius:12px;
+    background:var(--surface); border:1px solid var(--line-strong); box-shadow:var(--shadow);
+  }
+  .decision h4{font-family:'Archivo',sans-serif; font-size:1.05rem; margin-bottom:.9rem; display:flex; align-items:center; gap:.6rem;}
+  .decision h4 .verdict{margin-top:0;}
+  .decision ol{margin:0; padding-left:1.3rem; font-size:.92rem;}
+  .decision ol li{margin-bottom:.6rem; color:var(--ink-muted);}
+  .decision ol li b{color:var(--ink);}
+  .decision + .decision{margin-top:1rem;}
+
+  /* ---------- screenshot gallery ---------- */
+  .shotgroup{margin:1.6rem 0 2.2rem;}
+  .shotgroup-label{
+    font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--ink-faint); margin-bottom:.7rem; display:block;
+  }
+  .shotrow{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:.9rem;}
+  figure.shot{margin:0; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--surface); box-shadow:var(--shadow);}
+  figure.shot a{display:block; line-height:0;}
+  figure.shot img{width:100%; display:block; aspect-ratio:16/10; object-fit:cover; background:var(--surface-2);}
+  figure.shot figcaption{padding:.55rem .7rem; font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--ink-muted); border-top:1px solid var(--line);}
+
+  /* ---------- conclusions table ---------- */
+  .gapnum{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:1.7rem; height:1.7rem; border-radius:50%; background:var(--accent-soft);
+    color:var(--accent-strong); font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.8rem;
+  }
+
+  hr.rule{border:none; border-top:1px solid var(--line); margin:0;}
+
+  footer.page{
+    max-width:900px; margin-top:5rem; padding-top:1.8rem; border-top:1px solid var(--line);
+    font-size:.82rem; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:.8rem;
+  }
+  footer.page a{color:var(--ink-muted);}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <aside class="rail">
+    <div class="rail-brand">Nestwood<span>RESEARCH READOUT</span></div>
+    <nav>
+      <a href="#product"><span class="num">1</span> Продукт</a>
+      <a href="#competitors"><span class="num">2</span> Конкуренти</a>
+      <a href="#benchmark"><span class="num">3</span> Бенчмарк</a>
+      <a href="#patterns"><span class="num">4</span> Патерни</a>
+      <a href="#conclusions"><span class="num">5</span> Висновки</a>
+    </nav>
+    <div class="rail-foot">
+      Кроки 3–7 · 2026-08-05<br>
+      Джерела: <a href="./research.md">research.md</a>
+    </div>
+  </aside>
+
+  <main>
+
+    <div class="masthead">
+      <div class="eyebrow">Research readout · Кроки 3–7</div>
+      <h1 class="title">Багатоденний трекінг у Скандинавії ще ніхто не зшив в один AI-потік</h1>
+      <p class="dek">Nestwood — AI-orchestration шар для планування маршруту, ночівлі, спорядження й погодної адаптації на офіційних відкритих geodata Норвегії й Швеції (Kartverket, Lantmäteriet, UT.no/DNT) — не власна геобаза, не чуже API з ToS-обмеженнями.</p>
+      <div class="meta-row">
+        <span class="pill">15 конкурентів · 3 групи</span>
+        <span class="meta-item"><b>Аудиторія прототипу:</b> AllTrails, Komoot, Google, DNT/UT.no</span>
+        <span class="meta-item"><b>Обраний UX-патерн:</b> гід-візард</span>
+      </div>
+    </div>
+
+    <blockquote class="pain">
+      <p>Навіть у найкращому наявному варіанті багатоденний трекінг вимагає від користувача самому бути інтеграційним шаром між щонайменше чотирма розрізненими джерелами — маршрут, ночівля, погода, спорядження — і жоден з 15 перевірених продуктів не закриває це одним потоком.</p>
+    </blockquote>
+
+    <!-- ============ 1. ПРОДУКТ ============ -->
+    <section class="block" id="product">
+      <div class="block-head"><span class="block-num mono">01</span><h2 class="block-title">Про продукт</h2></div>
+      <div class="lede">
+        <p><b>Самарі пітчу.</b> Google Maps, Komoot і AllTrails у 2026 р. запустили AI-асистентів для планування маршруту — жоден не йде далі одного дня й одного треку. Nestwood бере на вході фіз. підготовку, бюджет, час, наявне спорядження й уподобання, а на виході віддає повний персоналізований multi-day маршрут: дні переходу, прив'язані ночівлі, gear-checklist і адаптацію під прогноз погоди на кожен день.</p>
+        <p><b>Бізнес-модель.</b> Не venture — feature-pitch/acquisition-таргет для гравця з дистрибуцією: AllTrails, Komoot, Google Geospatial AI team або DNT/UT.no.</p>
+      </div>
+      <h3 class="sub">Як ми вирішимо біль</h3>
+      <p>Orchestration-шар за прецедентом Outdooractive↔alpenvereinaktiv — не оператор ночівлі. Три перенесені механізми з deep-dive benchmark'у (multi-provider fallback, named-contributor breakdown, live re-sync). Гід-візард як інтерфейс генерації плану, з видимим поясненням кожного рішення. Деталі — розділи 3 і 4 нижче.</p>
+    </section>
+
+    <!-- ============ 2. КОНКУРЕНТИ ============ -->
+    <section class="block" id="competitors">
+      <div class="block-head"><span class="block-num mono">02</span><h2 class="block-title">Конкуренти</h2></div>
+      <p class="block-sub">15 продуктів у трьох групах — Хард (той самий продукт, ринок Скандинавія), Софт (інший продукт, той самий job-to-be-done) і Аспіраційні (міжнародні еталони категорії). Повний список — <a href="./competitors.md">competitors.md</a>. Нижче — UX-матриця пʼятьох Хард-конкурентів (Крок 4).</p>
+
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:120px;">Ось</th><th>UT.no (DNT)</th><th>STF</th><th>Komoot</th><th>AllTrails</th><th>Outdooractive</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead">Аудиторія</td><td>Норвезькі трекери всіх рівнів; сильний національний бренд-звʼязок (DNT-членство).</td><td>Шведські трекери, історично орієнтовані на гірські станції Лапландії (Kungsleden); теж membership-модель.</td><td>Глобальна аудиторія піших/вело/бігових маршрутів; Nordic — велика органічна підгрупа.</td><td>Наймасовіша аудиторія з усіх пʼяти.</td><td>Європейська Alps-first аудиторія, поширюється на Скандинавію через партнерства/білейбл.</td></tr>
+            <tr><td class="rowhead">Основа продукту</td><td>Держ./асоціаційна база маршрутів + хиж — DNT сам володіє хижами.</td><td>Те саме, вужче: 16 хиж на Kungsleden.</td><td>Community-генерований route-граф (7М маршрутів) — не володіє інфраструктурою ночівлі.</td><td>Community-review трейл-каталог — не володіє інфраструктурою.</td><td>Ліцензована B2B2C платформа (33 000+ хиж) — продає технологію, не володіє хижами.</td></tr>
+            <tr><td class="rowhead">Ключовий механізм</td><td>Планування на карті → окремий перехід у booking-домен — <b>два різні застосунки</b>, вручну зшиті користувачем.</td><td>Info-сторінки + окремий booking-модуль; ще менш інтегровано, ніж DNT.</td><td>Route builder + ручне розбиття на multi-day stages (Premium); нема прив'язки до ночівлі.</td><td>Trail search/filter; AI Smart Routing перебудовує маршрут у реальному часі — лише в межах одного дня.</td><td>Hut finder з transitions between huts і weather-at-hut — єдиний, хто моделює "маршрут↔хижа", але як фільтр, не агент.</td></tr>
+            <tr><td class="rowhead">Довіра</td><td>Максимальна: держ./асоціаційний бренд, дані з першоджерела.</td><td>Та ж модель довіри; no-booking-but-guaranteed-floor-space як прояв цієї довіри.</td><td>Community-довіра, не інституційна.</td><td>Найслабша інституційна довіра: публічна критика SAR-фахівців за "надмірну довіру" до AI.</td><td>B2B-довіра; кінцевий користувач бачить чужий бренд (alpenvereinaktiv), не "Outdooractive".</td></tr>
+            <tr><td class="rowhead">Монетизація</td><td>Непряма — DNT-членство, UT.no безкоштовна.</td><td>Аналогічно — STF-членство зі знижками.</td><td>Freemium + Premium-підписка.</td><td>Freemium + Peak-підписка (≈$59.99/рік) за AI-фічі.</td><td>B2B SaaS/лейбл-контракти — <span class="chip chip-flag">дані не підтверджені</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Джерела для кожного твердження — <a href="./benchmark.md">benchmark.md</a>; скріни живого обходу нижче.</p>
+
+      <h3 class="sub">Три спільні патерни ринку</h3>
+      <div class="cardgrid">
+        <div class="card"><span class="idx">01</span><h4>Ніхто не зшиває маршрут і ночівлю в одному AI-потоці</h4><p>Навіть Outdooractive подає hut-finder як фільтр/карту, не як агента, що сам підбирає ночівлю під денний перехід.</p></div>
+        <div class="card"><span class="idx">02</span><h4>Довіра будується на джерелі даних, а не на AI</h4><p>Де AI з'являється (AllTrails), це радше викликає підозру (SAR-критика), ніж довіру.</p></div>
+        <div class="card"><span class="idx">03</span><h4>Монетизація завжди відв'язана від AI-шару</h4><p>Підписка продається за карти/офлайн/фічі або за B2B-ліцензію — пропозиції "AI, що спланує трип" з ціною ще не існує.</p></div>
+      </div>
+
+      <h3 class="sub">Три відмінності</h3>
+      <div class="cardgrid">
+        <div class="card"><span class="idx">01</span><h4>Хто володіє нічлігом</h4><p>DNT/STF — напряму; Komoot/AllTrails — ніхто; Outdooractive — посередник-технологія.</p></div>
+        <div class="card"><span class="idx">02</span><h4>Ступінь інтеграції маршрут↔ночівля</h4><p>Від двох окремих застосунків (DNT/STF) до повної відсутності (Komoot/AllTrails) до фільтра-не-агента (Outdooractive).</p></div>
+        <div class="card"><span class="idx">03</span><h4>Модель монетизації</h4><p>B2C-підписка vs. B2C-членство зі знижкою vs. B2B2C-ліцензування — три структурно різні моделі в одній категорії.</p></div>
+      </div>
+
+      <h3 class="sub">Скріни живого обходу — 2026-08-05</h3>
+      <p class="footnote">Жоден екран не був за логіном; фінальний крок бронювання хижі (DNT/STF) не перевірявся — доступ обмежений, тестового акаунта немає.</p>
+
+      <div class="shotgroup">
+        <span class="shotgroup-label">UT.no (DNT)</span>
+        <div class="shotrow">
+          <figure class="shot"><a href="screens/ut-no-home.png" target="_blank"><img src="screens/ut-no-home.png" alt="UT.no homepage" loading="lazy"></a><figcaption>Homepage</figcaption></figure>
+          <figure class="shot"><a href="screens/ut-no-kart-planner.png" target="_blank"><img src="screens/ut-no-kart-planner.png" alt="UT.no kart planner" loading="lazy"></a><figcaption>Kart — маршрут-планувальник</figcaption></figure>
+          <figure class="shot"><a href="screens/ut-no-dnt-hyttebestilling-landing.png" target="_blank"><img src="screens/ut-no-dnt-hyttebestilling-landing.png" alt="hyttebestilling landing" loading="lazy"></a><figcaption>hyttebestilling.dnt.no — landing</figcaption></figure>
+          <figure class="shot"><a href="screens/ut-no-dnt-hyttebestilling-search.png" target="_blank"><img src="screens/ut-no-dnt-hyttebestilling-search.png" alt="hut search" loading="lazy"></a><figcaption>Пошук хиж — список + карта</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="shotgroup">
+        <span class="shotgroup-label">STF</span>
+        <div class="shotrow">
+          <figure class="shot"><a href="screens/stf-home.png" target="_blank"><img src="screens/stf-home.png" alt="STF homepage" loading="lazy"></a><figcaption>Homepage</figcaption></figure>
+          <figure class="shot"><a href="screens/stf-mountain-station-info.png" target="_blank"><img src="screens/stf-mountain-station-info.png" alt="STF mountain station" loading="lazy"></a><figcaption>Mountain station — info</figcaption></figure>
+          <figure class="shot"><a href="screens/stf-booking-landing.png" target="_blank"><img src="screens/stf-booking-landing.png" alt="STF booking landing" loading="lazy"></a><figcaption>Book accommodation — landing</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="shotgroup">
+        <span class="shotgroup-label">Komoot</span>
+        <div class="shotrow">
+          <figure class="shot"><a href="screens/komoot-home.png" target="_blank"><img src="screens/komoot-home.png" alt="Komoot homepage" loading="lazy"></a><figcaption>Homepage</figcaption></figure>
+          <figure class="shot"><a href="screens/komoot-planner.png" target="_blank"><img src="screens/komoot-planner.png" alt="Komoot planner" loading="lazy"></a><figcaption>/plan — route builder (публічний)</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="shotgroup">
+        <span class="shotgroup-label">AllTrails</span>
+        <div class="shotrow">
+          <figure class="shot"><a href="screens/alltrails-home.png" target="_blank"><img src="screens/alltrails-home.png" alt="AllTrails homepage" loading="lazy"></a><figcaption>Homepage</figcaption></figure>
+          <figure class="shot"><a href="screens/alltrails-norway-trail-list.png" target="_blank"><img src="screens/alltrails-norway-trail-list.png" alt="AllTrails Norway list" loading="lazy"></a><figcaption>Norway — trail list</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="shotgroup">
+        <span class="shotgroup-label">Outdooractive</span>
+        <div class="shotrow">
+          <figure class="shot"><a href="screens/outdooractive-home.png" target="_blank"><img src="screens/outdooractive-home.png" alt="Outdooractive homepage" loading="lazy"></a><figcaption>Homepage</figcaption></figure>
+          <figure class="shot"><a href="screens/outdooractive-huts-finder.png" target="_blank"><img src="screens/outdooractive-huts-finder.png" alt="Outdooractive hut finder" loading="lazy"></a><figcaption>Hut finder — карта</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. БЕНЧМАРК ============ -->
+    <section class="block" id="benchmark">
+      <div class="block-head"><span class="block-num mono">03</span><h2 class="block-title">Бенчмарк</h2></div>
+      <p class="block-sub">Deep-dive benchmark інтеграційного шару (Крок 5) — не outdoor-специфіка, а сам вимір "звести розрізнені джерела в одне рішення", на 5 продуктах поза категорією. Повні критерії й джерела — <a href="./benchmark.md">benchmark.md</a>.</p>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th style="width:260px;">Продукт</th><th>Категорія</th><th>Що зводить в один потік</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead">Monarch Money</td><td>Особисті фінанси</td><td>Банки, кредитки, інвестиції, пенсійні рахунки, борги — потрійна аггрегація (Plaid+MX+Finicity) з fallback, у net-worth dashboard.</td></tr>
+            <tr><td class="rowhead">Zillow (Zestimate)</td><td>Нерухомість</td><td>MLS-фіди, дані асесора, публічні реєстри, user-корекції — neural-network модель в один номер вартості.</td></tr>
+            <tr><td class="rowhead">Uber</td><td>Мобільність</td><td>Геолокація, ETA, доступність водіїв, ціноутворення й оплата — в один потік, live-локація кожні 4с через WebSocket.</td></tr>
+            <tr><td class="rowhead">TurboTax</td><td>Податки</td><td>W-2/1099 від 100 000+ банків/payroll-провайдерів — автоімпорт в одну декларацію.</td></tr>
+            <tr><td class="rowhead">Oura Ring</td><td>Здоровʼя/wearables</td><td>Sleep score, HRV vs. 28-денний бейзлайн, RHR, температура, активність — пасивно в одну Readiness-оцінку з видимими контрибʼюторами.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:220px;">Критерій (1–5)</th><th class="num">Monarch</th><th class="num">Zillow</th><th class="num">Uber</th><th class="num">TurboTax</th><th class="num">Oura</th></tr></thead>
+          <tbody>
+            <tr><td>Широта зведення джерел</td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s4">4</span></td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s4">4</span></td></tr>
+            <tr><td>Автоматичність</td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s4">4</span></td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s4">4</span></td><td class="num"><span class="score s5">5</span></td></tr>
+            <tr><td>Єдина точка рішення</td><td class="num"><span class="score s4">4</span></td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s5">5</span></td></tr>
+            <tr><td>Реал-тайм синхронізація</td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s3">3</span></td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s2">2</span></td><td class="num"><span class="score s5">5</span></td></tr>
+            <tr><td>Прозорість джерела</td><td class="num"><span class="score s3">3</span></td><td class="num"><span class="score s2">2</span></td><td class="num"><span class="score s3">3</span></td><td class="num"><span class="score s4">4</span></td><td class="num"><span class="score s4">4</span></td></tr>
+            <tr><td>Стійкість при відмові джерела</td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s3">3</span></td><td class="num"><span class="score s3">3</span></td><td class="num"><span class="score s3">3</span></td><td class="num"><span class="score s3">3</span></td></tr>
+            <tr><td>Персоналізація результату</td><td class="num"><span class="score s4">4</span></td><td class="num"><span class="score s2">2</span></td><td class="num"><span class="score s3">3</span></td><td class="num"><span class="score s4">4</span></td><td class="num"><span class="score s5">5</span></td></tr>
+            <tr><td>Час до готового рішення</td><td class="num"><span class="score s4">4</span></td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s5">5</span></td><td class="num"><span class="score s3">3</span></td><td class="num"><span class="score s5">5</span></td></tr>
+            <tr><td><b>Середнє</b></td><td class="num avgcell mono">4.4</td><td class="num avgcell mono">3.6</td><td class="num avgcell mono">4.1</td><td class="num avgcell mono">3.75</td><td class="num avgcell mono">4.5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Бали — якісне судження автора на основі задокументованих фактів, не зовнішній рейтинг. Zillow найгірший саме на осях довіри (прозорість, персоналізація); Oura найкращий загалом.</p>
+
+      <h3 class="sub">Топ-3 механізми для MVP</h3>
+      <div class="cardgrid">
+        <div class="card"><span class="idx">Monarch Money</span><h4>Multi-provider fallback</h4><p>Жодне з трьох офіційних джерел (Kartverket/Lantmäteriet/UT.no) не має ламати весь план при відмові одного — план деградує гарно.</p></div>
+        <div class="card"><span class="idx">Oura Readiness Score</span><h4>Named-contributor breakdown</h4><p>Кожен день плану показує, чому він такий — фіз.підготовка→довжина, погода→gear, рельєф→хижа — а не непрозоре "AI пропонує".</p></div>
+        <div class="card"><span class="idx">Uber</span><h4>Live re-sync</h4><p>Коли прогноз погоди змінюється, план тихо перевіряється й позначає, що переглянути — не перегенеровується з нуля.</p></div>
+      </div>
+
+      <div class="decision">
+        <h4><span class="verdict no">Не спрацює</span> Zillow Zestimate</h4>
+        <p style="margin:0; font-size:.92rem; color:var(--ink-muted);">Непрозорий AI-номер без per-source attribution, поданий з упевненістю навіть на потенційно застарілих даних. Перенесення цього паттерна повторило б слабкість, за яку AllTrails уже отримав публічну критику SAR — пряма загроза головній перевазі Nestwood (офіційний, простежуваний grounding).</p>
+      </div>
+    </section>
+
+    <!-- ============ 4. ПАТЕРНИ ============ -->
+    <section class="block" id="patterns">
+      <div class="block-head"><span class="block-num mono">04</span><h2 class="block-title">Патерни</h2></div>
+      <p class="block-sub">Пʼять принципово різних UX-патернів планування multi-day відпустки з палатками (Крок 6). Повний розбір — <a href="./patterns.md">patterns.md</a>.</p>
+
+      <div class="patterncards">
+        <div class="pcard">
+          <div><div class="pcard-name">Розмовний агент<small>conversational / dialogue-driven</small></div><span class="verdict maybe">Другий за умови X</span></div>
+          <dl>
+            <dt>Де</dt><dd>Google Gemini/Travel Concierge, komoot for ChatGPT, AllTrails+Claude.</dd>
+            <dt>Підходить</dt><dd>Коли обмеження розмиті/складно формалізувати; важлива можливість "переговорити" план.</dd>
+            <dt>Ламається</dt><dd>Коли потрібна точність, що впливає на безпеку — саме за це SAR критикували AllTrails; складно аудитивно перевірити після генерації.</dd>
+          </dl>
+        </div>
+
+        <div class="pcard chosen">
+          <div><div class="pcard-name">Гід-візард<small>guided wizard / progressive disclosure</small></div><span class="verdict pick">Обрано</span></div>
+          <dl>
+            <dt>Де</dt><dd>TurboTax interview-flow, PackPoint trip setup, Roadtrippers Autopilot.</dd>
+            <dt>Підходить</dt><dd>Коли вхідна схема добре визначена й скінченна — наш case: фіз. підготовка/бюджет/час/спорядження/уподобання вже названі в CLAUDE.md.</dd>
+            <dt>Ламається</dt><dd>Не масштабується на нетипові побажання; результат generic, якщо розгалуження недостатньо глибоке.</dd>
+          </dl>
+        </div>
+
+        <div class="pcard rejected">
+          <div><div class="pcard-name">Пряма маніпуляція на карті<small>direct-manipulation canvas</small></div><span class="verdict no">Не підходить</span></div>
+          <dl>
+            <dt>Де</dt><dd>Komoot route planner, onX Backcountry Route Builder, CalTopo.</dd>
+            <dt>Підходить</dt><dd>Коли користувач уже знає географію й хоче повний контроль; power-users.</dd>
+            <dt>Ламається</dt><dd>Нічого не знімає з інтеграційного болю — сам механізм вимагає, щоб користувач вручну звів маршрут+хижу+спорядження.</dd>
+          </dl>
+        </div>
+
+        <div class="pcard">
+          <div><div class="pcard-name">Курований каталог шаблонів<small>curated template marketplace</small></div></div>
+          <dl>
+            <dt>Де</dt><dd>FarOut, bikepacking.com.</dd>
+            <dt>Підходить</dt><dd>На добре "натоптаних" маршрутах, де хороший план уже відомий (напр. Kungsleden).</dd>
+            <dt>Ламається</dt><dd>Не персоналізується під унікальні обмеження; ламається саме там, де перевага Nestwood — на маршрутах без людського гайду.</dd>
+          </dl>
+        </div>
+
+        <div class="pcard">
+          <div><div class="pcard-name">Параметричний конфігуратор<small>constraint-based / live-recompute</small></div></div>
+          <dl>
+            <dt>Де</dt><dd>The Dyrt Trip Planner (кастомізація за авто/маршрутом).</dd>
+            <dt>Підходить</dt><dd>Коли користувач хоче досліджувати компроміси інтерактивно; обчислення дешеве й миттєве.</dd>
+            <dt>Ламається</dt><dd>Хижа-прив'язка+terrain-темп+gear-список технічно важчі для живого рекомпʼюту, ніж маршрут за типом авто.</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="decision">
+        <h4><span class="verdict pick">Обрано</span> Гід-візард — з трьох причин</h4>
+        <ol>
+          <li><b>CLAUDE.md уже описує фіксовану, скінченну вхідну схему</b> — пряма мапа на структуру візарда, без потреби вигадувати відкритий діалог.</li>
+          <li><b>Пітч-аудиторія вимагає детермінованого, повторюваного демо.</b> Розмовний агент ризикованіший саме перед AllTrails, який уже публічно "спалився" на непередбачуваності AI-виводу.</li>
+          <li><b>Візард напряму підтримує named-contributor breakdown</b> (механізм Oura): кожне поле форми — видимий, іменований драйвер рішення в результаті.</li>
+        </ol>
+      </div>
+      <div class="decision">
+        <h4><span class="verdict maybe">Другий, за умови X</span> Розмовний агент</h4>
+        <p style="margin:0; font-size:.92rem; color:var(--ink-muted);">За умови, що grounding на офіційних даних стане достатньо надійним і покриє весь регіон, а не лишиться мок-шаром прототипу. Стане сильним доповненням пізніше — особливо для пітчу Google (Gemini/Travel Concierge — наш архітектурний референс).</p>
+      </div>
+      <div class="decision">
+        <h4><span class="verdict no">Не підходить</span> Пряма маніпуляція на карті</h4>
+        <p style="margin:0; font-size:.92rem; color:var(--ink-muted);">Структурно протилежне до того, що Nestwood обіцяє: canvas-паттерн вимагає, щоб користувач сам був інтеграційним шаром. Це територія Komoot і onX Backcountry — обирати цей патерн means конкурувати з ними на їхньому полі.</p>
+      </div>
+    </section>
+
+    <!-- ============ 5. ВИСНОВКИ ============ -->
+    <section class="block" id="conclusions">
+      <div class="block-head"><span class="block-num mono">05</span><h2 class="block-title">Висновки</h2></div>
+      <p class="block-sub">Для кожної прогалини — гіпотеза й розділ вище, з якого вона випливає.</p>
+
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:40px;">#</th><th style="width:260px;">Прогалина</th><th>Гіпотеза</th><th style="width:180px;">Звідки випливає</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="gapnum">1</span></td>
+              <td>Ніхто не зшиває маршрут+ночівлю+gear+погоду в одному AI-потоці.</td>
+              <td>Orchestration-шар, що генерує всі чотири елементи одним поясненим планом, сприймуть acquisition-таргети як конкретно новий продукт, не варіацію існуючого.</td>
+              <td>§1 Біль, §2 Конкуренти (патерн 1)</td>
+            </tr>
+            <tr>
+              <td><span class="gapnum">2</span></td>
+              <td>Там, де AI уже є (Komoot, AllTrails, Wanderlog, Outdooractive), він рекомендує з бази, обмежений одним днем, або про контент дестинації.</td>
+              <td>Гід-візард з generative-виходом, grounded на офіційних Nordic-даних, займе саме цю незайняту AI-generation-нішу.</td>
+              <td>§2 Конкуренти</td>
+            </tr>
+            <tr>
+              <td><span class="gapnum">3</span></td>
+              <td>Довіра до AI-рекомендацій крихка — AllTrails отримав публічну критику SAR за "надмірну довіру".</td>
+              <td>Видима, іменована прив'язка кожного елементу плану до офіційного джерела дозволить уникнути тієї ж критики й обжене crowd-grounded конкурентів на довірі.</td>
+              <td>§3 Бенчмарк (мех. №2), §2 Довіра</td>
+            </tr>
+            <tr>
+              <td><span class="gapnum">4</span></td>
+              <td>Бронювання хиж DNT/STF частково не онлайн (операційний бар'єр).</td>
+              <td>Явний guidance-шар (офіційна формула гарантії ночівлі + action-картка) із multi-provider-fallback знімає блокер без потреби ставати оператором бронювання.</td>
+              <td>§2 Ключовий механізм, §3 мех. №1</td>
+            </tr>
+            <tr>
+              <td><span class="gapnum">5</span></td>
+              <td>Бізнес-модель невизначена між B2C-підпискою й B2B2C-ліцензією.</td>
+              <td>B2B2C-ліцензія нац. асоціації (прецедент Outdooractive↔alpenvereinaktiv) — менш ризикований, уже перевірений у цій категорії шлях; потребує валідації контактом з DNT/UT.no.</td>
+              <td>§2 Монетизація</td>
+            </tr>
+            <tr>
+              <td><span class="gapnum">6</span></td>
+              <td>Розмовний AI-інтерфейс несе ризик "надмірної довіри" перед аудиторією, що вже критикувала цей паттерн.</td>
+              <td>Гід-візард безпечніший для живого демо на поточній стадії (мок-дані); розмовний шар виправданий лише після повного live-grounding.</td>
+              <td>§4 Патерни</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="page">
+      <span>Nestwood · research readout · 2026-08-05</span>
+      <span><a href="../CLAUDE.md">CLAUDE.md</a> · <a href="./research.md">research.md</a> · <a href="./competitors.md">competitors.md</a> · <a href="./benchmark.md">benchmark.md</a> · <a href="./patterns.md">patterns.md</a></span>
+    </footer>
+
+  </main>
+</div>
+</body>
+</html>
