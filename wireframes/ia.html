@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../design-system/docs/doc.css" />
 </head>
 <body>
-<div class="shell">
+<div class="shell wide">
 
   <aside class="rail">
     <div class="rail-brand">Nestwood<span>ІНФОРМАЦІЙНА АРХІТЕКТУРА</span></div>
@@ -201,7 +201,7 @@
       <p class="block-sub">Маршрути primary-персони через екрани дерева. Прямокутник — екран, ромб — рішення, заокруглений — стан або шар, овал — кінець. У кожного тупика названо вихід, і кожен названий вихід існує в дереві: вихід, якого немає, це дефект, а не чесність. Повний текст із обґрунтуваннями — <a href="./flows.md">flows.md</a>.</p>
 
       <div class="diagram">
-        <div class="diagram-head"><span class="diagram-id">MAIN</span><span class="diagram-name">Узгодженість чотирьох джерел</span><span class="tag tag-new">головний</span></div>
+        <div class="diagram-head"><span class="diagram-id">MAIN</span><span class="diagram-name">Узгодженість чотирьох джерел</span><span class="tag tag-new">головний</span><button class="diagram-toggle" type="button">розгорнути</button></div>
         <div class="diagram-body"><pre class="mermaid">
 flowchart TD
     START(["Запуск застосунку"]) --> QSAVED{"Є збережений похід?"}
@@ -266,7 +266,7 @@ flowchart TD
       </div>
 
       <div class="diagram">
-        <div class="diagram-head"><span class="diagram-id">R2</span><span class="diagram-name">Що конкретно потрібно для кожної ночівлі</span><span class="tag tag-ok">Top Job #1</span></div>
+        <div class="diagram-head"><span class="diagram-id">R2</span><span class="diagram-name">Що конкретно потрібно для кожної ночівлі</span><span class="tag tag-ok">Top Job #1</span><button class="diagram-toggle" type="button">розгорнути</button></div>
         <div class="diagram-body"><pre class="mermaid">
 flowchart TD
     IN(["Треба знати, що потрібно на цю ніч"]) --> QENTRY{"Звідки заходить?"}
@@ -326,7 +326,7 @@ flowchart TD
       </div>
 
       <div class="diagram">
-        <div class="diagram-head"><span class="diagram-id">R7</span><span class="diagram-name">Довести план до реально закріплених ночівель</span></div>
+        <div class="diagram-head"><span class="diagram-id">R7</span><span class="diagram-name">Довести план до реально закріплених ночівель</span><button class="diagram-toggle" type="button">розгорнути</button></div>
         <div class="diagram-body"><pre class="mermaid">
 flowchart TD
     IN(["План готовий, жодна ніч не закріплена"]) --> C1["C1 · Що лишилось закріпити"]
@@ -378,7 +378,7 @@ flowchart TD
       </div>
 
       <div class="diagram">
-        <div class="diagram-head"><span class="diagram-id">R3 + R6</span><span class="diagram-name">Зміна погоди й транспорту, поки альтернатива ще існує</span></div>
+        <div class="diagram-head"><span class="diagram-id">R3 + R6</span><span class="diagram-name">Зміна погоди й транспорту, поки альтернатива ще існує</span><button class="diagram-toggle" type="button">розгорнути</button></div>
         <div class="diagram-body"><pre class="mermaid">
 flowchart TD
     IN(["Є незакрита зміна в плані"]) --> QSTATE{"План уже у стані «у дорозі»?"}
@@ -434,7 +434,7 @@ flowchart TD
       </div>
 
       <div class="diagram">
-        <div class="diagram-head"><span class="diagram-id">S2</span><span class="diagram-name">Чи це реально для людини як я</span></div>
+        <div class="diagram-head"><span class="diagram-id">S2</span><span class="diagram-name">Чи це реально для людини як я</span><button class="diagram-toggle" type="button">розгорнути</button></div>
         <div class="diagram-body"><pre class="mermaid">
 flowchart TD
     IN(["Сумнів: чи витягну саме цю ділянку"]) --> B2["B2 · День"]
@@ -471,7 +471,7 @@ flowchart TD
       </div>
 
       <div class="diagram">
-        <div class="diagram-head"><span class="diagram-id">S1</span><span class="diagram-name">Мати чим підтвердити реалістичність плану</span></div>
+        <div class="diagram-head"><span class="diagram-id">S1</span><span class="diagram-name">Мати чим підтвердити реалістичність плану</span><button class="diagram-toggle" type="button">розгорнути</button></div>
         <div class="diagram-body"><pre class="mermaid">
 flowchart TD
     IN(["Треба показати план сторонній людині"]) --> QWHY{"Навіщо показуємо?"}
@@ -661,9 +661,18 @@ function render() {
     securityLevel: 'strict',
     theme: dark ? 'dark' : 'base',
     fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
-    // useMaxWidth:false — діаграма рендериться в натуральному розмірі, щоб текст
-    // лишався читабельним; широке прокручується всередині .diagram-body, не сторінкою
-    flowchart: { curve: 'basis', nodeSpacing: 30, rankSpacing: 44, useMaxWidth: false },
+    // useMaxWidth:true — діаграма вкладається у ширину контейнера, без горизонтального
+    // скролу. Щоб текст при цьому не дрібнішав: вузькі підписи (wrappingWidth) роблять
+    // діаграму вужчою й вищою, тож масштабувати вниз майже не доводиться, а базовий
+    // кегль піднято, щоб пережити залишкове зменшення.
+    flowchart: {
+      curve: 'basis',
+      nodeSpacing: 14,
+      rankSpacing: 22,
+      wrappingWidth: 115,
+      padding: 8,
+      useMaxWidth: true
+    },
     themeVariables: {
       background: surface,
       primaryColor: soft,
@@ -680,7 +689,7 @@ function render() {
       clusterBorder: line,
       edgeLabelBackground: surface,
       titleColor: accent,
-      fontSize: '13px'
+      fontSize: '16px'
     }
   });
 
@@ -693,6 +702,16 @@ function render() {
 
 render();
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
+
+// згортання: підпис кнопки несе повну висоту, щоб було видно, скільки там ще
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.diagram-toggle');
+  if (!btn) return;
+  const diagram = btn.closest('.diagram');
+  const open = diagram.classList.toggle('open');
+  btn.textContent = open ? 'згорнути' : 'розгорнути';
+  if (!open) diagram.scrollIntoView({ block: 'nearest' });
+});
 // щоб перемикач теми (data-theme на <html>) міг перемалювати діаграми
 window.nestwoodRenderDiagrams = render;
 </script>

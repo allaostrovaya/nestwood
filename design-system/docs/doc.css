@@ -103,6 +103,11 @@ hr.rule{border:none; border-top:1px solid var(--line); margin:0;}
 
 /* ---------- каркас ---------- */
 .shell{display:grid; grid-template-columns:220px minmax(0,1fr); gap:0; max-width:1240px; margin:0 auto;}
+/* .wide — для документів, де основний вміст ширший за текстову колонку (діаграми, матриці) */
+.shell.wide{max-width:1560px;}
+.shell.wide section.block{max-width:none;}
+.shell.wide .masthead, .shell.wide .lede, .shell.wide blockquote.pain{max-width:660px;}
+.shell.wide p{max-width:74ch;}
 .rail{position:sticky; top:0; align-self:start; height:100vh; padding:2.75rem 1.5rem 2rem 2rem; display:flex; flex-direction:column; gap:1.75rem;}
 .rail-brand{font-family:'Archivo',sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:-0.01em;}
 .rail-brand span{display:block; font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:.68rem; color:var(--ink-muted); letter-spacing:.08em; margin-top:.3rem;}
@@ -416,9 +421,17 @@ table.matrix tr.orphanrow td.jobcell{color:var(--risk);}
 .diagram-head{display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap; padding:.9rem 1.2rem; border-bottom:1px solid var(--line); background:var(--surface-2);}
 .diagram-id{font-family:'IBM Plex Mono',monospace; font-size:.72rem; font-weight:600; color:var(--accent);}
 .diagram-name{font-family:'Archivo',sans-serif; font-weight:700; font-size:.92rem;}
-.diagram-body{overflow-x:auto; padding:1.3rem 1rem;}
+.diagram-head .diagram-toggle{margin-left:auto; font-family:'IBM Plex Mono',monospace; font-size:.7rem; color:var(--ink-muted); background:var(--surface); border:1px solid var(--line-strong); border-radius:100px; padding:.25rem .7rem; cursor:pointer;}
+.diagram-head .diagram-toggle:hover{border-color:var(--accent); color:var(--accent-strong);}
+/* згорнуто за замовчуванням: видно початок потоку, решта — за кліком */
+.diagram-body{padding:1.1rem .8rem; position:relative; max-height:var(--diagram-peek,520px); overflow:hidden;}
+.diagram.open .diagram-body{max-height:none;}
+.diagram-body::after{content:""; position:absolute; left:0; right:0; bottom:0; height:5rem; pointer-events:none;
+  background:linear-gradient(to bottom, transparent, var(--surface));}
+.diagram.open .diagram-body::after{display:none;}
 pre.mermaid{margin:0; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.8rem; color:var(--ink-faint); min-height:2rem;}
-pre.mermaid svg{display:block; margin:0 auto;}
+/* діаграма вкладається у ширину контейнера — горизонтального скролу немає */
+pre.mermaid svg{display:block; margin:0 auto; max-width:100%; height:auto;}
 .diagram-foot{border-top:1px solid var(--line); padding:.9rem 1.2rem 1rem; display:grid; grid-template-columns:auto 1fr; gap:.35rem .9rem; font-size:.84rem;}
 .diagram-foot dt{font-family:'Archivo',sans-serif; font-weight:700; font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); white-space:nowrap; padding-top:.15rem;}
 .diagram-foot dd{margin:0; color:var(--ink-muted);}
