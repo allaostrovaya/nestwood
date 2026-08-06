@@ -141,6 +141,27 @@ Repo was just cleared for this restart; the previous project's phase pipeline is
 - `components/` — built UI components
 - `handoff/` — engineering handoff docs
 
+## Tech stack
+
+Decided 2026-08-06 against the evidenced constraints, not against build convenience. Full evaluation: [research/research.md](./research/research.md) §7.
+
+| Layer | Choice | Why this one |
+|---|---|---|
+| App shell | **Next.js (App Router) on Vercel**, TypeScript | The AI call needs a server side (the API key can't live in the browser) and met.no requires caching per its `Expires` header — both belong in route handlers next to the frontend, one repo, one deploy. A buyer opens the demo from their phone by link |
+| Maps + offline | **MapLibre GL JS + PMTiles stored in OPFS** | PMTiles is one file per region served by byte range; OPFS gives near-native performance for large files in the browser. Explicitly suited to a bounded regional dataset on static hosting — which is exactly our scope |
+| Packaging | **PWA now, written to be wrapped in Capacitor later** | Keeps "mobile-first web" while leaving a native path open. The wrap removes the buyer's most likely objection ("how does it behave in the mountains") without rewriting the product |
+| Data | **Adapter interfaces** (`LodgingSource`, `WeatherSource`, `TransportSource`, `RouteSource`) with mocks shaped like real NTB / met.no / Entur responses | This is the swap-without-rewrite requirement made concrete. After the source audit, three of the four adapters could be implemented for real today |
+| Persistence | IndexedDB for plan, gear inventory and booking-completion state; Service Worker for the shell | These are exactly the things that must survive a closed tab (account decision) |
+| AI | **`claude-opus-5`** — structured outputs to the plan schema, grounding via tool use over the adapters, prompt caching for the stable system prompt and reference tables, streaming generation | Structured outputs bound improvisation **by schema rather than by hoping the prompt holds** — which is what makes a live demo safe. Tool use over adapters is the orchestration layer we're actually selling |
+
+**Three consequences to design around, not discover later:**
+
+1. **Offline has a ceiling, and it must be designed rather than declared.** iOS evicts PWA storage under memory pressure; the seven-day script-writable cap does not apply to *installed* PWAs, and Safari 17+ offers the Persistent Storage API — but there is never a guarantee. So v1 promises **"an offline pack for this route"** — a screen, a state and a size in megabytes the person can see — not "offline everywhere". Anything stronger repeats the exact failure we cite as the pain (Swedish hikers left Lantmäteriet's own app when it lost iOS offline).
+2. **Installing the PWA becomes part of onboarding**, because the offline cache's survival on iOS depends on it. The start screen — which we froze at zero functional elements — gets exactly one, and that exception is deliberate.
+3. **We must generate our own PMTiles from downloadable datasets.** Kartverket's zoom levels 12–20 come from the Geovekst cooperation and need the licensees' separate permission to copy, so packaging offline tiles by pulling their cache service is not open to us. Unplanned work that sits between us and the first offline demo.
+
+**Demo rule**: generation is live (a real `claude-opus-5` call), with a pre-generated plan held in reserve against bad conference-room wifi. A scripted demo would collapse the moment a buyer asks to enter their own dates — and "a working prototype, not a mockup" is the whole pitch.
+
 ## Key external data sources
 
 All verified by direct request on 2026-08-06 — licence, key requirement and liveness. Full detail, quoted terms and query results: [research/research.md](./research/research.md), "Решта джерел під продуктом".
@@ -165,7 +186,7 @@ All verified by direct request on 2026-08-06 — licence, key requirement and li
 ## Open questions for the research phase
 
 - **~~⚠ Highest priority~~ → RESOLVED as a working assumption, 2026-08-05.** DNT closed the previously-open Nasjonal Turbase (NTB) API — verified directly (uniform 404 across all documented endpoints; the root domain no longer resolves) and via DNT's own open-data page ("for economic, security, and strategic reasons"). **This is no longer treated as a blocker**: integration is deferred by decision, the schema is public (see Scope for v1), and only live availability is actually missing. It no longer blocks the tech-stack decision. What remains open is the *commercial* conversation, and it belongs to whoever acquires this — see the two disclosure rules under Scope for v1.
-- Final tech stack for the mobile-first frontend. **Now has two hard constraints** (added 2026-08-06, from the in-trip scope decision above): the app must work **offline** on the days it is used in the field, and must be economical with battery. Both are evidenced, not assumed — Swedish hikers left Lantmäteriet's official app over the loss of iOS offline support, and DNT/NRK treat offline capability as a safety matter. Evaluate stacks against these, not only against build convenience.
+- ~~Final tech stack for the mobile-first frontend.~~ → **DECIDED 2026-08-06.** See "Tech stack" below; full evaluation in [research/research.md](./research/research.md) §7.
 - Visual/brand direction — the previous cycle had settled on a light Scandinavian-minimalist style; evaluate whether it carries over to Nestwood.
 - Concrete demo scenario and success criteria to use when pitching to acquisition targets.
 - App identity for the standalone packaging — name (working assumption: Nestwood), icon, and onboarding tone — to settle during concept/design-system phases.
