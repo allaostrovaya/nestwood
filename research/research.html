@@ -13,10 +13,11 @@
     <div class="rail-brand">Nestwood<span>RESEARCH READOUT</span></div>
     <nav>
       <a href="#product"><span class="num">1</span> Продукт</a>
-      <a href="#competitors"><span class="num">2</span> Конкуренти</a>
-      <a href="#benchmark"><span class="num">3</span> Бенчмарк</a>
-      <a href="#patterns"><span class="num">4</span> Патерни</a>
-      <a href="#conclusions"><span class="num">5</span> Висновки</a>
+      <a href="#data"><span class="num">2</span> Джерела даних</a>
+      <a href="#competitors"><span class="num">3</span> Конкуренти</a>
+      <a href="#benchmark"><span class="num">4</span> Бенчмарк</a>
+      <a href="#patterns"><span class="num">5</span> Патерни</a>
+      <a href="#conclusions"><span class="num">6</span> Висновки</a>
     </nav>
     <div class="railx">
       <div class="railx-label">Інші документи</div>
@@ -30,7 +31,7 @@
       </a>
     </div>
     <div class="rail-foot">
-      Кроки 3–7 · 2026-08-05<br>
+      Кроки 3–7 · джерела даних перевірено 06.08.2026<br>
       Джерела: <a href="./research.md">research.md</a><br>
       Персони: <a href="../concept/personas.html">personas.html</a>
     </div>
@@ -41,9 +42,10 @@
     <div class="masthead">
       <div class="eyebrow">Research readout · Кроки 3–7</div>
       <h1 class="title">Nestwood — склади персоналізований план походу: маршрут, ночівля, спорядження й погода в одному місці</h1>
-      <p class="dek">Сьогодні це доводиться збирати руками з трьох-чотирьох застосунків. Ти вказуєш свою фізичну форму, бюджет і час — Nestwood віддає готовий багатоденний маршрут із хижами чи кемпінгами, списком спорядження й погодою на кожен день. Усе на офіційних відкритих даних Норвегії та Швеції (Kartverket, Lantmäteriet, UT.no/DNT) — не на вигаданому AI-маршруті.</p>
+      <p class="dek">Сьогодні це доводиться збирати руками з трьох-чотирьох застосунків. Ти вказуєш свою фізичну форму, бюджет і час — Nestwood віддає готовий багатоденний маршрут із хижами чи кемпінгами, списком спорядження й погодою на кожен день. Усе на офіційних відкритих даних Норвегії та Швеції — карти Kartverket і Lantmäteriet, погода met.no і SMHI, транспорт Entur, лавини NVE — не на вигаданому AI-маршруті.</p>
       <div class="meta-row">
         <span class="pill">15 конкурентів перевірено</span>
+        <span class="pill">8 класів даних перевірено запитом</span>
         <a class="xlink" href="../concept/personas.html">Персони &amp; JTBD <span class="arrow">→</span></a>
         <span class="meta-item"><b>Пітчимо:</b> AllTrails, Komoot, Google, DNT/UT.no</span>
         <span class="meta-item"><b>Як це виглядає:</b> кілька зрозумілих питань → готовий план</span>
@@ -70,9 +72,69 @@
       <p class="footnote" style="margin-top:.4rem;">Деталі й обґрунтування кожного пункту — розділи 3 (Бенчмарк) і 4 (Патерни) нижче.</p>
     </section>
 
-    <!-- ============ 2. КОНКУРЕНТИ ============ -->
+    <!-- ============ 2. ДЖЕРЕЛА ДАНИХ ============ -->
+    <section class="block" id="data">
+      <div class="block-head"><span class="block-num mono">02</span><h2 class="block-title">Джерела даних</h2></div>
+      <p class="block-sub">Продукт обіцяє звести маршрут, ночівлю, погоду й дорогу в один план — отже мусить мати джерело під кожним із них. Кожне перевірене <b>живим запитом до самого API</b>, не читанням документації: тим самим методом, яким ми виявили, що відкритий API DNT більше не існує.</p>
+
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:150px;">Що потрібно</th><th style="width:250px;">Норвегія</th><th style="width:250px;">Швеція</th><th>Стан</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead">Маршрути й рельєф</td><td>Kartverket · CC BY 4.0 <span class="tag tag-ok">✓</span></td><td>Lantmäteriet · CC0 <span class="tag tag-ok">✓</span></td><td>Відкрито; ©Kartverket — обов'язкова атрибуція</td></tr>
+            <tr><td class="rowhead">Стежки з офіційною градацією</td><td>Turrutebasen · «no restrictions», живий WFS <span class="tag tag-ok">✓</span></td><td>Naturvårdsverket, Lantmäteriet <span class="tag tag-ok">✓</span></td><td>Відкрито — і градація тут поле, а не наша вигадка</td></tr>
+            <tr><td class="rowhead">Погода</td><td>met.no · CC BY 4.0 · без ключа <span class="tag tag-ok">✓</span></td><td>SMHI <span class="mono">snow1g</span> · CC BY 4.0 SE <span class="tag tag-ok">✓</span></td><td>Відкрито в обох країнах</td></tr>
+            <tr><td class="rowhead">Транспорт до трейлхеда</td><td>Entur · NLOD · <b>без ключа</b> <span class="tag tag-ok">✓</span></td><td>ResRobot (CC0) + Trafikverket (CC0) <span class="tag tag-ok">✓</span></td><td>Відкрито; ключ потрібен лише в Швеції</td></tr>
+            <tr><td class="rowhead">Дорожній доступ до станції</td><td>NVDB · NLOD · без автентифікації <span class="tag tag-ok">✓</span></td><td>Lantmäteriet CC0, але bulk + акаунт <span class="tag tag-ok">✓</span></td><td>Норвегія — прямо, Швеція — дорожче</td></tr>
+            <tr><td class="rowhead">Лавинна небезпека</td><td>NVE Varsom · NLOD <span class="tag tag-ok">✓</span></td><td>lavinprognoser.se · CC0, 6 районів <span class="tag tag-ok">✓</span></td><td>Відкрито; шведське покриття часткове</td></tr>
+            <tr><td class="rowhead">Наявність ліжок</td><td>DNT / NTB <span class="tag tag-risk">закрито</span></td><td>STF <span class="tag tag-risk">закрито</span></td><td><b>Потрібна угода</b> — комерційна розмова, не технічний блокер</td></tr>
+            <tr><td class="rowhead">Покриття мобільного зв'язку</td><td>Nkom — XLSX по домогосподарствах <span class="tag tag-risk">немає шару</span></td><td>PTS — Excel по комунах <span class="tag tag-risk">немає шару</span></td><td>Придатних геоданих немає в жодній країні</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Ліцензії перевірені на сторінках власників даних; доступність — прямими запитами 06.08.2026. Повні цитати умов і результати запитів — <a href="./research.md">research.md</a>, розділ «Решта джерел під продуктом».</p>
+
+      <div class="callout">
+        <div class="kick">Перевірка на реальному кейсі</div>
+        <h4>Станція, через яку люди пропускали похід, — і те, що ми про неї знаємо з відкритих даних</h4>
+        <p>Шведські хайкери описали конкретний провал: потяг завернув раніше, пасажирів направили на замінний автобус — <b>а до станції Katterat немає дороги</b>, тож автобус фізично неможливий. Ми перевірили, чи можна дізнатися це заздалегідь із відкритих джерел.</p>
+        <ul>
+          <li><b>Katterat є в Entur</b> як <span class="mono">NSR:StopPlace:58610</span>, із полями <span class="mono">cancellation</span>, <span class="mono">aimedDepartureTime</span> і <span class="mono">expectedDepartureTime</span> — тобто «сигнал, поки альтернатива ще існує» будується прямо на них.</li>
+          <li><b>У дорожній базі NVDB навколо Katterat — нуль дорожніх сегментів.</b> Навколо сусідньої Bjørnfjell на тій самій лінії — п'ятнадцять, з них десять європейської категорії.</li>
+        </ul>
+        <p>Тобто «сюди можна дійти, але звідси не можна виїхати автобусом» — обчислюване поле, без ключа й без домовленостей. Це те, чого не показує жоден планувальник маршрутів у категорії.</p>
+        <p class="footnote" style="margin-bottom:0;">Чесний нюанс: на Katterat <span class="mono">realtime: false</span> — там є розклад, а не живий потік (на Oslo S — <span class="mono">true</span>). Скасування «за три години до відправлення» саме тут доведеться брати з національного джерела відхилень, а не з планувальника.</p>
+      </div>
+
+      <h3 class="sub">Офіційна градація складності — поле у відкритих даних, і воно заповнене нерівно</h3>
+      <p>DNT публічно просить зберігати єдину національну градацію й не вигадувати альтернативних шкал. Це не лише сумісно з нашими даними — це ними й реалізується: у національній базі стежок <span class="mono">gradering</span> є полем зі значеннями за стандартом Merkehåndboka. Але заповнене воно вибірково, і це виміряно, а не припущено:</p>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th style="width:260px;">Район</th><th class="num">Фотрут із заповненою градацією</th><th>Що це означає для продукту</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead">Jotunheimen</td><td class="num"><span class="score s1">1/92</span></td><td rowspan="3">Стан «не градуйовано» — не edge-case, а типовий випадок. Показуємо офіційну, коли вона є; не вигадуємо свою, коли її немає.</td></tr>
+            <tr><td class="rowhead">Hardangervidda</td><td class="num"><span class="score s3">28/59</span></td></tr>
+            <tr><td class="rowhead">Narvik – Abisko</td><td class="num"><span class="score s4">64/137</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="riskbox">
+        <div class="rk">Ризик, якого ми не враховували</div>
+        <p><b>Джерела рухаються, і частіше, ніж здається.</b> За один аудит знайшлося два вимкнені API та одна нова обов'язкова вимога: шведський прогнозний <span class="mono">pmp3g</span> вимкнено 31 березня 2026 (усі шляхи віддають 404, включно з коренем), норвезький NVDB v3 виводиться з експлуатації й відмовляє новим клієнтам, а NVDB v4 з 5 січня 2026 вимагає ідентифікуючий заголовок.</p>
+        <p>Наслідок практичний: <b>multi-provider fallback потрібен не для краси архітектури, а тому що частота змін задокументована</b>. І окремо для пітчу — будь-який приклад інтеграції зі шведською погодою, старший за квітень 2026, сьогодні не працює.</p>
+      </div>
+
+      <div class="principlebox">
+        <h4>Що з цього лишається заблокованим</h4>
+        <p><b>Рівно два класи.</b> Перший — жива наявність ліжок: закритий API DNT, і це комерційна розмова, яку покупець із дистрибуцією веде легше за нас. Другий — <b>геопросторове покриття мобільного зв'язку</b>: обидва регулятори публікують лише статистику по домогосподарствах і комунах, а нам потрібне покриття на перевалі. Тут продукт мусить казати «невідомо, перевірте в оператора» — і саме так це спроєктовано.</p>
+        <p>Іронія варта того, щоб назвати її першими: DNT радить хайкерам перевіряти покриття по маршруту, а даних, щоб зробити це програмно, у відкритому доступі немає в жодній із двох країн.</p>
+      </div>
+    </section>
+
+    <!-- ============ 3. КОНКУРЕНТИ ============ -->
     <section class="block" id="competitors">
-      <div class="block-head"><span class="block-num mono">02</span><h2 class="block-title">Конкуренти</h2></div>
+      <div class="block-head"><span class="block-num mono">03</span><h2 class="block-title">Конкуренти</h2></div>
       <p class="block-sub">15 продуктів у трьох групах — Хард (той самий продукт, ринок Скандинавія), Софт (інший продукт, той самий job-to-be-done) і Аспіраційні (міжнародні еталони категорії). Повний розбір по кожному — <a href="./competitors.md">competitors.md</a>.</p>
 
       <div class="tablewrap">
@@ -207,7 +269,7 @@
 
     <!-- ============ 3. БЕНЧМАРК ============ -->
     <section class="block" id="benchmark">
-      <div class="block-head"><span class="block-num mono">03</span><h2 class="block-title">Бенчмарк</h2></div>
+      <div class="block-head"><span class="block-num mono">04</span><h2 class="block-title">Бенчмарк</h2></div>
       <p class="block-sub">Deep-dive benchmark інтеграційного шару (Крок 5) — не outdoor-специфіка, а сам вимір "звести розрізнені джерела в одне рішення", на 5 продуктах поза категорією. Повні критерії й джерела — <a href="./benchmark.md">benchmark.md</a>.</p>
 
       <div class="tablewrap">
@@ -256,7 +318,7 @@
 
     <!-- ============ 4. ПАТЕРНИ ============ -->
     <section class="block" id="patterns">
-      <div class="block-head"><span class="block-num mono">04</span><h2 class="block-title">Патерни</h2></div>
+      <div class="block-head"><span class="block-num mono">05</span><h2 class="block-title">Патерни</h2></div>
       <p class="block-sub">Пʼять принципово різних UX-патернів планування multi-day відпустки з палатками (Крок 6). Повний розбір — <a href="./patterns.md">patterns.md</a>.</p>
 
       <div class="patterncards">
@@ -327,7 +389,7 @@
 
     <!-- ============ 5. ВИСНОВКИ ============ -->
     <section class="block" id="conclusions">
-      <div class="block-head"><span class="block-num mono">05</span><h2 class="block-title">Висновки</h2></div>
+      <div class="block-head"><span class="block-num mono">06</span><h2 class="block-title">Висновки</h2></div>
       <p class="block-sub">Для кожної прогалини — гіпотеза й розділ вище, з якого вона випливає.</p>
 
       <h3 class="sub">Блокер даних: заблоковано рівно один параметр</h3>

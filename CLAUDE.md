@@ -143,9 +143,24 @@ Repo was just cleared for this restart; the previous project's phase pipeline is
 
 ## Key external data sources
 
-- Kartverket (Norway) — https://kartverket.no
-- Lantmäteriet (Sweden) — https://www.lantmateriet.se
-- UT.no / DNT (Norway hut & trail data) — https://ut.no
+All verified by direct request on 2026-08-06 — licence, key requirement and liveness. Full detail, quoted terms and query results: [research/research.md](./research/research.md), "Решта джерел під продуктом".
+
+| Need | Norway | Sweden |
+|---|---|---|
+| Maps, terrain | Kartverket — CC BY 4.0, ©Kartverket attribution **mandatory in the UI** | Lantmäteriet — CC0 |
+| Trails **+ the official difficulty grading as a field** | Turrutebasen (Kartverket) — open, live WFS | Lantmäteriet / Naturvårdsverket |
+| Weather | met.no Locationforecast 2.0 — CC BY 4.0, no key | SMHI `snow1g` v1 — CC BY 4.0 SE, no key |
+| Transport to and from the trailhead (R6) | Entur JourneyPlanner v3 — NLOD, **no key**, `ET-Client-Name` required | ResRobot v2.1 (CC0, key) + Trafikverket (CC0, key) |
+| Road access to a trailhead / station (entity 19) | NVDB API Les v4 — NLOD, no auth, `X-Client` required since 2026-01-05 | Lantmäteriet CC0, but bulk download + account |
+| Avalanche danger | NVE Varsom v6.3.0 — NLOD | lavinprognoser.se (Naturvårdsverket) — CC0, six areas only |
+| Live bed availability | **DNT / NTB — closed.** Commercial agreement, not a technical blocker | STF — closed |
+| Mobile coverage as a spatial layer | **Does not exist as reusable data** — Nkom publishes per-household XLSX | Same — PTS publishes per-municipality Excel |
+
+**Three things to carry into the pitch and the build:**
+
+1. **Exactly two classes are blocked**: live bed availability, and mobile coverage as a geographic layer. Everything else — weather, transport, road access, avalanche, trails with official grading — is open with commercial use permitted. Say "one blocked field in the hut data", not "one blocked field in the product".
+2. **R6 is now provable on the exact case it came from.** Katterat is in Entur as `NSR:StopPlace:58610` with a `cancellation` field, and NVDB returns **zero road segments** around it against fifteen at the neighbouring station — so "you can walk in but no bus can reach you" is computable from open data, with no key and no agreements.
+3. **Sources move.** One audit turned up two switched-off APIs (SMHI `pmp3g`, killed 2026-03-31; NVDB v3 being decommissioned) and one new mandatory header. Multi-provider fallback is a response to a documented rate of change, not architectural taste.
 
 ## Open questions for the research phase
 
