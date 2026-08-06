@@ -1,0 +1,434 @@
+/* ============================================================
+   Nestwood — спільний стиль документів-рідаутів
+   Один файл для всіх .html у research/, concept/, handoff/ тощо.
+   Специфікація й правила використання: ./SPEC.md
+
+   ⚠️ Це стиль ДОКУМЕНТІВ (внутрішні рідаути й пітч-матеріали),
+   а не дизайн-система продукту. Продуктові токени — ../../tokens/.
+   Не переносити ці значення в застосунок автоматично.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* ---------- токени: світла тема за замовчуванням ---------- */
+:root{
+  --bg:#f6f8f5;
+  --surface:#ffffff;
+  --surface-2:#eef2ec;
+  --ink:#1c2420;
+  --ink-muted:#5c6b63;
+  --ink-faint:#8b978f;
+  --accent:#2f6b57;
+  --accent-strong:#204a3c;
+  --accent-soft:#e3ede6;
+  --accent-soft-2:#cfe2d7;
+  --line:#dee6df;
+  --line-strong:#c7d2c9;
+  --flag:#95562a;
+  --flag-soft:#f3e4d7;
+  --risk:#a33a2a;
+  --risk-soft:#f7e2de;
+  --info:#2b5c86;
+  --info-soft:#e2ecf5;
+  --shadow: 0 1px 2px rgba(28,36,32,0.04), 0 8px 24px -12px rgba(28,36,32,0.10);
+}
+
+/* ---------- темна тема ---------- */
+:root[data-theme="dark"]{
+  --bg:#10140f;
+  --surface:#171d17;
+  --surface-2:#1e251d;
+  --ink:#e9efe6;
+  --ink-muted:#a3b0a4;
+  --ink-faint:#6d7a6d;
+  --accent:#7fc0a2;
+  --accent-strong:#a6d9bd;
+  --accent-soft:#22322a;
+  --accent-soft-2:#2b3d31;
+  --line:#2a332a;
+  --line-strong:#374232;
+  --flag:#d99a66;
+  --flag-soft:#3a2c1f;
+  --risk:#e0796b;
+  --risk-soft:#3b211d;
+  --info:#9cc4ec;
+  --info-soft:#1e2a38;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 28px -12px rgba(0,0,0,0.5);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#10140f;
+    --surface:#171d17;
+    --surface-2:#1e251d;
+    --ink:#e9efe6;
+    --ink-muted:#a3b0a4;
+    --ink-faint:#6d7a6d;
+    --accent:#7fc0a2;
+    --accent-strong:#a6d9bd;
+    --accent-soft:#22322a;
+    --accent-soft-2:#2b3d31;
+    --line:#2a332a;
+    --line-strong:#374232;
+    --flag:#d99a66;
+    --flag-soft:#3a2c1f;
+    --risk:#e0796b;
+    --risk-soft:#3b211d;
+    --info:#9cc4ec;
+    --info-soft:#1e2a38;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 28px -12px rgba(0,0,0,0.5);
+  }
+}
+
+/* ---------- база ---------- */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Source Serif 4', Georgia, serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent-strong); text-decoration-thickness:1px;}
+a:hover{color:var(--accent);}
+a:focus-visible, button:focus-visible, summary:focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px; border-radius:2px;
+}
+h1,h2,h3,h4,h5{font-family:'Archivo', sans-serif; color:var(--ink); text-wrap:balance; margin:0;}
+p{margin:0 0 1rem; max-width:70ch;}
+.mono{font-family:'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric:tabular-nums;}
+hr.rule{border:none; border-top:1px solid var(--line); margin:0;}
+
+/* ---------- каркас ---------- */
+.shell{display:grid; grid-template-columns:220px minmax(0,1fr); gap:0; max-width:1240px; margin:0 auto;}
+.rail{position:sticky; top:0; align-self:start; height:100vh; padding:2.75rem 1.5rem 2rem 2rem; display:flex; flex-direction:column; gap:1.75rem;}
+.rail-brand{font-family:'Archivo',sans-serif; font-weight:800; font-size:1.05rem; letter-spacing:-0.01em;}
+.rail-brand span{display:block; font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:.68rem; color:var(--ink-muted); letter-spacing:.08em; margin-top:.3rem;}
+.rail nav{display:flex; flex-direction:column; gap:.15rem;}
+.rail nav a{font-family:'Archivo',sans-serif; font-size:.82rem; font-weight:600; color:var(--ink-muted); text-decoration:none; padding:.45rem .6rem; border-radius:6px; display:flex; align-items:baseline; gap:.5rem;}
+.rail nav a .num{font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--ink-faint);}
+.rail nav a:hover{background:var(--accent-soft); color:var(--accent-strong);}
+.rail-foot{margin-top:auto; font-size:.72rem; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; line-height:1.7;}
+.rail-foot a{color:var(--ink-muted);}
+main{padding:3rem 3rem 6rem 3rem; min-width:0;}
+@media (max-width:860px){
+  .shell{grid-template-columns:1fr;}
+  .rail{position:static; height:auto; padding:1.5rem 1.25rem; border-bottom:1px solid var(--line);}
+  .rail nav{flex-direction:row; flex-wrap:wrap;}
+  main{padding:2rem 1.25rem 4rem;}
+}
+
+/* ---------- перехід між документами ---------- */
+.railx{margin-top:.5rem; padding-top:1rem; border-top:1px solid var(--line);}
+.railx-label{font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:.5rem;}
+.railx-link{display:flex; align-items:center; gap:.55rem; padding:.55rem .6rem; border-radius:8px; text-decoration:none; border:1px solid var(--line);}
+.railx-link:hover{border-color:var(--accent); background:var(--surface);}
+.railx-ico{font-size:1rem; opacity:.75;}
+.railx-link b{display:block; font-family:'Archivo',sans-serif; font-size:.8rem; font-weight:700; color:var(--ink);}
+.railx-link small{display:block; font-family:'IBM Plex Mono',monospace; font-size:.63rem; color:var(--ink-faint); margin-top:.15rem; line-height:1.35;}
+.xlink{display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .9rem; border-radius:100px; background:var(--surface); border:1px solid var(--line); font-family:'Archivo',sans-serif; font-size:.82rem; font-weight:600; text-decoration:none; box-shadow:var(--shadow); color:var(--ink);}
+.xlink:hover{border-color:var(--accent);}
+.xlink .arrow{font-family:'IBM Plex Mono',monospace; opacity:.6;}
+
+/* ---------- масхед ---------- */
+.masthead{max-width:660px; margin-bottom:1.75rem;}
+.eyebrow{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-strong); margin-bottom:.9rem; display:flex; align-items:center; gap:.6rem;}
+.eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--accent); display:inline-block;}
+h1.title{font-size:2.15rem; font-weight:800; line-height:1.12; letter-spacing:-0.015em;}
+.dek{font-size:1.05rem; color:var(--ink-muted); margin-top:.9rem; max-width:58ch;}
+.meta-row{display:flex; gap:1.25rem; margin-top:1.6rem; flex-wrap:wrap; align-items:center;}
+.meta-item{font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--ink-faint);}
+.meta-item b{color:var(--ink-muted); font-weight:500;}
+.pill{display:inline-flex; align-items:center; gap:.4rem; font-family:'IBM Plex Mono',monospace; font-size:.72rem; font-weight:500; padding:.3rem .65rem; border-radius:100px; background:var(--accent-soft); color:var(--accent-strong); border:1px solid var(--accent-soft-2);}
+.lede{max-width:660px; margin:2.4rem 0 0; padding:1.4rem 1.6rem; background:var(--surface); border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow);}
+.lede p{margin:0 0 .8rem;}
+.lede p:last-child{margin-bottom:0;}
+blockquote.pain{margin:2.4rem 0 0; max-width:660px; padding:1.5rem 1.7rem; border-left:3px solid var(--accent); background:var(--accent-soft); border-radius:0 10px 10px 0; font-size:1.05rem; color:var(--accent-strong); font-style:italic;}
+blockquote.pain p{margin:0; max-width:none;}
+
+/* ---------- секції ---------- */
+section.block{padding-top:4.5rem; margin-top:1rem; border-top:1px solid var(--line); max-width:1000px;}
+section.block:first-of-type{border-top:none;}
+.block-head{display:flex; align-items:baseline; gap:.9rem; margin-bottom:.6rem;}
+.block-num{font-family:'IBM Plex Mono',monospace; font-size:1rem; color:var(--ink-faint);}
+h2.block-title{font-size:1.55rem; letter-spacing:-0.01em;}
+.block-sub{color:var(--ink-muted); font-size:.98rem; max-width:64ch; margin-top:.6rem; margin-bottom:1.9rem;}
+h3.sub{font-family:'Archivo',sans-serif; font-size:1.08rem; font-weight:700; margin:2.4rem 0 1rem; color:var(--ink);}
+h3.sub:first-of-type{margin-top:1.8rem;}
+.plainlist{margin:0 0 .4rem; padding-left:1.4rem; max-width:68ch; display:flex; flex-direction:column; gap:.9rem;}
+.plainlist li{font-size:1rem; line-height:1.6;}
+.plainlist li b{font-family:'Archivo',sans-serif; font-weight:700; font-size:.97rem;}
+.footnote{font-size:.82rem; color:var(--ink-muted); margin-top:-.6rem; margin-bottom:1.8rem; max-width:70ch;}
+.footnote a{color:var(--ink-muted);}
+footer.page{max-width:1000px; margin-top:5rem; padding-top:1.8rem; border-top:1px solid var(--line); font-size:.82rem; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:.8rem;}
+footer.page a{color:var(--ink-muted);}
+
+/* ---------- таблиці ---------- */
+.tablewrap{overflow-x:auto; margin:1.2rem 0 1.8rem; border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow);}
+table{border-collapse:collapse; width:100%; min-width:640px; background:var(--surface);}
+table.wide{min-width:920px;}
+th,td{text-align:left; padding:.75rem .95rem; font-size:.88rem; vertical-align:top; border-bottom:1px solid var(--line);}
+thead th{font-family:'Archivo',sans-serif; font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-muted); background:var(--surface-2); border-bottom:1px solid var(--line-strong); position:sticky; top:0;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover{background:var(--accent-soft);}
+tr.grouprow td{background:var(--accent-soft); border-bottom:1px solid var(--accent-soft-2); font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--accent-strong); padding:.55rem .95rem;}
+tr.grouprow:not(:first-child) td{border-top:1px solid var(--line-strong);}
+td.country{color:var(--ink-muted); font-family:'IBM Plex Mono',monospace; font-size:.8rem; white-space:nowrap;}
+td.rowhead, th[scope="row"], td.rowlabel{font-family:'Archivo',sans-serif; font-weight:700; font-size:.85rem; white-space:nowrap;}
+td.rowtype{font-family:'IBM Plex Mono',monospace; font-size:.7rem; color:var(--ink-faint); white-space:nowrap;}
+td.rowpersona{font-family:'Archivo',sans-serif; font-weight:600; font-size:.82rem; white-space:nowrap;}
+td.num, th.num{font-family:'IBM Plex Mono',monospace; text-align:center; font-variant-numeric:tabular-nums;}
+td em{color:var(--ink); font-style:italic;}
+
+/* ---------- мітки: .tag канонічні, .chip — синонім ---------- */
+.tag, .chip{display:inline-flex; align-items:center; font-family:'IBM Plex Mono',monospace; font-size:.68rem; font-weight:600; padding:.16rem .5rem; border-radius:100px; white-space:nowrap; letter-spacing:.02em;}
+.tag-ok, .chip-yes{background:var(--accent-soft); color:var(--accent-strong); border:1px solid var(--accent-soft-2);}
+.tag-hyp, .chip-flag{background:var(--flag-soft); color:var(--flag); border:1px solid var(--flag);}
+.tag-no, .chip-no{background:var(--surface-2); color:var(--ink-faint); border:1px solid var(--line);}
+.tag-fixed{background:var(--surface-2); color:var(--ink-faint); border:1px solid var(--line-strong); text-decoration:line-through;}
+.tag-new{background:var(--info-soft); color:var(--info); border:1px solid var(--info);}
+.tag-risk{background:var(--risk-soft); color:var(--risk); border:1px solid var(--risk);}
+.verdict{display:inline-block; margin-top:.6rem; font-family:'IBM Plex Mono',monospace; font-size:.68rem; padding:.2rem .5rem; border-radius:100px;}
+.verdict.pick{background:var(--accent); color:var(--surface);}
+.verdict.maybe{background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line-strong);}
+.verdict.no{background:var(--flag-soft); color:var(--flag);}
+.score{display:inline-flex; align-items:center; justify-content:center; width:1.9rem; height:1.9rem; border-radius:6px; font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.82rem;}
+.s1{background:color-mix(in srgb, var(--flag) 22%, var(--surface));}
+.s2{background:color-mix(in srgb, var(--flag) 12%, var(--surface));}
+.s3{background:var(--surface-2);}
+.s4{background:color-mix(in srgb, var(--accent) 18%, var(--surface));}
+.s5{background:color-mix(in srgb, var(--accent) 32%, var(--surface));}
+.avgcell{font-weight:700;}
+.gapnum{display:inline-flex; align-items:center; justify-content:center; width:1.7rem; height:1.7rem; border-radius:50%; background:var(--accent-soft); color:var(--accent-strong); font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.8rem;}
+
+/* ---------- картки-сітки ---------- */
+.cardgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:1.4rem 0 2rem;}
+@media (max-width:760px){.cardgrid{grid-template-columns:1fr;}}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1.2rem 1.3rem; box-shadow:var(--shadow);}
+.card h4{font-size:.95rem; margin-bottom:.5rem; line-height:1.35;}
+.card p{font-size:.88rem; color:var(--ink-muted); margin:0;}
+.card .idx{font-family:'IBM Plex Mono',monospace; color:var(--accent); font-size:.78rem; display:block; margin-bottom:.4rem;}
+
+/* ---------- картка патерну (.pcard) ---------- */
+.patterncards{display:grid; grid-template-columns:1fr; gap:1rem; margin:1.4rem 0 2rem;}
+.pcard{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1.3rem 1.4rem 1.4rem; box-shadow:var(--shadow); display:grid; grid-template-columns:200px 1fr; gap:1.4rem;}
+.pcard.chosen{border-color:var(--accent-soft-2); background:linear-gradient(180deg, var(--accent-soft), var(--surface) 60%);}
+.pcard.rejected{opacity:.82;}
+@media (max-width:700px){.pcard{grid-template-columns:1fr;}}
+.pcard-name{font-family:'Archivo',sans-serif; font-weight:700; font-size:1rem; margin-bottom:.35rem;}
+.pcard-name small{display:block; font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:.68rem; color:var(--ink-faint); text-transform:none; margin-top:.25rem; letter-spacing:0;}
+.pcard dl{margin:0; font-size:.86rem;}
+.pcard dt{font-family:'Archivo',sans-serif; font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); margin-top:.75rem;}
+.pcard dt:first-child{margin-top:0;}
+.pcard dd{margin:.2rem 0 0; color:var(--ink-muted);}
+
+/* ---------- картка персони (.personacard) ---------- */
+.personagrid{display:grid; grid-template-columns:repeat(2,1fr); gap:1.3rem; margin-bottom:1rem;}
+@media (max-width:860px){.personagrid{grid-template-columns:1fr;}}
+.personacard{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:1.5rem 1.6rem; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:1rem;}
+.personacard.primary{border-color:var(--accent); background:linear-gradient(165deg, var(--accent-soft) 0%, var(--surface) 42%);}
+.personacard.pitch{border-color:var(--info); background:linear-gradient(165deg, var(--info-soft) 0%, var(--surface) 42%);}
+.personacard-head{display:flex; align-items:center; gap:.9rem;}
+.avatar{width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Archivo',sans-serif; font-weight:800; font-size:1.15rem; flex:none; color:#fff;}
+.avatar.a1{background:linear-gradient(135deg,#4f9975,#2f6b57);}
+.avatar.a3{background:linear-gradient(135deg,#c98a4b,#96601f);}
+.personacard-name{font-family:'Archivo',sans-serif; font-weight:700; font-size:1.12rem; line-height:1.25;}
+.personacard-name small{display:block; font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:.72rem; color:var(--ink-faint); margin-top:.2rem;}
+.personacard-badges{margin-left:auto; flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:.35rem;}
+.badge{font-family:'IBM Plex Mono',monospace; font-size:.68rem; font-weight:700; letter-spacing:.06em; padding:.25rem .6rem; border-radius:100px; text-transform:uppercase; white-space:nowrap;}
+.badge-primary{background:var(--accent); color:#fff;}
+.badge-secondary{background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line-strong);}
+.badge-pitch{background:var(--info); color:#fff;}
+.personacard dt{font-family:'Archivo',sans-serif; font-weight:700; font-size:.74rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); margin-top:.9rem; margin-bottom:.4rem;}
+.personacard dt:first-of-type{margin-top:0;}
+.personacard dd{margin:0; font-size:.9rem; color:var(--ink-muted);}
+.personacard ul.flist{margin:0; padding-left:1.1rem; display:flex; flex-direction:column; gap:.5rem;}
+.personacard ul.flist li{font-size:.88rem; color:var(--ink-muted); line-height:1.55;}
+.personacard ul.flist li .tag{margin-right:.4rem; vertical-align:1px;}
+.pquote{margin:.2rem 0 0; padding:.7rem .9rem; border-left:2px solid var(--accent-soft-2); background:var(--surface-2); border-radius:0 8px 8px 0; font-size:.86rem; font-style:italic; color:var(--ink);}
+.pwhy{font-size:.82rem; color:var(--ink-faint); border-top:1px solid var(--line); padding-top:.8rem; margin-top:.3rem;}
+.pwhy b{color:var(--ink-muted);}
+
+/* ---------- цитати з перекладом ---------- */
+.voicegroup{margin-bottom:2rem;}
+.voicegroup h3{font-family:'Archivo',sans-serif; font-size:1rem; font-weight:700; margin-bottom:.5rem; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;}
+.voicegroup > p{font-size:.9rem; color:var(--ink-muted);}
+.voicegroup > p b{color:var(--ink);}
+.quote{margin:0 0 .8rem; padding:.85rem 1.1rem; background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; box-shadow:var(--shadow);}
+.quote.no{border-left-color:var(--info);}
+.quote.risk{border-left-color:var(--risk);}
+.quote q{display:block; font-size:.9rem; font-style:italic; color:var(--ink); quotes:none;}
+.quote q b{font-style:normal;}
+/* переклад: обов'язковий для будь-якої неукраїнської цитати — див. SPEC.md */
+.quote .tr{display:block; margin-top:.55rem; padding-top:.55rem; border-top:1px dashed var(--line-strong); font-size:.88rem; color:var(--ink-muted);}
+.quote .tr::before{content:"UA "; font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.1em; color:var(--ink-faint); vertical-align:.12em;}
+.quote .tr b{color:var(--ink);}
+.quote .attr{display:block; margin-top:.55rem; font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--ink-faint);}
+.quote .attr b{color:var(--ink-muted); font-weight:600;}
+.quote .attr .fresh{color:var(--accent);}
+
+/* ---------- jobs ---------- */
+.mainjob{padding:1.6rem 1.8rem; border-radius:14px; background:linear-gradient(165deg, var(--accent-soft), var(--surface) 60%); border:1px solid var(--accent); box-shadow:var(--shadow); margin-bottom:2rem;}
+.mainjob .kicker{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-strong); margin-bottom:.6rem;}
+.mainjob .statement{font-family:'Archivo',sans-serif; font-weight:700; font-size:1.15rem; line-height:1.4; margin-bottom:.7rem;}
+.mainjob .src{font-size:.85rem; color:var(--ink-muted);}
+.mainjob .src b{color:var(--ink);}
+.jobtier{margin:2.2rem 0 0;}
+.jobtier h3{font-family:'Archivo',sans-serif; font-size:1rem; font-weight:700; margin-bottom:1rem; display:flex; align-items:center; gap:.6rem;}
+.jobtier h3 .count{font-family:'IBM Plex Mono',monospace; font-size:.7rem; color:var(--ink-faint); font-weight:500;}
+.jobcard{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1.1rem 1.3rem; margin-bottom:.9rem; box-shadow:var(--shadow);}
+.jobcard .statement{font-size:.95rem; color:var(--ink); margin-bottom:.5rem; font-weight:500;}
+.jobcard .src{font-size:.82rem; color:var(--ink-muted); margin:0 0 .5rem;}
+.jobcard .src:last-child{margin-bottom:0;}
+.jobcard .src b{color:var(--ink);}
+
+/* ---------- виноски-блоки ---------- */
+.callout{margin:1.6rem 0 2rem; padding:1.4rem 1.6rem; background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:0 12px 12px 0; box-shadow:var(--shadow);}
+.callout.alps{border-left-color:var(--accent);}
+.callout h4{font-family:'Archivo',sans-serif; font-size:1.05rem; font-weight:700; margin:0 0 .3rem;}
+.callout .kick{font-family:'IBM Plex Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:.5rem;}
+.callout p{font-size:.93rem; margin:0 0 .75rem;}
+.callout p:last-child{margin-bottom:0;}
+.callout ul{margin:.2rem 0 .9rem; padding-left:1.2rem;}
+.callout li{font-size:.92rem; margin-bottom:.4rem;}
+.callout .num{font-family:'IBM Plex Mono',monospace; font-weight:600;}
+.alps{margin:1.6rem 0 2rem; padding:1.4rem 1.6rem; background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:0 12px 12px 0; box-shadow:var(--shadow);}
+.alps h4{font-family:'Archivo',sans-serif; font-size:1.05rem; font-weight:700; margin:0 0 .3rem;}
+.alps .kick{font-family:'IBM Plex Mono',monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:.5rem;}
+.alps p{font-size:.93rem; margin:0 0 .75rem;}
+.alps p:last-child{margin-bottom:0;}
+.alps ul{margin:.2rem 0 .9rem; padding-left:1.2rem;}
+.alps li{font-size:.92rem; margin-bottom:.4rem;}
+.alps .num{font-family:'IBM Plex Mono',monospace; font-weight:600;}
+.answer{margin-top:1rem; padding:1rem 1.2rem; background:var(--bg); border:1px dashed var(--line-strong); border-radius:8px;}
+.answer h5{font-family:'Archivo',sans-serif; font-size:.86rem; font-weight:700; margin:0 0 .5rem; text-transform:uppercase; letter-spacing:.04em;}
+.answer dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:.35rem .9rem;}
+.answer dt{font-family:'Archivo',sans-serif; font-weight:700; font-size:.86rem; white-space:nowrap;}
+.answer dd{margin:0; font-size:.88rem;}
+.riskbox{max-width:1000px; margin:1.6rem 0 0; padding:1.2rem 1.5rem; background:var(--risk-soft); border:1px solid var(--risk); border-radius:10px; font-size:.9rem;}
+.riskbox .rk{font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--risk); margin-bottom:.6rem;}
+.riskbox p{font-size:.9rem; color:var(--ink-muted); max-width:none;}
+.riskbox p b{color:var(--ink);}
+.riskbox p:last-child{margin-bottom:0;}
+.principlebox{background:var(--surface-2); border:1px dashed var(--line-strong); border-radius:10px; padding:1.2rem 1.4rem; margin-top:1rem;}
+.principlebox h4{font-family:'Archivo',sans-serif; font-size:.92rem; font-weight:700; margin-bottom:.5rem;}
+.principlebox p{font-size:.87rem; color:var(--ink-muted); margin-bottom:.6rem;}
+.principlebox p:last-child{margin-bottom:0;}
+.principlebox p b{color:var(--ink);}
+.axiscard{background:var(--surface); border:1px solid var(--line-strong); border-left:3px solid var(--flag); border-radius:10px; padding:1.3rem 1.5rem; margin-bottom:1.2rem; box-shadow:var(--shadow);}
+.axiscard h3{font-family:'Archivo',sans-serif; font-size:1rem; font-weight:700; margin-bottom:.3rem; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;}
+.axiscard p{font-size:.89rem; color:var(--ink-muted); margin-bottom:.7rem;}
+.axiscard p b{color:var(--ink);}
+.axiscard p:last-child{margin-bottom:0;}
+.decision{margin-top:2rem; padding:1.6rem 1.8rem; border-radius:12px; background:var(--surface); border:1px solid var(--line-strong); box-shadow:var(--shadow);}
+.decision h4{font-family:'Archivo',sans-serif; font-size:1.05rem; margin-bottom:.9rem; display:flex; align-items:center; gap:.6rem;}
+.decision h4 .verdict{margin-top:0;}
+.decision ol{margin:0; padding-left:1.3rem; font-size:.92rem;}
+.decision ol li{margin-bottom:.6rem; color:var(--ink-muted);}
+.decision ol li b{color:var(--ink);}
+.decision + .decision{margin-top:1rem;}
+.exclbox{padding:1.3rem 1.5rem; border-radius:10px; background:var(--surface-2); border:1px dashed var(--line-strong); font-size:.9rem; color:var(--ink-muted);}
+.exclbox b{color:var(--ink);}
+.exclbox .verdict{display:block; margin-top:.6rem; font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--flag); background:none; padding:0;}
+.exclgrid{display:flex; flex-direction:column; gap:1rem;}
+
+/* ---------- статус-картки ---------- */
+.qgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.1rem; margin-bottom:1.4rem;}
+@media (max-width:900px){.qgrid{grid-template-columns:1fr;}}
+.qcard{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:1.2rem 1.35rem; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:.6rem;}
+.qcard.closed{border-color:var(--accent-soft-2);}
+.qcard.flipped{border-color:var(--flag);}
+.qcard .qhead{display:flex; align-items:baseline; gap:.6rem;}
+.qcard .qid{font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.8rem; color:var(--ink-faint);}
+.qcard .qname{font-family:'Archivo',sans-serif; font-weight:700; font-size:.92rem; line-height:1.3;}
+.qcard p{font-size:.85rem; color:var(--ink-muted); margin:0; max-width:none;}
+.qcard p b{color:var(--ink);}
+.qcard ul{margin:0; padding-left:1.05rem; display:flex; flex-direction:column; gap:.35rem;}
+.qcard li{font-size:.83rem; color:var(--ink-muted); line-height:1.5;}
+
+/* ---------- скріни ---------- */
+.shotgroup{margin:1.6rem 0 2.2rem;}
+.shotgroup-label{font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-faint); margin-bottom:.7rem; display:block;}
+.shotrow{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:.9rem;}
+figure.shot{margin:0; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--surface); box-shadow:var(--shadow);}
+figure.shot a{display:block; line-height:0;}
+figure.shot img{width:100%; display:block; aspect-ratio:16/10; object-fit:cover; background:var(--surface-2);}
+figure.shot figcaption{padding:.55rem .7rem; font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--ink-muted); border-top:1px solid var(--line);}
+
+/* ---------- друк ---------- */
+@media print{
+  :root{--bg:#fff; --surface:#fff; --shadow:none;}
+  .rail{display:none;}
+  .shell{grid-template-columns:1fr;}
+  main{padding:0;}
+  section.block{page-break-inside:avoid;}
+}
+
+/* глос: український переклад інлайнової неукраїнської цитати (SPEC §5) */
+.gl{color:var(--ink-faint); font-style:italic; font-size:.92em;}
+
+/* ---------- дерево екранів (IA) ---------- */
+.tree{list-style:none; margin:1.2rem 0 1.8rem; padding:0; display:flex; flex-direction:column; gap:1.1rem;}
+.tree-group{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1rem 1.2rem 1.1rem; box-shadow:var(--shadow);}
+.tree-group > .tree-group-head{display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap; margin-bottom:.75rem;}
+.tree-group-id{font-family:'IBM Plex Mono',monospace; font-size:.78rem; font-weight:600; color:var(--accent);}
+.tree-group-name{font-family:'Archivo',sans-serif; font-weight:700; font-size:.95rem;}
+.tree-group-note{font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--ink-faint);}
+.tree-group ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.1rem;}
+.tree-item{display:flex; align-items:baseline; gap:.55rem; flex-wrap:wrap; padding:.42rem .55rem; border-radius:7px; border-left:2px solid transparent;}
+.tree-item:hover{background:var(--surface-2);}
+.tree-id{font-family:'IBM Plex Mono',monospace; font-size:.74rem; font-weight:600; color:var(--ink-faint); min-width:2.1rem;}
+.tree-name{font-family:'Archivo',sans-serif; font-weight:600; font-size:.88rem; color:var(--ink);}
+.tree-desc{font-size:.83rem; color:var(--ink-muted);}
+.tree-jobs{display:inline-flex; gap:.25rem; flex-wrap:wrap; margin-left:.15rem;}
+.tree-p{font-family:'IBM Plex Mono',monospace; font-size:.66rem; color:var(--ink-faint); letter-spacing:.08em; margin-left:auto; white-space:nowrap;}
+.tree-p b{color:var(--ink-muted);}
+.tree-item.layer{margin-left:1.6rem; border-left:2px solid var(--line-strong); background:transparent;}
+.tree-item.layer .tree-id{color:var(--ink-faint); font-style:italic;}
+.tree-item.layer .tree-name{font-weight:500; color:var(--ink-muted);}
+.tree-item.orphan{background:var(--risk-soft); border-left-color:var(--risk);}
+.tree-item.orphan:hover{background:var(--risk-soft);}
+.tree-item.cond{border-left-color:var(--flag);}
+.tree-note{font-size:.79rem; color:var(--ink-faint); margin:.15rem 0 .35rem 3.2rem; max-width:70ch;}
+
+/* ---------- матриця трасування ---------- */
+table.matrix{min-width:0;}
+table.matrix th.jobcol{width:88px; text-align:left;}
+table.matrix th.scr{text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.7rem; padding:.55rem .3rem; white-space:nowrap;}
+table.matrix td{text-align:center; padding:.42rem .3rem; font-family:'IBM Plex Mono',monospace; font-size:.82rem;}
+table.matrix td.jobcell{text-align:left; font-family:'Archivo',sans-serif; font-weight:700; font-size:.8rem; white-space:nowrap;}
+table.matrix .yes{color:var(--accent); font-weight:600;}
+table.matrix col.orphancol, table.matrix td.orphancell, table.matrix th.orphancol{background:var(--risk-soft);}
+table.matrix th.orphancol{color:var(--risk);}
+table.matrix tr.orphanrow td{background:var(--risk-soft);}
+table.matrix tr.orphanrow:hover td{background:var(--risk-soft);}
+table.matrix tr.orphanrow td.jobcell{color:var(--risk);}
+.mxlegend{display:flex; gap:1.1rem; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--ink-faint); margin:-.9rem 0 1.6rem;}
+.mxlegend span{display:inline-flex; align-items:center; gap:.4rem;}
+.mxlegend i{width:.85rem; height:.85rem; border-radius:3px; display:inline-block; font-style:normal;}
+.mxlegend i.orph{background:var(--risk-soft); border:1px solid var(--risk);}
+.mxlegend i.ok{background:var(--accent-soft); border:1px solid var(--accent);}
+
+/* ---------- діаграми потоків ---------- */
+.diagram{margin:1.1rem 0 2.2rem; border:1px solid var(--line); border-radius:12px; background:var(--surface); box-shadow:var(--shadow); overflow:hidden;}
+.diagram-head{display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap; padding:.9rem 1.2rem; border-bottom:1px solid var(--line); background:var(--surface-2);}
+.diagram-id{font-family:'IBM Plex Mono',monospace; font-size:.72rem; font-weight:600; color:var(--accent);}
+.diagram-name{font-family:'Archivo',sans-serif; font-weight:700; font-size:.92rem;}
+.diagram-body{overflow-x:auto; padding:1.3rem 1rem;}
+pre.mermaid{margin:0; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:.8rem; color:var(--ink-faint); min-height:2rem;}
+pre.mermaid svg{display:block; margin:0 auto;}
+.diagram-foot{border-top:1px solid var(--line); padding:.9rem 1.2rem 1rem; display:grid; grid-template-columns:auto 1fr; gap:.35rem .9rem; font-size:.84rem;}
+.diagram-foot dt{font-family:'Archivo',sans-serif; font-weight:700; font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); white-space:nowrap; padding-top:.15rem;}
+.diagram-foot dd{margin:0; color:var(--ink-muted);}
+.diagram-foot dd b{color:var(--ink);}
+@media (max-width:640px){.diagram-foot{grid-template-columns:1fr;} .diagram-foot dt{margin-top:.5rem;}}
+
+/* ---------- метрика (глибина, підрахунки) ---------- */
+.statrow{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.8rem; margin:1.2rem 0 1.8rem;}
+.stat{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:.9rem 1rem; box-shadow:var(--shadow);}
+.stat .val{font-family:'IBM Plex Mono',monospace; font-size:1.5rem; font-weight:600; color:var(--accent); line-height:1;}
+.stat .lbl{font-family:'Archivo',sans-serif; font-size:.74rem; font-weight:600; color:var(--ink-muted); margin-top:.4rem; line-height:1.35;}
+.stat.warn .val{color:var(--flag);}
+.stat.risk .val{color:var(--risk);}

@@ -19,7 +19,7 @@ Phase pipeline — each folder tracks its own status; update the table below as 
 | 1. Concept | [concept/](./concept/) | In progress — people data inventory, 4 proto-personas, and Jobs-to-be-Done done (Steps 1–3); scenarios next |
 | 2. Research | [research/](./research/) ([research.md](./research/research.md), [competitors.md](./research/competitors.md), [benchmark.md](./research/benchmark.md), [patterns.md](./research/patterns.md), [screens/](./research/screens/)) | In progress — competitors, benchmark, UX patterns synthesized (Steps 3–7); data sources & tech stack next |
 | 3. Design system & tokens | [design-system/](./design-system/), [tokens/](./tokens/) | Not started |
-| 4. Wireframes | [wireframes/](./wireframes/) | Not started |
+| 4. Wireframes | [wireframes/](./wireframes/) ([sitemap.md](./wireframes/sitemap.md), [flows.md](./wireframes/flows.md), [ia.html](./wireframes/ia.html)) | In progress — information architecture done (entities, screen tree, navigation, flows, traceability); screen drawing next |
 | 5. Components | [components/](./components/) | Not started |
 | 6. Handoff | [handoff/](./handoff/) | Not started |
 
@@ -28,6 +28,17 @@ Phase pipeline — each folder tracks its own status; update the table below as 
 - **concept/** — problem framing, personas, core scenarios. [personas.md](./concept/personas.md) holds 4 proto-personas (Kristin/primary — Norwegian DNT trekker — plus a Swedish STF trekker, an international purpose-driven trekker, and a first-timer with self-doubt), each traced back to research.md observations or a real forum/blog quote; [jtbd.md](./concept/jtbd.md) holds the Jobs-to-be-Done hierarchy derived from them (1 main job, 5 related, 3 emotional, 3 social, plus a hypotheses list) and a JTBD matrix; [personas.html](./concept/personas.html) is a static summary page mirroring `research/research.html`'s style. `[?]`/hypothesis markers are kept visible throughout — none of the four are validated by primary interviews yet.
 - **research/** — `research.md` is the synthesized entry point (product, competitors, benchmark, patterns, conclusions); `competitors.md`, `benchmark.md`, `patterns.md` hold the full sourced detail; screenshots in `research/screens/`; data source research (Kartverket, Lantmäteriet, UT.no/DNT) and tech stack evaluation still open
 - **design-system/** + **tokens/** — visual language and design tokens
-- **wireframes/** — low/mid-fidelity flows for the core input → itinerary journey
+- **wireframes/** — information architecture, then low/mid-fidelity screens. Structure of the two working documents:
+
+  **[sitemap.md](./wireframes/sitemap.md)** — the IA source of truth, five sections that build on each other:
+  - *Сутності* — 19 objects the person actually deals with, each traced to the job that produces it. Field names for lodging objects come from DNT's real public NTB schema, not invented, so the mock layer has the shape of real responses.
+  - *Під питанням* — objects with no job of their own, kept visible so they don't slip into the data model unnoticed.
+  - *Екрани* — the screen tree (20 screens + 4 inline layers), each labelled with its job and its persona, plus the states (`empty`, `loading`, `error`, `degraded`, `offline`) and an explicit list of what the tree deliberately lacks.
+  - *Навігація* — four global entries plus one conditional, three levels (global / contextual / deep), depth in taps, and nine movement rules.
+  - *Трасування* — the 12 × 20 coverage matrix with both orphan lists, and a note on what the matrix method cannot catch.
+
+  **[flows.md](./wireframes/flows.md)** — six Mermaid flows (MAIN, R2, R7, R3+R6, S2, S1). Every flow carries decision points, states as separate nodes, and both ends — success *and* dead ends. Rule: every named exit from a dead end must exist in the sitemap.
+
+  **[ia.html](./wireframes/ia.html)** — rendered readout of both, in the shared document style: tree with job labels, all six diagrams live, and the traceability matrix with orphans highlighted.
 - **components/** — built UI components
 - **handoff/** — engineering handoff docs (incl. swapping mock data for live APIs)

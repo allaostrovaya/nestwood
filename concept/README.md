@@ -1,15 +1,19 @@
 # Concept — Nestwood
 
-Status: **in progress** (phase 1) — Steps 1–3 done: people data inventory, 4 proto-personas, and Jobs-to-be-Done. Core scenarios are next.
+Status: **in progress** (phase 1) — Steps 1–3 done and audited: people data inventory, proto-personas, and Jobs-to-be-Done. Core scenarios are next.
+
+**Audit pass done 2026-08-05** ([personas-audit-2026-08-05.md](./personas-audit-2026-08-05.md)) — every claim in `personas.md` and `jtbd.md` re-checked against primary sources rather than against the internal chain. Outcome: 4 personas → **2 personas + 2 axes** (two of the four had no jobs or pains of their own), one factual error corrected and propagated to `research/`, one job deleted as a feature in disguise, one demoted to hypothesis. Read the audit's sections 2 and 3 before designing on any of this.
 
 Problem framing, personas, and core scenarios for the multi-day Nordic trekking itinerary flow (fitness/budget/time/gear input → route + overnight stays + gear checklist + weather adaptation output). See [../CLAUDE.md](../CLAUDE.md) for the underlying pitch.
 
 ## Done so far
 
 - [personas-step1-data-inventory.md](./personas-step1-data-inventory.md) — Step 1: every people-related observation extractable from `research.md`, plus an explicit list of what's unknown.
-- [personas.md](./personas.md) — Step 2: 4 proto-personas (Kristin/primary, Anders, Claire, Noah), each field traced to a research.md observation or a real quote, `[?]` where unconfirmed.
-- [jtbd.md](./jtbd.md) — Step 3: Jobs-to-be-Done hierarchy (1 main, 5 related, 3 emotional, 3 social) plus a hypotheses list, derived from personas.md.
-- [personas.html](./personas.html) — static summary of the two files above, styled like `research/research.html`.
+- [personas.md](./personas.md) — Step 2, revision 2: **2 proto-personas** — Kristin (f, primary — association member) and Lukas (m, secondary — foreign visitor). Genders are deliberately opposite so the presentation layer implies no skew the data doesn't show (AllTrails 52.96% m / 47.04% f, and the collected real voices are mixed too). Plus **Ось A** (lodging regime: object type × booking × arrival time × membership, with the corrected STF/DNT rules) and **Ось B** (first multi-day trip vs. repeat). Every field traced to a source with its year and country; `[?]` where unconfirmed.
+- **Живі голоси** (in `personas.md`, added 2026-08-05) — eight dated quotes from real Scandinavian hikers on utsidan.se and fjellforum.no, six of them from the last two weeks. This closes the hole the audit called the biggest ("no direct quote from a living DNT/STF hiker"). Consequences: H5 (trailhead transport) came back out of the hypotheses list as **R6**, Ось B gained Scandinavian confirmation, and we found the first real **counter-argument to our own positioning** — official trail data diverges from the ground in both directions, so "grounded in official data" ≠ "reliable in the field".
+- [jtbd.md](./jtbd.md) — Step 3, revision 2: Jobs hierarchy (1 main, 5 related, 2 emotional, 2 social) + hypotheses H1–H5 + design principles. Each formulation passes two explicit tests (does the trigger situation exist without our product; is the "I want" a state change or an artifact we ship).
+- [personas-audit-2026-08-05.md](./personas-audit-2026-08-05.md) — the audit: claim-by-claim verification table, the ranked list of design-influencing claims that stand on wrong or unverified ground, and 3 questions with concrete places to answer them.
+- [personas.html](./personas.html) — static summary of the two files above, styled like `research/research.html`. Regenerated for revision 2: 2 personas + 2 axes, the corrected lodging table, the revised jobs hierarchy, a status panel for the three audit questions, and the business-model risk callout.
 
 ## Constraints this phase must design around (added 2026-08-05, from research)
 

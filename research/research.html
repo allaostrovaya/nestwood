@@ -4,334 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nestwood — Research Readout</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-
-  :root{
-    --bg:#f6f8f5;
-    --surface:#ffffff;
-    --surface-2:#eef2ec;
-    --ink:#1c2420;
-    --ink-muted:#5c6b63;
-    --ink-faint:#8b978f;
-    --accent:#2f6b57;
-    --accent-strong:#204a3c;
-    --accent-soft:#e3ede6;
-    --accent-soft-2:#cfe2d7;
-    --line:#dee6df;
-    --line-strong:#c7d2c9;
-    --flag:#95562a;
-    --flag-soft:#f3e4d7;
-    --shadow: 0 1px 2px rgba(28,36,32,0.04), 0 8px 24px -12px rgba(28,36,32,0.10);
-  }
-  :root[data-theme="dark"]{
-    --bg:#10140f;
-    --surface:#171d17;
-    --surface-2:#1e251d;
-    --ink:#e9efe6;
-    --ink-muted:#a3b0a4;
-    --ink-faint:#6d7a6d;
-    --accent:#7fc0a2;
-    --accent-strong:#a6d9bd;
-    --accent-soft:#22322a;
-    --accent-soft-2:#2b3d31;
-    --line:#2a332a;
-    --line-strong:#374232;
-    --flag:#d99a66;
-    --flag-soft:#3a2c1f;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 28px -12px rgba(0,0,0,0.5);
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#10140f;
-      --surface:#171d17;
-      --surface-2:#1e251d;
-      --ink:#e9efe6;
-      --ink-muted:#a3b0a4;
-      --ink-faint:#6d7a6d;
-      --accent:#7fc0a2;
-      --accent-strong:#a6d9bd;
-      --accent-soft:#22322a;
-      --accent-soft-2:#2b3d31;
-      --line:#2a332a;
-      --line-strong:#374232;
-      --flag:#d99a66;
-      --flag-soft:#3a2c1f;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 28px -12px rgba(0,0,0,0.5);
-    }
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Source Serif 4', Georgia, serif;
-    font-size:17px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:var(--accent-strong);text-decoration-thickness:1px;}
-  a:hover{color:var(--accent);}
-  a:focus-visible, button:focus-visible, summary:focus-visible{
-    outline:2px solid var(--accent);
-    outline-offset:2px;
-    border-radius:2px;
-  }
-
-  h1,h2,h3,h4{
-    font-family:'Archivo', sans-serif;
-    color:var(--ink);
-    text-wrap:balance;
-    margin:0;
-  }
-
-  .mono{font-family:'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric:tabular-nums;}
-
-  /* ---------- layout shell ---------- */
-  .shell{
-    display:grid;
-    grid-template-columns:220px minmax(0,1fr);
-    gap:0;
-    max-width:1240px;
-    margin:0 auto;
-  }
-  .rail{
-    position:sticky;
-    top:0;
-    align-self:start;
-    height:100vh;
-    padding:2.75rem 1.5rem 2rem 2rem;
-    display:flex;
-    flex-direction:column;
-    gap:1.75rem;
-  }
-  .rail-brand{
-    font-family:'Archivo', sans-serif;
-    font-weight:800;
-    font-size:1.05rem;
-    letter-spacing:-0.01em;
-  }
-  .rail-brand span{display:block; font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:0.68rem; color:var(--ink-muted); letter-spacing:.08em; margin-top:.3rem;}
-  .rail nav{display:flex; flex-direction:column; gap:.15rem;}
-  .rail nav a{
-    font-family:'Archivo', sans-serif;
-    font-size:.82rem;
-    font-weight:600;
-    color:var(--ink-muted);
-    text-decoration:none;
-    padding:.45rem .6rem;
-    border-radius:6px;
-    display:flex;
-    align-items:baseline;
-    gap:.5rem;
-  }
-  .rail nav a .num{font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--ink-faint);}
-  .rail nav a:hover{background:var(--accent-soft); color:var(--accent-strong);}
-  .rail-foot{margin-top:auto; font-size:.72rem; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; line-height:1.7;}
-  .rail-foot a{color:var(--ink-muted);}
-
-  main{padding:3rem 3rem 6rem 3rem; min-width:0;}
-
-  @media (max-width:860px){
-    .shell{grid-template-columns:1fr;}
-    .rail{position:static; height:auto; padding:1.5rem 1.25rem; border-bottom:1px solid var(--line);}
-    .rail nav{flex-direction:row; flex-wrap:wrap;}
-    main{padding:2rem 1.25rem 4rem;}
-  }
-
-  /* ---------- masthead ---------- */
-  .masthead{max-width:640px; margin-bottom:1.75rem;}
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.72rem;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:var(--accent-strong);
-    margin-bottom:.9rem;
-    display:flex;
-    align-items:center;
-    gap:.6rem;
-  }
-  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;}
-  h1.title{font-size:2.15rem; font-weight:800; line-height:1.12; letter-spacing:-0.015em;}
-  .dek{font-size:1.05rem; color:var(--ink-muted); margin-top:.9rem; max-width:58ch;}
-  .meta-row{display:flex; gap:1.25rem; margin-top:1.6rem; flex-wrap:wrap;}
-  .meta-item{font-family:'IBM Plex Mono',monospace; font-size:.75rem; color:var(--ink-faint);}
-  .meta-item b{color:var(--ink-muted); font-weight:500;}
-  .pill{
-    display:inline-flex; align-items:center; gap:.4rem;
-    font-family:'IBM Plex Mono',monospace; font-size:.72rem; font-weight:500;
-    padding:.3rem .65rem; border-radius:100px;
-    background:var(--accent-soft); color:var(--accent-strong);
-    border:1px solid var(--accent-soft-2);
-  }
-
-  .lede{
-    max-width:640px;
-    margin:2.4rem 0 0;
-    padding:1.4rem 1.6rem;
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:10px;
-    box-shadow:var(--shadow);
-  }
-  .lede p{margin:0 0 .8rem;}
-  .lede p:last-child{margin-bottom:0;}
-  blockquote.pain{
-    margin:2.4rem 0 0;
-    max-width:640px;
-    padding:1.5rem 1.7rem;
-    border-left:3px solid var(--accent);
-    background:var(--accent-soft);
-    border-radius:0 10px 10px 0;
-    font-size:1.05rem;
-    color:var(--accent-strong);
-    font-style:italic;
-  }
-  blockquote.pain p{margin:0;}
-
-  /* ---------- sections ---------- */
-  section.block{
-    padding-top:4.5rem;
-    margin-top:1rem;
-    border-top:1px solid var(--line);
-    max-width:900px;
-  }
-  section.block:first-of-type{border-top:none;}
-  .block-head{display:flex; align-items:baseline; gap:.9rem; margin-bottom:.6rem;}
-  .block-num{font-family:'IBM Plex Mono',monospace; font-size:1rem; color:var(--ink-faint);}
-  h2.block-title{font-size:1.55rem; letter-spacing:-0.01em;}
-  .block-sub{color:var(--ink-muted); font-size:.98rem; max-width:62ch; margin-top:.6rem; margin-bottom:1.9rem;}
-
-  h3.sub{font-family:'Archivo',sans-serif; font-size:1.08rem; font-weight:700; margin:2.4rem 0 1rem; color:var(--ink);}
-  h3.sub:first-of-type{margin-top:1.8rem;}
-
-  p{margin:0 0 1rem; max-width:70ch;}
-
-  .plainlist{margin:0 0 .4rem; padding-left:1.4rem; max-width:68ch; display:flex; flex-direction:column; gap:.9rem;}
-  .plainlist li{font-size:1rem; line-height:1.6;}
-  .plainlist li b{font-family:'Archivo',sans-serif; font-weight:700; font-size:.97rem;}
-
-  /* ---------- tables ---------- */
-  .tablewrap{overflow-x:auto; margin:1.2rem 0 1.8rem; border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow);}
-  table{border-collapse:collapse; width:100%; min-width:640px; background:var(--surface);}
-  table.wide{min-width:920px;}
-  tr.grouprow td{
-    background:var(--accent-soft); border-bottom:1px solid var(--accent-soft-2);
-    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.72rem;
-    text-transform:uppercase; letter-spacing:.08em; color:var(--accent-strong);
-    padding:.55rem .95rem;
-  }
-  tr.grouprow:not(:first-child) td{border-top:1px solid var(--line-strong);}
-  td.country{color:var(--ink-muted); font-family:'IBM Plex Mono',monospace; font-size:.8rem; white-space:nowrap;}
-  th,td{text-align:left; padding:.75rem .95rem; font-size:.88rem; vertical-align:top; border-bottom:1px solid var(--line);}
-  thead th{
-    font-family:'Archivo',sans-serif; font-weight:700; font-size:.72rem;
-    text-transform:uppercase; letter-spacing:.05em; color:var(--ink-muted);
-    background:var(--surface-2); border-bottom:1px solid var(--line-strong);
-    position:sticky; top:0;
-  }
-  tbody tr:last-child td{border-bottom:none;}
-  tbody tr:hover{background:var(--accent-soft);}
-  td.rowhead, th[scope="row"]{font-family:'Archivo',sans-serif; font-weight:700; font-size:.85rem; white-space:nowrap;}
-  td.num, th.num{font-family:'IBM Plex Mono',monospace; text-align:center; font-variant-numeric:tabular-nums;}
-
-  .chip{
-    display:inline-flex; align-items:center; font-family:'IBM Plex Mono',monospace;
-    font-size:.68rem; font-weight:500; padding:.18rem .5rem; border-radius:100px;
-    white-space:nowrap;
-  }
-  .chip-yes{background:var(--accent-soft); color:var(--accent-strong); border:1px solid var(--accent-soft-2);}
-  .chip-no{background:var(--surface-2); color:var(--ink-faint); border:1px solid var(--line);}
-  .chip-flag{background:var(--flag-soft); color:var(--flag); border:1px solid var(--flag-soft);}
-
-  .score{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:1.9rem; height:1.9rem; border-radius:6px;
-    font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.82rem;
-  }
-  .s1{background:color-mix(in srgb, var(--flag) 22%, var(--surface));}
-  .s2{background:color-mix(in srgb, var(--flag) 12%, var(--surface));}
-  .s3{background:var(--surface-2);}
-  .s4{background:color-mix(in srgb, var(--accent) 18%, var(--surface));}
-  .s5{background:color-mix(in srgb, var(--accent) 32%, var(--surface));}
-  .avgcell{font-weight:700;}
-
-  .footnote{font-size:.82rem; color:var(--ink-muted); margin-top:-.6rem; margin-bottom:1.8rem; max-width:70ch;}
-  .footnote a{color:var(--ink-muted);}
-
-  /* ---------- card grids ---------- */
-  .cardgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:1.4rem 0 2rem;}
-  @media (max-width:760px){.cardgrid{grid-template-columns:1fr;}}
-  .card{
-    background:var(--surface); border:1px solid var(--line); border-radius:10px;
-    padding:1.2rem 1.3rem; box-shadow:var(--shadow);
-  }
-  .card h4{font-size:.95rem; margin-bottom:.5rem; line-height:1.35;}
-  .card p{font-size:.88rem; color:var(--ink-muted); margin:0;}
-  .card .idx{font-family:'IBM Plex Mono',monospace; color:var(--accent); font-size:.78rem; display:block; margin-bottom:.4rem;}
-
-  .patterncards{display:grid; grid-template-columns:1fr; gap:1rem; margin:1.4rem 0 2rem;}
-  .pcard{
-    background:var(--surface); border:1px solid var(--line); border-radius:10px;
-    padding:1.3rem 1.4rem 1.4rem; box-shadow:var(--shadow);
-    display:grid; grid-template-columns:200px 1fr; gap:1.4rem;
-  }
-  .pcard.chosen{border-color:var(--accent-soft-2); background:linear-gradient(180deg, var(--accent-soft), var(--surface) 60%);}
-  .pcard.rejected{opacity:.82;}
-  @media (max-width:700px){.pcard{grid-template-columns:1fr;}}
-  .pcard-name{font-family:'Archivo',sans-serif; font-weight:700; font-size:1rem; margin-bottom:.35rem;}
-  .pcard-name small{display:block; font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:.68rem; color:var(--ink-faint); text-transform:none; margin-top:.25rem; letter-spacing:0;}
-  .verdict{display:inline-block; margin-top:.6rem; font-family:'IBM Plex Mono',monospace; font-size:.68rem; padding:.2rem .5rem; border-radius:100px;}
-  .verdict.pick{background:var(--accent); color:var(--surface);}
-  .verdict.maybe{background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line-strong);}
-  .verdict.no{background:var(--flag-soft); color:var(--flag);}
-  .pcard dl{margin:0; font-size:.86rem;}
-  .pcard dt{font-family:'Archivo',sans-serif; font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); margin-top:.75rem;}
-  .pcard dt:first-child{margin-top:0;}
-  .pcard dd{margin:.2rem 0 0; color:var(--ink-muted);}
-
-  .decision{
-    margin-top:2rem; padding:1.6rem 1.8rem; border-radius:12px;
-    background:var(--surface); border:1px solid var(--line-strong); box-shadow:var(--shadow);
-  }
-  .decision h4{font-family:'Archivo',sans-serif; font-size:1.05rem; margin-bottom:.9rem; display:flex; align-items:center; gap:.6rem;}
-  .decision h4 .verdict{margin-top:0;}
-  .decision ol{margin:0; padding-left:1.3rem; font-size:.92rem;}
-  .decision ol li{margin-bottom:.6rem; color:var(--ink-muted);}
-  .decision ol li b{color:var(--ink);}
-  .decision + .decision{margin-top:1rem;}
-
-  /* ---------- screenshot gallery ---------- */
-  .shotgroup{margin:1.6rem 0 2.2rem;}
-  .shotgroup-label{
-    font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase;
-    letter-spacing:.06em; color:var(--ink-faint); margin-bottom:.7rem; display:block;
-  }
-  .shotrow{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:.9rem;}
-  figure.shot{margin:0; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--surface); box-shadow:var(--shadow);}
-  figure.shot a{display:block; line-height:0;}
-  figure.shot img{width:100%; display:block; aspect-ratio:16/10; object-fit:cover; background:var(--surface-2);}
-  figure.shot figcaption{padding:.55rem .7rem; font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--ink-muted); border-top:1px solid var(--line);}
-
-  /* ---------- conclusions table ---------- */
-  .gapnum{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:1.7rem; height:1.7rem; border-radius:50%; background:var(--accent-soft);
-    color:var(--accent-strong); font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.8rem;
-  }
-
-  hr.rule{border:none; border-top:1px solid var(--line); margin:0;}
-
-  footer.page{
-    max-width:900px; margin-top:5rem; padding-top:1.8rem; border-top:1px solid var(--line);
-    font-size:.82rem; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:.8rem;
-  }
-  footer.page a{color:var(--ink-muted);}
-</style>
+<link rel="stylesheet" href="../design-system/docs/doc.css" />
 </head>
 <body>
 <div class="shell">
@@ -345,9 +18,21 @@
       <a href="#patterns"><span class="num">4</span> Патерни</a>
       <a href="#conclusions"><span class="num">5</span> Висновки</a>
     </nav>
+    <div class="railx">
+      <div class="railx-label">Інші документи</div>
+      <a class="railx-link" href="../concept/personas.html">
+        <span class="railx-ico">◑</span>
+        <span><b>Персони &amp; JTBD</b><small>хто це, і які в них jobs</small></span>
+      </a>
+      <a class="railx-link" href="../wireframes/ia.html" style="margin-top:.5rem;">
+        <span class="railx-ico">◈</span>
+        <span><b>Інформаційна архітектура</b><small>екрани, потоки, трасування jobs</small></span>
+      </a>
+    </div>
     <div class="rail-foot">
       Кроки 3–7 · 2026-08-05<br>
-      Джерела: <a href="./research.md">research.md</a>
+      Джерела: <a href="./research.md">research.md</a><br>
+      Персони: <a href="../concept/personas.html">personas.html</a>
     </div>
   </aside>
 
@@ -359,27 +44,28 @@
       <p class="dek">Сьогодні це доводиться збирати руками з трьох-чотирьох застосунків. Ти вказуєш свою фізичну форму, бюджет і час — Nestwood віддає готовий багатоденний маршрут із хижами чи кемпінгами, списком спорядження й погодою на кожен день. Усе на офіційних відкритих даних Норвегії та Швеції (Kartverket, Lantmäteriet, UT.no/DNT) — не на вигаданому AI-маршруті.</p>
       <div class="meta-row">
         <span class="pill">15 конкурентів перевірено</span>
+        <a class="xlink" href="../concept/personas.html">Персони &amp; JTBD <span class="arrow">→</span></a>
         <span class="meta-item"><b>Пітчимо:</b> AllTrails, Komoot, Google, DNT/UT.no</span>
         <span class="meta-item"><b>Як це виглядає:</b> кілька зрозумілих питань → готовий план</span>
       </div>
     </div>
 
     <blockquote class="pain">
-      <p>Навіть найкращий варіант сьогодні змушує тебе самому зводити похід руками: маршрут в одному застосунку, ночівля в другому, погода в третьому, спорядження — з голови. Ми перевірили 15 продуктів — жоден не робить це одним потоком.</p>
+      <p>Навіть найкращий варіант сьогодні змушує тебе самому зводити похід руками: маршрут в одному застосунку, ночівля в другому, погода в третьому, спорядження — з голови. Ми перевірили 15 продуктів — <b>жоден не збирає це в один план, який врахував саме тебе.</b> В Альпах офіційну наявність місць уже вшили в турпортал, але й там це пошук по готових маршрутах, не генерація. У Скандинавії немає навіть цього.</p>
     </blockquote>
 
     <!-- ============ 1. ПРОДУКТ ============ -->
     <section class="block" id="product">
       <div class="block-head"><span class="block-num mono">01</span><h2 class="block-title">Про продукт</h2></div>
       <div class="lede">
-        <p><b>Самарі пітчу.</b> Google Maps, Komoot і AllTrails у 2026 р. запустили AI-фічі для планування маршруту — і хоч Komoot і AllTrails уже вміють дещо більше за один день (Komoot автоматично ділить маршрут на етапи й пропонує житло; AllTrails-in-Claude генерує multi-day itineraries й packing lists), жоден не зшиває маршрут з <i>офіційними</i> hut-даними (доступність, ключ, дати відкриття) і погодною адаптацією по кожному дню в одному AI-потоці. Ти вказуєш фізичну форму, бюджет, час і спорядження — Nestwood віддає готовий персоналізований маршрут на кілька днів: дні переходу, прив'язані ночівлі на офіційній інфраструктурі, список спорядження й погоду на кожен день.</p>
+        <p><b>Самарі пітчу.</b> Google Maps, Komoot і AllTrails уже запустили AI-фічі для планування маршруту, і дещо більше за один день вони вміють (Komoot автоматично ділить маршрут на етапи й пропонує житло; AllTrails-in-Claude генерує multi-day itineraries з packing lists). Але <b>жоден не є генеративним і водночас привʼязаним до офіційних даних про ночівлю з адаптацією по кожному дню</b>. Формулюємо це точно, бо в Альпах половина задачі вже вирішена — див. блок «Альпи» в розділі 2: <b>патерн доведений і за нього платять, але генеративного шару немає ніде, а Скандинавія не має навіть базової інтеграції.</b> Це слабше за новизною й значно сильніше за доказом здійсненності. Ти вказуєш фізичну форму, бюджет, час і спорядження — Nestwood віддає готовий персоналізований маршрут на кілька днів: дні переходу, прив'язані ночівлі на офіційній інфраструктурі, список спорядження й погоду на кожен день.</p>
         <p><b>Бізнес-модель.</b> Це не окремий стартап — готова фіча, яку може підключити гравець із власною аудиторією: AllTrails, Komoot, Google Geospatial AI team або сама DNT/UT.no.</p>
       </div>
       <h3 class="sub">Як ми вирішимо цей біль</h3>
       <ol class="plainlist">
-        <li><b>Ми не намагаємось замінити DNT чи STF.</b> Nestwood підключається до того, що вже офіційно існує — маршрути Kartverket/Lantmäteriet, хижі DNT/UT.no — і збирає це в один план. Так само вже зробив Outdooractive, підключивши свою платформу до німецького й австрійського альпклубів: це перевірений шлях, не гіпотеза. Для живої інтеграції з операційними даними хиж (доступність, бронювання) знадобиться прямий контакт з DNT — питання майбутньої фази, не поточного прототипу.</li>
+        <li><b>Ми не намагаємось замінити DNT чи STF.</b> Nestwood підключається до того, що вже офіційно існує — маршрути Kartverket/Lantmäteriet, хижі DNT/UT.no — і збирає це в один план. Так само вже зробив Outdooractive, підключивши свою платформу до альпійських клубів: це перевірений шлях, не гіпотеза. <b>Але той самий приклад означає, що Outdooractive — і наш найближчий конкурент</b>, тож відповідь на «чому не вони» має бути готова заздалегідь — вона в розділі 2. Для живої інтеграції з операційними даними хиж знадобиться домовленість із DNT — це комерційна розмова майбутньої фази, не технічний блокер, і покупцеві з дистрибуцією вона дістається легше, ніж нам.</li>
         <li><b>Кожне рішення в плані видно й пояснено.</b> Чому саме ця хижа на третій день? Бо стільки кілометрів ти проходиш за день при своїй формі, і завтра обіцяють дощ. Якщо одне з офіційних джерел даних тимчасово недоступне, план не ламається — він чесно показує, чого не вистачає.</li>
-        <li><b>Ти відповідаєш на кілька зрозумілих питань — і відразу отримуєш готовий план</b>, замість вести діалог із чат-ботом і сподіватись, що він усе правильно зрозумів. Це свідомий вибір: передбачуваність важливіша, ніж виглядати "ще більш AI".</li>
+        <li><b>Ти відповідаєш на кілька зрозумілих питань — і відразу отримуєш готовий план.</b> Ніякого «сподіваюсь, чат-бот усе правильно зрозумів» там, де від відповіді залежить, де ти спатимеш. Передбачуваність тут важливіша, ніж виглядати «ще більш AI». <b>А коли план уже є — його можна доуточнити словами</b>: «зроби третій день коротшим», «потрібна хижа з душем». Розмовний шар працює <i>поверх</i> готового плану, тому лишається керованим.</li>
       </ol>
       <p class="footnote" style="margin-top:.4rem;">Деталі й обґрунтування кожного пункту — розділи 3 (Бенчмарк) і 4 (Патерни) нижче.</p>
     </section>
@@ -426,16 +112,41 @@
             <tr><td class="rowhead">Аудиторія</td><td>Норвезькі трекери всіх рівнів; сильний національний бренд-звʼязок (DNT-членство).</td><td>Шведські трекери, історично орієнтовані на гірські станції Лапландії (Kungsleden); теж membership-модель.</td><td>Глобальна аудиторія піших/вело/бігових маршрутів; Nordic — велика органічна підгрупа.</td><td>Наймасовіша аудиторія з усіх пʼяти.</td><td>Європейська Alps-first аудиторія, поширюється на Скандинавію через партнерства/білейбл.</td></tr>
             <tr><td class="rowhead">Основа продукту</td><td>Держ./асоціаційна база маршрутів + хиж — DNT сам володіє хижами.</td><td>Нац. мережа ~250 обʼєктів (не лише 16 хиж на Kungsleden — це підмножина на одному трейлі).</td><td>Community-генерований route-граф (7М маршрутів) — не володіє інфраструктурою ночівлі.</td><td>Community-review трейл-каталог — не володіє інфраструктурою.</td><td>Ліцензована B2B2C платформа (33 000+ хиж) — продає технологію, не володіє хижами.</td></tr>
             <tr><td class="rowhead">Ключовий механізм</td><td>Планування на карті → окремий перехід у booking-домен — <b>два різні застосунки</b>, вручну зшиті користувачем; онлайн-бронювання охоплює вже 530+ хиж.</td><td>Info-сторінки + окремий booking-модуль; ще менш інтегровано, ніж DNT.</td><td><b>Автоматичне</b> розбиття на multi-day stages + пропозиція житла в кінці кожного (Premium) — rule-based, без офіційних hut-даних.</td><td>Smart Routes редагує один трек на один день; окремо AllTrails-in-Claude генерує multi-day itineraries + packing lists.</td><td>Hut finder з transitions between huts і weather-at-hut — єдиний, хто моделює "маршрут↔хижа", але як фільтр, не агент.</td></tr>
-            <tr><td class="rowhead">Довіра</td><td>Максимальна: держ./асоціаційний бренд, дані з першоджерела.</td><td>Не однорідна: guaranteed-floor-space — лише для fjällstugor; fjällstationer бронюються, без броні місце не гарантується.</td><td>Community-довіра, не інституційна.</td><td>Найслабша інституційна довіра: публічна критика канадських SAR-фахівців за "надмірну довіру" до Smart Routes — конкретна фахова спільнота, не універсальний консенсус.</td><td>B2B-довіра; кінцевий користувач бачить чужий бренд (alpenvereinaktiv), не "Outdooractive".</td></tr>
+            <tr><td class="rowhead">Довіра</td><td>Максимальна: держ./асоціаційний бренд, дані з першоджерела.</td><td>Не однорідна, і складніше, ніж здавалось: fjällstugor <b>бронюються</b>, і бронь + прихід до 18:00 дають гарантоване ліжко; без броні або пізніше — місце під дахом є, але «неспецифіковане», можливо матрац. Нікого не виганяють — це закладений принцип. fjällstationer бронюються, без броні місце не гарантується. Тобто гарантія = <b>тип обʼєкта × є бронь × час приходу × членство</b>.</td><td>Community-довіра, не інституційна.</td><td>Найслабша інституційна довіра: публічна критика канадських SAR-фахівців за "надмірну довіру" до Smart Routes — конкретна фахова спільнота, не універсальний консенсус.</td><td>B2B-довіра; кінцевий користувач бачить чужий бренд (alpenvereinaktiv), не "Outdooractive".</td></tr>
             <tr><td class="rowhead">Монетизація</td><td>Непряма — DNT-членство, UT.no безкоштовна.</td><td>Аналогічно — STF-членство зі знижками.</td><td>Freemium + Premium-підписка.</td><td>Freemium + Peak-підписка (<b>$79.99/рік</b>) за AI-фічі.</td><td>B2B SaaS/лейбл-контракти — <span class="chip chip-flag">дані не підтверджені</span></td></tr>
           </tbody>
         </table>
       </div>
       <p class="footnote">Джерела для кожного твердження — <a href="./benchmark.md">benchmark.md</a>; скріни живого обходу нижче.</p>
 
+      
+      <div class="alps">
+        <div class="kick">Перевірено на першоджерелах</div>
+        <h4>Альпи: половина цієї задачі вже вирішена — і за неї платять</h4>
+        <p>Це найважливіше уточнення нашої головної тези, і краще знати його до того, як його назве покупець.</p>
+        <ul>
+          <li>Чотири альпійські клуби (DAV, ÖAV, SAC, AVS) ведуть спільну систему бронювання <b>Hut Reservation</b>: <span class="num">500+</span> хиж, <span class="num">~1,5 млн</span> бронювань на рік.</li>
+          <li>Її <b>календар наявності вбудований прямо в турпортал</b> alpenvereinaktiv.com — не окремим сайтом.</li>
+          <li>Інструмент <b>Bettencheck</b> показує вільні місця одразу <b>по всьому багатоденному маршруту</b> на вибрану дату старту.</li>
+          <li>А сам портал працює на white-label технології <b>Outdooractive</b> — тобто на тому самому прецеденті, який ми наводимо як зразок власної бізнес-моделі.</li>
+        </ul>
+        <p><b>Що це змінює.</b> Не можна казати «ніхто не поєднує AI з офіційними даними про хижі» — у формі «ніхто ніде» це не витримає першого питання. Витримує вужча й перевірювана: <b>Bettencheck — це пошук по наперед визначених маршрутах, а не генерація</b>. Він не знає ні твоєї фізичної форми, ні погоди, ні спорядження. Тому незайнятим лишається саме те, що робимо ми — <b>генеративне планування поверх офіційних даних</b> — і ще ціла Скандинавія, де немає навіть альпійської базової інтеграції.</p>
+        <p>Для пітчу це вигідніший розмін: замість «повірте, такого ще не робили» — «патерн доведений, за нього платять мільйон із половиною бронювань на рік, а ось регіон і шар, яких немає».</p>
+
+        <div class="answer">
+          <h5>Відповідь на «чому не Outdooractive?»</h5>
+          <p style="font-size:.88rem;">Питання прозвучить першим, тому ось коротко. Outdooractive <b>уже в Скандинавії</b> — партнерство з Visit Group як постачальник карт і роутингу, клієнти в Данії, Швеції й особливо Норвегії, референс — норвезька дестинація Geilo. Але це технологія <b>для дестинацій і туристичних офісів, не для бронювання хиж</b>, і жодного звʼязку Outdooractive ↔ DNT немає. А DNT будує ut.no сам, зі своєю інженерною командою — альпійський клуб віддав портал підряднику, DNT радше не віддасть. Тому реальний ризик інший: <b>DNT зробить це сам</b>. Звідси й різні входи:</p>
+          <dl>
+            <dt>DNT/UT.no</dt><dd>«У вас є все, крім генеративного шару й багатомовного guidance — про потребу в якому ви сказали самі». Це пітч про швидкість.</dd>
+            <dt>AllTrails / Komoot</dt><dd>«Hut-логістика Скандинавії — рів, який не будується з community-даних. Ось вона, вже зібрана».</dd>
+            <dt>Google</dt><dd>«Конкретний вертикальний кейс для вашого ж патерну grounding».</dd>
+          </dl>
+        </div>
+      </div>
+
       <h3 class="sub">Три спільні патерни ринку</h3>
       <div class="cardgrid">
-        <div class="card"><span class="idx">01</span><h4>Ніхто не поєднує AI + офіційні hut-дані в одному потоці</h4><p>Komoot уже автоматично зшиває маршрут+етапи+generic-житло (rule-based, не AI, без офіційних hut-даних); Outdooractive подає hut-finder як фільтр/карту, не як агента. Розрив вужчий, ніж "нема інтеграції взагалі".</p></div>
+        <div class="card"><span class="idx">01</span><h4>Генеративного шару над офіційними даними про ночівлю немає ні в кого</h4><p>Komoot зшиває маршрут+етапи+generic-житло (rule-based, без офіційних даних про хижі). А в Альпах офіційна наявність місць <b>уже вшита</b> в турпортал — див. блок «Альпи» нижче. Тобто розрив не «інтеграції нема», а <b>«немає генеративної, і немає в Скандинавії»</b>.</p></div>
         <div class="card"><span class="idx">02</span><h4>Довіра будується на джерелі даних, а не на AI</h4><p>Де AI з'являється (AllTrails), це викликає підозру в конкретній фаховій спільноті (канадські SAR), не інституційну довіру взагалі.</p></div>
         <div class="card"><span class="idx">03</span><h4>Монетизація завжди відв'язана від AI-шару</h4><p>Підписка продається за карти/офлайн/фічі або за B2B-ліцензію — пропозиції "AI, що спланує трип" з ціною ще не існує.</p></div>
       </div>
@@ -532,8 +243,8 @@
 
       <h3 class="sub">Топ-3 механізми для MVP</h3>
       <div class="cardgrid">
-        <div class="card"><span class="idx">Monarch Money</span><h4>Multi-provider fallback</h4><p>Жодне з трьох офіційних джерел (Kartverket/Lantmäteriet/UT.no) не має ламати весь план при відмові одного — план деградує гарно.</p></div>
-        <div class="card"><span class="idx">Oura Readiness Score</span><h4>Named-contributor breakdown</h4><p>Кожен день плану показує, чому він такий — фіз.підготовка→довжина, погода→gear, рельєф→хижа — а не непрозоре "AI пропонує".</p></div>
+        <div class="card"><span class="idx">Monarch Money</span><h4>Multi-provider fallback</h4><p>Жодне з трьох офіційних джерел (Kartverket/Lantmäteriet/UT.no) не має ламати весь план при відмові одного — план деградує чесно, показуючи, що саме відсутнє. <b>Для нас це не абстракція</b>: NTB закритий, і показувати відсутнє доведеться реально. Друга причина незручніша — офіційні трейл-дані самі розходяться з місцевістю в обидві сторони.</p></div>
+        <div class="card"><span class="idx">Oura Readiness Score</span><h4>Named-contributor breakdown</h4><p>Кожен день плану показує, чому він такий — фіз.підготовка→довжина, погода→gear, рельєф→хижа — а не непрозоре "AI пропонує". <span class="chip chip-flag">підстава ослабла — це наша ставка</span> Захист від «чорної скриньки» тримався на SAR-критиці й національній AI-статистиці, а скандинавського AI-скандалу не існує. Механізм лишається — дешевий і не шкодить — але позиціонування на нього не ставимо.</p></div>
         <div class="card"><span class="idx">Uber</span><h4>Live re-sync</h4><p>Коли прогноз погоди змінюється, план тихо перевіряється й позначає, що переглянути — не перегенеровується з нуля.</p></div>
       </div>
 
@@ -549,21 +260,21 @@
       <p class="block-sub">Пʼять принципово різних UX-патернів планування multi-day відпустки з палатками (Крок 6). Повний розбір — <a href="./patterns.md">patterns.md</a>.</p>
 
       <div class="patterncards">
-        <div class="pcard">
-          <div><div class="pcard-name">Розмовний агент<small>conversational / dialogue-driven</small></div><span class="verdict maybe">Другий за умови X</span></div>
+        <div class="pcard chosen">
+          <div><div class="pcard-name">Гід-візард<small>guided wizard / progressive disclosure</small></div><span class="verdict pick">Обрано як каркас</span></div>
           <dl>
-            <dt>Де</dt><dd>Google Gemini/Travel Concierge, komoot for ChatGPT, AllTrails+Claude.</dd>
-            <dt>Підходить</dt><dd>Коли обмеження розмиті/складно формалізувати; важлива можливість "переговорити" план.</dd>
-            <dt>Ламається</dt><dd>Коли потрібна точність, що впливає на безпеку — саме за це SAR критикували AllTrails; складно аудитивно перевірити після генерації.</dd>
+            <dt>Де</dt><dd>TurboTax interview-flow, PackPoint trip setup, Roadtrippers Autopilot (38М+ трипів).</dd>
+            <dt>Підходить</dt><dd>Коли вхідна схема добре визначена й скінченна — наш case: фіз. підготовка/бюджет/час/спорядження/уподобання вже названі в CLAUDE.md.</dd>
+            <dt>Ламається</dt><dd>Не масштабується на нетипові побажання; результат generic, якщо розгалуження недостатньо глибоке — <b>саме цю діру закриває розмовний шар нижче</b>.</dd>
           </dl>
         </div>
 
         <div class="pcard chosen">
-          <div><div class="pcard-name">Гід-візард<small>guided wizard / progressive disclosure</small></div><span class="verdict pick">Обрано</span></div>
+          <div><div class="pcard-name">Розмовний агент<small>conversational / dialogue-driven</small></div><span class="verdict pick">Взято як надбудова</span></div>
           <dl>
-            <dt>Де</dt><dd>TurboTax interview-flow, PackPoint trip setup, Roadtrippers Autopilot (38М+ трипів).</dd>
-            <dt>Підходить</dt><dd>Коли вхідна схема добре визначена й скінченна — наш case: фіз. підготовка/бюджет/час/спорядження/уподобання вже названі в CLAUDE.md.</dd>
-            <dt>Ламається</dt><dd>Не масштабується на нетипові побажання; результат generic, якщо розгалуження недостатньо глибоке.</dd>
+            <dt>Де</dt><dd>Google Gemini/Travel Concierge, komoot for ChatGPT, AllTrails+Claude, Outdooractive Tourism AI — <b>усі чотири AI-гравці категорії</b>.</dd>
+            <dt>Підходить</dt><dd>Коли обмеження розмиті/складно формалізувати; важлива можливість "переговорити" план.</dd>
+            <dt>Ламається</dt><dd>Коли потрібна точність, що впливає на безпеку — за це SAR критикували AllTrails, <b>але це канадська фахова спільнота, скандинавського аналога немає</b>. Складно аудитивно перевірити після генерації — тому у нас шар працює <b>над уже згенерованим планом</b>, а не замість візарда.</dd>
           </dl>
         </div>
 
@@ -596,20 +307,21 @@
       </div>
 
       <div class="decision">
-        <h4><span class="verdict pick">Обрано</span> Гід-візард — з трьох причин</h4>
+        <h4><span class="verdict pick">Рішення</span> Візард — каркас, розмовний шар — надбудова над готовим планом</h4>
+        <p style="margin:0 0 .6rem; font-size:.92rem; color:var(--ink-muted);">Переухвалено 2026-08-05, а не успадковано: одна з трьох підстав чистого візарда не підтвердилась.</p>
         <ol>
-          <li><b>CLAUDE.md уже описує фіксовану, скінченну вхідну схему</b> — пряма мапа на структуру візарда, без потреби вигадувати відкритий діалог.</li>
-          <li><b>Пітч-аудиторія вимагає детермінованого, повторюваного демо.</b> Розмовний агент ризикованіший саме перед AllTrails, який уже публічно "спалився" на непередбачуваності AI-виводу.</li>
-          <li><b>Візард напряму підтримує named-contributor breakdown</b> (механізм Oura): кожне поле форми — видимий, іменований драйвер рішення в результаті.</li>
+          <li><span class="tag tag-ok">тримається</span> <b>CLAUDE.md описує фіксовану, скінченну вхідну схему</b> — пряма мапа на візард, і він же напряму живить named-contributor breakdown: кожне поле форми стає видимим, іменованим драйвером рішення.</li>
+          <li><span class="tag tag-ok">тримається</span> <b>Пітч-аудиторія вимагає детермінованого, повторюваного демо.</b> Демо перед покупцем не має права імпровізувати. Це наше операційне обмеження, не твердження про ринок.</li>
+          <li><span class="tag tag-fixed">не підтвердилось</span> «Розмовний агент ризикованіший, бо AllTrails спалився на непередбачуваності» — SAR-критика канадська, скандинавського аналога немає. Ще важливіше: <b>усі чотири AI-гравці категорії пішли саме в розмовний бік.</b> Чиста форма у 2026 читається як «позаду», навіть якщо всередині сильніший оркестратор — а покупець оцінює саме те, чи наша технологія попереду його власної.</li>
         </ol>
       </div>
       <div class="decision">
-        <h4><span class="verdict maybe">Другий, за умови X</span> Розмовний агент</h4>
-        <p style="margin:0; font-size:.92rem; color:var(--ink-muted);">За умови, що grounding на офіційних даних стане достатньо надійним і покриє весь регіон, а не лишиться мок-шаром прототипу. Стане сильним доповненням пізніше — особливо для пітчу Google (Gemini/Travel Concierge — наш архітектурний референс).</p>
+        <h4><span class="verdict pick">Наслідок</span> Розмовний шар — обмежений за визначенням</h4>
+        <p style="margin:0; font-size:.92rem; color:var(--ink-muted);">Уточнення працюють над планом, що <b>вже існує</b>: «зроби день 3 коротшим», «потрібна хижа з душем», «ми не встигаємо на автобус». Саме тому він безпечний для живого демо й водночас сучасний на вигляд. <b>Побічна вигода для пітчу</b> — окремий вхід до кожного покупця: Google бачить свій розмовний патерн, AllTrails/Komoot — детермінований потік, який не повторить їхню SAR-проблему, DNT — керований інструмент, а не чорну скриньку.</p>
       </div>
       <div class="decision">
         <h4><span class="verdict no">Не підходить</span> Пряма маніпуляція на карті</h4>
-        <p style="margin:0; font-size:.92rem; color:var(--ink-muted);">Структурно протилежне до того, що Nestwood обіцяє: canvas-паттерн вимагає, щоб користувач сам був інтеграційним шаром. Це територія Komoot і onX Backcountry — обирати цей патерн means конкурувати з ними на їхньому полі.</p>
+        <p style="margin:0; font-size:.92rem; color:var(--ink-muted);">Структурно протилежне до того, що Nestwood обіцяє: canvas-паттерн вимагає, щоб користувач сам був інтеграційним шаром. Це територія Komoot і onX Backcountry — обирати цей патерн означає конкурувати з ними на їхньому полі.</p>
       </div>
     </section>
 
@@ -618,14 +330,25 @@
       <div class="block-head"><span class="block-num mono">05</span><h2 class="block-title">Висновки</h2></div>
       <p class="block-sub">Для кожної прогалини — гіпотеза й розділ вище, з якого вона випливає.</p>
 
+      <h3 class="sub">Блокер даних: заблоковано рівно один параметр</h3>
+      <div class="decision">
+        <h4><span class="verdict pick">Рішення</span> Інтеграцію відкладаємо — це комерційна розмова, не технічний блокер</h4>
+        <p style="margin:0 0 .6rem; font-size:.92rem; color:var(--ink-muted);">Відкритий API Nasjonal Turbase закритий — перевірено напряму (уніфіковані 404 на всіх документованих endpoint'ах, корінь <span class="mono">nasjonalturbase.no</span> не відповідає) і підтверджено самим DNT: «з економічних, безпекових і стратегічних причин».</p>
+        <p style="margin:0 0 .6rem; font-size:.92rem; color:var(--ink-muted);"><b>Але масштаб проблеми виявився значно меншим.</b> DNT має публічну інженерну організацію <span class="mono">github.com/Turistforeningen</span> з MIT-ліцензованими репозиторіями <span class="mono">Hytteadmin</span> / <span class="mono">Turadmin</span> — «publication and administration tool for cabins/trips on UT.no <b>and Nasjonal Turbase</b>». Модель <span class="mono">cabin.js</span> містить справжню схему: <span class="mono">NØKKEL_CHOICES</span> (Ulåst / Spesialnøkkel / DNT-nøkkel), <span class="mono">senger</span> {betjent, selvbetjent, ubetjent, vinter}, <span class="mono">åpningstider</span> (helårs / fra / til), прапорець <span class="mono">Booking</span> у <span class="mono">fasiliteter</span>, <span class="mono">betjeningsgrad</span>, <span class="mono">hyttetype</span> (DNT / Rabatt / Privat).</p>
+        <p style="margin:0 0 .6rem; font-size:.92rem; color:var(--ink-muted);"><b>Головне: ключ, місткість, сезон і прапорець бронювання — статичні атрибути, а не жива наявність.</b> Чотиризмінна формула гарантії потребує саме їх. Отже <b>Top Job #1 будується майже повністю без інтеграції</b>; єдине справді заблоковане — «скільки ліжок вільно 14 серпня», що найменш важливе для демо (дата умовна) і природно закривається угодою, яку робить покупець. Схему використовуємо <b>лише для форми мок-даних</b> — не для обходу закритого доступу й не зі старих дампів.</p>
+        <p style="margin:0; font-size:.92rem; color:var(--ink-muted);"><b>Два правила розкриття, які треба тримати явно:</b> (1) демо ніколи не вдає живу наявність — мок позначений, а принцип «деградувати чесно» показаний у самому інтерфейсі; (2) залежність називається <b>на слайді, не в додатку</b>: «потрібна угода про дані з DNT/STF — комерційна розмова». Покупцю з дистрибуцією така угода дістається незрівнянно легше, ніж нам — і це <b>частина причини купувати</b>. Якщо покупець виявить залежність сам, демо прочитається як введення в оману.</p>
+      </div>
+
+      <h3 class="sub">Прогалини й гіпотези</h3>
+
       <div class="tablewrap">
         <table class="wide">
           <thead><tr><th style="width:40px;">#</th><th style="width:260px;">Прогалина</th><th>Гіпотеза</th><th style="width:180px;">Звідки випливає</th></tr></thead>
           <tbody>
             <tr>
               <td><span class="gapnum">1</span></td>
-              <td>Ніхто не поєднує generative AI + офіційні hut-дані + погодну адаптацію по днях в одному потоці (не "нема інтеграції взагалі" — Komoot і AllTrails уже роблять частини цього).</td>
-              <td>Orchestration-шар, що генерує всі чотири елементи одним поясненим планом на офіційних даних, сприймуть acquisition-таргети як конкретно новий продукт, не варіацію існуючого.</td>
+              <td>Генеративного шару над офіційними даними про ночівлю немає ні в кого. <b>Але сама інтеграція «офіційні хижі + маршрут + багатоденний ланцюжок» в Альпах вирішена</b> (500+ хиж, ~1,5 млн бронювань/рік) — тож незайняте це <b>генеративна орієнтація + Скандинавія</b>, а не «ніхто ніде».</td>
+              <td>Orchestration-шар, що генерує всі чотири елементи одним поясненим планом, сприймуть як <b>перенесення перевіреного патерну в незайнятий регіон</b> — слабше за новизною, значно сильніше за доказом здійсненності, і надійніша рамка, ніж «новий продукт».</td>
               <td>§1 Біль, §2 Конкуренти (патерн 1)</td>
             </tr>
             <tr>
@@ -636,27 +359,27 @@
             </tr>
             <tr>
               <td><span class="gapnum">3</span></td>
-              <td>Довіра до AI-рекомендацій крихка — AllTrails отримав публічну критику канадських SAR-фахівців за "надмірну довіру" до Smart Routes.</td>
+              <td>Довіра до AI-рекомендацій крихка — AllTrails отримав публічну критику канадських SAR-фахівців за «надмірну довіру» до Smart Routes. <b>Але це канадський випадок: скандинавських застережень про AI-маршрути немає ні в DNT, ні в Røde Kors, ні у Fjällsäkerhetsrådet.</b> Тому це наша ставка, а не підтверджена потреба — і позиціонування на неї не ставимо.</td>
               <td>Видима, іменована прив'язка кожного елементу плану до офіційного джерела дозволить уникнути тієї ж критики й обжене crowd-grounded конкурентів на довірі.</td>
               <td>§3 Бенчмарк (мех. №2), §2 Довіра</td>
             </tr>
             <tr>
               <td><span class="gapnum">4</span></td>
-              <td>DNT уже бронює 530+ хиж онлайн (більшість мережі) — лишається невелика частка хиж поза системою, ключ/членство для self-service хиж, і STF fjällstugor без броні (гарантія лише "мattress on the floor").</td>
-              <td>Явний guidance-шар (офіційна формула гарантії ночівлі + action-картка) закриває саме ці залишкові випадки без потреби ставати оператором бронювання.</td>
-              <td>§2 Ключовий механізм, §3 мех. №1</td>
+              <td><b>Закрито.</b> Правила ночівлі перевірені на норвезько- й шведськомовних першоджерелах. Спільний принцип обох країн: <b>бронь купує гарантоване ліжко; без броні місце під дахом усе одно гарантоване, можливо на матраці — нікого не виганяють.</b> Відповідь = <b>тип обʼєкта × є бронь × час приходу × членство.</b> Не всі ліжка доступні до передброні (частину тримають для drop-in); ключ DNT — <em>виключно</em> перевага членства, 100 NOK це депозит для члена.</td>
+              <td>Явний guidance-шар (формула гарантії + action-картка) закриває це без потреби ставати оператором бронювання. <b>Чотиризмінна формула — точніший диференціатор, ніж «офіційні hut-дані» загалом</b>: жоден generic-lodging suggester її не виражає.</td>
+              <td>§2 Довіра, <a href="../concept/personas.html#axes">Ось A</a></td>
             </tr>
             <tr>
               <td><span class="gapnum">5</span></td>
               <td>Бізнес-модель невизначена між B2C-підпискою й B2B2C-ліцензією.</td>
-              <td>B2B2C-ліцензія нац. асоціації (прецедент Outdooractive↔alpenvereinaktiv) — менш ризикований, уже перевірений у цій категорії шлях; потребує валідації контактом з DNT/UT.no.</td>
+              <td>B2B2C-ліцензія нац. асоціації (прецедент Outdooractive↔alpenvereinaktiv) — перевірений у цій точній категорії шлях. <b>Але той самий прецедент означає, що місце вже зайняте Outdooractive</b> — отже пітч мусить відповідати на «чому не вони».</td>
               <td>§2 Монетизація</td>
             </tr>
             <tr>
               <td><span class="gapnum">6</span></td>
-              <td>Розмовний AI-інтерфейс несе ризик "надмірної довіри" перед аудиторією, що вже критикувала цей паттерн.</td>
-              <td>Гід-візард безпечніший для живого демо на поточній стадії (мок-дані); розмовний шар виправданий лише після повного live-grounding.</td>
-              <td>§4 Патерни</td>
+              <td><b>🔴 Outdooractive — одночасно наш прецедент і найближчий конкурент.</b> Возить офіційні дані про хижі, має white-label модель, у червні 2026 розгорнув <b>Tourism AI</b> — асистент над офіційним контентом платформи, включно з погодою й попередженнями про закриті стежки, і вже йде в Скандинавію через партнерство з Visit Group (Geilo як референс).</td>
+              <td>Наша перевага мусить бути в тому, чого в них немає: генеративне багатоденне планування як єдиний потік + hut-логістика саме DNT/STF + мовний і культурний шар для приїжджих. <b>Але вісь ризику інша, ніж здавалась</b>: Outdooractive прийде через дестинації, не через DNT (звʼязку Outdooractive↔DNT немає, а DNT будує ut.no сам, з власною інженерною організацією). Головний ризик — <b>DNT зробить це сам</b>, тому пітч до DNT — про швидкість, не про моноліт технології.</td>
+              <td>§2 Конкуренти (AI-шар, альпійський стек)</td>
             </tr>
           </tbody>
         </table>
