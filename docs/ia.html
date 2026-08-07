@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nestwood — Інформаційна архітектура</title>
+<link rel="stylesheet" href="../design-system/docs/doc.css" />
+</head>
+<body>
+<div class="shell wide">
+
+  <aside class="rail">
+    <div class="rail-brand">Nestwood<span>ІНФОРМАЦІЙНА АРХІТЕКТУРА</span></div>
+    <nav>
+      <a href="#tree"><span class="num">1</span> Дерево екранів</a>
+      <a href="#nav"><span class="num">2</span> Навігація і глибина</a>
+      <a href="#flows"><span class="num">3</span> Потоки</a>
+      <a href="#trace"><span class="num">4</span> Трасування</a>
+    </nav>
+    <div class="railx">
+      <div class="railx-label">Інші документи</div>
+      <a class="railx-link" href="../concept/personas.html">
+        <span class="railx-ico">◑</span>
+        <span><b>Персони &amp; JTBD</b><small>хто це, і які в них jobs</small></span>
+      </a>
+      <a class="railx-link" href="../research/research.html" style="margin-top:.5rem;">
+        <span class="railx-ico">◐</span>
+        <span><b>Research readout</b><small>ринок, конкуренти, патерни</small></span>
+      </a>
+    </div>
+    <div class="rail-foot">
+      2026-08-06<br>
+      Джерела: <a href="./sitemap.md">sitemap.md</a>, <a href="./flows.md">flows.md</a><br>
+      Jobs: <a href="../concept/jtbd.md">jtbd.md</a>
+    </div>
+  </aside>
+
+  <main>
+
+    <div class="masthead">
+      <div class="eyebrow">Інформаційна архітектура · Кроки 1–5</div>
+      <h1 class="title">20 екранів, 12 jobs, 6 потоків — і жодного екрана без названої підстави</h1>
+      <p class="dek">Дерево виведене з jobs і сутностей, а не зі структури конкурентів: тут немає ні каталогу трейлів як кореня навігації, ні картки маршруту з рейтингом — двох речей, на яких тримаються UT.no, Komoot і AllTrails. Кожен екран підписаний job'ом, який його породжує; там, де job'а немає, це сказано прямо.</p>
+      <div class="meta-row">
+        <span class="pill">19 сутностей → 20 екранів</span>
+        <a class="xlink" href="../concept/personas.html">Персони &amp; JTBD <span class="arrow">→</span></a>
+        <span class="meta-item"><b>Primary:</b> Kristin — член асоціації, знає систему</span>
+        <span class="meta-item"><b>До main job:</b> 3 тапи</span>
+      </div>
+    </div>
+
+    <blockquote class="pain">
+      <p>Головний job — не «побудувати маршрут», а <b>«не бути самою тим, хто зводить чотири розрізнені джерела в одне ціле»</b>. Тому дім продукту — один екран, де маршрут, ночівля, спорядження й погода видно разом, а не чотири розділи, між якими людина знову зшиває все руками.</p>
+    </blockquote>
+
+    <!-- ============ 1. ДЕРЕВО ============ -->
+    <section class="block" id="tree">
+      <div class="block-head"><span class="block-num mono">01</span><h2 class="block-title">Дерево екранів</h2></div>
+      <p class="block-sub">Біля кожного екрана — job із <a href="../concept/jtbd.md">jtbd.md</a>, який його породжує, і персона, якій він потрібен: <b>P</b> — Kristin (член асоціації), <b>S</b> — Lukas (приїжджий). Жирна літера означає, що для цієї персони екран критичний. Червоним підсвічені поверхні без job'а — у кожної названа зовнішня підстава.</p>
+
+      <ul class="tree">
+
+        <li class="tree-group">
+          <div class="tree-group-head"><span class="tree-group-id">0</span><span class="tree-group-name">Вхід у продукт</span></div>
+          <ul>
+            <li class="tree-item orphan">
+              <span class="tree-id">—</span><span class="tree-name">Стартовий екран</span>
+              <span class="tree-desc">обіцянка, тон, вхід у візард</span>
+              <span class="tree-jobs"><span class="tag tag-risk">без job'а</span></span>
+              <span class="tree-p">P S</span>
+            </li>
+          </ul>
+          <p class="tree-note">Підстава не job, а пакування: продукт подається як повний застосунок із власним іменем та онбордингом, а не вбудований віджет. Обсяг заморожений — функціональних елементів не отримує.</p>
+        </li>
+
+        <li class="tree-group">
+          <div class="tree-group-head"><span class="tree-group-id">A</span><span class="tree-group-name">«Хто я і куди хочу» — візард</span><span class="tree-group-note">каркас потоку · шість кроків на трьох екранах</span></div>
+          <ul>
+            <li class="tree-item"><span class="tree-id">A1</span><span class="tree-name">Форма, темп, досвід у цьому домені</span><span class="tree-jobs"><span class="tag tag-ok">R1</span><span class="tag tag-ok">E2</span></span><span class="tree-p">P S</span></li>
+            <li class="tree-item"><span class="tree-id">A2</span><span class="tree-name">Вікно дат і регіон</span><span class="tree-desc">із прапорцем «дати не рухаються»</span><span class="tree-jobs"><span class="tag tag-ok">R1</span><span class="tag tag-ok">R6</span></span><span class="tree-p">P <b>S</b></span></li>
+            <li class="tree-item"><span class="tree-id">A3</span><span class="tree-name">Що саме хочу пройти</span><span class="tree-desc">старт/фініш або кільце, тривалість, запасний день, опційно іменований маршрут</span><span class="tree-jobs"><span class="tag tag-ok">R1</span><span class="tag tag-ok">R6</span></span><span class="tree-p">P <b>S</b></span></li>
+            <li class="tree-item"><span class="tree-id">A4</span><span class="tree-name">Режим ночівлі й членство</span><span class="tree-desc">DNT / STF / немає</span><span class="tree-jobs"><span class="tag tag-ok">R2</span></span><span class="tree-p">P S</span></li>
+            <li class="tree-item"><span class="tree-id">A5</span><span class="tree-name">Наявне спорядження</span><span class="tree-jobs"><span class="tag tag-ok">R4</span></span><span class="tree-p">P <b>S</b></span></li>
+            <li class="tree-item orphan"><span class="tree-id">A6</span><span class="tree-name">Бюджет</span><span class="tree-desc">опційний, пропускається за замовчуванням</span><span class="tree-jobs"><span class="tag tag-risk">без job'а</span></span><span class="tree-p">P S</span></li>
+          </ul>
+          <p class="tree-note">Пакування: <b>W1</b> «Куди і коли» = A2 + A3 · <b>W2</b> «Хто я» = A1 + A5 · <b>W3</b> «Де ночую» = A4 + A6. Під бюджетом немає ні персони, ні дослідження — тільки назва вхідного поля в специфікації, тому крок опційний і лишається кандидатом на видалення.</p>
+        </li>
+
+        <li class="tree-group">
+          <div class="tree-group-head"><span class="tree-group-id">B</span><span class="tree-group-name">«Ось план — і чи він тримається купи»</span></div>
+          <ul>
+            <li class="tree-item"><span class="tree-id">B1</span><span class="tree-name">План по днях</span><span class="tree-desc">огляд, узгодженість чотирьох елементів</span><span class="tree-jobs"><span class="tag tag-new">MAIN</span></span><span class="tree-p">P S</span></li>
+            <li class="tree-item layer orphan"><span class="tree-id">шар</span><span class="tree-name">розмовне уточнення</span><span class="tree-desc">«зроби день 3 коротшим»</span><span class="tree-jobs"><span class="tag tag-risk">без job'а</span></span></li>
+            <li class="tree-item layer"><span class="tree-id">шар</span><span class="tree-name">«Звідки це взято»</span><span class="tree-desc">джерела, ліцензії, час оновлення, позначка мок-даних</span><span class="tree-jobs"><span class="tag tag-hyp">R5</span><span class="tag tag-risk">констрейнт</span></span></li>
+            <li class="tree-item"><span class="tree-id">B2</span><span class="tree-name">День</span><span class="tree-desc">перехід, погода, що критично саме сьогодні</span><span class="tree-jobs"><span class="tag tag-ok">R1</span><span class="tag tag-ok">R3</span><span class="tag tag-ok">R4</span></span><span class="tree-p">P S</span></li>
+            <li class="tree-item layer"><span class="tree-id">шар</span><span class="tree-name">офіційна градація складності</span><span class="tree-desc">показується, ніколи не перераховується</span><span class="tree-jobs"><span class="tag tag-ok">R1</span></span></li>
+            <li class="tree-item layer"><span class="tree-id">шар</span><span class="tree-name">чому саме так</span><span class="tree-desc">named-contributor breakdown</span><span class="tree-jobs"><span class="tag tag-hyp">R5</span><span class="tag tag-ok">E2</span></span></li>
+            <li class="tree-item"><span class="tree-id">B3</span><span class="tree-name">Ніч: гарантія й доступ</span><span class="tree-desc">формула тип × бронь × час приходу × членство</span><span class="tree-jobs"><span class="tag tag-ok">R2</span><span class="tag tag-ok">E1</span></span><span class="tree-p">P S</span></li>
+            <li class="tree-item"><span class="tree-id">B4</span><span class="tree-name">Як працює ця система ночівлі</span><span class="tree-desc">правила, неписані норми, оригінал + переклад</span><span class="tree-jobs"><span class="tag tag-ok">E1</span><span class="tag tag-ok">R2</span></span><span class="tree-p"><b>S</b> P</span></li>
+            <li class="tree-item"><span class="tree-id">B5</span><span class="tree-name">Спорядження — чеклист</span><span class="tree-desc">що взяти, що не брати, чому</span><span class="tree-jobs"><span class="tag tag-ok">R4</span></span><span class="tree-p">P <b>S</b></span></li>
+            <li class="tree-item"><span class="tree-id">B6</span><span class="tree-name">Транспорт до старту й від фінішу</span><span class="tree-jobs"><span class="tag tag-ok">R6</span></span><span class="tree-p">P S</span></li>
+            <li class="tree-item"><span class="tree-id">B8</span><span class="tree-name">Ночівлі — ланцюжок ночей</span><span class="tree-desc">усі ночі поруч, із чотирма змінними формули на кожній</span><span class="tree-jobs"><span class="tag tag-ok">R2</span><span class="tag tag-ok">R7</span></span><span class="tree-p">P S</span></li>
+            <li class="tree-item"><span class="tree-id">B7</span><span class="tree-name">Нотатки з місця</span><span class="tree-desc">стан стежки, маркування, вода, погода на місці</span><span class="tree-jobs"><span class="tag tag-ok">S2</span><span class="tag tag-ok">R1</span></span><span class="tree-p">P S</span></li>
+          </ul>
+          <p class="tree-note">B4 винесений в окремий екран, а не в шар: це і найсильніший пітч-аргумент (DNT сам назвав «informasjon på flere språk» своєю нерозв'язаною задачею), і єдиний вміст, якого немає в жодному API. B7 стоїть не на соціальному job'і, а на розходженні офіційних даних із місцевістю — це діра в нашому головному активі, і закрити її офіційними даними неможливо за визначенням.</p>
+        </li>
+
+        <li class="tree-group">
+          <div class="tree-group-head"><span class="tree-group-id">C</span><span class="tree-group-name">«Довести план до реальності»</span></div>
+          <ul>
+            <li class="tree-item"><span class="tree-id">C1</span><span class="tree-name">Що лишилось закріпити</span><span class="tree-desc">кроки з порядком, залежностями й дедлайнами</span><span class="tree-jobs"><span class="tag tag-ok">R7</span></span><span class="tree-p"><b>P</b></span></li>
+            <li class="tree-item"><span class="tree-id">C2</span><span class="tree-name">Членство й ключ</span><span class="tree-desc">умова доступу, не додаткова покупка</span><span class="tree-jobs"><span class="tag tag-ok">R2</span><span class="tag tag-ok">R7</span></span><span class="tree-p">P <b>S</b></span></li>
+          </ul>
+          <p class="tree-note">Порядок кроків — не косметика: DNT вимагає завершити оплату однієї хижі перед переходом до наступної. Передача в офіційну систему — вихід із продукту; транзакцій ми не проводимо.</p>
+        </li>
+
+        <li class="tree-group">
+          <div class="tree-group-head"><span class="tree-group-id">D</span><span class="tree-group-name">«План уже живе, а світ змінився»</span></div>
+          <ul>
+            <li class="tree-item cond"><span class="tree-id">D1</span><span class="tree-name">Сьогодні</span><span class="tree-desc">поточний перехід, ночівля на цю ніч, офлайн</span><span class="tree-jobs"><span class="tag tag-ok">R3</span><span class="tag tag-ok">R6</span><span class="tag tag-hyp">тільки «у дорозі»</span></span><span class="tree-p">P S</span></li>
+            <li class="tree-item"><span class="tree-id">D2</span><span class="tree-name">Що змінилось і що ще можна зробити</span><span class="tree-desc">центральне поле — скільки часу лишилось на реакцію</span><span class="tree-jobs"><span class="tag tag-ok">R3</span><span class="tag tag-ok">R6</span></span><span class="tree-p">P S</span></li>
+          </ul>
+          <p class="tree-note">D2 відкривається щоразу, коли є незакрита зміна — зокрема на етапі планування, бо сезон закриття хижі й недоступність джерела трапляються до виходу. Умовний тільки D1. Стан «варіантів немає» на D2 — найнебезпечніша точка продукту, і його наповнення фіксоване: найближча досяжна точка сходу, стан покриття, передати маршрут близьким.</p>
+        </li>
+
+        <li class="tree-group">
+          <div class="tree-group-head"><span class="tree-group-id">E</span><span class="tree-group-name">«Показати іншим»</span></div>
+          <ul>
+            <li class="tree-item"><span class="tree-id">E</span><span class="tree-name">Підсумок для передачі</span><span class="tree-desc">маршрут, ночівлі, очікуваний час повернення</span><span class="tree-jobs"><span class="tag tag-ok">S1</span></span><span class="tree-p">P S</span></li>
+          </ul>
+          <p class="tree-note">Дві підстави в одній формі й на різних рівнях: S1-підсумок для довіри близьких — глибока дія раз на похід; безпековий share («поділись маршрутом і часом повернення» — рекомендація самого DNT) — контекстний, із постійним входом із D1 і D2. Аварійний вміст не буває рідкісною дією.</p>
+        </li>
+
+        <li class="tree-group">
+          <div class="tree-group-head"><span class="tree-group-id">F</span><span class="tree-group-name">«Моє»</span><span class="tree-group-note">акаунт з'являється, коли є що зберегти</span></div>
+          <ul>
+            <li class="tree-item"><span class="tree-id">F1</span><span class="tree-name">Мої походи</span><span class="tree-jobs"><span class="tag tag-ok">R7</span></span><span class="tree-p"><b>P</b></span></li>
+            <li class="tree-item"><span class="tree-id">F2</span><span class="tree-name">Моє спорядження</span><span class="tree-jobs"><span class="tag tag-ok">R4</span></span><span class="tree-p">P <b>S</b></span></li>
+            <li class="tree-item"><span class="tree-id">F3</span><span class="tree-name">Я</span><span class="tree-desc">форма, мова, членство</span><span class="tree-jobs"><span class="tag tag-ok">R1</span><span class="tag tag-ok">R2</span><span class="tag tag-ok">E2</span></span><span class="tree-p">P S</span></li>
+          </ul>
+          <p class="tree-note">Акаунт — сховище credential'а (членство, ключ), інвентаря й стану закріплення, який накопичується днями. Не екран преференцій і не вхід у продукт: реєстрація ніколи не стоїть перед згенерованим планом.</p>
+        </li>
+
+      </ul>
+
+      <div class="principlebox">
+        <h4>Чого в дереві немає — свідомо</h4>
+        <p><b>Каталогу й пошуку трейлів як кореня навігації</b> — це структура конкурентів; наш корінь намір людини, а не база маршрутів. <b>Рейтингів, зірочок і відгуків</b> — жодного job'а; це центральна сутність AllTrails, і зірочки розмивають єдине, що ми продаємо, — простежуваність джерела. <b>Екрана порівняння варіантів плану</b> — жоден job його не вимагає. <b>Реєстрації перед планом.</b> <b>Написання власної нотатки</b> — job покриває читання, не писання.</p>
+      </div>
+    </section>
+
+    <!-- ============ 2. НАВІГАЦІЯ ============ -->
+    <section class="block" id="nav">
+      <div class="block-head"><span class="block-num mono">02</span><h2 class="block-title">Навігація і глибина</h2></div>
+      <p class="block-sub">Кожен пункт глобальної навігації — вхід у кластер jobs, а не в розділ контенту. Пункт, під яким немає кластера, у глобальний рівень не потрапляє, навіть якщо він є у всіх конкурентів.</p>
+
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:130px;">Пункт</th><th style="width:150px;">Кластер jobs</th><th style="width:180px;">Екрани</th><th>Чому заслуговує на глобальний рівень</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead">План</td><td class="country">MAIN, R1, R3–R6, S2</td><td class="country">B1 → B2 → B5, B6, B7</td><td>Дім продукту. MAIN JOB — про узгодженість чотирьох елементів, і єдине місце, де їх видно разом, мусить бути доступне звідусіль за один тап.</td></tr>
+            <tr><td class="rowhead">Ночівлі</td><td class="country">R2, E1, R7</td><td class="country">B8 → B3, B4, C2</td><td>Підстава не «це важливо», а те, що ночівлі — <b>ланцюжок</b>, а не властивість окремого дня: DNT оформлює їх послідовно, і людина мусить бачити ланцюг цілком.</td></tr>
+            <tr><td class="rowhead">Закріпити</td><td class="country">R7, R2, R6</td><td class="country">C1 → C2</td><td>Єдиний пункт із лічильником, і він виправданий рівно тут: стан накопичується днями й переживає сесію, тобто відображає реальність, а не привертає увагу.</td></tr>
+            <tr><td class="rowhead">Моє</td><td class="country">R7, R2, R4</td><td class="country">F1, F2, F3</td><td>Сховище credential'а, інвентаря й збережених походів. Видимий завжди, але до появи акаунта показує порожній стан.</td></tr>
+            <tr><td class="rowhead">Сьогодні <span class="tag tag-hyp">умовний</span></td><td class="country">R3, R6</td><td class="country">D1 → D2</td><td>Тільки у стані «у дорозі», і тоді стає домом замість «Плану». Сигнал вартий чогось, лише поки альтернатива ще існує — на другому рівні він приходить пізно за визначенням.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Глибина до main job</h3>
+      <div class="statrow">
+        <div class="stat"><div class="val">0</div><div class="lbl">Primary, є збережений похід — застосунок відновлює план</div></div>
+        <div class="stat"><div class="val">3</div><div class="lbl">Primary, новий похід — W2 і W3 приходять префілом з акаунта</div></div>
+        <div class="stat warn"><div class="val">4</div><div class="lbl">Холодний старт і демо для покупця — префілу немає</div></div>
+        <div class="stat"><div class="val">2</div><div class="lbl">До R2 / Top Job #1 — з будь-якого місця продукту</div></div>
+      </div>
+      <p class="footnote">Одиниця виміру: 1 тап = одна навмисна дія, що змінює екран. Решта jobs від дому: «Закріпити» → C1 = 1 · «Сьогодні» → D2 = 2, із сигналу 1 · транспортне плече інлайн на B1 = 1 · чеклист = 1 · «Як працює ця система» = 2 · нотатки з місця = 2 · поділитись = 1. <b>Жоден job усередині продукту не глибший за 2 тапи.</b></p>
+
+      <div class="callout">
+        <div class="kick">Компроміс, ухвалений явно</div>
+        <p>Четвертий тап на холодному старті не скорочуємо. Щоб дійти до трьох, довелося б генерувати план до кроку A4 — тобто <b>не знаючи членства</b>. Членство це змінна №4 формули гарантії; без неї B3 відкривається в деградованому стані на першому ж показі диференціатора. Для продукту, чия аудиторія — покупець на пітчі, один зайвий тап дешевший за диференціатор, який не працює на першому рендері. <b>Стеля — чотири; п'ять означає, що щось спроєктовано неправильно.</b></p>
+      </div>
+
+      <h3 class="sub">Три рівні</h3>
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:150px;">Рівень</th><th>Склад</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead">Глобальне<br><span class="mono" style="font-size:.7rem;color:var(--ink-faint);">видно завжди</span></td><td>План · Ночівлі · Закріпити · Моє · Сьогодні (у стані «у дорозі») · <b>персистентний рядок джерел</b> на B1/B2/B3 — не пункт навігації, а обов'язковий елемент хрому: атрибуція ©Kartverket юридично обов'язкова за CC BY 4.0, позначка мок-даних обов'язкова за правилом демо · індикатор офлайну</td></tr>
+            <tr><td class="rowhead">Контекстне<br><span class="mono" style="font-size:.7rem;color:var(--ink-faint);">з'являється в потоці</span></td><td>B2 · B5 (два рівноправні входи: з B1 і з B2) · B6 інлайн на початку й у кінці списку днів · B7 · B4 · C2 · D2, коли є незакрита зміна · безпековий share із D1 і D2 · усі чотири шари · стан degraded</td></tr>
+            <tr><td class="rowhead">Глибоке<br><span class="mono" style="font-size:.7rem;color:var(--ink-faint);">рідкісні дії</span></td><td>E як S1-підсумок для близьких · F3 «Я» · редагування інвентаря у F2 · оформлення членства через C2 · розгортка шару «Звідки це взято» · перегляд «чого в плані свідомо немає»</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Дев'ять правил руху — у <a href="./sitemap.md">sitemap.md</a>. Два з них варто знати одразу: <b>під час візарда глобальної навігації немає</b> (це воронка, і живе демо не має розбрідатись), і <b>аварійний вміст не буває глибоким</b> — якщо поверхня названа виходом із тупика, вона не може лежати на рівні «рідкісна дія».</p>
+    </section>
+
+    <!-- ============ 3. ПОТОКИ ============ -->
+    <section class="block" id="flows">
+      <div class="block-head"><span class="block-num mono">03</span><h2 class="block-title">Потоки</h2></div>
+      <p class="block-sub">Маршрути primary-персони через екрани дерева. Прямокутник — екран, ромб — рішення, заокруглений — стан або шар, овал — кінець. У кожного тупика названо вихід, і кожен названий вихід існує в дереві: вихід, якого немає, це дефект, а не чесність. Повний текст із обґрунтуваннями — <a href="./flows.md">flows.md</a>.</p>
+
+      <div class="diagram">
+        <div class="diagram-head"><span class="diagram-id">MAIN</span><span class="diagram-name">Узгодженість чотирьох джерел</span><span class="tag tag-new">головний</span><button class="diagram-toggle" type="button">розгорнути</button></div>
+        <div class="diagram-body"><pre class="mermaid">
+flowchart TD
+    START(["Запуск застосунку"]) --> QSAVED{"Є збережений похід?"}
+    QSAVED -->|так| B1["B1 · План по днях"]
+    QSAVED -->|ні| SCR["Стартовий екран"]
+    SCR --> W1["W1 · Куди і коли"]
+    W1 --> W2["W2 · Хто я"]
+    W2 --> QBUDGET{"Заповнювати бюджет?"}
+    QBUDGET -->|"ні — типовий шлях"| W3["W3 · Де ночую"]
+    QBUDGET -->|так| W3
+    W3 --> LOAD("loading · генерація плану")
+    LOAD --> QSRC{"Усі джерела відповіли?"}
+    QSRC -->|ні| QCRIT{"Недоступне джерело критичне?"}
+    QCRIT -->|так| ERR("error · джерело даних недоступне")
+    ERR --> DEAD1(["ТУПИК · план не складається<br/>вихід: W1, інший регіон або дати"])
+    DEAD1 -.-> W1
+    QCRIT -->|ні| DEG("degraded · поле «чого в плані свідомо немає»")
+    DEG --> B1
+    QSRC -->|так| QNIGHT{"Ночівля знайдена на кожну ніч?"}
+    QNIGHT -->|ні| QHARD{"Дати жорсткі?"}
+    QHARD -->|ні| W1
+    QHARD -->|так| DEAD2(["ТУПИК · у це вікно маршрут не закривається<br/>вихід: W1, коротша дистанція або інший регіон"])
+    DEAD2 -.-> W1
+    QNIGHT -->|так| B1
+    B1 --- SRC("персистентний рядок джерел")
+    B1 --> QNET{"Є мережа?"}
+    QNET -->|ні| OFF("offline · план з кешу, видно час перевірки")
+    OFF --> WINOFF(["УСПІХ офлайн · план і ночівлі доступні"])
+    QNET -->|так| B6["B6 · Транспорт"]
+    B1 --> B2["B2 · День"]
+    B1 --> B5["B5 · Спорядження — чеклист"]
+    B2 --> B5
+    B2 --> B3["B3 · Ніч: гарантія й доступ"]
+    B2 --> WHY("шар · чому саме так")
+    B3 --> QAGREE{"Чотири елементи узгоджені?"}
+    B5 --> QAGREE
+    B6 --> QAGREE
+    WHY --> QAGREE
+    QAGREE -->|так| WIN(["УСПІХ · план узгоджений<br/>далі: C1 «Закріпити» або E «Підсумок»"])
+    QAGREE -->|ні| TALK("шар · розмовне уточнення")
+    TALK --> QUND{"Запит зрозумілий і в межах шару?"}
+    QUND -->|ні| TERR("error шару · запит поза межами")
+    TERR --> B1
+    QUND -->|так| LOAD2("loading · перегенерація")
+    LOAD2 --> QFEAS{"Уточнення дає розв'язний план?"}
+    QFEAS -->|так| B1
+    QFEAS -->|ні| IMPOSS("стан «неможливо»")
+    IMPOSS --> DEAD3(["ТУПИК уточнення · попередній план збережено<br/>вихід: B1 з поясненням, що не сходиться"])
+    DEAD3 -.-> B1
+    classDef state fill:#8b978f22,stroke:#8b978f;
+    classDef dead fill:#e0796b22,stroke:#e0796b;
+    classDef win fill:#7fc0a222,stroke:#7fc0a2;
+    class LOAD,LOAD2,ERR,DEG,OFF,SRC,WHY,TALK,TERR,IMPOSS state;
+    class DEAD1,DEAD2,DEAD3 dead;
+    class WIN,WINOFF win;
+</pre></div>
+        <dl class="diagram-foot">
+          <dt>Рішення</dt><dd>Чи критичне недоступне джерело · чи жорсткі дати · <b>чи узгоджені чотири елементи</b> · чи запит у межах розмовного шару · чи дає уточнення розв'язний план</dd>
+          <dt>Стани</dt><dd>loading (генерація й перегенерація) · error джерела й error шару · «неможливо» · degraded · offline</dd>
+          <dt>Кінці</dt><dd><b>Успіх</b> — план узгоджений · <b>Успіх офлайн</b> — план із кешу · <b>3 тупики</b>: критичне джерело, жорстке вікно дат, нездійсненне уточнення. В останньому попередній план лишається цілим</dd>
+        </dl>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><span class="diagram-id">R2</span><span class="diagram-name">Що конкретно потрібно для кожної ночівлі</span><span class="tag tag-ok">Top Job #1</span><button class="diagram-toggle" type="button">розгорнути</button></div>
+        <div class="diagram-body"><pre class="mermaid">
+flowchart TD
+    IN(["Треба знати, що потрібно на цю ніч"]) --> QENTRY{"Звідки заходить?"}
+    QENTRY -->|з плану| B2["B2 · День"]
+    QENTRY -->|з навігації| B8["B8 · Ночівлі — ланцюжок"]
+    B2 --> B3["B3 · Ніч: гарантія й доступ"]
+    B8 --> B3
+    B3 --> QOBJ{"Об'єкт для цієї ночі підтверджений?"}
+    QOBJ -->|ні| EMP("empty · об'єкт не підтверджений")
+    EMP --> DEADEMP(["ТУПИК даних · цю ніч закрити не можна<br/>вихід: розмовне уточнення — замінити ніч"])
+    DEADEMP -.-> B1REF["B1 · План по днях"]
+    QOBJ -->|так| QNET{"Є мережа?"}
+    QNET -->|ні| OFFC("offline · картка з кешу")
+    OFFC --> STATIC
+    QNET -->|так| QRULESRC{"Джерело правил відповідає?"}
+    QRULESRC -->|ні| ERR("error · довідник правил недоступний")
+    ERR --> STATIC
+    QRULESRC -->|так| QBOOK{"Об'єкт у системі бронювання?"}
+    QBOOK -->|ні| DROP("тільки drop-in · бронювати нічого")
+    DROP --> B4["B4 · Як працює ця система ночівлі"]
+    QBOOK -->|так| QLIVE{"Жива наявність доступна?"}
+    QLIVE -->|так| QLOCK{"Об'єкт замкнений — потрібен DNT-ключ?"}
+    QLIVE -->|ні| DEG("degraded · наявність очікує угоди з DNT/STF")
+    DEG --> STATIC("формула зі статичних полів")
+    STATIC --> QLOCK
+    QLOCK -->|ні| QTIME{"Прихід після 18:00 — правило Швеції?"}
+    QLOCK -->|так| QMEM{"У групі є член асоціації?"}
+    QMEM -->|так| QTIME
+    QMEM -->|ні| C2["C2 · Членство й ключ"]
+    C2 --> QBUY{"Береться оформлювати членство?"}
+    QBUY -->|так| HANDM(["ВИХІД · оформлення в офіційній системі"])
+    HANDM -.-> C1REF["C1 · Що лишилось закріпити"]
+    QBUY -->|ні| DEADM(["ТУПИК членства · ніч недоступна замкненою<br/>вихід: нелокована хижа, кемпінг, allemansrätten"])
+    DEADM -.-> B1REF
+    QTIME -->|так| LATE("гарантія неспецифікованого місця")
+    QTIME -->|ні| BED("гарантоване ліжко за бронню")
+    LATE --> B4
+    BED --> B4
+    B4 --> QLANG{"Правила мовою, яку людина читає?"}
+    QLANG -->|ні| ORIG("оригінал плюс переклад")
+    ORIG --> WIN
+    QLANG -->|так| WIN(["УСПІХ · знаю, що гарантовано і що зробити<br/>ключ, логбук, самореєстрація, оплата"])
+    classDef state fill:#8b978f22,stroke:#8b978f;
+    classDef dead fill:#e0796b22,stroke:#e0796b;
+    classDef win fill:#7fc0a222,stroke:#7fc0a2;
+    classDef exit fill:#9cc4ec22,stroke:#9cc4ec;
+    class OFFC,DEG,STATIC,DROP,LATE,BED,ORIG,EMP,ERR state;
+    class DEADM,DEADEMP dead;
+    class WIN win;
+    class HANDM exit;
+</pre></div>
+        <dl class="diagram-foot">
+          <dt>Рішення</dt><dd>Це і є <b>чотири змінні формули</b>, розкладені в порядку звуження: прапорець Booking → жива наявність → замок і членство → час приходу 18:00 → мова правил</dd>
+          <dt>Стани</dt><dd>empty (об'єкт не підтверджений) · error довідника · offline · <b>degraded</b> — наявність очікує угоди з DNT/STF</dd>
+          <dt>Кінці</dt><dd><b>Успіх</b> — відомо обидві частини: що гарантовано і що зробити на місці · <b>вихід</b> — оформлення членства в офіційній системі · <b>2 тупики</b>: відмова від членства при замкненій хижі, непідтверджений об'єкт</dd>
+        </dl>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><span class="diagram-id">R7</span><span class="diagram-name">Довести план до реально закріплених ночівель</span><button class="diagram-toggle" type="button">розгорнути</button></div>
+        <div class="diagram-body"><pre class="mermaid">
+flowchart TD
+    IN(["План готовий, жодна ніч не закріплена"]) --> C1["C1 · Що лишилось закріпити"]
+    C1 --> QANY{"Є кроки до виконання?"}
+    QANY -->|ні| EMP("empty · усі ночі drop-in")
+    EMP --> WIN1(["УСПІХ · план не потребує оформлення"])
+    QANY -->|так| QDEP{"Крок блокований залежністю?"}
+    QDEP -->|"так, членство або ключ"| C2["C2 · Членство й ключ"]
+    C2 --> C1
+    QDEP -->|ні| QPOSS{"Крок можливий зараз?"}
+    QPOSS -->|"ні, немає в системі бронювання"| NOBOOK("стан кроку · неможливо зараз")
+    NOBOOK --> C1
+    QPOSS -->|"ні, дедлайн минув"| QKIND{"Що саме прострочено?"}
+    QKIND -->|ночівля| DEADBED(["ТУПИК мʼякий · ніч не заброньована<br/>вихід: drop-in — нікого не виганяють"])
+    QKIND -->|"транспорт або сезон"| DEADHARD(["ТУПИК жорсткий · drop-in не існує<br/>вихід: D2 — перебудувати цю ніч"])
+    DEADHARD -.-> D2REF["D2 · Що змінилось"]
+    QPOSS -->|так| QNET{"Є мережа?"}
+    QNET -->|ні| OFF("offline · крок збережено")
+    OFF --> WINOFF(["УСПІХ офлайн · список і дедлайни доступні"])
+    QNET -->|так| QSYS{"Офіційна система відповідає?"}
+    QSYS -->|ні| ERR("error · система недоступна")
+    ERR --> C1
+    QSYS -->|так| HAND(["ВИХІД ІЗ ПРОДУКТУ · передача в офіційну систему<br/>ми не проводимо транзакцію"])
+    HAND --> CHK("loading · перевірка після повернення")
+    CHK --> QBACK{"Крок підтверджено?"}
+    QBACK -->|так| DONE("стан кроку · зроблено")
+    QBACK -->|ні| PEND("стан кроку · не почато")
+    PEND --> QDUE{"Дедлайн уже настав?"}
+    QDUE -->|ні| C1
+    QDUE -->|так| QKIND
+    DONE --> QMORE{"Лишились кроки?"}
+    QMORE -->|так| C1
+    QMORE -->|ні| WIN2(["УСПІХ · усі ночі, квитки й членство оформлені"])
+    classDef state fill:#8b978f22,stroke:#8b978f;
+    classDef dead fill:#e0796b22,stroke:#e0796b;
+    classDef win fill:#7fc0a222,stroke:#7fc0a2;
+    classDef exit fill:#9cc4ec22,stroke:#9cc4ec;
+    class EMP,NOBOOK,OFF,ERR,DONE,PEND,CHK state;
+    class DEADBED,DEADHARD dead;
+    class WIN1,WIN2,WINOFF win;
+    class HAND exit;
+</pre></div>
+        <dl class="diagram-foot">
+          <dt>Рішення</dt><dd>Чи є кроки взагалі · чи блокований крок залежністю (членство → ключ → замкнені хижі) · чи можливий зараз · <b>чи настав дедлайн</b> · що саме прострочено</dd>
+          <dt>Стани</dt><dd>empty · offline · error офіційної системи · loading після повернення · стани самого кроку: «неможливо зараз», «зроблено», «не почато»</dd>
+          <dt>Кінці</dt><dd>Три успіхи (нема чого оформлювати · усе оформлено · офлайн зі списком) · <b>вихід із продукту</b> — передача в офіційну систему · <b>2 тупики</b> різної жорсткості: ночівля лишається drop-in, транспорт — ні</dd>
+        </dl>
+        <p class="footnote" style="margin:0; padding:0 1.2rem 1.1rem;">Цикл, а не лінія: потік повертається в C1 після кожного кроку, бо DNT вимагає завершити оплату однієї хижі перед переходом до наступної.</p>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><span class="diagram-id">R3 + R6</span><span class="diagram-name">Зміна погоди й транспорту, поки альтернатива ще існує</span><button class="diagram-toggle" type="button">розгорнути</button></div>
+        <div class="diagram-body"><pre class="mermaid">
+flowchart TD
+    IN(["Є незакрита зміна в плані"]) --> QSTATE{"План уже у стані «у дорозі»?"}
+    QSTATE -->|так| D1["D1 · Сьогодні"]
+    QSTATE -->|"ні — етап підготовки"| B1["B1 · План по днях"]
+    B1 --> D2
+    D1 --> QNET{"Є мережа для перевірки?"}
+    QNET -->|ні| OFF("offline · показано час останньої перевірки")
+    OFF --> WINOFF(["УСПІХ офлайн · перехід і ночівля з кешу"])
+    QNET -->|так| LOAD("loading · перевірка змін")
+    LOAD --> QOK{"Джерела відповіли?"}
+    QOK -->|ні| ERR("error · джерело недоступне")
+    ERR --> D2["D2 · Що змінилось і що ще можна зробити"]
+    QOK -->|так| QCHG{"Щось змінилось?"}
+    QCHG -->|ні| WIN1(["УСПІХ · план чинний"])
+    QCHG -->|так| D2
+    D2 --> QLEAD{"Запас часу на альтернативу ще є?"}
+    QLEAD -->|ні| NOOPT("стан «варіантів немає» · найближча точка сходу, покриття, передати близьким")
+    NOOPT --> SHARE["E · безпековий share"]
+    SHARE --> DEADNO(["ТУПИК чесний · варіанту в плані немає<br/>куди зійти, чи є звʼязок, кого попередити"])
+    QLEAD -->|так| QKIND{"Що саме змінилось?"}
+    QKIND -->|погода| B5["B5 · Спорядження — чеклист"]
+    QKIND -->|"сезон або обʼєкт ночівлі"| B3["B3 · Ніч: гарантія й доступ"]
+    QKIND -->|транспорт| B6["B6 · Транспорт"]
+    B6 --> QROAD{"У точки виходу є дорожній доступ?"}
+    QROAD -->|ні| BAIL("Точка сходу · ще досяжні виходи з дедлайном на кожному")
+    BAIL --> QOTHER{"Є інша досяжна точка сходу?"}
+    QOTHER -->|так| QAPPLY{"Людина застосовує зміну?"}
+    QOTHER -->|ні| NOOPT
+    QROAD -->|так| QAPPLY
+    B5 --> QAPPLY
+    B3 --> QAPPLY
+    QAPPLY -->|ні| IGN("стан сигналу · зігноровано")
+    IGN --> QSTATE
+    QAPPLY -->|так| LOAD2("loading · перебудова зачеплених днів")
+    LOAD2 --> QNEW{"Зʼявились нові кроки закріплення?"}
+    QNEW -->|так| C1["C1 · Що лишилось закріпити"]
+    QNEW -->|ні| WIN2
+    C1 --> WIN2(["УСПІХ · план перебудований, поки альтернатива існувала"])
+    classDef state fill:#8b978f22,stroke:#8b978f;
+    classDef dead fill:#e0796b22,stroke:#e0796b;
+    classDef win fill:#7fc0a222,stroke:#7fc0a2;
+    class OFF,LOAD,LOAD2,ERR,IGN,NOOPT,BAIL state;
+    class DEADNO dead;
+    class WIN1,WIN2,WINOFF win;
+</pre></div>
+        <dl class="diagram-foot">
+          <dt>Рішення</dt><dd>Чи план уже в дорозі · <b>чи лишився запас часу</b> — головне рішення продукту, і воно стоїть перед типом зміни · чи має точка виходу дорожній доступ · чи створила перебудова нові кроки закріплення</dd>
+          <dt>Стани</dt><dd>offline зі своїм кінцем · loading · error джерела, яке саме <b>є</b> зміною плану · <b>«варіантів немає»</b> · «зігноровано»</dd>
+          <dt>Кінці</dt><dd>Три успіхи (змін немає · план перебудований · офлайн) · <b>один чесний тупик</b> — єдиний у продукті без продуктового розв'язання: запасу часу немає</dd>
+        </dl>
+        <p class="footnote" style="margin:0; padding:0 1.2rem 1.1rem;">Механізм описаний носієм болю: сигнал у момент поломки безкорисний — потрібен був за день-два, поки існував варіант звернути на Riksgränsen або Beisfjord. Розвилка про дорожній доступ теж не абстрактна: замінний автобус до Katterat неможливий, бо дороги туди немає.</p>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><span class="diagram-id">S2</span><span class="diagram-name">Чи це реально для людини як я</span><button class="diagram-toggle" type="button">розгорнути</button></div>
+        <div class="diagram-body"><pre class="mermaid">
+flowchart TD
+    IN(["Сумнів: чи витягну саме цю ділянку"]) --> B2["B2 · День"]
+    B2 --> B7["B7 · Нотатки з місця"]
+    B7 --> QANY{"Є нотатки для цієї ділянки?"}
+    QANY -->|ні| EMP("empty · нотаток для ділянки немає")
+    EMP --> WINEMP(["УСПІХ порожнього стану · «немає свідчень» сказано прямо"])
+    QANY -->|так| QDATE{"Нотатка датована?"}
+    QDATE -->|ні| DROPN("нотатка без дати не показується")
+    DROPN --> QANY
+    QDATE -->|так| QDEMO{"Це демо для покупця?"}
+    QDEMO -->|так| CUR("кураторські нотатки, позначені як ілюстративні")
+    CUR --> QDIFF
+    QDEMO -->|ні| QDIFF{"Нотатка розходиться з офіційними даними?"}
+    QDIFF -->|так| DEG("degraded · карта й місцевість не збігаються")
+    DEG --> LEVEL("рівень джерела community · відділений від офіційного")
+    QDIFF -->|ні| LEVEL
+    LEVEL --> WHY("шар · чому саме так — окремим рівнем джерела")
+    WHY --> QRATE{"Чи не сповзло це в рейтинг?"}
+    QRATE -->|"так — дефект"| DEADR(["ТУПИК позиційний · зірочки розмивають простежуваність<br/>вихід: нотатки про СТАН, не оцінки"])
+    QRATE -->|ні| WIN(["УСПІХ · видно, що бачили реальні люди<br/>і наскільки це збігається з офіційними даними"])
+    classDef state fill:#8b978f22,stroke:#8b978f;
+    classDef dead fill:#e0796b22,stroke:#e0796b;
+    classDef win fill:#7fc0a222,stroke:#7fc0a2;
+    class EMP,DROPN,CUR,DEG,LEVEL,WHY state;
+    class DEADR dead;
+    class WIN,WINEMP win;
+</pre></div>
+        <dl class="diagram-foot">
+          <dt>Рішення</dt><dd>Чи є нотатки · чи датована · <b>чи це демо</b> — вигаданих відгуків у демо бути не може · чи розходиться з офіційними даними · чи не сповзло в рейтинг</dd>
+          <dt>Стани</dt><dd><b>empty — найімовірніший</b>, бо в продукту без користувачів своїх нотаток немає · degraded «розходження карти з місцевістю» · відфільтрована нотатка без дати · кураторський режим демо</dd>
+          <dt>Кінці</dt><dd><b>Успіх</b> · <b>успіх порожнього стану</b> — «свідчень немає» сказано прямо · <b>тупик позиційний</b>: це стан не людини, а продукту — якщо шар сповз у рейтинги, ми втратили єдине, що продаємо</dd>
+        </dl>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-head"><span class="diagram-id">S1</span><span class="diagram-name">Мати чим підтвердити реалістичність плану</span><button class="diagram-toggle" type="button">розгорнути</button></div>
+        <div class="diagram-body"><pre class="mermaid">
+flowchart TD
+    IN(["Треба показати план сторонній людині"]) --> QWHY{"Навіщо показуємо?"}
+    QWHY -->|"довіра близьких — S1"| B1["B1 · План по днях"]
+    QWHY -->|"безпека — рекомендація DNT"| D1["D1 · Сьогодні"]
+    B1 --> E["E · Підсумок для передачі"]
+    D1 --> E
+    E --> QREADY{"План уже узгоджений?"}
+    QREADY -->|ні| WARN("стан · план ще чернетка")
+    WARN --> B1
+    QREADY -->|так| QSRC{"Джерела й атрибуція присутні?"}
+    QSRC -->|ні| DEADS(["ТУПИК довіри · підсумок без джерел не віддається назовні"])
+    QSRC -->|так| QMOCK{"У плані є мок-дані?"}
+    QMOCK -->|так| MOCK("позначка «ілюстративні дані» переноситься в експорт")
+    MOCK --> QCH
+    QMOCK -->|ні| QCH{"Куди віддаємо?"}
+    QCH -->|"близьким для довіри"| WIN1(["УСПІХ S1 · узгоджений план із названими джерелами"])
+    QCH -->|"близьким для безпеки"| RET("очікуваний час повернення й маршрут")
+    RET --> WIN2(["УСПІХ безпековий · доступно з D1 і D2, не сховано в глибині"])
+    classDef state fill:#8b978f22,stroke:#8b978f;
+    classDef dead fill:#e0796b22,stroke:#e0796b;
+    classDef win fill:#7fc0a222,stroke:#7fc0a2;
+    class WARN,MOCK,RET state;
+    class DEADS dead;
+    class WIN1,WIN2 win;
+</pre></div>
+        <dl class="diagram-foot">
+          <dt>Рішення</dt><dd><b>Навіщо показуємо</b> — перша ж розвилка розділяє дві підстави, які не можна змішувати · чи план узгоджений · чи є атрибуція · <b>чи є мок-дані</b></dd>
+          <dt>Стани</dt><dd>план-чернетка · перенесення мок-позначки в експорт — найлегше місце випадково збрехати: усередині продукту позначка є, а у витягнутому підсумку її може не бути</dd>
+          <dt>Кінці</dt><dd><b>Успіх S1</b> — переконує простежуваність, не наша впевненість · <b>успіх безпековий</b> · <b>тупик довіри</b>: без рядка джерел підсумок назовні не віддається — це водночас вимога CC BY 4.0</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ 4. ТРАСУВАННЯ ============ -->
+    <section class="block" id="trace">
+      <div class="block-head"><span class="block-num mono">04</span><h2 class="block-title">Трасування</h2></div>
+      <p class="block-sub">Усі 12 jobs × усі 20 екранів. ✓ ставиться, тільки якщо екран реально бере участь у закритті job'а — не «дотичний» і не «міг би». Гіпотези й дизайн-принципи рядками не є: перші не jobs за визначенням, другі — констрейнти, що проявляються полями всередині сутностей.</p>
+
+      <div class="statrow">
+        <div class="stat"><div class="val">12</div><div class="lbl">jobs — MAIN, R1–R7, E1, E2, S1, S2</div></div>
+        <div class="stat"><div class="val">20</div><div class="lbl">екранів у дереві</div></div>
+        <div class="stat risk"><div class="val">1</div><div class="lbl">порожній рядок — R5, закритий шарами свідомо</div></div>
+        <div class="stat risk"><div class="val">1</div><div class="lbl">порожній стовпець — Стартовий екран, навмисно</div></div>
+      </div>
+
+      <div class="mxlegend">
+        <span><i class="ok"></i> екран бере участь у закритті job'а</span>
+        <span><i class="orph"></i> сирота — рядок або стовпець без жодного ✓</span>
+      </div>
+
+      <h3 class="sub">Матриця A · вхід і план</h3>
+      <div class="tablewrap">
+        <table class="matrix">
+          <thead><tr>
+            <th class="jobcol">Job</th>
+            <th class="scr orphancol">Старт</th><th class="scr">W1</th><th class="scr">W2</th><th class="scr">W3</th>
+            <th class="scr">B1</th><th class="scr">B2</th><th class="scr">B3</th><th class="scr">B4</th>
+            <th class="scr">B5</th><th class="scr">B6</th><th class="scr">B7</th><th class="scr">B8</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="jobcell">MAIN</td><td class="orphancell"></td><td></td><td></td><td></td><td class="yes">✓</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">R1</td><td class="orphancell"></td><td class="yes">✓</td><td class="yes">✓</td><td></td><td></td><td class="yes">✓</td><td></td><td></td><td></td><td></td><td class="yes">✓</td><td></td></tr>
+            <tr><td class="jobcell">R2</td><td class="orphancell"></td><td></td><td></td><td class="yes">✓</td><td></td><td></td><td class="yes">✓</td><td class="yes">✓</td><td></td><td></td><td></td><td class="yes">✓</td></tr>
+            <tr><td class="jobcell">R3</td><td class="orphancell"></td><td></td><td></td><td></td><td></td><td class="yes">✓</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">R4</td><td class="orphancell"></td><td></td><td class="yes">✓</td><td></td><td></td><td class="yes">✓</td><td></td><td></td><td class="yes">✓</td><td></td><td></td><td></td></tr>
+            <tr class="orphanrow"><td class="jobcell">R5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">R6</td><td class="orphancell"></td><td class="yes">✓</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="yes">✓</td><td></td><td></td></tr>
+            <tr><td class="jobcell">R7</td><td class="orphancell"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="yes">✓</td></tr>
+            <tr><td class="jobcell">E1</td><td class="orphancell"></td><td></td><td></td><td></td><td></td><td></td><td class="yes">✓</td><td class="yes">✓</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">E2</td><td class="orphancell"></td><td></td><td class="yes">✓</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">S1</td><td class="orphancell"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">S2</td><td class="orphancell"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="yes">✓</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Матриця B · закріплення, дорога, показ іншим, акаунт</h3>
+      <div class="tablewrap">
+        <table class="matrix">
+          <thead><tr>
+            <th class="jobcol">Job</th>
+            <th class="scr">C1</th><th class="scr">C2</th><th class="scr">D1</th><th class="scr">D2</th>
+            <th class="scr">E</th><th class="scr">F1</th><th class="scr">F2</th><th class="scr">F3</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="jobcell">MAIN</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">R1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="yes">✓</td></tr>
+            <tr><td class="jobcell">R2</td><td></td><td class="yes">✓</td><td></td><td></td><td></td><td></td><td></td><td class="yes">✓</td></tr>
+            <tr><td class="jobcell">R3</td><td></td><td></td><td class="yes">✓</td><td class="yes">✓</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">R4</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="yes">✓</td><td></td></tr>
+            <tr class="orphanrow"><td class="jobcell">R5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">R6</td><td></td><td></td><td class="yes">✓</td><td class="yes">✓</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">R7</td><td class="yes">✓</td><td class="yes">✓</td><td></td><td></td><td></td><td class="yes">✓</td><td></td><td></td></tr>
+            <tr><td class="jobcell">E1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">E2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="yes">✓</td></tr>
+            <tr><td class="jobcell">S1</td><td></td><td></td><td></td><td></td><td class="yes">✓</td><td></td><td></td><td></td></tr>
+            <tr><td class="jobcell">S2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Матриця C · шари</h3>
+      <p class="footnote" style="margin-top:-.4rem;">Шар за легендою дерева не є екраном, тому винесений окремо. Це не формальність: саме тут видно, що один job закритий виключно шарами.</p>
+      <div class="tablewrap">
+        <table class="matrix">
+          <thead><tr>
+            <th class="jobcol">Job</th>
+            <th class="scr">градація</th><th class="scr">чому саме так</th><th class="scr">звідки це взято</th><th class="scr orphancol">розмовне уточнення</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="jobcell">R1</td><td class="yes">✓</td><td></td><td></td><td class="orphancell"></td></tr>
+            <tr><td class="jobcell">R5</td><td></td><td class="yes">✓</td><td class="yes">✓</td><td class="orphancell"></td></tr>
+            <tr><td class="jobcell">E2</td><td></td><td class="yes">✓</td><td></td><td class="orphancell"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Екрани-сироти — стовпці без жодного ✓</h3>
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:180px;">Сирота</th><th style="width:330px;">Навіщо існує</th><th>Рішення</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead">Стартовий екран</td><td>Не job, а рішення про пакування: продукт подається як повний застосунок із власним іменем, іконкою й онбордингом.</td><td><b>Лишити, заморозити обсяг.</b> Жодного функціонального елемента не отримує — усе, що там з'явиться, за визначенням не закриває job'а. Якщо на wireframes почне рости, це сигнал, що ми будуємо маркетинг замість продукту.</td></tr>
+            <tr><td class="rowhead">A6 «Бюджет»<br><span class="mono" style="font-size:.7rem;color:var(--ink-faint);">крок, не екран</span></td><td>Єдине джерело гіпотези — назва вхідного поля в специфікації; ні персона, ні дослідження болю навколо бюджету не документують.</td><td><b>Backlog із тригером.</b> Уже опційний. Видаляємо, якщо до старту wireframes не з'явиться носій болю. Сирота тут крок, а не екран — W3 закриває R2 через членство, тому стовпець не порожній, і дефект легко було б не помітити.</td></tr>
+            <tr><td class="rowhead">Шар розмовного уточнення</td><td>Ухвалений патерн: усі чотири AI-гравці категорії пішли в розмовний бік. Пітч-логіка, не потреба людини — ситуація «коли мені показують план» провалює тест ситуації.</td><td><b>Прив'язати й обмежити.</b> Лишається шаром над B1, місця в навігації не отримує, має визначені межі й два обов'язкові стани. Якщо вимагатиме окремого екрана — це доказ, що рішення про один план було неправильне.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Стовпців на видалення немає. Обидва екранні сироти мають названу зовнішню підставу — пакування й пітч. Це два місця, де продукт свідомо служить покупцю, а не хайкеру, і саме тому вони обмежені в обсязі.</p>
+
+      <h3 class="sub">Jobs-сироти — рядки без жодного ✓</h3>
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:180px;">Сирота</th><th style="width:330px;">Де людина має це робити</th><th>Рішення</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead">R5 — на чому стоїть порада</td><td>Закритий виключно шарами: «чому саме так» на B2 і «Звідки це взято» на B1/B2/B3, плюс персистентний рядок джерел. Діри в продукті немає — є свідома відмова від власного екрана.</td><td><b>Прив'язати до наявного, екран не додавати.</b> Скандинавського AI-скандалу не існує, SAR-критика канадська — job стоїть на нашій ставці, а не на підтвердженій потребі. Робити з найслабшого доказу пункт призначення означало б будувати продукт навколо нього. <b>Тригер</b>: знайдеться живий скандинавський голос, що вимагає пояснення рішень — R5 отримує екран у тому ж циклі.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="riskbox">
+        <div class="rk">Обмеження методу</div>
+        <p><b>Матриця покриття ловить сироти й не ловить розриви.</b> Другі виявились небезпечнішими: тупик, вихід якого вказує на неіснуючий об'єкт; екран, недосяжний зі свого ж тупика; правильний вміст на неправильному рівні; відсутні стани, яких матриця не бачить узагалі, бо оперує екранами цілком. Усі чотири були розривами між <b>правильно заповненими</b> клітинками, а не порожніми клітинками.</p>
+        <p>Звідси два правила, які тепер тримають те, чого матриця не тримає: <b>кожен названий вихід із тупика мусить існувати в дереві</b>, і <b>аварійний вміст не буває глибоким</b>.</p>
+      </div>
+
+      <h3 class="sub">Що видно з підрахунку, а не з клітинок</h3>
+      <ol class="plainlist">
+        <li><b>MAIN закритий одним екраном — це структурний ризик, а не тонке покриття.</b> B1 єдине місце, де чотири елементи видно разом, і це прямо випливає з формулювання job'а. Наслідок, який треба прийняти: у MAIN немає запасного шляху. Якщо B1 не читається з першого погляду, продукт не має другої поверхні, яка б це врятувала — на відміну від R2, у якого шість.</li>
+        <li><b>R2 має шість ✓ проти одного в MAIN.</b> Асиметрія навмисна — це Top Job #1 і диференціатор, — але варто бачити її прямо: найгустіше покритий job не є головним.</li>
+        <li><b>S1 і S2 покриті одним екраном кожен</b>, і обидва стоять на найслабших джерелах набору. Одна поверхня на слабкий доказ — правильна пропорція; додавати їм екранів не треба.</li>
+        <li><b>E1 не має жодного ✓ у кластері «Закріпити».</b> Emotional job приїжджого зникає рівно там, де він уперше проходить чужу систему оформлення. Не діра, але місце для перевірки на wireframes.</li>
+      </ol>
+    </section>
+
+    <footer class="page">
+      <span>Nestwood · інформаційна архітектура · 2026-08-06</span>
+      <span>Джерела: <a href="./sitemap.md">sitemap.md</a> · <a href="./flows.md">flows.md</a> · <a href="../concept/jtbd.md">jtbd.md</a></span>
+      <span><a href="../concept/personas.html">Персони</a> · <a href="../research/research.html">Research</a></span>
+    </footer>
+
+  </main>
+</div>
+
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+const blocks = [...document.querySelectorAll('pre.mermaid')];
+blocks.forEach(b => b.dataset.src = b.innerHTML);
+
+const cssVar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+function render() {
+  // явний data-theme на <html> має пріоритет; інакше — системна тема, як у решті рідаутів
+  const attr = document.documentElement.dataset.theme;
+  const dark = attr ? attr === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  const surface = cssVar('--surface');
+  const ink = cssVar('--ink');
+  const line = cssVar('--line-strong');
+  const muted = cssVar('--ink-muted');
+  const accent = cssVar('--accent');
+  const soft = cssVar('--surface-2');
+
+  mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: 'strict',
+    theme: dark ? 'dark' : 'base',
+    fontFamily: "'IBM Plex Mono', ui-monospace, monospace",
+    // useMaxWidth:true — діаграма вкладається у ширину контейнера, без горизонтального
+    // скролу. Щоб текст при цьому не дрібнішав: вузькі підписи (wrappingWidth) роблять
+    // діаграму вужчою й вищою, тож масштабувати вниз майже не доводиться, а базовий
+    // кегль піднято, щоб пережити залишкове зменшення.
+    flowchart: {
+      curve: 'basis',
+      nodeSpacing: 14,
+      rankSpacing: 22,
+      wrappingWidth: 115,
+      padding: 8,
+      useMaxWidth: true
+    },
+    themeVariables: {
+      background: surface,
+      primaryColor: soft,
+      primaryTextColor: ink,
+      primaryBorderColor: line,
+      secondaryColor: soft,
+      tertiaryColor: surface,
+      lineColor: muted,
+      textColor: ink,
+      nodeTextColor: ink,
+      mainBkg: soft,
+      nodeBorder: line,
+      clusterBkg: surface,
+      clusterBorder: line,
+      edgeLabelBackground: surface,
+      titleColor: accent,
+      fontSize: '16px'
+    }
+  });
+
+  blocks.forEach(b => {
+    b.removeAttribute('data-processed');
+    b.innerHTML = b.dataset.src;
+  });
+  mermaid.run({ nodes: blocks });
+}
+
+render();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
+
+// згортання: підпис кнопки несе повну висоту, щоб було видно, скільки там ще
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.diagram-toggle');
+  if (!btn) return;
+  const diagram = btn.closest('.diagram');
+  const open = diagram.classList.toggle('open');
+  btn.textContent = open ? 'згорнути' : 'розгорнути';
+  if (!open) diagram.scrollIntoView({ block: 'nearest' });
+});
+// щоб перемикач теми (data-theme на <html>) міг перемалювати діаграми
+window.nestwoodRenderDiagrams = render;
+</script>
+</body>
+</html>
