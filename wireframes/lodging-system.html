@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wireframe · B4 Як працює ця система ночівлі</title>
+<link rel="stylesheet" href="./_wireframe.css" />
+</head>
+<body>
+
+<span id="clean"></span>
+
+<p class="toggle"><a href="#clean">сховати анотації й дерево</a> · <a href="#top">показати</a></p>
+
+<div class="wf-shell">
+
+<nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
+  <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>
+  <p class="legend"><b>чорним</b> — намальовано, посилання<br>сірим — ще ні. Відступ = вкладеність:<br>розділ → екран → стан.</p>
+  <ul>
+    <li><span class="grp">G · Куди піти</span>
+      <ul>
+        <li><a href="./regions.html">G1 Регіони</a>
+          <ul>
+            <li><a class="st" href="./regions-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./route.html">G2 Картка маршруту</a>
+          <ul>
+            <li><a class="st" href="./route-empty.html">порожній</a></li>
+            <li><a class="st" href="./route-error.html">помилка</a></li>
+            <li><a class="st" href="./route-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./map.html">G3 Карта</a>
+          <ul>
+            <li><a class="st" href="./map-error.html">помилка</a></li>
+            <li><a class="st" href="./map-loading.html">завантаження</a></li>
+            <li><a class="st" href="./map-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">0 · Вхід</span>
+      <ul>
+        <li><a href="./start.html">Стартовий екран</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">A · Візард</span>
+      <ul>
+        <li><a href="./wizard-route.html">W1 Маршрут</a>
+          <ul>
+            <li><a class="st" href="./wizard-route-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-route-error.html">помилка</a></li>
+            <li><a class="st" href="./wizard-route-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./wizard-when.html">W2 Коли і скільки нас</a>
+          <ul>
+            <li><a class="st" href="./wizard-when-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-when-error.html">помилка</a></li>
+          </ul>
+        </li>
+        <li><a href="./wizard-about.html">W3 Про мене</a>
+          <ul>
+            <li><a class="st" href="./wizard-about-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-about-error.html">помилка</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">B · План</span>
+      <ul>
+        <li><a href="./plan.html">B1 План по днях</a>
+          <ul>
+            <li><a class="st" href="./plan-empty.html">порожній</a></li>
+            <li><a class="st" href="./plan-error.html">помилка</a></li>
+            <li><a class="st" href="./plan-loading.html">завантаження</a></li>
+            <li><a class="st" href="./plan-conflict.html">конфлікт</a></li>
+            <li><a class="st" href="./plan-offline.html">офлайн</a></li>
+            <li><a class="st" href="./plan-degraded.html">degraded</a></li>
+          </ul>
+        </li>
+        <li><a href="./day.html">B2 День</a>
+          <ul>
+            <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
+          </ul>
+        </li>
+        <li><a href="./night.html">B3 Ніч: гарантія й доступ</a>
+          <ul>
+            <li><a class="st" href="./night-empty.html">порожній</a></li>
+            <li><a class="st" href="./night-error.html">помилка</a></li>
+            <li><a class="st" href="./night-degraded.html">degraded</a></li>
+          </ul>
+        </li>
+        <li><a href="./lodging-system.html" aria-current="page">B4 Як працює ця система</a>
+        </li>
+        <li><a href="./gear.html">B5 Спорядження</a>
+        </li>
+        <li><a href="./transport.html">B6 Транспорт</a>
+          <ul>
+            <li><a class="st" href="./transport-empty.html">порожній</a></li>
+            <li><a class="st" href="./transport-error.html">помилка</a></li>
+            <li><a class="st" href="./transport-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./field-notes.html">B7 Нотатки з місця</a>
+          <ul>
+            <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./nights.html">B8 Ночівлі — ланцюжок</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">C · Закріпити</span>
+      <ul>
+        <li><a href="./lock-in.html">C1 Що лишилось закріпити</a>
+          <ul>
+            <li><a class="st" href="./lock-in-empty.html">порожній</a></li>
+            <li><a class="st" href="./lock-in-error.html">помилка</a></li>
+            <li><a class="st" href="./lock-in-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+        <li><a href="./membership.html">C2 Членство й ключ</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">D · У дорозі</span>
+      <ul>
+        <li><a href="./today.html">D1 Сьогодні</a>
+          <ul>
+            <li><a class="st" href="./today-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+        <li><a href="./changes.html">D2 Що змінилось</a>
+          <ul>
+            <li><a class="st" href="./changes-loading.html">завантаження</a></li>
+            <li><a class="st" href="./changes-error.html">помилка</a></li>
+            <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">E · Показати іншим</span>
+      <ul>
+        <li><a href="./share.html">E Підсумок для передачі</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">F · Моє</span>
+      <ul>
+        <li><a href="./mine.html">F1 Мої походи</a>
+          <ul>
+            <li><a class="st" href="./mine-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./my-gear.html">F2 Моє спорядження</a>
+        </li>
+        <li><a href="./me.html">F3 Я</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+<div class="wf-main">
+
+<p class="states" data-review lang="uk">Стани екрана: <a href="./lodging-system.html" aria-current="page">успіх</a></p>
+
+<details class="review" data-review lang="uk" id="top" open>
+  <summary>wireframes/lodging-system.html — <b>B4 Як працює ця система ночівлі</b> · станів із таблиці немає</summary>
+  <div class="review-body">
+    <p><b>Місце у flow:</b> <code>R2</code> — <code>B3</code> → <code>B4</code> на гілках <code>DROP</code> (тільки drop-in) і після <code>LATE</code>/<code>BED</code>, потім <code>B4</code> → <code>QLANG</code> → <code>WIN</code>. Другий вхід — постійний з шапки нічної картки.</p>
+    <p><b>Правило стану:</b> Jobs — <b>E1</b> і <b>R2</b>. Це найсильніший пітч-аргумент продукту й <b>єдиний вміст, якого немає в жодному API</b>, відкритому чи закритому (сутність 15, sitemap.md) — тому винесений в окремий екран, а не закопаний у шар: генсек DNT публічно назвав нестачу багатомовної інформації своєю нерозв'язаною задачею (CLAUDE.md, «Pitch-relevant finding»), а закопаний у шар аргумент у пітчі втрачається.</p>
+    <p>Персона: обидві — P і S, з наголосом на S (E1: «не пропустила нічого важливого в системі, якої не знаю»).</p>
+  </div>
+</details>
+
+<div class="device">
+
+  <header class="app">
+    <p class="brand">Nestwood</p>
+    <nav aria-label="Головна навігація">
+      <ul>
+        <li><a href="./plan.html">План</a></li>
+        <li><a href="./nights.html" aria-current="page">Ночівлі</a></li>
+        <li><a href="./lock-in.html">Закріпити <span class="count">4</span></a></li>
+        <li><a href="./mine.html">Моє</a></li>
+      </ul>
+    </nav>
+  </header>
+  <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — чотири входи в кластери jobs. «Сьогодні» тут немає: він з’являється тільки у стані «у дорозі». Лічильник — рівно один у продукті, на «Закріпити».</p>
+
+  <main>
+    <h1>Як працює ця система ночівлі</h1>
+
+    <section aria-labelledby="principle">
+      <h2 id="principle">Спільний принцип обох країн</h2>
+      <p><b>Бронь купує гарантоване ліжко. Без броні все одно гарантоване місце під дахом — можливо, матрац на підлозі. Нікого не виганяють.</b></p>
+      <p><span lang="sv">«Principen är att ingen som kommer till en stuga ska behöva sova ute, så det finns alltid plats, även om det betyder att du delar rum eller sover på en madrass på golvet.»</span><br>переклад: «Принцип полягає в тому, що ніхто, хто приходить до хижі, не повинен спати надворі — місце є завжди, навіть якщо доводиться ділити кімнату або спати на матраці на підлозі». <small>— Svenska Turistföreningen, сторінка про fjällstuga (шведською)</small></p>
+      <p><span lang="nb">«...hvor alle sengene er opptatt vil det i de fleste tilfeller være mulig å få plass på madrass/gulv»</span><br>переклад: «...де всі ліжка зайняті, у більшості випадків буде можливість отримати місце на матраці/підлозі». <small>— dnt.no, «Питання і відповіді про хижі DNT» (норвезькою)</small></p>
+      <p>Тон різний — STF формулює це як твердий принцип, DNT як «у більшості випадків» — але гарантія та сама.</p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Спільний принцип (сутність 8, Ось A). <b>Найточніша форма нашого диференціатора</b> — жоден generic-lodging suggester цього не виражає. ГОЛОВНОЇ ДІЇ немає, це пояснення, а не крок. Оригінал+переклад тут займає два рядки навмисно (правило _conventions.md §3).</p>
+
+    <section aria-labelledby="formula">
+      <h2 id="formula">Чотири змінні, які визначають відповідь</h2>
+      <p>Те, що вам гарантовано на конкретну ніч, — не одне правило, а перетин чотирьох:</p>
+      <dl>
+        <dt>Тип обʼєкта</dt>
+        <dd>Betjent (обслуговувана) · Servering · Selvbetjent (самообслуговування) · Ubetjent · Dagshytte · Nødbu · Stengt — плюс шведські <b>fjällstuga</b>, <b>rastskydd</b> (лише аварійна ночівля, не бронюється) і <b>vindskydd</b> (перший прийшов, без броні взагалі)</dd>
+        <dt>Є бронь</dt>
+        <dd>заброньоване конкретне ліжко — або drop-in без броні. Не всі ліжка обʼєкта взагалі доступні до передброні: частину завжди тримають для drop-in</dd>
+        <dt>Час приходу</dt>
+        <dd>до 18:00 чи після — правило Швеції; змінює <b>зміст</b> гарантії, а не її наявність</dd>
+        <dt>Членство</dt>
+        <dd>у Норвегії — умова доступу до замкненого обʼєкта (DNT-ключ); у Швеції — знижка, доступ від членства не залежить</dd>
+      </dl>
+      <p class="actions">
+        <a href="./night.html">Картка гарантії на конкретну ніч</a>
+        <a href="./nights.html">Усі ночі цього походу поруч</a>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Формула (сутність 7 і 8, поля реальної схеми NTB `cabin.js`: <code>betjeningsgrad</code>, <code>nøkkel</code>, <code>senger</code>). ГОЛОВНА ДІЯ: перейти до конкретної ночі (B3) або до всього ланцюга (B8) — тут пояснено правило, там воно обчислене.</p>
+
+    <section aria-labelledby="arrival">
+      <h2 id="arrival">Час приходу 18:00 у Швеції</h2>
+      <dl>
+        <dt>До 18:00</dt>
+        <dd>гарантоване конкретне заброньоване ліжко</dd>
+        <dt>Після 18:00</dt>
+        <dd>бронь на конкретне ліжко не тримають — гарантія переходить у неспецифіковане місце, можливо матрац на підлозі</dd>
+      </dl>
+      <p>Дедлайн діє тільки для шведських fjällstugor. У Норвегії такого часу немає: drop-in-логіка не залежить від часу приходу.</p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Дедлайн приходу. Це та сама змінна, що на B3 — тут вона пояснена загально, там застосована до конкретної ночі й дати.</p>
+
+    <section aria-labelledby="key">
+      <h2 id="key">Ключ DNT — перевага членства, не ціна</h2>
+      <p><span lang="nb">«DNT-nøkkelen er en eksklusiv medlemsfordel»</span><br>переклад: «Ключ DNT — виключна перевага членства»</p>
+      <p><span lang="nb">«En i reisefølge må være DNT-medlem»</span><br>переклад: «Один із групи має бути членом DNT»</p>
+      <p>100 NOK — це депозит для члена, а не ціна доступу для будь-кого. Група без жодного члена DNT не бачить замкнену Selvbetjent/Ubetjent хижу як «доступну» — ми показуємо її як «потрібне членство», з ціною членства як частиною варіанту.</p>
+      <p><small>Джерело: dnt.no, «Питання і відповіді про хижі DNT» та «Hyttebesøket» (обидві норвезькою).</small></p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Ключ і членство (Ось A, «Доступ»). Умова, а не ціна — цю різницю thelocal.no прочитав неправильно (personas.md), і саме її має правильно показати UI.</p>
+
+    <section aria-labelledby="logbook">
+      <h2 id="logbook">Бронь не закриває питання доступу</h2>
+      <p>Навіть якщо ніч оплачена онлайн, на місці потрібно самому вписати в логбук імʼя й номер членства кожного в групі. Це задокументована процедура DNT, а не наша інтерпретація.</p>
+      <p>У Швеції аналогічно: самореєстрація й оплата на місці, якщо бронь не покриває всю ніч.</p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Логбук. Прямий доказ тези R7: закріплення в нашому продукті — не транзакція, а список кроків із дедлайнами; ось один із кроків, який лишається навіть після оплати.</p>
+
+    <section aria-labelledby="norms">
+      <h2 id="norms">Неписані норми</h2>
+      <p>Академічне дослідження DNT-хиж з іноземцями (UiO/UiB, 2021) показало: приїжджий спотикається не на типах хиж, а саме тут.</p>
+      <ul>
+        <li><b>Прибирання</b> — прибрати за собою перед виходом, умова системи, не ввічливість</li>
+        <li><b>Взуття</b> — знімати взуття/чоботи при вході; у більшості хиж є капці або шкарпетки для приміщення</li>
+        <li><b>Спальні місця</b> — ліжка й кімнати діляться між незнайомими людьми, коли хижа заповнена; приватної кімнати бронь не гарантує</li>
+        <li><b>Honor-system</b> — сам реєструєшся в логбук, сам платиш, сам прибираєш; ніхто на місці не перевіряє</li>
+        <li><b>Провізія в self-service</b> — у крамниці хижі береш і записуєш сам; що можна приготувати з наявного часто пояснено тільки норвезькою</li>
+        <li><b>Fjellvett</b> — дев'ять норвезьких правил гірської безпеки, на які посилаються і DNT, і Червоний Хрест</li>
+      </ul>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Неписані норми (сутність 15). Категорії — дослівно ті, що знайдені дослідженням UiO/UiB, не наш здогад про «культурний шок».</p>
+
+    <section aria-labelledby="language">
+      <h2 id="language">Ця інформація існує тільки норвезькою</h2>
+      <p>Приклад: обмежена кількість передбронюваних ліжок — деталь, яка реально визначає відповідь формули — стоїть на норвезькій сторінці DNT. На англійській версії тієї самої сторінки її немає.</p>
+      <p><span lang="nb">«Som regel er ikke alle sengeplassene på en hytte tilgjengelige for forhåndsbestilling»</span><br>переклад: «Зазвичай не всі спальні місця в хижі доступні для попереднього бронювання»</p>
+      <p>Операційна інформація self-service хиж — що є в крамниці, як топити пічку, як ділити дрова — так само публікується тільки норвезькою. Це задокументований бар'єр, не гіпотеза (personas.md, свідчення 2022 року).</p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Мовний бар'єр. <b>Це і є пітч-центральний механізм E1/B4</b>: оригінал + переклад, видимо у два рядки, а не переклад-заміна. Генсек DNT назвав саме це своєю нерозв'язаною задачею (CLAUDE.md) — заявлений засіб DNT: «turveiledning og informasjon på flere språk».</p>
+
+    <section aria-labelledby="back">
+      <h2 id="back">Повернутись</h2>
+      <p class="actions">
+        <a class="cta" href="./plan.html">До плану по днях</a>
+        <a href="./night.html">До картки ночі</a>
+        <a href="./nights.html">До ланцюжка ночей</a>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Вихід. B4 має два входи (з B3, і з навігаційного посилання в шапці нічної картки) — тому три виходи: план, конкретна ніч, весь ланцюг.</p>
+
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Цей екран — не з жодного API. Правила ночівлі й неписані норми зібрані вручну з офіційних сторінок DNT (dnt.no, норвезькою) і STF (svenskaturistforeningen.se, шведською) та академічного дослідження UiO/UiB (2021) про іноземців у хижах DNT. Англомовні сторінки обох асоціацій цю інформацію пропускають.</p>
+    </details>
+    <p>Востаннє звірено: 13 серпня 2026.</p>
+  </footer>
+
+</div>
+
+<p class="ann ann-out" data-review lang="uk">ЗОНА · Футер оболонки. Атрибуція ©Kartverket є <b>в кожному стані</b> — це юридична вимога CC BY 4.0, а не підпис. Тут же — джерела культурного шару, яких у жодному API немає.</p>
+
+</div><!-- /.wf-main -->
+</div><!-- /.wf-shell -->
+
+</body>
+</html>

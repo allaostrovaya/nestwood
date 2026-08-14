@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wireframe · B2 День · норма замість прогнозу</title>
+<link rel="stylesheet" href="./_wireframe.css" />
+</head>
+<body>
+
+<span id="clean"></span>
+
+<p class="toggle"><a href="#clean">сховати анотації й дерево</a> · <a href="#top">показати</a></p>
+
+<div class="wf-shell">
+
+<nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
+  <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>
+  <p class="legend"><b>чорним</b> — намальовано, посилання<br>сірим — ще ні. Відступ = вкладеність:<br>розділ → екран → стан.</p>
+  <ul>
+    <li><span class="grp">G · Куди піти</span>
+      <ul>
+        <li><a href="./regions.html">G1 Регіони</a>
+          <ul>
+            <li><a class="st" href="./regions-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./route.html">G2 Картка маршруту</a>
+          <ul>
+            <li><a class="st" href="./route-empty.html">порожній</a></li>
+            <li><a class="st" href="./route-error.html">помилка</a></li>
+            <li><a class="st" href="./route-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./map.html">G3 Карта</a>
+          <ul>
+            <li><a class="st" href="./map-error.html">помилка</a></li>
+            <li><a class="st" href="./map-loading.html">завантаження</a></li>
+            <li><a class="st" href="./map-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">0 · Вхід</span>
+      <ul>
+        <li><a href="./start.html">Стартовий екран</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">A · Візард</span>
+      <ul>
+        <li><a href="./wizard-route.html">W1 Маршрут</a>
+          <ul>
+            <li><a class="st" href="./wizard-route-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-route-error.html">помилка</a></li>
+            <li><a class="st" href="./wizard-route-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./wizard-when.html">W2 Коли і скільки нас</a>
+          <ul>
+            <li><a class="st" href="./wizard-when-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-when-error.html">помилка</a></li>
+          </ul>
+        </li>
+        <li><a href="./wizard-about.html">W3 Про мене</a>
+          <ul>
+            <li><a class="st" href="./wizard-about-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-about-error.html">помилка</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">B · План</span>
+      <ul>
+        <li><a href="./plan.html">B1 План по днях</a>
+          <ul>
+            <li><a class="st" href="./plan-empty.html">порожній</a></li>
+            <li><a class="st" href="./plan-error.html">помилка</a></li>
+            <li><a class="st" href="./plan-loading.html">завантаження</a></li>
+            <li><a class="st" href="./plan-conflict.html">конфлікт</a></li>
+            <li><a class="st" href="./plan-offline.html">офлайн</a></li>
+            <li><a class="st" href="./plan-degraded.html">degraded</a></li>
+          </ul>
+        </li>
+        <li><a href="./day.html">B2 День</a>
+          <ul>
+            <li><a class="st" href="./day-seasonal.html" aria-current="page">норма замість прогнозу</a></li>
+          </ul>
+        </li>
+        <li><a href="./night.html">B3 Ніч: гарантія й доступ</a>
+          <ul>
+            <li><a class="st" href="./night-empty.html">порожній</a></li>
+            <li><a class="st" href="./night-error.html">помилка</a></li>
+            <li><a class="st" href="./night-degraded.html">degraded</a></li>
+          </ul>
+        </li>
+        <li><a href="./lodging-system.html">B4 Як працює ця система</a>
+        </li>
+        <li><a href="./gear.html">B5 Спорядження</a>
+        </li>
+        <li><a href="./transport.html">B6 Транспорт</a>
+          <ul>
+            <li><a class="st" href="./transport-empty.html">порожній</a></li>
+            <li><a class="st" href="./transport-error.html">помилка</a></li>
+            <li><a class="st" href="./transport-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./field-notes.html">B7 Нотатки з місця</a>
+          <ul>
+            <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./nights.html">B8 Ночівлі — ланцюжок</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">C · Закріпити</span>
+      <ul>
+        <li><a href="./lock-in.html">C1 Що лишилось закріпити</a>
+          <ul>
+            <li><a class="st" href="./lock-in-empty.html">порожній</a></li>
+            <li><a class="st" href="./lock-in-error.html">помилка</a></li>
+            <li><a class="st" href="./lock-in-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+        <li><a href="./membership.html">C2 Членство й ключ</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">D · У дорозі</span>
+      <ul>
+        <li><a href="./today.html">D1 Сьогодні</a>
+          <ul>
+            <li><a class="st" href="./today-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+        <li><a href="./changes.html">D2 Що змінилось</a>
+          <ul>
+            <li><a class="st" href="./changes-loading.html">завантаження</a></li>
+            <li><a class="st" href="./changes-error.html">помилка</a></li>
+            <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">E · Показати іншим</span>
+      <ul>
+        <li><a href="./share.html">E Підсумок для передачі</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">F · Моє</span>
+      <ul>
+        <li><a href="./mine.html">F1 Мої походи</a>
+          <ul>
+            <li><a class="st" href="./mine-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./my-gear.html">F2 Моє спорядження</a>
+        </li>
+        <li><a href="./me.html">F3 Я</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+<div class="wf-main">
+
+<p class="states" data-review lang="uk">Стани екрана: <a href="./day.html">успіх</a> · <a href="./day-seasonal.html" aria-current="page">норма замість прогнозу</a></p>
+
+<details class="review" data-review lang="uk" id="top" open>
+  <summary>wireframes/day-seasonal.html — <b>B2 День</b> · стан <b>норма замість прогнозу</b></summary>
+  <div class="review-body">
+    <p><b>Звідки цей стан:</b> рішення №10 (sitemap.md) — похід за три місяці, дати поза горизонтом прогнозу met.no (~10 днів). Не <code>degraded</code> і не помилка: це <b>окремий рівень довіри</b>, і він свідомо <b>не входить у вердикт узгодженості</b> на B1.</p>
+    <p><b>Дати цього стану — виняток із фактів походу</b> (README завдання): похід 12–17 листопада 2026, сьогодні 13 серпня 2026 — тобто три місяці до виходу, набагато далі за десятиденний горизонт прогнозу.</p>
+  </div>
+</details>
+
+<div class="device">
+
+  <header class="app">
+    <p class="brand">Nestwood</p>
+    <nav aria-label="Головна навігація">
+      <ul>
+        <li><a href="./plan.html" aria-current="page">План</a></li>
+        <li><a href="./nights.html">Ночівлі</a></li>
+        <li><a href="./lock-in.html">Закріпити <span class="count">4</span></a></li>
+        <li><a href="./mine.html">Моє</a></li>
+      </ul>
+    </nav>
+  </header>
+  <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — чотири входи в кластери jobs. «Сьогодні» тут немає: він з’являється тільки у стані «у дорозі». Лічильник — рівно один у продукті, на «Закріпити».</p>
+
+  <main>
+    <h1>День 3 · сб 14 листопада</h1>
+
+    <section aria-labelledby="leg">
+      <h2 id="leg">Перехід</h2>
+      <p>Alesjaure → Tjäktja · 13 км · +260 м · близько 4 год 30</p>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран"><span>карта дня<br>Alesjaure → Tjäktja · 13 км</span></div>
+        <figcaption>На що мусить відповісти: де стежка виходить із долини й де брід перед хижею. Не залежить від сезону.</figcaption>
+      </figure>
+      <details>
+        <summary>Офіційна градація: blå / medium</summary>
+        <p>Це норвезько-шведська офіційна градація для цієї ділянки, показана як є. Власної шкали «ваша форма → складність» ми не рахуємо: DNT публічно просив не заводити альтернативних систем.</p>
+      </details>
+      <p class="actions"><a href="./map.html">Відкрити карту</a></p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Перехід дня. Без змін відносно успіху — маршрут і градація не залежать від того, чи є прогноз погоди на ці дати.</p>
+
+    <section aria-labelledby="cond">
+      <h2 id="cond">Умови на цій ділянці</h2>
+      <ul class="signals">
+        <li><b>Вода</b> струмки кожні 2–3 км, останній за 1 км до хижі — влітку. У листопаді частина може бути під кригою</li>
+        <li><b>Брід</b> один, перед Tjäktja — навесні й восени рівень залежить від морозів, не тільки від дощу</li>
+        <li><b>Поверхня</b> 8 км мостків, 5 км каміння — у листопаді можливий сніг чи ожеледь на мостках</li>
+        <li><b>Звʼязок</b> невідомо — оператори не публікують покриття як шар</li>
+      </ul>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Умови на ділянці. Позначки про мороз/сніг тут — те саме офіційне джерело (Turrutebasen), не прогноз погоди: це і є межа між «умовами місцевості» й «сезонною нормою погоди» нижче.</p>
+
+    <section aria-labelledby="weather">
+      <h2 id="weather">Погода</h2>
+      <div class="verdict">
+        <strong>Прогнозу на ці дати ще немає — 14 листопада за 93 дні від сьогодні.</strong>
+        <p>met.no Locationforecast дає прогноз приблизно на 10 днів наперед. Нижче — <b>сезонна норма</b> для цієї ділянки в середині листопада, а не прогноз на ваш похід.</p>
+      </div>
+      <figure>
+        <div class="frame frame--profile" data-fit="на ширину колонки">
+          <span>сезонна норма · середина листопада · Kungsleden, ділянка Alesjaure–Tjäktja<br>норма: −6…−1 °C · сніговий покрив ймовірний · вітер 8–14 м/с</span>
+        </div>
+        <figcaption>Клімат-норма за багаторічними спостереженнями цієї ділянки, явно підписана «норма», не «прогноз».</figcaption>
+      </figure>
+      <ul class="signals">
+        <li><b>Норма листопада</b> −6…−1 °C, сніговий покрив ймовірний, вітер 8–14 м/с <small data-mock>сезонна норма, не прогноз на ваші дати</small></li>
+        <li><b>Що це не означає</b> це не обіцянка, що 14 листопада буде саме так — це діапазон, у якому зазвичай перебуває ця ділянка в цей час року</li>
+        <li><b>Коли зʼявиться прогноз</b> Nestwood сам поверне справжній прогноз met.no приблизно за 10 днів до виходу — нічого клікати не потрібно</li>
+      </ul>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Погода дня → <b>норма замість прогнозу</b> (рішення №10). Це <b>серце цього стану</b>: графік підписаний «норма», а не «прогноз», і продукт прямо каже, коли й без дій людини поверне справжні дані. <b>Ця зона не входить у вердикт узгодженості на B1</b> — сезонна норма ніколи не позначає день як «не сходиться» чи «сходиться».</p>
+
+    <section aria-labelledby="night">
+      <h2 id="night">Ночівля</h2>
+      <p>Tjäktja fjällstuga (STF) · ліжко заброньоване · прийти до 18:00</p>
+      <p class="actions"><a href="./night.html">Гарантія й доступ на цю ніч</a></p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Ночівля дня. Не залежить від сезонності прогнозу — гарантія й доступ рахуються зі статичних полів (тип, ключ, ліжка, сезон роботи хижі), а не з погоди.</p>
+
+    <section aria-labelledby="why">
+      <h2 id="why">Чому саме так</h2>
+      <details>
+        <summary>Що вплинуло на цей день</summary>
+        <p>Довжина 13 км: ваш найдовший перехід торік — 24 км, але третій день поспіль, тому взято нижчу межу.</p>
+        <p>Хижа Tjäktja: наступна за нею Sälka за 12 км, і разом це 25 км — забагато на третій день.</p>
+        <p><b>Погода на цей день не врахована</b> — прогнозу ще немає, є лише сезонна норма, і ми свідомо не будуємо рішення на нормі замість факту.</p>
+        <p><b>Що не враховано:</b> жива наявність ліжок — джерела немає, потрібна угода зі STF; фактичний прогноз на 14 листопада — з'явиться за ~10 днів до виходу.</p>
+      </details>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Шар «чому саме так». Прямо назвемо, що погода <b>не</b> вплинула на рішення цього дня — саме тому, що це норма, а не факт. Це і закриває дірку «норма виглядає як працююча фіча» зі sitemap.md.</p>
+
+    <section aria-labelledby="back">
+      <h2 id="back">Повернутись</h2>
+      <p class="actions">
+        <a class="cta" href="./plan.html">До плану по днях</a>
+        <a href="./night.html">Гарантія на цю ніч</a>
+        <a href="./gear.html">Спорядження</a>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Вихід із дня. Той самий вихід, що й у стані успіх — стан не змінює структуру.</p>
+
+    <section aria-labelledby="bail">
+      <h2 id="bail">Якщо доведеться зійти</h2>
+      <p>Найближчий вихід: Alesjaure, 13 км назад — човен по озеру до Abisko, ходить до 15 вересня. <b>У листопаді човен уже не ходить</b> — узимку вихід звідси пішки або на лижах, довше й залежить від снігу.</p>
+      <p>Далі на маршруті виходів немає до Vakkotavare — це ще два дні.</p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Точка сходу. Тут же видно ще один наслідок сезону — човновий сервіс сезонний і восени вже не працює; це знову офіційні дані про обʼєкт, не прогноз.</p>
+
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Стежки й градація: Turrutebasen (Kartverket). Погода: met.no Locationforecast покриває приблизно 10 днів наперед — за цим горизонтом показано кліматичну норму, підписану як норма. Умови: Turrutebasen і свідчення спільноти, рівень позначено.</p>
+    </details>
+    <p>Сьогодні: 13 серпня 2026 · до походу 93 дні · прогноз ще недоступний</p>
+  </footer>
+
+</div>
+
+<p class="ann ann-out" data-review lang="uk">ЗОНА · Футер оболонки. Атрибуція ©Kartverket є <b>в кожному стані</b> — це юридична вимога CC BY 4.0, а не підпис.</p>
+
+</div><!-- /.wf-main -->
+</div><!-- /.wf-shell -->
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wireframe · Стартовий екран</title>
+<link rel="stylesheet" href="./_wireframe.css" />
+</head>
+<body>
+
+<span id="clean"></span>
+
+<p class="toggle"><a href="#clean">сховати анотації й дерево</a> · <a href="#top">показати</a></p>
+
+<div class="wf-shell">
+
+<nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
+  <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>
+  <p class="legend"><b>чорним</b> — намальовано, посилання<br>сірим — ще ні. Відступ = вкладеність:<br>розділ → екран → стан.</p>
+  <ul>
+    <li><span class="grp">G · Куди піти</span>
+      <ul>
+        <li><a href="./regions.html">G1 Регіони</a>
+          <ul>
+            <li><a class="st" href="./regions-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./route.html">G2 Картка маршруту</a>
+          <ul>
+            <li><a class="st" href="./route-empty.html">порожній</a></li>
+            <li><a class="st" href="./route-error.html">помилка</a></li>
+            <li><a class="st" href="./route-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./map.html">G3 Карта</a>
+          <ul>
+            <li><a class="st" href="./map-error.html">помилка</a></li>
+            <li><a class="st" href="./map-loading.html">завантаження</a></li>
+            <li><a class="st" href="./map-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">0 · Вхід</span>
+      <ul>
+        <li><a href="./start.html" aria-current="page">Стартовий екран</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">A · Візард</span>
+      <ul>
+        <li><a href="./wizard-route.html">W1 Маршрут</a>
+          <ul>
+            <li><a class="st" href="./wizard-route-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-route-error.html">помилка</a></li>
+            <li><a class="st" href="./wizard-route-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./wizard-when.html">W2 Коли і скільки нас</a>
+          <ul>
+            <li><a class="st" href="./wizard-when-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-when-error.html">помилка</a></li>
+          </ul>
+        </li>
+        <li><a href="./wizard-about.html">W3 Про мене</a>
+          <ul>
+            <li><a class="st" href="./wizard-about-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-about-error.html">помилка</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">B · План</span>
+      <ul>
+        <li><a href="./plan.html">B1 План по днях</a>
+          <ul>
+            <li><a class="st" href="./plan-empty.html">порожній</a></li>
+            <li><a class="st" href="./plan-error.html">помилка</a></li>
+            <li><a class="st" href="./plan-loading.html">завантаження</a></li>
+            <li><a class="st" href="./plan-conflict.html">конфлікт</a></li>
+            <li><a class="st" href="./plan-offline.html">офлайн</a></li>
+            <li><a class="st" href="./plan-degraded.html">degraded</a></li>
+          </ul>
+        </li>
+        <li><a href="./day.html">B2 День</a>
+          <ul>
+            <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
+          </ul>
+        </li>
+        <li><a href="./night.html">B3 Ніч: гарантія й доступ</a>
+          <ul>
+            <li><a class="st" href="./night-empty.html">порожній</a></li>
+            <li><a class="st" href="./night-error.html">помилка</a></li>
+            <li><a class="st" href="./night-degraded.html">degraded</a></li>
+          </ul>
+        </li>
+        <li><a href="./lodging-system.html">B4 Як працює ця система</a>
+        </li>
+        <li><a href="./gear.html">B5 Спорядження</a>
+        </li>
+        <li><a href="./transport.html">B6 Транспорт</a>
+          <ul>
+            <li><a class="st" href="./transport-empty.html">порожній</a></li>
+            <li><a class="st" href="./transport-error.html">помилка</a></li>
+            <li><a class="st" href="./transport-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./field-notes.html">B7 Нотатки з місця</a>
+          <ul>
+            <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./nights.html">B8 Ночівлі — ланцюжок</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">C · Закріпити</span>
+      <ul>
+        <li><a href="./lock-in.html">C1 Що лишилось закріпити</a>
+          <ul>
+            <li><a class="st" href="./lock-in-empty.html">порожній</a></li>
+            <li><a class="st" href="./lock-in-error.html">помилка</a></li>
+            <li><a class="st" href="./lock-in-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+        <li><a href="./membership.html">C2 Членство й ключ</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">D · У дорозі</span>
+      <ul>
+        <li><a href="./today.html">D1 Сьогодні</a>
+          <ul>
+            <li><a class="st" href="./today-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+        <li><a href="./changes.html">D2 Що змінилось</a>
+          <ul>
+            <li><a class="st" href="./changes-loading.html">завантаження</a></li>
+            <li><a class="st" href="./changes-error.html">помилка</a></li>
+            <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">E · Показати іншим</span>
+      <ul>
+        <li><a href="./share.html">E Підсумок для передачі</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">F · Моє</span>
+      <ul>
+        <li><a href="./mine.html">F1 Мої походи</a>
+          <ul>
+            <li><a class="st" href="./mine-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./my-gear.html">F2 Моє спорядження</a>
+        </li>
+        <li><a href="./me.html">F3 Я</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+<div class="wf-main">
+
+<p class="states" data-review lang="uk">Стани екрана: <a href="./start.html" aria-current="page">успіх</a></p>
+
+<details class="review" data-review lang="uk" id="top" open>
+  <summary>wireframes/start.html — <b>Стартовий екран</b> · станів немає</summary>
+  <div class="review-body">
+    <p><b>Місце у flow:</b> <code>START</code> → <code>QSAVED: ні</code> → <code>Стартовий екран</code> → <code>QKNOW</code>.</p>
+    <p><b>Правило стану:</b> Єдиний екран без job'а. Підстава зовнішня — пакування як повний застосунок. <b>Обсяг заморожений:</b> обіцянка, тон, два входи. Встановлення PWA звідси прибрано (рішення №14) — воно на B1, разом з офлайн-пакетом.</p>
+    <p><b>Тригер на перегляд:</b> якщо цей екран почне рости, ми будуємо маркетинг замість продукту.</p>
+  </div>
+</details>
+
+<div class="device">
+
+
+  <main>
+    <h1>Nestwood</h1>
+
+    <section aria-labelledby="promise">
+      <h2 id="promise">Що це</h2>
+      <p>Багатоденні походи в Скандинавії, зведені в один план: маршрут, ночівлі, спорядження й погода — узгоджені між собою, а не в чотирьох різних вкладках.</p>
+      <p>Дані офіційні: Kartverket, Lantmäteriet, met.no. Де їх бракує — ми це кажемо, а не вгадуємо.</p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Обіцянка й тон. ГОЛОВНОЇ ДІЇ немає — це поріг, а не крок. Формулювання свідомо не обіцяє «знайдемо тобі маршрут»: продукт зводить, а не шукає.</p>
+    <section aria-labelledby="enter">
+      <h2 id="enter">Почати</h2>
+      <p class="actions">
+        <a class="cta" href="./wizard-route.html">Я знаю, куди хочу</a>
+        <a href="./regions.html">Ще не знаю — покажіть, куди можна</a>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Два входи — це розвилка <code>QKNOW</code> із flows.md, винесена на поріг. До рішення №21 другого входу не існувало, і продукт працював лише для того, хто вже знає регіон.</p>
+
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+
+</div>
+
+<p class="ann ann-out" data-review lang="uk">ЗОНА · Футер оболонки. Атрибуція ©Kartverket є <b>в кожному стані</b> — це юридична вимога CC BY 4.0, а не підпис.</p>
+
+</div><!-- /.wf-main -->
+</div><!-- /.wf-shell -->
+
+</body>
+</html>

@@ -57,19 +57,27 @@ External pitch to acquisition targets (AllTrails, Komoot, Google's Geospatial AI
 - **Packaging**: a full standalone app (own name, icon, onboarding → itinerary flow) — see "Packaging decision" under Business model. Design and build accordingly (concept/wireframes should assume a complete app, not an embedded widget).
 - **Three scope decisions taken during the sitemap phase (2026-08-05) that this file did not previously record** — all three are in the v1 build, all three came from evidence rather than from this spec:
   - **A thin in-trip layer, not planning only.** v1 ships two in-trip screens (today's leg + "what changed and what can still be done"). The mechanism is not notification-at-breakage but **lead time**: the signal must arrive while an alternative still exists. Consequence for the still-open tech-stack question: **offline and battery economy are stack-forcing requirements, not nice-to-haves** — Swedish hikers abandoned Lantmäteriet's own official app precisely because it lost offline on iOS, and DNT/NRK make offline-first mandatory.
-  - **A one-way community layer.** Field notes on *conditions* (trail state, actual waymarking, water, snow, on-site weather) as an explicitly separate, labelled source tier. **Not ratings, not reviews** — the star rating is AllTrails' central entity, has no job behind it for us, and blurs the one thing we sell (source traceability). Its real justification is not the social job but a hole in our own main asset: official trail data diverges from the terrain in both directions, and no official dataset can close that by definition. Demo rule: notes are curated and labelled illustrative, under the same rule as mock hut data — invented "user reviews" in a buyer demo would be exactly the antipattern we criticise competitors for.
+  - **A community layer.** Field notes on *conditions* (trail state, actual waymarking, water, snow, on-site weather) as an explicitly separate, labelled source tier.
+    ⚠️ **Revised 2026-08-13 (decision #21).** This bullet used to read "**not ratings, not reviews**". After auditing our own framework against the five hard competitors, that exclusion did not survive: the argument against ratings was never "no need" — S2 ("is this realistic for someone like me") stands on exactly this — it was **risk of blurring source traceability**. The risk is real, so it is now held by **four explicit boundaries** rather than by the absence of the entity: a rating never feeds the coherence verdict, never alters the official grading, **never sorts routes** (order comes from fit to the brief, not popularity), and a review (opinion) is a different object from a field note (condition). Photos are in for the same reason: the original objection was **no source**, not harm — so every photo now carries its source, licence and tier on the image itself, which turns it into evidence of traceability instead of a threat to it.
+    The field-note half of this layer keeps its original justification, which is not the social job but a hole in our own main asset: official trail data diverges from the terrain in both directions, and no official dataset can close that by definition. Demo rule: notes are curated and labelled illustrative, under the same rule as mock hut data — invented "user reviews" in a buyer demo would be exactly the antipattern we criticise competitors for.
   - **An account exists in v1, but is not the entrance.** It is storage for a credential (membership, key), a gear inventory and the accumulating booking-completion state — not a preferences screen, and not personalisation (the wizard covers that within a session). Registration never stands in front of the generated plan: the demo starts with the substance, not with a signup form.
 - **Tech stack**: not yet decided — deferred to the research phase (`research/`), which should include a stack evaluation before it's locked in.
-- **UI language**: English (the audience is an international acquisition target, not a Nordic end-user yet).
+- **UI language**: **Ukrainian during design (changed 2026-08-13)**, English at productisation. The earlier "English, because the audience is an international acquisition target" rested on pitch logic, which is no longer the basis for product decisions. Wireframes and product copy are written in Ukrainian so the team writes them for real rather than translating them; the finished product gets translated when there is a finished product to translate. Source-language terms (`Selvbetjent`, `fjällstuga`, `betjeningsgrad`, place names) stay in the original either way.
 - **Timeline**: no hard deadline — iterate phase by phase.
 
 ## Core user flow
 
-**Input**: fitness level, time window (with a "dates don't move" flag), region, what they want to walk (start/finish or loop, desired duration/distance, spare day, optionally a named route as a parameter preset), lodging regime + association membership, existing gear, preferences. **Budget is an optional input** — decided 2026-08-06: no persona and no research documents a pain around it (jtbd.md H3), so it stays available but never blocks the path to a plan.
+**Input**, in this order — **corrected 2026-08-13**: **first the route** (region + rough month → a map showing only the routes that fit, named ones alongside ones assembled for the brief; the person picks one), then the time window (with a "dates don't move" flag, desired duration, spare day), then everything about the person (fitness, existing gear, lodging regime + association membership, optional budget).
+
+The order matters and the earlier version had it wrong. A named route used to be an *optional field* buried in the middle of the wizard, which meant the product chose where the trip happens **without the person seeing it** — and "route, lodging, gear and weather agree" is worthless if the four agree around a trip nobody picked. Route selection is now the product's first question. The guard that keeps this from becoming AllTrails: it is a **step in the funnel, not a navigation root**, it shows only what fits the brief rather than everything in the region, and it carries no ratings, popularity, top-10 lists or photo cards (`wireframes/sitemap.md`, entity 20 and decision #20). **Budget is an optional input** — decided 2026-08-06: no persona and no research documents a pain around it (jtbd.md H3), so it stays available but never blocks the path to a plan.
 
 **Output**: multi-day itinerary — daily walking legs, matched overnight stays (DNT huts/campsites), a gear checklist, weather-driven adaptation per day, **transport legs to the trailhead and back (R6)**, and **a list of what still has to be actually booked, in order, with deadlines and handoff to the official systems (R7)** — we guide and hand off, we never run the transaction.
 
-**Two output surfaces are obligations, not features** (added 2026-08-06, `wireframes/sitemap.md` entity 14): the ©Kartverket attribution string (legally required by CC BY 4.0) and the "illustrative mock data" label must be **persistently visible in the UI** — present on the happy path, not only in a degraded state, and not buried in a separate "about the data" screen.
+**Two output surfaces are obligations, not features** (added 2026-08-06, `wireframes/sitemap.md` entity 14): the ©Kartverket attribution string (legally required by CC BY 4.0) and the "illustrative mock data" label must be **visible on the happy path** — not only in a degraded state, and not buried in a separate "about the data" screen.
+
+**Refined 2026-08-13 (UX review, decision #17)**: "persistently visible" was collapsing the two obligations into one banner, and a banner that is always on screen stops being read — which defeats the purpose of the mock-data label specifically. They are now split by nature: **©Kartverket stays compact and permanent in the chrome** (the legal requirement is about presence), while the **"illustrative data" label moves onto the field it applies to** — the bed-availability line on B3, the field notes on B7 — where it is new information every time it appears rather than wallpaper.
+
+**A third honesty obligation, found the same day**: met.no's forecast horizon is ~10 days, and the primary persona plans months ahead. Outside that horizon the plan shows a **seasonal normal, explicitly labelled as a normal and excluded from the coherence verdict** — never a forecast-shaped number. The product then returns on its own with the real forecast ~10 days out, which turns the gap into the R3 lead-time mechanism rather than a hole.
 
 ## People & top jobs
 
@@ -106,12 +114,13 @@ A commercial AI layer that routes foreign visitors into DNT huts sits structural
 
 ## Information architecture
 
-Full detail: [wireframes/sitemap.md](./wireframes/sitemap.md) (entities, screen tree, navigation, traceability), [wireframes/flows.md](./wireframes/flows.md) (six flows with decisions, states and dead ends), [wireframes/ia.html](./wireframes/ia.html) (rendered readout). **19 entities → 20 screens → 12 jobs, and the matrix is closed in both directions**: no job without a surface, and every screen without a job has a named non-job reason.
+Full detail: [wireframes/sitemap.md](./wireframes/sitemap.md) (entities, screen tree, navigation, traceability), [wireframes/flows.md](./wireframes/flows.md) (six flows with decisions, states and dead ends), [wireframes/ia.html](./wireframes/ia.html) (rendered readout). **23 entities → 23 screens → 12 jobs, and the matrix is closed in both directions**: no job without a surface, and every screen without a job has a named non-job reason.
 
-**Top-level sitemap** — six clusters, derived from jobs rather than from competitors' structure (there is deliberately no trail catalogue as a navigation root and no route card with ratings):
+**Top-level sitemap** — seven clusters, derived from jobs rather than from competitors' structure. **Revised 2026-08-13 (decision #21)**: there is still no trail catalogue as a *navigation root*, but there is now a **curated route-discovery cluster and a route card with photos and ratings** — the boundary moved from "we don't have this object" to "we have it under four explicit rules". What holds the line is curation (10–20 multi-day routes per country, not a trail database) and ordering by fit to the brief rather than by popularity:
 
+- **G · Where to go** — G1 curated regions · G2 route card (map, profile, conditions, huts, photos, reviews) · G3 the map surface. Exists because the funnel used to start by asking "region and month", i.e. it worked only for someone who already knew where they wanted to go.
 - **0 · Entry** — start screen. The one screen with no job behind it; it exists because of the standalone-app packaging decision, and its scope is frozen.
-- **A · Wizard** — six input steps packed onto three screens: *Where and when* · *Who I am* · *Where I sleep*. Budget is the optional last step.
+- **A · Wizard** — nine input steps packed onto three screens: *Route* · *When and how many of us* · *About me*. Group size is a required field (booking is N beds, not "a place"); flexible dates open a week-by-week grid when the window can move; budget stays optional.
 - **B · The plan** — B1 day-by-day plan (MAIN) → B2 day → B3 night: guarantee and access · B4 how this lodging system works · B5 gear checklist · B6 transport · B8 the chain of nights · B7 field notes.
 - **C · Make it real** — C1 what still has to be booked, in order and with deadlines · C2 membership and key.
 - **D · The plan is live and the world changed** — D1 today (in-trip only) · D2 what changed and what can still be done.
@@ -129,6 +138,7 @@ Full detail: [wireframes/sitemap.md](./wireframes/sitemap.md) (entities, screen 
 - Not building a standalone consumer venture or growth loop — the demo is a full app by packaging (see Packaging decision), but the business model stays acquisition-target, not an independent product with its own GTM.
 - Not wiring up live third-party APIs yet (mock data shaped like real responses instead).
 - Not covering regions outside Scandinavia.
+- Not becoming a trail database or a discovery product: the route-discovery cluster is **curated and bounded**, and nothing in the product is ordered by popularity.
 
 ## Repo / workflow structure
 
@@ -137,9 +147,26 @@ Repo was just cleared for this restart; the previous project's phase pipeline is
 - `concept/` — problem framing, personas, scenarios
 - `research/` — competitor audit, data source research, benchmarks, patterns
 - `design-system/` + `tokens/` — visual language, design tokens
-- `wireframes/` — low/mid-fidelity flows
+- `wireframes/` — low/mid-fidelity flows **and the drawn screens themselves**
 - `components/` — built UI components
 - `handoff/` — engineering handoff docs
+
+## Wireframes
+
+**Complete as of 2026-08-14: 59 pages — all 23 sitemap screens plus 36 states. No screen is left undrawn.** Greyscale, semantic HTML, real Ukrainian domain copy, no colour, icons, images, JS or libraries.
+
+**The contract, not the pictures, is the artefact.** [`wireframes/_conventions.md`](./wireframes/_conventions.md) fixes the rules every screen obeys — detail level, semantic markup, file naming, the closed state vocabulary, and the three kinds of review chrome. It exists because the set was drawn partly by parallel subagents: with the contract they cloned one pattern instead of inventing six.
+
+Four things worth knowing before touching this folder:
+
+1. **A state is a separate page, never a variant appended at the end.** Same landmarks, same section order, same headings — only content differs. The states are `empty · error · loading · offline · degraded · conflict · seasonal · nooptions`, and the vocabulary is closed: a state outside it is a change to the sitemap, not a new filename.
+2. **Every state has a named exit, and no link is broken.** A target that isn't drawn yet renders as inert text, never as a dead `href` — a 404 is exactly the dead end the flows forbid.
+3. **Structure is regenerated, not copied by hand.** `_generate.py` holds `TREE` (sections → screens → states) as the single source; `_refresh.py` rewrites the navigation tree and the state row across all pages; `_audit.py` checks structure, zones, semantics, colour, attribution, broken links and dead ends, and must print zero.
+4. **Two obligations are visible on every page**: the ©Kartverket attribution in the footer (CC BY 4.0, a legal requirement, not a credit) and the mock-data label **on the field it applies to** — the bed-availability line — never as chrome.
+
+The audit trail is in [`wireframes/_screens.md`](./wireframes/_screens.md) (which states are real and why), [`wireframes/_gaps.md`](./wireframes/_gaps.md) (what the framework was missing against five competitors) and [`wireframes/_critique.md`](./wireframes/_critique.md) (the final pass: four defects found and fixed, and why "deferred" only differs from "lost" if it is written down).
+
+**UI language of the wireframes is Ukrainian** — see the note under Scope for v1.
 
 ## Tech stack
 
@@ -157,7 +184,7 @@ Decided 2026-08-06 against the evidenced constraints, not against build convenie
 **Three consequences to design around, not discover later:**
 
 1. **Offline has a ceiling, and it must be designed rather than declared.** iOS evicts PWA storage under memory pressure; the seven-day script-writable cap does not apply to *installed* PWAs, and Safari 17+ offers the Persistent Storage API — but there is never a guarantee. So v1 promises **"an offline pack for this route"** — a screen, a state and a size in megabytes the person can see — not "offline everywhere". Anything stronger repeats the exact failure we cite as the pain (Swedish hikers left Lantmäteriet's own app when it lost iOS offline).
-2. **Installing the PWA becomes part of onboarding**, because the offline cache's survival on iOS depends on it. The start screen — which we froze at zero functional elements — gets exactly one, and that exception is deliberate.
+2. **Installing the PWA is part of the flow, but not of the entrance** — because the offline cache's survival on iOS depends on it, we need the install, but asking for it before the person has received anything is the same antipattern as putting registration in front of value. **Corrected 2026-08-13 (UX review, `wireframes/sitemap.md` decision #14)**: the earlier version put the install on the start screen as a deliberate exception to its zero-functional-elements freeze. That exception is **withdrawn** — the prompt now lives on B1, next to the offline pack, where it becomes a means rather than a request, and the start screen is back to zero.
 3. **We must generate our own PMTiles from downloadable datasets.** Kartverket's zoom levels 12–20 come from the Geovekst cooperation and need the licensees' separate permission to copy, so packaging offline tiles by pulling their cache service is not open to us. Unplanned work that sits between us and the first offline demo.
 
 **Demo rule**: generation is live (a real `claude-opus-5` call), with a pre-generated plan held in reserve against bad conference-room wifi. A scripted demo would collapse the moment a buyer asks to enter their own dates — and "a working prototype, not a mockup" is the whole pitch.

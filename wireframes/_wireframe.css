@@ -1,0 +1,393 @@
+/* Nestwood — вайрфрейми. Спільний файл стилів.
+   Правила: wireframes/_conventions.md
+
+   Дозволено: відтінки сірого, волосяні межі, відступи за шкалою, розміри,
+   системний шрифт, вага й кегль як єдині носії ієрархії.
+   Заборонено: колір, тіні, іконки, картинки, скруглення, декоративні ефекти.
+
+   Анотації: [data-review] ховаються одним правилом. У сторінці є посилання
+   «сховати анотації» — CSS-перемикач через :target, без JS. */
+
+:root {
+  /* шкала відступів — щоб ритм був однаковий на всіх екранах */
+  --s1: 5px;
+  --s2: 10px;
+  --s3: 18px;
+  --s4: 30px;
+  --s5: 46px;
+
+  /* сірі: єдина шкала на весь набір вайрфреймів */
+  --ink:      #141414;   /* основний текст, головні межі */
+  --ink-2:    #4a4a4a;   /* другорядний текст, підписи полів */
+  --line:     #a8a8a8;   /* межа блоку */
+  --line-2:   #cfcfcf;   /* внутрішній розділювач */
+  --fill:     #f2f2f2;   /* пасивна заливка */
+  --page:     #d6d6d6;   /* тло за колонкою */
+  --col:      375px;     /* мобільна колонка — головний констрейнт */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 15px/1.6 ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ── колонка ─────────────────────────────────────────────────── */
+.device {
+  max-width: var(--col);
+  margin: 0 auto;
+  background: #fff;
+  border-inline: 1px solid var(--line);
+  min-height: 100vh;
+}
+
+/* ── рев'ю-хром ──────────────────────────────────────────────── */
+[data-review] {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+details.review {
+  max-width: var(--col);
+  margin: 0 auto;
+  background: var(--fill);
+  border: 1px solid var(--line);
+  border-bottom: 0;
+}
+details.review > summary {
+  padding: var(--s2) var(--s3);
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--ink);
+}
+.review-body { padding: 0 var(--s3) var(--s3); }
+.review-body p { margin: 0 0 var(--s2); }
+.review-body p:last-child { margin: 0; }
+code { background: #e2e2e2; padding: 0 3px; font-size: .95em; }
+
+/* анотація зони: ЗОНА · що це · ГОЛОВНА ДІЯ */
+.ann {
+  margin: 0 0 var(--s3);
+  padding: var(--s2) var(--s2) var(--s2) 10px;
+  background: var(--fill);
+  border-left: 3px solid var(--line);
+}
+.ann:last-of-type { margin-bottom: 0; }
+.ann-out { max-width: var(--col); margin: var(--s2) auto var(--s5); }
+
+/* CSS-перемикач анотацій і рев'ю-хрому, без JS */
+#clean:target ~ .wf-shell .wf-tree,
+#clean:target ~ .wf-shell details.review,
+#clean:target ~ .wf-shell .ann-out,
+#clean:target ~ .wf-shell .ann { display: none; }
+#clean:target ~ .wf-shell { justify-content: center; }
+.toggle {
+  max-width: var(--col);
+  margin: 0 auto;
+  padding: var(--s1) 0;
+  text-align: right;
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+}
+.toggle a { color: var(--ink-2); }
+
+/* рядок станів цього екрана — щоб відкривати їх поряд */
+.states {
+  max-width: var(--col);
+  margin: 0 0 var(--s2);
+  padding: var(--s2) var(--s3);
+  background: var(--fill);
+  border: 1px solid var(--line);
+  border-bottom: 0;
+}
+.states a { color: var(--ink-2); }
+.states [aria-current="page"] { color: var(--ink); font-weight: 700; }
+.states .todo { color: #979797; }
+
+/* ── рев'ю-каркас: дерево ліворуч, макет праворуч ─────────────
+   Дерево однакове на кожній сторінці й показує ВСЮ структуру:
+   розділ → екран → стани. Джерело — sitemap.md і _screens.md. */
+.wf-shell { display: flex; align-items: flex-start; justify-content: center; }
+.wf-main { flex: 0 0 auto; }
+
+.wf-tree {
+  flex: 0 0 236px;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: var(--s3) var(--s2) var(--s5) var(--s3);
+  background: #e6e6e6;
+  border-right: 1px solid var(--line);
+}
+.wf-tree h2 {
+  margin: 0 0 var(--s2);
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--ink-2);
+}
+.wf-tree ul { margin: 0; padding: 0; list-style: none; }
+.wf-tree > ul > li { margin-bottom: var(--s3); }
+.wf-tree ul ul { margin: 2px 0 0 var(--s2); padding-left: var(--s2); border-left: 1px solid var(--line); }
+.wf-tree li { line-height: 1.45; }
+
+.wf-tree .grp { font-weight: 700; color: var(--ink); font-size: 11px; letter-spacing: .06em; }
+.wf-tree a { display: block; padding: 2px 0; color: var(--ink-2); text-decoration: none; }
+.wf-tree a:hover { color: var(--ink); text-decoration: underline; }
+.wf-tree a[aria-current="page"] { color: var(--ink); font-weight: 700; background: #fff; border: 1px solid var(--ink); padding: 2px var(--s1); }
+.wf-tree .todo { display: block; padding: 2px 0; color: #979797; }
+.wf-tree .st { font-size: 11px; }
+.wf-tree .legend { margin: 0 0 var(--s3); color: #979797; font-size: 10px; line-height: 1.5; }
+.wf-tree .legend b { color: var(--ink); font-weight: 700; }
+
+@media (max-width: 760px) {
+  .wf-shell { display: block; }
+  .wf-tree { position: static; flex: none; max-height: none; border-right: 0; border-bottom: 1px solid var(--line); }
+}
+
+/* ── оболонка застосунку ─────────────────────────────────────── */
+header.app {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #fff;
+  border-bottom: 1px solid var(--ink);
+  padding: var(--s2) var(--s3) 0;
+}
+.brand {
+  margin: 0 0 var(--s2);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+header.app nav ul { display: flex; gap: 3px; margin: 0; padding: 0; list-style: none; }
+header.app nav li { flex: 1; }
+header.app nav a {
+  display: block;
+  padding: var(--s2) 2px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-2);
+  text-decoration: none;
+  background: var(--fill);
+  border: 1px solid var(--line);
+  border-bottom: 0;
+}
+header.app nav a[aria-current="page"] {
+  background: #fff;
+  color: var(--ink);
+  font-weight: 700;
+  border-color: var(--ink);
+}
+.count { font-variant-numeric: tabular-nums; font-weight: 700; }
+/* ціль, якої ще немає у вайрфреймах: не посилання, щоб не робити 404-тупик */
+header.app nav .nav-todo {
+  display: block; padding: var(--s2) 2px; text-align: center; font-size: 12px;
+  color: #979797; background: var(--fill); border: 1px solid var(--line-2); border-bottom: 0;
+}
+.nav-todo { color: #8e8e8e; }
+.inline { display: inline; margin: 0; }
+
+/* ── зміст ───────────────────────────────────────────────────── */
+main { padding: var(--s3); }
+
+h1 {
+  margin: 0 0 var(--s4);
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+h2 {
+  margin: 0 0 var(--s3);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+h3 { margin: 0 0 var(--s1); font-size: 15px; }
+p  { margin: 0 0 var(--s2); }
+
+section { padding: var(--s4) 0; border-top: 1px solid var(--line-2); }
+section:first-of-type { border-top: 0; padding-top: 0; }
+
+/* поле → значення */
+dl { margin: 0 0 var(--s3); }
+dt {
+  font-size: 11px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin-bottom: 1px;
+}
+dd { margin: 0 0 var(--s3); }
+dd:last-of-type { margin-bottom: 0; }
+
+/* самостійна одиниця: день, рейс, крок */
+article {
+  border: 1px solid var(--line);
+  padding: var(--s3);
+  margin: 0 0 var(--s3);
+}
+article.leg { border-style: dashed; background: var(--fill); }
+article > h3 + p { color: var(--ink-2); font-size: 14px; }
+
+ol.days { margin: 0 0 var(--s2); padding: 0; list-style: none; }
+
+/* чотири елементи MAIN JOB у рядку дня — текстом, не кольором і не іконкою */
+ul.signals { margin: var(--s2) 0 var(--s3); padding: 0; list-style: none; }
+ul.signals li {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: var(--s2);
+  padding: var(--s2) 0;
+  border-top: 1px solid var(--line-2);
+  font-size: 13px;
+  line-height: 1.4;
+}
+ul.signals b {
+  font-size: 10px;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  padding-top: 2px;
+}
+
+/* вердикт: найважливіший блок екрана — вага, а не колір */
+.verdict { border: 2px solid var(--ink); padding: var(--s3); margin: 0 0 var(--s3); }
+.verdict strong { display: block; margin-bottom: var(--s2); font-size: 17px; line-height: 1.3; }
+.verdict p:last-child { margin: 0; color: var(--ink-2); font-size: 14px; }
+
+/* позначка ілюстративності — на самому полі, не в хромі */
+small[data-mock] {
+  display: block;
+  margin-top: var(--s1);
+  padding-left: var(--s2);
+  border-left: 2px dotted var(--ink);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+/* ── елементи керування ──────────────────────────────────────── */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2) var(--s3);
+  margin: var(--s3) 0 0;
+}
+.actions:last-child { margin-bottom: 0; }
+
+button {
+  font: inherit;
+  font-size: 13px;
+  padding: var(--s2) 12px;
+  background: var(--fill);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+button.primary { font-weight: 700; background: var(--ink); color: #fff; }
+
+a { color: var(--ink); }
+/* головна дія, що є переходом, лишається <a> і не стає <button> заради вигляду */
+a.cta {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  padding: var(--s2) 12px;
+  background: var(--ink);
+  color: #fff;
+  border: 1px solid var(--ink);
+  text-decoration: none;
+}
+
+label { display: block; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-2); margin-bottom: var(--s1); }
+textarea, input[type="text"] {
+  width: 100%;
+  font: inherit;
+  font-size: 13px;
+  padding: var(--s2);
+  border: 1px solid var(--ink-2);
+  background: #fff;
+}
+
+/* шар зі sitemap */
+details { border: 1px solid var(--line); padding: var(--s2) var(--s3); }
+summary { cursor: pointer; font-size: 13px; }
+details > p { margin: var(--s2) 0 0; font-size: 12px; line-height: 1.45; color: var(--ink-2); }
+
+/* ── медіа-зони ───────────────────────────────────────────────
+   Вайрфрейм не малює карту й фото — але мусить показати їхній
+   РОЗМІР І МІСЦЕ: пропорцію, чи блок на всю ширину, чи на весь
+   екран. Це структурна інформація, без якої макет не оцінити.
+   Перехрестя — стандартна вайрфреймна мова для «тут зображення». */
+figure { margin: 0 0 var(--s3); }
+
+.frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s3);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(to top right, transparent calc(50% - 0.5px), var(--line-2) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--line-2) 50%, transparent calc(50% + 0.5px)),
+    var(--fill);
+}
+.frame > span {
+  background: #fff;
+  border: 1px solid var(--line-2);
+  padding: var(--s1) var(--s2);
+  text-align: center;
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  max-width: 92%;
+}
+/* мітка розмірної поведінки — у кутку, щоб було видно без підпису */
+.frame::after {
+  content: attr(data-fit);
+  position: absolute;
+  top: 0; left: 0;
+  padding: 2px var(--s1);
+  background: var(--ink);
+  color: #fff;
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: .04em;
+}
+
+.frame--map      { aspect-ratio: 16 / 11; }
+.frame--profile  { aspect-ratio: 5 / 1; }
+.frame--photo    { aspect-ratio: 4 / 3; }
+.frame--screen   { height: 62vh; }
+
+/* на всю ширину колонки — виходить за поля main, і це видно */
+.bleed { margin-inline: calc(var(--s3) * -1); }
+.bleed .frame { border-inline: 0; }
+
+/* стрічка знімків */
+.strip { display: flex; gap: var(--s2); overflow-x: auto; margin: 0 0 var(--s3); }
+.strip .frame { flex: 0 0 42%; aspect-ratio: 4 / 3; }
+
+figcaption { margin-top: var(--s2); font-size: 12px; line-height: 1.5; color: var(--ink-2); }
+
+/* ── футер: атрибуція — юридична вимога, не підпис ───────────── */
+footer.app {
+  border-top: 1px solid var(--ink);
+  padding: var(--s3) var(--s3) var(--s5);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+footer.app p { margin: 0 0 var(--s2); }
+footer.app details { margin-bottom: var(--s2); }

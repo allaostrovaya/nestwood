@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wireframe · B1 План по днях · офлайн</title>
+<link rel="stylesheet" href="./_wireframe.css" />
+</head>
+<body>
+
+<span id="clean"></span>
+
+<p class="toggle"><a href="#clean">сховати анотації й дерево</a> · <a href="#top">показати</a></p>
+
+<div class="wf-shell">
+
+<nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
+  <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>
+  <p class="legend"><b>чорним</b> — намальовано, посилання<br>сірим — ще ні. Відступ = вкладеність:<br>розділ → екран → стан.</p>
+  <ul>
+    <li><span class="grp">G · Куди піти</span>
+      <ul>
+        <li><a href="./regions.html">G1 Регіони</a>
+          <ul>
+            <li><a class="st" href="./regions-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./route.html">G2 Картка маршруту</a>
+          <ul>
+            <li><a class="st" href="./route-empty.html">порожній</a></li>
+            <li><a class="st" href="./route-error.html">помилка</a></li>
+            <li><a class="st" href="./route-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./map.html">G3 Карта</a>
+          <ul>
+            <li><a class="st" href="./map-error.html">помилка</a></li>
+            <li><a class="st" href="./map-loading.html">завантаження</a></li>
+            <li><a class="st" href="./map-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">0 · Вхід</span>
+      <ul>
+        <li><a href="./start.html">Стартовий екран</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">A · Візард</span>
+      <ul>
+        <li><a href="./wizard-route.html">W1 Маршрут</a>
+          <ul>
+            <li><a class="st" href="./wizard-route-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-route-error.html">помилка</a></li>
+            <li><a class="st" href="./wizard-route-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./wizard-when.html">W2 Коли і скільки нас</a>
+          <ul>
+            <li><a class="st" href="./wizard-when-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-when-error.html">помилка</a></li>
+          </ul>
+        </li>
+        <li><a href="./wizard-about.html">W3 Про мене</a>
+          <ul>
+            <li><a class="st" href="./wizard-about-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-about-error.html">помилка</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">B · План</span>
+      <ul>
+        <li><a href="./plan.html">B1 План по днях</a>
+          <ul>
+            <li><a class="st" href="./plan-empty.html">порожній</a></li>
+            <li><a class="st" href="./plan-error.html">помилка</a></li>
+            <li><a class="st" href="./plan-loading.html">завантаження</a></li>
+            <li><a class="st" href="./plan-conflict.html">конфлікт</a></li>
+            <li><a class="st" href="./plan-offline.html" aria-current="page">офлайн</a></li>
+            <li><a class="st" href="./plan-degraded.html">degraded</a></li>
+          </ul>
+        </li>
+        <li><a href="./day.html">B2 День</a>
+          <ul>
+            <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
+          </ul>
+        </li>
+        <li><a href="./night.html">B3 Ніч: гарантія й доступ</a>
+          <ul>
+            <li><a class="st" href="./night-empty.html">порожній</a></li>
+            <li><a class="st" href="./night-error.html">помилка</a></li>
+            <li><a class="st" href="./night-degraded.html">degraded</a></li>
+          </ul>
+        </li>
+        <li><a href="./lodging-system.html">B4 Як працює ця система</a>
+        </li>
+        <li><a href="./gear.html">B5 Спорядження</a>
+        </li>
+        <li><a href="./transport.html">B6 Транспорт</a>
+          <ul>
+            <li><a class="st" href="./transport-empty.html">порожній</a></li>
+            <li><a class="st" href="./transport-error.html">помилка</a></li>
+            <li><a class="st" href="./transport-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./field-notes.html">B7 Нотатки з місця</a>
+          <ul>
+            <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./nights.html">B8 Ночівлі — ланцюжок</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">C · Закріпити</span>
+      <ul>
+        <li><a href="./lock-in.html">C1 Що лишилось закріпити</a>
+          <ul>
+            <li><a class="st" href="./lock-in-empty.html">порожній</a></li>
+            <li><a class="st" href="./lock-in-error.html">помилка</a></li>
+            <li><a class="st" href="./lock-in-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+        <li><a href="./membership.html">C2 Членство й ключ</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">D · У дорозі</span>
+      <ul>
+        <li><a href="./today.html">D1 Сьогодні</a>
+          <ul>
+            <li><a class="st" href="./today-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+        <li><a href="./changes.html">D2 Що змінилось</a>
+          <ul>
+            <li><a class="st" href="./changes-loading.html">завантаження</a></li>
+            <li><a class="st" href="./changes-error.html">помилка</a></li>
+            <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">E · Показати іншим</span>
+      <ul>
+        <li><a href="./share.html">E Підсумок для передачі</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">F · Моє</span>
+      <ul>
+        <li><a href="./mine.html">F1 Мої походи</a>
+          <ul>
+            <li><a class="st" href="./mine-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./my-gear.html">F2 Моє спорядження</a>
+        </li>
+        <li><a href="./me.html">F3 Я</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+<div class="wf-main">
+
+<p class="states" data-review lang="uk">Стани екрана: <a href="./plan.html">успіх</a> · <a href="./plan-empty.html">порожній</a> · <a href="./plan-error.html">помилка</a> · <a href="./plan-loading.html">завантаження</a> · <a href="./plan-conflict.html">конфлікт</a> · <a href="./plan-offline.html" aria-current="page">офлайн</a> · <a href="./plan-degraded.html">degraded</a></p>
+
+<details class="review" data-review lang="uk" id="top" open>
+  <summary>wireframes/plan-offline.html — B1 «План по днях» · стан <b>офлайн</b></summary>
+  <div class="review-body">
+    <p><b>Звідки цей стан:</b> sitemap.md, «Стани, а не екрани» — <code>offline</code> на B1, B2, B3, B6, D1. «Мусить мати завершення, а не петлю»: працювати з тим, що вже в кеші, — це нормальний кінець сценарію, не очікування мережі.</p>
+    <p><b>Що йде з кешу тут:</b> сам план (маршрут, ночівлі, спорядження, погода на момент останньої перевірки) і транспортні плечі — останній відомий розклад, з явною позначкою «живих даних немає». Пропозиція офлайн-пакета вже виконана раніше — саме тому це читається зараз узагалі.</p>
+  </div>
+</details>
+
+<div class="device">
+
+  <!-- ЗОНА: оболонка застосунку -->
+  <header class="app">
+    <p class="brand">Nestwood</p>
+    <nav aria-label="Головна навігація">
+      <ul>
+        <li><a href="./plan.html" aria-current="page">План</a></li>
+        <li><a href="./nights.html">Ночівлі</a></li>
+        <li><a href="./lock-in.html">Закріпити <span class="count">4</span></a></li>
+        <li><a href="./mine.html">Моє</a></li>
+      </ul>
+    </nav>
+  </header>
+  <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — чотири входи в кластери jobs. «Сьогодні» тут немає: він з’являється тільки у стані «у дорозі». Лічильник — рівно один у продукті, на «Закріпити».</p>
+
+  <main>
+    <h1>План по днях</h1>
+
+    <!-- ЗОНА 1: обраний маршрут -->
+    <section aria-labelledby="route">
+      <h2 id="route">Обраний маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="з кешу · на всю ширину · тап → на весь екран">
+          <span>карта (з офлайн-пакета)<br>Kungsleden, Abisko → Nikkaluokta<br>101 км · 5 хиж · 2 точки сходу</span>
+        </div>
+        <figcaption>Тайли завантажені в офлайн-пакет заздалегідь — карта відкривається без мережі так само, як і онлайн.</figcaption>
+      </figure>
+      <figure>
+        <div class="frame frame--profile" data-fit="на ширину колонки">
+          <span>профіль висоти · 1 940 м · найвища точка 1 150 м на 4-й день</span>
+        </div>
+        <figcaption>Профіль — статичні дані походу, у мережі не потребує.</figcaption>
+      </figure>
+      <p>Маркована стежка всю дорогу · офіційна градація: blå / medium, одна ділянка röd / krevende на перевалі.</p>
+      <p class="actions">
+        <a href="./map.html">Відкрити карту (з кешу)</a>
+        <a href="./wizard-route.html">Змінити маршрут</a>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Обраний маршрут. Карта й профіль — <b>частина офлайн-пакета</b>, тому відкриваються без мережі так само, як онлайн; тут офлайн нічого не деградує.</p>
+
+    <!-- ЗОНА 2: що це за похід -->
+    <section aria-labelledby="trip">
+      <h2 id="trip">Цей похід</h2>
+      <dl>
+        <dt>Дати</dt>
+        <dd>пн 17 – сб 22 серпня 2026 · 6 ходових днів</dd>
+
+        <dt>Відстань</dt>
+        <dd>101 км · 1 940 м набору</dd>
+
+        <dt>Нас</dt>
+        <dd>двоє · обоє члени STF — тож ключ і членський тариф доступні обом</dd>
+
+        <dt>Ночівлі</dt>
+        <dd>5 ночей · 2 ліжка щоночі · 4 fjällstugor (STF) + 1 fjällstation
+          <small data-mock>Статус броні тут ілюстративний навіть онлайн. Жива наявність ліжок потребує угоди про дані зі STF.</small>
+        </dd>
+
+        <dt>Ви</dt>
+        <dd>член STF №4471902 · найдовший денний перехід торік: 24 км із 12 кг</dd>
+      </dl>
+      <p class="actions">
+        <a href="./wizard-when.html">Параметри походу — дати, склад, тривалість</a>
+        <button type="button">Зберегти цей похід</button>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Що це за похід. Без змін відносно успіху — ці поля не залежать від мережі, вони належать самому плану.</p>
+
+    <!-- ЗОНА 3: чи план тримається купи -->
+    <section aria-labelledby="verdict">
+      <h2 id="verdict">Чи план тримається купи</h2>
+      <div class="verdict">
+        <strong>Мережі немає. План читається з кешу — востаннє перевірено 19 серпня 2026, 07:15.</strong>
+        <p>На той момент маршрут, ночівлі, спорядження й погода були узгоджені всі 6 днів. Це не поточна перевірка, а знімок останнього разу, коли мережа була.</p>
+      </div>
+      <p><b>Це нормальний робочий стан, а не очікування мережі.</b> Nestwood не тримає екран у стані завантаження в надії на сигнал — усе нижче доступне зараз, з позначкою, звідки й коли воно взяте. Щойно мережа зʼявиться, план звіриться сам.</p>
+      <p class="actions">
+        <span class="nav-todo">Закріпити ночівлі — екран C1, крок 8</span>
+        <a href="./share.html">Поділитися планом</a>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Вердикт → <b>офлайн</b>. Час останньої перевірки видно тут само, у самому вердикті, а не тільки в футері. Головне речення другого абзацу — «нормальний робочий стан, а не очікування» — це те, що відрізняє <code>offline</code> від зависання.</p>
+
+    <!-- ЗОНА 4: дні, з транспортом інлайн першим і останнім елементом -->
+    <section aria-labelledby="days">
+      <h2 id="days">Дні</h2>
+
+      <article class="leg" aria-labelledby="leg-in">
+        <h3 id="leg-in">Дорога туди · нд 16 серпня</h3>
+        <p>Нічний потяг 94, Stockholm C 18:11 → Abisko Turiststation 10:23 наступного ранку</p>
+        <ul class="signals">
+          <li><b>Статус</b> <small data-mock>живих даних немає — офлайн</small> за розкладом на момент останньої перевірки · Trafikverket, 19 серпня 07:15</li>
+          <li><b>Дорога</b> Abisko Turiststation стоїть на E10 — замінний автобус сюди доїде (дані NVDB, не залежать від мережі зараз)</li>
+        </ul>
+        <p class="actions"><a href="./transport.html">Відкрити транспорт (з кешу)</a></p>
+      </article>
+
+      <ol class="days">
+        <li>
+          <article aria-labelledby="d1">
+            <h3 id="d1">День 1 · пн 17 серпня — пройдено</h3>
+            <p>Abisko Turiststation → Abiskojaure</p>
+            <ul class="signals">
+              <li><b>Маршрут</b> 14 км · +150 м · близько 4 год 30</li>
+              <li><b>Ночівля</b> Abiskojaure fjällstuga (STF) · ліжко заброньоване · прийшли до 18:00</li>
+              <li><b>Спорядження</b> базовий список, нічого додаткового</li>
+              <li><b>Погода</b> +12 °C, слабкий дощ 2 мм, вітер 4 м/с · met.no, з кешу</li>
+            </ul>
+            <p class="actions"><a href="./day.html">Відкрити день 1</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="d2">
+            <h3 id="d2">День 2 · вт 18 серпня — пройдено</h3>
+            <p>Abiskojaure → Alesjaure</p>
+            <ul class="signals">
+              <li><b>Маршрут</b> 22 км · +330 м · близько 7 год — найдовший день</li>
+              <li><b>Ночівля</b> Alesjaure fjällstuga (STF) · ліжко заброньоване · сауна, крамниця</li>
+              <li><b>Спорядження</b> базовий список, нічого додаткового</li>
+              <li><b>Погода</b> +10 °C, сухо, вітер 6 м/с · met.no, з кешу</li>
+            </ul>
+            <p class="actions"><a href="./day.html">Відкрити день 2</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="d3">
+            <h3 id="d3">День 3 · ср 19 серпня — сьогодні</h3>
+            <p>Alesjaure → Tjäktja</p>
+            <ul class="signals">
+              <li><b>Маршрут</b> 13 км · +260 м · близько 4 год 30</li>
+              <li><b>Ночівля</b> Tjäktja fjällstuga (STF) · ліжко заброньоване · прийти до 18:00</li>
+              <li><b>Спорядження</b> базовий список, нічого додаткового</li>
+              <li><b>Погода</b> +9 °C, дощ 4 мм, вітер 7 м/с · met.no <small data-mock>з кешу 07:15, не оновлено — мережі немає</small></li>
+            </ul>
+            <p class="actions"><a href="./day.html">Відкрити день 3</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="d4">
+            <h3 id="d4">День 4 · чт 20 серпня</h3>
+            <p>Tjäktja → Sälka, через Tjäktjapasset (1 150 м)</p>
+            <ul class="signals">
+              <li><b>Маршрут</b> 12 км · +190 м · близько 5 год — перевал це найвища точка походу</li>
+              <li><b>Ночівля</b> Sälka fjällstuga (STF) · ліжко заброньоване · сауна</li>
+              <li><b>Спорядження</b> вітрівка й рукавиці на перевал — уже у вашому списку</li>
+              <li><b>Погода</b> +6 °C на перевалі, зливи 6 мм, вітер 12 м/с · met.no, з кешу</li>
+            </ul>
+            <p class="actions"><a href="./day.html">Відкрити день 4</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="d5">
+            <h3 id="d5">День 5 · пт 21 серпня</h3>
+            <p>Sälka → Kebnekaise Fjällstation, через Singi</p>
+            <ul class="signals">
+              <li><b>Маршрут</b> 21 км · +240 м · близько 8 год</li>
+              <li><b>Ночівля</b> Kebnekaise Fjällstation (STF, обслуговувана) · ліжко заброньоване · є харчування</li>
+              <li><b>Спорядження</b> базовий список, нічого додаткового</li>
+              <li><b>Погода</b> +11 °C, сухо, вітер 5 м/с · met.no, з кешу</li>
+            </ul>
+            <p class="actions"><a href="./day.html">Відкрити день 5</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="d6">
+            <h3 id="d6">День 6 · сб 22 серпня</h3>
+            <p>Kebnekaise Fjällstation → Nikkaluokta</p>
+            <ul class="signals">
+              <li><b>Маршрут</b> 19 км · −380 м · близько 5 год 30 · човен через Láddjujávri зрізає 6 км</li>
+              <li><b>Ночівля</b> немає — похід закінчується тут, автобус того ж дня по обіді</li>
+              <li><b>Спорядження</b> базовий список, нічого додаткового</li>
+              <li><b>Погода</b> +13 °C, сухо, вітер 3 м/с · met.no, з кешу</li>
+            </ul>
+            <p class="actions"><a href="./day.html">Відкрити день 6</a></p>
+          </article>
+        </li>
+      </ol>
+
+      <article class="leg" aria-labelledby="leg-out">
+        <h3 id="leg-out">Дорога назад · сб 22 серпня</h3>
+        <p>Автобус 91, Nikkaluokta 16:00 → Kiruna 17:20 · нічний потяг 92, Kiruna 19:44 → Stockholm C 09:30</p>
+        <ul class="signals">
+          <li><b>Статус</b> <small data-mock>живих даних немає — офлайн</small> останній відомий розклад · Trafikverket, з кешу 19 серпня 07:15</li>
+          <li><b>Запас</b> 2 год 24 між автобусом і потягом — це число з кешу, не з поточної перевірки</li>
+        </ul>
+        <p class="actions"><a href="./transport.html">Відкрити транспорт (з кешу)</a></p>
+      </article>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Дні. Дні 1–2 позначені «пройдено», день 3 — «сьогодні»: це показує, що офлайн застає план <b>у процесі проживання</b>, а не тільки під час підготовки. Транспортні плечі несуть <code>&lt;small data-mock&gt;живих даних немає&lt;/small&gt;</code> прямо на полі статусу (рішення №17 про мок-позначку і те саме правило для «живих даних немає» з B6).</p>
+
+    <!-- ЗОНА 5: скільки це коштує -->
+    <section aria-labelledby="cost">
+      <h2 id="cost">Скільки це коштує</h2>
+      <dl>
+        <dt>Ночівлі</dt>
+        <dd>4 × 450 SEK (членський тариф, fjällstuga) + 1 × 700 SEK (Kebnekaise Fjällstation) = <b>2 500 SEK</b> на людину</dd>
+
+        <dt>Членство</dt>
+        <dd>Уже оплачене — 395 SEK на рік з кожного</dd>
+
+        <dt>Дорога туди й назад</dt>
+        <dd>Нічний потяг 1 190 SEK + автобус 91 — 190 SEK = <b>1 380 SEK</b> на людину</dd>
+
+        <dt>Разом</dt>
+        <dd><b>3 880 SEK на людину · 7 760 SEK на двох</b> — з кешу, ціни не оновлювались відколи зникла мережа</dd>
+      </dl>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Вартість. Ціни статичні й до мережі байдужі — офлайн тут нічого не змінює, крім самої позначки джерела.</p>
+
+    <!-- ЗОНА 6: спорядження -->
+    <section aria-labelledby="gear">
+      <h2 id="gear">Спорядження</h2>
+      <p>23 позиції під цей маршрут і цю погоду · 19 у вас є · 3 докупити · 1 позичити — чекліст із офлайн-пакета, доступний повністю без мережі.</p>
+      <p class="actions"><a href="./gear.html">Відкрити чекліст</a></p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Спорядження. Частина офлайн-пакета — працює без застережень.</p>
+
+    <!-- ЗОНА 7: змінити щось -->
+    <section aria-labelledby="adjust">
+      <h2 id="adjust">Змінити щось</h2>
+      <p>Без мережі перескласти план не вийде — розмовний шар і «Параметри походу» надішлють запит, коли мережа зʼявиться знову.</p>
+      <form action="./plan-loading.html" method="get">
+        <label for="ask">Попросити зміну (надішлеться, коли буде мережа)</label>
+        <textarea id="ask" name="ask" rows="2" placeholder="як тільки буде мережа — перевір, чи ще актуальна ніч у Tjäktja"></textarea>
+        <p class="actions"><button type="submit">Зберегти запит</button></p>
+      </form>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Змінити щось. Чесно позначено: генерація — серверний виклик (тег «Тех стек» у CLAUDE.md), тож офлайн тут не вдає, що зміна станеться зараз — запит зберігається і йде, коли мережа повернеться.</p>
+
+    <!-- ЗОНА 8: офлайн-пакет і встановлення -->
+    <section aria-labelledby="offline">
+      <h2 id="offline">Взяти офлайн</h2>
+      <p><b>Офлайн-пакет уже збережено</b> — 42 МБ, завантажено 16 серпня 2026, 20:30: тайли карти, дані хиж, список спорядження й перехід кожного дня. Саме тому весь цей екран доступний зараз без мережі.</p>
+      <p>Пакет оновиться сам, щойно з'явиться мережа — вручну оновлювати не потрібно.</p>
+      <h3>Забрати із собою інакше</h3>
+      <p class="actions">
+        <button type="button">Експорт GPX — маршрут і хижі</button>
+        <a href="./share.html">Друк або PDF</a>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Офлайн-пакет. У цьому стані пропозиція <b>вже виконана</b> — замість кнопки «зберегти» показано факт: коли й скільки. Це і є передумова, завдяки якій офлайн-стан взагалі має що показати.</p>
+  </main>
+
+  <!-- ЗОНА 9: футер оболонки -->
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії — з офлайн-пакета. Погода: met.no Locationforecast, з кешу 19 серпня 07:15. Транспорт: Trafikverket, з кешу 19 серпня 07:15 — живих даних зараз немає.</p>
+      <p>Дані про хижі — тип, ключ, ліжка, сезон — із публічної схеми обʼєктів, теж у пакеті. Живої наявності ліжок у цьому плані немає і онлайн: вона потребує угоди про дані зі STF.</p>
+    </details>
+    <p>Востаннє перевірено: 19 серпня 2026, 07:15 · мережі немає</p>
+  </footer>
+
+</div>
+
+<p class="ann ann-out" data-review lang="uk">ЗОНА · Футер оболонки. Час останньої перевірки замінює звичний «остання перевірка» на явне «мережі немає» — це і є той самий текст, що мусить бути написаний всерйоз (_conventions.md §3).</p>
+
+</div><!-- /.wf-main -->
+</div><!-- /.wf-shell -->
+
+</body>
+</html>

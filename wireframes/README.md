@@ -8,7 +8,7 @@ Status: **in progress** — structure done, drawing not started.
 | 2 · Screen tree | [sitemap.md](./sitemap.md) § Екрани — tree, orphans, states, coverage both ways | done |
 | 3 · Navigation | [sitemap.md](./sitemap.md) § Навігація — 4 global entries + 1 conditional, depth in taps | done |
 | 4 · User flows | [flows.md](./flows.md) — MAIN, R2, R7, R3+R6 as Mermaid, with decisions, states and dead ends | done |
-| 5 · Traceability | [sitemap.md](./sitemap.md) § Трасування — 12 jobs × 20 screens, orphan lists with a decision each | done |
+| 5 · Traceability | [sitemap.md](./sitemap.md) § Трасування — 12 jobs × 23 screens, orphan lists with a decision each | done |
 | 6 · Wireframes | low/mid-fidelity screens | not started |
 
 Low- and mid-fidelity flows for the core user journey: input (fitness, time, what to walk, lodging regime + membership, gear, preferences; budget optional) → multi-day itinerary output (route, overnight stays, gear checklist, weather adaptation, transport legs, and what still has to be booked).

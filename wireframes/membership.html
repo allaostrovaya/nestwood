@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wireframe · C2 Членство й ключ</title>
+<link rel="stylesheet" href="./_wireframe.css" />
+</head>
+<body>
+
+<span id="clean"></span>
+
+<p class="toggle"><a href="#clean">сховати анотації й дерево</a> · <a href="#top">показати</a></p>
+
+<div class="wf-shell">
+
+<nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
+  <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>
+  <p class="legend"><b>чорним</b> — намальовано, посилання<br>сірим — ще ні. Відступ = вкладеність:<br>розділ → екран → стан.</p>
+  <ul>
+    <li><span class="grp">G · Куди піти</span>
+      <ul>
+        <li><a href="./regions.html">G1 Регіони</a>
+          <ul>
+            <li><a class="st" href="./regions-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./route.html">G2 Картка маршруту</a>
+          <ul>
+            <li><a class="st" href="./route-empty.html">порожній</a></li>
+            <li><a class="st" href="./route-error.html">помилка</a></li>
+            <li><a class="st" href="./route-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./map.html">G3 Карта</a>
+          <ul>
+            <li><a class="st" href="./map-error.html">помилка</a></li>
+            <li><a class="st" href="./map-loading.html">завантаження</a></li>
+            <li><a class="st" href="./map-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">0 · Вхід</span>
+      <ul>
+        <li><a href="./start.html">Стартовий екран</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">A · Візард</span>
+      <ul>
+        <li><a href="./wizard-route.html">W1 Маршрут</a>
+          <ul>
+            <li><a class="st" href="./wizard-route-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-route-error.html">помилка</a></li>
+            <li><a class="st" href="./wizard-route-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./wizard-when.html">W2 Коли і скільки нас</a>
+          <ul>
+            <li><a class="st" href="./wizard-when-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-when-error.html">помилка</a></li>
+          </ul>
+        </li>
+        <li><a href="./wizard-about.html">W3 Про мене</a>
+          <ul>
+            <li><a class="st" href="./wizard-about-empty.html">порожній</a></li>
+            <li><a class="st" href="./wizard-about-error.html">помилка</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">B · План</span>
+      <ul>
+        <li><a href="./plan.html">B1 План по днях</a>
+          <ul>
+            <li><a class="st" href="./plan-empty.html">порожній</a></li>
+            <li><a class="st" href="./plan-error.html">помилка</a></li>
+            <li><a class="st" href="./plan-loading.html">завантаження</a></li>
+            <li><a class="st" href="./plan-conflict.html">конфлікт</a></li>
+            <li><a class="st" href="./plan-offline.html">офлайн</a></li>
+            <li><a class="st" href="./plan-degraded.html">degraded</a></li>
+          </ul>
+        </li>
+        <li><a href="./day.html">B2 День</a>
+          <ul>
+            <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
+          </ul>
+        </li>
+        <li><a href="./night.html">B3 Ніч: гарантія й доступ</a>
+          <ul>
+            <li><a class="st" href="./night-empty.html">порожній</a></li>
+            <li><a class="st" href="./night-error.html">помилка</a></li>
+            <li><a class="st" href="./night-degraded.html">degraded</a></li>
+          </ul>
+        </li>
+        <li><a href="./lodging-system.html">B4 Як працює ця система</a>
+        </li>
+        <li><a href="./gear.html">B5 Спорядження</a>
+        </li>
+        <li><a href="./transport.html">B6 Транспорт</a>
+          <ul>
+            <li><a class="st" href="./transport-empty.html">порожній</a></li>
+            <li><a class="st" href="./transport-error.html">помилка</a></li>
+            <li><a class="st" href="./transport-loading.html">завантаження</a></li>
+          </ul>
+        </li>
+        <li><a href="./field-notes.html">B7 Нотатки з місця</a>
+          <ul>
+            <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./nights.html">B8 Ночівлі — ланцюжок</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">C · Закріпити</span>
+      <ul>
+        <li><a href="./lock-in.html">C1 Що лишилось закріпити</a>
+          <ul>
+            <li><a class="st" href="./lock-in-empty.html">порожній</a></li>
+            <li><a class="st" href="./lock-in-error.html">помилка</a></li>
+            <li><a class="st" href="./lock-in-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+        <li><a href="./membership.html" aria-current="page">C2 Членство й ключ</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">D · У дорозі</span>
+      <ul>
+        <li><a href="./today.html">D1 Сьогодні</a>
+          <ul>
+            <li><a class="st" href="./today-offline.html">офлайн</a></li>
+          </ul>
+        </li>
+        <li><a href="./changes.html">D2 Що змінилось</a>
+          <ul>
+            <li><a class="st" href="./changes-loading.html">завантаження</a></li>
+            <li><a class="st" href="./changes-error.html">помилка</a></li>
+            <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">E · Показати іншим</span>
+      <ul>
+        <li><a href="./share.html">E Підсумок для передачі</a>
+        </li>
+      </ul>
+    </li>
+
+    <li><span class="grp">F · Моє</span>
+      <ul>
+        <li><a href="./mine.html">F1 Мої походи</a>
+          <ul>
+            <li><a class="st" href="./mine-empty.html">порожній</a></li>
+          </ul>
+        </li>
+        <li><a href="./my-gear.html">F2 Моє спорядження</a>
+        </li>
+        <li><a href="./me.html">F3 Я</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+<div class="wf-main">
+
+<p class="states" data-review lang="uk">Стани екрана: <a href="./membership.html" aria-current="page">успіх</a></p>
+
+<details class="review" data-review lang="uk" id="top" open>
+  <summary>wireframes/membership.html — <b>C2 «Членство й ключ»</b> · станів немає</summary>
+  <div class="review-body">
+    <p><b>Місце у flow (R7):</b> <code>C1</code> → <code>QDEP «Наступний крок блокований залежністю?»: так, потрібне членство або ключ</code> → <code>C2</code> → назад у <code>C1</code>. Другий вхід — контекстний із <code>B3</code>, коли членства бракує для гарантії (sitemap, «Контекстне»).</p>
+    <p><b>Jobs:</b> R2 і R7. Для Kristin (P) це <b>керування наявним</b> членством, для Lukas (S) — рішення «купувати чи ні». Обидва прочитання мають бути на екрані одночасно, тому ціна без членства показана поруч із ціною з ним.</p>
+    <p><b>Чому екран, а не поле профілю:</b> членство — <b>умова доступу</b>, а не додаткова покупка (sitemap, C2). Воно стоїть першим у ланцюжку членство → ключ → замкнена <code>Selvbetjent</code>/<code>Ubetjent</code> хижа й дає одну з чотирьох змінних формули гарантії.</p>
+    <p><b>Станів немає свідомо:</b> усі дані екрана — з профілю й зі статичної схеми об'єктів, тобто нічого з того, що може відмовити. Це видно й у переліку сторінок першої партії.</p>
+  </div>
+</details>
+
+<div class="device">
+
+  <!-- ЗОНА: оболонка застосунку -->
+  <header class="app">
+    <p class="brand">Nestwood</p>
+    <nav aria-label="Головна навігація">
+      <ul>
+        <li><a href="./plan.html">План</a></li>
+        <li><a href="./nights.html">Ночівлі</a></li>
+        <li><a href="./lock-in.html" aria-current="page">Закріпити <span class="count">4</span></a></li>
+        <li><a href="./mine.html">Моє</a></li>
+      </ul>
+    </nav>
+  </header>
+  <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — чотири входи в кластери jobs. «Сьогодні» тут немає: він з’являється тільки у стані «у дорозі». Лічильник — рівно один у продукті, на «Закріпити».</p>
+
+  <main>
+    <h1>Членство й ключ</h1>
+
+    <!-- ЗОНА 1: чинне членство -->
+    <section aria-labelledby="member">
+      <h2 id="member">Ваше членство</h2>
+      <dl>
+        <dt>Асоціація</dt>
+        <dd>STF — Svenska Turistföreningen (Шведська туристична асоціація)</dd>
+
+        <dt>Ви</dt>
+        <dd>Kristin · №4471902 · чинне до 28 лютого 2027</dd>
+
+        <dt>Другий учасник</dt>
+        <dd>Erik · №4471903 · чинне до 28 лютого 2027</dd>
+
+        <dt>Внесок</dt>
+        <dd>395 SEK на рік з людини · сплачено 3 березня 2026</dd>
+
+        <dt>Чому номери два</dt>
+        <dd>у логбук хижі кожен вписується окремо, своїм номером. Одне членство на двох не працює — ні для тарифу, ні для ключа</dd>
+      </dl>
+      <p class="actions">
+        <button type="button">Показати картку члена</button>
+        <button type="button">Поновити в офіційній системі STF</button>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Чинне членство як <b>стан, а не як налаштування</b>. ГОЛОВНА ДІЯ: показати картку — саме її просять у хижі. «Поновити» — <code>&lt;button&gt;</code>, бо це вихід у чужу систему, а не перехід між нашими екранами. Два номери на екрані з першого рядка: розмір групи — обов'язкове поле (рішення №21), а членство поштучне.</p>
+
+    <!-- ЗОНА 2: що членство змінює саме тут -->
+    <section aria-labelledby="what">
+      <h2 id="what">Що це змінює в цьому поході</h2>
+      <dl>
+        <dt>Ціна ночей</dt>
+        <dd><b>2 500 SEK з людини</b> — 4 × 450 SEK у fjällstuga плюс 700 SEK у Kebnekaise Fjällstation.<br>
+          Без членства ті самі п'ять ночей коштували б <b>3 700 SEK з людини</b>. Різниця 1 200 SEK проти внеску 395 SEK — тобто членство окупається на першому ж такому поході</dd>
+
+        <dt>Право на ключ</dt>
+        <dd>без членства <code>DNT-nøkkel</code> не видають узагалі — не дорожче, а ніяк</dd>
+
+        <dt>Логбук</dt>
+        <dd>номер вписується в логбук хижі навіть після онлайн-броні й онлайн-оплати. Це не дубль, а окрема вимога системи</dd>
+
+        <dt>Ночі за членським тарифом</dt>
+        <dd>5 із 5 доступні за членською ціною
+          <small data-mock>Наявність місць за членським тарифом ілюстративна: жива наявність ліжок потребує угоди про дані зі STF, і вгадувати її ми не будемо.</small>
+        </dd>
+      </dl>
+      <p class="actions">
+        <a href="./lock-in.html">Що лишилось закріпити</a>
+        <a href="./night.html">Ніч: гарантія й доступ</a>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Обидва прочитання одночасно: для P — «що я вже маю», для S — «скільки це коштує й чи варто». Членство — <b>четверта змінна формули гарантії</b> (тип × бронь × час приходу × членство), тому зона веде в B3, а не лише в C1. Позначка ілюстративності стоїть на самому полі наявності (рішення №17).</p>
+
+    <!-- ЗОНА 3: ключ -->
+    <section aria-labelledby="key">
+      <h2 id="key">Ключ</h2>
+      <dl>
+        <dt>Стан</dt>
+        <dd><code>DNT-nøkkel</code> у вас немає</dd>
+
+        <dt>Чи потрібен у цьому поході</dt>
+        <dd>ні. Усі п'ять об'єктів — шведські STF, у сезон 20 червня — 15 вересня відчинені, при кожному стугвярт</dd>
+
+        <dt>Депозит</dt>
+        <dd>100 NOK · це <b>застава, а не ціна</b>: повертається, коли ключ здають. Плутанина тут поширена — в англомовних джерелах це подають як «плату за вхід»</dd>
+
+        <dt>Де беруть</dt>
+        <dd>у крамницях DNT і в обслуговуваних хижах, <b>тільки членам</b> — тому крок «ключ» ніколи не стоїть перед кроком «членство»</dd>
+
+        <dt>Поле в схемі об'єкта</dt>
+        <dd><code>nøkkel</code>: <code>Ulåst</code> (незамкнено) · <code>Spesialnøkkel</code> (спеціальний ключ) · <code>DNT-nøkkel</code> (ключ DNT).<br>
+          Значення читається на кожному об'єкті окремо — воно й вирішує, чи ніч узагалі можлива</dd>
+      </dl>
+      <p class="actions">
+        <button type="button">Замовити ключ в офіційній системі DNT</button>
+        <a href="./lock-in.html">Крок 2 у списку закріплення</a>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Ключ окремою зоною, а не рядком у профілі: у Норвегії він визначає, чи ніч <b>фізично можлива</b>. Значення поля <code>nøkkel</code> показані в оригіналі з перекладом — це і є механізм E1/B4, і на вайрфреймі видно, що рядок займає два рядки, а не один. Кнопка «Замовити» лишається доступною й тоді, коли ключ у цьому поході не потрібен: наступний похід може бути норвезьким, а ключ їде поштою не за день.</p>
+
+    <!-- ЗОНА 4: ланцюжок залежності -->
+    <section aria-labelledby="chain">
+      <h2 id="chain">Ланцюжок: членство → ключ → замкнена хижа</h2>
+      <ol class="days">
+        <li>
+          <article aria-labelledby="c1">
+            <h3 id="c1">1 · Членство</h3>
+            <p>Без нього не буде ні ключа, ні членського тарифу. Оформлюється в офіційній системі асоціації.</p>
+          </article>
+        </li>
+        <li>
+          <article aria-labelledby="c2">
+            <h3 id="c2">2 · Ключ</h3>
+            <p>Видають тільки членам, під депозит 100 NOK. Отримати треба <b>до виходу</b> — у горах його взяти нема де.</p>
+          </article>
+        </li>
+        <li>
+          <article aria-labelledby="c3">
+            <h3 id="c3">3 · Замкнена хижа</h3>
+            <p>Об'єкт із <code>betjeningsgrad</code> <code>Selvbetjent</code> або <code>Ubetjent</code> і <code>nøkkel: DNT-nøkkel</code> без ключа не відчиниться. <b>Тут drop-in не існує</b>: це не «дорожче» й не «гірше», це зачинені двері за 20 км від найближчої дороги.</p>
+          </article>
+        </li>
+      </ol>
+      <p>У цьому поході ланцюжок не задіяний — усі об'єкти шведські й відчинені. Але саме він вирішує, чи можлива норвезька частина маршруту через кордон, і тому показаний навіть тоді, коли не спрацьовує.</p>
+      <p class="actions">
+        <span class="nav-todo">Як працює ця система ночівлі · екран B4, крок 8</span>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Ланцюжок розмічений <code>&lt;ol&gt;</code>, бо порядок є <b>властивістю офіційної системи</b>, а не нашим сортуванням — та сама підстава, що й у кроків на C1. ГОЛОВНОЇ ДІЇ немає: це пояснення, а не крок. Зона показана й тоді, коли не спрацьовує, бо саме вона перетворює «немає ключа» з дрібниці на скасований похід — і це найдорожчий різновид помилки, який ми взагалі можемо попередити.</p>
+
+    <!-- ЗОНА 5: розподіл відповідальності -->
+    <section aria-labelledby="boundary">
+      <h2 id="boundary">Що робимо ми, а що офіційна система</h2>
+      <dl>
+        <dt>Ми</dt>
+        <dd>тримаємо номер, дату закінчення й стан ключа — щоб формула гарантії й список закріплення рахувались правильно, а не з припущення «мабуть, член»</dd>
+
+        <dt>Офіційна система</dt>
+        <dd>оформлення й поновлення членства, видача ключа, депозит і його повернення — це STF і DNT</dd>
+
+        <dt>Чого ми не робимо ніколи</dt>
+        <dd>не продаємо членство, не видаємо й не пересилаємо ключ, не зберігаємо платіжних даних</dd>
+      </dl>
+      <p class="actions">
+        <a class="cta" href="./plan.html">До плану по днях</a>
+        <a href="./lock-in.html">Що лишилось закріпити</a>
+      </p>
+    </section>
+    <p class="ann" data-review lang="uk">ЗОНА · Та сама межа, що на C1, переформульована під членство. ГОЛОВНА ДІЯ: вихід у план; друга — повернення в C1, звідки сюди й приходять (цикл потоку R7).</p>
+  </main>
+
+  <!-- ЗОНА 6: футер оболонки -->
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Внесок, членський тариф і сезонні дати — з опублікованих сторінок STF шведською, зчитано 13 серпня 2026. Умови ключа й депозит 100 NOK — зі сторінок DNT норвезькою. Англомовні сторінки обох асоціацій цих деталей не містять.</p>
+      <p>Значення полів <code>nøkkel</code> і <code>betjeningsgrad</code> — із публічної схеми об'єктів. Ваш номер членства зберігається на цьому пристрої, а не в нас.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+
+</div>
+
+<p class="ann ann-out" data-review lang="uk">ЗОНА · Футер оболонки. ГОЛОВНА ДІЯ: розгорнути «Звідки це взято» — тут це не формальність, а доказ: правила членства й ключа ми звіряли шведською й норвезькою, бо англійські сторінки асоціацій пропускають саме те, що має значення.</p>
+
+</div><!-- /.wf-main -->
+</div><!-- /.wf-shell -->
+
+</body>
+</html>
