@@ -1,0 +1,5 @@
+# docs/ — згенерована копія wireframes/, research/ і concept/ для GitHub Pages.
+# Той самий вміст, що в джерелах, тому:
+#   linguist-generated  — не подвоювати мовну статистику й згортати в дифах
+# Джерела правимо в wireframes/, research/, concept/ і копіюємо сюди.
+docs/** linguist-generated=true
