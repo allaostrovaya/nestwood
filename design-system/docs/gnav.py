@@ -5,7 +5,7 @@ DOCS = [
  ('research',   'research/research.html',  'Ресерч',          'ринок, конкуренти, джерела даних'),
  ('personas',   'concept/personas.html',   'Персони & JTBD',  'хто це і які в них jobs'),
  ('ia',         'wireframes/ia.html',      'Архітектура',     'екрани, потоки, трасування'),
- ('wireframes', 'wireframes/plan.html',    'Вайрфрейми',      '56 сторінок, дерево праворуч'),
+ ('wireframes', 'wireframes/plan.html',    'Вайрфрейми',      '63 сторінки, дерево праворуч'),
 ]
 
 def gnav(active, prefix, home='wireframes/plan.html'):
