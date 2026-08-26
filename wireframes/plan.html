@@ -70,6 +70,8 @@
           <ul>
             <li><a href="./plan.html" aria-current="page">План по днях ⭐</a>
               <ul class="states">
+                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
+                <li><a class="st" href="./plan-past.html">пройдений</a></li>
                 <li><a class="st" href="./plan-empty.html">порожній</a></li>
                 <li><a class="st" href="./plan-error.html">помилка</a></li>
                 <li><a class="st" href="./plan-loading.html">завантаження</a></li>
@@ -125,6 +127,10 @@
                   <ul class="states">
                     <li><a class="st" href="./today-offline.html">офлайн</a></li>
                   </ul>
+                </li>
+                <li><a href="./account.html">Зберегти похід</a>
+                </li>
+                <li><a href="./notify.html">Попереджати про зміни</a>
                 </li>
               </ul>
             </li>
@@ -187,12 +193,12 @@
       <h2 id="verdict">Чи план тримається купи</h2>
       <div class="verdict">
         <strong>Маршрут, ночівлі, спорядження й погода узгоджені всі 6 днів.</strong>
-        <p>Кожна ніч заброньована, кожен перехід відповідає вашому темпу, а прогноз дістає до останнього дня походу.</p>
+        <p>Кожен перехід відповідає вашому темпу, а прогноз дістає до останнього дня походу.</p>
       </div>
-      <p>Перевірено 13 серпня, 09:12 · відтоді нічого не змінилось.</p>
+      <p>Перевірено 13 серпня, 09:12 · вихід через 4 дні.</p>
       <div class="note">
-        <b>Є незакрита зміна:</b> прогноз на перевал четвертого дня погіршився з учора.
-        <a href="./changes.html">Що змінилось і що ще можна зробити</a>
+        <b>Потребує уваги:</b> прогноз на перевал четвертого дня погіршився з учора, і дві ночі ще без броні.
+        <a href="./changes.html">Що змінилось</a> · <a href="./lock-in.html">Закріпити</a>
       </div>
     </section>
 
@@ -207,21 +213,33 @@
       <p>Зміна будь-чого тут <b>перераховує план</b>, а не лише підпис: зняти членство — і дві ночі з пʼяти стануть «потрібне членство», бо ключ це умова доступу, а не тариф.</p>
     </section>
 
-    <section aria-labelledby="overview">
-      <h2 id="overview">Маршрут</h2>
-      <figure class="bleed">
-        <div class="frame frame--map" data-fit="на всю ширину · тап по точці → день">
-          <span>карта · Abisko → Nikkaluokta<br>точки 1…6 по днях, 5 хиж, 2 точки сходу<br>вибір синхронізований зі списком нижче</span>
-        </div>
-        <figcaption>Карта тут <b>орієнтир, а не покажчик</b>: тапати «день 3» серед шести точок на 375 px — це промахи, тому головний індекс — список днів.</figcaption>
-      </figure>
-      <ul class="stats">
-        <li><b>101 км</b><small>довжина</small></li>
-        <li><b>1 940 м</b><small>набір</small></li>
-        <li><b>6</b><small>ходових днів</small></li>
-        <li><b>~7 год</b><small>найдовший день</small></li>
+    <section aria-labelledby="parts">
+      <h2 id="parts">Все про цей похід</h2>
+      <ul class="cards">
+        <li><a class="card" href="./nights.html">
+          <b>Ночівлі</b><span class="state warn">2 без броні</span>
+          <small>Abiskojaure ✓ · Alesjaure ✓ · Tjäktja — не бронюється · Sälka ✗ · Kebnekaise ✓</small>
+          <small data-mock>Статус броні ілюстративний: жива наявність ліжок потребує угоди зі STF.</small></a></li>
+        <li><a class="card" href="./transport.html">
+          <b>Дорога туди й назад</b><span class="state">за розкладом</span>
+          <small>нд 16 серп · нічний потяг 94, Stockholm C 18:11 → Abisko 09:52<br>сб 22 серп · автобус 91 Nikkaluokta → Kiruna, 1 год 15</small></a></li>
+        <li><a class="card" href="./gear.html">
+          <b>Спорядження</b><span class="state warn">3 купити</span>
+          <small>23 позиції · 11,4 кг · бракує дощовика на другу людину, газу й ремнабору</small></a></li>
+        <li><a class="card" href="./changes.html">
+          <b>Що змінилось</b><span class="state warn">1 зміна</span>
+          <small>прогноз на Tjäktjapasset погіршився з учора · рішення потрібне до 15 серпня, поки бронь Sälka ще можна перенести</small></a></li>
+        <li><a class="card" href="./lock-in.html">
+          <b>Що лишилось закріпити</b><span class="state warn">4 кроки</span>
+          <small>наступний крок — Alesjaure, дедлайн 15 серпня · далі Sälka, квитки, депозит за ключ</small></a></li>
+        <li><a class="card" href="./offline-pack.html">
+          <b>Офлайн-пакет</b><span class="state">не завантажено</span>
+          <small>карта, план, розклад, перша допомога · 84,8 МБ</small></a></li>
+        <li><a class="card" href="./share.html">
+          <b>Поділитися</b><span class="state">не надіслано</span>
+          <small>маршрут і очікуваний час повернення — рідним; це те, що рекомендує сам DNT</small></a></li>
       </ul>
-      <p class="actions"><a href="./map.html">Відкрити карту</a> <a href="./route.html">Змінити маршрут</a></p>
+      <p><b>Стан кожної частини видно звідси</b> — не заходячи всередину. Інакше довелось би обійти всі сім, щоб дізнатись, чи все гаразд, а це рівно та робота, яку продукт обіцяє зняти.</p>
     </section>
 
     <section aria-labelledby="days">
@@ -255,33 +273,21 @@
       <p>Стан у рядку — це чотири сигнали дня, згорнуті в слово: маршрут, ночівля, спорядження, погода. Розгортаються всередині дня.</p>
     </section>
 
-    <section aria-labelledby="facets">
-      <h2 id="facets">Все про цей похід</h2>
-      <ul class="rows">
-        <li><a class="row" href="./nights.html">
-          <span><b>Ночівлі</b><small>5 ночей · 4 fjällstugor + 1 fjällstation</small></span>
-          <span class="state warn">2 без броні</span></a>
-          <small data-mock>Статус броні ілюстративний: жива наявність ліжок потребує угоди зі STF.</small></li>
-        <li><a class="row" href="./transport.html">
-          <span><b>Дорога туди й назад</b><small>потяг і автобус 91</small></span>
-          <span class="state">2 плеча</span></a></li>
-        <li><a class="row" href="./gear.html">
-          <span><b>Спорядження</b><small>під цей маршрут і цю погоду</small></span>
-          <span class="state">23 позиції · 11,4 кг</span></a></li>
-        <li><a class="row" href="./changes.html">
-          <span><b>Що змінилось</b><small>прогноз на перевал четвертого дня</small></span>
-          <span class="state warn">1 зміна</span></a></li>
-        <li><a class="row" href="./lock-in.html">
-          <span><b>Що лишилось закріпити</b><small>ночівлі · квитки · членство</small></span>
-          <span class="state warn">4 кроки</span></a></li>
-        <li><a class="row" href="./offline-pack.html">
-          <span><b>Офлайн-пакет</b><small>карта, план, розклад, перша допомога</small></span>
-          <span class="state">84,8 МБ</span></a></li>
-        <li><a class="row" href="./share.html">
-          <span><b>Поділитися</b><small>рідним і як safety share</small></span>
-          <span class="state"></span></a></li>
+    <section aria-labelledby="overview">
+      <h2 id="overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину · тап по точці → день">
+          <span>карта · Abisko → Nikkaluokta<br>точки 1…6 по днях, 5 хиж, 2 точки сходу<br>вибір синхронізований зі списком днів вище</span>
+        </div>
+        <figcaption>Карта тут <b>орієнтир, а не покажчик</b>: тапати «день 3» серед шести точок на 375 px — це промахи, тому головний індекс — список днів.</figcaption>
+      </figure>
+      <ul class="stats">
+        <li><b>101 км</b><small>довжина</small></li>
+        <li><b>1 940 м</b><small>набір</small></li>
+        <li><b>6</b><small>ходових днів</small></li>
+        <li><b>~7 год</b><small>найдовший день</small></li>
       </ul>
-      <p><b>Стан фасета видно звідси</b> — не заходячи всередину. Інакше довелось би обійти всі сім, щоб дізнатись, чи все гаразд, а це рівно та робота, яку продукт обіцяє зняти.</p>
+      <p class="actions"><a href="./map.html">Відкрити карту</a> <a href="./route.html">Змінити маршрут</a></p>
     </section>
 
     <section aria-labelledby="cost">
@@ -322,7 +328,7 @@
   <nav class="tabbar" aria-label="Головна навігація">
     <ul>
       <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
-      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
       <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
       <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
       <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>

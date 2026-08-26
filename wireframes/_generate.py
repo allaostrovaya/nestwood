@@ -32,7 +32,7 @@ TREE = [
  ]),
  ('Плани', [
    ('Мої походи','plans.html',[('порожній','plans-empty.html')], [
-     ('План по днях ⭐','plan.html',[('порожній','plan-empty.html'),('помилка','plan-error.html'),('завантаження','plan-loading.html'),('конфлікт','plan-conflict.html'),('офлайн','plan-offline.html'),('degraded','plan-degraded.html')], [
+     ('План по днях ⭐','plan.html',[('у дорозі','plan-intrip.html'),('пройдений','plan-past.html'),('порожній','plan-empty.html'),('помилка','plan-error.html'),('завантаження','plan-loading.html'),('конфлікт','plan-conflict.html'),('офлайн','plan-offline.html'),('degraded','plan-degraded.html')], [
        ('День','day.html',[('норма замість прогнозу','day-seasonal.html')], [
          ('Ніч','night.html',[('порожній','night-empty.html'),('помилка','night-error.html'),('degraded','night-degraded.html')], []),
        ]),
@@ -44,6 +44,8 @@ TREE = [
        ('Офлайн-пакет','offline-pack.html',[], []),
        ('Підсумок для передачі','share.html',[], []),
        ('Сьогодні','today.html',[('офлайн','today-offline.html')], []),
+       ('Зберегти похід','account.html',[], []),
+       ('Попереджати про зміни','notify.html',[], []),
      ]),
    ]),
  ]),
@@ -120,18 +122,34 @@ def nav_html(current):
     out.append('  </ul>\n</nav>')
     return '\n'.join(out)
 
+# ── аркуші (рівень 4) ────────────────────────────────────────
+# Екран, який відкривається з кількох різних контекстів і мусить
+# повертати туди, звідки прийшли, а не до «свого» батька. Керування —
+# «✕ Закрити», не «‹ назад». У статичному макеті href веде до
+# найчастішого відкривача, бо стека в нас немає.
+SHEETS = {
+  'map.html': 'catalogue.html', 'map-error.html': 'catalogue.html',
+  'map-loading.html': 'catalogue.html', 'map-offline.html': 'plan.html',
+  'lodging-system.html': 'guide.html',
+  'account.html': 'plan.html', 'notify.html': 'plan.html',
+  'membership.html': 'lock-in.html', 'my-gear.html': 'gear.html',
+}
+
 def topbar(current):
     """Шапка макета: ‹ назад до батька · назва екрана.
-    Хаб вкладки батька не має — там лише назва."""
+    Хаб вкладки батька не має — там лише назва.
+    Аркуш замість «назад» отримує «✕ Закрити»."""
     p, pname = parent_of(current)
     title = TITLE.get(current, '')
+    if current in SHEETS:
+        return f'  <header class="topbar"><a class="close" href="./{SHEETS[current]}">✕ Закрити</a><span class="title">{title}</span></header>'
     back = f'<a class="back" href="./{p}">‹ {pname}</a>' if p else ''
     return f'  <header class="topbar">{back}<span class="title">{title}</span></header>'
 
 APPNAV = '''  <nav class="tabbar" aria-label="Головна навігація">
     <ul>
-      <li><a href="./catalogue.html"{m}><span class="ico" aria-hidden="true"></span>Маршрути</a></li>
-      <li><a href="./plans.html"{p}><span class="ico" aria-hidden="true"></span>Плани</a></li>
+      <li><a href="./catalogue.html"{m}><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html"{p}><span class="ico" aria-hidden="true"></span>Плани{b}</a></li>
       <li><a href="./guide.html"{d}><span class="ico" aria-hidden="true"></span>Довідник</a></li>
       <li><a href="./safety.html"{x}><span class="ico" aria-hidden="true"></span>Безпека</a></li>
       <li><a href="./me.html"{f}><span class="ico" aria-hidden="true"></span>Профіль</a></li>
@@ -153,9 +171,15 @@ def tab_of(f):
     """Файл (екран або стан) → назва вкладки. Джерело — TAB, зібраний із TREE."""
     return TAB.get(f)
 
+# Бейдж на «Планах» — єдиний лічильник продукту: компенсація за прибрану
+# вкладку «Закріпити» (sitemap, рішення про пʼять вкладок). Знімається там,
+# де плану немає, інакше бейдж бреше.
+NOPLAN = {'plans-empty.html', 'plan-empty.html', 'catalogue-empty.html'}
+
 def appnav_for(f):
     t = tab_of(f)
-    return APPNAV.format(m=' aria-current="page"' if t == 'Маршрути' else '',
+    b = '' if f in NOPLAN else '<span class="count" aria-label="лишилось закріпити: 4">4</span>'
+    return APPNAV.format(b=b, m=' aria-current="page"' if t == 'Маршрути' else '',
                          p=' aria-current="page"' if t == 'Плани' else '',
                          d=' aria-current="page"' if t == 'Довідник' else '',
                          x=' aria-current="page"' if t == 'Безпека' else '',

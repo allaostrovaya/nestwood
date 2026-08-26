@@ -70,6 +70,8 @@
           <ul>
             <li><a href="./plan.html">План по днях ⭐</a>
               <ul class="states">
+                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
+                <li><a class="st" href="./plan-past.html">пройдений</a></li>
                 <li><a class="st" href="./plan-empty.html">порожній</a></li>
                 <li><a class="st" href="./plan-error.html">помилка</a></li>
                 <li><a class="st" href="./plan-loading.html">завантаження</a></li>
@@ -125,6 +127,10 @@
                   <ul class="states">
                     <li><a class="st" href="./today-offline.html">офлайн</a></li>
                   </ul>
+                </li>
+                <li><a href="./account.html">Зберегти похід</a>
+                </li>
+                <li><a href="./notify.html">Попереджати про зміни</a>
                 </li>
               </ul>
             </li>
@@ -182,41 +188,72 @@
   <main>
     <h1>Куди можна піти</h1>
 
-    <section aria-labelledby="when">
-      <h2 id="when">Коли ви хочете йти</h2>
-      <form class="inline" action="./catalogue.html" method="get">
-        <label for="month">Місяць</label>
-        <p class="actions">
-          <button type="button">Червень</button><button type="button">Липень</button>
-          <button type="button">Серпень</button><button type="button">Вересень</button>
-        </p>
-        <p>Місяць питаємо тут, а не пізніше: без нього неможливо сказати, які маршрути взагалі мають сенс — хижі відчиняються й зачиняються за сезоном.</p>
+    <section aria-labelledby="brief">
+      <h2 id="brief">Що шукаєте</h2>
+      <form action="./catalogue.html" method="get">
+        <label for="q">Назва маршруту, регіону або точки старту</label>
+        <input type="search" id="q" name="q" placeholder="Kungsleden · Jotunheimen · Abisko" />
       </form>
-    </section>
-    <section aria-labelledby="list">
-      <h2 id="list">Регіони</h2>
-      <p>У лютому в цих регіонах багатоденних маршрутів немає: хижі зачинені, стежки під снігом, а зимові переходи ми поки не плануємо.</p>
-      <ul class="signals">
-        <li><b>Варіант 1</b> Червень — липень: Kungsleden відкривається, хижі працюють, комарі ще не в піку</li>
-        <li><b>Варіант 2</b> Кінець серпня — вересень: менше людей, кольори, але коротший день</li>
-        <li><b>Варіант 3</b> Подивитись усі регіони без фільтра за місяцем</li>
+      <p>Пошук — для тих, хто вже знає назву. Хто не знає — фільтри нижче, і вони ж є брифом: те, що ви тут поставите, стане параметрами плану.</p>
+      <ul class="chips">
+        <li><button class="chip on" type="button">Швеція</button></li>
+        <li><button class="chip on" type="button">Норвегія</button></li>
+        <li><button class="chip on" type="button">лютий</button></li>
+        <li><button class="chip on" type="button">5–7 днів</button></li>
+        <li><button class="chip on" type="button">ночівля в хижах</button></li>
       </ul>
-      <p class="actions">
-        <form class="inline" action="./catalogue.html" method="get"><button type="submit">Показати червень</button></form>
-        <form class="inline" action="./catalogue.html" method="get"><button type="submit">Показати вересень</button></form>
-        <form class="inline" action="./catalogue.html" method="get"><button type="submit">Зняти фільтр місяця</button></form>
-      </p>
+      <p><b>Порожній список тут — це відповідь, а не збій.</b> Ламається саме місяць: у лютому хижі зачинені, стежки під снігом, а зимові переходи ми поки не плануємо.</p>
     </section>
 
-    <section aria-labelledby="out">
-      <h2 id="out">Що можна зробити</h2>
-      <p class="actions">
-        <a class="cta" href="./assemble.html">Зібрати маршрут під ці дати</a>
-        <a href="./catalogue.html">Інший місяць або регіон</a>
-      </p>
-      <p>Збірка йде по офіційно маркованій мережі й по хижах, тому це не «намалюємо лінію», а справжній ланцюжок ночей — або чесне «ось де розрив».</p>
+    <section aria-labelledby="where">
+      <h2 id="where">Де це</h2>
+      <div class="empty">
+        <p><b>Показувати нема чого.</b> Карту з нулем маршрутів ми не малюємо: порожня Скандинавія виглядала б як помилка завантаження, а це не вона.</p>
+      </div>
+      <p>Карта повернеться разом зі списком, щойно бриф стане можливим.</p>
     </section>
 
+    <section aria-labelledby="list">
+      <h2 id="list">Маршрути під цей бриф</h2>
+      <div class="empty">
+        <p><b>Жодного — і ми знаємо, чому.</b> Не «нічого не знайдено»: у лютому в обраних регіонах багатоденних маршрутів із ночівлею в хижах не існує.</p>
+      </div>
+      <ul class="rows">
+        <li><a class="row" href="./catalogue.html">
+          <span><b>Червень — липень</b><small>Kungsleden відкривається, хижі працюють, комарі ще не в піку</small></span>
+          <span class="state">6 маршрутів</span></a></li>
+        <li><a class="row" href="./catalogue.html">
+          <span><b>Кінець серпня — вересень</b><small>менше людей і кольори, але коротший світловий день</small></span>
+          <span class="state">6 маршрутів</span></a></li>
+        <li><a class="row" href="./catalogue.html">
+          <span><b>Зняти місяць із брифу</b><small>показати все, що є, і дивитись на сезон у кожній картці окремо</small></span>
+          <span class="state">15 маршрутів</span></a></li>
+      </ul>
+      <p>Три виходи, а не одна кнопка «назад»: міняється рівно один параметр брифу, і видно, що з цього вийде.</p>
+    </section>
+
+    <section aria-labelledby="regions">
+      <h2 id="regions">Якщо регіон ще не обрано</h2>
+      <p>Регіон тут не рятує — сезон закритий в усіх трьох, і це властивість гір, а не нашого каталогу.</p>
+      <ul class="rows">
+        <li><a class="row" href="./catalogue.html">
+          <span><b>Лапландія · Швеція</b><small>сезон кінець червня — середина вересня</small></span>
+          <span class="state">у лютому зачинено</span></a></li>
+        <li><a class="row" href="./catalogue.html">
+          <span><b>Jotunheimen · Норвегія</b><small>липень — вересень; узимку частина хиж працює як selvbetjent</small></span>
+          <span class="state warn">лише selvbetjent</span></a></li>
+        <li><a class="row" href="./catalogue.html">
+          <span><b>Hardangervidda · Норвегія</b><small>липень — вересень</small></span>
+          <span class="state">у лютому зачинено</span></a></li>
+      </ul>
+      <p>У Jotunheimen узимку частина хиж лишається відчиненою як <b>selvbetjent</b> — але це вже зимовий перехід із іншими вимогами, і обіцяти його багатоденним маршрутом ми не будемо.</p>
+    </section>
+
+    <section aria-labelledby="none">
+      <h2 id="none">Не бачите свого</h2>
+      <p>Зібрати маршрут під лютий ми теж не можемо — збірка йде по тих самих хижах і тій самій мережі. Що можна: змінити місяць вище або взяти дати, коли сезон відкритий.</p>
+      <p class="actions"><a class="cta" href="./assemble.html">Зібрати маршрут під інші дати</a></p>
+    </section>
   </main>
 
   <footer class="app">

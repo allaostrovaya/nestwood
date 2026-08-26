@@ -19,7 +19,7 @@ for p in sorted(pathlib.Path('wireframes').glob('*.html')):
     new = re.sub(r'<nav class="wf-tree".*?</nav>', lambda m: nav_html(p.name), s, flags=re.S)
     hdr = appnav_for(p.name)
     new = re.sub(r'  <header class="topbar">.*?</header>', topbar(p.name), new, flags=re.S)
-    new = re.sub(r'  <header class="app">.*?Глобальна навігація[^<]*</p>\n', hdr, new, flags=re.S)
+    new = re.sub(r'  <nav class="tabbar".*?</nav>\n', hdr, new, flags=re.S)
     if new != s: p.write_text(new, encoding='utf-8'); n += 1
 print(f'дерево перегенеровано у {n} сторінках')
 # канонічна копія

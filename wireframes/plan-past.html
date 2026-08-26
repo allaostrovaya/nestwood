@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wireframe · План по днях · пройдений</title>
+<link rel="stylesheet" href="./_wireframe.css" />
+<link rel="stylesheet" href="../design-system/docs/globalnav.css" />
+</head>
+<body>
+
+<nav class="gnav" aria-label="Документи проєкту">
+  <a class="gnav-brand" href="../wireframes/plan.html">Nestwood<span>ДОКУМЕНТИ</span></a>
+  <p class="gnav-label">Проєкт</p>
+  <ul>
+    <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
+    <li><a class="gnav-item" href="../concept/personas.html"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>56 сторінок, дерево праворуч</small></span></a></li>
+  </ul>
+</nav>
+
+<div class="wf-shell">
+
+<nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
+  <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>
+  <ul>
+    <li><span class="grp">Маршрути</span>
+      <ul>
+        <li><a href="./catalogue.html">Куди можна піти</a>
+          <ul class="states">
+            <li><a class="st" href="./catalogue-empty.html">порожній</a></li>
+          </ul>
+          <ul>
+            <li><a href="./route.html">Картка маршруту ⭐</a>
+              <ul class="states">
+                <li><a class="st" href="./route-empty.html">порожній</a></li>
+                <li><a class="st" href="./route-error.html">помилка</a></li>
+                <li><a class="st" href="./route-loading.html">завантаження</a></li>
+              </ul>
+              <ul>
+                <li><a href="./map.html">Карта маршруту</a>
+                  <ul class="states">
+                    <li><a class="st" href="./map-error.html">помилка</a></li>
+                    <li><a class="st" href="./map-loading.html">завантаження</a></li>
+                    <li><a class="st" href="./map-offline.html">офлайн</a></li>
+                  </ul>
+                </li>
+                <li><a href="./field-notes.html">Нотатки з місця</a>
+                  <ul class="states">
+                    <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
+                  </ul>
+                </li>
+                <li><a href="./reviews.html">Відгуки</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="./assemble.html">Зібрати маршрут</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Плани</span>
+      <ul>
+        <li><a href="./plans.html">Мої походи</a>
+          <ul class="states">
+            <li><a class="st" href="./plans-empty.html">порожній</a></li>
+          </ul>
+          <ul>
+            <li><a href="./plan.html">План по днях ⭐</a>
+              <ul class="states">
+                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
+                <li><a class="st" href="./plan-past.html" aria-current="page">пройдений</a></li>
+                <li><a class="st" href="./plan-empty.html">порожній</a></li>
+                <li><a class="st" href="./plan-error.html">помилка</a></li>
+                <li><a class="st" href="./plan-loading.html">завантаження</a></li>
+                <li><a class="st" href="./plan-conflict.html">конфлікт</a></li>
+                <li><a class="st" href="./plan-offline.html">офлайн</a></li>
+                <li><a class="st" href="./plan-degraded.html">degraded</a></li>
+              </ul>
+              <ul>
+                <li><a href="./day.html">День</a>
+                  <ul class="states">
+                    <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./night.html">Ніч</a>
+                      <ul class="states">
+                        <li><a class="st" href="./night-empty.html">порожній</a></li>
+                        <li><a class="st" href="./night-error.html">помилка</a></li>
+                        <li><a class="st" href="./night-degraded.html">degraded</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="./nights.html">Ночівлі — ланцюжок ночей</a>
+                </li>
+                <li><a href="./gear.html">Спорядження</a>
+                </li>
+                <li><a href="./transport.html">Дорога туди й назад</a>
+                  <ul class="states">
+                    <li><a class="st" href="./transport-empty.html">порожній</a></li>
+                    <li><a class="st" href="./transport-error.html">помилка</a></li>
+                    <li><a class="st" href="./transport-loading.html">завантаження</a></li>
+                  </ul>
+                </li>
+                <li><a href="./changes.html">Що змінилось і що ще можна зробити</a>
+                  <ul class="states">
+                    <li><a class="st" href="./changes-loading.html">завантаження</a></li>
+                    <li><a class="st" href="./changes-error.html">помилка</a></li>
+                    <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
+                  </ul>
+                </li>
+                <li><a href="./lock-in.html">Що лишилось закріпити</a>
+                  <ul class="states">
+                    <li><a class="st" href="./lock-in-empty.html">порожній</a></li>
+                    <li><a class="st" href="./lock-in-error.html">помилка</a></li>
+                    <li><a class="st" href="./lock-in-offline.html">офлайн</a></li>
+                  </ul>
+                </li>
+                <li><a href="./offline-pack.html">Офлайн-пакет</a>
+                </li>
+                <li><a href="./share.html">Підсумок для передачі</a>
+                </li>
+                <li><a href="./today.html">Сьогодні</a>
+                  <ul class="states">
+                    <li><a class="st" href="./today-offline.html">офлайн</a></li>
+                  </ul>
+                </li>
+                <li><a href="./account.html">Зберегти похід</a>
+                </li>
+                <li><a href="./notify.html">Попереджати про зміни</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Довідник</span>
+      <ul>
+        <li><a href="./guide.html">Довідник</a>
+          <ul>
+            <li><a href="./lodging-system.html">Як працює ця система ночівлі</a>
+            </li>
+            <li><a href="./rules.html">Правила й fjellvett</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Безпека</span>
+      <ul>
+        <li><a href="./safety.html">Безпека</a>
+          <ul>
+            <li><a href="./first-aid.html">Перша допомога</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Профіль</span>
+      <ul>
+        <li><a href="./me.html">Я</a>
+          <ul>
+            <li><a href="./my-gear.html">Моє спорядження</a>
+            </li>
+            <li><a href="./membership.html">Членство й ключ</a>
+            </li>
+            <li><a href="./settings.html">Налаштування</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="wf-main">
+
+<p class="meta" data-review lang="uk"><b>0.3</b> · План по днях · <i>пройдений</i></p>
+
+<div class="device" data-screen="План по днях" data-state="пройдений">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./plans.html">‹ Мої походи</a><span class="title">План по днях</span></header>
+
+  <main>
+    <h1>Jotunheimen · 12–15 серпня 2025</h1>
+
+    <section aria-labelledby="verdict">
+      <h2 id="verdict">Чи план тримався купи</h2>
+      <div class="verdict">
+        <strong>Пройдено повністю: 4 дні, 47 км, три ночі в хижах DNT.</strong>
+        <p>Один день пішов не за планом — Besseggen забрав на годину більше, ніж рахувалось. Це вже враховано у вашому темпі.</p>
+      </div>
+      <p>Завершено 15 серпня 2025 · дані походу заморожені того ж дня.</p>
+      <div class="note">
+        <b>Це запис, а не план.</b> Джерела більше не опитуються: погода, розклади й наявність ліжок показані такими, якими були тоді.
+        <a href="./plans.html">Усі мої походи</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="assume">
+      <h2 id="assume">На чому це стояло</h2>
+      <ul class="chips">
+        <li><button class="chip on" type="button">двоє, 2 члени DNT</button></li>
+        <li><button class="chip" type="button">темп середній</button></li>
+        <li><button class="chip" type="button">прихід до 18:00</button></li>
+        <li><button class="chip" type="button">рюкзак 12,1 кг</button></li>
+      </ul>
+      <p>Припущення заморожені разом із походом і не правляться: інакше запис перестав би відповідати тому, що сталось насправді. Правити можна копію — «за цим шаблоном» унизу.</p>
+    </section>
+
+    <section aria-labelledby="parts">
+      <h2 id="parts">Все про цей похід</h2>
+      <ul class="cards">
+        <li><a class="card" href="./nights.html">
+          <b>Де ночували</b><span class="state">3 ночі</span>
+          <small>Memurubu (betjent) · Gjendebu (betjent) · Fondsbu (betjent) · усі три заброньовані заздалегідь, членський тариф</small></a></li>
+        <li><a class="card" href="./gear.html">
+          <b>Що брали</b><span class="state">21 позиція · 12,1 кг</span>
+          <small>дощовик протік на другий день, каремат латали дактейпом — це вже позначено в «Моєму спорядженні»</small></a></li>
+        <li><a class="card" href="./transport.html">
+          <b>Як діставались</b><span class="state">квитки збережено</span>
+          <small>автобус Oslo → Gjendesheim 11 серп · назад Fondsbu → Beitostølen → Oslo 15 серп</small></a></li>
+        <li><a class="card" href="./changes.html">
+          <b>Що змінювалось у дорозі</b><span class="state">2 зміни</span>
+          <small>13 серп — дощ на Besseggen, вихід зсунули на годину · 14 серп — човен на Gjende за розкладом, обхід не знадобився</small></a></li>
+        <li><a class="card" href="./offline-pack.html">
+          <b>Офлайн-пакет</b><span class="state">61 МБ · можна звільнити</span>
+          <small>карта Jotunheimen лишається на телефоні, поки ви її не приберете</small></a></li>
+        <li><a class="card" href="./share.html">
+          <b>Підсумок походу</b><span class="state">не надіслано</span>
+          <small>маршрут, дні, ночівлі й фактичний час — одним повідомленням</small></a></li>
+      </ul>
+      <p><b>Двох карток тут немає, і це не пропуск:</b> «що лишилось закріпити» закрилось до виходу — 4 кроки з 4, а «що змінилось» перестало бути завданням і стало журналом.</p>
+    </section>
+
+    <section aria-labelledby="days">
+      <h2 id="days">Дні</h2>
+      <ul class="rows">
+        <li><a class="row" href="./day.html">
+          <span><b>1 · Gjendesheim → Memurubu</b><small>14 км · Besseggen · план ~6 год, факт 7 год 05</small></span>
+          <span class="state warn">довше за план</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>2 · Memurubu → Gjendebu</b><small>12 км · план ~5 год 30, факт 5 год 20</small></span>
+          <span class="state">за планом</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>3 · Gjendebu → Fondsbu</b><small>11 км · план ~4 год 30, факт 4 год 40</small></span>
+          <span class="state">за планом</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>4 · Fondsbu → Bygdin, вихід</b><small>10 км · план ~3 год, факт 3 год 10</small></span>
+          <span class="state">за планом</span></a></li>
+      </ul>
+      <p>Факт проти плану — єдине, що додається в пройденому поході, і саме з нього збирається ваш темп для наступних. Офіційна градація не перераховується заднім числом.</p>
+    </section>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину · тап по точці → день">
+          <span>карта · Gjendesheim → Bygdin<br>пройдений трек суцільним, три ночівлі позначені<br>47 км, набір 2 210 м</span>
+        </div>
+        <figcaption>На що мусить відповісти: як цей похід виглядав цілком — щоб вирішити, чи хочеться повторити або віддати комусь як шаблон.</figcaption>
+      </figure>
+      <ul class="stats">
+        <li><b>47 км</b><small>пройдено</small></li>
+        <li><b>2 210 м</b><small>набір</small></li>
+        <li><b>4</b><small>ходових дні</small></li>
+        <li><b>7 год 05</b><small>найдовший день</small></li>
+      </ul>
+      <p class="actions"><a href="./map.html">Відкрити карту</a> <a href="./route.html">Картка цього маршруту</a></p>
+    </section>
+
+    <section aria-labelledby="cost">
+      <h2 id="cost">Скільки це коштувало</h2>
+      <ul class="stats">
+        <li><b>2 940 NOK</b><small>ночівлі</small></li>
+        <li><b>1 120 NOK</b><small>дорога</small></li>
+        <li><b>4 060 NOK</b><small>разом на людину</small></li>
+      </ul>
+      <p>Фактичні витрати, зафіксовані після походу. Членство DNT знизило ночівлі на 1 350 NOK — це та сама змінна, що й у формулі гарантії.</p>
+    </section>
+
+    <section aria-labelledby="adjust">
+      <h2 id="adjust">Змінити щось</h2>
+      <p><b>Пройдений похід не редагується.</b> Він запис того, що сталось, і саме тому з нього можна рахувати темп. Що можна зробити — зібрати новий похід за цим шаблоном: маршрут, ланцюжок хиж і склад групи підставляться, а дати, погоду й наявність ліжок ми запитаємо заново.</p>
+      <p class="actions"><a href="./route.html">Картка маршруту</a> <a href="./my-gear.html">Що з цього лишилось у спорядженні</a></p>
+    </section>
+
+    <p class="bar"><a class="cta" href="./plan-loading.html">Скласти похід за цим шаблоном</a></p>
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast, зчитано 13 серпня 09:12. Транспорт: Trafikverket, зчитано 13 серпня 09:12.</p>
+      <p>Дані про хижі — тип, ключ, ліжка, сезон — із публічної схеми обʼєктів. Живої наявності ліжок у цьому плані немає: вона потребує угоди про дані зі STF, а вгадувати ми її не будемо.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+
+</div><!-- /.wf-main -->
+</div><!-- /.wf-shell -->
+
+</body>
+</html>

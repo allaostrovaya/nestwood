@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wireframe · Попереджати про зміни · успіх</title>
+<link rel="stylesheet" href="./_wireframe.css" />
+<link rel="stylesheet" href="../design-system/docs/globalnav.css" />
+</head>
+<body>
+
+<nav class="gnav" aria-label="Документи проєкту">
+  <a class="gnav-brand" href="../wireframes/plan.html">Nestwood<span>ДОКУМЕНТИ</span></a>
+  <p class="gnav-label">Проєкт</p>
+  <ul>
+    <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
+    <li><a class="gnav-item" href="../concept/personas.html"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>56 сторінок, дерево праворуч</small></span></a></li>
+  </ul>
+</nav>
+
+<div class="wf-shell">
+
+<nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
+  <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>
+  <ul>
+    <li><span class="grp">Маршрути</span>
+      <ul>
+        <li><a href="./catalogue.html">Куди можна піти</a>
+          <ul class="states">
+            <li><a class="st" href="./catalogue-empty.html">порожній</a></li>
+          </ul>
+          <ul>
+            <li><a href="./route.html">Картка маршруту ⭐</a>
+              <ul class="states">
+                <li><a class="st" href="./route-empty.html">порожній</a></li>
+                <li><a class="st" href="./route-error.html">помилка</a></li>
+                <li><a class="st" href="./route-loading.html">завантаження</a></li>
+              </ul>
+              <ul>
+                <li><a href="./map.html">Карта маршруту</a>
+                  <ul class="states">
+                    <li><a class="st" href="./map-error.html">помилка</a></li>
+                    <li><a class="st" href="./map-loading.html">завантаження</a></li>
+                    <li><a class="st" href="./map-offline.html">офлайн</a></li>
+                  </ul>
+                </li>
+                <li><a href="./field-notes.html">Нотатки з місця</a>
+                  <ul class="states">
+                    <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
+                  </ul>
+                </li>
+                <li><a href="./reviews.html">Відгуки</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="./assemble.html">Зібрати маршрут</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Плани</span>
+      <ul>
+        <li><a href="./plans.html">Мої походи</a>
+          <ul class="states">
+            <li><a class="st" href="./plans-empty.html">порожній</a></li>
+          </ul>
+          <ul>
+            <li><a href="./plan.html">План по днях ⭐</a>
+              <ul class="states">
+                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
+                <li><a class="st" href="./plan-past.html">пройдений</a></li>
+                <li><a class="st" href="./plan-empty.html">порожній</a></li>
+                <li><a class="st" href="./plan-error.html">помилка</a></li>
+                <li><a class="st" href="./plan-loading.html">завантаження</a></li>
+                <li><a class="st" href="./plan-conflict.html">конфлікт</a></li>
+                <li><a class="st" href="./plan-offline.html">офлайн</a></li>
+                <li><a class="st" href="./plan-degraded.html">degraded</a></li>
+              </ul>
+              <ul>
+                <li><a href="./day.html">День</a>
+                  <ul class="states">
+                    <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./night.html">Ніч</a>
+                      <ul class="states">
+                        <li><a class="st" href="./night-empty.html">порожній</a></li>
+                        <li><a class="st" href="./night-error.html">помилка</a></li>
+                        <li><a class="st" href="./night-degraded.html">degraded</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="./nights.html">Ночівлі — ланцюжок ночей</a>
+                </li>
+                <li><a href="./gear.html">Спорядження</a>
+                </li>
+                <li><a href="./transport.html">Дорога туди й назад</a>
+                  <ul class="states">
+                    <li><a class="st" href="./transport-empty.html">порожній</a></li>
+                    <li><a class="st" href="./transport-error.html">помилка</a></li>
+                    <li><a class="st" href="./transport-loading.html">завантаження</a></li>
+                  </ul>
+                </li>
+                <li><a href="./changes.html">Що змінилось і що ще можна зробити</a>
+                  <ul class="states">
+                    <li><a class="st" href="./changes-loading.html">завантаження</a></li>
+                    <li><a class="st" href="./changes-error.html">помилка</a></li>
+                    <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
+                  </ul>
+                </li>
+                <li><a href="./lock-in.html">Що лишилось закріпити</a>
+                  <ul class="states">
+                    <li><a class="st" href="./lock-in-empty.html">порожній</a></li>
+                    <li><a class="st" href="./lock-in-error.html">помилка</a></li>
+                    <li><a class="st" href="./lock-in-offline.html">офлайн</a></li>
+                  </ul>
+                </li>
+                <li><a href="./offline-pack.html">Офлайн-пакет</a>
+                </li>
+                <li><a href="./share.html">Підсумок для передачі</a>
+                </li>
+                <li><a href="./today.html">Сьогодні</a>
+                  <ul class="states">
+                    <li><a class="st" href="./today-offline.html">офлайн</a></li>
+                  </ul>
+                </li>
+                <li><a href="./account.html">Зберегти похід</a>
+                </li>
+                <li><a href="./notify.html" aria-current="page">Попереджати про зміни</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Довідник</span>
+      <ul>
+        <li><a href="./guide.html">Довідник</a>
+          <ul>
+            <li><a href="./lodging-system.html">Як працює ця система ночівлі</a>
+            </li>
+            <li><a href="./rules.html">Правила й fjellvett</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Безпека</span>
+      <ul>
+        <li><a href="./safety.html">Безпека</a>
+          <ul>
+            <li><a href="./first-aid.html">Перша допомога</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Профіль</span>
+      <ul>
+        <li><a href="./me.html">Я</a>
+          <ul>
+            <li><a href="./my-gear.html">Моє спорядження</a>
+            </li>
+            <li><a href="./membership.html">Членство й ключ</a>
+            </li>
+            <li><a href="./settings.html">Налаштування</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="wf-main">
+
+<p class="meta" data-review lang="uk"><b>3.3</b> · Попереджати про зміни · <i>успіх</i></p>
+
+<div class="device" data-screen="Попереджати про зміни" data-state="успіх">
+
+  <div class="screen">
+  <header class="topbar"><a class="close" href="./plan.html">✕ Закрити</a><span class="title">Попереджати про зміни</span></header>
+
+  <main>
+    <h1>Попереджати мене про зміни</h1>
+
+    <section aria-labelledby="why">
+      <h2 id="why">Навіщо це саме зараз</h2>
+      <div class="verdict">
+        <strong>Похід збережено. Тепер сигнал має куди приходити.</strong>
+        <p>Цінність не в повідомленні, а в запасі часу: попередження за день-два, поки ще можна звернути, вартує більше, ніж точне сповіщення в момент, коли вже пізно.</p>
+      </div>
+      <p>Питаємо тут, а не на першому запуску: на першому запуску це нічого не означає й тому не дозволяється.</p>
+    </section>
+
+    <section aria-labelledby="what">
+      <h2 id="what">Про що саме</h2>
+      <ul class="rows">
+        <li><a class="row" href="./changes.html">
+          <span><b>Погода на вашому перевалі</b><small>коли прогноз змінює саме той день, де є набір висоти або відкритий відрізок</small></span>
+          <span class="state">за 2 дні</span></a></li>
+        <li><a class="row" href="./transport.html">
+          <span><b>Рейс скасовано або зсунуто</b><small>потяг до старту й автобус із фінішу · до Katterat замінного автобуса не буде взагалі</small></span>
+          <span class="state warn">одразу</span></a></li>
+        <li><a class="row" href="./lock-in.html">
+          <span><b>Дедлайн броні</b><small>за три дні до кожного, і в порядку, який задає сама система бронювання</small></span>
+          <span class="state">за 3 дні</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>Прогноз дійшов до ваших дат</b><small>met.no бачить ~10 днів; доти в плані стоїть сезонна норма, і вона позначена як норма</small></span>
+          <span class="state">за 10 днів</span></a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="not">
+      <h2 id="not">Чого не буде</h2>
+      <ul class="signals">
+        <li><b>Ніякого маркетингу</b> сповіщення тільки про цей похід</li>
+        <li><b>Ніяких щоденних зведень</b> мовчимо, поки нічого не змінилось</li>
+        <li><b>Ніякого трекінгу</b> позиція береться, коли ви самі відкриваєте карту; батарею їсть GPS і екран, а не пуш</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="do">
+      <h2 id="do">Дозвіл</h2>
+      <p>Далі системне вікно телефона — його показує iOS чи Android, і другого шансу спитати в нас не буде.</p>
+      <p class="actions"><a href="./plan.html">Не зараз</a> <a href="./settings.html">Налаштувати детальніше</a></p>
+      <p><b>Якщо відмовити:</b> план і офлайн-пакет працюють, але зміна погоди й скасований рейс не дійдуть — саме ті два, заради яких цей шар існує. Тоді перевіряти доведеться вручну, відкриваючи застосунок.</p>
+    </section>
+
+    <p class="bar"><button class="primary" type="button">Дозволити сповіщення</button></p>
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Сигнали будуються з met.no Locationforecast, Trafikverket і Entur та з дедлайнів систем бронювання. Ми не опитуємо ваш телефон і не стежимо за позицією.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+
+</div><!-- /.wf-main -->
+</div><!-- /.wf-shell -->
+
+</body>
+</html>

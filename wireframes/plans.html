@@ -70,6 +70,8 @@
           <ul>
             <li><a href="./plan.html">План по днях ⭐</a>
               <ul class="states">
+                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
+                <li><a class="st" href="./plan-past.html">пройдений</a></li>
                 <li><a class="st" href="./plan-empty.html">порожній</a></li>
                 <li><a class="st" href="./plan-error.html">помилка</a></li>
                 <li><a class="st" href="./plan-loading.html">завантаження</a></li>
@@ -125,6 +127,10 @@
                   <ul class="states">
                     <li><a class="st" href="./today-offline.html">офлайн</a></li>
                   </ul>
+                </li>
+                <li><a href="./account.html">Зберегти похід</a>
+                </li>
+                <li><a href="./notify.html">Попереджати про зміни</a>
                 </li>
               </ul>
             </li>
@@ -184,10 +190,10 @@
     <h1>Мої походи</h1>
 
     <section aria-labelledby="current">
-      <h2 id="current">Похід, що триває</h2>
+      <h2 id="current">Наступний похід</h2>
       <article>
         <h3>Kungsleden · Abisko → Nikkaluokta</h3>
-        <p>17–22 серпня 2026 · 6 ходових днів · двоє · 5 ночей</p>
+        <p>17–22 серпня 2026 · вихід через 4 дні · 6 ходових днів · двоє · 5 ночей</p>
         <ul class="signals">
           <li><b>Закріплено</b> 1 із 5 ночей — Abiskojaure заброньована й оплачена</li>
           <li><b>Далі</b> Alesjaure, Tjäktja, Sälka, Kebnekaise Fjällstation — ще не закріплені</li>
@@ -201,11 +207,12 @@
 
     <section aria-labelledby="past">
       <h2 id="past">Минулі походи</h2>
+      <p>Пройдені походи лишаються цілими — дні, ночівлі, квитки й фактичний час. З них рахується ваш темп, тому вони не видаляються самі.</p>
       <article>
-        <h3>Jotunheimen</h3>
-        <p>4 дні · серпень 2025 · завершено</p>
+        <h3>Jotunheimen · Gjendesheim → Bygdin</h3>
+        <p>12–15 серпня 2025 · 4 дні · 47 км · пройдено повністю</p>
         <p class="actions">
-          <a href="./route.html">Переглянути маршрут</a>
+          <a href="./plan-past.html">Відкрити похід</a>
           <form class="inline" action="./plan.html" method="get"><button type="submit">Скласти похід за цим шаблоном</button></form>
         </p>
       </article>
@@ -243,7 +250,7 @@
   <nav class="tabbar" aria-label="Головна навігація">
     <ul>
       <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
-      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
       <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
       <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
       <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>

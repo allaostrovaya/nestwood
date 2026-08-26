@@ -49,7 +49,7 @@ for n in sorted(issues):
 
 # ── звʼязність: у кожного екрана має бути вхід із іншого макета ──
 TABS = {'catalogue.html','plans.html','guide.html','safety.html','me.html'}
-SUF = ('-empty','-error','-loading','-offline','-degraded','-conflict','-seasonal','-nooptions')
+SUF = ('-empty','-error','-loading','-offline','-degraded','-conflict','-seasonal','-nooptions','-intrip','-past')
 def in_device(t):
     i = t.find('<div class="device"'); j = t.find('<nav class="tabbar"')
     return t[i:j] if i >= 0 and j > i else ''
@@ -75,6 +75,10 @@ bad_back = []
 for p in pages:
     t = p.read_text(encoding='utf-8')
     par, pname = _g.parent_of(p.name)
+    if p.name in _g.SHEETS:                      # аркуш: «✕ Закрити», не «назад»
+        if '<a class="close"' not in t: bad_back.append(f'{p.name}: аркуш без «✕ Закрити»')
+        elif '<a class="back"' in t: bad_back.append(f'{p.name}: аркуш і «назад» одночасно')
+        continue
     m = re.search(r'<a class="back" href="\./([a-z-]+\.html)"', t)
     if par and not m: bad_back.append(f'{p.name}: немає «назад», батько {par}')
     elif par and m.group(1) != par: bad_back.append(f'{p.name}: «назад» веде на {m.group(1)}, а батько {par}')
