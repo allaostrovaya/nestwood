@@ -46,6 +46,15 @@
                     <li><a class="st" href="./map-offline.html">офлайн</a></li>
                   </ul>
                 </li>
+                <li><a href="./huts.html">Хижі маршруту</a>
+                  <ul class="states">
+                    <li><a class="st" href="./huts-empty.html">порожній</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./hut.html">Хижа</a>
+                    </li>
+                  </ul>
+                </li>
                 <li><a href="./field-notes.html">Нотатки з місця</a>
                   <ul class="states">
                     <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
@@ -212,20 +221,29 @@
       </ul>
       <p>Зміна будь-чого тут <b>перераховує план</b>, а не лише підпис.</p>
     </section>
-    <section aria-labelledby="overview">
-      <h2 id="overview">Маршрут</h2>
-      <figure class="bleed">
-        <div class="frame frame--map" data-fit="на всю ширину">
-          <span>карта з офлайн-пакета · остання перевірка 19 серп, 07:15</span>
-        </div>
-      </figure>
-      <ul class="stats">
-        <li><b>101 км</b><small>довжина</small></li>
-        <li><b>1 940 м</b><small>набір</small></li>
-        <li><b>6</b><small>ходових днів</small></li>
+
+    <section aria-labelledby="parts">
+      <h2 id="parts">Все про цей похід</h2>
+      <ul class="cards">
+        <li><a class="card" href="./nights.html">
+          <b>Ночівлі</b><span class="state">5 ночей</span>
+          <small>з кешу</small></a></li>
+        <li><a class="card" href="./transport.html">
+          <b>Дорога туди й назад</b><span class="state">2 плеча</span>
+          <small>останній відомий розклад</small></a></li>
+        <li><a class="card" href="./gear.html">
+          <b>Спорядження</b><span class="state">23 позиції</span>
+          <small>з кешу</small></a></li>
+        <li><a class="card" href="./offline-pack.html">
+          <b>Офлайн-пакет</b><span class="state">84,8 МБ</span>
+          <small>усе нижче читається звідси</small></a></li>
+        <li><a class="card" href="./share.html">
+          <b>Поділитися</b><span class="state">—</span>
+          <small>маршрут і час повернення</small></a></li>
       </ul>
+      <p>Це <b>нормальний робочий кінець</b>, а не очікування мережі: усе перелічене доступне зараз, з позначкою часу останньої перевірки.</p>
     </section>
-<section aria-labelledby="days">
+    <section aria-labelledby="days">
       <h2 id="days">Дні</h2>
 
       <article class="leg" aria-labelledby="leg-in">
@@ -335,27 +353,38 @@
       </article>
     </section>
 
-        <section aria-labelledby="facets">
-      <h2 id="facets">Все про цей похід</h2>
-      <ul class="rows">
-        <li><a class="row" href="./nights.html">
-          <span><b>Ночівлі</b><small>з кешу</small></span>
-          <span class="state">5 ночей</span></a></li>
-        <li><a class="row" href="./transport.html">
-          <span><b>Дорога туди й назад</b><small>останній відомий розклад</small></span>
-          <span class="state">2 плеча</span></a></li>
-        <li><a class="row" href="./gear.html">
-          <span><b>Спорядження</b><small>з кешу</small></span>
-          <span class="state">23 позиції</span></a></li>
-        <li><a class="row" href="./offline-pack.html">
-          <span><b>Офлайн-пакет</b><small>усе нижче читається звідси</small></span>
-          <span class="state">84,8 МБ</span></a></li>
-        <li><a class="row" href="./share.html">
-          <span><b>Поділитися</b><small>маршрут і час повернення</small></span>
-          <span class="state"></span></a></li>
+    <section aria-labelledby="overview">
+      <h2 id="overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину">
+          <span>карта з офлайн-пакета · остання перевірка 19 серп, 07:15</span>
+        </div>
+      </figure>
+      <ul class="stats">
+        <li><b>101 км</b><small>довжина</small></li>
+        <li><b>1 940 м</b><small>набір</small></li>
+        <li><b>6</b><small>ходових днів</small></li>
       </ul>
-      <p>Це <b>нормальний робочий кінець</b>, а не очікування мережі: усе перелічене доступне зараз, з позначкою часу останньої перевірки.</p>
     </section>
+
+            <section aria-labelledby="cost">
+      <h2 id="cost">Скільки це коштує</h2>
+      <ul class="stats">
+        <li><b>2 500 SEK</b><small>ночівлі, сплачено</small></li>
+        <li><b>1 380 SEK</b><small>дорога, сплачено</small></li>
+        <li><b>3 880 SEK</b><small>разом на людину</small></li>
+      </ul>
+      <p>Числа з кешу — вони не змінюються без мережі, бо все вже оплачене до виходу.</p>
+    </section>
+
+    <section aria-labelledby="adjust">
+      <h2 id="adjust">Змінити щось</h2>
+      <p>Перескласти план офлайн не можна: генерація звертається до джерел. Те, що вже завантажене, читається без мережі повністю.</p>
+      <p class="actions"><a href="./offline-pack.html">Що лежить в офлайн-пакеті</a></p>
+    </section>
+
+  </main>
+
   <footer class="app">
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>

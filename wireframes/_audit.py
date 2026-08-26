@@ -11,6 +11,10 @@ for p in pages:
     n = p.name
     # структура
     if s.count('<main>') != 1: issues[n].append('не один <main>')
+    if s.count('<main>') != s.count('</main>'): issues[n].append('<main> не закритий')
+    if s.count('<section ') != s.count('</section>'): issues[n].append('<section> не закритий')
+    lab = re.findall(r'<section aria-labelledby="([a-z-]+)"', s)
+    if len(lab) != len(set(lab)): issues[n].append('дубльована мітка зони: ' + ','.join(sorted({x for x in lab if lab.count(x) > 1})))
     if s.count('<h1>') != 1: issues[n].append('не один <h1>')
     if '<html lang="uk">' not in s: issues[n].append('lang не uk')
     if '<nav class="wf-tree"' not in s: issues[n].append('немає дерева')
@@ -66,6 +70,50 @@ if orphan:
     for n in orphan: print(f'  {n}')
 else:
     print('\nекранів без входу: 0 — кожен досяжний із іншого макета')
+
+# ── анатомія: стан тримає той самий перелік зон, що й база ──
+def zones(t): return re.findall(r'<section aria-labelledby="([a-z-]+)"', t)
+drift = []
+for p in pages:
+    base = None
+    for x in SUF:
+        if p.name[:-5].endswith(x): base = W / (p.name[:-5][:-len(x)] + '.html')
+    if base and base.exists():
+        zb, zp = zones(base.read_text(encoding='utf-8')), zones(p.read_text(encoding='utf-8'))
+        if zb != zp: drift.append(f'{p.name}: {zp}  ≠  база {zb}')
+if drift:
+    print(f'\nанатомія розʼїхалась у {len(drift)} станах:')
+    for d in drift: print('  ' + d)
+else:
+    print('анатомія: кожен стан тримає перелік зон своєї бази')
+
+# ── досяжність у ширину від пʼятьох вкладок, а не «є хоч одне вхідне» ──
+links = {}
+for p in pages:
+    links[p.name] = {t for t in re.findall(r'(?:href|action)="\./([a-z-]+\.html)"', in_device(p.read_text(encoding='utf-8'))) if t != p.name}
+seen, queue = set(TABS), list(TABS)
+while queue:
+    for t in links.get(queue.pop(0), ()):
+        if t not in seen: seen.add(t); queue.append(t)
+lost = [p.name for p in pages if p.name not in seen and not any(p.name[:-5].endswith(x) for x in SUF)]
+if lost:
+    print(f'\nекранів, недосяжних від вкладок обходом у ширину: {len(lost)}')
+    for n in lost: print('  ' + n)
+else:
+    print('досяжність: кожен екран досягається від вкладки ланцюжком посилань')
+
+# ── розвилка завантаження ведеться в обидва боки ──
+forks = []
+for p in pages:
+    if not p.name.endswith('-loading.html'): continue
+    base = p.name.replace('-loading', '')
+    want = {base, base.replace('.html', '-error.html'), base.replace('.html', '-empty.html')}
+    if not (links[p.name] & want): forks.append(f'{p.name}: не веде ні в {sorted(want)}')
+if forks:
+    print(f'\nзавантаження без виходу у власний результат: {len(forks)}')
+    for f in forks: print('  ' + f)
+else:
+    print('завантаження: кожен loading показує свої результати')
 
 # ── ієрархія: «назад» веде до оголошеного батька ──
 import importlib.util as _il

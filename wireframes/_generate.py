@@ -24,6 +24,9 @@ TREE = [
    ('Куди можна піти','catalogue.html',[('порожній','catalogue-empty.html')], [
      ('Картка маршруту ⭐','route.html',[('порожній','route-empty.html'),('помилка','route-error.html'),('завантаження','route-loading.html')], [
        ('Карта маршруту','map.html',[('помилка','map-error.html'),('завантаження','map-loading.html'),('офлайн','map-offline.html')], []),
+       ('Хижі маршруту','huts.html',[('порожній','huts-empty.html')], [
+         ('Хижа','hut.html',[], []),
+       ]),
        ('Нотатки з місця','field-notes.html',[('порожній','field-notes-empty.html')], []),
        ('Відгуки','reviews.html',[], []),
      ]),
@@ -133,6 +136,7 @@ SHEETS = {
   'lodging-system.html': 'guide.html',
   'account.html': 'plan.html', 'notify.html': 'plan.html',
   'membership.html': 'lock-in.html', 'my-gear.html': 'gear.html',
+  'huts.html': 'route.html', 'huts-empty.html': 'night.html', 'hut.html': 'huts.html',
 }
 
 def topbar(current):

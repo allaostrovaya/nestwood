@@ -46,6 +46,15 @@
                     <li><a class="st" href="./map-offline.html">офлайн</a></li>
                   </ul>
                 </li>
+                <li><a href="./huts.html">Хижі маршруту</a>
+                  <ul class="states">
+                    <li><a class="st" href="./huts-empty.html">порожній</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./hut.html">Хижа</a>
+                    </li>
+                  </ul>
+                </li>
                 <li><a href="./field-notes.html">Нотатки з місця</a>
                   <ul class="states">
                     <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
@@ -215,6 +224,23 @@
       </ul>
       <p>Зміна будь-чого тут <b>перераховує план</b>, а не лише підпис.</p>
     </section>
+
+    <section aria-labelledby="parts">
+      <h2 id="parts">Все про цей похід</h2>
+      <ul class="cards">
+        <li><a class="card" href="./catalogue.html">
+          <b>Змінити параметри</b><span class="state">—</span>
+          <small>інший регіон або дати</small></a></li>
+      </ul>
+      <p><b>Чого ми не робимо:</b> не підставляємо приблизні відстані й не беремо торішні дані як сьогоднішні. План, зібраний зі здогадів, виглядав би так само впевнено, як справжній.</p>
+    </section>
+    <section aria-labelledby="days">
+      <h2 id="days">Дні</h2>
+      <p>Днів немає — план не склався.</p>
+      <p>Дорога до старту й від фінішу відома: обидва джерела транспорту відповіли.</p>
+      <p class="actions"><a href="./transport.html">Відкрити транспорт</a></p>
+    </section>
+
     <section aria-labelledby="overview">
       <h2 id="overview">Маршрут</h2>
       <figure class="bleed">
@@ -223,21 +249,19 @@
         </div>
       </figure>
     </section>
-<section aria-labelledby="days">
-      <h2 id="days">Дні</h2>
-      <p>Днів немає — план не склався.</p>
-      <p>Дорога до старту й від фінішу відома: обидва джерела транспорту відповіли.</p>
-      <p class="actions"><a href="./transport.html">Відкрити транспорт</a></p>
+            <section aria-labelledby="cost">
+      <h2 id="cost">Скільки це коштує</h2>
+      <p>Вартість рахується з плану, а плану немає. Число з попередньої спроби показувати не будемо — воно стосувалось іншого набору днів.</p>
     </section>
-        <section aria-labelledby="facets">
-      <h2 id="facets">Все про цей похід</h2>
-      <ul class="rows">
-        <li><a class="row" href="./catalogue.html">
-          <span><b>Змінити параметри</b><small>інший регіон або дати</small></span>
-          <span class="state"></span></a></li>
-      </ul>
-      <p><b>Чого ми не робимо:</b> не підставляємо приблизні відстані й не беремо торішні дані як сьогоднішні. План, зібраний зі здогадів, виглядав би так само впевнено, як справжній.</p>
+
+    <section aria-labelledby="adjust">
+      <h2 id="adjust">Змінити щось</h2>
+      <p>Єдина осмислена правка зараз — повторити генерацію або змінити те, на чому вона спіткнулась.</p>
+      <p class="actions"><a href="./plan-loading.html">Спробувати ще раз</a> <a href="./catalogue.html">Інший маршрут</a></p>
     </section>
+
+  </main>
+
   <footer class="app">
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>

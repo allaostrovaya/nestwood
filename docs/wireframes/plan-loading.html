@@ -46,6 +46,15 @@
                     <li><a class="st" href="./map-offline.html">офлайн</a></li>
                   </ul>
                 </li>
+                <li><a href="./huts.html">Хижі маршруту</a>
+                  <ul class="states">
+                    <li><a class="st" href="./huts-empty.html">порожній</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./hut.html">Хижа</a>
+                    </li>
+                  </ul>
+                </li>
                 <li><a href="./field-notes.html">Нотатки з місця</a>
                   <ul class="states">
                     <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
@@ -215,15 +224,23 @@
       </ul>
       <p>Зміна будь-чого тут <b>перераховує план</b>, а не лише підпис.</p>
     </section>
-    <section aria-labelledby="overview">
-      <h2 id="overview">Маршрут</h2>
-      <figure class="bleed">
-        <div class="frame frame--map" data-fit="на всю ширину">
-          <span>карта зʼявиться, коли відповість Lantmäteriet</span>
-        </div>
-      </figure>
+
+    <section aria-labelledby="parts">
+      <h2 id="parts">Все про цей похід</h2>
+      <ul class="cards">
+        <li><span class="row">
+          <span><b>Ночівлі</b><small>чекає на маршрут</small></span>
+          <span class="state">—</span></span></li>
+        <li><span class="row">
+          <span><b>Дорога туди й назад</b><small>чекає</small></span>
+          <span class="state">—</span></span></li>
+        <li><span class="row">
+          <span><b>Спорядження</b><small>чекає на погоду</small></span>
+          <span class="state">—</span></span></li>
+      </ul>
+      <p>Кожен крок — звернення до <b>названого джерела</b>. Оркестрація, яку ми продаємо, видима саме тоді, коли працює.</p>
     </section>
-<section aria-labelledby="days">
+    <section aria-labelledby="days">
       <h2 id="days">Дні</h2>
 
       <ol class="days">
@@ -260,21 +277,28 @@
         <figcaption>Дні добудовуються зверху вниз, у міру того як приходять відповіді. Це не анімація заради ефекту — це видимий порядок роботи.</figcaption>
       </figure>
     </section>
-        <section aria-labelledby="facets">
-      <h2 id="facets">Все про цей похід</h2>
-      <ul class="rows">
-        <li><span class="row">
-          <span><b>Ночівлі</b><small>чекає на маршрут</small></span>
-          <span class="state">—</span></span></li>
-        <li><span class="row">
-          <span><b>Дорога туди й назад</b><small>чекає</small></span>
-          <span class="state">—</span></span></li>
-        <li><span class="row">
-          <span><b>Спорядження</b><small>чекає на погоду</small></span>
-          <span class="state">—</span></span></li>
-      </ul>
-      <p>Кожен крок — звернення до <b>названого джерела</b>. Оркестрація, яку ми продаємо, видима саме тоді, коли працює.</p>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину">
+          <span>карта зʼявиться, коли відповість Lantmäteriet</span>
+        </div>
+      </figure>
     </section>
+            <section aria-labelledby="cost">
+      <h2 id="cost">Скільки це коштує</h2>
+      <p>Вартість зʼявиться, коли будуть ночівлі й квитки: вона складається з них, а не рахується окремо.</p>
+    </section>
+
+    <section aria-labelledby="adjust">
+      <h2 id="adjust">Змінити щось</h2>
+      <p>Правити можна буде, щойно план складеться. Зараз єдина дія — скасувати генерацію, і бриф при цьому не загубиться.</p>
+      <p class="actions"><a href="./plan.html">Показати попередній план</a> <a href="./plan-error.html">Якщо джерело не відповість</a></p>
+    </section>
+
+  </main>
+
   <footer class="app">
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>

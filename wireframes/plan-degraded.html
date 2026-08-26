@@ -46,6 +46,15 @@
                     <li><a class="st" href="./map-offline.html">офлайн</a></li>
                   </ul>
                 </li>
+                <li><a href="./huts.html">Хижі маршруту</a>
+                  <ul class="states">
+                    <li><a class="st" href="./huts-empty.html">порожній</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./hut.html">Хижа</a>
+                    </li>
+                  </ul>
+                </li>
                 <li><a href="./field-notes.html">Нотатки з місця</a>
                   <ul class="states">
                     <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
@@ -222,20 +231,32 @@
       </ul>
       <p>Зміна будь-чого тут <b>перераховує план</b>, а не лише підпис.</p>
     </section>
-    <section aria-labelledby="overview">
-      <h2 id="overview">Маршрут</h2>
-      <figure class="bleed">
-        <div class="frame frame--map" data-fit="на всю ширину">
-          <span>карта · Abisko → Nikkaluokta</span>
-        </div>
-      </figure>
-      <ul class="stats">
-        <li><b>101 км</b><small>довжина</small></li>
-        <li><b>1 940 м</b><small>набір</small></li>
-        <li><b>6</b><small>ходових днів</small></li>
+
+    <section aria-labelledby="parts">
+      <h2 id="parts">Все про цей похід</h2>
+      <ul class="cards">
+        <li><a class="card" href="./nights.html">
+          <b>Ночівлі</b><span class="state warn">наявність невідома</span>
+          <small>5 ночей · тип, ключ і сезон відомі</small></a></li>
+        <li><a class="card" href="./transport.html">
+          <b>Дорога туди й назад</b><span class="state">2 плеча</span>
+          <small>потяг і автобус 91</small></a></li>
+        <li><a class="card" href="./gear.html">
+          <b>Спорядження</b><span class="state">23 позиції</span>
+          <small>під маршрут і погоду</small></a></li>
+        <li><a class="card" href="./changes.html">
+          <b>Що змінилось</b><span class="state">—</span>
+          <small>нічого нового</small></a></li>
+        <li><a class="card" href="./lock-in.html">
+          <b>Що лишилось закріпити</b><span class="state">4 кроки</span>
+          <small>бронювати доведеться в системі STF</small></a></li>
+        <li><a class="card" href="./offline-pack.html">
+          <b>Офлайн-пакет</b><span class="state">84,8 МБ</span>
+          <small>карта, план, розклад</small></a></li>
       </ul>
+      <p><b>Чого в цьому плані свідомо немає:</b> жива наявність ліжок. Потрібна угода про дані зі STF — це комерційна домовленість, а не збій. Ми не вгадуємо: тип обʼєкта, ключ, сезон і бронюваність відомі, вільні місця — ні.</p>
     </section>
-<section aria-labelledby="days">
+    <section aria-labelledby="days">
       <h2 id="days">Дні</h2>
 
       <article class="leg" aria-labelledby="leg-in">
@@ -363,30 +384,38 @@
       </article>
     </section>
 
-        <section aria-labelledby="facets">
-      <h2 id="facets">Все про цей похід</h2>
-      <ul class="rows">
-        <li><a class="row" href="./nights.html">
-          <span><b>Ночівлі</b><small>5 ночей · тип, ключ і сезон відомі</small></span>
-          <span class="state warn">наявність невідома</span></a></li>
-        <li><a class="row" href="./transport.html">
-          <span><b>Дорога туди й назад</b><small>потяг і автобус 91</small></span>
-          <span class="state">2 плеча</span></a></li>
-        <li><a class="row" href="./gear.html">
-          <span><b>Спорядження</b><small>під маршрут і погоду</small></span>
-          <span class="state">23 позиції</span></a></li>
-        <li><a class="row" href="./changes.html">
-          <span><b>Що змінилось</b><small>нічого нового</small></span>
-          <span class="state">—</span></a></li>
-        <li><a class="row" href="./lock-in.html">
-          <span><b>Що лишилось закріпити</b><small>бронювати доведеться в системі STF</small></span>
-          <span class="state">4 кроки</span></a></li>
-        <li><a class="row" href="./offline-pack.html">
-          <span><b>Офлайн-пакет</b><small>карта, план, розклад</small></span>
-          <span class="state">84,8 МБ</span></a></li>
+    <section aria-labelledby="overview">
+      <h2 id="overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину">
+          <span>карта · Abisko → Nikkaluokta</span>
+        </div>
+      </figure>
+      <ul class="stats">
+        <li><b>101 км</b><small>довжина</small></li>
+        <li><b>1 940 м</b><small>набір</small></li>
+        <li><b>6</b><small>ходових днів</small></li>
       </ul>
-      <p><b>Чого в цьому плані свідомо немає:</b> жива наявність ліжок. Потрібна угода про дані зі STF — це комерційна домовленість, а не збій. Ми не вгадуємо: тип обʼєкта, ключ, сезон і бронюваність відомі, вільні місця — ні.</p>
     </section>
+
+            <section aria-labelledby="cost">
+      <h2 id="cost">Скільки це коштує</h2>
+      <ul class="stats">
+        <li><b>2 500 SEK</b><small>ночівлі</small></li>
+        <li><b>—</b><small>дорога</small></li>
+        <li><b>—</b><small>разом</small></li>
+      </ul>
+      <p>Ціни на дорогу беруться з того самого джерела, що зараз не відповідає. Підставляти торішній тариф ми не будемо.</p>
+    </section>
+
+    <section aria-labelledby="adjust">
+      <h2 id="adjust">Змінити щось</h2>
+      <p>Правки доступні, але зачеплять лише те, що стоїть на доступних джерелах. Усе, що залежить від відсутнього, лишається як є й позначене.</p>
+      <p class="actions"><a href="./changes.html">Що саме відвалилось</a></p>
+    </section>
+
+  </main>
+
   <footer class="app">
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>

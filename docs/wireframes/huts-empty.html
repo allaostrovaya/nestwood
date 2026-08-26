@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Wireframe · Моє спорядження · успіх</title>
+<title>Wireframe · Хижі маршруту · порожній</title>
 <link rel="stylesheet" href="./_wireframe.css" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
@@ -48,7 +48,7 @@
                 </li>
                 <li><a href="./huts.html">Хижі маршруту</a>
                   <ul class="states">
-                    <li><a class="st" href="./huts-empty.html">порожній</a></li>
+                    <li><a class="st" href="./huts-empty.html" aria-current="page">порожній</a></li>
                   </ul>
                   <ul>
                     <li><a href="./hut.html">Хижа</a>
@@ -173,7 +173,7 @@
       <ul>
         <li><a href="./me.html">Я</a>
           <ul>
-            <li><a href="./my-gear.html" aria-current="page">Моє спорядження</a>
+            <li><a href="./my-gear.html">Моє спорядження</a>
             </li>
             <li><a href="./membership.html">Членство й ключ</a>
             </li>
@@ -188,82 +188,80 @@
 
 <div class="wf-main">
 
-<p class="meta" data-review lang="uk"><b>4.2</b> · Моє спорядження · <i>успіх</i></p>
+<p class="meta" data-review lang="uk"><b>2.5</b> · Хижі маршруту · <i>порожній</i></p>
 
-<div class="device" data-screen="Моє спорядження" data-state="успіх">
+<div class="device" data-screen="Хижі маршруту" data-state="порожній">
 
   <div class="screen">
-  <header class="topbar"><a class="close" href="./gear.html">✕ Закрити</a><span class="title">Моє спорядження</span></header>
+  <header class="topbar"><a class="close" href="./night.html">✕ Закрити</a><span class="title">Хижі маршруту</span></header>
 
   <main>
-    <h1>Моє спорядження</h1>
+    <h1>Хижі вздовж маршруту</h1>
 
-    <section aria-labelledby="inventory">
-      <h2 id="inventory">Що у мене є</h2>
-      <ul class="signals">
-        <li><b>Сон</b>
-          <label><input type="checkbox" checked> спальник −5 °C</label> ·
-          <label><input type="checkbox" checked> каремат</label>
-        </li>
-        <li><b>Кухня</b>
-          <label><input type="checkbox" checked> пальник і газовий балон</label> ·
-          <label><input type="checkbox" checked> казанок 1,5 л</label>
-        </li>
-        <li><b>Одяг</b>
-          <label><input type="checkbox" checked> дощовик</label> ·
-          <label><input type="checkbox"> гамаші</label> ·
-          <label><input type="checkbox"> водонепроникні рукавиці</label>
-        </li>
-        <li><b>Навігація</b>
-          <label><input type="checkbox" checked> GPS-годинник</label> ·
-          <label><input type="checkbox" checked> павербанк 10 000 мА·г</label>
-        </li>
+    <section aria-labelledby="scope">
+      <h2 id="scope">Що показуємо</h2>
+      <ul class="chips">
+        <li><button class="chip on" type="button">замість ночі 4 · чт 20 серпня</button></li>
+        <li><button class="chip on" type="button">від Tjäktja, вихід о 09:20</button></li>
+        <li><button class="chip on" type="button">не далі 5 км від стежки</button></li>
       </ul>
-      <p>19 позицій є · 3 докупити · 1 позичити перед кожним походом (намет — на двох)</p>
+      <p>Ви прийшли сюди з ночі, яку треба замінити. Фільтри — не ваш вибір, а обставини: звідки ви йдете, скільки лишилось світлового дня й на яку дату потрібен дах.</p>
     </section>
 
-    <section aria-labelledby="missing">
-      <h2 id="missing">Чого бракує вже зараз</h2>
-      <ul class="signals">
-        <li><b>Гамаші</b> знадобляться на будь-якому маршруті з болотистою ділянкою — регулярно спливають у чеклистах останніх походів</li>
-        <li><b>Рукавиці</b> водонепроникні — на Kungsleden уже позначені як «докупити» під прогноз на перевалі</li>
+    <section aria-labelledby="where">
+      <h2 id="where">Де вони</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран">
+          <span>карта · відрізок Tjäktja → Sälka<br>наступна хижа після Sälka — 38 км<br>у радіусі одного переходу інших дахів немає</span>
+        </div>
+        <figcaption>На що мусить відповісти: наскільки далеко найближчий дах — і чому відповідь тут «занадто далеко», а не «нічого не знайдено».</figcaption>
+      </figure>
+      <p class="actions"><a href="./map.html">Відкрити карту на весь екран</a></p>
+    </section>
+
+    <section aria-labelledby="list">
+      <h2 id="list">Жодної досяжної</h2>
+      <div class="empty">
+        <p><b>На цю ніч іншої хижі немає.</b> Не «нічого не знайдено»: між Sälka й наступним дахом 38 км, а це не денний перехід — ні за Naismith, ні за тим часом, що лишився до темряви.</p>
+      </div>
+      <p>Це той випадок, коли чесна відповідь — назвати розрив, а не показати щось «майже підхоже» за 30 км. Що можна зробити насправді:</p>
+      <ul class="rows">
+        <li><a class="row" href="./gear.html">
+          <span><b>Ночувати в наметі</b><small>allemansrätten дозволяє; у вас намет у списку спорядження, вода за 400 м від стежки</small></span>
+          <span class="state">є в спорядженні</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>Повернутись у Tjäktja</b><small>13 км назад тією самою стежкою · дах гарантований, бо там ніхто не лишається без місця</small></span>
+          <span class="state">~4 год</span></a></li>
+        <li><a class="row" href="./transport.html">
+          <span><b>Зійти з маршруту</b><small>Alesjaure — човен по озеру до Abisko, ходить до 15 вересня</small></span>
+          <span class="state warn">до 15:40</span></a></li>
       </ul>
-      <p class="actions"><button type="button">Додати до списку покупок</button></p>
+      <p>Тап по варіанту перебудовує решту днів і показує, які кроки закріплення це створює.</p>
     </section>
 
-    <section aria-labelledby="how">
-      <h2 id="how">Як це працює в плані</h2>
-      <p>Чеклист конкретного походу (gear) бере цей інвентар і звіряє його з погодою та типом ночівлі того маршруту: що вже є, що взяти, що докупити. Тут нічого не треба вводити заново щоразу.</p>
+    <section aria-labelledby="swap">
+      <h2 id="swap">Якщо треба замінити ночівлю</h2>
+      <p>Розрив у ланцюзі ночей — властивість мережі, а не збій пошуку: DNT і STF ставили хижі приблизно на день ходу одна від одної, і там, де це не так, ми кажемо де саме й скільки бракує. Жоден із конкурентів на це питання не відповідає взагалі.</p>
+      <p class="actions"><a href="./night.html">Ніч, яку міняємо</a> <a href="./changes.html">Що змінилось</a> <a href="./safety.html">Найближчі точки сходу</a></p>
     </section>
-
-    <section aria-labelledby="back">
-      <h2 id="back">Повернутись</h2>
-      <p class="actions">
-        <a class="cta" href="./plan.html">До плану по днях</a>
-        <a href="./gear.html">До чеклиста цього походу</a>
-        <a href="./me.html">До «Я» — форма й членство</a>
-        <a href="./plans.html">До моїх походів</a>
-      </p>
-    </section>
-
   </main>
 
   <footer class="app">
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>
       <summary>Звідки це взято</summary>
-      <p>Сам інвентар — ваші власні дані, введені вручну й збережені в акаунті. Чеклист конкретного походу (gear) додатково звіряє його з погодою (met.no) і типом ночівлі (публічна схема обʼєктів).</p>
+      <p>Перелік і поля хиж — за публічною схемою обʼєктів ночівлі. Відстані рахуються по геометрії стежки (Lantmäteriet, CC0), час ходу — Naismith із поправкою Langmuir.</p>
     </details>
     <p>Остання перевірка: 13 серпня 2026, 09:12</p>
   </footer>
   </div>
   <nav class="tabbar" aria-label="Головна навігація">
     <ul>
-      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./catalogue.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Карта</a></li>
       <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
       <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
       <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
-      <li><a href="./me.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
     </ul>
   </nav>
 </div>
