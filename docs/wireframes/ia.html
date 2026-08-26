@@ -60,7 +60,7 @@
     <!-- ============ 1. ДЕРЕВО ============ -->
     <section class="block" id="tree">
       <div class="block-head"><span class="block-num mono">01</span><h2 class="block-title">Дерево екранів</h2></div>
-      <p class="block-sub">Біля кожного екрана — job із <a href="../concept/jtbd.md">jtbd.md</a>, який його породжує, і персона, якій він потрібен: <b>P</b> — Kristin (член асоціації), <b>S</b> — Lukas (приїжджий). Жирна літера означає, що для цієї персони екран критичний. Червоним підсвічені поверхні без job'а — у кожної названа зовнішня підстава.</p>
+      <p class="block-sub">Ліворуч — <b>позиція</b> у форматі <code>джоб.крок</code>: перше число це job, друге — порядок екрана в його потоці, <code>0</code> — MAIN. Той самий рядок стоїть у шапці кожного макета. Далі — job'и, які екран закриває, і персона: <b>P</b> — Kristin, <b>S</b> — Lukas. Червоним підсвічені поверхні без job'а — у кожної названа зовнішня підстава.</p>
 
       <ul class="tree">
 
@@ -68,40 +68,40 @@
           <div class="tree-group-head"><span class="tree-group-id">1</span><span class="tree-group-name">Карта — вхід і каталог</span></div>
           <ul>
             <li class="tree-item">
-              <span class="tree-id">`catalogue`</span><span class="tree-name">Карта</span>
+              <span class="tree-id">0.1</span><span class="tree-name">Карта</span>
               <span class="tree-desc">каталог, фільтри, куровані регіони й добірки</span>
               <span class="tree-jobs"><span class="tag tag-ok">1</span><span class="tag tag-ok">2</span><span class="tag tag-ok">MAIN</span></span>
               <span class="tree-p">P <b>S</b></span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">`route`</span><span class="tree-name">Картка маршруту ⭐</span>
+              <span class="tree-id">0.2</span><span class="tree-name">Картка маршруту ⭐</span>
               <span class="tree-desc">складність у трьох блоках, превʼю формули гарантії, досяжність старту, умови, чесна неповнота</span>
               <span class="tree-jobs"><span class="tag tag-ok">1</span><span class="tag tag-ok">2</span><span class="tag tag-ok">6</span><span class="tag tag-ok">11</span><span class="tag tag-ok">8</span><span class="tag tag-ok">MAIN</span></span>
               <span class="tree-p">P S</span>
             </li>
             <p class="tree-note"><b>Центральний екран продукту.</b> Тут приймається рішення «чи це для мене», <b>до</b> того як план існує — тому сюди піднято все, що раніше було видно лише після генерації. ⚠️ Превʼю формули гарантії — не прикраса: доки плану немає, це <b>єдине місце, де 2 видно взагалі</b>.</p>
             <li class="tree-item">
-              <span class="tree-id">`field-notes`</span><span class="tree-name">Умови на ділянках · нотатки</span>
+              <span class="tree-id">11.2</span><span class="tree-name">Умови на ділянках · нотатки</span>
               <span class="tree-desc">стан стежки, вода, броди, сніг, місце для намету</span>
               <span class="tree-jobs"><span class="tag tag-ok">1</span><span class="tag tag-ok">4</span><span class="tag tag-ok">11</span></span>
               <span class="tree-p">P S</span>
             </li>
             <p class="tree-note">Прив'язка <b>до ділянки й дати</b>, не до маршруту цілком — саме це робить нотатку придатною для багатоденки, тоді як відгук рівня трейла в AllTrails для пʼятиденного маршруту марний. Нотатка <b>може</b> впливати на план, оцінка — ніколи.</p>
             <li class="tree-item">
-              <span class="tree-id">`reviews`</span><span class="tree-name">Відгуки</span>
+              <span class="tree-id">11.1</span><span class="tree-name">Відгуки</span>
               <span class="tree-desc">окремим списком, ніколи не змішані з нотатками</span>
               <span class="tree-jobs"><span class="tag tag-ok">11</span></span>
               <span class="tree-p">P S</span>
             </li>
             <p class="tree-note">⚠️ На старті порожній, і засіяти чесно неможливо: доглядач хижі повідомить стан броду, але не «якщо вона змогла, то і я зможу».</p>
             <li class="tree-item">
-              <span class="tree-id">`map`</span><span class="tree-name">Повноекранна карта</span>
+              <span class="tree-id">1.1</span><span class="tree-name">Повноекранна карта</span>
               <span class="tree-desc">шари: маршрут, хижі за типом, точки сходу, транспорт, вода</span>
               <span class="tree-jobs"><span class="tag tag-ok">1</span><span class="tag tag-ok">2</span><span class="tag tag-ok">6</span></span>
               <span class="tree-p">P S</span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">`assemble`</span><span class="tree-name">Зібрати маршрут</span>
+              <span class="tree-id">0.5</span><span class="tree-name">Зібрати маршрут</span>
               <span class="tree-desc">скільки днів, звідки старт — віддає ту саму картку з позначкою «зібрано під запит»</span>
               <span class="tree-jobs"><span class="tag tag-ok">1</span><span class="tag tag-ok">MAIN</span></span>
               <span class="tree-p">P S</span>
@@ -115,79 +115,79 @@
           <div class="tree-group-head"><span class="tree-group-id">2</span><span class="tree-group-name">Плани — те, що вже про мене</span></div>
           <ul>
             <li class="tree-item orphan">
-              <span class="tree-id">`plans`</span><span class="tree-name">Список планів</span>
+              <span class="tree-id">—</span><span class="tree-name">Список планів</span>
               <span class="tree-desc">активний / майбутні / минулі, бейдж «скільки закріпити»</span>
               <span class="tree-jobs"><span class="tag tag-risk">без job'а</span></span>
               <span class="tree-p">P</span>
             </li>
             <p class="tree-note">Сховище й навігація — та сама підстава, з якої існує акаунт. Плюс обов'язковий шлях назад із плану, інакше минулі походи стають недосяжними.</p>
             <li class="tree-item">
-              <span class="tree-id">`plan`</span><span class="tree-name">План по днях ⭐</span>
+              <span class="tree-id">0.3</span><span class="tree-name">План по днях ⭐</span>
               <span class="tree-desc">вердикт узгодженості + чотири сигнали в рядку дня + зона «на чому це стоїть»</span>
               <span class="tree-jobs"><span class="tag tag-ok">MAIN</span><span class="tag tag-ok">9</span><span class="tag tag-ok">5</span></span>
               <span class="tree-p">P S</span>
             </li>
             <p class="tree-note"><b>Інваріант:</b> план завжди показує свої припущення — «для 2 осіб · 1 член DNT · темп середній — змінити». Це те, що тримає 9 при прогресивному профілюванні замість питань наперед.</p>
             <li class="tree-item">
-              <span class="tree-id">`day`</span><span class="tree-name">День</span>
+              <span class="tree-id">0.4</span><span class="tree-name">День</span>
               <span class="tree-desc">перехід, погода, навантаження за названим методом, що критично сьогодні</span>
               <span class="tree-jobs"><span class="tag tag-ok">1</span><span class="tag tag-ok">3</span><span class="tag tag-ok">4</span></span>
               <span class="tree-p">P S</span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">`night`</span><span class="tree-name">Ніч: гарантія й доступ</span>
+              <span class="tree-id">2.1</span><span class="tree-name">Ніч: гарантія й доступ</span>
               <span class="tree-desc">формула тип × бронь × час приходу × членство</span>
               <span class="tree-jobs"><span class="tag tag-ok">2</span><span class="tag tag-ok">8</span><span class="tag tag-ok">11</span></span>
               <span class="tree-p">P S</span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">`nights`</span><span class="tree-name">Ночівлі — ланцюжок</span>
+              <span class="tree-id">2.2</span><span class="tree-name">Ночівлі — ланцюжок</span>
               <span class="tree-desc">усі ночі поруч, із чотирма змінними на кожній</span>
               <span class="tree-jobs"><span class="tag tag-ok">2</span><span class="tag tag-ok">7</span></span>
               <span class="tree-p">P S</span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">`gear`</span><span class="tree-name">Спорядження</span>
+              <span class="tree-id">4.1</span><span class="tree-name">Спорядження</span>
               <span class="tree-desc">чеклист; вага рюкзака входить у розрахунок часу переходу</span>
               <span class="tree-jobs"><span class="tag tag-ok">4</span></span>
               <span class="tree-p">P <b>S</b></span>
             </li>
             <p class="tree-note">Поправка Tranter бере вагу рюкзака — отже <b>чеклист впливає на час переходу</b>: 4 і 1 зчеплені обчисленням, а не декларацією. Плюс сповіщення за два дні до старту: «ось список, ти спакувався?»</p>
             <li class="tree-item">
-              <span class="tree-id">`transport`</span><span class="tree-name">Транспорт</span>
+              <span class="tree-id">6.1</span><span class="tree-name">Транспорт</span>
               <span class="tree-desc">до старту й від фінішу, зі збереженими квитками</span>
               <span class="tree-jobs"><span class="tag tag-ok">6</span><span class="tag tag-ok">7</span></span>
               <span class="tree-p">P S</span>
             </li>
             <p class="tree-note">⚠️ Квитки зберігаємо, не продаємо: продаж транспорту разом із ночівлею робить нас організатором пакетної подорожі за EU Package Travel Directive.</p>
             <li class="tree-item">
-              <span class="tree-id">`changes`</span><span class="tree-name">Що змінилось</span>
+              <span class="tree-id">3.1</span><span class="tree-name">Що змінилось</span>
               <span class="tree-desc">і скільки часу лишилось на реакцію</span>
               <span class="tree-jobs"><span class="tag tag-ok">3</span><span class="tag tag-ok">6</span></span>
               <span class="tree-p">P S</span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">`lock-in`</span><span class="tree-name">Що лишилось закріпити</span>
+              <span class="tree-id">7.1</span><span class="tree-name">Що лишилось закріпити</span>
               <span class="tree-desc">три класи: ночівлі · квитки · членство</span>
               <span class="tree-jobs"><span class="tag tag-ok">2</span><span class="tag tag-ok">6</span><span class="tag tag-ok">7</span><span class="tag tag-ok">8</span></span>
               <span class="tree-p"><b>P</b></span>
             </li>
             <p class="tree-note">Три класи, бо 7 дослівно каже «ночівлі, квитки й членство». Тут же питаються точні дати — перше місце, де дата має ціну.</p>
             <li class="tree-item orphan">
-              <span class="tree-id">`offline-pack`</span><span class="tree-name">Офлайн-пакет</span>
+              <span class="tree-id">—</span><span class="tree-name">Офлайн-пакет</span>
               <span class="tree-desc">що всередині й скільки мегабайт</span>
               <span class="tree-jobs"><span class="tag tag-risk">без job'а</span></span>
               <span class="tree-p">P S</span>
             </li>
             <p class="tree-note"><b>Констрейнт, не job.</b> Offline-first обов'язковий, але жоден job не описує пакет як об'єкт, з яким людина має справу. Обіцяємо «пакет на цей маршрут», не «офлайн усюди».</p>
             <li class="tree-item">
-              <span class="tree-id">`share`</span><span class="tree-name">Підсумок для передачі</span>
+              <span class="tree-id">10.1</span><span class="tree-name">Підсумок для передачі</span>
               <span class="tree-desc">два регістри: довіра близьких і безпековий share</span>
               <span class="tree-jobs"><span class="tag tag-ok">10</span></span>
               <span class="tree-p">P S</span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">`today`</span><span class="tree-name">Сьогодні</span>
+              <span class="tree-id">3.2</span><span class="tree-name">Сьогодні</span>
               <span class="tree-desc">поточний перехід, ночівля на цю ніч, SOS постійно на екрані</span>
               <span class="tree-jobs"><span class="tag tag-ok">3</span><span class="tag tag-ok">6</span></span>
               <span class="tree-p">P S</span>
@@ -201,20 +201,20 @@
           <div class="tree-group-head"><span class="tree-group-id">3</span><span class="tree-group-name">Довідник — як це працює</span></div>
           <ul>
             <li class="tree-item">
-              <span class="tree-id">`guide`</span><span class="tree-name">Довідник</span>
+              <span class="tree-id">8.1</span><span class="tree-name">Довідник</span>
               <span class="tree-desc">пошук + фільтр по країнах; вічнозелений, не стрічка</span>
               <span class="tree-jobs"><span class="tag tag-ok">8</span><span class="tag tag-ok">5</span></span>
               <span class="tree-p"><b>S</b></span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">`lodging-system`</span><span class="tree-name">Як працює ця система ночівлі</span>
+              <span class="tree-id">2.3</span><span class="tree-name">Як працює ця система ночівлі</span>
               <span class="tree-desc">правила, неписані норми, оригінал + переклад</span>
               <span class="tree-jobs"><span class="tag tag-ok">8</span><span class="tag tag-ok">2</span></span>
               <span class="tree-p"><b>S</b></span>
             </li>
             <p class="tree-note">Один екран, <b>два входи</b> — з ночі в плані і з довідника. Найсильніший пітч-аргумент: DNT сам назвав «informasjon på flere språk» своєю нерозв'язаною задачею, і цього вмісту немає в жодному API.</p>
             <li class="tree-item">
-              <span class="tree-id">`rules`</span><span class="tree-name">Правила й fjellvett</span>
+              <span class="tree-id">8.2</span><span class="tree-name">Правила й fjellvett</span>
               <span class="tree-desc">підстава частково інституційна</span>
               <span class="tree-jobs"><span class="tag tag-ok">8</span></span>
               <span class="tree-p"><b>S</b></span>
@@ -248,26 +248,26 @@
           <div class="tree-group-head"><span class="tree-group-id">5</span><span class="tree-group-name">Профіль — я і застосунок</span></div>
           <ul>
             <li class="tree-item">
-              <span class="tree-id">`me`</span><span class="tree-name">Про мене</span>
+              <span class="tree-id">9.1</span><span class="tree-name">Про мене</span>
               <span class="tree-desc">форма, вага, темп, членства, імпорт зі Strava/Garmin</span>
               <span class="tree-jobs"><span class="tag tag-ok">1</span><span class="tag tag-ok">2</span><span class="tag tag-ok">9</span></span>
               <span class="tree-p">P S</span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">`my-gear`</span><span class="tree-name">Моє спорядження</span>
+              <span class="tree-id">4.2</span><span class="tree-name">Моє спорядження</span>
               <span class="tree-desc">інвентар</span>
               <span class="tree-jobs"><span class="tag tag-ok">4</span></span>
               <span class="tree-p">P <b>S</b></span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">`membership`</span><span class="tree-name">Членство й ключ</span>
+              <span class="tree-id">7.2</span><span class="tree-name">Членство й ключ</span>
               <span class="tree-desc">умова доступу, не додаткова покупка</span>
               <span class="tree-jobs"><span class="tag tag-ok">2</span><span class="tag tag-ok">7</span></span>
               <span class="tree-p">P <b>S</b></span>
             </li>
             <p class="tree-note">Один екран, <b>два входи</b> — з профілю і з «закріпити».</p>
             <li class="tree-item orphan">
-              <span class="tree-id">`settings`</span><span class="tree-name">Налаштування</span>
+              <span class="tree-id">—</span><span class="tree-name">Налаштування</span>
               <span class="tree-desc">похідний режим, геолокація, сповіщення</span>
               <span class="tree-jobs"><span class="tag tag-risk">без job'а</span></span>
               <span class="tree-p">P S</span>

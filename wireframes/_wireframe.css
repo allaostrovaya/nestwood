@@ -60,40 +60,30 @@ body {
   text-transform: uppercase;
 }
 
-/* ── рев'ю-хром ──────────────────────────────────────────────── */
+/* ── рев'ю-хром: рівно два елементи ──────────────────────────
+   1. дерево збоку — навігація рецензента, поза макетом
+   2. рядок позиції над макетом — <джоб>.<крок> · назва · стан
+   Усередині макета коментарів розробників немає: там тільки
+   семантика самого застосунку. */
+
+.meta {
+  max-width: var(--col);
+  margin: 0 auto var(--s2);
+  padding: var(--s2) var(--s3);
+  background: var(--fill);
+  border: 1px solid var(--line);
+  border-bottom: 0;
+}
+.meta b { color: var(--ink); }
+.meta i { font-style: normal; color: var(--ink-2); }
+
 [data-review] {
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 11px;
   line-height: 1.5;
   color: var(--ink-2);
 }
-details.review {
-  max-width: var(--col);
-  margin: 0 auto;
-  background: var(--fill);
-  border: 1px solid var(--line);
-  border-bottom: 0;
-}
-details.review > summary {
-  padding: var(--s2) var(--s3);
-  cursor: pointer;
-  font-weight: 700;
-  color: var(--ink);
-}
-.review-body { padding: 0 var(--s3) var(--s3); }
-.review-body p { margin: 0 0 var(--s2); }
-.review-body p:last-child { margin: 0; }
 code { background: #e2e2e2; padding: 0 3px; font-size: .95em; }
-
-/* анотація зони: ЗОНА · що це · ГОЛОВНА ДІЯ */
-.ann {
-  margin: 0 0 var(--s3);
-  padding: var(--s2) var(--s2) var(--s2) 10px;
-  background: var(--fill);
-  border-left: 3px solid var(--line);
-}
-.ann:last-of-type { margin-bottom: 0; }
-.ann-out { max-width: var(--col); margin: var(--s2) auto var(--s5); }
 
 /* ── рев'ю-каркас: дерево ліворуч, макет праворуч ─────────────
    Дерево однакове на кожній сторінці й показує ВСЮ структуру:

@@ -20,7 +20,6 @@
   </ul>
 </nav>
 
-
 <div class="wf-shell">
 
 <nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
@@ -163,14 +162,7 @@
 
 <div class="wf-main">
 
-<details class="review" data-review lang="uk" id="top" open>
-  <summary>wireframes/day.html — <b>День</b> · станів із таблиці немає</summary>
-  <div class="review-body">
-    <p><b>Місце у flow:</b> <code>plan</code> → <code>day</code> → <code>night</code> / <code>gear</code> / шар «чому саме так».</p>
-    <p><b>Правило стану:</b> Jobs — <b>1</b>, <b>3</b>, <b>4</b>. У таблиці _screens.md рядок day <b>порожній по всіх чотирьох станах</b>, тому сторінок станів немає: власних запитів екран не робить (свіжість перевіряється один раз на вході в plan), а недоступність некритичного джерела виражається як degraded усередині зон.</p>
-    
-  </div>
-</details>
+<p class="meta" data-review lang="uk"><b>0.4</b> · День · <i>успіх</i></p>
 
 <div class="device" data-screen="День" data-state="успіх">
 
@@ -186,7 +178,6 @@
       </ul>
     </nav>
   </header>
-  <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — пʼять вкладок. Незмінна в усіх станах: стан екрана ніколи не чіпає оболонку. Дім контекстний: «Плани», коли похід активний або старт за день-два, «Карта» в решті випадків. Сірим — вкладки, чиї екрани ще не намальовані: посилання на них не ставимо, щоб не робити 404-тупик.</p>
 
   <main>
     <h1>День 3 · ср 19 серпня</h1>
@@ -204,7 +195,6 @@
       </details>
       <p class="actions"><a href="./map.html">Відкрити карту</a></p>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Перехід дня. ГОЛОВНА ДІЯ: відкрити карту. Градація — <b>шар</b>, а не наша оцінка; правило видно просто в тексті.</p>
     <section aria-labelledby="cond">
       <h2 id="cond">Умови на цій ділянці</h2>
       <ul class="signals">
@@ -214,7 +204,6 @@
         <li><b>Звʼязок</b> невідомо — оператори не публікують покриття як шар</li>
       </ul>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Умови на ділянці (сутність 23). Закриває дірку A6. «Звʼязок — невідомо» це <b>постійний стан</b>, не заглушка.</p>
     <section aria-labelledby="weather">
       <h2 id="weather">Погода</h2>
       <ul class="signals">
@@ -222,13 +211,11 @@
         <li><b>Що це міняє</b> дощовик і гамаші сьогодні критичні; брід після дощу може бути вищим</li>
       </ul>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Погода дня. Показуємо <b>не самі числа, а що вони міняють</b> — інакше це просто віджет погоди.</p>
     <section aria-labelledby="night">
       <h2 id="night">Ночівля</h2>
       <p>Tjäktja fjällstuga (STF) · ліжко заброньоване · прийти до 18:00</p>
       <p class="actions"><a href="./night.html">Гарантія й доступ на цю ніч</a></p>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Ночівля дня. ГОЛОВНА ДІЯ: перейти на night — це один із двох рівноправних входів у наш диференціатор (другий — із ланцюжка ночей).</p>
     <section aria-labelledby="why">
       <h2 id="why">Чому саме так</h2>
       <details>
@@ -239,7 +226,6 @@
         <p><b>Що не враховано:</b> жива наявність ліжок — джерела немає, потрібна угода зі STF.</p>
       </details>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Шар «чому саме так» (named-contributor breakdown, 5). Свідомо <b>шар, а не екран</b>: це наша ставка, а не підтверджена потреба. Останній рядок — «чого не враховано» — обовʼязковий.</p>
     <section aria-labelledby="back">
       <h2 id="back">Повернутись</h2>
       <p class="actions">
@@ -249,13 +235,11 @@
         <a href="./field-notes.html">Нотатки з місця на цій ділянці</a>
       </p>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Вихід із дня. Кожна сторінка мусить мати названий вихід — це правило потоків, і на вайрфреймі воно перевіряється тривіально: посилання або є, або ні.</p>
     <section aria-labelledby="bail">
       <h2 id="bail">Якщо доведеться зійти</h2>
       <p>Найближчий вихід: Alesjaure, 13 км назад — човен по озеру до Abisko, ходить до 15 вересня.</p>
       <p>Далі на маршруті виходів немає до Vakkotavare — це ще два дні.</p>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Точка сходу (сутність 19). Не аварійна кнопка й не SOS: показуємо, <b>куди ще можна зійти й доки цей варіант живий</b>. Виклик допомоги — не наша функція.</p>
 
   </main>
 
@@ -269,8 +253,6 @@
   </footer>
 
 </div>
-
-<p class="ann ann-out" data-review lang="uk">ЗОНА · Футер оболонки. Атрибуція ©Kartverket є <b>в кожному стані</b> — це юридична вимога CC BY 4.0, а не підпис.</p>
 
 </div><!-- /.wf-main -->
 </div><!-- /.wf-shell -->

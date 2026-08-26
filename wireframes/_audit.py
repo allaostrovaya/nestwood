@@ -17,15 +17,16 @@ for p in pages:
     if 'aria-current="page"' not in s: issues[n].append('немає поточного вузла')
     if 'class="wf-shell"' not in s: issues[n].append('немає wf-shell')
     if 'class="device"' not in s: issues[n].append('немає device')
-    if 'ann-out' not in s: issues[n].append('немає фінальної анотації')
     # зобовʼязання
     if 'Kartverket' not in s: issues[n].append('немає атрибуції')
     if '<summary>Звідки це взято</summary>' not in s: issues[n].append('немає шару «Звідки це взято»')
-    # зони й анотації
+    # зони
     sec = len(re.findall(r'<section aria-labelledby=', s))
-    ann = len(re.findall(r'<p class="ann"[^>]*>ЗОНА', s))
     if sec == 0: issues[n].append('немає жодної зони')
-    if ann < sec: issues[n].append(f'анотацій {ann} на {sec} зон')
+    # рів'ю-хром: рівно один рядок позиції, і жодних коментарів розробників
+    if s.count('class="meta"') != 1: issues[n].append('немає рядка позиції')
+    if 'class="ann' in s: issues[n].append('лишилась анотація зони')
+    if 'details class="review"' in s: issues[n].append('лишилась шапка-details')
     # семантика
     if re.search(r'<a[^>]*>\s*<button', s): issues[n].append('<button> усередині <a>')
     if re.search(r'<script', s): issues[n].append('є <script>')

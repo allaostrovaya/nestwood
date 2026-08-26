@@ -20,7 +20,6 @@
   </ul>
 </nav>
 
-
 <div class="wf-shell">
 
 <nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
@@ -163,14 +162,7 @@
 
 <div class="wf-main">
 
-<details class="review" data-review lang="uk" id="top" open>
-  <summary>wireframes/map-loading.html — <b>Повноекранна карта</b> · стан <b>loading</b></summary>
-  <div class="review-body">
-    <p><b>Місце у flow:</b> Поверхня, не крок потоку. Вхід із <code>G2</code>, <code>plan</code>, <code>day</code> і <code>today</code>.</p>
-    <p><b>Правило стану:</b> Jobs — <b>1</b>, <b>2</b> (хижі за типом на місцевості), <b>6</b> (транспортні вузли й дорожній доступ). Закриває дірку A1: наш головний актив — офіційні гео-дані, і в них не було власної поверхні.</p>
-    
-  </div>
-</details>
+<p class="meta" data-review lang="uk"><b>1.1</b> · Повноекранна карта · <i>завантаження</i></p>
 
 <div class="device" data-screen="Повноекранна карта" data-state="завантаження">
 
@@ -186,7 +178,6 @@
       </ul>
     </nav>
   </header>
-  <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — пʼять вкладок. Незмінна в усіх станах: стан екрана ніколи не чіпає оболонку. Дім контекстний: «Плани», коли похід активний або старт за день-два, «Карта» в решті випадків. Сірим — вкладки, чиї екрани ще не намальовані: посилання на них не ставимо, щоб не робити 404-тупик.</p>
 
   <main>
     <h1>Карта маршруту</h1>
@@ -200,15 +191,13 @@
       </figure>
       <p>Тайли качаються один раз і лишаються в офлайн-пакеті — у горах карта відкриється без мережі.</p>
       <p class="actions"><button type="button">Скасувати</button></p>
-      <p class="ann" data-review lang="uk">РОЗВИЛКА · далі <a href="./route.html">маршрути знайшлись</a> · <a href="./route-empty.html">нічого не сходиться</a> · <a href="./route-error.html">стежки недоступні</a></p>
-      <p class="ann" data-review lang="uk">РОЗВИЛКА · далі <a href="./map.html">тайли завантажились → карта</a> · <a href="./map-error.html">сервіс тайлів мовчить → помилка</a></p>
+
       <ul class="signals">
         <li><b>Шари</b> <label><input type="checkbox" checked> маршрут і дні</label> <label><input type="checkbox" checked> хижі за типом</label></li>
         <li><b></b> <label><input type="checkbox" checked> точки сходу</label> <label><input type="checkbox"> вода й броди</label></li>
         <li><b></b> <label><input type="checkbox"> транспортні вузли</label> <label><input type="checkbox"> офіційна градація</label></li>
       </ul>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Карта → <b>завантаження</b>. Показуємо мегабайти, бо це те, що людина реально вирішує: качати зараз по Wi-Fi чи в дорозі. Скасування є.</p>
 
   </main>
 
@@ -222,8 +211,6 @@
   </footer>
 
 </div>
-
-<p class="ann ann-out" data-review lang="uk">ЗОНА · Футер оболонки. Атрибуція ©Kartverket є <b>в кожному стані</b> — це юридична вимога CC BY 4.0, а не підпис.</p>
 
 </div><!-- /.wf-main -->
 </div><!-- /.wf-shell -->

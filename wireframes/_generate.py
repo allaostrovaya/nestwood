@@ -92,7 +92,6 @@ APPNAV = '''  <header class="app">
       </ul>
     </nav>
   </header>
-  <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — пʼять вкладок. Незмінна в усіх станах: стан екрана ніколи не чіпає оболонку. Дім контекстний: «Плани», коли похід активний або старт за день-два, «Карта» в решті випадків. Сірим — вкладки, чиї екрани ще не намальовані: посилання на них не ставимо, щоб не робити 404-тупик.</p>
 '''
 
 FOOT = '''  <footer class="app">
@@ -120,20 +119,16 @@ def appnav_for(f):
                          x=' aria-current="page"' if t == 'Безпека' else '',
                          f=' aria-current="page"' if t == 'Профіль' else '')
 
-def R(state, flow, rule, extra=''):
-    """Згорнута шапка сторінки — третій елемент рев'ю-хрому."""
-    return f"""  <summary>{state}</summary>
-  <div class="review-body">
-    <p><b>Місце у flow:</b> {flow}</p>
-    <p><b>Правило стану:</b> {rule}</p>
-    {extra}
-  </div>"""
+def zone(zid, head, body):
+    """Смислова зона екрана. Анотацій тут немає: у макеті — лише семантика
+    самого застосунку, а не коментарі розробників."""
+    return f'    <section aria-labelledby="{zid}">\n      <h2 id="{zid}">{head}</h2>\n{body}\n    </section>\n'
 
-def zone(zid, head, body, ann):
-    return (f'    <section aria-labelledby="{zid}">\n      <h2 id="{zid}">{head}</h2>\n{body}\n    </section>\n'
-            f'    <p class="ann" data-review lang="uk">ЗОНА · {ann}</p>\n')
+def meta(pos, title, state='успіх'):
+    """Єдиний рев'ю-хром усередині сторінки: позиція <джоб>.<крок>."""
+    return f'<p class="meta" data-review lang="uk"><b>{pos}</b> · {title} · <i>{state}</i></p>' 
 
-def page(current, title, h1, review, zones, src, appnav=True, base=None):
+def page(current, title, h1, metaline, zones, src, appnav=True, base=None):
     nav = appnav_for(current) if appnav else ''
     parts = title.split(' · ')
     screen, state = (parts[1] if len(parts) > 1 else title), (parts[2] if len(parts) > 2 else 'успіх')
@@ -157,7 +152,7 @@ def page(current, title, h1, review, zones, src, appnav=True, base=None):
 <div class="wf-main">
 
 <details class="review" data-review lang="uk" id="top" open>
-{review}
+{metaline}
 </details>
 
 <div class="device" data-screen="{screen}" data-state="{state}">
@@ -171,8 +166,6 @@ def page(current, title, h1, review, zones, src, appnav=True, base=None):
 
 {FOOT.format(src=src)}
 </div>
-
-<p class="ann ann-out" data-review lang="uk">ЗОНА · Футер оболонки. Атрибуція ©Kartverket є <b>в кожному стані</b> — це юридична вимога CC BY 4.0, а не підпис.</p>
 
 </div><!-- /.wf-main -->
 </div><!-- /.wf-shell -->
