@@ -460,3 +460,84 @@ footer.app {
 footer.app p { margin: 0 0 var(--s2); }
 footer.app details { margin-bottom: var(--s2); }
 
+
+
+/* ══ СЛОВНИК КОМПОНЕНТІВ ═══════════════════════════════════════
+   Правило: якщо для змісту є компонент — «голий» абзац не використовуємо.
+   Абзац лишається для прози, не для структури. */
+
+/* chip — фільтр, тег, вибір значення */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 var(--s3); padding: 0; list-style: none; }
+.chip {
+  display: inline-block;
+  padding: 7px 12px;
+  font-size: 13px;
+  line-height: 1;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink-2);
+  text-decoration: none;
+  cursor: pointer;
+}
+.chip[aria-pressed="true"], .chip.on { background: var(--act-soft); border-color: var(--act); color: var(--act); font-weight: 600; }
+
+/* row — рядок списку з шевроном: назва, підпис, стан справа */
+.rows { margin: 0 0 var(--s3); padding: 0; list-style: none; border-top: 1px solid var(--line-2); }
+.rows > li { border-bottom: 1px solid var(--line-2); }
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto 10px;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 56px;
+  padding: 10px 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+.row b { display: block; font-size: 15px; font-weight: 600; }
+.row small { display: block; margin-top: 2px; font-size: 12px; color: var(--ink-2); }
+.row .state { font-size: 12px; color: var(--ink-2); text-align: right; white-space: nowrap; }
+.row .state.warn { color: var(--ink); font-weight: 700; }
+.row::after { content: "›"; color: var(--line); font-size: 18px; line-height: 1; }
+
+/* stat — ряд ключових чисел */
+.stats { display: flex; flex-wrap: wrap; gap: var(--s3); margin: 0 0 var(--s3); padding: 0; list-style: none; }
+.stats li { flex: 0 0 auto; }
+.stats b { display: block; font-size: 17px; font-weight: 700; line-height: 1.1; }
+.stats small { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+
+/* bar — липка панель головної дії */
+.bar {
+  position: sticky;
+  bottom: 0;
+  margin: var(--s3) calc(var(--s3) * -1) 0;
+  padding: var(--s2) var(--s3);
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+.bar .cta, .bar button { width: 100%; text-align: center; }
+
+/* seg — сегментований перемикач */
+.seg { display: flex; margin: 0 0 var(--s3); padding: 2px; background: var(--fill); border-radius: 10px; }
+.seg a { flex: 1; padding: 7px; font-size: 13px; text-align: center; color: var(--ink-2); text-decoration: none; border-radius: 8px; }
+.seg a[aria-current="page"] { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 0 0 1px var(--line-2); }
+
+/* note — виносне попередження або уточнення */
+.note {
+  margin: 0 0 var(--s3);
+  padding: var(--s2) var(--s3);
+  background: var(--fill);
+  border-left: 3px solid var(--ink);
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+}
+
+/* empty — порожній стан: причина + виходи */
+.empty { padding: var(--s4) var(--s3); text-align: center; border: 1px dashed var(--line); border-radius: 8px; }
+.empty p { color: var(--ink-2); }
+
+/* progress — крок N з M, лічильник закріплення */
+.progress { display: flex; align-items: center; gap: var(--s2); margin: 0 0 var(--s3); font-size: 12px; color: var(--ink-2); }
+.progress .track { flex: 1; height: 4px; background: var(--fill); border-radius: 2px; overflow: hidden; }
+.progress .fill { display: block; height: 100%; background: var(--act); }

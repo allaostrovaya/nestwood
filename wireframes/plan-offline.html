@@ -183,53 +183,6 @@
   <main>
     <h1>План по днях</h1>
 
-    <section aria-labelledby="route">
-      <h2 id="route">Обраний маршрут</h2>
-      <figure class="bleed">
-        <div class="frame frame--map" data-fit="з кешу · на всю ширину · тап → на весь екран">
-          <span>карта (з офлайн-пакета)<br>Kungsleden, Abisko → Nikkaluokta<br>101 км · 5 хиж · 2 точки сходу</span>
-        </div>
-        <figcaption>Тайли завантажені в офлайн-пакет заздалегідь — карта відкривається без мережі так само, як і онлайн.</figcaption>
-      </figure>
-      <figure>
-        <div class="frame frame--profile" data-fit="на ширину колонки">
-          <span>профіль висоти · 1 940 м · найвища точка 1 150 м на 4-й день</span>
-        </div>
-        <figcaption>Профіль — статичні дані походу, у мережі не потребує.</figcaption>
-      </figure>
-      <p>Маркована стежка всю дорогу · офіційна градація: blå / medium, одна ділянка röd / krevende на перевалі.</p>
-      <p class="actions">
-        <a href="./map.html">Відкрити карту (з кешу)</a>
-        <a href="./route.html">Змінити маршрут</a>
-      </p>
-    </section>
-
-    <section aria-labelledby="trip">
-      <h2 id="trip">Цей похід</h2>
-      <dl>
-        <dt>Дати</dt>
-        <dd>пн 17 – сб 22 серпня 2026 · 6 ходових днів</dd>
-
-        <dt>Відстань</dt>
-        <dd>101 км · 1 940 м набору</dd>
-
-        <dt>Нас</dt>
-        <dd>двоє · обоє члени STF — тож ключ і членський тариф доступні обом</dd>
-
-        <dt>Ночівлі</dt>
-        <dd>5 ночей · 2 ліжка щоночі · 4 fjällstugor (STF) + 1 fjällstation
-          <small data-mock>Статус броні тут ілюстративний навіть онлайн. Жива наявність ліжок потребує угоди про дані зі STF.</small>
-        </dd>
-
-        <dt>Ви</dt>
-        <dd>член STF №4471902 · найдовший денний перехід торік: 24 км із 12 кг</dd>
-      </dl>
-      <p class="actions">
-        <a href="./catalogue.html">Параметри походу — дати, склад, тривалість</a>
-        <button type="button">Зберегти цей похід</button>
-      </p>
-    </section>
-
     <section aria-labelledby="verdict">
       <h2 id="verdict">Чи план тримається купи</h2>
       <div class="verdict">
@@ -243,7 +196,30 @@
       </p>
     </section>
 
-    <section aria-labelledby="days">
+        <section aria-labelledby="assume">
+      <h2 id="assume">На чому це стоїть</h2>
+      <ul class="chips">
+        <li><button class="chip on" type="button">двоє, 1 член STF</button></li>
+        <li><button class="chip" type="button">темп середній</button></li>
+        <li><button class="chip" type="button">прихід до 18:00</button></li>
+        <li><button class="chip" type="button">рюкзак 11,4 кг</button></li>
+      </ul>
+      <p>Зміна будь-чого тут <b>перераховує план</b>, а не лише підпис.</p>
+    </section>
+    <section aria-labelledby="overview">
+      <h2 id="overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину">
+          <span>карта з офлайн-пакета · остання перевірка 19 серп, 07:15</span>
+        </div>
+      </figure>
+      <ul class="stats">
+        <li><b>101 км</b><small>довжина</small></li>
+        <li><b>1 940 м</b><small>набір</small></li>
+        <li><b>6</b><small>ходових днів</small></li>
+      </ul>
+    </section>
+<section aria-labelledby="days">
       <h2 id="days">Дні</h2>
 
       <article class="leg" aria-labelledby="leg-in">
@@ -353,51 +329,27 @@
       </article>
     </section>
 
-    <section aria-labelledby="cost">
-      <h2 id="cost">Скільки це коштує</h2>
-      <dl>
-        <dt>Ночівлі</dt>
-        <dd>4 × 450 SEK (членський тариф, fjällstuga) + 1 × 700 SEK (Kebnekaise Fjällstation) = <b>2 500 SEK</b> на людину</dd>
-
-        <dt>Членство</dt>
-        <dd>Уже оплачене — 395 SEK на рік з кожного</dd>
-
-        <dt>Дорога туди й назад</dt>
-        <dd>Нічний потяг 1 190 SEK + автобус 91 — 190 SEK = <b>1 380 SEK</b> на людину</dd>
-
-        <dt>Разом</dt>
-        <dd><b>3 880 SEK на людину · 7 760 SEK на двох</b> — з кешу, ціни не оновлювались відколи зникла мережа</dd>
-      </dl>
+        <section aria-labelledby="facets">
+      <h2 id="facets">Все про цей похід</h2>
+      <ul class="rows">
+        <li><a class="row" href="./nights.html">
+          <span><b>Ночівлі</b><small>з кешу</small></span>
+          <span class="state">5 ночей</span></a></li>
+        <li><a class="row" href="./transport.html">
+          <span><b>Дорога туди й назад</b><small>останній відомий розклад</small></span>
+          <span class="state">2 плеча</span></a></li>
+        <li><a class="row" href="./gear.html">
+          <span><b>Спорядження</b><small>з кешу</small></span>
+          <span class="state">23 позиції</span></a></li>
+        <li><a class="row" href="./offline-pack.html">
+          <span><b>Офлайн-пакет</b><small>усе нижче читається звідси</small></span>
+          <span class="state">84,8 МБ</span></a></li>
+        <li><a class="row" href="./share.html">
+          <span><b>Поділитися</b><small>маршрут і час повернення</small></span>
+          <span class="state"></span></a></li>
+      </ul>
+      <p>Це <b>нормальний робочий кінець</b>, а не очікування мережі: усе перелічене доступне зараз, з позначкою часу останньої перевірки.</p>
     </section>
-
-    <section aria-labelledby="gear">
-      <h2 id="gear">Спорядження</h2>
-      <p>23 позиції під цей маршрут і цю погоду · 19 у вас є · 3 докупити · 1 позичити — чекліст із офлайн-пакета, доступний повністю без мережі.</p>
-      <p class="actions"><a href="./gear.html">Відкрити чекліст</a></p>
-    </section>
-
-    <section aria-labelledby="adjust">
-      <h2 id="adjust">Змінити щось</h2>
-      <p>Без мережі перескласти план не вийде — розмовний шар і «Параметри походу» надішлють запит, коли мережа зʼявиться знову.</p>
-      <form action="./plan-loading.html" method="get">
-        <label for="ask">Попросити зміну (надішлеться, коли буде мережа)</label>
-        <textarea id="ask" name="ask" rows="2" placeholder="як тільки буде мережа — перевір, чи ще актуальна ніч у Tjäktja"></textarea>
-        <p class="actions"><button type="submit">Зберегти запит</button></p>
-      </form>
-    </section>
-
-    <section aria-labelledby="offline">
-      <h2 id="offline">Взяти офлайн</h2>
-      <p><b>Офлайн-пакет уже збережено</b> — 42 МБ, завантажено 16 серпня 2026, 20:30: тайли карти, дані хиж, список спорядження й перехід кожного дня. Саме тому весь цей екран доступний зараз без мережі.</p>
-      <p>Пакет оновиться сам, щойно з'явиться мережа — вручну оновлювати не потрібно.</p>
-      <h3>Забрати із собою інакше</h3>
-      <p class="actions">
-        <button type="button">Експорт GPX — маршрут і хижі</button>
-        <a href="./share.html">Друк або PDF</a>
-      </p>
-    </section>
-  </main>
-
   <footer class="app">
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>

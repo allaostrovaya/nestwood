@@ -183,33 +183,6 @@
   <main>
     <h1>План по днях</h1>
 
-    <section aria-labelledby="route">
-      <h2 id="route">Обраний маршрут</h2>
-      <figure class="bleed">
-        <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран">
-          <span>карта<br>Kungsleden, Abisko → Nikkaluokta<br>101 км · 5 хиж · 2 точки сходу</span>
-        </div>
-        <figcaption>На що мусить відповісти: як стежка йде відносно хиж і де вона виходить із долини на перевал.</figcaption>
-      </figure>
-      <p>Маркована стежка всю дорогу · офіційна градація: blå / medium, одна ділянка röd / krevende на перевалі.</p>
-      <p class="actions">
-        <a href="./map.html">Відкрити карту</a>
-        <a href="./route.html">Змінити маршрут</a>
-      </p>
-    </section>
-    <section aria-labelledby="trip">
-      <h2 id="trip">Цей похід</h2>
-      <dl>
-        <dt>Дати</dt><dd>пн 17 – сб 22 серпня 2026 · 6 ходових днів · <b>дати не рухаються</b> — куплені квитки</dd>
-        <dt>Відстань</dt><dd>101 км · 1 940 м набору</dd>
-        <dt>Нас</dt><dd>двоє · обоє члени STF</dd>
-        <dt>Ночівлі</dt><dd>5 ночей · 2 ліжка щоночі
-          <small data-mock>Статус броні тут ілюстративний. Жива наявність ліжок потребує угоди про дані зі STF.</small></dd>
-      </dl>
-      <p class="actions">
-        <a href="./catalogue.html">Параметри походу — дати, склад, тривалість</a>
-      </p>
-    </section>
     <section aria-labelledby="verdict" aria-busy="true">
       <h2 id="verdict">Чи план тримається купи</h2>
       <div class="verdict">
@@ -226,7 +199,25 @@
       <p class="actions"><button type="button">Скасувати</button></p>
     </section>
 
-    <section aria-labelledby="days">
+        <section aria-labelledby="assume">
+      <h2 id="assume">На чому це стоїть</h2>
+      <ul class="chips">
+        <li><button class="chip on" type="button">двоє, 1 член STF</button></li>
+        <li><button class="chip" type="button">темп середній</button></li>
+        <li><button class="chip" type="button">прихід до 18:00</button></li>
+        <li><button class="chip" type="button">рюкзак 11,4 кг</button></li>
+      </ul>
+      <p>Зміна будь-чого тут <b>перераховує план</b>, а не лише підпис.</p>
+    </section>
+    <section aria-labelledby="overview">
+      <h2 id="overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину">
+          <span>карта зʼявиться, коли відповість Lantmäteriet</span>
+        </div>
+      </figure>
+    </section>
+<section aria-labelledby="days">
       <h2 id="days">Дні</h2>
 
       <ol class="days">
@@ -263,33 +254,21 @@
         <figcaption>Дні добудовуються зверху вниз, у міру того як приходять відповіді. Це не анімація заради ефекту — це видимий порядок роботи.</figcaption>
       </figure>
     </section>
-    <section aria-labelledby="cost">
-      <h2 id="cost">Скільки це коштує</h2>
-      <p>Порахую після того, як стануть відомі всі ночівлі.</p>
+        <section aria-labelledby="facets">
+      <h2 id="facets">Все про цей похід</h2>
+      <ul class="rows">
+        <li><span class="row">
+          <span><b>Ночівлі</b><small>чекає на маршрут</small></span>
+          <span class="state">—</span></span></li>
+        <li><span class="row">
+          <span><b>Дорога туди й назад</b><small>чекає</small></span>
+          <span class="state">—</span></span></li>
+        <li><span class="row">
+          <span><b>Спорядження</b><small>чекає на погоду</small></span>
+          <span class="state">—</span></span></li>
+      </ul>
+      <p>Кожен крок — звернення до <b>названого джерела</b>. Оркестрація, яку ми продаємо, видима саме тоді, коли працює.</p>
     </section>
-
-    <section aria-labelledby="gear">
-      <h2 id="gear">Спорядження</h2>
-      <p>Будую після погоди — вона визначає половину списку.</p>
-    </section>
-
-    <section aria-labelledby="adjust">
-      <h2 id="adjust">Змінити щось</h2>
-      <p>Зачекайте, поки план складеться, або скасуйте — і змініть параметри.</p>
-      <form action="./plan-loading.html" method="get">
-        <label for="ask">Попросити зміну</label>
-        <textarea id="ask" name="ask" rows="2" placeholder="зроби день 2 коротшим — 22 км це забагато на другий день"></textarea>
-        <p class="actions"><button type="submit">Перескласти план</button></p>
-      </form>
-    </section>
-
-    <section aria-labelledby="offline">
-      <h2 id="offline">Взяти офлайн</h2>
-      <p>Пакет можна буде зберегти, коли план складеться.</p>
-    </section>
-
-  </main>
-
   <footer class="app">
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>

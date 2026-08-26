@@ -183,33 +183,6 @@
   <main>
     <h1>План по днях</h1>
 
-    <section aria-labelledby="route">
-      <h2 id="route">Обраний маршрут</h2>
-      <figure class="bleed">
-        <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран">
-          <span>карта<br>Kungsleden, Abisko → Nikkaluokta<br>101 км · 5 хиж · 2 точки сходу</span>
-        </div>
-        <figcaption>На що мусить відповісти: як стежка йде відносно хиж і де вона виходить із долини на перевал.</figcaption>
-      </figure>
-      <p>Маркована стежка всю дорогу · офіційна градація: blå / medium, одна ділянка röd / krevende на перевалі.</p>
-      <p class="actions">
-        <a href="./map.html">Відкрити карту</a>
-        <a href="./route.html">Змінити маршрут</a>
-      </p>
-    </section>
-    <section aria-labelledby="trip">
-      <h2 id="trip">Цей похід</h2>
-      <dl>
-        <dt>Дати</dt><dd>пн 17 – сб 22 серпня 2026 · 6 ходових днів · <b>дати не рухаються</b> — куплені квитки</dd>
-        <dt>Відстань</dt><dd>101 км · 1 940 м набору</dd>
-        <dt>Нас</dt><dd>двоє · обоє члени STF</dd>
-        <dt>Ночівлі</dt><dd>5 ночей · 2 ліжка щоночі
-          <small data-mock>Статус броні тут ілюстративний. Жива наявність ліжок потребує угоди про дані зі STF.</small></dd>
-      </dl>
-      <p class="actions">
-        <a href="./catalogue.html">Параметри походу — дати, склад, тривалість</a>
-      </p>
-    </section>
     <section aria-labelledby="verdict">
       <h2 id="verdict">Чи план тримається купи</h2>
       <div class="verdict">
@@ -229,39 +202,47 @@
       </p>
     </section>
 
-    <section aria-labelledby="days">
+        <section aria-labelledby="assume">
+      <h2 id="assume">На чому це стоїть</h2>
+      <ul class="chips">
+        <li><button class="chip on" type="button">двоє, 1 член STF</button></li>
+        <li><button class="chip" type="button">темп середній</button></li>
+        <li><button class="chip" type="button">прихід до 18:00</button></li>
+        <li><button class="chip" type="button">рюкзак 11,4 кг</button></li>
+      </ul>
+      <p>Зміна будь-чого тут <b>перераховує план</b>, а не лише підпис.</p>
+    </section>
+    <section aria-labelledby="overview">
+      <h2 id="overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину">
+          <span>карта · показані варіанти, що складаються в ці дати</span>
+        </div>
+      </figure>
+      <ul class="stats">
+        <li><b>101 км</b><small>довжина</small></li>
+        <li><b>1 940 м</b><small>набір</small></li>
+        <li><b>6</b><small>ходових днів</small></li>
+      </ul>
+    </section>
+<section aria-labelledby="days">
       <h2 id="days">Дні</h2>
       <p>Днів поки немає — вони зʼявляться, щойно оберете варіант вище.</p>
       <p>Що вже відомо: дорога туди (нічний потяг 94 до Abisko Turiststation) і назад лишається чинною в усіх трьох варіантах.</p>
       <p class="actions"><a href="./transport.html">Відкрити транспорт</a></p>
     </section>
-    <section aria-labelledby="cost">
-      <h2 id="cost">Скільки це коштує</h2>
-      <p>Порахуємо, щойно буде план. Вартість залежить від того, скільки ночей і в яких обʼєктах — а це саме те, що зараз не сходиться.</p>
+        <section aria-labelledby="facets">
+      <h2 id="facets">Все про цей похід</h2>
+      <ul class="rows">
+        <li><a class="row" href="./catalogue.html">
+          <span><b>Інший маршрут</b><small>те саме вікно, інша географія</small></span>
+          <span class="state"></span></a></li>
+        <li><a class="row" href="./assemble.html">
+          <span><b>Зібрати під ці дати</b><small>по маркованій мережі й хижах</small></span>
+          <span class="state"></span></a></li>
+      </ul>
+      <p>Дати позначені як жорсткі, тому рухаємо маршрут, а не вікно. <b>Це не тупик</b>: продукт знає причину, тому дає готові виходи, а не повертає у форму.</p>
     </section>
-
-    <section aria-labelledby="gear">
-      <h2 id="gear">Спорядження</h2>
-      <p>Чекліст будується з погоди й типів ночівлі — тобто теж чекає на план.</p>
-    </section>
-
-    <section aria-labelledby="adjust">
-      <h2 id="adjust">Змінити щось</h2>
-      <p>Крім трьох варіантів вище, можна змінити параметри походу або попросити зміну словами.</p>
-      <form action="./plan-loading.html" method="get">
-        <label for="ask">Попросити зміну</label>
-        <textarea id="ask" name="ask" rows="2" placeholder="нам підійшов би намет на одну ніч між Tjäktja і Sälka"></textarea>
-        <p class="actions"><button type="submit">Перескласти план</button></p>
-      </form>
-    </section>
-
-    <section aria-labelledby="offline">
-      <h2 id="offline">Взяти офлайн</h2>
-      <p>Зберігати офлайн поки нічого. Пакет зʼявиться разом із планом.</p>
-    </section>
-
-  </main>
-
   <footer class="app">
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>
