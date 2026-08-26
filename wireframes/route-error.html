@@ -182,43 +182,109 @@
   <main>
     <h1>Kungsleden · Abisko → Nikkaluokta</h1>
 
-    <section aria-labelledby="map">
-      <h2 id="map">Маршрут на карті</h2>
+    <section aria-labelledby="fit">
+      <h2 id="fit">Чи це те, що ти шукаєш</h2>
+      <div class="verdict" role="alert">
+        <strong>Сказати не можемо: половина даних маршруту недоступна.</strong>
+        <p>Turrutebasen не відповідає з 09:04. Звідти беруться довжина, набір висоти, офіційна градація й умови на ділянках — тобто рівно те, за чим звіряють, чи маршрут підходить.</p>
+      </div>
+      <p><b>Чого ми не робимо:</b> не показуємо торішню копію як сьогоднішню й не рахуємо градацію самі — це заборонено окремо, і не нами: DNT просив не заводити альтернативних шкал складності.</p>
+      <div class="note">
+        <b>Що вціліло:</b> геометрія й профіль (Lantmäteriet) уже завантажені, дані хиж — зі статичної схеми, тому карта й ночівлі нижче робочі.
+        <a href="./map.html">Відкрити карту на весь екран</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="assume">
+      <h2 id="assume">На чому це стоїть</h2>
+      <ul class="chips">
+        <li><button class="chip on" type="button">Швеція · серпень</button></li>
+        <li><button class="chip on" type="button">5–7 днів</button></li>
+        <li><button class="chip on" type="button">ночівля в хижах</button></li>
+        <li><button class="chip" type="button">темп середній</button></li>
+      </ul>
+      <p>Запит із фільтрів і профілю ми не втратили — він переживе і перезавантаження, і повернення до каталогу. Відмовило джерело, а не ваш вибір.</p>
+    </section>
+
+    <section aria-labelledby="overview">
+      <h2 id="overview">Маршрут</h2>
       <figure class="bleed">
         <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран">
-          <span>карта<br>Kungsleden, Abisko → Nikkaluokta<br>101 км · 5 хиж · 2 точки сходу</span>
+          <span>карта · Kungsleden, Abisko → Nikkaluokta<br>геометрія завантажена · хижі на місці<br>межі ділянок не показані — джерело мовчить</span>
         </div>
-        <figcaption>На що мусить відповісти: як стежка йде відносно хиж, де виходить на перевал і де два броди.</figcaption>
+        <figcaption>Карта тут <b>орієнтир</b>: як стежка йде відносно хиж. Поділ на ділянки прийде разом із Turrutebasen.</figcaption>
       </figure>
       <figure>
         <div class="frame frame--profile" data-fit="на ширину колонки">
-          <span>профіль висоти · 1 940 м · найвища точка 1 150 м</span>
+          <span>профіль висоти · Lantmäteriet · завантажено</span>
         </div>
-        <figcaption>На що мусить відповісти: набір розкиданий по днях чи зібраний в один.</figcaption>
+        <figcaption>На що мусить відповісти: набір розкиданий рівно чи зібраний в один перевал.</figcaption>
       </figure>
+      <div class="empty">
+        <p><b>Довжина, набір висоти й кількість ходових днів — з Turrutebasen.</b> Поки джерело мовчить, ми лишаємо це поле порожнім, а не підставляємо число з памʼяті.</p>
+      </div>
       <p class="actions"><a href="./map.html">Відкрити карту на весь екран</a></p>
     </section>
-    <section aria-labelledby="facts">
-      <h2 id="facts">Ключові факти</h2>
-      <div class="verdict" role="alert">
-        <strong>Дані маршруту недоступні.</strong>
-        <p>Turrutebasen не відповідає з 09:04. Довжина, набір висоти й офіційна градація беруться саме звідти.</p>
+
+    <section aria-labelledby="hard">
+      <h2 id="hard">Наскільки це важко</h2>
+
+      <h3>Навантаження</h3>
+      <p>Рахувати нема з чого: Naismith і Langmuir беруть довжину й набір висоти, а це саме ті два поля, яких зараз немає. Число, отримане з памʼяті, виглядало б так само переконливо, як справжнє, — і саме тому його тут не буде.</p>
+
+      <h3>Офіційна градація по ділянках</h3>
+      <div class="empty">
+        <p><b>Градація недоступна на всіх 7 ділянках.</b> Це відмова джерела, а не «не градуйовано»: різницю між цими двома станами ми не змазуємо.</p>
       </div>
-      <p><b>Чого ми не робимо:</b> не показуємо торішню копію як сьогоднішню й не рахуємо градацію самі — це заборонено окремо, і не нами: DNT просив не заводити альтернативних шкал складності.</p>
-      <p>Що вціліло: геометрія й профіль уже завантажені, тому карта вище робоча.</p>
-      <p class="actions">
-        <form class="inline" action="./route.html" method="get"><button type="submit">Спробувати ще раз</button></form>
-        <a href="./catalogue.html">Обрати інший маршрут</a>
-      </p>
+
+      <h3>Умови на ділянках</h3>
+      <p>Вода, броди, сніжники й поверхня приходять тим самим запитом. Свіжі свідчення від людей лишились доступні — вони з іншого джерела.</p>
+      <p class="actions"><a href="./field-notes.html">Нотатки з місця</a></p>
     </section>
+
+    <section aria-labelledby="huts">
+      <h2 id="huts">Ночівлі й гарантія ліжка</h2>
+      <ul class="signals">
+        <li><b>Abiskojaure</b> STF fjällstuga · самообслуговування · 46 ліжок · частина ліжок бронюється</li>
+        <li><b>Alesjaure</b> fjällstuga · 88 ліжок · сауна · бронюється</li>
+        <li><b>Tjäktja</b> fjällstuga · 24 ліжка · <b>не бронюється взагалі</b> — тільки прихід на місце</li>
+        <li><b>Sälka</b> fjällstuga · 24 ліжка · бронюється</li>
+        <li><b>Singi</b> fjällstuga · 16 ліжок · бронюється</li>
+        <li><b>Kebnekaise</b> fjällstation · обслуговується · бронюється, є ресторан</li>
+      </ul>
+      <small data-mock>Кількість ліжок і правила броні — зі статичної схеми обʼєктів. Скільки ліжок вільно на конкретну дату, ми не показуємо: живої наявності немає без угоди зі STF.</small>
+      <p><b>Ця зона працює й у відмові</b> — вона стоїть на іншому джерелі. Гарантія на кожну ніч — функція чотирьох змінних: <b>тип обʼєкта × бронь × час приходу × членство</b>. <a href="./lodging-system.html">Правила цієї системи ночівлі</a></p>
+    </section>
+
+    <section aria-labelledby="facets">
+      <h2 id="facets">Все про цей маршрут</h2>
+      <ul class="rows">
+        <li><a class="row" href="./nights.html">
+          <span><b>Ночівлі вздовж маршруту</b><small>6 хиж · тип, ключ, ліжка, сезон</small></span>
+          <span class="state warn">1 не бронюється</span></a></li>
+        <li><a class="row" href="./transport.html">
+          <span><b>Як дістатись і повернутись</b><small>Abisko Turiststation ← потяг · Nikkaluokta → автобус 91</small></span>
+          <span class="state">дорога є з обох боків</span></a></li>
+        <li><a class="row" href="./field-notes.html">
+          <span><b>Нотатки з місця</b><small>стан стежки, броди, маркування</small></span>
+          <span class="state">7 · остання 12 серп</span></a></li>
+        <li><a class="row" href="./reviews.html">
+          <span><b>Відгуки</b><small>думка про маршрут — окремо від нотаток про стан</small></span>
+          <span class="state">4,3 · 128</span></a></li>
+        <li><a class="row" href="./map.html">
+          <span><b>Карта на весь екран</b><small>ділянки, хижі, точки сходу</small></span>
+          <span class="state">геометрія є</span></a></li>
+      </ul>
+      <p><b>Відмовило одне джерело, а не картка.</b> Чотири рядки з пʼяти працюють, бо стоять на інших джерелах — і видно, який саме рядок постраждав.</p>
+    </section>
+
     <section aria-labelledby="go">
-      <h2 id="go">Далі</h2>
-      <p class="actions">
-        <a class="cta" href="./catalogue.html">Спланувати цей маршрут</a>
-        <a href="./catalogue.html">Повернутись до каталогу</a>
-      </p>
-      <p>Маршрут уже обрано — наступний крок питає лише коли й скільки вас.</p>
+      <h2 id="go">Скласти мій план</h2>
+      <p><b>План зараз не складаємо.</b> Без довжин і набору висоти по ділянках нема з чого нарізати дні — вийшов би не план, а вигадка з правильним виглядом. Ночівлі, транспорт і карта від цього не постраждали й будуть на місці, щойно джерело відповість.</p>
+      <p class="actions"><a href="./catalogue.html">Обрати інший маршрут</a> <a href="./plans.html">Мої походи</a></p>
     </section>
+
+    <form class="bar" action="./route.html" method="get"><button class="primary" type="submit">Спробувати ще раз</button></form>
 
   </main>
 
