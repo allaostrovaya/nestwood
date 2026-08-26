@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Wireframe · Спорядження · успіх</title>
+<title>Wireframe · Довідник · успіх</title>
 <link rel="stylesheet" href="./_wireframe.css" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
@@ -19,7 +19,6 @@
     <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>51 сторінок, дерево праворуч</small></span></a></li>
   </ul>
 </nav>
-
 
 <div class="wf-shell">
 
@@ -90,7 +89,7 @@
         </li>
         <li><a href="./nights.html">Ночівлі — ланцюжок</a>
         </li>
-        <li><a href="./gear.html" aria-current="page">Спорядження</a>
+        <li><a href="./gear.html">Спорядження</a>
         </li>
         <li><a href="./transport.html">Транспорт</a>
           <ul>
@@ -127,7 +126,7 @@
 
     <li><span class="grp">Довідник</span>
       <ul>
-        <li><a href="./guide.html">Довідник</a>
+        <li><a href="./guide.html" aria-current="page">Довідник</a>
         </li>
         <li><a href="./lodging-system.html">Як працює ця система ночівлі</a>
         </li>
@@ -164,23 +163,23 @@
 <div class="wf-main">
 
 <details class="review" data-review lang="uk" id="top" open>
-  <summary>wireframes/gear.html — <b>Спорядження</b> · станів із таблиці немає</summary>
+  <summary>wireframes/guide.html — <b>Довідник</b> · станів немає</summary>
   <div class="review-body">
-    <p><b>Місце у flow:</b> <code>plan</code> → <code>gear</code> і <code>day</code> → <code>gear</code> — два рівноправні входи.</p>
-    <p><b>Правило стану:</b> Job — <b>4</b>. Рядок gear у _screens.md порожній по всіх чотирьох станах: чекліст виводиться з погоди й типів ночівлі разом із планом, власних запитів не робить. Незаповнений інвентар змінює <b>зміст</b> («взяти» замість «є в мене»), а не дає порожній стан.</p>
-    <p>⚠️ <b>Чесно про підставу:</b> 4 має найслабшу доказову базу набору, і єдиний задокументований носій болю — secondary-персона, не Kristin. Тому зона коротка й не в центрі продукту.</p>
+    <p><b>Місце у flow:</b> <code>Довідник</code> — окрема вкладка, не крок потоку. Входи: глобальна навігація й контекстні посилання з ночі та плану.</p>
+    <p><b>Правило стану:</b> Job 8: «не пропустити нічого важливого в системі, якої не знаю». Раніше цей вміст лежав <b>усередині плану</b>, тобто був доступний лише тому, хто вже щось згенерував — а job 8 належить приїжджому, персоні, центральній у пітчі.</p>
+    <p><b>Чому довідник, а не фід:</b> «як працює Selvbetjent-хижа» буде правдою через пʼять років, «10 лайфхаків серпня» — ні. Стрічку треба безперервно годувати, і застаріла стрічка гірша за її відсутність.</p>
   </div>
 </details>
 
-<div class="device" data-screen="Спорядження" data-state="успіх">
+<div class="device" data-screen="Довідник" data-state="успіх">
 
   <header class="app">
     <p class="brand">Nestwood</p>
     <nav aria-label="Головна навігація">
       <ul>
         <li><a href="./catalogue.html">Карта</a></li>
-        <li><a href="./plans.html" aria-current="page">Плани</a></li>
-        <li><a href="./guide.html">Довідник</a></li>
+        <li><a href="./plans.html">Плани</a></li>
+        <li><a href="./guide.html" aria-current="page">Довідник</a></li>
         <li><a href="./safety.html">Безпека</a></li>
         <li><a href="./me.html">Профіль</a></li>
       </ul>
@@ -189,43 +188,47 @@
   <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — пʼять вкладок. Незмінна в усіх станах: стан екрана ніколи не чіпає оболонку. Дім контекстний: «Плани», коли похід активний або старт за день-два, «Карта» в решті випадків. Сірим — вкладки, чиї екрани ще не намальовані: посилання на них не ставимо, щоб не робити 404-тупик.</p>
 
   <main>
-    <h1>Спорядження</h1>
+    <h1>Довідник</h1>
 
-    <section aria-labelledby="list">
-      <h2 id="list">Що взяти</h2>
-      <ul class="signals">
-        <li><b>Є в мене</b> <label><input type="checkbox" checked> спальник −5</label> · <label><input type="checkbox" checked> каремат</label> · <label><input type="checkbox" checked> пальник і газ</label></li>
-        <li><b>Взяти</b> <label><input type="checkbox"> дощовик</label> · <label><input type="checkbox"> запасні шкарпетки ×3</label></li>
-        <li><b>Купити</b> <label><input type="checkbox"> гамаші</label> · <label><input type="checkbox"> водонепроникні рукавиці</label></li>
-        <li><b>На двох</b> <label><input type="checkbox" checked> намет (несе одна людина)</label> · <label><input type="checkbox"> аптечка</label></li>
-      </ul>
-      <p>23 позиції · 19 є · 3 докупити · 1 позичити</p>
+    <section aria-labelledby="search">
+      <h2 id="search">Що шукаєте</h2>
+      <form class="inline" action="./guide.html" method="get">
+        <label for="q">Пошук</label>
+        <input type="text" id="q" name="q" value="" />
+        <fieldset>
+          <legend>Країна</legend>
+          <p><button type="submit">Норвегія</button> <button type="submit">Швеція</button> <button type="submit">Обидві</button></p>
+        </fieldset>
+      </form>
+      <p>Фільтр по країнах — для зручності, а не обіцянка паритету: норвезьких джерел більше, ніж шведських, і ми цього не приховуємо.</p>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Чекліст. ГОЛОВНА ДІЯ: відмітити зібране. Категорія «На двох» зʼявилась із розміру групи (рішення №21): без неї чекліст брехав би — намет і аптечка не потрібні кожному окремо.</p>
-    <section aria-labelledby="why">
-      <h2 id="why">Чому саме це</h2>
-      <ul class="signals">
-        <li><b>Гамаші</b> 12 мм дощу на 3-й і 4-й дні + 11 км болотистого ґрунту</li>
-        <li><b>Рукавиці</b> +6 °C і вітер 12 м/с на Tjäktjapasset — це четвертий день</li>
-        <li><b>Спальник</b> три ночі в selvbetjent: ковдр там немає, тільки матраци</li>
-        <li><b>Чого можна не брати</b> фільтр для води — струмки на всьому маршруті; намет — хижі заброньовані всі пʼять ночей</li>
-      </ul>
+    <p class="ann" data-review lang="uk">ЗОНА · Пошук і фільтр. ГОЛОВНА ДІЯ: знайти правило, що стосується твоєї ночі. Фільтр по країнах обовʼязковий, бо системи ночівлі різні — і саме нерозуміння чужої системи є змістом job 8.</p>
+    <section aria-labelledby="rules">
+      <h2 id="rules">Як це працює</h2>
+      <ol class="days">
+        <li><article><h3>Система ночівлі: Норвегія (DNT)</h3>
+          <p>Типи хиж, ключ, членство, логбук. <a href="./lodging-system.html">Читати</a></p>
+          <p>Джерело: DNT · переклад наш · перевірено проти норвезькомовних сторінок</p></article></li>
+        <li><article><h3>Система ночівлі: Швеція (STF)</h3>
+          <p>Fjällstuga проти fjällstation, правило 18:00, що бронюється й що ні. <a href="./lodging-system.html">Читати</a></p>
+          <p>Джерело: STF · переклад наш</p></article></li>
+        <li><article><h3>Неписані правила хижі</h3>
+          <p>Прибрати за собою, взуття, як діляться спальні місця, честь-система. Те, чого немає в жодному API.</p>
+          <p>Джерело: академічне дослідження DNT-хиж (UiO/UiB) · переклад наш</p></article></li>
+        <li><article><h3>Fjellvettreglene — правила поведінки в горах</h3>
+          <p>Дев'ять правил, які DNT і Røde Kors просять знати перед виходом. <a href="./safety.html">Разом із безпекою</a></p>
+          <p>Джерело: DNT · цитата з атрибуцією, не наш текст</p></article></li>
+        <li><article><h3>Allemansrätten і де ставити намет</h3>
+          <p>Що дозволено, де ні, як далеко від житла. Швеція й Норвегія відрізняються.</p>
+          <p>Джерело: Naturvårdsverket · Miljødirektoratet</p></article></li>
+      </ol>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Пояснення. Job сформульований у <b>два боки</b>: не тягнути зайве й не забути критичне — тому «чого можна не брати» це не бонус, а половина відповіді.</p>
-    <section aria-labelledby="back">
-      <h2 id="back">Повернутись</h2>
-      <p class="actions">
-        <a class="cta" href="./plan.html">До плану по днях</a>
-        <a href="./day.html">До дня 3</a>
-      </p>
+    <p class="ann" data-review lang="uk">ЗОНА · Вічнозелений зміст. ⚠️ <b>Кожна стаття несе джерело</b> — інакше довідник стане єдиною поверхнею продукту без простежуваності, і саме тією, де людина читає правила, від яких залежить її ніч. Чужий текст не перекладаємо без угоди: DNT уже написав це норвезькою, і це їхня власність — відкрите питання ліцензії, не редакції.</p>
+    <section aria-labelledby="where">
+      <h2 id="where">Куди піти</h2>
+      <p>Про <b>місця</b> — не тут: куровані регіони й добірки живуть у <a href="./catalogue.html">каталозі</a>, бо там вони допомагають обрати маршрут, а не читаються окремо.</p>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Вихід зі спорядження — два входи були, два виходи є.</p>
-    <section aria-labelledby="inv">
-      <h2 id="inv">Інвентар</h2>
-      <p class="actions"><a href="./my-gear.html">Оновити інвентар</a></p>
-      <p>Інвентар живе в акаунті: спорядження довготривале, і переписувати його щоразу — рівно те тертя, яке ми обіцяємо зняти.</p>
-    </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Вхід в інвентар (F2). Підстава акаунта тут не персоналізація, а те, що ці дані мусять пережити закриту вкладку.</p>
+    <p class="ann" data-review lang="uk">ЗОНА · Межа розділу. «Цікаве про місця» свідомо не тут: контент, що є дискаверингом, живе в каталозі. Тут — тільки те, що поруч із безпекою й правилами.</p>
 
   </main>
 
@@ -233,7 +236,7 @@
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>
       <summary>Звідки це взято</summary>
-      <p>Погода: met.no. Типи обʼєктів ночівлі — публічна схема. Список складається з погоди, типу ночівлі, рельєфу й сезону.</p>
+      <p>Правила систем ночівлі: DNT (Норвегія), STF (Швеція). Fjellvett: DNT. Намети: Naturvårdsverket, Miljødirektoratet. Переклади наші, оригінал показуємо поруч.</p>
     </details>
     <p>Остання перевірка: 13 серпня 2026, 09:12</p>
   </footer>

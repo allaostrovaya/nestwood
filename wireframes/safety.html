@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Wireframe · Спорядження · успіх</title>
+<title>Wireframe · Безпека · успіх</title>
 <link rel="stylesheet" href="./_wireframe.css" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
@@ -19,7 +19,6 @@
     <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>51 сторінок, дерево праворуч</small></span></a></li>
   </ul>
 </nav>
-
 
 <div class="wf-shell">
 
@@ -90,7 +89,7 @@
         </li>
         <li><a href="./nights.html">Ночівлі — ланцюжок</a>
         </li>
-        <li><a href="./gear.html" aria-current="page">Спорядження</a>
+        <li><a href="./gear.html">Спорядження</a>
         </li>
         <li><a href="./transport.html">Транспорт</a>
           <ul>
@@ -138,7 +137,7 @@
 
     <li><span class="grp">Безпека</span>
       <ul>
-        <li><a href="./safety.html">Безпека · SOS</a>
+        <li><a href="./safety.html" aria-current="page">Безпека · SOS</a>
         </li>
         <li><a href="./first-aid.html">Перша допомога</a>
         </li>
@@ -164,24 +163,24 @@
 <div class="wf-main">
 
 <details class="review" data-review lang="uk" id="top" open>
-  <summary>wireframes/gear.html — <b>Спорядження</b> · станів із таблиці немає</summary>
+  <summary>wireframes/safety.html — <b>Безпека</b> · станів немає</summary>
   <div class="review-body">
-    <p><b>Місце у flow:</b> <code>plan</code> → <code>gear</code> і <code>day</code> → <code>gear</code> — два рівноправні входи.</p>
-    <p><b>Правило стану:</b> Job — <b>4</b>. Рядок gear у _screens.md порожній по всіх чотирьох станах: чекліст виводиться з погоди й типів ночівлі разом із планом, власних запитів не робить. Незаповнений інвентар змінює <b>зміст</b> («взяти» замість «є в мене»), а не дає порожній стан.</p>
-    <p>⚠️ <b>Чесно про підставу:</b> 4 має найслабшу доказову базу набору, і єдиний задокументований носій болю — secondary-персона, не Kristin. Тому зона коротка й не в центрі продукту.</p>
+    <p><b>Місце у flow:</b> Окрема вкладка. У стані «у дорозі» SOS дублюється постійним елементом на <code>today</code>.</p>
+    <p><b>Правило стану:</b> ⚠️ <b>Половина цього екрана має job, половина — ні, і це записано.</b> Точка сходу, координати й лавинна обстановка закривають job 3 і job 6: сутність 19 нарешті отримала постійну поверхню замість появи в стані «варіантів немає», тобто тоді, коли вже пізно. <b>SOS і перша допомога job\'а не мають</b> — жодного голосу користувача; тримаються гіпотезою <b>H6</b> з інституційною підставою (Røde Kors і DNT публічно просять fjellvett-opplysning).</p>
+    <p><b>Розмір за підставою:</b> без голосу користувача не вкладаємо сюди стільки, скільки в картку маршруту й план. І екран мусить бути <b>живим</b>, а не листівкою — статичний розділ правил ні job\'а, ні користі не дає.</p>
   </div>
 </details>
 
-<div class="device" data-screen="Спорядження" data-state="успіх">
+<div class="device" data-screen="Безпека" data-state="успіх">
 
   <header class="app">
     <p class="brand">Nestwood</p>
     <nav aria-label="Головна навігація">
       <ul>
         <li><a href="./catalogue.html">Карта</a></li>
-        <li><a href="./plans.html" aria-current="page">Плани</a></li>
+        <li><a href="./plans.html">Плани</a></li>
         <li><a href="./guide.html">Довідник</a></li>
-        <li><a href="./safety.html">Безпека</a></li>
+        <li><a href="./safety.html" aria-current="page">Безпека</a></li>
         <li><a href="./me.html">Профіль</a></li>
       </ul>
     </nav>
@@ -189,43 +188,38 @@
   <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — пʼять вкладок. Незмінна в усіх станах: стан екрана ніколи не чіпає оболонку. Дім контекстний: «Плани», коли похід активний або старт за день-два, «Карта» в решті випадків. Сірим — вкладки, чиї екрани ще не намальовані: посилання на них не ставимо, щоб не робити 404-тупик.</p>
 
   <main>
-    <h1>Спорядження</h1>
+    <h1>Безпека</h1>
 
-    <section aria-labelledby="list">
-      <h2 id="list">Що взяти</h2>
-      <ul class="signals">
-        <li><b>Є в мене</b> <label><input type="checkbox" checked> спальник −5</label> · <label><input type="checkbox" checked> каремат</label> · <label><input type="checkbox" checked> пальник і газ</label></li>
-        <li><b>Взяти</b> <label><input type="checkbox"> дощовик</label> · <label><input type="checkbox"> запасні шкарпетки ×3</label></li>
-        <li><b>Купити</b> <label><input type="checkbox"> гамаші</label> · <label><input type="checkbox"> водонепроникні рукавиці</label></li>
-        <li><b>На двох</b> <label><input type="checkbox" checked> намет (несе одна людина)</label> · <label><input type="checkbox"> аптечка</label></li>
-      </ul>
-      <p>23 позиції · 19 є · 3 докупити · 1 позичити</p>
+    <section aria-labelledby="now">
+      <h2 id="now">Зараз</h2>
+      <p class="actions"><button class="primary" type="button">SOS — викликати допомогу</button></p>
+      <dl>
+        <dt>Екстрені номери</dt><dd>112 — усі служби · 113 — медична (Норвегія)</dd>
+        <dt>Мої координати</dt><dd>67°55′14″N 18°37′02″E · точність 8 м · оновлено 3 хв тому</dd>
+        <dt>Найближча точка сходу</dt><dd>Alesjaure — 6,2 км назад по стежці, звідти човен і дорога</dd>
+        <dt>Лавинна небезпека</dt><dd>сьогодні 2 з 5, помірна · NVE Varsom, оновлено 06:00</dd>
+        <dt>Звʼязок</dt><dd>невідомо — оператори не публікують покриття як шар</dd>
+      </dl>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Чекліст. ГОЛОВНА ДІЯ: відмітити зібране. Категорія «На двох» зʼявилась із розміру групи (рішення №21): без неї чекліст брехав би — намет і аптечка не потрібні кожному окремо.</p>
-    <section aria-labelledby="why">
-      <h2 id="why">Чому саме це</h2>
-      <ul class="signals">
-        <li><b>Гамаші</b> 12 мм дощу на 3-й і 4-й дні + 11 км болотистого ґрунту</li>
-        <li><b>Рукавиці</b> +6 °C і вітер 12 м/с на Tjäktjapasset — це четвертий день</li>
-        <li><b>Спальник</b> три ночі в selvbetjent: ковдр там немає, тільки матраци</li>
-        <li><b>Чого можна не брати</b> фільтр для води — струмки на всьому маршруті; намет — хижі заброньовані всі пʼять ночей</li>
-      </ul>
+    <p class="ann" data-review lang="uk">ЗОНА · ГОЛОВНА ДІЯ. Екран відкривається <b>діями, а не текстом</b>: у біді потрібні дії — миттєво, офлайн, без думання. Читання нижче. Змішати ці дві задачі означало б, що в аварії людина потрапляє в перелік статей. Точка сходу — сутність 19, і вона тут <b>постійно</b>, а не в момент, коли варіантів уже немає.</p>
+    <section aria-labelledby="firstaid">
+      <h2 id="firstaid">Перша допомога</h2>
+      <p>Гіпотермія · переохолодження кінцівок · вивих і перелом · опік · зневоднення. Доступно офлайн.</p>
+      <p class="actions"><a href="./first-aid.html">Відкрити</a></p>
+      <p><b>Не наш текст.</b> Матеріали Røde Kors / Röda Korset, цитата з атрибуцією. Медичних порад ми не пишемо.</p>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Пояснення. Job сформульований у <b>два боки</b>: не тягнути зайве й не забути критичне — тому «чого можна не брати» це не бонус, а половина відповіді.</p>
-    <section aria-labelledby="back">
-      <h2 id="back">Повернутись</h2>
-      <p class="actions">
-        <a class="cta" href="./plan.html">До плану по днях</a>
-        <a href="./day.html">До дня 3</a>
-      </p>
+    <p class="ann" data-review lang="uk">ЗОНА · ⚠️ Медичний зміст ми не авторуємо. З грудня 2026 EU Product Liability Directive охоплює ПЗ, тому джерело тут не ввічливість, а межа відповідальності. Той самий принцип, що з ©Kartverket.</p>
+    <section aria-labelledby="share">
+      <h2 id="share">Сказати, де я</h2>
+      <p>Маршрут і очікуваний час повернення — близькій людині. Це те, що рекомендує сам DNT.</p>
+      <p class="actions"><a href="./share.html">Поділитися маршрутом і часом повернення</a></p>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Вихід зі спорядження — два входи були, два виходи є.</p>
-    <section aria-labelledby="inv">
-      <h2 id="inv">Інвентар</h2>
-      <p class="actions"><a href="./my-gear.html">Оновити інвентар</a></p>
-      <p>Інвентар живе в акаунті: спорядження довготривале, і переписувати його щоразу — рівно те тертя, яке ми обіцяємо зняти.</p>
+    <p class="ann" data-review lang="uk">ЗОНА · Аварійний вміст не буває глибоким: якщо поверхня названа виходом із тупика, вона не може лежати на рівні «рідкісна дія». Тому вхід у share стоїть і тут, і на «Сьогодні».</p>
+    <section aria-labelledby="before">
+      <h2 id="before">Перед виходом</h2>
+      <p class="actions"><a href="./guide.html">Fjellvettreglene й правила систем ночівлі — у Довіднику</a></p>
     </section>
-    <p class="ann" data-review lang="uk">ЗОНА · Вхід в інвентар (F2). Підстава акаунта тут не персоналізація, а те, що ці дані мусять пережити закриту вкладку.</p>
+    <p class="ann" data-review lang="uk">ЗОНА · Межа між двома задачами екрана: тут — тільки вхід у спокійне читання. Сам зміст живе в Довіднику, щоб цей екран лишався екраном дій.</p>
 
   </main>
 
@@ -233,7 +227,7 @@
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>
       <summary>Звідки це взято</summary>
-      <p>Погода: met.no. Типи обʼєктів ночівлі — публічна схема. Список складається з погоди, типу ночівлі, рельєфу й сезону.</p>
+      <p>Лавинна небезпека: NVE Varsom (NLOD). Координати: пристрій. Перша допомога: Røde Kors / Röda Korset, цитата з атрибуцією. Покриття звʼязку: даних як шару не існує.</p>
     </details>
     <p>Остання перевірка: 13 серпня 2026, 09:12</p>
   </footer>
