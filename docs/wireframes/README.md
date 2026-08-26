@@ -1,6 +1,6 @@
 # Wireframes — Nestwood
 
-Status: **catalogue structure, 51 pages drawn, 5 screens left.**
+Status: **complete — 27 screens × 29 states = 56 pages, nothing left grey.**
 
 The catalogue is now the navigation root, there is no wizard, and there are five tabs instead of seven clusters. The IA documents below are rewritten against that; the 59 drawn pages were built against the wizard-spine structure and are the next step.
 
@@ -11,7 +11,7 @@ The catalogue is now the navigation root, there is no wizard, and there are five
 | 3 · Navigation | [sitemap.md](./sitemap.md) § Навігація — five tabs, contextual home, depth in taps | **rewritten** — 3 taps to a plan, value at tap zero |
 | 4 · User flows | [flows.md](./flows.md) — MAIN, 2, 7, 3+6, 11, 10 as Mermaid | **rewritten** |
 | 5 · Traceability | [sitemap.md](./sitemap.md) § Трасування — 12 jobs × 27 screens + hypothesis H6, orphan lists with a decision each | **recomputed** |
-| 6 · Wireframes | 51 pages · main flow complete, plus the Довідник and Безпека surfaces | **5 screens left**: reviews, assemble, offline-pack, rules, settings |
+| 6 · Wireframes | 56 pages · all 27 screens and their states | **done** — every named exit leads to a real screen |
 
 Low- and mid-fidelity flows for the core user journey: input (fitness, time, what to walk, lodging regime + membership, gear, preferences; budget optional) → multi-day itinerary output (route, overnight stays, gear checklist, weather adaptation, transport legs, and what still has to be booked).
 

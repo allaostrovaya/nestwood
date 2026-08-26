@@ -20,9 +20,9 @@ TREE = [
    ('Каталог','catalogue.html',[('порожній','catalogue-empty.html')]),
    ('Картка маршруту ⭐','route.html',[('порожній','route-empty.html'),('помилка','route-error.html'),('завантаження','route-loading.html')]),
    ('Умови · нотатки','field-notes.html',[('порожній','field-notes-empty.html')]),
-   ('Відгуки',None,[]),
+   ('Відгуки','reviews.html',[]),
    ('Повноекранна карта','map.html',[('помилка','map-error.html'),('завантаження','map-loading.html'),('офлайн','map-offline.html')]),
-   ('Зібрати маршрут',None,[]),
+   ('Зібрати маршрут','assemble.html',[]),
  ]),
  ('Плани', [
    ('Список планів','plans.html',[('порожній','plans-empty.html')]),
@@ -34,14 +34,14 @@ TREE = [
    ('Транспорт','transport.html',[('порожній','transport-empty.html'),('помилка','transport-error.html'),('завантаження','transport-loading.html')]),
    ('Що змінилось','changes.html',[('завантаження','changes-loading.html'),('помилка','changes-error.html'),('варіантів немає','changes-nooptions.html')]),
    ('Що лишилось закріпити','lock-in.html',[('порожній','lock-in-empty.html'),('помилка','lock-in-error.html'),('офлайн','lock-in-offline.html')]),
-   ('Офлайн-пакет',None,[]),
+   ('Офлайн-пакет','offline-pack.html',[]),
    ('Підсумок для передачі','share.html',[]),
    ('Сьогодні','today.html',[('офлайн','today-offline.html')]),
  ]),
  ('Довідник', [
    ('Довідник','guide.html',[]),
    ('Як працює ця система ночівлі','lodging-system.html',[]),
-   ('Правила й fjellvett',None,[]),
+   ('Правила й fjellvett','rules.html',[]),
  ]),
  ('Безпека', [
    ('Безпека · SOS','safety.html',[]),
@@ -51,7 +51,7 @@ TREE = [
    ('Про мене','me.html',[]),
    ('Моє спорядження','my-gear.html',[]),
    ('Членство й ключ','membership.html',[]),
-   ('Налаштування',None,[]),
+   ('Налаштування','settings.html',[]),
  ]),
 ]
 

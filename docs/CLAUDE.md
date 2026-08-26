@@ -170,7 +170,7 @@ Repo was just cleared for this restart; the previous project's phase pipeline is
 
 ## Wireframes
 
-**51 pages, drawn against the catalogue structure.** The main flow is complete — catalogue → route card → plan → day → night → transport — and the two screens that carry the differentiation are built out: the **route card** holds the guarantee-formula preview, the three difficulty blocks and trailhead reachability; the **plan** states the assumptions it ran on. The Довідник and Безпека surfaces are new and drawn. Five screens are still grey in the tree: reviews, assemble, offline-pack, rules, settings.
+**56 pages — all 27 screens and their 29 states, drawn against the catalogue structure.** The main flow is complete — catalogue → route card → plan → day → night → transport — and the two screens that carry the differentiation are built out: the **route card** holds the guarantee-formula preview, the three difficulty blocks and trailhead reachability; the **plan** states the assumptions it ran on. The Довідник and Безпека surfaces are new and drawn. Nothing is left grey: every screen in the tree exists, and every named exit inside a mockup leads to a real page.
 
 **The contract, not the pictures, is the artefact.** [`wireframes/_conventions.md`](./wireframes/_conventions.md) fixes the rules every screen obeys — detail level, semantic markup, file naming, the closed state vocabulary, and the three kinds of review chrome. It exists because the set was drawn partly by parallel subagents: with the contract they cloned one pattern instead of inventing six.
 
