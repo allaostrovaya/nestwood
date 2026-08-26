@@ -80,18 +80,15 @@ def nav_html(current):
     return '\n'.join(out)
 
 
-APPNAV = '''  <header class="app">
-    <p class="brand">Nestwood</p>
-    <nav aria-label="Головна навігація">
-      <ul>
-        <li><a href="./catalogue.html"{m}>Карта</a></li>
-        <li><a href="./plans.html"{p}>Плани</a></li>
-        <li><a href="./guide.html"{d}>Довідник</a></li>
-        <li><a href="./safety.html"{x}>Безпека</a></li>
-        <li><a href="./me.html"{f}>Профіль</a></li>
-      </ul>
-    </nav>
-  </header>
+APPNAV = '''  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"{m}><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html"{p}><span class="ico" aria-hidden="true"></span>Плани</a></li>
+      <li><a href="./guide.html"{d}><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"{x}><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"{f}><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
 '''
 
 FOOT = '''  <footer class="app">
@@ -156,8 +153,8 @@ def page(current, title, h1, metaline, zones, src, appnav=True, base=None):
 </details>
 
 <div class="device" data-screen="{screen}" data-state="{state}">
-
-{nav}
+  <div class="screen">
+  <header class="topbar"><p class="brand">Nestwood</p></header>
   <main>
     <h1>{h1}</h1>
 
@@ -165,7 +162,8 @@ def page(current, title, h1, metaline, zones, src, appnav=True, base=None):
   </main>
 
 {FOOT.format(src=src)}
-</div>
+  </div>
+{nav}</div>
 
 </div><!-- /.wf-main -->
 </div><!-- /.wf-shell -->

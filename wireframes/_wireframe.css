@@ -24,6 +24,15 @@
   --fill:     #f2f2f2;   /* пасивна заливка */
   --page:     #d6d6d6;   /* тло за колонкою */
   --col:      375px;     /* мобільна колонка — головний констрейнт */
+  --screen-h: 812px;     /* висота екрана телефона: скрол іде всередині */
+  --tabbar-h: 60px;
+  --r:        12px;      /* скруглення дій — відрізняє кнопку від картки */
+
+  /* Колір дії. НЕ бренд-акцент: зелений, синій, червоний і чорний зайняті
+     офіційною градацією складності, тому афорданс узятий з-поза цих чотирьох.
+     Бренд лишається відкладеним рішенням. */
+  --act:      #5a4b8c;
+  --act-soft: #efecf6;
   --col-label: "375px"; /* те саме рядком: у content довжина невалідна */
 }
 
@@ -33,18 +42,70 @@ body {
   margin: 0;
   background: var(--page);
   color: var(--ink);
-  font: 15px/1.6 ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 
-/* ── колонка ─────────────────────────────────────────────────── */
+/* ── телефон ────────────────────────────────────────────────── */
 .device {
-  max-width: var(--col);
+  position: relative;
+  width: var(--col);
+  height: var(--screen-h);
   margin: 0 auto var(--s5);
   background: #fff;
-  border: 1px solid var(--ink);
-  min-height: 100vh;
+  border: 10px solid #1c1c1c;
+  border-radius: 34px;
+  box-shadow: 0 0 0 1px #000;
+  overflow: hidden;
 }
+
+/* вміст скролиться, таббар лишається на місці — як у справжньому застосунку */
+.screen {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: var(--tabbar-h);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #fff;
+  border-bottom: 1px solid var(--line-2);
+  padding: var(--s2) var(--s3);
+}
+.topbar .brand { margin: 0; }
+
+/* ── таббар ──────────────────────────────────────────────────── */
+.tabbar {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: var(--tabbar-h);
+  background: #fff;
+  border-top: 1px solid var(--ink);
+}
+.tabbar ul { display: flex; margin: 0; padding: 0; list-style: none; height: 100%; }
+.tabbar li { flex: 1; }
+.tabbar a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 100%;
+  font-size: 10px;
+  line-height: 1;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.tabbar .ico {
+  width: 20px; height: 20px;
+  border: 1.5px solid var(--ink-2);
+  border-radius: 6px;
+}
+.tabbar a[aria-current="page"] { color: var(--act); font-weight: 700; }
+.tabbar a[aria-current="page"] .ico { border-color: var(--act); background: var(--act-soft); }
 
 /* мітка макета: який це екран і в якому стані. Без неї колонка не
    відрізняється від звичайної сторінки — самої рамки замало. */
@@ -174,20 +235,24 @@ header.app nav .nav-todo {
 main { padding: var(--s3); }
 
 h1 {
-  margin: 0 0 var(--s4);
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: -.01em;
+  margin: 0 0 var(--s3);
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+  font-weight: 700;
 }
 h2 {
-  margin: 0 0 var(--s3);
-  font-size: 12px;
+  margin: 0 0 var(--s2);
+  font-size: 11px;
   letter-spacing: .1em;
   text-transform: uppercase;
+  font-weight: 700;
   color: var(--ink-2);
 }
-h3 { margin: 0 0 var(--s1); font-size: 15px; }
+h3 { margin: 0 0 var(--s1); font-size: 17px; line-height: 1.25; font-weight: 700; }
 p  { margin: 0 0 var(--s2); }
+main p { font-size: 15px; }
+main > p, section > p { color: var(--ink-2); }
 
 section { padding: var(--s4) 0; border-top: 1px solid var(--line-2); }
 section:first-of-type { border-top: 0; padding-top: 0; }
@@ -201,14 +266,16 @@ dt {
   color: var(--ink-2);
   margin-bottom: 1px;
 }
-dd { margin: 0 0 var(--s3); }
+dd { margin: 0 0 var(--s3); font-size: 15px; }
 dd:last-of-type { margin-bottom: 0; }
 
 /* самостійна одиниця: день, рейс, крок */
 article {
   border: 1px solid var(--line);
+  border-radius: 4px;          /* картка майже прямокутна — 4px проти 12px у дії */
   padding: var(--s3);
   margin: 0 0 var(--s3);
+  background: #fff;
 }
 article.leg { border-style: dashed; background: var(--fill); }
 article > h3 + p { color: var(--ink-2); font-size: 14px; }
@@ -262,25 +329,28 @@ small[data-mock] {
 
 button {
   font: inherit;
-  font-size: 13px;
-  padding: var(--s2) 12px;
-  background: var(--fill);
-  color: var(--ink);
-  border: 1px solid var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 16px;
+  background: var(--act-soft);
+  color: var(--act);
+  border: 1px solid var(--act);
+  border-radius: var(--r);
   cursor: pointer;
 }
-button.primary { font-weight: 700; background: var(--ink); color: #fff; }
+button.primary { background: var(--act); color: #fff; border-color: var(--act); }
 
 a { color: var(--ink); }
 /* головна дія, що є переходом, лишається <a> і не стає <button> заради вигляду */
 a.cta {
   display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
-  padding: var(--s2) 12px;
-  background: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 16px;
+  background: var(--act);
   color: #fff;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--act);
+  border-radius: var(--r);
   text-decoration: none;
 }
 
@@ -288,9 +358,10 @@ label { display: block; font-size: 11px; letter-spacing: .07em; text-transform: 
 textarea, input[type="text"] {
   width: 100%;
   font: inherit;
-  font-size: 13px;
-  padding: var(--s2);
+  font-size: 15px;
+  padding: 10px var(--s2);
   border: 1px solid var(--ink-2);
+  border-radius: 6px;          /* поле — між карткою і дією */
   background: #fff;
 }
 

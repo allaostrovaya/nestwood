@@ -46,3 +46,23 @@ print(f'сторінок: {len(pages)}')
 print(f'з проблемами: {len(issues)}\n')
 for n in sorted(issues):
     print(f'  {n:28} {"; ".join(issues[n])}')
+
+# ── звʼязність: у кожного екрана має бути вхід із іншого макета ──
+TABS = {'catalogue.html','plans.html','guide.html','safety.html','me.html'}
+SUF = ('-empty','-error','-loading','-offline','-degraded','-conflict','-seasonal','-nooptions')
+def in_device(t):
+    i = t.find('<div class="device"'); j = t.find('<nav class="tabbar"')
+    return t[i:j] if i >= 0 and j > i else ''
+inbound = collections.Counter()
+for p in pages:
+    src = in_device(p.read_text(encoding='utf-8'))
+    for t in set(re.findall(r'(?:href|action)="\./([a-z-]+\.html)"', src)):
+        if t != p.name: inbound[t] += 1
+orphan = [p.name for p in pages
+          if inbound[p.name] == 0 and p.name not in TABS
+          and not any(p.name[:-5].endswith(x) for x in SUF)]
+if orphan:
+    print(f'\nекранів без жодного входу з макета: {len(orphan)}')
+    for n in orphan: print(f'  {n}')
+else:
+    print('\nекранів без входу: 0 — кожен досяжний із іншого макета')

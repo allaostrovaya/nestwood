@@ -166,18 +166,8 @@
 
 <div class="device" data-screen="Довідник" data-state="успіх">
 
-  <header class="app">
-    <p class="brand">Nestwood</p>
-    <nav aria-label="Головна навігація">
-      <ul>
-        <li><a href="./catalogue.html">Карта</a></li>
-        <li><a href="./plans.html">Плани</a></li>
-        <li><a href="./guide.html" aria-current="page">Довідник</a></li>
-        <li><a href="./safety.html">Безпека</a></li>
-        <li><a href="./me.html">Профіль</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="screen">
+  <header class="topbar"><p class="brand">Nestwood</p></header>
 
   <main>
     <h1>Довідник</h1>
@@ -207,7 +197,7 @@
           <p>Прибрати за собою, взуття, як діляться спальні місця, честь-система. Те, чого немає в жодному API.</p>
           <p>Джерело: академічне дослідження DNT-хиж (UiO/UiB) · переклад наш</p></article></li>
         <li><article><h3>Fjellvettreglene — правила поведінки в горах</h3>
-          <p>Дев'ять правил, які DNT і Røde Kors просять знати перед виходом. <a href="./safety.html">Разом із безпекою</a></p>
+          <p>Дев'ять правил, які DNT і Røde Kors просять знати перед виходом. <a href="./rules.html">Читати</a> · <a href="./safety.html">Разом із безпекою</a></p>
           <p>Джерело: DNT · цитата з атрибуцією, не наш текст</p></article></li>
         <li><article><h3>Allemansrätten і де ставити намет</h3>
           <p>Що дозволено, де ні, як далеко від житла. Швеція й Норвегія відрізняються.</p>
@@ -229,7 +219,16 @@
     </details>
     <p>Остання перевірка: 13 серпня 2026, 09:12</p>
   </footer>
-
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Плани</a></li>
+      <li><a href="./guide.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
 </div>
 
 </div><!-- /.wf-main -->
