@@ -66,3 +66,21 @@ if orphan:
     for n in orphan: print(f'  {n}')
 else:
     print('\nекранів без входу: 0 — кожен досяжний із іншого макета')
+
+# ── ієрархія: «назад» веде до оголошеного батька ──
+import importlib.util as _il
+_sp = _il.spec_from_file_location('g','wireframes/_generate.py')
+_g = _il.module_from_spec(_sp); _sp.loader.exec_module(_g)
+bad_back = []
+for p in pages:
+    t = p.read_text(encoding='utf-8')
+    par, pname = _g.parent_of(p.name)
+    m = re.search(r'<a class="back" href="\./([a-z-]+\.html)"', t)
+    if par and not m: bad_back.append(f'{p.name}: немає «назад», батько {par}')
+    elif par and m.group(1) != par: bad_back.append(f'{p.name}: «назад» веде на {m.group(1)}, а батько {par}')
+    elif not par and m: bad_back.append(f'{p.name}: хаб вкладки, «назад» зайве')
+if bad_back:
+    print(f'\nієрархія — розбіжностей {len(bad_back)}:')
+    for b in bad_back: print('  ' + b)
+else:
+    print('ієрархія: «назад» усюди веде до оголошеного батька')

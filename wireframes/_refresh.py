@@ -10,7 +10,7 @@ import sys; sys.modules['g']=g
 src = open('wireframes/_generate.py',encoding='utf-8').read()
 ns = {}
 exec(src.split('P = {}')[0], ns)          # тільки дані й рендерери, без запису сторінок
-nav_html, TREE, appnav_for = ns['nav_html'], ns['TREE'], ns['appnav_for']
+nav_html, TREE, appnav_for, topbar = ns['nav_html'], ns['TREE'], ns['appnav_for'], ns['topbar']
 files = {p.name for p in pathlib.Path('wireframes').glob('*.html')}
 n = 0
 for p in sorted(pathlib.Path('wireframes').glob('*.html')):
@@ -18,6 +18,7 @@ for p in sorted(pathlib.Path('wireframes').glob('*.html')):
     s = p.read_text(encoding='utf-8')
     new = re.sub(r'<nav class="wf-tree".*?</nav>', lambda m: nav_html(p.name), s, flags=re.S)
     hdr = appnav_for(p.name)
+    new = re.sub(r'  <header class="topbar">.*?</header>', topbar(p.name), new, flags=re.S)
     new = re.sub(r'  <header class="app">.*?Глобальна навігація[^<]*</p>\n', hdr, new, flags=re.S)
     if new != s: p.write_text(new, encoding='utf-8'); n += 1
 print(f'дерево перегенеровано у {n} сторінках')

@@ -71,11 +71,30 @@ body {
   position: sticky;
   top: 0;
   z-index: 2;
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  min-height: 44px;
   background: #fff;
   border-bottom: 1px solid var(--line-2);
-  padding: var(--s2) var(--s3);
+  padding: 12px var(--s3);
 }
-.topbar .brand { margin: 0; }
+.topbar .back {
+  flex: 0 0 auto;
+  font-size: 13px;
+  color: var(--act);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.topbar .title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 /* ── таббар ──────────────────────────────────────────────────── */
 .tabbar {
@@ -173,6 +192,8 @@ code { background: #e2e2e2; padding: 0 3px; font-size: .95em; }
 .wf-tree ul { margin: 0; padding: 0; list-style: none; }
 .wf-tree > ul > li { margin-bottom: var(--s3); }
 .wf-tree ul ul { margin: 2px 0 0 var(--s2); padding-left: var(--s2); border-left: 1px solid var(--line); }
+.wf-tree ul.states { border-left-style: dotted; }
+.wf-tree ul.states a { font-size: 11px; }
 .wf-tree li { line-height: 1.45; }
 
 .wf-tree .grp { font-weight: 700; color: var(--ink); font-size: 11px; letter-spacing: .06em; }

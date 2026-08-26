@@ -14,46 +14,75 @@ _s = importlib.util.spec_from_file_location('gnav', 'design-system/docs/gnav.py'
 _g = importlib.util.module_from_spec(_s); _s.loader.exec_module(_g)
 GNAV = _g.gnav('wireframes', '../')
 
-# ── СТРУКТУРА: розділ → екран → стани ─────────────────────────
+# ── СТРУКТУРА ────────────────────────────────────────────────
+# вкладка → хаб → заглиблення. Вузол: (назва, файл, [стани], [діти]).
+# Назва екрана = те, що написано на ньому (h1), крім екранів одного
+# обʼєкта (маршрут, день, ніч, відгуки) — там h1 показує назву обʼєкта.
+# Батько виводиться з вкладеності: «‹ назад» веде саме до нього.
 TREE = [
- ('Карта', [
-   ('Каталог','catalogue.html',[('порожній','catalogue-empty.html')]),
-   ('Картка маршруту ⭐','route.html',[('порожній','route-empty.html'),('помилка','route-error.html'),('завантаження','route-loading.html')]),
-   ('Умови · нотатки','field-notes.html',[('порожній','field-notes-empty.html')]),
-   ('Відгуки','reviews.html',[]),
-   ('Повноекранна карта','map.html',[('помилка','map-error.html'),('завантаження','map-loading.html'),('офлайн','map-offline.html')]),
-   ('Зібрати маршрут','assemble.html',[]),
+ ('Маршрути', [
+   ('Куди можна піти','catalogue.html',[('порожній','catalogue-empty.html')], [
+     ('Картка маршруту ⭐','route.html',[('порожній','route-empty.html'),('помилка','route-error.html'),('завантаження','route-loading.html')], [
+       ('Карта маршруту','map.html',[('помилка','map-error.html'),('завантаження','map-loading.html'),('офлайн','map-offline.html')], []),
+       ('Нотатки з місця','field-notes.html',[('порожній','field-notes-empty.html')], []),
+       ('Відгуки','reviews.html',[], []),
+     ]),
+     ('Зібрати маршрут','assemble.html',[], []),
+   ]),
  ]),
  ('Плани', [
-   ('Список планів','plans.html',[('порожній','plans-empty.html')]),
-   ('План по днях ⭐','plan.html',[('порожній','plan-empty.html'),('помилка','plan-error.html'),('завантаження','plan-loading.html'),('конфлікт','plan-conflict.html'),('офлайн','plan-offline.html'),('degraded','plan-degraded.html')]),
-   ('День','day.html',[('норма замість прогнозу','day-seasonal.html')]),
-   ('Ніч: гарантія й доступ','night.html',[('порожній','night-empty.html'),('помилка','night-error.html'),('degraded','night-degraded.html')]),
-   ('Ночівлі — ланцюжок','nights.html',[]),
-   ('Спорядження','gear.html',[]),
-   ('Транспорт','transport.html',[('порожній','transport-empty.html'),('помилка','transport-error.html'),('завантаження','transport-loading.html')]),
-   ('Що змінилось','changes.html',[('завантаження','changes-loading.html'),('помилка','changes-error.html'),('варіантів немає','changes-nooptions.html')]),
-   ('Що лишилось закріпити','lock-in.html',[('порожній','lock-in-empty.html'),('помилка','lock-in-error.html'),('офлайн','lock-in-offline.html')]),
-   ('Офлайн-пакет','offline-pack.html',[]),
-   ('Підсумок для передачі','share.html',[]),
-   ('Сьогодні','today.html',[('офлайн','today-offline.html')]),
+   ('Мої походи','plans.html',[('порожній','plans-empty.html')], [
+     ('План по днях ⭐','plan.html',[('порожній','plan-empty.html'),('помилка','plan-error.html'),('завантаження','plan-loading.html'),('конфлікт','plan-conflict.html'),('офлайн','plan-offline.html'),('degraded','plan-degraded.html')], [
+       ('День','day.html',[('норма замість прогнозу','day-seasonal.html')], [
+         ('Ніч','night.html',[('порожній','night-empty.html'),('помилка','night-error.html'),('degraded','night-degraded.html')], []),
+       ]),
+       ('Ночівлі — ланцюжок ночей','nights.html',[], []),
+       ('Спорядження','gear.html',[], []),
+       ('Дорога туди й назад','transport.html',[('порожній','transport-empty.html'),('помилка','transport-error.html'),('завантаження','transport-loading.html')], []),
+       ('Що змінилось і що ще можна зробити','changes.html',[('завантаження','changes-loading.html'),('помилка','changes-error.html'),('варіантів немає','changes-nooptions.html')], []),
+       ('Що лишилось закріпити','lock-in.html',[('порожній','lock-in-empty.html'),('помилка','lock-in-error.html'),('офлайн','lock-in-offline.html')], []),
+       ('Офлайн-пакет','offline-pack.html',[], []),
+       ('Підсумок для передачі','share.html',[], []),
+       ('Сьогодні','today.html',[('офлайн','today-offline.html')], []),
+     ]),
+   ]),
  ]),
  ('Довідник', [
-   ('Довідник','guide.html',[]),
-   ('Як працює ця система ночівлі','lodging-system.html',[]),
-   ('Правила й fjellvett','rules.html',[]),
+   ('Довідник','guide.html',[], [
+     ('Як працює ця система ночівлі','lodging-system.html',[], []),
+     ('Правила й fjellvett','rules.html',[], []),
+   ]),
  ]),
  ('Безпека', [
-   ('Безпека · SOS','safety.html',[]),
-   ('Перша допомога','first-aid.html',[]),
+   ('Безпека','safety.html',[], [
+     ('Перша допомога','first-aid.html',[], []),
+   ]),
  ]),
  ('Профіль', [
-   ('Про мене','me.html',[]),
-   ('Моє спорядження','my-gear.html',[]),
-   ('Членство й ключ','membership.html',[]),
-   ('Налаштування','settings.html',[]),
+   ('Я','me.html',[], [
+     ('Моє спорядження','my-gear.html',[], []),
+     ('Членство й ключ','membership.html',[], []),
+     ('Налаштування','settings.html',[], []),
+   ]),
  ]),
 ]
+
+# ── похідні мапи: батько, назва, вкладка ─────────────────────
+PARENT, TITLE, TAB, BASE = {}, {}, {}, {}
+def _walk(nodes, tab, parent):
+    for name, f, states, kids in nodes:
+        clean = name.replace(' ⭐','')
+        TITLE[f] = clean; TAB[f] = tab; PARENT[f] = parent; BASE[f] = f
+        for slabel, sf in states:
+            TITLE[sf] = clean; TAB[sf] = tab; PARENT[sf] = parent; BASE[sf] = f
+        _walk(kids, tab, f)
+for _tab, _nodes in TREE:
+    _walk(_nodes, _tab, None)
+
+def parent_of(f):
+    """Файл → (файл батька, його назва). Хаб вкладки батька не має."""
+    p = PARENT.get(BASE.get(f, f))
+    return (p, TITLE[p]) if p else (None, None)
 
 def node(label, file, current, cls=''):
     c = f' class="{cls}"' if cls else ''
@@ -61,28 +90,47 @@ def node(label, file, current, cls=''):
     cur = ' aria-current="page"' if file == current else ''
     return f'<a{c} href="./{file}"{cur}>{label}</a>'
 
+def _branch(nodes, current, depth=0):
+    """Рекурсія: вкладеність у дереві = ієрархія екранів."""
+    out = ['  ' * (depth + 3) + '<ul>']
+    for label, file, states, kids in nodes:
+        out.append('  ' * (depth + 4) + f'<li>{node(label, file, current)}')
+        if states or kids:
+            inner = []
+            if states:
+                inner.append('  ' * (depth + 5) + '<ul class="states">')
+                for slabel, sfile in states:
+                    inner.append('  ' * (depth + 6) + f'<li>{node(slabel, sfile, current, "st")}</li>')
+                inner.append('  ' * (depth + 5) + '</ul>')
+            if kids:
+                inner.append(_branch(kids, current, depth + 2))
+            out.extend(inner)
+        out.append('  ' * (depth + 4) + '</li>')
+    out.append('  ' * (depth + 3) + '</ul>')
+    return '\n'.join(out)
+
 def nav_html(current):
     out = ['<nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">',
            '  <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>',
            '  <ul>']
-    for grp, screens in TREE:
-        out.append(f'    <li><span class="grp">{grp}</span>\n      <ul>')
-        for label, file, states in screens:
-            out.append(f'        <li>{node(label, file, current)}')
-            if states:
-                out.append('          <ul>')
-                for slabel, sfile in states:
-                    out.append(f'            <li>{node(slabel, sfile, current, "st")}</li>')
-                out.append('          </ul>')
-            out.append('        </li>')
-        out.append('      </ul>\n    </li>\n')
+    for grp, nodes in TREE:
+        out.append(f'    <li><span class="grp">{grp}</span>')
+        out.append(_branch(nodes, current))
+        out.append('    </li>')
     out.append('  </ul>\n</nav>')
     return '\n'.join(out)
 
+def topbar(current):
+    """Шапка макета: ‹ назад до батька · назва екрана.
+    Хаб вкладки батька не має — там лише назва."""
+    p, pname = parent_of(current)
+    title = TITLE.get(current, '')
+    back = f'<a class="back" href="./{p}">‹ {pname}</a>' if p else ''
+    return f'  <header class="topbar">{back}<span class="title">{title}</span></header>'
 
 APPNAV = '''  <nav class="tabbar" aria-label="Головна навігація">
     <ul>
-      <li><a href="./catalogue.html"{m}><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./catalogue.html"{m}><span class="ico" aria-hidden="true"></span>Маршрути</a></li>
       <li><a href="./plans.html"{p}><span class="ico" aria-hidden="true"></span>Плани</a></li>
       <li><a href="./guide.html"{d}><span class="ico" aria-hidden="true"></span>Довідник</a></li>
       <li><a href="./safety.html"{x}><span class="ico" aria-hidden="true"></span>Безпека</a></li>
@@ -102,15 +150,12 @@ FOOT = '''  <footer class="app">
 '''
 
 def tab_of(f):
-    """Файл (екран або стан) → назва вкладки. Джерело — TREE."""
-    for tab, screens in TREE:
-        for _, sf, states in screens:
-            if f == sf or f in [s[1] for s in states]: return tab
-    return None
+    """Файл (екран або стан) → назва вкладки. Джерело — TAB, зібраний із TREE."""
+    return TAB.get(f)
 
 def appnav_for(f):
     t = tab_of(f)
-    return APPNAV.format(m=' aria-current="page"' if t == 'Карта' else '',
+    return APPNAV.format(m=' aria-current="page"' if t == 'Маршрути' else '',
                          p=' aria-current="page"' if t == 'Плани' else '',
                          d=' aria-current="page"' if t == 'Довідник' else '',
                          x=' aria-current="page"' if t == 'Безпека' else '',
