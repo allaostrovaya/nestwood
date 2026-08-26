@@ -2,38 +2,53 @@
 """Генератор сторінок вайрфреймів Nestwood.
 Джерело структури — sitemap.md, джерело станів — _screens.md.
 Дерево навігації рендериться з одних даних, тому однакове всюди."""
-import pathlib, re
+import pathlib, re, importlib.util
 W = pathlib.Path('wireframes')
+
+# глобальна навігація по документах — спільний рендерер, не копія
+_s = importlib.util.spec_from_file_location('gnav', 'design-system/docs/gnav.py')
+_g = importlib.util.module_from_spec(_s); _s.loader.exec_module(_g)
+GNAV = _g.gnav('wireframes', '../')
 
 # ── СТРУКТУРА: розділ → екран → стани ─────────────────────────
 TREE = [
- ('G · Куди піти', [
-   ('G1 Регіони','regions.html',[('порожній','regions-empty.html')]),
-   ('G2 Картка маршруту','route.html',[('порожній','route-empty.html'),('помилка','route-error.html'),('завантаження','route-loading.html')]),
-   ('G3 Карта','map.html',[('помилка','map-error.html'),('завантаження','map-loading.html'),('офлайн','map-offline.html')]),
+ ('Карта', [
+   ('Каталог','catalogue.html',[('порожній','catalogue-empty.html')]),
+   ('Картка маршруту ⭐','route.html',[('порожній','route-empty.html'),('помилка','route-error.html'),('завантаження','route-loading.html')]),
+   ('Умови · нотатки','field-notes.html',[('порожній','field-notes-empty.html')]),
+   ('Відгуки',None,[]),
+   ('Повноекранна карта','map.html',[('помилка','map-error.html'),('завантаження','map-loading.html'),('офлайн','map-offline.html')]),
+   ('Зібрати маршрут',None,[]),
  ]),
- ('0 · Вхід', [('Стартовий екран','start.html',[])]),
- ('A · Візард', [
-   ('W1 Маршрут','wizard-route.html',[('порожній','wizard-route-empty.html'),('помилка','wizard-route-error.html'),('завантаження','wizard-route-loading.html')]),
-   ('W2 Коли і скільки нас','wizard-when.html',[('порожній','wizard-when-empty.html'),('помилка','wizard-when-error.html')]),
-   ('W3 Про мене','wizard-about.html',[('порожній','wizard-about-empty.html'),('помилка','wizard-about-error.html')]),
+ ('Плани', [
+   ('Список планів','plans.html',[('порожній','plans-empty.html')]),
+   ('План по днях ⭐','plan.html',[('порожній','plan-empty.html'),('помилка','plan-error.html'),('завантаження','plan-loading.html'),('конфлікт','plan-conflict.html'),('офлайн','plan-offline.html'),('degraded','plan-degraded.html')]),
+   ('День','day.html',[('норма замість прогнозу','day-seasonal.html')]),
+   ('Ніч: гарантія й доступ','night.html',[('порожній','night-empty.html'),('помилка','night-error.html'),('degraded','night-degraded.html')]),
+   ('Ночівлі — ланцюжок','nights.html',[]),
+   ('Спорядження','gear.html',[]),
+   ('Транспорт','transport.html',[('порожній','transport-empty.html'),('помилка','transport-error.html'),('завантаження','transport-loading.html')]),
+   ('Що змінилось','changes.html',[('завантаження','changes-loading.html'),('помилка','changes-error.html'),('варіантів немає','changes-nooptions.html')]),
+   ('Що лишилось закріпити','lock-in.html',[('порожній','lock-in-empty.html'),('помилка','lock-in-error.html'),('офлайн','lock-in-offline.html')]),
+   ('Офлайн-пакет',None,[]),
+   ('Підсумок для передачі','share.html',[]),
+   ('Сьогодні','today.html',[('офлайн','today-offline.html')]),
  ]),
- ('B · План', [
-   ('B1 План по днях','plan.html',[('порожній','plan-empty.html'),('помилка','plan-error.html'),('завантаження','plan-loading.html'),('конфлікт','plan-conflict.html'),('офлайн','plan-offline.html'),('degraded','plan-degraded.html')]),
-   ('B2 День','day.html',[('норма замість прогнозу','day-seasonal.html')]),
-   ('B3 Ніч: гарантія й доступ','night.html',[('порожній','night-empty.html'),('помилка','night-error.html'),('degraded','night-degraded.html')]),
-   ('B4 Як працює ця система','lodging-system.html',[]),
-   ('B5 Спорядження','gear.html',[]),
-   ('B6 Транспорт','transport.html',[('порожній','transport-empty.html'),('помилка','transport-error.html'),('завантаження','transport-loading.html')]),
-   ('B7 Нотатки з місця','field-notes.html',[('порожній','field-notes-empty.html')]),
-   ('B8 Ночівлі — ланцюжок','nights.html',[]),
+ ('Довідник', [
+   ('Довідник',None,[]),
+   ('Як працює ця система ночівлі','lodging-system.html',[]),
+   ('Правила й fjellvett',None,[]),
  ]),
- ('C · Закріпити', [('C1 Що лишилось закріпити','lock-in.html',[('порожній','lock-in-empty.html'),('помилка','lock-in-error.html'),('офлайн','lock-in-offline.html')]),
-                    ('C2 Членство й ключ','membership.html',[])]),
- ('D · У дорозі', [('D1 Сьогодні','today.html',[('офлайн','today-offline.html')]),
-                   ('D2 Що змінилось','changes.html',[('завантаження','changes-loading.html'),('помилка','changes-error.html'),('варіантів немає','changes-nooptions.html')])]),
- ('E · Показати іншим', [('E Підсумок для передачі','share.html',[])]),
- ('F · Моє', [('F1 Мої походи','mine.html',[('порожній','mine-empty.html')]),('F2 Моє спорядження','my-gear.html',[]),('F3 Я','me.html',[])]),
+ ('Безпека', [
+   ('Безпека · SOS',None,[]),
+   ('Перша допомога',None,[]),
+ ]),
+ ('Профіль', [
+   ('Про мене','me.html',[]),
+   ('Моє спорядження','my-gear.html',[]),
+   ('Членство й ключ','membership.html',[]),
+   ('Налаштування',None,[]),
+ ]),
 ]
 
 def node(label, file, current, cls=''):
@@ -45,7 +60,6 @@ def node(label, file, current, cls=''):
 def nav_html(current):
     out = ['<nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">',
            '  <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>',
-           '  <p class="legend"><b>чорним</b> — намальовано, посилання<br>сірим — ще ні. Відступ = вкладеність:<br>розділ → екран → стан.</p>',
            '  <ul>']
     for grp, screens in TREE:
         out.append(f'    <li><span class="grp">{grp}</span>\n      <ul>')
@@ -61,27 +75,20 @@ def nav_html(current):
     out.append('  </ul>\n</nav>')
     return '\n'.join(out)
 
-def states_row(base, current):
-    """рядок станів конкретного екрана"""
-    for grp, screens in TREE:
-        for label, file, states in screens:
-            if file == base:
-                parts = [node('успіх', file, current)] + [node(l, f, current, '') for l, f in states]
-                return '<p class="states" data-review lang="uk">Стани екрана: ' + ' · '.join(parts) + '</p>'
-    return ''
 
 APPNAV = '''  <header class="app">
     <p class="brand">Nestwood</p>
     <nav aria-label="Головна навігація">
       <ul>
-        <li><a href="./plan.html"{p}>План</a></li>
-        <li><span class="nav-todo">Ночівлі</span></li>
-        <li><span class="nav-todo">Закріпити <span class="count">4</span></span></li>
-        <li><span class="nav-todo">Моє</span></li>
+        <li><a href="./catalogue.html"{m}>Карта</a></li>
+        <li><a href="./plans.html"{p}>Плани</a></li>
+        <li><a href="./lodging-system.html"{d}>Довідник</a></li>
+        <li><span class="nav-todo">Безпека</span></li>
+        <li><a href="./me.html"{f}>Профіль</a></li>
       </ul>
     </nav>
   </header>
-  <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — чотири входи в кластери jobs. Незмінна в усіх станах: стан екрана ніколи не чіпає оболонку. Сірим — екрани, яких ще немає у вайрфреймах (крок 8): посилання на них не ставимо, щоб не робити 404-тупик.</p>
+  <p class="ann" data-review lang="uk">ЗОНА · Глобальна навігація — пʼять вкладок. Незмінна в усіх станах: стан екрана ніколи не чіпає оболонку. Дім контекстний: «Плани», коли похід активний або старт за день-два, «Карта» в решті випадків. Сірим — вкладки, чиї екрани ще не намальовані: посилання на них не ставимо, щоб не робити 404-тупик.</p>
 '''
 
 FOOT = '''  <footer class="app">
@@ -94,12 +101,28 @@ FOOT = '''  <footer class="app">
   </footer>
 '''
 
+def tab_of(f):
+    """Файл (екран або стан) → назва вкладки. Джерело — TREE."""
+    for tab, screens in TREE:
+        for _, sf, states in screens:
+            if f == sf or f in [s[1] for s in states]: return tab
+    return None
+
+def appnav_for(f):
+    t = tab_of(f)
+    return APPNAV.format(m=' aria-current="page"' if t == 'Карта' else '',
+                         p=' aria-current="page"' if t == 'Плани' else '',
+                         d=' aria-current="page"' if t == 'Довідник' else '',
+                         f=' aria-current="page"' if t == 'Профіль' else '')
+
 def zone(zid, head, body, ann):
     return (f'    <section aria-labelledby="{zid}">\n      <h2 id="{zid}">{head}</h2>\n{body}\n    </section>\n'
             f'    <p class="ann" data-review lang="uk">ЗОНА · {ann}</p>\n')
 
 def page(current, title, h1, review, zones, src, appnav=True, base=None):
-    nav = APPNAV.format(p=' aria-current="page"' if current.startswith('plan') else '') if appnav else ''
+    nav = appnav_for(current) if appnav else ''
+    parts = title.split(' · ')
+    screen, state = (parts[1] if len(parts) > 1 else title), (parts[2] if len(parts) > 2 else 'успіх')
     return f'''<!doctype html>
 <html lang="uk">
 <head>
@@ -107,12 +130,11 @@ def page(current, title, h1, review, zones, src, appnav=True, base=None):
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
 <link rel="stylesheet" href="./_wireframe.css" />
+<link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
 
-<span id="clean"></span>
-
-<p class="toggle"><a href="#clean">сховати анотації й дерево</a> · <a href="#top">показати</a></p>
+{GNAV}
 
 <div class="wf-shell">
 
@@ -120,13 +142,11 @@ def page(current, title, h1, review, zones, src, appnav=True, base=None):
 
 <div class="wf-main">
 
-{states_row(base or current, current)}
-
 <details class="review" data-review lang="uk" id="top" open>
 {review}
 </details>
 
-<div class="device">
+<div class="device" data-screen="{screen}" data-state="{state}">
 
 {nav}
   <main>

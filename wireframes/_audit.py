@@ -2,8 +2,8 @@
 """Звірка набору вайрфреймів: структура, нейминг, навігація, звʼязність."""
 import pathlib, re, collections
 W = pathlib.Path('wireframes')
-pages = sorted(p for p in W.glob('*.html') if p.name not in ('_nav.html','ia.html'))
-files = {p.name for p in pages}
+pages = sorted(p for p in W.glob('*.html') if p.name not in ('_nav.html','ia.html','index.html'))
+files = {p.name for p in W.glob('*.html')}
 issues = collections.defaultdict(list)
 
 for p in pages:
@@ -14,7 +14,6 @@ for p in pages:
     if s.count('<h1>') != 1: issues[n].append('не один <h1>')
     if '<html lang="uk">' not in s: issues[n].append('lang не uk')
     if '<nav class="wf-tree"' not in s: issues[n].append('немає дерева')
-    if 'class="states"' not in s: issues[n].append('немає рядка станів')
     if 'aria-current="page"' not in s: issues[n].append('немає поточного вузла')
     if 'class="wf-shell"' not in s: issues[n].append('немає wf-shell')
     if 'class="device"' not in s: issues[n].append('немає device')

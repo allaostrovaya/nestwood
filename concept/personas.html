@@ -5,8 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nestwood — Персони та Jobs-to-be-Done</title>
 <link rel="stylesheet" href="../design-system/docs/doc.css" />
+<link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
+
+<nav class="gnav" aria-label="Документи проєкту">
+  <a class="gnav-brand" href="../wireframes/plan.html">Nestwood<span>ДОКУМЕНТИ</span></a>
+  <p class="gnav-label">Проєкт</p>
+  <ul>
+    <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
+    <li><a class="gnav-item" href="../concept/personas.html" aria-current="page"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html"><span class="n">04</span><span><b>Вайрфрейми</b><small>48 сторінок, дерево праворуч</small></span></a></li>
+  </ul>
+</nav>
+
 <div class="shell">
 
   <aside class="rail">
@@ -21,20 +34,9 @@
       <a href="#questions"><span class="num">7</span> Статус питань</a>
       <a href="#excluded"><span class="num">8</span> Виключено</a>
     </nav>
-    <div class="railx">
-      <div class="railx-label">Інші документи</div>
-      <a class="railx-link" href="../research/research.html">
-        <span class="railx-ico">◐</span>
-        <span><b>Research readout</b><small>ринок, конкуренти, патерни</small></span>
-      </a>
-      <a class="railx-link" href="../wireframes/ia.html" style="margin-top:.5rem;">
-        <span class="railx-ico">◈</span>
-        <span><b>Інформаційна архітектура</b><small>екрани, потоки, трасування jobs</small></span>
-      </a>
-    </div>
     <div class="rail-foot">
       2026-08-05<br>
-      Джерела: <a href="./personas.md">personas.md</a>, <a href="./jtbd.md">jtbd.md</a>, <a href="./personas-audit-2026-08-05.md">аудит</a><br>
+      Джерела: <a href="./personas.md">personas.md</a>, <a href="./jtbd.md">jtbd.md</a>, аудит<br>
       Ресерч: <a href="../research/research.html">research.html</a>
     </div>
   </aside>
@@ -48,6 +50,7 @@
       <div class="meta-row">
         <span class="pill">2 персони + 2 осі</span>
         <span class="pill">8 живих голосів</span>
+        <span class="pill">8 гіпотез</span>
         <a class="xlink" href="../research/research.html">Research readout <span class="arrow">→</span></a>
         <span class="meta-item"><b>Primary у дизайні:</b> Kristin</span>
         <span class="meta-item"><b>Центральна в пітчі:</b> Lukas</span>
@@ -166,23 +169,23 @@
         <h3>2. Перший багатоденний похід: досвід не переноситься між доменами <span class="tag tag-new">Ось B підтверджено</span></h3>
         <p>62-річний швед, який <b>тричі ходив у непальських Гімалаях</b>:</p>
         <div class="quote"><q>Som jag skrev i rubriken saknar jag all erfarenhet av att vandra i fjällen, inte heller kan jag läsa karta och kompass… jag är ingen ungdom längre (fyller 62 till hösten) och dessutom är allt annat än en atlet, snarare det motsatta.</q><span class="tr">Як я і написав у заголовку, у мене нуль досвіду походів у фьєллі, і я не вмію читати карту й компас… я вже не юнак (цієї осені буде 62) і до того ж аж ніяк не атлет, скоріше навпаки.</span><span class="attr"><b>niklas1965</b> · utsidan.se · <span class="fresh">2026-07-26</span></span></div>
-        <div class="quote"><q>Funderar på någon sträcka av Kungsleden, eller <b>är det för mycket för en newbee!?</b></q><span class="tr">Думаю про якусь ділянку Kungsleden — чи це <b>занадто для новачка</b>?!</span><span class="attr">там само — формулювання job&rsquo;а R1 його власними словами</span></div>
+        <div class="quote"><q>Funderar på någon sträcka av Kungsleden, eller <b>är det för mycket för en newbee!?</b></q><span class="tr">Думаю про якусь ділянку Kungsleden — чи це <b>занадто для новачка</b>?!</span><span class="attr">там само — формулювання job&rsquo;а 1 його власними словами</span></div>
         <p><b>Що змінює</b>: це не «новачок» за віком чи загальним досвідом — людина з Гімалаями за спиною має нульову впевненість саме у фьєллі. <b>Невпевненість — властивість незнайомого домену, не властивість людини.</b> Точний паралель до Kristin (фрагментація не залежить від досвіду) і до Alice Weinert (сумнів у досвідченої хайкерки).</p>
       </div>
 
       <div class="voicegroup">
         <h3>3. Спільнота як альтернатива має соціальну ціну</h3>
         <div class="quote"><q>Köp en bok om fjällvandring. Och gå igenom alla trådar här om utrustning… <b>En sådan trådstart känns inte seriös.</b></q><span class="tr">Купи книжку про походи у фьєллі. І перечитай усі треди тут про спорядження… <b>Такий початок треду не виглядає серйозно.</b></span><span class="attr"><b>StorUgglan</b> · перша відповідь на те питання · <span class="fresh">2026-07-26</span></span></div>
-        <p><b>Що доказує</b>: наявна альтернатива (спитати спільноту) працює, але з ризиком бути осадженим. Прямий аргумент за продукт і уточнення до S2 — тепер зі скандинавським датованим прикладом.</p>
+        <p><b>Що доказує</b>: наявна альтернатива (спитати спільноту) працює, але з ризиком бути осадженим. Прямий аргумент за продукт і уточнення до 11 — тепер зі скандинавським датованим прикладом.</p>
       </div>
 
       <div class="voicegroup">
-        <h3>4. Транспорт до трейлхеда <span class="tag tag-ok">підтверджено, R6</span></h3>
+        <h3>4. Транспорт до трейлхеда <span class="tag tag-ok">підтверджено, 6</span></h3>
         <p>Три незалежні голоси за один тиждень — і один із них про людину, що через це <b>покинула регіон</b>.</p>
         <div class="quote"><q>…tåget (98) så sent att det vände i abisko istället för att gå till Narvik. Vi blev hänvisade till ersättningstrafik, <b>men då Katterat inte har väg så blev det väldigt konstigt</b>. […] Vadå, finns det stationer utan vägförbindelse? <b>Borde stå när man bokar biljetten.</b></q><span class="tr">…потяг (98) запізнився так, що завернув в Абіско замість їхати до Нарвіка. Нас направили на замінний транспорт — <b>але до Katterat немає дороги, тому вийшло дуже дивно</b>. […] Тобто як, бувають станції без дороги? <b>Це мало б бути написано, коли купуєш квиток.</b></span><span class="attr"><b>Orrenius</b> · utsidan.se · <span class="fresh">чт. 2026-07-30</span></span></div>
         <div class="quote"><q>Men på morgonen tre timmar innan avgång kom det — <b>inställt i sista sekund!</b> […] Det fanns inte inom min föreställningsförmåga att ALLA tåg skulle TOTALT ställas in på min sträcka och att ingen lösning skulle finnas. […] <b>I mitt huvud hade reservplanen varit att vika av mot Rikgränsen typ dagen innan, eller mot Beisfjord två dagar innan.</b></q><span class="tr">А вранці, за три години до відправлення, приходить — <b>скасовано в останню секунду!</b> […] Я навіть уявити не могла, що ВСІ потяги на моєму відрізку скасують ПОВНІСТЮ і жодного рішення не буде. […] <b>У моїй голові запасний план був би — звернути на Riksgränsen десь за день до того, або на Beisfjord за два дні.</b></span><span class="attr"><b>Elvah</b> · utsidan.se · <span class="fresh">пт. 2026-07-31</span> · після 10-денного походу; закінчилось відкритим RIB-човном за 5 000 kr, щоб не пропустити літак</span></div>
         <div class="quote"><q><b>2021 slutade jag med turer hit upp</b> då 6h försenat och överfyllda tåg i Covid tider.</q><span class="tr"><b>У 2021-му я перестав ходити в походи сюди</b> — через шестигодинні затримки й переповнені потяги в ковідні часи.</span><span class="attr"><b>hsp</b> · utsidan.se · <span class="fresh">пт. 2026-07-31</span> — задокументована відмова від регіону</span></div>
-        <p><b>Найважливіше з цього</b>: Elvah не потрібне було повідомлення в момент скасування — їй потрібен був сигнал <b>на день-два раніше</b>, поки ще існував варіант звернути. Тобто цінність механізму live re-sync не в оповіщенні, а в <b>запасі часу на альтернативу</b>. Це вимога до того, як механізм має працювати — від реального носія болю. Плюс R3 тепер підсилено скандинавським цьогорічним доказом замість скасованого рейсу 2017 року.</p>
+        <p><b>Найважливіше з цього</b>: Elvah не потрібне було повідомлення в момент скасування — їй потрібен був сигнал <b>на день-два раніше</b>, поки ще існував варіант звернути. Тобто цінність механізму live re-sync не в оповіщенні, а в <b>запасі часу на альтернативу</b>. Це вимога до того, як механізм має працювати — від реального носія болю. Плюс 3 тепер підсилено скандинавським цьогорічним доказом замість скасованого рейсу 2017 року.</p>
       </div>
 
       <div class="voicegroup">
@@ -190,7 +193,7 @@
         <div class="quote risk"><q>Jeg kommer til en sti som er merkt på karten, men finner ingen sti, ikke noe markering på noen stein… <b>Det er detsamma i Norge og Sverige.</b></q><span class="tr">Приходжу до стежки, яка позначена на карті, але не знаходжу ні стежки, ні жодної мітки на камені… <b>І так само в Норвегії, і в Швеції.</b></span><span class="attr"><b>Jens Eriksson</b> · fjellforum.no · <span class="fresh">кін. липня 2026</span></span></div>
         <div class="quote risk"><q>…det er ellers <b>mange godt brukte og synlige stier som kan følges uproblematisk, men som ikke er</b> [i kartet].</q><span class="tr">…і водночас є багато добре натоптаних, добре видимих стежок, якими можна йти без проблем, <b>але яких немає на карті</b>.</span><span class="attr"><b>sneakyowl</b> · там само</span></div>
         <div class="quote risk"><q>[Rett i kartet] — her sender du inn endringer på veier, stier etc… <b>Jeg har fått lagt inn nye stier, men har nok fått fjernet flere.</b></q><span class="tr">[Rett i kartet] — тут надсилаєш зміни щодо доріг, стежок тощо… <b>Мені додали нові стежки, але прибрали, мабуть, більше.</b></span><span class="attr"><b>Memento mori</b> · там само — вони самі правлять Kartverket</span></div>
-        <p>Перший знайдений реальний контраргумент до нашого позиціонування. Офіційні трейл-дані розходяться з місцевістю <b>в обидві сторони</b>. Отже <b>«grounded на офіційних даних» ≠ «надійно в полі»</b>: офіційні дані дають простежуваність і легальність джерела, а не гарантію стану стежки. Формулювати треба саме так — і це підвищує вагу принципу «деградувати чесно». <span class="tag tag-new">переглянуто 2026-08-05</span> Плюс це <b>переоцінює community-шар</b>: benchmark.md тримав його другорядним, і цю тезу знято. Community входить у набір екранів як окремий, явно позначений рівень джерела — саме тому, що він несе те, чого в офіційних даних немає й не буде. Див. S2.</p>
+        <p>Перший знайдений реальний контраргумент до нашого позиціонування. Офіційні трейл-дані розходяться з місцевістю <b>в обидві сторони</b>. Отже <b>«grounded на офіційних даних» ≠ «надійно в полі»</b>: офіційні дані дають простежуваність і легальність джерела, а не гарантію стану стежки. Формулювати треба саме так — і це підвищує вагу принципу «деградувати чесно». <span class="tag tag-new">переглянуто 2026-08-05</span> Плюс це <b>переоцінює community-шар</b>: benchmark.md тримав його другорядним, і цю тезу знято. Community входить у набір екранів як окремий, явно позначений рівень джерела — саме тому, що він несе те, чого в офіційних даних немає й не буде. Див. 11.</p>
       </div>
 
       <div class="voicegroup">
@@ -252,49 +255,49 @@
         <h3>Related Jobs <span class="count">— шлях до головного, 7</span></h3>
 
         <div class="jobcard">
-          <div class="statement">R1. Коли я не знаю, скільки кілометрів і днів реально під мою форму і мій час, я хочу зрозуміти, на що я справді здатна на цьому рельєфі, щоб не переоцінити й не недооцінити свої сили.</div>
+          <div class="statement">1. Коли я не знаю, скільки кілометрів і днів реально під мою форму і мій час, я хочу зрозуміти, на що я справді здатна на цьому рельєфі, щоб не переоцінити й не недооцінити свої сили.</div>
           <p class="src"><b>Kristin</b> (О7) + CLAUDE.md поля «fitness level / time window». <span class="tag tag-ok">NRK 2026-08-01</span> Підтверджено інституційно: Røde Kors і DNT описують саме цей провал — <em>«feiltolker avstander og stigning» <i class="gl">(неправильно читають відстані й набір висоти)</i></em> через соцмережі.</p>
           <p class="src"><span class="tag tag-risk">констрейнт</span> DNT хоче <b>зберегти єдину національну градацію складності</b> й не створювати альтернативних. Отже: показуємо офіційну gradering, <b>не вигадуємо власну шкалу</b>. Персоналізуємо <em>підбір</em> маршруту, не <em>оцінку</em> складності.</p>
           
         </div>
 
         <div class="jobcard">
-          <div class="statement">R2. Коли я не знаю локальну систему ночівлі — типи об'єктів, потребу в ключі чи членстві, правила й час приходу, — я хочу зрозуміти, що саме мені потрібно зробити на кожну ніч, щоб не опинитися без даху й не порушити правила.</div>
+          <div class="statement">2. Коли я не знаю локальну систему ночівлі — типи об'єктів, потребу в ключі чи членстві, правила й час приходу, — я хочу зрозуміти, що саме мені потрібно зробити на кожну ніч, щоб не опинитися без даху й не порушити правила.</div>
           <p class="src"><span class="tag tag-ok">зміст закрито</span> <b>Top Job #1.</b> Відповідь тепер перевірена: спільний принцип обох країн + формула з чотирьох змінних — див. <a href="#axes">Ось A</a>. <b>Lukas</b> (n=1, неверифіковано), <b>Kristin</b> (ключ/членство/логбук).</p>
           
         </div>
 
         <div class="jobcard">
-          <div class="statement">R3. Коли прогноз погоди змінюється — під час підготовки чи вже в дорозі, — я хочу дізнатися, що саме в моєму поході це зачіпає, щоб встигнути відреагувати, не наражаючи себе на небезпеку.</div>
+          <div class="statement">3. Коли прогноз погоди змінюється — під час підготовки чи вже в дорозі, — я хочу дізнатися, що саме в моєму поході це зачіпає, щоб встигнути відреагувати, не наражаючи себе на небезпеку.</div>
           <p class="src"><span class="tag tag-ok">NRK 2026-08-01</span> Частково закрито інституційно: Røde Kors називає саме це — <em>«mange ikke er kjent med hvor raskt været kan snu i de norske fjellene» <i class="gl">(багато хто не знає, як швидко може змінитися погода в норвезьких горах)</i></em>. Тобто недооцінка швидкості зміни погоди — задокументована рятувальниками, не наша гіпотеза.</p>
           <p class="src"><span class="tag tag-hyp">[?]</span> Що досі слабке: як людина <em>реагує</em> на зміну прогнозу вже в дорозі. Але підтверджено, що вона <b>недооцінює</b> її до виходу — а це якраз частина, яку продукт закриває на плануванні. Плюс: offline-first обов'язковий, і «поділись маршрутом і часом повернення» — фіча, яку DNT радить сам.</p>
         </div>
 
         <div class="jobcard">
-          <div class="statement">R4. Коли я збираюсь у похід, я хочу знати, що моє спорядження підходить саме під цей маршрут і цю погоду, щоб не тягнути зайве й не забути критичне.</div>
+          <div class="statement">4. Коли я збираюсь у похід, я хочу знати, що моє спорядження підходить саме під цей маршрут і цю погоду, щоб не тягнути зайве й не забути критичне.</div>
           <p class="src">CLAUDE.md core flow (existing gear → gear checklist) + механізм named-contributor. Ілюстрація протилежного: дірка в каремат, врятована дактейпом — <em>«a lifesaver»</em>.</p>
           <p class="src"><span class="tag tag-hyp">[?] слабке походження</span> У Kristin цей job стоїть як гіпотеза, і єдиний носій — анекдот 2017 року від людини, що йшла <b>з палаткою, не по хижах</b>. Вихід продукту є, підтвердженого болю під ним поки немає.</p>
         </div>
 
         <div class="jobcard">
-          <div class="statement">R5. Коли я маю прийняти рішення в горах, спираючись на чиюсь пораду, я хочу розуміти, на чому вона стоїть, щоб не йти в гори на віру.</div>
+          <div class="statement">5. Коли я маю прийняти рішення в горах, спираючись на чиюсь пораду, я хочу розуміти, на чому вона стоїть, щоб не йти в гори на віру.</div>
           <p class="src"><span class="tag tag-fixed">знижено до «наша ставка»</span> <b>Скандинавського AI-скандалу не існує</b> — ні DNT, ні Røde Kors, ні Fjällsäkerhetsrådet не публікували застережень про AI-сплановані маршрути. SAR-критика, від якої ми будували захист, — канадська подія без скандинавського аналога.</p>
           <p class="src">Найближче з норвезьких джерел — і це не про AI: DNT застерігає не покладатись надміру на <b>телефон і мережу</b>, і визнає прогалину у власних порадах: <em>«Vi kan sjå på om vi bør vere endå tydelegare i råda våre» <i class="gl">(ми можемо подивитися, чи не варто нам бути ще чіткішими у своїх порадах)</i></em>.</p>
-          <p class="src"><b>Практичний висновок:</b> механізм named-contributor breakdown лишається — дешевий і не шкодить, плюс поле вільне й можна ставити стандарт першими. Але <b>позиціонування на нього не ставимо</b>: у пітчі це «наша ставка», а не «підтверджена потреба». Місце головного інституційного аргументу займають R1/R3 + мовний шар.</p>
+          <p class="src"><b>Практичний висновок:</b> механізм named-contributor breakdown лишається — дешевий і не шкодить, плюс поле вільне й можна ставити стандарт першими. Але <b>позиціонування на нього не ставимо</b>: у пітчі це «наша ставка», а не «підтверджена потреба». Місце головного інституційного аргументу займають 1/3 + мовний шар.</p>
 
         </div>
 
         <div class="jobcard">
-          <div class="statement">R6. Коли я планую багатоденний маршрут, що починається й закінчується там, куди веде лише потяг чи автобус, я хочу знати, чи справді туди можна дістатись і повернутись у мої дати, щоб не залишитись відрізаною на місці без варіантів.</div>
+          <div class="statement">6. Коли я планую багатоденний маршрут, що починається й закінчується там, куди веде лише потяг чи автобус, я хочу знати, чи справді туди можна дістатись і повернутись у мої дати, щоб не залишитись відрізаною на місці без варіантів.</div>
           <p class="src"><span class="tag tag-new">повернуто з H5</span> <b>Три незалежні шведські голоси за один тиждень</b> — див. <a href="#voices">Живі голоси</a>, п.4. <b>Orrenius</b> (2026-07-30): замінний автобус неможливий, бо <em>«då Katterat inte har väg» <i class="gl">(до Katterat немає дороги)</i></em>. <b>Elvah</b> (2026-07-31): усі потяги скасовані за 3 години до відправлення, закінчилось відкритим RIB-човном за 5 000 kr. <b>hsp</b>: <em>«2021 slutade jag med turer hit upp» <i class="gl">(у 2021-му я перестав ходити в походи сюди)</i></em> — <b>покинув регіон</b>, тобто не тертя, а втрачений користувач.</p>
           <p class="src"><b>Чому це важливіше, ніж здавалось:</b> це <b>найкраща ілюстрація механізму live re-sync у всьому дослідженні</b>, і від реального носія болю. Elvah не потрібне було повідомлення в момент скасування — потрібен був сигнал <b>на день-два раніше</b>, поки ще існував варіант звернути на Riksgränsen або Beisfjord. Цінність не в оповіщенні, а в <b>запасі часу на альтернативу</b>. Плюс підтверджує offline-first і економію батареї як вимогу.</p>
           <p class="src"><span class="tag tag-hyp">[?]</span> Не знаємо, чи це специфіка Malmbanan (де пасажирські перевезення визнано неприбутковими), чи загальна властивість nordic-трейлхедів. Для Норвегії свідчень цього рівня немає.</p>
         </div>
 
         <div class="jobcard">
-          <div class="statement">R7. Коли мій план готовий, але жодна ніч ще нічим не закріплена, я хочу довести його до стану, коли ночівлі, квитки й членство справді оформлені, щоб не тримати в голові список із N окремих транзакцій.</div>
-          <p class="src"><span class="tag tag-new">додано 2026-08-05</span> Це <b>власний job Kristin</b>, який раніше не мав номера — він розтягнувся між Main Job (як доказ фрагментації) і R2. Знайдено при інвентаризації сутностей перед wireframes. Механіка задокументована DNT дослівно: <em>«you must complete the booking and payment for one cabin before proceeding to the next»</em>, і логбук з номером членства обов'язковий навіть після онлайн-броні.</p>
-          <p class="src"><b>Чому окремий job, а не частина R2:</b> R2 — про <b>знання</b> («що саме мені потрібно на кожну ніч»), R7 — про <b>доведення до кінця</b>. Різні стани людини: у першому вона не знає правил, у другому знає їх і все одно мусить виконати N транзакцій руками. Kristin — доказ саме другого: повне знання системи болю не знімає.</p>
+          <div class="statement">7. Коли мій план готовий, але жодна ніч ще нічим не закріплена, я хочу довести його до стану, коли ночівлі, квитки й членство справді оформлені, щоб не тримати в голові список із N окремих транзакцій.</div>
+          <p class="src"><span class="tag tag-new">додано 2026-08-05</span> Це <b>власний job Kristin</b>, який раніше не мав номера — він розтягнувся між Main Job (як доказ фрагментації) і 2. Знайдено при інвентаризації сутностей перед wireframes. Механіка задокументована DNT дослівно: <em>«you must complete the booking and payment for one cabin before proceeding to the next»</em>, і логбук з номером членства обов'язковий навіть після онлайн-броні.</p>
+          <p class="src"><b>Чому окремий job, а не частина 2:</b> 2 — про <b>знання</b> («що саме мені потрібно на кожну ніч»), 7 — про <b>доведення до кінця</b>. Різні стани людини: у першому вона не знає правил, у другому знає їх і все одно мусить виконати N транзакцій руками. Kristin — доказ саме другого: повне знання системи болю не знімає.</p>
           <p class="src"><span class="tag tag-risk">продуктова межа</span> Nestwood дає guidance і передачу в офіційні системи, але <b>сам транзакції не проводить</b> — рішення «orchestration-шар без юридичної відповідальності за доступність ліжок» не переглядається.</p>
         </div>
       </div>
@@ -302,12 +305,12 @@
       <div class="jobtier">
         <h3>Emotional Jobs <span class="count">— 2</span></h3>
         <div class="jobcard">
-          <div class="statement">E1. Коли я готуюсь до походу в системі, якої не знаю, я хочу почуватися впевненою, що не пропустила нічого важливого, щоб не тривожитися вже в дорозі.</div>
+          <div class="statement">8. Коли я готуюсь до походу в системі, якої не знаю, я хочу почуватися впевненою, що не пропустила нічого важливого, щоб не тривожитися вже в дорозі.</div>
           <p class="src"><span class="tag tag-new">опора змінена</span> Тепер тримається на академічному дослідженні (UiO/UiB, 2021) — і зміст інший: бояться не «не буде місця», а <b>не знають неписаних правил</b>. Плюс мовний бар'єр (норвезька-only) і свіже джерело про перший раз (2023).</p>
           <p class="src"><span class="tag tag-fixed">overclaim знято</span> Попереднє «n=2 підтверджено» — насправді 2009 рік + неверифікований TripAdvisor, і в тій ветці страх <b>знято відповіддю</b>. Але тепер на нього є <b>офіційна відповідь</b> (Ось A: нікого не виганяють) — job можна закрити продуктом навіть без свіжого свідчення про сам страх.</p>
         </div>
         <div class="jobcard">
-          <div class="statement">E2. Коли я порівнюю себе з описом маршруту, я хочу відчувати, що він враховує саме мою форму й мій час, а не є узагальненою порадою для будь-кого, щоб вірити, що я з ним впораюсь.</div>
+          <div class="statement">9. Коли я порівнюю себе з описом маршруту, я хочу відчувати, що він враховує саме мою форму й мій час, а не є узагальненою порадою для будь-кого, щоб вірити, що я з ним впораюсь.</div>
           <p class="src">Реальна цитата <em>«What if I can't hike as far as I thought I could?» <i class="gl">(а що, як я не пройду стільки, скільки думала?)</i></em> — <b>носій досвідчений, не новачок</b>. Належить <a href="#axes">Ось B</a>, не окремій персоні.</p>
           
         </div>
@@ -316,13 +319,13 @@
       <div class="jobtier">
         <h3>Social Jobs <span class="count">— 2</span></h3>
         <div class="jobcard">
-          <div class="statement">S1. Коли близька людина висловлює сумнів у моєму рішенні йти в похід, я хочу мати щось конкретне, що підтверджує реалістичність мого плану, щоб не почуватися нерозважливою в її очах.</div>
+          <div class="statement">10. Коли близька людина висловлює сумнів у моєму рішенні йти в похід, я хочу мати щось конкретне, що підтверджує реалістичність мого плану, щоб не почуватися нерозважливою в її очах.</div>
           <p class="src">Реальна цитата, лікар авторці: <em>«Well, I just don't think that's a good idea» <i class="gl">(ну, я просто не вважаю, що це добра ідея)</i></em> <span class="tag tag-hyp">не Nordic, носій досвідчений</span></p>
         </div>
         <div class="jobcard">
-          <div class="statement">S2. Коли я не знаю, чи мій рівень підготовки підходить для такого походу, я хочу відчувати, що це реально для людини як я, щоб не почуватись одна в цьому рішенні.</div>
+          <div class="statement">11. Коли я не знаю, чи мій рівень підготовки підходить для такого походу, я хочу відчувати, що це реально для людини як я, щоб не почуватись одна в цьому рішенні.</div>
           <p class="src">Реальна цитата <em>«If she can do it, I can do it, I thought» <i class="gl">(якщо вона змогла, то і я зможу, подумала я)</i></em> (2017). <span class="tag tag-hyp">неоднорідний механізм</span> 1 підтвердження (питання спільноті, 2023) + 1 явний контрприклад (бренд-маркетинг, без трипрепортів). Інспірація-порівняння ≠ практичне Q&amp;A спільноти.</p>
-          <p class="src"><span class="tag tag-new">рішення 2026-08-05</span> <b>Комюніті-шар входить у набір екранів — і не через S2.</b> Підстав три, і S2 з них найслабша: (1) <b>офіційні трейл-дані розходяться з місцевістю в обидві сторони</b> — це діра в нашому головному активі, і закрити її офіційними даними неможливо за визначенням; (2) наявна альтернатива має <b>соціальну ціну</b> — <em>«En sådan trådstart känns inte seriös»</em>, отже ми вбираємо функцію в себе, а не відправляємо на форум; (3) S2 як peer-precedent.</p>
+          <p class="src"><span class="tag tag-new">рішення 2026-08-05</span> <b>Комюніті-шар входить у набір екранів — і не через 11.</b> Підстав три, і 11 з них найслабша: (1) <b>офіційні трейл-дані розходяться з місцевістю в обидві сторони</b> — це діра в нашому головному активі, і закрити її офіційними даними неможливо за визначенням; (2) наявна альтернатива має <b>соціальну ціну</b> — <em>«En sådan trådstart känns inte seriös»</em>, отже ми вбираємо функцію в себе, а не відправляємо на форум; (3) 11 як peer-precedent.</p>
           <p class="src"><span class="tag tag-risk">жорстка межа</span> Це <b>польові нотатки про стан</b> (стежка, маркування, вода, погода на місці), а <b>не рейтинги й відгуки</b>. Рейтинг — центральна сутність AllTrails і не має під собою жодного нашого job'а. Community мусить бути <b>окремим, явно позначеним рівнем джерела</b>, а не змішуватись з офіційним — інакше втрачається єдине, що ми продаємо. У v1 шар односторонній: читання job має, писання — ні.</p>
         </div>
       </div>
@@ -345,17 +348,17 @@
           <thead><tr><th style="width:88px;">Тип</th><th>Job (скорочено)</th><th style="width:120px;">Персона</th><th style="width:150px;">Джерело</th><th style="width:180px;">Статус</th></tr></thead>
           <tbody>
             <tr><td class="rowtype">MAIN</td><td>Впевненість, що 4 частини походу узгоджені</td><td class="rowpersona">Kristin</td><td>research.md + dnt.no 2026</td><td><span class="tag tag-ok">Підтверджено</span></td></tr>
-            <tr><td class="rowtype">R1</td><td>Скільки я реально пройду</td><td class="rowpersona">Kristin, Lukas</td><td>NRK 2026-08-01 (NO)</td><td><span class="tag tag-ok">Інституційно</span> <span class="tag tag-risk">+ констрейнт</span></td></tr>
-            <tr><td class="rowtype">R2</td><td>Що потрібно для кожної ночівлі</td><td class="rowpersona">Kristin, Lukas</td><td>dnt.no / STF 2026 (NO/SV)</td><td><span class="tag tag-ok">Зміст закрито</span></td></tr>
-            <tr><td class="rowtype">R3</td><td>Як зміна погоди зачіпає план</td><td class="rowpersona">Lukas</td><td>NRK 2026-08-01 (NO)</td><td><span class="tag tag-ok">Частково</span> <span class="tag tag-hyp">реакція [?]</span></td></tr>
-            <tr><td class="rowtype">R4</td><td>Спорядження відповідає маршруту й погоді</td><td class="rowpersona">Kristin, Lukas</td><td>CLAUDE.md + анекдот 2017 (US)</td><td><span class="tag tag-hyp">Слабке походження</span></td></tr>
-            <tr><td class="rowtype">R5</td><td>На чому стоїть порада, якій довіряю безпеку</td><td class="rowpersona">Kristin</td><td>OECD/Eurostat/IEEE — не про хайкінг</td><td><span class="tag tag-fixed">Знижено до «наша ставка»</span></td></tr>
-            <tr><td class="rowtype">R6</td><td>Як дістатись до початку й від кінця маршруту</td><td class="rowpersona">Kristin, Lukas</td><td>utsidan.se 2026-07-30/31 (SE) ×3</td><td><span class="tag tag-new">Повернуто з H5</span></td></tr>
-            <tr><td class="rowtype">R7</td><td>Довести план до закріплених ночівель</td><td class="rowpersona">Kristin</td><td>personas.md (О16) + dnt.no 2026</td><td><span class="tag tag-new">Додано 2026-08-05</span></td></tr>
-            <tr><td class="rowtype">E1</td><td>Не пропустила нічого важливого</td><td class="rowpersona">Lukas</td><td>UiO/UiB 2021 (NO, академічне)</td><td><span class="tag tag-new">Опора змінена</span></td></tr>
-            <tr><td class="rowtype">E2</td><td>Маршрут враховує саме мене</td><td class="rowpersona">Ось B</td><td>2 025 блог (US, досвідчена)</td><td><span class="tag tag-ok">Цитата справжня</span></td></tr>
-            <tr><td class="rowtype">S1</td><td>Протистояння сумніву близьких</td><td class="rowpersona">Ось B</td><td>блог (US, не Nordic)</td><td><span class="tag tag-hyp">Не Nordic</span></td></tr>
-            <tr><td class="rowtype">S2</td><td>«Це реально для людини як я»</td><td class="rowpersona">Lukas</td><td>2017 (US) + 2023 (SE) + контрприклад</td><td><span class="tag tag-hyp">Неоднорідний</span> <span class="tag tag-new">покривається</span></td></tr>
+            <tr><td class="rowtype">1</td><td>Скільки я реально пройду</td><td class="rowpersona">Kristin, Lukas</td><td>NRK 2026-08-01 (NO)</td><td><span class="tag tag-ok">Інституційно</span> <span class="tag tag-risk">+ констрейнт</span></td></tr>
+            <tr><td class="rowtype">2</td><td>Що потрібно для кожної ночівлі</td><td class="rowpersona">Kristin, Lukas</td><td>dnt.no / STF 2026 (NO/SV)</td><td><span class="tag tag-ok">Зміст закрито</span></td></tr>
+            <tr><td class="rowtype">3</td><td>Як зміна погоди зачіпає план</td><td class="rowpersona">Lukas</td><td>NRK 2026-08-01 (NO)</td><td><span class="tag tag-ok">Частково</span> <span class="tag tag-hyp">реакція [?]</span></td></tr>
+            <tr><td class="rowtype">4</td><td>Спорядження відповідає маршруту й погоді</td><td class="rowpersona">Kristin, Lukas</td><td>CLAUDE.md + анекдот 2017 (US)</td><td><span class="tag tag-hyp">Слабке походження</span></td></tr>
+            <tr><td class="rowtype">5</td><td>На чому стоїть порада, якій довіряю безпеку</td><td class="rowpersona">Kristin</td><td>OECD/Eurostat/IEEE — не про хайкінг</td><td><span class="tag tag-fixed">Знижено до «наша ставка»</span></td></tr>
+            <tr><td class="rowtype">6</td><td>Як дістатись до початку й від кінця маршруту</td><td class="rowpersona">Kristin, Lukas</td><td>utsidan.se 2026-07-30/31 (SE) ×3</td><td><span class="tag tag-new">Повернуто з H5</span></td></tr>
+            <tr><td class="rowtype">7</td><td>Довести план до закріплених ночівель</td><td class="rowpersona">Kristin</td><td>personas.md (О16) + dnt.no 2026</td><td><span class="tag tag-new">Додано 2026-08-05</span></td></tr>
+            <tr><td class="rowtype">8</td><td>Не пропустила нічого важливого</td><td class="rowpersona">Lukas</td><td>UiO/UiB 2021 (NO, академічне)</td><td><span class="tag tag-new">Опора змінена</span></td></tr>
+            <tr><td class="rowtype">9</td><td>Маршрут враховує саме мене</td><td class="rowpersona">Ось B</td><td>2 025 блог (US, досвідчена)</td><td><span class="tag tag-ok">Цитата справжня</span></td></tr>
+            <tr><td class="rowtype">10</td><td>Протистояння сумніву близьких</td><td class="rowpersona">Ось B</td><td>блог (US, не Nordic)</td><td><span class="tag tag-hyp">Не Nordic</span></td></tr>
+            <tr><td class="rowtype">11</td><td>«Це реально для людини як я»</td><td class="rowpersona">Lukas</td><td>2017 (US) + 2023 (SE) + контрприклад</td><td><span class="tag tag-hyp">Неоднорідний</span> <span class="tag tag-new">покривається</span></td></tr>
             <tr><td class="rowtype">H1</td><td>Групова координація найслабшого</td><td class="rowpersona">—</td><td>корпоративна стаття Komoot</td><td><span class="tag tag-hyp">[?] Гіпотеза</span></td></tr>
             <tr><td class="rowtype">H2</td><td>Не планувати з нуля щороку</td><td class="rowpersona">Kristin</td><td>—</td><td><span class="tag tag-hyp">[?] Гіпотеза</span></td></tr>
             <tr><td class="rowtype">H3</td><td>Відповідність бюджету</td><td class="rowpersona">—</td><td>лише назва поля в CLAUDE.md</td><td><span class="tag tag-hyp">[?] але вже в продукті</span></td></tr>
@@ -364,8 +367,8 @@
           </tbody>
         </table>
       </div>
-      <p class="footnote"><b>Системне застереження:</b> п'ять related jobs мапляться один-до-одного на п'ять полів вводу/виводу з CLAUDE.md (fitness→R1, lodging→R2, weather→R3, gear→R4, explanation→R5). Це означає, що список виведений із продуктової специфікації, а докази підбирались під нього постфактум. Не робить jobs неправдивими, але робить їх <b>неперевіреними за походженням</b>: ми не знаємо, чи людина ранжує їх так, і чи немає шостого job'а, якого немає в CLAUDE.md — і тому ми його не шукали.</p>
-      <p class="footnote"><span class="tag tag-new">відпрацьовано частково</span> <b>Шостий і сьомий знайшлись, і жоден не походить із CLAUDE.md.</b> <b>R6</b> (транспорт) виведений із трьох незалежних шведських голосів за тиждень. <b>R7</b> (доведення до закріплених ночівель) знайдений при інвентаризації сутностей — він був власним job'ом Kristin у personas.md, але тут розтягнувся між Main Job і R2 й тому не мав номера. Тобто <b>два з семи related jobs тепер походять із доказів, а не зі специфікації</b>. Решта п'ять — досі ні, і застереження лишається чинним.</p>
+      <p class="footnote"><b>Системне застереження:</b> п'ять related jobs мапляться один-до-одного на п'ять полів вводу/виводу з CLAUDE.md (fitness→1, lodging→2, weather→3, gear→4, explanation→5). Це означає, що список виведений із продуктової специфікації, а докази підбирались під нього постфактум. Не робить jobs неправдивими, але робить їх <b>неперевіреними за походженням</b>: ми не знаємо, чи людина ранжує їх так, і чи немає шостого job'а, якого немає в CLAUDE.md — і тому ми його не шукали.</p>
+      <p class="footnote"><span class="tag tag-new">відпрацьовано частково</span> <b>Шостий і сьомий знайшлись, і жоден не походить із CLAUDE.md.</b> <b>6</b> (транспорт) виведений із трьох незалежних шведських голосів за тиждень. <b>7</b> (доведення до закріплених ночівель) знайдений при інвентаризації сутностей — він був власним job'ом Kristin у personas.md, але тут розтягнувся між Main Job і 2 й тому не мав номера. Тобто <b>два з семи related jobs тепер походять із доказів, а не зі специфікації</b>. Решта п'ять — досі ні, і застереження лишається чинним.</p>
     </section>
 
     <!-- ============ 5. ГІПОТЕЗИ ============ -->
@@ -377,13 +380,14 @@
         <div class="jobcard"><div class="statement"><span class="tag tag-hyp">H2</span> Коли я щороку йду в подібний похід, я хочу не починати планування з нуля щоразу, щоб заощадити час.</div><p class="src">Kristin — повторюваність «щороку» в дослідженні не задокументована.</p></div>
         <div class="jobcard"><div class="statement"><span class="tag tag-hyp">H3</span> Коли у мене обмежений бюджет, я хочу знати, які варіанти вкладаються в нього, щоб не перевищити витрати.</div><p class="src">Джерело — <b>лише назва вхідного поля «budget» у CLAUDE.md</b>; жодна персона не документує реальний біль навколо бюджету. <b>Але поле у продукті вже є</b> — тобто непідтверджену гіпотезу вже імплементовано як обов'язковий крок візарда.</p></div>
         <div class="jobcard"><div class="statement"><span class="tag tag-hyp">H4</span> Коли я йду в багатоденний похід уперше, я хочу отримати покрокове підтвердження, що я готова, щоб зменшити тривогу перед стартом.</div><p class="src">Гіпотеза на Ось B. <b>Контрсигнал:</b> єдине свіже датоване джерело про перший раз показує інший механізм подолання тривоги — питання живій спільноті, не покрокове підтвердження від інструменту.</p></div>
-        <div class="jobcard"><div class="statement"><span class="tag tag-new">H5 → R6</span> Дорога до трейлхеда — <b>повернуто в основний список</b>.</div><p class="src">Умова, поставлена при пониженні («потрібне датоване свідчення 2024–2026»), виконана з надлишком: три незалежні шведські голоси за один тиждень, включно з людиною, що покинула регіон через транспорт. Див. <a href="#voices">Живі голоси</a>, п.4.</p></div>
+        <div class="jobcard"><div class="statement"><span class="tag tag-hyp">H6</span> Коли щось пішло не так у горах, я хочу одним дотиком покликати допомогу й знати, що робити до її приходу, щоб не залежати від того, чи згадаю кроки.</div><p class="src"><b>Додано 2026-08-26.</b> Підстава <b>інституційна, не користувацька</b>: Røde Kors кличе до спільної fjellvett-opplysning з DNT, DNT застерігає не покладатись на телефон і визнає прогалину у власних порадах. <b>Жодного голосу людини, яка описує цю потребу, в дослідженні немає.</b> Не зробили job'ом навмисно: структура має вкладку «Безпека», і під неї легко було б написати «R8: хочу бути в безпеці» — а CLAUDE.md сам визнає, що перші пʼять jobs виведені з ідеї, а докази підтягнуті потім. Створити job під намальовану вкладку означало б повторити цю помилку після того, як ми її самі назвали.</p></div>
+        <div class="jobcard"><div class="statement"><span class="tag tag-new">H5 → 6</span> Дорога до трейлхеда — <b>повернуто в основний список</b>.</div><p class="src">Умова, поставлена при пониженні («потрібне датоване свідчення 2024–2026»), виконана з надлишком: три незалежні шведські голоси за один тиждень, включно з людиною, що покинула регіон через транспорт. Див. <a href="#voices">Живі голоси</a>, п.4.</p></div>
       </div>
     </section>
 
 <section class="block" id="questions">
       <div class="block-head"><span class="block-num mono">07</span><h2 class="block-title">Статус трьох питань</h2></div>
-      <p class="block-sub">Три питання, сформульовані аудитом як такі, що закрили б найважливіші діри. Повний розбір — <a href="./personas-audit-2026-08-05.md">personas-audit-2026-08-05.md</a>.</p>
+      <p class="block-sub">Три питання, сформульовані аудитом як такі, що закрили б найважливіші діри. Повний розбір — personas-audit-2026-08-05.md.</p>
 
       <div class="qgrid">
         <div class="qcard closed">
@@ -458,7 +462,7 @@
 
     <footer class="page">
       <span>Nestwood · персони та JTBD · 2026-08-05</span>
-      <span><a href="../CLAUDE.md">CLAUDE.md</a> · <a href="./personas.md">personas.md</a> · <a href="./jtbd.md">jtbd.md</a> · <a href="./personas-audit-2026-08-05.md">аудит</a> · <a href="./personas-step1-data-inventory.md">Крок 1</a> · <a href="../research/research.html">research.html</a></span>
+      <span><a href="../CLAUDE.md">CLAUDE.md</a> · <a href="./personas.md">personas.md</a> · <a href="./jtbd.md">jtbd.md</a> · аудит · Крок 1 · <a href="../research/research.html">research.html</a></span>
     </footer>
 
   </main>

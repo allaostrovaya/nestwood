@@ -1,0 +1,122 @@
+/* Nestwood — глобальна навігація по документах.
+   Спільна для звітів (doc.css) і вайрфреймів (_wireframe.css), тому
+   самодостатня: не спирається на змінні жодного з них.
+
+   Рівень 1 — ця колонка: перемикання МІЖ документами, однакова скрізь.
+   Рівень 2 — власна навігація документа поруч: розділи звіту або
+   дерево екранів у вайрфреймах. Темний тон рівня 1 і є те, що
+   відрізняє глобальний хром від вмісту документа. */
+
+:root { --gnav-w: 208px; }
+
+body { padding-left: var(--gnav-w); }
+
+/* навігація документа (рівень 2) починається одразу за рівнем 1,
+   а не по центру: інакше дві колонки не читаються як два рівні */
+body > .shell { margin-left: 0; }
+
+.gnav {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 10;
+  width: var(--gnav-w);
+  overflow-y: auto;
+  padding: 1.6rem 1rem 1.4rem;
+  background: #171717;
+  color: #d8d8d8;
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.gnav-brand {
+  display: block;
+  margin: 0 0 1.5rem .55rem;
+  font-family: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -.01em;
+  color: #fff;
+  text-decoration: none;
+}
+.gnav-brand span {
+  display: block;
+  margin-top: .25rem;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: .1em;
+  color: #8a8a8a;
+}
+
+.gnav-label {
+  margin: 0 0 .5rem .55rem;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+}
+
+.gnav ul { margin: 0; padding: 0; list-style: none; }
+.gnav li { margin-bottom: 2px; }
+
+.gnav a.gnav-item {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
+  gap: .35rem;
+  padding: .5rem .55rem;
+  color: #c9c9c9;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+}
+.gnav a.gnav-item:hover { background: #242424; color: #fff; }
+.gnav a.gnav-item .n { color: #6f6f6f; }
+.gnav a.gnav-item b {
+  font-family: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+.gnav a.gnav-item small {
+  display: block;
+  margin-top: .15rem;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #8a8a8a;
+}
+.gnav a.gnav-item[aria-current="page"] {
+  background: #262626;
+  border-left-color: #fff;
+  color: #fff;
+}
+.gnav a.gnav-item[aria-current="page"] .n { color: #b0b0b0; }
+
+
+/* вузьке вікно: рівень 1 переїжджає нагору смугою, рівень 2 лишається де був */
+@media (max-width: 860px) {
+  body { padding-left: 0; }
+  .gnav {
+    position: static;
+    width: auto;
+    padding: .8rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;      /* переносимо, а не ховаємо за скролом:
+                             при ~430px останній пункт ішов за край */
+    gap: .5rem .8rem;
+    overflow: visible;
+  }
+  .gnav-brand { margin: 0 .5rem 0 0; white-space: nowrap; }
+  .gnav-brand span, .gnav-label, .gnav a.gnav-item small { display: none; }
+  .gnav ul { display: flex; flex-wrap: wrap; gap: .3rem; }
+  .gnav li { margin: 0; }
+  .gnav a.gnav-item {
+    display: block;
+    white-space: nowrap;
+    border-left: 0;
+    border-bottom: 2px solid transparent;
+  }
+  .gnav a.gnav-item[aria-current="page"] { border-bottom-color: #fff; }
+  .gnav a.gnav-item .n { display: none; }
+}
+
+@media print { .gnav { display: none; } body { padding-left: 0; } }
