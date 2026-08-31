@@ -1,0 +1,204 @@
+/* Nestwood — сторінка головного флоу. Доповнення до _wireframe.css, не заміна.
+
+   Макети всередині кроків це той самий .device із тими самими стилями — тому
+   тут немає жодного правила, яке б їх торкалось. Усе нижче — хром документа:
+   рейка кроків, шапка, коментар збоку, переходи між кроками.
+
+   Обмеження ті самі, що в наборі: відтінки сірого, волосяні межі, шкала
+   відступів, вага й кегль як єдині носії ієрархії. Фіолетовий --act
+   успадковується як службовий колір афордансу, не як бренд. */
+
+:root {
+  --note: 460px;   /* колонка коментаря поруч із макетом */
+}
+
+/* ── каркас: рейка кроків ліворуч, стрічка кроків праворуч ──── */
+.flow-shell { display: flex; align-items: flex-start; justify-content: flex-start; gap: var(--s4); }
+
+.flow-rail {
+  flex: 0 0 236px;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: var(--s3) var(--s2) var(--s5) var(--s3);
+  background: #e6e6e6;
+  border-right: 1px solid var(--line);
+}
+.flow-rail h2 { margin: 0 0 var(--s2); font-size: 10px; letter-spacing: .12em; color: var(--ink-2); }
+.flow-rail ol { margin: 0 0 var(--s4); padding: 0; list-style: none; counter-reset: none; }
+.flow-rail li { line-height: 1.45; }
+.flow-rail ol a {
+  display: flex;
+  gap: var(--s2);
+  padding: 3px 0;
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.flow-rail ol a:hover { color: var(--ink); text-decoration: underline; }
+.flow-rail .rn { flex: 0 0 auto; color: #8e8e8e; font-variant-numeric: tabular-nums; }
+.flow-rail ol a:hover .rn { color: var(--ink); }
+.flow-rail .rail-foot a { color: var(--ink-2); }
+.flow-rail .rail-foot a:hover { color: var(--ink); }
+.flow-rail .rail-foot { margin: 0; padding-top: var(--s3); border-top: 1px solid var(--line); line-height: 1.6; }
+
+.flow-main { flex: 1 1 auto; min-width: 0; padding: var(--s4) var(--s4) var(--s5); }
+
+/* ── шапка документа ────────────────────────────────────────── */
+.flow-mast { max-width: 860px; margin: 0 0 var(--s5); }
+.flow-mast .eyebrow {
+  margin: 0 0 var(--s2);
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ink-2);
+}
+.flow-mast h1 {
+  margin: 0 0 var(--s3);
+  font-size: 30px; line-height: 1.2; font-weight: 700;
+  letter-spacing: -.01em;
+}
+.flow-mast .claim {
+  margin: 0 0 var(--s3);
+  padding: var(--s3);
+  background: #fff;
+  border: 1px solid var(--ink);
+  font-size: 17px; line-height: 1.5;
+}
+.flow-mast .dek { margin: 0 0 var(--s2); font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+.flow-mast .dek b { color: var(--ink); }
+.flow-mast .mast-facts {
+  display: flex; flex-wrap: wrap; gap: var(--s3);
+  margin: var(--s3) 0 0; padding: var(--s2) 0 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--ink-2);
+}
+.flow-mast .mast-facts b { font-size: 15px; color: var(--ink); }
+
+/* ── крок ───────────────────────────────────────────────────── */
+.step { padding: 0; border: 0; }
+.step-head {
+  display: flex; align-items: baseline; gap: var(--s2); flex-wrap: wrap;
+  margin: 0 0 var(--s3);
+  padding-bottom: var(--s2);
+  border-bottom: 1px solid var(--ink);
+}
+.step-n {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 26px; line-height: 1; font-weight: 700;
+  color: var(--ink);
+}
+.step-head h2 { margin: 0; font-size: 22px; line-height: 1.2; font-weight: 700; }
+.step-src { margin: 0; flex: 1 1 100%; }
+
+.step-body { display: flex; align-items: flex-start; gap: var(--s4); }
+.flow-screen { flex: 0 0 var(--col); position: relative; }
+.step-note { flex: 1 1 var(--note); min-width: 0; max-width: var(--note); }
+
+/* коментар: проза, а не рев'ю-моноспейс — його читають, а не сканують */
+.step-note p { margin: 0 0 var(--s2); font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+.step-note .lead { font-size: 17px; line-height: 1.5; color: var(--ink); }
+.step-note b { color: var(--ink); }
+.step-note h3 {
+  margin: var(--s3) 0 var(--s1);
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-2); font-weight: 700;
+}
+.step-note .q {
+  margin: 0 0 var(--s2);
+  padding: var(--s2) var(--s3);
+  background: #fff;
+  border: 1px solid var(--ink);
+  font-size: 15px; color: var(--ink); font-weight: 700;
+}
+.step-note .branches { margin: 0; padding: 0; list-style: none; }
+.step-note .branches li {
+  padding: var(--s2) 0;
+  border-top: 1px solid var(--line-2);
+  font-size: 14px; line-height: 1.55; color: var(--ink-2);
+}
+.step-note .branches li:first-child { border-top: 0; padding-top: 0; }
+.step-note .b-k { font-weight: 700; color: var(--ink); }
+.step-note .branches code {
+  font-size: 11px;
+  background: none;
+  color: #7b7b7b;
+}
+
+/* ── розгортання макета: без JS, чекбокс + сусідній селектор ── */
+.flow-exp { position: absolute; width: 1px; height: 1px; margin: 0; opacity: 0; }
+.flow-exp-l {
+  display: inline-block;
+  margin: 0 0 var(--s2);
+  padding: 4px var(--s2);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px; letter-spacing: .04em; text-transform: none; color: var(--ink-2);
+  cursor: pointer;
+}
+.flow-exp-l::after { content: "↕ розгорнути макет"; }
+.flow-exp:checked ~ .flow-exp-l::after { content: "↕ згорнути макет"; }
+.flow-exp:focus-visible ~ .flow-exp-l { outline: 2px solid var(--act); outline-offset: 2px; }
+.flow-exp-l:hover { color: var(--ink); border-color: var(--ink); }
+
+/* згорнутий стан це дефолт .device: 812px і скрол усередині */
+.flow-exp:checked ~ .flow-dev .device { height: auto; }
+.flow-exp:checked ~ .flow-dev .screen { height: auto; overflow: visible; }
+
+.flow-dev .device { margin-bottom: var(--s2); }
+.flow-open { margin: 0 0 var(--s5); }
+.flow-open a {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px; color: var(--ink-2);
+}
+.flow-open a:hover { color: var(--ink); }
+
+/* .meta зверху макета вирівняна по колонці — прибираємо автоцентрування */
+.flow-screen .meta { margin-left: 0; margin-right: 0; }
+
+/* ── перехід між кроками ────────────────────────────────────── */
+.hop {
+  display: flex; align-items: center; gap: var(--s2);
+  max-width: 860px;
+  margin: 0 0 var(--s4);
+  padding: var(--s2) 0;
+  border-top: 1px dashed var(--line);
+}
+.hop-arrow { font-size: 18px; line-height: 1; color: var(--ink); }
+.hop-t {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px; letter-spacing: .04em; color: var(--ink-2);
+}
+
+/* ── підвал ─────────────────────────────────────────────────── */
+.flow-foot {
+  max-width: 860px;
+  margin-top: var(--s5);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--ink);
+}
+.flow-foot p { margin: 0 0 var(--s2); font-size: 14px; line-height: 1.6; color: var(--ink-2); }
+.flow-foot .attr { font-size: 12px; }
+.flow-foot .gen { margin: 0; }
+
+/* ── вузький екран: коментар під макетом, рейка згори ────────── */
+@media (max-width: 1180px) {
+  .step-body { display: block; }
+  .step-note { max-width: 860px; margin-top: var(--s3); }
+  .flow-open { margin-bottom: var(--s3); }
+}
+@media (max-width: 860px) {
+  .flow-shell { display: block; }
+  .flow-rail {
+    position: static; flex: none; max-height: none;
+    border-right: 0; border-bottom: 1px solid var(--line);
+  }
+  .flow-rail ol { display: flex; flex-wrap: wrap; gap: 0 var(--s3); margin-bottom: var(--s3); }
+  .flow-main { padding: var(--s3) var(--s3) var(--s5); }
+  .flow-mast h1 { font-size: 24px; }
+  .flow-screen { flex: none; }
+}

@@ -181,6 +181,13 @@ Four things worth knowing before touching this folder:
 3. **Structure is regenerated, not copied by hand.** `_generate.py` holds `TREE` (sections → screens → states) as the single source; `_refresh.py` rewrites the navigation tree and the state row across all pages; `_audit.py` checks structure, zones, semantics, colour, attribution, broken links and dead ends, and must print zero.
 4. **Two obligations are visible on every page**: the ©Kartverket attribution in the footer (CC BY 4.0, a legal requirement, not a credit) and the mock-data label **on the field it applies to** — the bed-availability line — never as chrome.
 
+**The main flow is also readable as one page.** [`wireframes/flow.html`](./wireframes/flow.html) lays the
+happy path of the main job out in order — catalogue → route card → generation → plan → day → night → gear →
+transport → lock-in → share — with the real mockups embedded, each one **extracted from its own file by
+`_flow.py`** rather than redrawn, so the page cannot drift from the set. Every step carries its decision from
+`flows.md` and the branches leaving it; a branch whose state is drawn is a link, one that isn't stays inert
+text. It is the fifth entry in the documents navigation.
+
 The audit trail is in `wireframes/_screens.md` (which states are real and why), `wireframes/_gaps.md` (what the framework was missing against five competitors) and `wireframes/_critique.md` (the final pass: four defects found and fixed, and why "deferred" only differs from "lost" if it is written down).
 
 **UI language of the wireframes is Ukrainian** — see the note under Scope for v1.

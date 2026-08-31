@@ -1,0 +1,1611 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nestwood — головний флоу</title>
+<link rel="stylesheet" href="./_wireframe.css" />
+<link rel="stylesheet" href="./_flow.css" />
+<link rel="stylesheet" href="../design-system/docs/globalnav.css" />
+</head>
+<body>
+
+<nav class="gnav" aria-label="Документи проєкту">
+  <a class="gnav-brand" href="../wireframes/plan.html">Nestwood<span>ДОКУМЕНТИ</span></a>
+  <p class="gnav-label">Проєкт</p>
+  <ul>
+    <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
+    <li><a class="gnav-item" href="../concept/personas.html"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html"><span class="n">04</span><span><b>Вайрфрейми</b><small>63 сторінки, дерево праворуч</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/flow.html" aria-current="page"><span class="n">05</span><span><b>Головний флоу</b><small>десять екранів підряд, MAIN JOB</small></span></a></li>
+  </ul>
+</nav>
+
+<div class="flow-shell">
+
+<nav class="flow-rail" data-review lang="uk" aria-label="Кроки головного флоу">
+  <h2>NESTWOOD · ГОЛОВНИЙ ФЛОУ</h2>
+  <ol>
+      <li><a href="#s1"><span class="rn">01</span>Куди можна піти</a></li>
+      <li><a href="#s2"><span class="rn">02</span>Картка маршруту ⭐</a></li>
+      <li><a href="#s3"><span class="rn">03</span>Генерація</a></li>
+      <li><a href="#s4"><span class="rn">04</span>План по днях ⭐</a></li>
+      <li><a href="#s5"><span class="rn">05</span>День</a></li>
+      <li><a href="#s6"><span class="rn">06</span>Ніч: гарантія й доступ</a></li>
+      <li><a href="#s7"><span class="rn">07</span>Спорядження</a></li>
+      <li><a href="#s8"><span class="rn">08</span>Дорога туди й назад</a></li>
+      <li><a href="#s9"><span class="rn">09</span>Що лишилось закріпити</a></li>
+      <li><a href="#s10"><span class="rn">10</span>Підсумок для передачі</a></li>
+  </ol>
+  <p class="rail-foot">Три тапи до плану, цінність на нульовому.<br>
+  Джерела: <a href="./flows.md">flows.md</a> · <a href="./sitemap.md">sitemap.md</a><br>
+  Поруч: <a href="./ia.html">архітектура</a> · <a href="./plan.html">увесь набір</a></p>
+</nav>
+
+<main class="flow-main">
+
+<header class="flow-mast">
+  <p class="eyebrow">Головний флоу · MAIN JOB</p>
+  <h1>Десять екранів підряд — рівно той шлях, на якому людина перестає бути інтеграційним шаром</h1>
+  <blockquote class="claim">«Коли я планую багатоденний похід у горах, я хочу бути впевненою, що маршрут,
+  ночівля, спорядження й погода <b>узгоджені між собою</b>, щоб не бути самою тим, хто зводить
+  чотири розрізнені джерела в одне ціле.»</blockquote>
+  <p class="dek">Тут стоять справжні макети з набору — не перемальовані, а витягнуті з тих самих
+  файлів, тому сторінка не розходиться з ними. Кожен крок підписаний позицією <code>джоб.крок</code>,
+  рішенням із <a href="./flows.md">flows.md</a> і гілками, які з цього рішення виходять. Гілка
+  веде на намальований стан; там, де стану ще немає, вона лишається текстом, а не битим посиланням.</p>
+  <p class="dek"><b>Чому саме ці десять.</b> Це happy path головного джоба: від каталогу до
+  закріплених ночівель. Дві поверхні з десяти нас відрізняють — <b>картка маршруту</b> (крок 02) і
+  <b>план</b> (крок 04); решта вісім є в тій чи іншій формі в кожного конкурента. Кроки 06, 08 і 09
+  показують три речі, яких не вміє жоден із пʼятьох: гарантію ліжка, досяжність старту й
+  ланцюжок броней.</p>
+  <ul class="mast-facts">
+    <li><b>10</b> екранів у хребті</li>
+    <li><b>3</b> тапи до плану</li>
+    <li><b>32</b> гілок і станів названо</li>
+    <li><b>0</b> битих виходів</li>
+  </ul>
+</header>
+
+<section class="step" id="s1" aria-labelledby="s1-h">
+  <div class="step-head">
+    <span class="step-n">01</span>
+    <h2 id="s1-h">Куди можна піти</h2>
+    <p class="step-src" data-review lang="uk">0.1 · <code>catalogue.html</code> · вкладка Карта · jobs 1 · 2 · MAIN</p>
+  </div>
+  <div class="step-body">
+    <div class="flow-screen">
+      <p class="meta" data-review lang="uk"><b>0.1</b> · Куди можна піти · <i>як у наборі</i></p>
+      <input class="flow-exp" type="checkbox" id="exp1" />
+      <label class="flow-exp-l" for="exp1"></label>
+      <div class="flow-dev">
+<div class="device" data-screen="Каталог" data-state="успіх">
+
+  <div class="screen">
+  <header class="topbar"><span class="title">Куди можна піти</span></header>
+  <main>
+    <h1>Куди можна піти</h1>
+
+    <section aria-labelledby="s1-brief">
+      <h2 id="s1-brief">Що шукаєте</h2>
+      <form action="./catalogue.html" method="get">
+        <label for="s1-q">Назва маршруту, регіону або точки старту</label>
+        <input type="search" id="s1-q" name="q" placeholder="Kungsleden · Jotunheimen · Abisko" />
+      </form>
+      <p>Пошук — для тих, хто вже знає назву. Хто не знає — фільтри нижче, і вони ж є брифом: те, що ви тут поставите, стане параметрами плану й вдруге ми цього не питатимемо.</p>
+      <ul class="chips">
+        <li><button class="chip on" type="button">Швеція</button></li>
+        <li><button class="chip" type="button">Норвегія</button></li>
+        <li><button class="chip on" type="button">серпень</button></li>
+        <li><button class="chip on" type="button">5–7 днів</button></li>
+        <li><button class="chip on" type="button">ночівля в хижах</button></li>
+        <li><button class="chip" type="button">намет дозволений</button></li>
+      </ul>
+      <p><b>Фільтр існує, тільки якщо він одночасно параметр плану.</b> Тому тут немає ні рейтингу, ні популярності, ні «топ-10»: вони не змінюють плану, лише порядок — і саме так каталог перетворюється на вітрину.</p>
+    </section>
+
+    <section aria-labelledby="s1-where">
+      <h2 id="s1-where">Де це</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран">
+          <span>карта Скандинавії · 6 маршрутів, що вкладаються у фільтри<br>трейлхеди, до яких є транспорт, позначені окремо</span>
+        </div>
+        <figcaption>На що мусить відповісти: де саме ці маршрути й наскільки далеко один від одного — щоб зрозуміти, чи вкладаються вони у вашу подорож.</figcaption>
+      </figure>
+      <p class="actions"><a href="./map.html">Відкрити карту на весь екран</a></p>
+    </section>
+
+    <section aria-labelledby="s1-list">
+      <h2 id="s1-list">Маршрути під цей бриф</h2>
+      <p>6 маршрутів · <b>порядок — за відповідністю брифу</b>, не за популярністю: спершу ті, де сходяться місяць, тривалість і режим ночівлі.</p>
+      <ul class="cards">
+        <li><a class="card" href="./route.html">
+          <b>Kungsleden · Abisko → Nikkaluokta</b><span class="state">6 днів</span>
+          <small>101 км · 1 940 м · 5 хиж STF щоночі · blå / medium, одна ділянка röd</small>
+          <small>Сходиться повністю: серпень у сезоні, дах щоночі, потяг до старту й автобус із фінішу</small></a></li>
+        <li><a class="card" href="./route.html">
+          <b>Kungsleden · коротка, Abisko → Kebnekaise</b><span class="state">5 днів</span>
+          <small>82 км · 1 460 м · 4 хижі STF · blå / medium</small>
+          <small>Той самий маршрут без останнього дня — якщо вихід із Kebnekaise вертольотом або пішки в Nikkaluokta</small></a></li>
+        <li><a class="card" href="./route.html">
+          <b>Padjelantaleden · Kvikkjokk → Ritsem</b><span class="state">7 днів</span>
+          <small>140 км · 900 м · хижі саамських громад і STF · градації немає в офіційних даних</small>
+          <small>Рівніший за Kungsleden, але довший; човни на початку й у кінці ходять за розкладом до 20 вересня</small></a></li>
+        <li><a class="card" href="./route.html">
+          <b>Sörmlandsleden · північна петля</b><span class="state warn">6 днів · намет</span>
+          <small>96 км · 620 м · хиж немає — вітрозахисти й місця під намет</small>
+          <small>Не проходить за фільтром «ночівля в хижах»: показуємо, бо решта брифу сходиться, і позначаємо чим саме відрізняється</small></a></li>
+      </ul>
+      <p class="actions"><button type="button">Показати ще 2</button></p>
+    </section>
+
+    <section aria-labelledby="s1-regions">
+      <h2 id="s1-regions">Якщо регіон ще не обрано</h2>
+      <p>Регіон — це фільтр, а не окремий екран: тап по картці ставить його в бриф і перескладає список вище.</p>
+      <ul class="rows">
+        <li><a class="row" href="./catalogue.html">
+          <span><b>Лапландія · Швеція</b><small>Kungsleden і все навколо. Мережа fjällstugor STF, потяг Malmbanan до самих трейлхедів</small></span>
+          <span class="state">6 маршрутів</span></a></li>
+        <li><a class="row" href="./catalogue.html">
+          <span><b>Jotunheimen · Норвегія</b><small>Хижі DNT, найвищі вершини Скандинавії. Замкнені хижі — потрібен DNT-ключ, а він лише для членів</small></span>
+          <span class="state">5 маршрутів</span></a></li>
+        <li><a class="row" href="./catalogue.html">
+          <span><b>Hardangervidda · Норвегія</b><small>Найбільше плато Європи. Довгі відкриті переходи, мало укриттів між хижами</small></span>
+          <span class="state">4 маршрути</span></a></li>
+      </ul>
+      <p>Сезон у кожного свій: у Лапландії — кінець червня — середина вересня, поза ним хижі зачинені. Тому місяць і стоїть у брифі, а не питається пізніше.</p>
+    </section>
+
+    <section aria-labelledby="s1-none">
+      <h2 id="s1-none">Не бачите свого</h2>
+      <p>Якщо жоден маршрут не вкладається у ваші дати чи тривалість — зберемо під запит із ділянок офіційної мережі. Зібраний маршрут повертається такою самою карткою, як усі вище, і <b>ніколи не виходить за марковану мережу</b>.</p>
+      <p class="actions"><a class="cta" href="./assemble.html">Зібрати маршрут під бриф</a></p>
+    </section>
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Стежки: Turrutebasen (Kartverket) і Lantmäteriet. Сезонні дати хиж — із публічної схеми обʼєктів DNT і STF.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+      </div>
+      <p class="flow-open"><a href="./catalogue.html">відкрити сторінку макета →</a></p>
+    </div>
+    <div class="step-note">
+      <p class="lead">Вхід у продукт — і візарда немає. Цінність видно на нульовому тапі: перший екран це вже вміст, а не форма.</p>
+      <p>Порядок — за <b>сезонною доречністю</b>, не за близькістю: багатоденка ніколи не «поруч», а близькість це логіка одноденних прогулянок AllTrails.</p><p><b>Фільтри тут і є бриф</b> — регіон, місяць, кількість днів, режим ночівлі. Людина ставить їх, щоб роздивитись; ми читаємо їх як завдання і вдруге не питаємо. Звідси жорсткий критерій: <b>фільтр існує, тільки якщо він одночасно параметр плану</b> — рейтинг і популярність відпадають за побудовою, а не за обіцянкою.</p>
+      <h3>Рішення</h3>
+      <p class="q">Фільтри дали маршрути?</p>
+      <ul class="branches">
+      <li><span class="b-k"><b>так</b></span> — далі — картка маршруту, крок 2</li>
+      <li><span class="b-k"><a href="./catalogue-empty.html">ні</a></span> <code>catalogue-empty.html</code> — не збій, а нормальний результат: інший місяць · сусідній регіон · коротша дистанція · зібрати маршрут</li>
+      <li><span class="b-k"><a href="./assemble.html">зібрати</a></span> <code>assemble.html</code> — генеративний вхід — маршрут, якого ніхто не називав. Ніколи не сходить із маркованої мережі, шукає по <b>графу хиж</b>; де ланцюжок ночей не складається, каже, <b>де саме</b> розрив</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">тап по маршруту в списку або на карті</span></p>
+<section class="step" id="s2" aria-labelledby="s2-h">
+  <div class="step-head">
+    <span class="step-n">02</span>
+    <h2 id="s2-h">Картка маршруту ⭐</h2>
+    <p class="step-src" data-review lang="uk">0.2 · <code>route.html</code> · вкладка Карта · jobs 1 · 2 · 6 · 8 · 11 · MAIN</p>
+  </div>
+  <div class="step-body">
+    <div class="flow-screen">
+      <p class="meta" data-review lang="uk"><b>0.2</b> · Картка маршруту · <i>як у наборі</i></p>
+      <input class="flow-exp" type="checkbox" id="exp2" />
+      <label class="flow-exp-l" for="exp2"></label>
+      <div class="flow-dev">
+<div class="device" data-screen="Картка маршруту" data-state="успіх">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./catalogue.html">‹ Куди можна піти</a><span class="title">Картка маршруту</span></header>
+  <main>
+    <h1>Kungsleden · Abisko → Nikkaluokta</h1>
+
+    <section aria-labelledby="s2-fit">
+      <h2 id="s2-fit">Чи це те, що ти шукаєш</h2>
+      <div class="verdict">
+        <strong>Шість днів, дах щоночі, вода вздовж усього маршруту.</strong>
+        <p>101 км уздовж шести хиж, один перевал і два броди. Під запит із фільтрів — Швеція, серпень, 5–7 днів, ночівля в хижах — сходиться повністю.</p>
+      </div>
+      <p>Офіційні дані зчитано 13 серпня, 09:12. Плану ще немає: це сам маршрут, без ваших дат і складу.</p>
+      <div class="note">
+        <b>Одна ніч тут не бронюється взагалі:</b> у Tjäktja ліжка тільки для тих, хто прийшов на місце.
+        <a href="./nights.html">Усі шість ночівель поруч</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="s2-assume">
+      <h2 id="s2-assume">На чому це стоїть</h2>
+      <ul class="chips">
+        <li><button class="chip on" type="button">Швеція · серпень</button></li>
+        <li><button class="chip on" type="button">5–7 днів</button></li>
+        <li><button class="chip on" type="button">ночівля в хижах</button></li>
+        <li><button class="chip" type="button">темп середній</button></li>
+      </ul>
+      <p>Перші три ми знаємо з фільтрів, темп — із профілю; питати вдруге не будемо. Чого ще не знаємо — <b>скільки вас і чи є членство</b>: питаємо це внизу, бо від них залежить гарантія ліжка й ціна. Точні дати спитаємо тоді, коли від них залежатимуть дедлайни броні.</p>
+    </section>
+
+    <section aria-labelledby="s2-overview">
+      <h2 id="s2-overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран">
+          <span>карта · Kungsleden, Abisko → Nikkaluokta<br>101 км · 6 хиж · 2 точки сходу<br>перевал Tjäktjapasset і два броди позначені</span>
+        </div>
+        <figcaption>Карта тут <b>орієнтир</b>: як стежка йде відносно хиж і де вона виходить на перевал. Точний хід ділянки — на повному екрані.</figcaption>
+      </figure>
+      <figure>
+        <div class="frame frame--profile" data-fit="на ширину колонки">
+          <span>профіль висоти · 1 940 м набору · найвища точка 1 150 м</span>
+        </div>
+        <figcaption>На що мусить відповісти: набір розкиданий рівно чи зібраний в один перевал.</figcaption>
+      </figure>
+      <ul class="stats">
+        <li><b>101 км</b><small>довжина</small></li>
+        <li><b>1 940 м</b><small>набір</small></li>
+        <li><b>6</b><small>ходових днів</small></li>
+        <li><b>~7 год</b><small>найдовший перехід</small></li>
+      </ul>
+      <div class="strip">
+        <div class="frame frame--photo" data-fit="4:3"><span>перевал Tjäktjapasset<br>спільнота · CC BY-SA · серп. 2025</span></div>
+        <div class="frame frame--photo" data-fit="4:3"><span>Alesjaure fjällstuga<br>STF · за угодою · 2024</span></div>
+        <div class="frame frame--photo" data-fit="4:3"><span>брід перед Sälka<br>свідчення стану · лип. 2026</span></div>
+      </div>
+      <p>Кожен знімок несе джерело, ліцензію й дату. Знімок стану без дати не показуємо взагалі.</p>
+      <p class="actions"><a href="./map.html">Відкрити карту на весь екран</a></p>
+    </section>
+
+    <section aria-labelledby="s2-hard">
+      <h2 id="s2-hard">Наскільки це важко</h2>
+
+      <h3>Навантаження</h3>
+      <p><b>Найдовший перехід між сусідніми хижами — 22 км, Abiskojaure → Alesjaure, ≈ 7 год ходу.</b> Найважчий — Tjäktja → Sälka: 12 км, але через перевал 1 150 м.</p>
+      <p>Пораховано за правилом Naismith із поправкою Langmuir на спуск. Поправка Tranter додає вагу рюкзака — вона зʼявиться, коли складемо план. <a href="./gear.html">Що входить у вагу</a></p>
+
+      <h3>Офіційна градація по ділянках</h3>
+      <ul class="signals">
+        <li><b>Abisko → Abiskojaure</b> blå / medium</li>
+        <li><b>Abiskojaure → Alesjaure</b> blå / medium</li>
+        <li><b>Alesjaure → Tjäktja</b> <b>не градуйовано</b></li>
+        <li><b>Tjäktja → Sälka</b> röd / krevende — Tjäktjapasset</li>
+        <li><b>Sälka → Singi</b> <b>не градуйовано</b></li>
+        <li><b>Singi → Kebnekaise</b> <b>не градуйовано</b></li>
+        <li><b>Kebnekaise → Nikkaluokta</b> blå / medium</li>
+      </ul>
+      <p><b>Градація є на 3 ділянках із 7.</b> Решта не градуйована в офіційних даних — це не пропуск у нас, а стан джерела: у Jotunheimen заповнена 1 фотрута зі 92. Там, де градації немає, дивіться на цифри вище й на умови нижче.</p>
+      <details>
+        <summary>Що означає blå / medium</summary>
+        <p>Merkehåndboka, Норвегія й Швеція: стежка може бути камʼянистою, місцями без маркування, з окремими крутими ділянками. Потрібен досвід і взуття для нерівного ґрунту. Ми показуємо цю градацію як є й <b>ніколи не перераховуємо</b> у власну шкалу.</p>
+      </details>
+
+      <h3>Умови на ділянках</h3>
+      <ul class="signals">
+        <li><b>Вода</b> уздовж усього маршруту, найдовший сухий відрізок 6 км перед перевалом</li>
+        <li><b>Броди</b> два: Abiskojåkka (місток) і струмок перед Sälka — влітку по коліно, після дощів вище</li>
+        <li><b>Сніжники</b> на Tjäktjapasset тримаються до середини липня</li>
+        <li><b>Поверхня</b> 70 км мостків і стежки, 20 км каміння, 11 км болотистого ґрунту</li>
+        <li><b>Звʼязок</b> невідомо — оператори не публікують покриття як шар. Перевірте у свого</li>
+      </ul>
+      <p>Сезон: кінець червня — середина вересня. Поза ним хижі зачинені, а човен через Láddjujávri не ходить.</p>
+    </section>
+
+    <section aria-labelledby="s2-huts">
+      <h2 id="s2-huts">Ночівлі й гарантія ліжка</h2>
+      <ul class="signals">
+        <li><b>Abiskojaure</b> STF fjällstuga · самообслуговування · 46 ліжок · частина ліжок бронюється, частину тримають для тих, хто прийшов без броні</li>
+        <li><b>Alesjaure</b> fjällstuga · 88 ліжок · сауна · бронюється</li>
+        <li><b>Tjäktja</b> fjällstuga · 24 ліжка · <b>не бронюється взагалі</b> — тільки прихід на місце</li>
+        <li><b>Sälka</b> fjällstuga · 24 ліжка · бронюється</li>
+        <li><b>Singi</b> fjällstuga · 16 ліжок · бронюється</li>
+        <li><b>Kebnekaise</b> fjällstation · обслуговується · бронюється, є ресторан</li>
+      </ul>
+      <small data-mock>Кількість ліжок і правила броні — зі статичної схеми обʼєктів. Скільки ліжок вільно на конкретну дату, ми не показуємо: живої наявності немає без угоди зі STF, а вгадувати ми її не будемо.</small>
+      <p><b>Це передпогляд, а не відповідь.</b> Гарантія на кожну ніч — функція чотирьох змінних: <b>тип обʼєкта × бронь × час приходу × членство</b>. Три з них уже видно, четверту ми ще не знаємо. Без даху не лишають нікого: за потреби це матрац на підлозі, а прихід після 18:00 знімає саме бронь, а не місце. <a href="./lodging-system.html">Правила цієї системи ночівлі</a></p>
+    </section>
+
+    <section aria-labelledby="s2-facets">
+      <h2 id="s2-facets">Все про цей маршрут</h2>
+      <ul class="rows">
+        <li><a class="row" href="./huts.html">
+          <span><b>Хижі вздовж маршруту</b><small>8 обʼєктів · тип, ключ, ліжка, сезон · дві поза стежкою</small></span>
+          <span class="state warn">1 не бронюється</span></a></li>
+        <li><a class="row" href="./transport.html">
+          <span><b>Як дістатись і повернутись</b><small>Abisko Turiststation ← потяг · Nikkaluokta → автобус 91</small></span>
+          <span class="state">дорога є з обох боків</span></a>
+          <details>
+            <summary>Чому це стоїть на картці, а не в плані</summary>
+            <p>Бувають маршрути, куди <b>можна дійти, але не можна доїхати</b>: до Katterat веде колія й немає жодного дорожнього сегмента, тому при скасуванні потяга замінного автобуса фізично не буде. Таке треба знати <b>до</b> того, як складати план, а не після.</p>
+          </details></li>
+        <li><a class="row" href="./field-notes.html">
+          <span><b>Нотатки з місця</b><small>стан стежки, броди, маркування — від тих, хто щойно пройшов</small></span>
+          <span class="state">7 · остання 12 серп</span></a></li>
+        <li><a class="row" href="./reviews.html">
+          <span><b>Відгуки</b><small>думка про маршрут — окремо від нотаток про стан</small></span>
+          <span class="state">4,3 · 128</span></a></li>
+        <li><a class="row" href="./map.html">
+          <span><b>Карта на весь екран</b><small>ділянки, хижі, точки сходу</small></span>
+          <span class="state">101 км</span></a></li>
+      </ul>
+      <p><b>Стан фасета видно звідси</b> — не заходячи всередину. Порядок у списку маршрутів і в цих рядках — за відповідністю запиту, а не за популярністю: оцінка нічого тут не сортує.</p>
+    </section>
+
+    <section aria-labelledby="s2-go">
+      <h2 id="s2-go">Скласти мій план</h2>
+      <p><b>Для тебе цей маршрут виглядатиме інакше.</b> Гарантія ночівлі, вартість і темп залежать від того, скільки вас і чи є членство — цього ми ще не знаємо. Ціну покажемо в плані, коли знатимемо членство: без нього ті самі ночі коштують помітно більше.</p>
+      <form class="inline" id="s2-mkplan" action="./plan.html" method="get">
+        <fieldset>
+          <legend>Що бракує, щоб скласти план</legend>
+          <label for="s2-grp">Скільки вас</label>
+          <input type="text" id="s2-grp" name="grp" value="2" />
+          <label for="s2-mem">Скільки з вас члени STF або DNT</label>
+          <input type="text" id="s2-mem" name="mem" value="1" />
+        </fieldset>
+      </form>
+      <p class="actions"><button type="button">Зберегти на потім</button> <a href="./catalogue.html">Інший маршрут</a></p>
+    </section>
+
+    <p class="bar"><button class="primary" type="submit" form="mkplan">Скласти мій план — двоє, 1 член STF</button></p>
+
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Геометрія й профіль: Lantmäteriet (CC0). Градація й умови: Turrutebasen (Kartverket, CC BY 4.0). Фото й відгуки: спільнота, рівень джерела позначений на кожному елементі.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+      </div>
+      <p class="flow-open"><a href="./route.html">відкрити сторінку макета →</a></p>
+    </div>
+    <div class="step-note">
+      <p class="lead">Центральний екран продукту. Рішення «чи це для мене» приймається тут — <b>до</b> того, як план існує, — тому тут стоїть усе, від чого це рішення залежить.</p>
+      <p><b>Превʼю формули гарантії — не прикраса.</b> Доки плану немає, це єдине місце, де job 2 видно взагалі.</p><p>Складність показана трьома різними обʼєктами: офіційна градація (своєї ми не рахуємо ніколи), <b>вимірювання</b> там, де градації немає — а це більшість випадків, у Jotunheimen 1 із 92, — і <b>навантаження в годинах</b> за названим опублікованим методом: Naismith із поправкою Langmuir на спуск і Tranter на форму й вагу рюкзака.</p><p>⚠️ Навантаження ніколи не фарбується в зелений, синій, червоний чи чорний: усередині нашого інтерфейсу ці чотири означають офіційну градацію, і цифра в них читалася б як складність рельєфу.</p>
+      <h3>Рішення</h3>
+      <p class="q">Склад групи й членство відомі?</p>
+      <ul class="branches">
+      <li><span class="b-k"><b>так, з акаунта</b></span> — одразу генерація</li>
+      <li><span class="b-k"><b>ні, холодний старт</b></span> — <b>рядок на самій картці, два поля, не екран.</b> Питаємо саме їх, бо вони змінюють <b>відповідь</b>, а не сортування: бронь це N ліжок, спорядження частково спільне, членство — змінна №4 формули гарантії</li>
+      <li><span class="b-k"><a href="./route-loading.html">стани картки</a></span> <code>route-loading.html</code> — завантаження · <a href="./route-error.html">помилка</a> · <a href="./route-empty.html">порожній</a></li>
+      <li><span class="b-k"><b>немає мережі</b></span> — генерація серверна, тому плану не буде <b>взагалі</b>: кнопка блокується, бриф зберігається, генерація стартує сама з появою мережі. Це <b>чесний кінець</b>, а не тупик — і єдина точка продукту, де офлайн не має продуктового результату. <i>Стан на картці ще не намальований — відкладено, не загублено.</i></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">«Скласти мій план» · серверний виклик <code>claude-opus-5</code>, структурований вивід у схему плану</span></p>
+<section class="step" id="s3" aria-labelledby="s3-h">
+  <div class="step-head">
+    <span class="step-n">03</span>
+    <h2 id="s3-h">Генерація</h2>
+    <p class="step-src" data-review lang="uk">0.3 · <code>plan-loading.html</code> · вкладка Плани · jobs MAIN · 5</p>
+  </div>
+  <div class="step-body">
+    <div class="flow-screen">
+      <p class="meta" data-review lang="uk"><b>0.3</b> · Генерація · <i>як у наборі</i></p>
+      <input class="flow-exp" type="checkbox" id="exp3" />
+      <label class="flow-exp-l" for="exp3"></label>
+      <div class="flow-dev">
+<div class="device" data-screen="План по днях" data-state="завантаження">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./plans.html">‹ Мої походи</a><span class="title">План по днях</span></header>
+
+  <main>
+    <h1>План по днях</h1>
+
+    <section aria-labelledby="s3-verdict" aria-busy="true">
+      <h2 id="s3-verdict">Чи план тримається купи</h2>
+      <div class="verdict">
+        <strong>Складаю план — 2 дні з 6.</strong>
+        <p>Це живий запит, а не заглушка: кожен крок нижче — звернення до названого джерела.</p>
+      </div>
+      <ul class="signals">
+        <li><b>Готово</b> Стежки й рельєф — Lantmäteriet, Turrutebasen</li>
+        <li><b>Готово</b> Хижі вздовж маршруту — тип, ключ, ліжка, сезон</li>
+        <li><b>Зараз</b> Розкладаю переходи під вашу форму: 24 км найдовший день торік, двоє</li>
+        <li><b>Далі</b> Погода по днях — met.no</li>
+        <li><b>Далі</b> Транспорт до старту й від фінішу — Trafikverket</li>
+      </ul>
+      <p class="actions"><button type="button">Скасувати</button></p>
+    </section>
+
+        <section aria-labelledby="s3-assume">
+      <h2 id="s3-assume">На чому це стоїть</h2>
+      <ul class="chips">
+        <li><button class="chip on" type="button">двоє, 1 член STF</button></li>
+        <li><button class="chip" type="button">темп середній</button></li>
+        <li><button class="chip" type="button">прихід до 18:00</button></li>
+        <li><button class="chip" type="button">рюкзак 11,4 кг</button></li>
+      </ul>
+      <p>Зміна будь-чого тут <b>перераховує план</b>, а не лише підпис.</p>
+    </section>
+
+    <section aria-labelledby="s3-parts">
+      <h2 id="s3-parts">Все про цей похід</h2>
+      <ul class="cards">
+        <li><span class="row">
+          <span><b>Ночівлі</b><small>чекає на маршрут</small></span>
+          <span class="state">—</span></span></li>
+        <li><span class="row">
+          <span><b>Дорога туди й назад</b><small>чекає</small></span>
+          <span class="state">—</span></span></li>
+        <li><span class="row">
+          <span><b>Спорядження</b><small>чекає на погоду</small></span>
+          <span class="state">—</span></span></li>
+      </ul>
+      <p>Кожен крок — звернення до <b>названого джерела</b>. Оркестрація, яку ми продаємо, видима саме тоді, коли працює.</p>
+    </section>
+    <section aria-labelledby="s3-days">
+      <h2 id="s3-days">Дні</h2>
+
+      <ol class="days">
+        <li>
+          <article aria-labelledby="s3-d1">
+            <h3 id="s3-d1">День 1 · пн 17 серпня</h3>
+            <p>Abisko Turiststation → Abiskojaure</p>
+            <ul class="signals">
+              <li><b>Маршрут</b> 14 км · +150 м · близько 4 год 30</li>
+              <li><b>Ночівля</b> Abiskojaure fjällstuga (STF) · ліжко заброньоване</li>
+              <li><b>Спорядження</b> базовий список</li>
+              <li><b>Погода</b> чекає на met.no</li>
+            </ul>
+          </article>
+        </li>
+        <li>
+          <article aria-labelledby="s3-d2">
+            <h3 id="s3-d2">День 2 · вт 18 серпня</h3>
+            <p>Abiskojaure → Alesjaure</p>
+            <ul class="signals">
+              <li><b>Маршрут</b> 22 км · +330 м · близько 7 год</li>
+              <li><b>Ночівля</b> Alesjaure fjällstuga (STF) · ліжко заброньоване</li>
+              <li><b>Спорядження</b> базовий список</li>
+              <li><b>Погода</b> чекає на met.no</li>
+            </ul>
+          </article>
+        </li>
+      </ol>
+
+      <figure>
+        <div class="frame frame--profile" data-fit="на ширину колонки">
+          <span>дні 3–6 · зʼявляються по одному</span>
+        </div>
+        <figcaption>Дні добудовуються зверху вниз, у міру того як приходять відповіді. Це не анімація заради ефекту — це видимий порядок роботи.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="s3-overview">
+      <h2 id="s3-overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину">
+          <span>карта зʼявиться, коли відповість Lantmäteriet</span>
+        </div>
+      </figure>
+    </section>
+            <section aria-labelledby="s3-cost">
+      <h2 id="s3-cost">Скільки це коштує</h2>
+      <p>Вартість зʼявиться, коли будуть ночівлі й квитки: вона складається з них, а не рахується окремо.</p>
+    </section>
+
+    <section aria-labelledby="s3-adjust">
+      <h2 id="s3-adjust">Змінити щось</h2>
+      <p>Правити можна буде, щойно план складеться. Зараз єдина дія — скасувати генерацію, і бриф при цьому не загубиться.</p>
+      <p class="actions"><a href="./plan.html">Показати попередній план</a> <a href="./plan-error.html">Якщо джерело не відповість</a></p>
+    </section>
+
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket.</p>
+      <p>Джерела опитуються просто зараз; кожне назване у списку етапів.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+      </div>
+      <p class="flow-open"><a href="./plan-loading.html">відкрити сторінку макета →</a></p>
+    </div>
+    <div class="step-note">
+      <p class="lead">Єдиний екран флоу, який існує заради чесності: генерація триває секунди, і за цей час названо, що саме зараз підтягується.</p>
+      <p>Етапи названі <b>джерелами</b>, а не крутилкою: стежки Turrutebasen → ночівлі → ключі й сезон → погода met.no. Це той самий перелік, за яким потім будується поле «чого в плані свідомо немає».</p><p>Відмова рендериться <b>на</b> <code>plan</code> — там, де показувався б результат, — а не викидає людину у форму після трьох тапів.</p>
+      <h3>Рішення</h3>
+      <p class="q">Усі джерела відповіли, і навантаження вкладається в задані дні?</p>
+      <ul class="branches">
+      <li><span class="b-k"><a href="./plan-error.html">критичне джерело</a></span> <code>plan-error.html</code> — <b>тупик</b> — без Kartverket/Lantmäteriet плану немає, і здогад замість даних не підставляється. Виходи: повторити або «Параметри походу»</li>
+      <li><span class="b-k"><a href="./plan-degraded.html">некритичне джерело</a></span> <code>plan-degraded.html</code> — жива наявність ліжок — план є, просто чесно неповний, із полем «чого в ньому немає»</li>
+      <li><span class="b-k"><a href="./plan-conflict.html">навантаження не вкладається</a></span> <code>plan-conflict.html</code> — «40 годин ходу на дві доби» мусить стати конфліктом <b>до</b> того, як план згенерується як норма. Це єдина розвилка, що працює й там, де офіційної градації немає, — тобто в більшості випадків</li>
+      <li><span class="b-k"><a href="./plan-empty.html">ночівля не знайдена, дати жорсткі</a></span> <code>plan-empty.html</code> — не тупик: 2–3 виходи з наслідком у рядку — «на день коротше — 64 км» · «інший фініш» · «зрушити дати»</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">усі джерела відповіли, навантаження вкладається</span></p>
+<section class="step" id="s4" aria-labelledby="s4-h">
+  <div class="step-head">
+    <span class="step-n">04</span>
+    <h2 id="s4-h">План по днях ⭐</h2>
+    <p class="step-src" data-review lang="uk">0.3 · <code>plan.html</code> · вкладка Плани · jobs 1 · 3 · 4 · 5 · 9 · MAIN</p>
+  </div>
+  <div class="step-body">
+    <div class="flow-screen">
+      <p class="meta" data-review lang="uk"><b>0.3</b> · План по днях · <i>як у наборі</i></p>
+      <input class="flow-exp" type="checkbox" id="exp4" />
+      <label class="flow-exp-l" for="exp4"></label>
+      <div class="flow-dev">
+<div class="device" data-screen="План по днях" data-state="успіх">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./plans.html">‹ Мої походи</a><span class="title">План по днях</span></header>
+
+  <main>
+    <h1>Kungsleden · 17–22 серпня</h1>
+
+    <section aria-labelledby="s4-verdict">
+      <h2 id="s4-verdict">Чи план тримається купи</h2>
+      <div class="verdict">
+        <strong>Маршрут, ночівлі, спорядження й погода узгоджені всі 6 днів.</strong>
+        <p>Кожен перехід відповідає вашому темпу, а прогноз дістає до останнього дня походу.</p>
+      </div>
+      <p>Перевірено 13 серпня, 09:12 · вихід через 4 дні.</p>
+      <div class="note">
+        <b>Потребує уваги:</b> прогноз на перевал четвертого дня погіршився з учора, і дві ночі ще без броні.
+        <a href="./changes.html">Що змінилось</a> · <a href="./lock-in.html">Закріпити</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="s4-assume">
+      <h2 id="s4-assume">На чому це стоїть</h2>
+      <ul class="chips">
+        <li><button class="chip on" type="button">двоє, 1 член STF</button></li>
+        <li><button class="chip" type="button">темп середній</button></li>
+        <li><button class="chip" type="button">прихід до 18:00</button></li>
+        <li><button class="chip" type="button">рюкзак 11,4 кг</button></li>
+      </ul>
+      <p>Зміна будь-чого тут <b>перераховує план</b>, а не лише підпис: зняти членство — і дві ночі з пʼяти стануть «потрібне членство», бо ключ це умова доступу, а не тариф.</p>
+    </section>
+
+    <section aria-labelledby="s4-parts">
+      <h2 id="s4-parts">Все про цей похід</h2>
+      <ul class="cards">
+        <li><a class="card" href="./nights.html">
+          <b>Ночівлі</b><span class="state warn">2 без броні</span>
+          <small>Abiskojaure ✓ · Alesjaure ✓ · Tjäktja — не бронюється · Sälka ✗ · Kebnekaise ✓</small>
+          <small data-mock>Статус броні ілюстративний: жива наявність ліжок потребує угоди зі STF.</small></a></li>
+        <li><a class="card" href="./transport.html">
+          <b>Дорога туди й назад</b><span class="state">за розкладом</span>
+          <small>нд 16 серп · нічний потяг 94, Stockholm C 18:11 → Abisko 09:52<br>сб 22 серп · автобус 91 Nikkaluokta → Kiruna, 1 год 15</small></a></li>
+        <li><a class="card" href="./gear.html">
+          <b>Спорядження</b><span class="state warn">3 купити</span>
+          <small>23 позиції · 11,4 кг · бракує дощовика на другу людину, газу й ремнабору</small></a></li>
+        <li><a class="card" href="./changes.html">
+          <b>Що змінилось</b><span class="state warn">1 зміна</span>
+          <small>прогноз на Tjäktjapasset погіршився з учора · рішення потрібне до 15 серпня, поки бронь Sälka ще можна перенести</small></a></li>
+        <li><a class="card" href="./lock-in.html">
+          <b>Що лишилось закріпити</b><span class="state warn">4 кроки</span>
+          <small>наступний крок — Alesjaure, дедлайн 15 серпня · далі Sälka, квитки, депозит за ключ</small></a></li>
+        <li><a class="card" href="./offline-pack.html">
+          <b>Офлайн-пакет</b><span class="state">не завантажено</span>
+          <small>карта, план, розклад, перша допомога · 84,8 МБ</small></a></li>
+        <li><a class="card" href="./share.html">
+          <b>Поділитися</b><span class="state">не надіслано</span>
+          <small>маршрут і очікуваний час повернення — рідним; це те, що рекомендує сам DNT</small></a></li>
+      </ul>
+      <p><b>Стан кожної частини видно звідси</b> — не заходячи всередину. Інакше довелось би обійти всі сім, щоб дізнатись, чи все гаразд, а це рівно та робота, яку продукт обіцяє зняти.</p>
+    </section>
+
+    <section aria-labelledby="s4-days">
+      <h2 id="s4-days">Дні</h2>
+      <ul class="rows">
+        <li><a class="row" href="./transport.html">
+          <span><b>Дорога туди · нд 16 серп</b><small>нічний потяг 94 · Stockholm C 18:11 → Abisko 09:52</small></span>
+          <span class="state">за розкладом</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>1 · Abisko → Abiskojaure</b><small>14 км · +150 м · ~4 год 30</small></span>
+          <span class="state">усе сходиться</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>2 · Abiskojaure → Alesjaure</b><small>22 км · +330 м · ~7 год — найдовший</small></span>
+          <span class="state">усе сходиться</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>3 · Alesjaure → Tjäktja</b><small>13 км · +380 м · ~4 год</small></span>
+          <span class="state warn">ніч без броні</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>4 · Tjäktja → Sälka</b><small>12 км · +230 м · перевал 1 150 м</small></span>
+          <span class="state warn">погода змінилась</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>5 · Sälka → Singi → Kebnekaise</b><small>26 км · +290 м · ~8 год</small></span>
+          <span class="state">усе сходиться</span></a></li>
+        <li><a class="row" href="./day.html">
+          <span><b>6 · Kebnekaise → Nikkaluokta</b><small>19 км · −520 м · ~5 год</small></span>
+          <span class="state">усе сходиться</span></a></li>
+        <li><a class="row" href="./transport.html">
+          <span><b>Дорога назад · сб 22 серп</b><small>автобус 91 → Kiruna · 1 год 15</small></span>
+          <span class="state">за розкладом</span></a></li>
+      </ul>
+      <p>Стан у рядку — це чотири сигнали дня, згорнуті в слово: маршрут, ночівля, спорядження, погода. Розгортаються всередині дня.</p>
+    </section>
+
+    <section aria-labelledby="s4-overview">
+      <h2 id="s4-overview">Маршрут</h2>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину · тап по точці → день">
+          <span>карта · Abisko → Nikkaluokta<br>точки 1…6 по днях, 5 хиж, 2 точки сходу<br>вибір синхронізований зі списком днів вище</span>
+        </div>
+        <figcaption>Карта тут <b>орієнтир, а не покажчик</b>: тапати «день 3» серед шести точок на 375 px — це промахи, тому головний індекс — список днів.</figcaption>
+      </figure>
+      <ul class="stats">
+        <li><b>101 км</b><small>довжина</small></li>
+        <li><b>1 940 м</b><small>набір</small></li>
+        <li><b>6</b><small>ходових днів</small></li>
+        <li><b>~7 год</b><small>найдовший день</small></li>
+      </ul>
+      <p class="actions"><a href="./map.html">Відкрити карту</a> <a href="./route.html">Змінити маршрут</a></p>
+    </section>
+
+    <section aria-labelledby="s4-cost">
+      <h2 id="s4-cost">Скільки це коштує</h2>
+      <ul class="stats">
+        <li><b>2 500 SEK</b><small>ночівлі</small></li>
+        <li><b>1 380 SEK</b><small>дорога</small></li>
+        <li><b>3 880 SEK</b><small>разом на людину</small></li>
+      </ul>
+      <p>Членство вже оплачене — 395 SEK на рік. Без нього ті самі ночі коштували б на 1 100 SEK більше. Не входить: їжа й 100 SEK депозит за ключ.</p>
+      <p>Ціни з опублікованих тарифів STF і SJ, зчитано 13 серпня.</p>
+    </section>
+
+    <section aria-labelledby="s4-adjust">
+      <h2 id="s4-adjust">Змінити щось</h2>
+      <p>Правки рівня дня — усередині дня. Дати, склад і маршрут — у «На чому це стоїть» вище. Складне формулювання — тут.</p>
+      <form action="./plan-loading.html" method="get">
+        <label for="s4-ask">Попросити зміну</label>
+        <textarea id="s4-ask" name="ask" rows="2" placeholder="зроби день 2 коротшим — 22 км це забагато на другий день"></textarea>
+        <p class="actions"><button type="submit">Перескласти план</button></p>
+      </form>
+      <p>Так можна змінити дні, темп і те, у якій хижі ви ночуєте. Не можна: офіційну градацію складності, і провести бронювання за вас.</p>
+    </section>
+
+    <p class="bar"><a class="cta" href="./lock-in.html">Закріпити — лишилось 4 кроки</a></p>
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast, зчитано 13 серпня 09:12. Транспорт: Trafikverket, зчитано 13 серпня 09:12.</p>
+      <p>Дані про хижі — тип, ключ, ліжка, сезон — із публічної схеми обʼєктів. Живої наявності ліжок у цьому плані немає: вона потребує угоди про дані зі STF, а вгадувати ми її не будемо.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+      </div>
+      <p class="flow-open"><a href="./plan.html">відкрити сторінку макета →</a></p>
+    </div>
+    <div class="step-note">
+      <p class="lead">Дім продукту й друга з двох поверхонь, які нас відрізняють. Головний job — не «побудувати маршрут», а <b>«не бути самою тим, хто зводить чотири розрізнені джерела в одне ціле»</b>, тому маршрут, ночівля, спорядження й погода видно тут <b>разом</b>.</p>
+      <p><b>Узгодженість стверджує продукт, а не питає людину.</b> Вердикт стоїть зверху, під ним чотири сигнали в рядку кожного дня. Питати «чи все сходиться» після обходу чотирьох екранів означало б робити людину інтеграційним шаром рівно там, де ми обіцяємо це зняти.</p><p>Зона <b>«на чому це стоїть»</b> — «для 2 осіб · 1 член DNT · темп середній — змінити» — тримає job 9 замість питань на вході. Прибрати її не можна: без неї прогресивне профілювання ламається, бо ніде не сказано, на яких припущеннях план порахований.</p>
+      <h3>Рішення</h3>
+      <p class="q">Дати в межах горизонту прогнозу met.no (~10 днів)?</p>
+      <ul class="branches">
+      <li><span class="b-k"><a href="./day-seasonal.html">ні</a></span> <code>day-seasonal.html</code> — сезонна норма, <b>явно позначена як норма й виключена з вердикту</b>. Продукт сам повернеться з прогнозом за ~10 днів до виходу — так дірка стає механізмом випередження, а не пропуском</li>
+      <li><span class="b-k"><a href="./plan-conflict.html">є конфлікт</a></span> <code>plan-conflict.html</code> — названо, <b>який день і які саме елементи</b>; три входи правки — контекстна дія в місці наслідку, параметри походу, вільний текст</li>
+      <li><span class="b-k"><a href="./plan-offline.html">немає мережі</a></span> <code>plan-offline.html</code> — план, ночівлі й останній відомий розклад із кешу, видно час останньої перевірки — окремий <b>успішний</b> кінець, а не пауза</li>
+      <li><span class="b-k"><a href="./plan-degraded.html">джерело неповне</a></span> <code>plan-degraded.html</code> — поле «чого в плані свідомо немає»</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">тап по дню в плані</span></p>
+<section class="step" id="s5" aria-labelledby="s5-h">
+  <div class="step-head">
+    <span class="step-n">05</span>
+    <h2 id="s5-h">День</h2>
+    <p class="step-src" data-review lang="uk">0.4 · <code>day.html</code> · вкладка Плани · jobs 1 · 3 · 5</p>
+  </div>
+  <div class="step-body">
+    <div class="flow-screen">
+      <p class="meta" data-review lang="uk"><b>0.4</b> · День · <i>як у наборі</i></p>
+      <input class="flow-exp" type="checkbox" id="exp5" />
+      <label class="flow-exp-l" for="exp5"></label>
+      <div class="flow-dev">
+<div class="device" data-screen="День" data-state="успіх">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./plan.html">‹ План по днях</a><span class="title">День</span></header>
+
+  <main>
+    <h1>День 3 · ср 19 серпня</h1>
+
+    <section aria-labelledby="s5-leg">
+      <h2 id="s5-leg">Перехід</h2>
+      <p>Alesjaure → Tjäktja · 13 км · +260 м · близько 4 год 30</p>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран"><span>карта дня<br>Alesjaure → Tjäktja · 13 км</span></div>
+        <figcaption>На що мусить відповісти: де стежка виходить із долини й де брід перед хижею.</figcaption>
+      </figure>
+      <details>
+        <summary>Офіційна градація: blå / medium</summary>
+        <p>Це норвезько-шведська офіційна градація для цієї ділянки, показана як є. Власної шкали «ваша форма → складність» ми не рахуємо: DNT публічно просив не заводити альтернативних систем.</p>
+      </details>
+      <p class="actions"><a href="./map.html">Відкрити карту</a></p>
+    </section>
+    <section aria-labelledby="s5-cond">
+      <h2 id="s5-cond">Умови на цій ділянці</h2>
+      <ul class="signals">
+        <li><b>Вода</b> струмки кожні 2–3 км, останній за 1 км до хижі</li>
+        <li><b>Брід</b> один, перед Tjäktja — влітку по коліно, після дощів вище</li>
+        <li><b>Поверхня</b> 8 км мостків, 5 км каміння</li>
+        <li><b>Звʼязок</b> невідомо — оператори не публікують покриття як шар</li>
+      </ul>
+    </section>
+    <section aria-labelledby="s5-weather">
+      <h2 id="s5-weather">Погода</h2>
+      <ul class="signals">
+        <li><b>Прогноз</b> +9 °C, дощ 4 мм, вітер 7 м/с · met.no, зчитано 13 серпня 09:12</li>
+        <li><b>Що це міняє</b> дощовик і гамаші сьогодні критичні; брід після дощу може бути вищим</li>
+      </ul>
+    </section>
+    <section aria-labelledby="s5-night">
+      <h2 id="s5-night">Ночівля</h2>
+      <p>Tjäktja fjällstuga (STF) · ліжко заброньоване · прийти до 18:00</p>
+      <p class="actions"><a href="./night.html">Гарантія й доступ на цю ніч</a></p>
+    </section>
+    <section aria-labelledby="s5-why">
+      <h2 id="s5-why">Чому саме так</h2>
+      <details>
+        <summary>Що вплинуло на цей день</summary>
+        <p>Довжина 13 км: ваш найдовший перехід торік — 24 км, але третій день поспіль, тому взято нижчу межу.</p>
+        <p>Хижа Tjäktja: наступна за нею Sälka за 12 км, і разом це 25 км — забагато на третій день.</p>
+        <p>Спорядження: дощ 4 мм і брід.</p>
+        <p><b>Що не враховано:</b> жива наявність ліжок — джерела немає, потрібна угода зі STF.</p>
+      </details>
+    </section>
+    <section aria-labelledby="s5-back">
+      <h2 id="s5-back">Повернутись</h2>
+      <p class="actions">
+        <a class="cta" href="./plan.html">До плану по днях</a>
+        <a href="./night.html">Гарантія на цю ніч</a>
+        <a href="./gear.html">Спорядження</a>
+        <a href="./field-notes.html">Нотатки з місця на цій ділянці</a>
+      </p>
+    </section>
+    <section aria-labelledby="s5-bail">
+      <h2 id="s5-bail">Якщо доведеться зійти</h2>
+      <p>Найближчий вихід: Alesjaure, 13 км назад — човен по озеру до Abisko, ходить до 15 вересня.</p>
+      <p>Далі на маршруті виходів немає до Vakkotavare — це ще два дні.</p>
+    </section>
+
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Стежки й градація: Turrutebasen (Kartverket). Погода: met.no Locationforecast. Умови: Turrutebasen і свідчення спільноти, рівень позначено.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+      </div>
+      <p class="flow-open"><a href="./day.html">відкрити сторінку макета →</a></p>
+    </div>
+    <div class="step-note">
+      <p class="lead">Заглиблення в один день: нога, умови, погода, ніч і шар «чому саме так» із названими внесками.</p>
+      <p>Тут же — <b>точка сходу з маршруту</b>. Саме вона робить job 3 і 6 не сповіщенням-про-поломку, а <b>сигналом із запасом часу</b>: попередження має прийти, поки альтернатива ще існує.</p><p>Кожне твердження несе шар джерела — job 5 не має власного екрана і тримається рівно цим.</p>
+      <h3>Рішення</h3>
+      <p class="q">Прогноз на цю дату існує?</p>
+      <ul class="branches">
+      <li><span class="b-k"><a href="./day-seasonal.html">ні</a></span> <code>day-seasonal.html</code> — норма замість прогнозу — окремий рівень довіри, поза вердиктом узгодженості</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">тап по ночі в рядку дня</span></p>
+<section class="step" id="s6" aria-labelledby="s6-h">
+  <div class="step-head">
+    <span class="step-n">06</span>
+    <h2 id="s6-h">Ніч: гарантія й доступ</h2>
+    <p class="step-src" data-review lang="uk">2.1 · <code>night.html</code> · вкладка Плани · jobs 2 · 8</p>
+  </div>
+  <div class="step-body">
+    <div class="flow-screen">
+      <p class="meta" data-review lang="uk"><b>2.1</b> · Ніч: гарантія й доступ · <i>як у наборі</i></p>
+      <input class="flow-exp" type="checkbox" id="exp6" />
+      <label class="flow-exp-l" for="exp6"></label>
+      <div class="flow-dev">
+<div class="device" data-screen="Ніч: гарантія й доступ" data-state="успіх">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./day.html">‹ День</a><span class="title">Ніч</span></header>
+
+  <main>
+    <h1>Ніч 3 · Tjäktja</h1>
+
+    <section aria-labelledby="s6-guar">
+      <h2 id="s6-guar">Що вам гарантовано</h2>
+      <div class="verdict">
+        <strong>Ліжко заброньоване. Прийти до 18:00.</strong>
+        <p>Після 18:00 бронь не тримають: місце під дахом лишиться, але вже неспецифіковане — можливо, матрац на підлозі.</p>
+      </div>
+      <dl>
+        <dt>Тип обʼєкта</dt><dd>Selvbetjent (самообслуговування) · fjällstuga STF</dd>
+        <dt>Бронь</dt><dd>є, на 2 ліжка
+          <small data-mock>Статус броні ілюстративний. Жива наявність ліжок потребує угоди про дані зі STF.</small></dd>
+        <dt>Час приходу</dt><dd>до 18:00 — шведське правило, воно змінює <b>зміст</b> гарантії, а не її наявність</dd>
+        <dt>Членство</dt><dd>STF, обоє — тариф членський, доступ до замкнених обʼєктів є</dd>
+      </dl>
+      <p>Спільний принцип обох країн: <b>нікого не виганяють</b>. Бронь купує конкретне ліжко; без броні лишається місце під дахом.</p>
+    </section>
+    <section aria-labelledby="s6-todo">
+      <h2 id="s6-todo">Що зробити на місці</h2>
+      <ul class="signals">
+        <li><b>Ключ</b> не потрібен — Tjäktja не замкнена</li>
+        <li><b>Логбук</b> записати імена й номер членства, навіть якщо бронювали онлайн</li>
+        <li><b>Оплата</b> самореєстрація на місці, якщо бронь не покриває</li>
+        <li><b>Прибирання</b> прибрати за собою перед виходом — це не ввічливість, а умова системи</li>
+      </ul>
+      <p class="actions"><a href="./lodging-system.html">Як працює ця система ночівлі</a></p>
+    </section>
+    <section aria-labelledby="s6-photos">
+      <h2 id="s6-photos">Фото й відгуки</h2>
+      <div class="strip">
+        <div class="frame frame--photo" data-fit="4:3"><span>Tjäktja fjällstuga<br>STF · за угодою · 2024</span></div>
+        <div class="frame frame--photo" data-fit="4:3"><span>кухня, самообслуговування<br>спільнота · CC BY-SA · лип. 2026</span></div>
+      </div>
+      <p><b>4,1</b> · 34 відгуки · рівень: спільнота</p>
+      <article>
+        <h3>Води треба нести з собою</h3>
+        <p>Була 5 серпня 2026 · досвід: ходжу щороку</p>
+        <p>Крамниці немає взагалі. Дрова були, вода зі струмка за 200 м.</p>
+      </article>
+      <p class="actions"><a href="./reviews.html">Усі відгуки</a> <button type="button">Написати відгук</button></p>
+    </section>
+
+    <section aria-labelledby="s6-swap">
+      <h2 id="s6-swap">Якщо ця ніч зірветься</h2>
+      <p>Переповнено, зачинено, погода не пускає — на цю дату ми покажемо, що ще досяжне від того місця, де ви є, і скільки до кожного йти. Бронювання далі — у STF: ми даємо порядок і дедлайн, транзакцію не проводимо.</p>
+      <p class="actions"><a href="./huts.html">Інша хижа на цю ніч</a> <a href="./hut.html">Про Tjäktja fjällstuga</a></p>
+    </section>
+
+    <section aria-labelledby="s6-back">
+      <h2 id="s6-back">Повернутись</h2>
+      <p class="actions">
+        <a class="cta" href="./plan.html">До плану по днях</a>
+        <a href="./day.html">До дня 3</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Тип, ключ, ліжка й сезон — із публічної схеми обʼєктів. Жива наявність ліжок заблокована: потрібна угода зі STF.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+      </div>
+      <p class="flow-open"><a href="./night.html">відкрити сторінку макета →</a></p>
+    </div>
+    <div class="step-note">
+      <p class="lead"><b>Top Job #1</b> — і єдине, чого не вміє висловити жоден із пʼятьох конкурентів. Відповідь на «що мені потрібно на цю ніч» це функція чотирьох змінних: тип обʼєкта × заброньовано чи ні × час приходу (18:00 у Швеції) × членство.</p>
+      <p>Обидві половини відповіді разом: що <b>гарантовано</b> — бронь купує гарантоване ліжко, без броні дах усе одно гарантований, можливо матрац на підлозі, не виганяють нікого — і що <b>зробити на місці</b>: ключ, логбук із номером членства навіть після оплати онлайн, самореєстрація, оплата.</p><p>⚠️ Позначка «ілюстративні дані» стоїть <b>на самому рядку наявності ліжок</b>, а не в хромі сторінки: банер, який завжди на екрані, перестають читати — а на полі це щоразу нова інформація.</p>
+      <h3>Рішення</h3>
+      <p class="q">Жива наявність ліжок доступна?</p>
+      <ul class="branches">
+      <li><span class="b-k"><a href="./night-degraded.html">ні</a></span> <code>night-degraded.html</code> — <b>єдине реально заблоковане поле в продукті.</b> Потік не зупиняється: формула добудовується зі статичних полів публічної схеми NTB — тип, ключ, ліжка, сезон</li>
+      <li><span class="b-k"><a href="./night-empty.html">обʼєкт не підтверджений</a></span> <code>night-empty.html</code> — вихід контекстною дією просто тут — «замінити цю ніч», а не через інший екран і вільний текст</li>
+      <li><span class="b-k"><a href="./night-error.html">довідник правил недоступний</a></span> <code>night-error.html</code> — одразу в статичну гілку, минаючи питання про живу наявність</li>
+      <li><span class="b-k"><a href="./membership.html">замкнено, у групі немає члена</a></span> <code>membership.html</code> — ключ DNT це <b>умова доступу</b>, а не ціна: 100 NOK це депозит, і ключ — ексклюзивна перевага членства</li>
+      <li><span class="b-k"><a href="./lodging-system.html">як узагалі влаштована ця система</a></span> <code>lodging-system.html</code> — операційна інформація по self-service існує тільки норвезькою — тому оригінал плюс переклад</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">назад у план · «Спорядження»</span></p>
+<section class="step" id="s7" aria-labelledby="s7-h">
+  <div class="step-head">
+    <span class="step-n">07</span>
+    <h2 id="s7-h">Спорядження</h2>
+    <p class="step-src" data-review lang="uk">4.1 · <code>gear.html</code> · вкладка Плани · jobs 4 · 1</p>
+  </div>
+  <div class="step-body">
+    <div class="flow-screen">
+      <p class="meta" data-review lang="uk"><b>4.1</b> · Спорядження · <i>як у наборі</i></p>
+      <input class="flow-exp" type="checkbox" id="exp7" />
+      <label class="flow-exp-l" for="exp7"></label>
+      <div class="flow-dev">
+<div class="device" data-screen="Спорядження" data-state="успіх">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./plan.html">‹ План по днях</a><span class="title">Спорядження</span></header>
+
+  <main>
+    <h1>Спорядження</h1>
+
+    <section aria-labelledby="s7-list">
+      <h2 id="s7-list">Що взяти</h2>
+      <ul class="signals">
+        <li><b>Є в мене</b> <label><input type="checkbox" checked> спальник −5</label> · <label><input type="checkbox" checked> каремат</label> · <label><input type="checkbox" checked> пальник і газ</label></li>
+        <li><b>Взяти</b> <label><input type="checkbox"> дощовик</label> · <label><input type="checkbox"> запасні шкарпетки ×3</label></li>
+        <li><b>Купити</b> <label><input type="checkbox"> гамаші</label> · <label><input type="checkbox"> водонепроникні рукавиці</label></li>
+        <li><b>На двох</b> <label><input type="checkbox" checked> намет (несе одна людина)</label> · <label><input type="checkbox"> аптечка</label></li>
+      </ul>
+      <p>23 позиції · 19 є · 3 докупити · 1 позичити</p>
+    </section>
+    <section aria-labelledby="s7-why">
+      <h2 id="s7-why">Чому саме це</h2>
+      <ul class="signals">
+        <li><b>Гамаші</b> 12 мм дощу на 3-й і 4-й дні + 11 км болотистого ґрунту</li>
+        <li><b>Рукавиці</b> +6 °C і вітер 12 м/с на Tjäktjapasset — це четвертий день</li>
+        <li><b>Спальник</b> три ночі в selvbetjent: ковдр там немає, тільки матраци</li>
+        <li><b>Чого можна не брати</b> фільтр для води — струмки на всьому маршруті; намет — хижі заброньовані всі пʼять ночей</li>
+      </ul>
+    </section>
+    <section aria-labelledby="s7-back">
+      <h2 id="s7-back">Повернутись</h2>
+      <p class="actions">
+        <a class="cta" href="./plan.html">До плану по днях</a>
+        <a href="./day.html">До дня 3</a>
+      </p>
+    </section>
+    <section aria-labelledby="s7-inv">
+      <h2 id="s7-inv">Інвентар</h2>
+      <p class="actions"><a href="./my-gear.html">Оновити інвентар</a></p>
+      <p>Інвентар живе в акаунті: спорядження довготривале, і переписувати його щоразу — рівно те тертя, яке ми обіцяємо зняти.</p>
+    </section>
+
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Погода: met.no. Типи обʼєктів ночівлі — публічна схема. Список складається з погоди, типу ночівлі, рельєфу й сезону.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+      </div>
+      <p class="flow-open"><a href="./gear.html">відкрити сторінку макета →</a></p>
+    </div>
+    <div class="step-note">
+      <p class="lead">Чеклист, який не лежить окремо від плану: вага рюкзака з нього йде в поправку Tranter, тобто <b>годує оцінку часу ходу</b> на кроці 5.</p>
+      <p>Два джерела сходяться <b>зсередини</b>, а не за декларацією: спорядження й оцінка навантаження це не два списки поруч, а одна залежність.</p><p>Що вже є — береться з інвентарю в профілі, а не питається знову. Це друга причина, чому акаунт існує, і чому він не є входом у продукт.</p>
+      <h3>Виходи</h3>
+      <ul class="branches">
+      <li><span class="b-k"><a href="./my-gear.html">інвентар</a></span> <code>my-gear.html</code> — звідки береться «це в мене вже є»</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">із плану · «Дорога туди й назад»</span></p>
+<section class="step" id="s8" aria-labelledby="s8-h">
+  <div class="step-head">
+    <span class="step-n">08</span>
+    <h2 id="s8-h">Дорога туди й назад</h2>
+    <p class="step-src" data-review lang="uk">6.1 · <code>transport.html</code> · вкладка Плани · jobs 6</p>
+  </div>
+  <div class="step-body">
+    <div class="flow-screen">
+      <p class="meta" data-review lang="uk"><b>6.1</b> · Дорога туди й назад · <i>як у наборі</i></p>
+      <input class="flow-exp" type="checkbox" id="exp8" />
+      <label class="flow-exp-l" for="exp8"></label>
+      <div class="flow-dev">
+<div class="device" data-screen="Транспорт" data-state="успіх">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./plan.html">‹ План по днях</a><span class="title">Дорога туди й назад</span></header>
+
+  <main>
+    <h1>Дорога туди й назад</h1>
+
+    <section aria-labelledby="s8-there">
+      <h2 id="s8-there">Дорога туди</h2>
+      <article class="leg">
+        <h3>нд 16 серпня</h3>
+        <p>Нічний потяг 94 · Stockholm C 18:11 → Abisko Turiststation 10:23</p>
+        <ul class="signals">
+          <li><b>Статус</b> за розкладом · Trafikverket, перевірено 13 серпня 09:12</li>
+          <li><b>Дорога</b> Abisko Turiststation стоїть на E10 — замінний автобус сюди доїде</li>
+          <li><b>Квиток</b> 1 190 SEK на людину · ще не куплений</li>
+        </ul>
+      </article>
+    </section>
+    <section aria-labelledby="s8-back">
+      <h2 id="s8-back">Дорога назад</h2>
+      <article class="leg">
+        <h3>сб 22 серпня</h3>
+        <p>Автобус 91 · Nikkaluokta 16:00 → Kiruna 17:20 · далі нічний потяг 92 о 19:44</p>
+        <ul class="signals">
+          <li><b>Статус</b> за розкладом</li>
+          <li><b>Запас</b> 2 год 24 між автобусом і потягом — один пропущений автобус ще лишає вечірній варіант</li>
+          <li><b>Останній автобус</b> о 18:00. Після нього виїхати з Nikkaluokta нічим</li>
+        </ul>
+      </article>
+    </section>
+    <section aria-labelledby="s8-alt">
+      <h2 id="s8-alt">Якщо щось піде не так</h2>
+      <ul class="signals">
+        <li><b>Vakkotavare</b> вихід із маршруту на 4-й день · автобус 93 о 16:40, дорога є</li>
+        <li><b>Alesjaure</b> човен по озеру до Abisko, ходить до 15 вересня</li>
+        <li><b>Katterat</b> станція без дороги — сюди замінний автобус не приїде ніколи</li>
+      </ul>
+      <p>Точки сходу з дедлайном на кожній лежать у «Безпеці» — вони потрібні в дорозі, а не при плануванні, тому мають постійну поверхню, а не зʼявляються тоді, коли вже пізно.</p>
+      <p class="actions"><a href="./safety.html">Найближчі точки сходу</a> <a href="./changes.html">Що змінилось і що ще можна зробити</a></p>
+    </section>
+    <section aria-labelledby="s8-return">
+      <h2 id="s8-return">Повернутись</h2>
+      <p class="actions"><a class="cta" href="./plan.html">До плану по днях</a> <a href="./today.html">До сьогоднішнього дня</a></p>
+    </section>
+
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Розклад і статус: Trafikverket. Дорожній доступ: NVDB (окреме джерело — ламається окремо).</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+      </div>
+      <p class="flow-open"><a href="./transport.html">відкрити сторінку макета →</a></p>
+    </div>
+    <div class="step-note">
+      <p class="lead">Найсильніший доказ у всьому дослідженні: три незалежні шведські голоси за один тиждень, включно з задокументованим випадком, коли людина <b>покинула регіон</b> через транспорт.</p>
+      <p>І це рахується з відкритих даних, без ключа й без угод: Katterat є в Entur як <code>NSR:StopPlace:58610</code> з полем <code>cancellation</code>, а NVDB повертає навколо нього <b>нуль</b> дорожніх сегментів проти пʼятнадцяти на сусідній станції — тобто «зайти пішки можна, а автобус доїхати не може» це обчислюване твердження.</p><p>Квитки ми <b>зберігаємо, а не продаємо</b>. Причина не технічна: продаж транспорту разом із ночівлею робить нас організатором пакетної подорожі за EU Package Travel Directive — інший тип компанії з відповідальністю за кожен елемент.</p>
+      <h3>Рішення</h3>
+      <p class="q">Розклад відповідає?</p>
+      <ul class="branches">
+      <li><span class="b-k"><a href="./transport-loading.html">стани</a></span> <code>transport-loading.html</code> — завантаження · <a href="./transport-error.html">помилка</a> · <a href="./transport-empty.html">порожній</a></li>
+      <li><span class="b-k"><a href="./changes.html">розклад змінився</a></span> <code>changes.html</code> — сигнал із запасом часу — поки поворот на Riksgränsen ще можливий. Не сповіщення про поломку</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">із плану · «Що лишилось закріпити» — бейдж на вкладці</span></p>
+<section class="step" id="s9" aria-labelledby="s9-h">
+  <div class="step-head">
+    <span class="step-n">09</span>
+    <h2 id="s9-h">Що лишилось закріпити</h2>
+    <p class="step-src" data-review lang="uk">7.1 · <code>lock-in.html</code> · вкладка Плани · jobs 7 · 2</p>
+  </div>
+  <div class="step-body">
+    <div class="flow-screen">
+      <p class="meta" data-review lang="uk"><b>7.1</b> · Що лишилось закріпити · <i>як у наборі</i></p>
+      <input class="flow-exp" type="checkbox" id="exp9" />
+      <label class="flow-exp-l" for="exp9"></label>
+      <div class="flow-dev">
+<div class="device" data-screen="Що лишилось закріпити" data-state="успіх">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./plan.html">‹ План по днях</a><span class="title">Що лишилось закріпити</span></header>
+
+  <main>
+    <h1>Що лишилось закріпити</h1>
+
+    <section aria-labelledby="s9-state">
+      <h2 id="s9-state">Скільки лишилось</h2>
+      <div class="verdict">
+        <strong>Лишилось 4 кроки з 9. Найближчий дедлайн — сб 15 серпня, 12:00.</strong>
+        <p>Три кроки зроблено, один не потрібен, один наперед не бронюється. Оформлення відбувається в системах STF і Länstrafiken: ми ведемо порядок, тримаємо стан і нагадуємо про дедлайни — але транзакцію не проводимо.</p>
+      </div>
+      <dl>
+        <dt>Похід</dt>
+        <dd>Kungsleden, Abisko Turiststation → Nikkaluokta · 101 км · 5 ночей</dd>
+
+        <dt>Дати</dt>
+        <dd>пн 17 – сб 22 серпня 2026 · <b>жорсткі</b> — квитки на потяг куплені, тому крок, який зірве дату, зірве весь похід</dd>
+
+        <dt>Нас</dt>
+        <dd>двоє · обоє члени STF №4471902 і №4471903 — членський тариф діє на всіх п'яти ночах</dd>
+      </dl>
+      <p class="actions">
+        <a class="cta" href="./plan.html">До плану по днях</a>
+        <a href="./nights.html">Ланцюжок ночей</a>
+        <a href="./account.html">Зберегти прогрес закріплення</a>
+      </p>
+      <p>Кроки закриваються днями й у чужих системах — тому стан закріплення мусить пережити закритий застосунок. Це єдина причина, з якої ми взагалі просимо акаунт.</p>
+    </section>
+
+    <section aria-labelledby="s9-steps">
+      <h2 id="s9-steps">Кроки, у порядку</h2>
+      <p>Порядок не наш. Офіційна система вимагає завершити оплату однієї ночі, перш ніж переходити до наступної — тому кроки 7 і 8 відкриються тільки після 6-го. Крок 5 стоїть перед ними, бо бронюється в іншій системі й має найраніший дедлайн.</p>
+
+      <ol class="days">
+        <li>
+          <article aria-labelledby="s9-s1">
+            <h3 id="s9-s1">Крок 1 · Членство STF</h3>
+            <p>Умова для всіх ночей і для ключа — тому стоїть першим</p>
+            <ul class="signals">
+              <li><b>Стан</b> зроблено · оформлено 3 березня 2026 на обох</li>
+              <li><b>Де</b> офіційна система STF</li>
+              <li><b>Дедлайн</b> чинне до 28 лютого 2027 — покриває весь похід</li>
+              <li><b>Вартість</b> 395 SEK на рік з людини · уже сплачено</li>
+              <li><b>Відкриває</b> членський тариф на кроках 4–8 і право взяти ключ</li>
+            </ul>
+            <p class="actions">
+              <a href="./membership.html">Членство й ключ</a>
+            </p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="s9-s2">
+            <h3 id="s9-s2">Крок 2 · Ключ</h3>
+            <p>У цьому поході не задіяний — але саме він робить ланцюжок ланцюжком</p>
+            <ul class="signals">
+              <li><b>Стан</b> не потрібно</li>
+              <li><b>Чому</b> усі п'ять об'єктів — шведські STF і в сезон відчинені. <code>DNT-nøkkel</code> потрібен у Норвегії, для замкнених <code>Selvbetjent</code> (самообслуговування) і <code>Ubetjent</code> (без обслуговування) хиж</li>
+              <li><b>Вартість</b> 100 NOK депозит, якби був потрібен — це застава, а не ціна</li>
+              <li><b>Залежність</b> ключ видають тільки членам: крок 1 → крок 2 → доступ у замкнену хижу</li>
+            </ul>
+            <p class="actions">
+              <a href="./membership.html">Коли ключ стає обов'язковим</a>
+            </p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="s9-s3">
+            <h3 id="s9-s3">Крок 3 · Потяг туди й назад</h3>
+            <p>Нічний потяг 94, Stockholm C 18:11 → Abisko Turiststation 10:23 · назад потяг 92, Kiruna 19:44</p>
+            <ul class="signals">
+              <li><b>Стан</b> зроблено · квитки куплені 2 червня</li>
+              <li><b>Де</b> SJ — оформлено поза Nestwood</li>
+              <li><b>Дедлайн</b> минув, і саме тому дати походу більше не рухаються</li>
+              <li><b>Вартість</b> 1 190 SEK з людини в обидва боки</li>
+            </ul>
+            <p class="actions">
+              <a href="./transport.html">Відкрити транспорт</a>
+            </p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="s9-s4">
+            <h3 id="s9-s4">Крок 4 · Ніч 1 · Abiskojaure fjällstuga</h3>
+            <p>пн 17 серпня · STF</p>
+            <ul class="signals">
+              <li><b>Стан</b> зроблено · бронь STF-2026-118442, 2 ліжка</li>
+              <li><b>Де</b> система бронювання STF</li>
+              <li><b>Вартість</b> 450 SEK з людини, членський тариф · 900 SEK на двох</li>
+              <li><b>На місці</b> логбук з іменем і номером членства обов'язковий і після онлайн-броні · прийти до 18:00</li>
+            </ul>
+            <p class="actions">
+              <a href="./night.html">Ніч 1 — гарантія й доступ</a>
+              <button type="button">Скасування — в системі STF</button>
+            </p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="s9-s5">
+            <h3 id="s9-s5">Крок 5 · Ніч 5 · Kebnekaise Fjällstation</h3>
+            <p>пт 21 серпня · обслуговувана станція, окрема система бронювання — тому не чекає на ланцюжок fjällstugor</p>
+            <ul class="signals">
+              <li><b>Стан</b> не почато — <b>наступний до виконання</b></li>
+              <li><b>Де</b> система бронювання Kebnekaise Fjällstation (STF) · відкриється поза Nestwood</li>
+              <li><b>Дедлайн</b> сб 15 серпня, 12:00 — далі лишаються тільки місця, що звільняться</li>
+              <li><b>Вартість</b> 700 SEK з людини · 1 400 SEK на двох</li>
+              <li><b>Місця</b> 6 вільних на 21 серпня
+                <small data-mock>Наявність ілюстративна. Жива наявність ліжок потребує угоди про дані зі STF — вгадувати її ми не будемо.</small>
+              </li>
+            </ul>
+            <p class="actions">
+              <button type="button">Відкрити бронювання Kebnekaise</button>
+              <button type="button">Позначити як зроблене</button>
+              <a href="./night.html">Ніч 5 — гарантія й доступ</a>
+            </p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="s9-s6">
+            <h3 id="s9-s6">Крок 6 · Ніч 2 · Alesjaure fjällstuga</h3>
+            <p>вт 18 серпня · STF · перший у ланцюжку з трьох</p>
+            <ul class="signals">
+              <li><b>Стан</b> не почато</li>
+              <li><b>Де</b> система бронювання STF</li>
+              <li><b>Дедлайн</b> нд 16 серпня, 23:59 — за добу до заїзду онлайн-бронь закривається</li>
+              <li><b>Вартість</b> 450 SEK з людини · 900 SEK на двох</li>
+              <li><b>Відкриває</b> кроки 7 і 8: наступну ніч можна оплатити тільки після цієї</li>
+              <li><b>Місця</b> 11 вільних на 18 серпня
+                <small data-mock>Наявність ілюстративна — потребує угоди про дані зі STF.</small>
+              </li>
+            </ul>
+            <p class="actions">
+              <button type="button">Відкрити бронювання STF</button>
+              <button type="button">Позначити як зроблене</button>
+              <a href="./night.html">Ніч 2 — гарантія й доступ</a>
+            </p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="s9-s7">
+            <h3 id="s9-s7">Крок 7 · Ніч 3 · Tjäktja fjällstuga</h3>
+            <p>ср 19 серпня · STF</p>
+            <ul class="signals">
+              <li><b>Стан</b> чекає на крок 6 — оформити зараз не можна</li>
+              <li><b>Де</b> система бронювання STF</li>
+              <li><b>Дедлайн</b> пн 17 серпня, 23:59</li>
+              <li><b>Вартість</b> 450 SEK з людини · 900 SEK на двох</li>
+              <li><b>Чому чекає</b> одна транзакція за раз — вимога офіційної системи, не наш інтерфейс</li>
+            </ul>
+            <p class="actions">
+              <a href="./night.html">Ніч 3 — гарантія й доступ</a>
+            </p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="s9-s8">
+            <h3 id="s9-s8">Крок 8 · Ніч 4 · Sälka fjällstuga</h3>
+            <p>чт 20 серпня · STF · остання ніч ланцюжка</p>
+            <ul class="signals">
+              <li><b>Стан</b> чекає на крок 7</li>
+              <li><b>Де</b> система бронювання STF</li>
+              <li><b>Дедлайн</b> вт 18 серпня, 23:59</li>
+              <li><b>Вартість</b> 450 SEK з людини · 900 SEK на двох</li>
+            </ul>
+            <p class="actions">
+              <a href="./night.html">Ніч 4 — гарантія й доступ</a>
+            </p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="s9-s9">
+            <h3 id="s9-s9">Крок 9 · Автобус 91, Nikkaluokta 16:00 → Kiruna 17:20</h3>
+            <p>сб 22 серпня · єдиний рейс того дня, після нього до потяга 92 о 19:44 не дістатись</p>
+            <ul class="signals">
+              <li><b>Стан</b> неможливо зараз — місця наперед не продаються</li>
+              <li><b>Де</b> квиток у застосунку Länstrafiken або у водія, у день поїздки</li>
+              <li><b>Дедлайн</b> посадка о 16:00 · вийти з Kebnekaise треба вранці</li>
+              <li><b>Вартість</b> 190 SEK з людини</li>
+            </ul>
+            <p class="actions">
+              <button type="button">Нагадати вранці 22 серпня</button>
+              <a href="./transport.html">Відкрити транспорт</a>
+            </p>
+          </article>
+        </li>
+      </ol>
+
+      <p class="actions">
+        <form class="inline" action="./lock-in.html" method="get"><button type="submit">Перевірити стан кроків</button></form>
+      </p>
+    </section>
+
+    <section aria-labelledby="s9-missed">
+      <h2 id="s9-missed">Якщо крок не встигнути</h2>
+      <p><b>Ніч без броні — це не катастрофа.</b> У системі STF нікого не виганяють: місце під дахом лишається, але замість ліжка може бути матрац на підлозі, а прийти треба до 18:00. Тобто прострочена ніч псує комфорт, не похід.</p>
+      <p><b>Прострочений транспорт або закритий сезон drop-in не мають.</b> Автобус 91 їде раз на день, а fjällstugor зачиняються 15 вересня — тут план треба перебудовувати, і краще за кілька днів, поки альтернатива ще існує.</p>
+      <p class="actions">
+        <a href="./changes.html">Що змінилось і що ще можна зробити</a>
+      </p>
+    </section>
+
+    <section aria-labelledby="s9-onsite">
+      <h2 id="s9-onsite">Що доведеться зробити на місці, навіть коли все оформлено</h2>
+      <ul>
+        <li>Записатись у логбук — ім'я й номер членства, <b>кожен окремо</b>. Обов'язково навіть після онлайн-броні й онлайн-оплати</li>
+        <li>Прийти до 18:00: після цього часу гарантія броні в шведській системі вже не тримається</li>
+        <li>Прибрати за собою й зняти взуття при вході — неписані правила, яких немає в жодному API</li>
+        <li>Там, де є самореєстрація, лишити оплату на місці — це окремий крок від онлайн-броні</li>
+      </ul>
+      <p class="actions">
+        <a href="./lodging-system.html">Як працює ця система ночівлі</a>
+      </p>
+    </section>
+
+    <section aria-labelledby="s9-boundary">
+      <h2 id="s9-boundary">Що робимо ми, а що офіційна система</h2>
+      <dl>
+        <dt>Ми</dt>
+        <dd>порядок і залежності, дедлайни, стан кожного кроку між сесіями, нагадування — і переказ правил тією мовою, якою ви читаєте</dd>
+
+        <dt>Офіційна система</dt>
+        <dd>сама бронь, оплата, підтвердження, зміна й повернення коштів — усе це відбувається у STF і Länstrafiken, під вашим номером члена</dd>
+
+        <dt>Чого ми не робимо ніколи</dt>
+        <dd>не проводимо платіж, не тримаємо ваших платіжних даних, не гарантуємо ліжко й не скасовуємо бронь за вас</dd>
+      </dl>
+      <p class="actions">
+        <a class="cta" href="./plan.html">До плану по днях</a>
+        <a href="./membership.html">Членство й ключ</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Ціни, дедлайни й сезонні дати — з опублікованих тарифів і правил STF, зчитано 13 серпня 2026. Розклад потяга й автобуса — Trafikverket. Стежка й рельєф — Lantmäteriet (CC0).</p>
+      <p>Тип об'єкта, ключ, ліжка й сезон — із публічної схеми об'єктів. Жива наявність ліжок заблокована: вона потребує угоди про дані зі STF, і в кроках вище позначена як ілюстративна.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+      </div>
+      <p class="flow-open"><a href="./lock-in.html">відкрити сторінку макета →</a></p>
+    </div>
+    <div class="step-note">
+      <p class="lead">Job із найсильнішою доказовою базою — і водночас межа продукту. DNT вимагає <i>«complete the booking and payment for one cabin before proceeding to the next»</i>, тобто ланцюжок із шести ночей це шість послідовних транзакцій.</p>
+      <p>Ми даємо <b>порядок, залежності, дедлайни й передачу</b> в офіційні системи — і <b>не проводимо транзакцію</b>. Три черги з різними дедлайнами: ночівлі (сезон відкриття, заповнюваність), квитки (розклад і ціна, що росте), членство (потрібне <b>до</b> броні замкненої хижі, тому блокує ночівлі).</p><p><b>Точні дати питаються саме тут</b>, а не на вході: поза горизонтом met.no місяця достатньо, а тут від дати вперше залежать дедлайни — це перше місце, де дата має ціну.</p><p>Потік повертається сюди після кожного кроку: це <b>цикл, а не лінія</b>.</p>
+      <h3>Рішення</h3>
+      <p class="q">Крок можливий зараз?</p>
+      <ul class="branches">
+      <li><span class="b-k"><a href="./lock-in-empty.html">закріплювати нічого</a></span> <code>lock-in-empty.html</code> — маршрут виключно по drop-in-обʼєктах — нормальний результат, а не збій</li>
+      <li><span class="b-k"><a href="./lock-in-error.html">офіційна система не відповідає</a></span> <code>lock-in-error.html</code> — hyttebestilling.dnt.no недоступний — крок лишається в черзі</li>
+      <li><span class="b-k"><a href="./lock-in-offline.html">немає мережі</a></span> <code>lock-in-offline.html</code> — список і дедлайни доступні, оформлення чекає мережі — окремий успішний кінець</li>
+      <li><span class="b-k"><b>дедлайн ночівлі минув</b></span> — <b>мʼякий тупик</b>: ніч не заброньована, але не виганяють нікого — лишається drop-in</li>
+      <li><span class="b-k"><a href="./changes.html">дедлайн транспорту або сезон</a></span> <code>changes.html</code> — <b>жорсткий тупик</b>: drop-in не існує, тому вихід — перебудувати цю ніч ще на етапі планування</li>
+      <li><span class="b-k"><a href="./membership.html">потрібне членство</a></span> <code>membership.html</code> — залежність, а не окремий крок: членство → ключ → доступ до замкнених хиж</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">усі кроки закриті</span></p>
+<section class="step" id="s10" aria-labelledby="s10-h">
+  <div class="step-head">
+    <span class="step-n">10</span>
+    <h2 id="s10-h">Підсумок для передачі</h2>
+    <p class="step-src" data-review lang="uk">10.1 · <code>share.html</code> · вкладка Плани · jobs 10 · 3</p>
+  </div>
+  <div class="step-body">
+    <div class="flow-screen">
+      <p class="meta" data-review lang="uk"><b>10.1</b> · Підсумок для передачі · <i>як у наборі</i></p>
+      <input class="flow-exp" type="checkbox" id="exp10" />
+      <label class="flow-exp-l" for="exp10"></label>
+      <div class="flow-dev">
+<div class="device" data-screen="Підсумок для передачі" data-state="успіх">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./plan.html">‹ План по днях</a><span class="title">Підсумок для передачі</span></header>
+
+  <main>
+    <h1>Підсумок для передачі</h1>
+
+    <section aria-labelledby="s10-why">
+      <h2 id="s10-why">Навіщо ви тут</h2>
+      <p>Цю форму відкривають із двох різних причин, і вони не одне й те саме.</p>
+      <ul class="signals">
+        <li><b>Довіра</b> хтось близький засумнівався у вашому рішенні йти — і вам треба щось конкретне, що підтверджує реалістичність плану. Це наш job 10, глибока дія раз на похід.</li>
+        <li><b>Безпека</b> «скажи комусь, куди йдеш і коли повернешся» — це не наш job, а пряма рекомендація DNT. Контекстна дія, повторюється щодня в дорозі.</li>
+      </ul>
+      <p>Нижче — дві окремі зони під ці дві причини. Форма одна, вміст і частота різні.</p>
+    </section>
+
+    <section aria-labelledby="s10-gate">
+      <h2 id="s10-gate">Готовність до видачі</h2>
+      <div class="verdict">
+        <strong>Підсумок готовий до передачі.</strong>
+        <p>План узгоджений усі 6 днів, джерела названі поіменно, позначка ілюстративних даних перенесена в експорт нижче.</p>
+      </div>
+      <p>Перевірено 13 серпня 2026, 09:12 — той самий момент звірки, що на плані.</p>
+      <p><b>Що станеться, якщо це не так:</b> якщо план ще чернетка — узгодженість не підтверджена, — підсумок не формується взагалі: замість нього повернення в план із поясненням, чого саме бракує. Якщо джерела не можна назвати поіменно, підсумок теж не йде назовні — це водночас провал довіри й, якщо в підсумку є дані Kartverket, порушення умов CC BY 4.0. Жодного з цих двох станів окремою сторінкою тут не намальовано — обидва є гейтом перед цим екраном, не його вмістом.</p>
+      <p class="actions">
+        <a class="cta" href="./plan.html">До плану по днях</a>
+      </p>
+    </section>
+
+    <section aria-labelledby="s10-trust">
+      <h2 id="s10-trust">Для близьких: чому цьому плану можна довіряти</h2>
+      <p>Переконує не наша впевненість, а те, що чотири джерела узгоджені й названі поіменно.</p>
+      <dl>
+        <dt>Маршрут</dt>
+        <dd>Kungsleden, Abisko Turiststation → Nikkaluokta · 101 км · 6 ходових днів · 17–22 серпня 2026</dd>
+
+        <dt>Ночівлі</dt>
+        <dd>Abiskojaure → Alesjaure → Tjäktja → Sälka → Kebnekaise Fjällstation · 5 хиж, усі заброньовані
+          <small data-mock>Статус броні тут ілюстративний. Жива наявність ліжок потребує угоди про дані зі STF — і ця позначка йде в експорт разом із рештою підсумку, а не лишається тільки в застосунку.</small>
+        </dd>
+
+        <dt>Складність</dt>
+        <dd>blå / medium майже всюди, одна ділянка röd / krevende через Tjäktjapasset — офіційна шведсько-норвезька градація, показана як є, ніколи не перерахована нами</dd>
+
+        <dt>Хто йде</dt>
+        <dd>двоє · обоє члени STF №4471902 і №4471903</dd>
+
+        <dt>Вердикт</dt>
+        <dd>маршрут, ночівлі, спорядження й погода узгоджені всі 6 днів</dd>
+      </dl>
+      <p class="actions">
+        <button type="button">Скопіювати посилання на підсумок</button>
+      </p>
+    </section>
+
+    <section aria-labelledby="s10-safety">
+      <h2 id="s10-safety">Безпековий поділ: маршрут і час повернення</h2>
+      <p>Це не наш job — це те, що DNT рекомендує кожному самостійно: скажіть комусь, куди йдете і коли маєте повернутись.</p>
+      <dl>
+        <dt>Маршрут</dt>
+        <dd>Kungsleden, Abisko Turiststation → Nikkaluokta · 101 км</dd>
+
+        <dt>Зараз на маршруті</dt>
+        <dd>день 3 · Alesjaure → Tjäktja · 13 км</dd>
+
+        <dt>Очікуване повернення</dt>
+        <dd>автобус 91, Nikkaluokta 16:00 → Kiruna 17:20 · потяг 92, Kiruna 19:44 → Stockholm C 09:30 · вдома вранці 23 серпня</dd>
+      </dl>
+      <p class="actions">
+        <button type="button">Надіслати маршрут і час повернення</button>
+      </p>
+      <p>Той самий блок відкривається з <a href="./today.html">Сьогодні</a> і <a href="./changes.html">Що змінилось</a> — контекстна, часта дія, а не глибока: вхід не лише звідси, і не тільки в стані «у дорозі».</p>
+    </section>
+
+    <section aria-labelledby="s10-paper">
+      <h2 id="s10-paper">Друк або PDF</h2>
+      <p>Мертвий телефон у фьєллі — не гіпотеза (рішення D10). Паперова версія несе те саме, що обидві зони вище: маршрут, ночівлі, очікуваний час повернення й рядок джерел нижче.</p>
+      <p class="actions">
+        <button type="button">Друк або PDF</button>
+      </p>
+    </section>
+
+    <section aria-labelledby="s10-sources">
+      <h2 id="s10-sources">Джерела в цьому підсумку</h2>
+      <p>Стежки й рельєф для цього маршруту: Lantmäteriet (CC0, Швеція) — Kungsleden лежить цілком у Швеції, тому дані Kartverket у цьому конкретному підсумку немає. Погода: met.no Locationforecast. Транспорт: Trafikverket. Ночівлі — тип, ключ, ліжка, сезон: публічна схема обʼєктів STF.</p>
+      <p><b>Цей рядок їде з підсумком за межі застосунку</b> — надрукований аркуш чи пересланий файл не бачить футер застосунку внизу цієї сторінки, тому джерела повторені тут, у самому вмісті, а не лише в оболонці.</p>
+    </section>
+
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Стежки й рельєф: Lantmäteriet (CC0) для цього маршруту в Швеції; Kartverket (CC BY 4.0) для маршрутів у Норвегії — атрибуція в цьому футері стоїть завжди, незалежно від конкретного походу. Погода: met.no Locationforecast, зчитано 13 серпня 09:12. Транспорт: Trafikverket, зчитано 13 серпня 09:12.</p>
+      <p>Дані про хижі — тип, ключ, ліжка, сезон — із публічної схеми обʼєктів. Живої наявності ліжок у цьому підсумку немає: вона потребує угоди про дані зі STF, а вгадувати ми її не будемо.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось закріпити: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+      </div>
+      <p class="flow-open"><a href="./share.html">відкрити сторінку макета →</a></p>
+    </div>
+    <div class="step-note">
+      <p class="lead">Кінець флоу — і рівно те, що DNT рекомендує саме: поділись маршрутом і часом, коли тебе чекати назад.</p>
+      <p>Підсумок — один обʼєкт, який можна віддати людині поза застосунком, без акаунта в нас.</p><p>Поруч — офлайн-пакет. Обіцянка саме <b>«офлайн-пакет на цей маршрут»</b>, з екраном, станом і розміром у мегабайтах, а не «офлайн скрізь»: iOS витісняє сховище під тиском памʼяті, і сильніша обіцянка повторила б рівно ту поразку, яку ми самі наводимо як біль — шведи пішли з офіційного застосунку Lantmäteriet, коли той втратив офлайн на iOS.</p>
+      <h3>Виходи</h3>
+      <ul class="branches">
+      <li><span class="b-k"><a href="./offline-pack.html">офлайн-пакет</a></span> <code>offline-pack.html</code> — розмір у мегабайтах, який людина бачить</li>
+      <li><span class="b-k"><a href="./notify.html">попереджати про зміни</a></span> <code>notify.html</code> — дозвіл на сповіщення питається тут, коли він щось означає, — а не на першому запуску</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="flow-foot">
+  <p>Кінець happy path. Далі — <a href="./offline-pack.html">офлайн-пакет</a> і похід:
+  <a href="./today.html">сьогоднішня нога</a> та <a href="./changes.html">що змінилось і що ще
+  можна зробити</a>. In-trip шар навмисно поза цим флоу: він тримає jobs 3 і 6 і має власний
+  потік у <a href="./flows.md">flows.md</a>.</p>
+  <p class="attr">Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no ·
+  Транспорт Entur / Trafikverket. Дані про наявність ліжок у макетах — ілюстративні, позначені
+  на самому полі.</p>
+  <p class="gen" data-review lang="uk">Сторінка згенерована <code>wireframes/_flow.py</code> з
+  файлів набору. Правити тут руками не треба: зміни йдуть у макет, потім
+  <code>python3 wireframes/_flow.py</code>.</p>
+</footer>
+
+</main>
+</div><!-- /.flow-shell -->
+
+</body>
+</html>

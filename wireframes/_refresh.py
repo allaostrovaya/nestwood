@@ -14,7 +14,7 @@ nav_html, TREE, appnav_for, topbar = ns['nav_html'], ns['TREE'], ns['appnav_for'
 files = {p.name for p in pathlib.Path('wireframes').glob('*.html')}
 n = 0
 for p in sorted(pathlib.Path('wireframes').glob('*.html')):
-    if p.name in ('_nav.html','ia.html','index.html'): continue
+    if p.name in ('_nav.html','ia.html','flow.html','index.html'): continue
     s = p.read_text(encoding='utf-8')
     new = re.sub(r'<nav class="wf-tree".*?</nav>', lambda m: nav_html(p.name), s, flags=re.S)
     hdr = appnav_for(p.name)

@@ -2,7 +2,7 @@
 """Звірка набору вайрфреймів: структура, нейминг, навігація, звʼязність."""
 import pathlib, re, collections
 W = pathlib.Path('wireframes')
-pages = sorted(p for p in W.glob('*.html') if p.name not in ('_nav.html','ia.html','index.html'))
+pages = sorted(p for p in W.glob('*.html') if p.name not in ('_nav.html','ia.html','flow.html','index.html'))
 files = {p.name for p in W.glob('*.html')}
 issues = collections.defaultdict(list)
 
