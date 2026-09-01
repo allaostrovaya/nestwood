@@ -220,6 +220,109 @@ Nestwood — AI-orchestration шар для планування багатод�
 
 ---
 
+### Мова конкурентів
+
+Досі цей аудит дивився на фічі, дані й бізнес-моделі — але не на **слова**. Для рішень про голос продукту цього замало: якщо всі пишуть однаково, то відмінність через мову коштує дешево й видно її одразу.
+
+**Метод**: 31 серпня 2026 знято живі сторінки 16 продуктів і сервісів — вхідні екрани, планувальники маршрутів, потоки бронювання, правила ночівлі. Витягнуто **дослівні рядки інтерфейсу**, не переказ. Три джерела віддали 403 або таймаут і в добірку не ввійшли (`support.komoot.com`, `alltrails.com/press`, `hutreservation.org`). Усе нижче — ✓ пряма перевірка першоджерела, з датою.
+
+| Продукт | Що знято |
+|---|---|
+| Komoot Multi-Day Planner, Komoot Planner | продуктова сторінка + планувальник |
+| AllTrails | головна |
+| UT.no (DNT), hyttebestilling.dnt.no | планувальник + потік бронювання |
+| Outdooractive, alpenvereinaktiv | турпортал + альпійський портал із Bettencheck |
+| STF (`svenskaturistforeningen.se`, англомовні правила хиж) | бронювання + правила ночівлі |
+| Gaia GPS, onX Backcountry | навігаційні застосунки |
+| Wanderlog, Mindtrip, Layla | AI-планувальники подорожей |
+| DOC Great Walks (Нова Зеландія) | державне бронювання хиж |
+| Varsom (NVE) | офіційний сервіс попереджень |
+
+#### Патерн 1 — обʼєкт скрізь «пригода», а дієслово «знайти»
+
+> «Find your next adventure» · «Adventure anywhere» — AllTrails ✓
+> «Easily plan adventures that'll take multiple days» · «navigate, discover, adventure» — Komoot ✓
+> «Explore the great outdoors with confidence» · «Explore the world» — Outdooractive ✓
+> «Finn din tur blant tusenvis av turforslag og hytter i hele Norge» · «Finn din neste..» — UT.no ✓
+> «Maps for Every Adventure» — Gaia GPS ✓
+> «Take us on your next adventure!» — Mindtrip ✓
+
+Шістнадцять сервісів, один обʼєкт. **Жоден не називає, чого похід вимагає** — усі називають, що його можна знайти.
+
+#### Патерн 2 — обіцянка категорії це «легко» і «швидко»
+
+На одній сторінці Komoot Multi-Day Planner слово *easily/simply* стоїть **пʼять разів**: «Easily plan adventures that'll take multiple days» · «Plan longer adventures easily» · «Or easily plan your own from scratch» · «Simply customize the full route to suit your needs» · «Taking a detour? Easily adjust each stage or the whole route on the go» ✓
+
+onX: «Plan your route faster than ever» · «Easily and quickly create routes» · «Quickly and easily download maps» · «Offline Maps are easy to update» ✓
+Wanderlog: «Add places from guides with 1 click» · «makes trip planning so much easier» ✓
+Layla: «Plans in minutes» · «AI speed» ✓
+
+**Категорія продає зняте зусилля.** Це прямий наслідок для нас: конкурувати на «зручніше» означає йти на їхню вісь із меншою дистрибуцією.
+
+#### Патерн 3 — ніхто не називає межу власних даних. Крім того, хто не є продуктом
+
+У жодного з пʼятьох хард-конкурентів не знайдено рядка, який визнає неповноту або застарілість. Навпаки:
+
+> «Your multi-day route is ready to go» — Komoot ✓
+> «Trips tailored to you» · «2,340,815+ trips shaped around what travelers really wanted» · «Trusted by Millions» — Layla ✓
+
+Єдине джерело в добірці, яке пише про власні межі, — **офіційний сервіс попереджень NVE**, тобто інституція, а не продукт:
+
+> «A warning is a planning tool and may differ from the actual situation.» ✓
+> «Warnings are regional and based on available observations and weather forecasts.» ✓
+> «Conditions may be complex and differ from the warning.» ✓
+> «Always make your own evaluation.» ✓
+> «Use the warnings, data and maps at your own risk. Errors and omissions may be present.» ✓
+> Рівень небезпеки має окреме значення **«Not assessed»** ✓
+> — [varsom.no](https://www.varsom.no/en/), NVE
+
+Найближче до цього з держсервісів — сухе «Map currently unavailable.» у DOC Great Walks ✓.
+
+**Це найважливіша знахідка розділу.** Реєстр «ось межа того, що я знаю» в категорії вільний, і водночас він **уже знайомий і довірений** саме тим людям, для яких ми пишемо: Varsom — норвезький офіційний сервіс, а Kristin довіряє асоціаційному й державному бренду з першоджерела (§3, рядок «Довіра»). Тобто це не винахід голосу, а перенесення наявного інституційного реєстру в продукт, якого в ньому ще немає.
+
+#### Патерн 4 — ночівля подається без жодної умови
+
+> «Add your accommodation to the end of each stage» · «including suggested places to stay» — Komoot ✓
+> «Import flight and hotel reservations» — Wanderlog ✓
+
+Потік бронювання DNT написаний у **готельному реєстрі** — умов ночівлі в ньому немає взагалі:
+
+> «Bestill hytter i hele Norge» · «Søk område eller hytte» · «Velg datoer» · «1 gjest» · «Overrask meg» ✓
+> — [hyttebestilling.dnt.no](https://hyttebestilling.dnt.no/)
+
+STF ті самі умови **має**, але вони лежать на сторінці правил, а не в потоці бронювання, і тільки частково:
+
+> «The minimum opening hours are 8-10 a.m. and 4-8 p.m.» · «When the mountain cabins are closed, an emergency room is available.» · «This room is not intended for overnight stays during planned trips.» · «it is mandatory to bring your own sleeping bag, sleeping bag liner or duvet cover.» ✓
+
+⚠️ І окремо варте уваги: на англомовній сторінці STF **немає жодного речення** про гарантоване ліжко, час приходу 18:00 чи про те, що без броні нікого не виганяють — тобто рівно тих трьох правил, які складають формулу гарантії. Це пряме підтвердження метод-уроку з `../concept/personas.md`: англійська версія неповна саме там, де вирішується продуктова логіка.
+
+**Наслідок**: формула «тип обʼєкта × є бронь × час приходу × членство» (Ось A) не виражена **ні в кого** — ні в планувальників, ні у власників хиж у їхньому ж потоці бронювання.
+
+#### Патерн 5 — числа в інтерфейсі описують популярність, не наслідок
+
+> «Join 45 million outdoor enthusiasts» · «4.8/5» · «Based on more than 300k user ratings» — Komoot ✓
+> «Over 1 million people have already tried Wanderlog» · «8M+ Trips planned» · «33K+ Reviews» — Wanderlog ✓
+> «Top cities» · «Top parks» · «Top trails» · «Top points of interest» — AllTrails ✓
+
+Це та сама вісь, з якої ми вже зійшли структурним рішенням («фільтр існує, тільки якщо він одночасно параметр плану», CLAUDE.md) — але тут видно, що вона тримається **і на рівні слів**, не лише сортування.
+
+#### Патерн 6 — бадьорий тон живе не там, де очікувалось
+
+Аутдорні гравці стримані. Оклики й емодзі приходять з двох боків:
+
+- **AI-планувальники подорожей**: «Take us on your next adventure!» (Mindtrip) ✓, «Made with 💜 in Berlin» · «Trips worth talking about.» (Layla) ✓;
+- **системні діалоги аутдорних застосунків**: «We value your privacy ⛰️» — Komoot, банер згоди на cookie ✓.
+
+Тобто ризик не в тому, що ми випадково напишемо «Ой, щось пішло не так» у плані походу, а в тому, що бадьорість заповзе через периферію — банери, дозволи, порожні стани.
+
+**Одне спостереження проти себе**: DNT сам ставить у потоці бронювання кнопку **«Overrask meg»** ✓. Тобто «грайливо» не є забороненим у цій культурі — заборонено воно лише там, де від слів залежить, чи буде в людини дах.
+
+#### Що з цього випливає для голосу
+
+Три ніші вільні одночасно, і всі три — мовні, а не функційні: **називати умову** (патерни 1, 4), **називати межу власного знання** (патерн 3), **давати числа наслідку замість чисел популярності** (патерн 5). Перенесено в правила: [../design-system/voice.md](../design-system/voice.md).
+
+---
+
 ## 4. Бенчмарк
 
 Deep-dive на 5 продуктах поза категорією — критерії, джерела й оцінки в [benchmark.md](./benchmark.md).

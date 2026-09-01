@@ -20,7 +20,7 @@ Phase pipeline — each folder tracks its own status; update the table below as 
 |---|---|---|
 | 1. Concept | [concept/](./concept/) | Done — 2 personas + 2 axes, 12 jobs and 8 hypotheses; every claim audited against primary sources |
 | 2. Research | [research/](./research/) ([research.md](./research/research.md), [competitors.md](./research/competitors.md), [benchmark.md](./research/benchmark.md), [patterns.md](./research/patterns.md), [screens/](./research/screens/)) | Done — 15 competitors, benchmark, UX patterns, 8 data-source classes verified by direct request, tech stack decided. Interface pattern: catalogue, not wizard |
-| 3. Design system & tokens | [design-system/](./design-system/), [tokens/](./tokens/) | Not started |
+| 3. Design system & tokens | [design-system/](./design-system/) ([voice.md](./design-system/voice.md)), [tokens/](./tokens/) | **Voice done** — 5 principles, each sourced to a line in the research; visual language and tokens not started (brand accent still deferred: green/blue/red/black are the official grading) |
 | 4. Wireframes | [wireframes/](./wireframes/) ([sitemap.md](./wireframes/sitemap.md), [flows.md](./wireframes/flows.md), [ia.html](./wireframes/ia.html), [flow.html](./wireframes/flow.html), [_conventions.md](./wireframes/_conventions.md)) | **IA rewritten** for the five-tab structure (entities, tree, navigation, flows, traceability all recomputed). The 59 drawn pages were built against the previous wizard-spine structure and are **being redrawn** |
 | 5. Components | [components/](./components/) | Not started |
 | 6. Handoff | [handoff/](./handoff/) | Not started |
