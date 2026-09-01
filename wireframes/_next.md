@@ -68,6 +68,7 @@ python3 wireframes/_rewrite.py   # перепис тексту за voice.md; --
 python3 wireframes/_rewrite2.py  # прибирання рев'ю-тексту з макетів
 python3 wireframes/_rewrite3.py  # прибирання заглушок і позначок тестових даних
 python3 wireframes/_rewrite4.py  # прибирання абзаців, що пояснюють будову екрана
+python3 wireframes/_rewrite5.py  # прибирання самореференції: наші обʼєкти й наш запит
 ```
 
 Дзеркало `docs/` — копія `wireframes/`, `research/`, `concept/`; після правок копіювати
