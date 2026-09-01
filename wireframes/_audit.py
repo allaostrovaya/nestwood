@@ -103,12 +103,17 @@ else:
     print('досяжність: кожен екран досягається від вкладки ланцюжком посилань')
 
 # ── розвилка завантаження ведеться в обидва боки ──
+# Дивимось на ВСЮ сторінку, не тільки всередину .device: посилання на результати
+# це навігація рецензента, і вона живе в рядку позиції над макетом. У самому
+# застосунку екран завантаження таких кнопок не має.
 forks = []
 for p in pages:
     if not p.name.endswith('-loading.html'): continue
     base = p.name.replace('-loading', '')
-    want = {base, base.replace('.html', '-error.html'), base.replace('.html', '-empty.html')}
-    if not (links[p.name] & want): forks.append(f'{p.name}: не веде ні в {sorted(want)}')
+    want = {base, base.replace('.html', '-error.html'), base.replace('.html', '-empty.html'),
+            base.replace('.html', '-offline.html')}
+    whole = set(re.findall(r'href="\./([a-z-]+\.html)"', p.read_text(encoding='utf-8')))
+    if not (whole & want): forks.append(f'{p.name}: не веде ні в {sorted(want)}')
 if forks:
     print(f'\nзавантаження без виходу у власний результат: {len(forks)}')
     for f in forks: print('  ' + f)

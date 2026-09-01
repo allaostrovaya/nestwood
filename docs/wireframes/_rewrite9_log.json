@@ -1,0 +1,24 @@
+[
+ {
+  "file": "plan-loading.html",
+  "kind": "move"
+ },
+ {
+  "file": "route-loading.html",
+  "kind": "move"
+ },
+ {
+  "file": "map-loading.html",
+  "kind": "move"
+ },
+ {
+  "file": "plan-loading.html",
+  "kind": "trim",
+  "why": "пояснення нашої моделі"
+ },
+ {
+  "file": "plan-loading.html",
+  "kind": "trim",
+  "why": "«генерація» — наше слово"
+ }
+]

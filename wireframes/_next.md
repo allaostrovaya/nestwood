@@ -72,6 +72,8 @@ python3 wireframes/_rewrite5.py  # прибирання самореференц
 python3 wireframes/_rewrite6.py  # каталог: лічильник цифрою, описи маршрутів про маршрут
 python3 wireframes/_rewrite7.py  # прискіплива чистка за пʼятьма сигнатурами
 python3 wireframes/_rewrite8.py  # залишки, де правило перетинало інлайнові теги
+python3 wireframes/_rewrite9.py  # loading: рев'ю-навігація над макет, не в нього
+python3 wireframes/_rewrite10.py # share: прибрано документацію вайрфрейма
 ```
 
 Дзеркало `docs/` — копія `wireframes/`, `research/`, `concept/`; після правок копіювати
