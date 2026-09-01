@@ -66,6 +66,7 @@ python3 wireframes/_audit.py     # структура + звʼязність + �
 python3 wireframes/_flow.py      # flow.html — головний флоу з макетів набору
 python3 wireframes/_microcopy.py # microcopy.md — увесь текст інтерфейсу + позначки
 python3 wireframes/_rewrite.py   # перепис тексту за voice.md; --check = сухий прогін
+python3 wireframes/_rewrite2.py  # прибирання рев'ю-тексту з макетів
 ```
 
 Дзеркало `docs/` — копія `wireframes/`, `research/`, `concept/`; після правок копіювати

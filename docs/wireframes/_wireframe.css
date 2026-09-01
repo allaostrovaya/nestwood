@@ -349,6 +349,15 @@ ul.signals b {
 .verdict p:last-child { margin: 0; color: var(--ink-2); font-size: 14px; }
 
 /* позначка ілюстративності — на самому полі, не в хромі */
+/* позначка мок-даних. Сам факт «ілюстративно» лишається видимим на полі —
+   цього вимагає CLAUDE.md. У title ховається тільки комерційна причина:
+   людині вона нічого не каже, а покупцю в демо потрібна. Пунктир знизу —
+   єдиний афорданс, бо іконки в наборі заборонені. */
+small[data-mock][title] {
+  display: inline-block;
+  border-bottom: 1px dotted var(--ink-2);
+  cursor: help;
+}
 small[data-mock] {
   display: block;
   margin-top: var(--s1);
