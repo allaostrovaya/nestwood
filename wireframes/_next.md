@@ -70,6 +70,8 @@ python3 wireframes/_rewrite3.py  # прибирання заглушок і по
 python3 wireframes/_rewrite4.py  # прибирання абзаців, що пояснюють будову екрана
 python3 wireframes/_rewrite5.py  # прибирання самореференції: наші обʼєкти й наш запит
 python3 wireframes/_rewrite6.py  # каталог: лічильник цифрою, описи маршрутів про маршрут
+python3 wireframes/_rewrite7.py  # прискіплива чистка за пʼятьма сигнатурами
+python3 wireframes/_rewrite8.py  # залишки, де правило перетинало інлайнові теги
 ```
 
 Дзеркало `docs/` — копія `wireframes/`, `research/`, `concept/`; після правок копіювати
