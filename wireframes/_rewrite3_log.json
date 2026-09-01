@@ -1,0 +1,37 @@
+[
+ {
+  "file": "changes-error.html",
+  "kind": "заміна",
+  "n": 1
+ },
+ {
+  "file": "changes-loading.html",
+  "kind": "заміна",
+  "n": 1
+ },
+ {
+  "file": "changes-nooptions.html",
+  "kind": "заміна",
+  "n": 1
+ },
+ {
+  "file": "changes.html",
+  "kind": "заміна",
+  "n": 1
+ },
+ {
+  "file": "plan-empty.html",
+  "kind": "заміна",
+  "n": 1
+ },
+ {
+  "file": "plan-loading.html",
+  "kind": "заміна",
+  "n": 1
+ },
+ {
+  "file": "route-loading.html",
+  "kind": "заміна",
+  "n": 1
+ }
+]

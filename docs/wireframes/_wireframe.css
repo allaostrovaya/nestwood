@@ -349,24 +349,6 @@ ul.signals b {
 .verdict p:last-child { margin: 0; color: var(--ink-2); font-size: 14px; }
 
 /* позначка ілюстративності — на самому полі, не в хромі */
-/* позначка мок-даних. Сам факт «ілюстративно» лишається видимим на полі —
-   цього вимагає CLAUDE.md. У title ховається тільки комерційна причина:
-   людині вона нічого не каже, а покупцю в демо потрібна. Пунктир знизу —
-   єдиний афорданс, бо іконки в наборі заборонені. */
-small[data-mock][title] {
-  display: inline-block;
-  border-bottom: 1px dotted var(--ink-2);
-  cursor: help;
-}
-small[data-mock] {
-  display: block;
-  margin-top: var(--s1);
-  padding-left: var(--s2);
-  border-left: 2px dotted var(--ink);
-  font-size: 11px;
-  line-height: 1.4;
-  color: var(--ink-2);
-}
 
 /* ── елементи керування ──────────────────────────────────────── */
 .actions {
@@ -450,18 +432,6 @@ figure { margin: 0 0 var(--s3); }
   line-height: 1.4;
   color: var(--ink-2);
   max-width: 92%;
-}
-/* мітка розмірної поведінки — у кутку, щоб було видно без підпису */
-.frame::after {
-  content: attr(data-fit);
-  position: absolute;
-  top: 0; left: 0;
-  padding: 2px var(--s1);
-  background: var(--ink);
-  color: #fff;
-  font-family: ui-monospace, monospace;
-  font-size: 9px;
-  letter-spacing: .04em;
 }
 
 .frame--map      { aspect-ratio: 16 / 11; }
