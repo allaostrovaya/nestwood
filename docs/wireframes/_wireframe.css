@@ -49,6 +49,8 @@ body {
 /* ── телефон ────────────────────────────────────────────────── */
 .device {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: var(--col);
   height: var(--screen-h);
   margin: 0 auto var(--s5);
@@ -60,8 +62,12 @@ body {
 }
 
 /* вміст скролиться, таббар лишається на місці — як у справжньому застосунку */
+/* не height:100%: над екраном стоїть мітка .device::before, і при 100% скролпорт
+   вилазив нижче дна телефона — усе, прив'язане до його низу (липка .bar),
+   з'їжджало під таббар. flex-залишок рахує це сам. */
 .screen {
-  height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
   padding-bottom: var(--tabbar-h);
@@ -145,6 +151,7 @@ body {
 .device::before {
   content: attr(data-screen) " · " attr(data-state) " · " var(--col-label);
   display: block;
+  flex: 0 0 auto;
   padding: var(--s1) var(--s2);
   background: var(--ink);
   color: #fff;
@@ -541,10 +548,13 @@ footer.app details { margin-bottom: var(--s2); }
 .stats b { display: block; font-size: 17px; font-weight: 700; line-height: 1.1; }
 .stats small { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
 
-/* bar — липка панель головної дії */
+/* bar — липка панель головної дії.
+   bottom:0 — це низ скролпорта, зменшений на його padding-bottom, тобто рівно
+   верх таббара. Працює тільки тому, що .screen тепер має правильну висоту. */
 .bar {
   position: sticky;
   bottom: 0;
+  z-index: 1;
   margin: var(--s3) calc(var(--s3) * -1) 0;
   padding: var(--s2) var(--s3);
   background: #fff;
