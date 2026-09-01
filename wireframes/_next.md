@@ -67,6 +67,7 @@ python3 wireframes/_microcopy.py # microcopy.md — увесь текст інт
 python3 wireframes/_rewrite.py   # перепис тексту за voice.md; --check = сухий прогін
 python3 wireframes/_rewrite2.py  # прибирання рев'ю-тексту з макетів
 python3 wireframes/_rewrite3.py  # прибирання заглушок і позначок тестових даних
+python3 wireframes/_rewrite4.py  # прибирання абзаців, що пояснюють будову екрана
 ```
 
 Дзеркало `docs/` — копія `wireframes/`, `research/`, `concept/`; після правок копіювати
