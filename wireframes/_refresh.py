@@ -27,6 +27,10 @@ for p in sorted(pathlib.Path('wireframes').glob('*.html')):
     if scr:
         new = re.sub(r'<title>.*?</title>', f'<title>Wireframe \u00b7 {scr} \u00b7 {st}</title>', new, flags=re.S)
         new = re.sub(r'data-screen="[^"]*" data-state="[^"]*"', f'data-screen="{scr}" data-state="{st}"', new)
+        # рядок позиції: номер джоб.крок лишається (він тільки тут і живе),
+        # назва екрана й стан переписуються з TREE
+        new = re.sub(r'(<p class="meta" data-review lang="uk"><b>[^<]*</b> \u00b7 ).*?( \u00b7 <i>).*?(</i></p>)',
+                     lambda m: m.group(1) + scr + m.group(2) + st + m.group(3), new)
     if new != s: p.write_text(new, encoding='utf-8'); n += 1
 print(f'дерево перегенеровано у {n} сторінках')
 # канонічна копія

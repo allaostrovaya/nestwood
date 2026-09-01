@@ -168,7 +168,7 @@
               <span class="tree-p">P S</span>
             </li>
             <li class="tree-item">
-              <span class="tree-id">7.1</span><span class="tree-name">Що лишилось закріпити</span>
+              <span class="tree-id">7.1</span><span class="tree-name">Останні кроки</span>
               <span class="tree-desc">три класи: ночівлі · квитки · членство</span>
               <span class="tree-jobs"><span class="tag tag-ok">2</span><span class="tag tag-ok">6</span><span class="tag tag-ok">7</span><span class="tag tag-ok">8</span></span>
               <span class="tree-p"><b>P</b></span>
@@ -182,7 +182,7 @@
             </li>
             <p class="tree-note"><b>Констрейнт, не job.</b> Offline-first обов'язковий, але жоден job не описує пакет як об'єкт, з яким людина має справу. Обіцяємо «пакет на цей маршрут», не «офлайн усюди».</p>
             <li class="tree-item">
-              <span class="tree-id">10.1</span><span class="tree-name">Підсумок для передачі</span>
+              <span class="tree-id">10.1</span><span class="tree-name">Сказати, куди йду</span>
               <span class="tree-desc">два регістри: довіра близьких і безпековий share</span>
               <span class="tree-jobs"><span class="tag tag-ok">10</span></span>
               <span class="tree-p">P S</span>
@@ -445,7 +445,7 @@ flowchart TD
     QMEM -->|ні| membership["membership · Членство й ключ"]
     membership --> QBUY{"Береться оформлювати членство?"}
     QBUY -->|так| HANDM(["ВИХІД · оформлення в офіційній системі"])
-    HANDM -.-> C1REF["lock-in · Що лишилось закріпити"]
+    HANDM -.-> C1REF["lock-in · Останні кроки"]
     QBUY -->|ні| DEADM(["ТУПИК членства · ніч недоступна замкненою<br/>вихід: нелокована хижа, кемпінг, allemansrätten"])
     DEADM -.-> B1REF
     QTIME -->|так| LATE("гарантія неспецифікованого місця")
@@ -476,7 +476,7 @@ flowchart TD
         <div class="diagram-head"><span class="diagram-id">7</span><span class="diagram-name">Довести план до реально закріплених ночівель</span><button class="diagram-toggle" type="button">розгорнути</button></div>
         <div class="diagram-body"><pre class="mermaid">
 flowchart TD
-    IN(["План готовий, жодна ніч не закріплена"]) --> lock-in["lock-in · Що лишилось закріпити"]
+    IN(["План готовий, жодна ніч не закріплена"]) --> lock-in["lock-in · Останні кроки"]
     lock-in --> QANY{"Є кроки до виконання?"}
     QANY -->|ні| EMP("empty · усі ночі drop-in")
     EMP --> WIN1(["УСПІХ · план не потребує оформлення"])
@@ -562,7 +562,7 @@ flowchart TD
     IGN --> QSTATE
     QAPPLY -->|так| LOAD2("loading · перебудова зачеплених днів")
     LOAD2 --> QNEW{"Зʼявились нові кроки закріплення?"}
-    QNEW -->|так| lock-in["lock-in · Що лишилось закріпити"]
+    QNEW -->|так| lock-in["lock-in · Останні кроки"]
     QNEW -->|ні| WIN2
     lock-in --> WIN2(["УСПІХ · план перебудований, поки альтернатива існувала"])
     classDef state fill:#8b978f22,stroke:#8b978f;
@@ -624,7 +624,7 @@ flowchart TD
     IN(["Треба показати план сторонній людині"]) --> QWHY{"Навіщо показуємо?"}
     QWHY -->|"довіра близьких — 10"| plan["plan · План по днях"]
     QWHY -->|"безпека — рекомендація DNT"| today["today · Сьогодні"]
-    plan --> share["share · Підсумок для передачі"]
+    plan --> share["share · Сказати, куди йду"]
     today --> share
     E --> QREADY{"План уже узгоджений?"}
     QREADY -->|ні| WARN("стан · план ще чернетка")
@@ -825,7 +825,7 @@ flowchart TD
             <tr><td class="jobcell">`night` · Ніч</td><td class="yes">✓</td><td class="yes">✓</td><td></td><td></td><td class="yes">✓</td><td></td></tr>
             <tr><td class="jobcell">`transport` · Дорога туди й назад</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td></td><td></td><td></td></tr>
             <tr><td class="jobcell">`changes` · Що змінилось і що ще можна зробити</td><td></td><td class="yes">✓</td><td class="yes">✓</td><td></td><td></td><td class="yes">варіантів немає</td></tr>
-            <tr><td class="jobcell">`lock-in` · Що лишилось закріпити</td><td class="yes">✓</td><td class="yes">✓</td><td></td><td class="yes">✓</td><td></td><td></td></tr>
+            <tr><td class="jobcell">`lock-in` · Останні кроки</td><td class="yes">✓</td><td class="yes">✓</td><td></td><td class="yes">✓</td><td></td><td></td></tr>
             <tr><td class="jobcell">`today` · Сьогодні</td><td></td><td></td><td></td><td class="yes">✓</td><td></td><td></td></tr>
           </tbody>
         </table>

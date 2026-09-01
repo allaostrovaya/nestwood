@@ -16,12 +16,25 @@ _s = importlib.util.spec_from_file_location('gnav', 'design-system/docs/gnav.py'
 _g = importlib.util.module_from_spec(_s); _s.loader.exec_module(_g)
 GNAV = _g.gnav('flow', '../')
 
+# назва екрана й вкладка беруться з TREE, позиція — з рядка .meta самої сторінки.
+# Зашивати їх тут означало б завести четверте місце, де живе та сама назва.
+_t = importlib.util.spec_from_file_location('gen', 'wireframes/_generate.py')
+_gen = importlib.util.module_from_spec(_t); _t.loader.exec_module(_gen)
+
+def _pos(fname):
+    m = re.search(r'<p class="meta"[^>]*><b>([^<]+)</b>', (W / fname).read_text(encoding='utf-8'))
+    return m.group(1) if m else '?'
+
+def _name(fname, override=None, star=False):
+    n = override or _gen.TITLE.get(fname, fname)
+    return n + (' \u2b50' if star else '')
+
 # ── КРОКИ ────────────────────────────────────────────────────
 # file, позиція (джоб.крок), назва в рейці, jobs, lead, body, рішення, гілки.
 # Гілка: (мітка, файл або None, пояснення). None → інертний текст, не бите посилання.
 STEPS = [
  dict(
-  file='catalogue.html', pos='0.1', rail='Куди можна піти', tab='Карта',
+  file='catalogue.html', rail=None,
   jobs='1 · 2 · MAIN',
   lead='Вхід у продукт — і візарда немає. Цінність видно на нульовому тапі: '
        'перший екран це вже вміст, а не форма.',
@@ -41,7 +54,7 @@ STEPS = [
     'ночей не складається, каже, <b>де саме</b> розрив'),
   ]),
  dict(
-  file='route.html', pos='0.2', rail='Картка маршруту ⭐', tab='Карта',
+  file='route.html', rail=None, star=True,
   jobs='1 · 2 · 6 · 8 · 11 · MAIN',
   lead='Центральний екран продукту. Рішення «чи це для мене» приймається тут — <b>до</b> '
        'того, як план існує, — тому тут стоїть усе, від чого це рішення залежить.',
@@ -69,7 +82,7 @@ STEPS = [
     'результату. <i>Стан на картці ще не намальований — відкладено, не загублено.</i>'),
   ]),
  dict(
-  file='plan-loading.html', pos='0.3', rail='Генерація', tab='Плани',
+  file='plan-loading.html', rail='Генерація',
   jobs='MAIN · 5',
   lead='Єдиний екран флоу, який існує заради чесності: генерація триває секунди, і за цей '
        'час названо, що саме зараз підтягується.',
@@ -92,7 +105,7 @@ STEPS = [
     'наслідком у рядку — «на день коротше — 64 км» · «інший фініш» · «зрушити дати»'),
   ]),
  dict(
-  file='plan.html', pos='0.3', rail='План по днях ⭐', tab='Плани',
+  file='plan.html', rail=None, star=True,
   jobs='1 · 3 · 4 · 5 · 9 · MAIN',
   lead='Дім продукту й друга з двох поверхонь, які нас відрізняють. Головний job — не '
        '«побудувати маршрут», а <b>«не бути самою тим, хто зводить чотири розрізнені '
@@ -118,7 +131,7 @@ STEPS = [
    ('джерело неповне', 'plan-degraded.html', 'поле «чого в плані свідомо немає»'),
   ]),
  dict(
-  file='day.html', pos='0.4', rail='День', tab='Плани',
+  file='day.html', rail=None,
   jobs='1 · 3 · 5',
   lead='Заглиблення в один день: нога, умови, погода, ніч і шар «чому саме так» із '
        'названими внесками.',
@@ -133,7 +146,7 @@ STEPS = [
     'вердиктом узгодженості'),
   ]),
  dict(
-  file='night.html', pos='2.1', rail='Ніч: гарантія й доступ', tab='Плани',
+  file='night.html', rail='Ніч: гарантія й доступ',
   jobs='2 · 8',
   lead='<b>Top Job #1</b> — і єдине, чого не вміє висловити жоден із пʼятьох конкурентів. '
        'Відповідь на «що мені потрібно на цю ніч» це функція чотирьох змінних: тип обʼєкта '
@@ -160,7 +173,7 @@ STEPS = [
     'self-service існує тільки норвезькою — тому оригінал плюс переклад'),
   ]),
  dict(
-  file='gear.html', pos='4.1', rail='Спорядження', tab='Плани',
+  file='gear.html', rail=None,
   jobs='4 · 1',
   lead='Чеклист, який не лежить окремо від плану: вага рюкзака з нього йде в поправку '
        'Tranter, тобто <b>годує оцінку часу ходу</b> на кроці 5.',
@@ -173,7 +186,7 @@ STEPS = [
    ('інвентар', 'my-gear.html', 'звідки береться «це в мене вже є»'),
   ]),
  dict(
-  file='transport.html', pos='6.1', rail='Дорога туди й назад', tab='Плани',
+  file='transport.html', rail=None,
   jobs='6',
   lead='Найсильніший доказ у всьому дослідженні: три незалежні шведські голоси за один '
        'тиждень, включно з задокументованим випадком, коли людина <b>покинула регіон</b> '
@@ -194,7 +207,7 @@ STEPS = [
     'Riksgränsen ще можливий. Не сповіщення про поломку'),
   ]),
  dict(
-  file='lock-in.html', pos='7.1', rail='Що лишилось закріпити', tab='Плани',
+  file='lock-in.html', rail=None,
   jobs='7 · 2',
   lead='Job із найсильнішою доказовою базою — і водночас межа продукту. DNT вимагає '
        '<i>«complete the booking and payment for one cabin before proceeding to the next»</i>, '
@@ -223,7 +236,7 @@ STEPS = [
     '→ доступ до замкнених хиж'),
   ]),
  dict(
-  file='share.html', pos='10.1', rail='Підсумок для передачі', tab='Плани',
+  file='share.html', rail=None,
   jobs='10 · 3',
   lead='Кінець флоу — і рівно те, що DNT рекомендує саме: поділись маршрутом і часом, коли '
        'тебе чекати назад.',
@@ -251,7 +264,7 @@ LINKS = [
  'тап по ночі в рядку дня',
  'назад у план · «Спорядження»',
  'із плану · «Дорога туди й назад»',
- 'із плану · «Що лишилось закріпити» — бейдж на вкладці',
+ 'із плану · «Останні кроки» — бейдж на вкладці',
  'усі кроки закриті',
 ]
 
@@ -280,18 +293,22 @@ def branch_li(label, target, text):
 def step_html(i, st):
     n = i + 1
     nn = f'{n:02d}'
+    name = _name(st['file'], st.get('rail'), st.get('star'))
+    pos = _pos(st['file'])
+    tab = _gen.TAB.get(st['file'], '')
+    name_plain = name.replace(' \u2b50', '')
     q = (f'      <h3>Рішення</h3>\n      <p class="q">{st["q"]}</p>\n' if st['q']
          else '      <h3>Виходи</h3>\n')
     br = '\n'.join(branch_li(*b) for b in st['branches'])
     return f'''<section class="step" id="s{n}" aria-labelledby="s{n}-h">
   <div class="step-head">
     <span class="step-n">{nn}</span>
-    <h2 id="s{n}-h">{st['rail']}</h2>
-    <p class="step-src" data-review lang="uk">{st['pos']} · <code>{st['file']}</code> · вкладка {st['tab']} · jobs {st['jobs']}</p>
+    <h2 id="s{n}-h">{name}</h2>
+    <p class="step-src" data-review lang="uk">{pos} · <code>{st['file']}</code> · вкладка {tab} · jobs {st['jobs']}</p>
   </div>
   <div class="step-body">
     <div class="flow-screen">
-      <p class="meta" data-review lang="uk"><b>{st['pos']}</b> · {st['rail'].replace(' ⭐','')} · <i>як у наборі</i></p>
+      <p class="meta" data-review lang="uk"><b>{pos}</b> · {name_plain} · <i>як у наборі</i></p>
       <input class="flow-exp" type="checkbox" id="exp{n}" />
       <label class="flow-exp-l" for="exp{n}"></label>
       <div class="flow-dev">
@@ -314,7 +331,8 @@ def link_html(i):
             f'<span class="hop-t">{LINKS[i]}</span></p>')
 
 rail = '\n'.join(
-  f'      <li><a href="#s{i+1}"><span class="rn">{i+1:02d}</span>{st["rail"]}</a></li>'
+  f'      <li><a href="#s{i+1}"><span class="rn">{i+1:02d}</span>'
+  f'{_name(st["file"], st.get("rail"), st.get("star"))}</a></li>'
   for i, st in enumerate(STEPS))
 
 NBR = sum(len(s_['branches']) for s_ in STEPS)
