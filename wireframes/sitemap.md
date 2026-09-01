@@ -998,7 +998,7 @@ flowchart LR
 
 ### Матриця B · Плани
 
-| Job | `plans` | `plan` План | `day` День | `night` Ніч | `nights` Ланцюг | `gear` Спор. | `transport` Трансп. | `changes` Змінилось | `lock-in` Закріпити | `offline-pack` Офлайн | `share` Показати | `today` Сьогодні |
+| Job | `plans` | `plan` План | `day` День | `night` Ніч | `nights` Ланцюг | `gear` Спор. | `transport` Дорога | `changes` Змінилось | `lock-in` Останні кроки | `offline-pack` Офлайн | `share` Сказати | `today` Сьогодні |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | **MAIN** | | ✓ | | | | | | | | | | |
 | 1 | | ✓ | ✓ | | | | | | | | | |

@@ -120,6 +120,30 @@ if forks:
 else:
     print('завантаження: кожен loading показує свої результати')
 
+# ── назва екрана однакова в усіх чотирьох місцях ──
+# TREE — єдине джерело; <title>, мітка на телефоні, шапка й рядок позиції її читають.
+# Розсинхрон тут не видно оком: кожне місце окремо виглядає правильно.
+import importlib.util as _iu
+_s2 = _iu.spec_from_file_location('gg', 'wireframes/_generate.py')
+_gg = _iu.module_from_spec(_s2); _s2.loader.exec_module(_gg)
+namedrift = []
+for p in pages:
+    t = p.read_text(encoding='utf-8')
+    want = _gg.TITLE.get(p.name)
+    if not want: continue
+    for pat, label in ((r'<title>Wireframe · ([^·]+) ·', 'title'),
+                       (r'data-screen="([^"]*)"', 'мітка'),
+                       (r'<span class="title">([^<]*)<', 'шапка'),
+                       (r'<p class="meta"[^>]*><b>[^<]*</b> · ([^·]+) ·', 'рядок позиції')):
+        m = re.search(pat, t)
+        if m and m.group(1).strip() != want:
+            namedrift.append(f'{p.name}: {label} «{m.group(1).strip()}» ≠ TREE «{want}»')
+if namedrift:
+    print(f'\nназва екрана розійшлась у {len(namedrift)} місцях:')
+    for d in namedrift: print('  ' + d)
+else:
+    print('назва екрана: TREE, title, мітка, шапка й рядок позиції збігаються')
+
 # ── ієрархія: «назад» веде до оголошеного батька ──
 import importlib.util as _il
 _sp = _il.spec_from_file_location('g','wireframes/_generate.py')
