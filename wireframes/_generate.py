@@ -43,9 +43,9 @@ TREE = [
        ('Спорядження','gear.html',[], []),
        ('Дорога туди й назад','transport.html',[('порожній','transport-empty.html'),('помилка','transport-error.html'),('завантаження','transport-loading.html')], []),
        ('Що змінилось і що ще можна зробити','changes.html',[('завантаження','changes-loading.html'),('помилка','changes-error.html'),('варіантів немає','changes-nooptions.html')], []),
-       ('Що лишилось закріпити','lock-in.html',[('порожній','lock-in-empty.html'),('помилка','lock-in-error.html'),('офлайн','lock-in-offline.html')], []),
+       ('Що зробити до виходу','lock-in.html',[('порожній','lock-in-empty.html'),('помилка','lock-in-error.html'),('офлайн','lock-in-offline.html')], []),
        ('Офлайн-пакет','offline-pack.html',[], []),
-       ('Підсумок для передачі','share.html',[], []),
+       ('Повідомити рідних','share.html',[], []),
        ('Сьогодні','today.html',[('офлайн','today-offline.html')], []),
        ('Зберегти похід','account.html',[], []),
        ('Попереджати про зміни','notify.html',[], []),
@@ -182,7 +182,7 @@ NOPLAN = {'plans-empty.html', 'plan-empty.html', 'catalogue-empty.html'}
 
 def appnav_for(f):
     t = tab_of(f)
-    b = '' if f in NOPLAN else '<span class="count" aria-label="лишилось закріпити: 4">4</span>'
+    b = '' if f in NOPLAN else '<span class="count" aria-label="лишилось зробити: 4">4</span>'
     return APPNAV.format(b=b, m=' aria-current="page"' if t == 'Маршрути' else '',
                          p=' aria-current="page"' if t == 'Плани' else '',
                          d=' aria-current="page"' if t == 'Довідник' else '',
