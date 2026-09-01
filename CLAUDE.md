@@ -192,6 +192,30 @@ The audit trail is in `wireframes/_screens.md` (which states are real and why), 
 
 **UI language of the wireframes is Ukrainian** — see the note under Scope for v1.
 
+## Voice
+
+Full text: [design-system/voice.md](./design-system/voice.md). The audit trail of every string in the product: [wireframes/microcopy.md](./wireframes/microcopy.md) — 2 971 rows, one per interface line, regenerated from the pages by `_microcopy.py`.
+
+**The voice was derived from the research, not chosen.** Each of the five principles cites a line in `research.md`, `personas.md`, `jtbd.md` or `competitors.md`; a sixth candidate — AI transparency — was written up and then **not taken**, because there is no Nordic evidence for it (the same finding that demoted job 5 to "our bet"). That rejection is kept in the file: a principle we declined for a stated reason is part of the artefact.
+
+**What this product is actually about is preparedness, not convenience.** Every competitor's copy sells ease; ours sells knowing what you are walking into. That single sentence is what the five principles operationalise:
+
+1. **Name the condition under which a statement holds.** Not "beds available" but "a booked bed is guaranteed; without a booking you still get indoor space, possibly a floor mattress". The guarantee formula is four variables, so the sentence has to carry them.
+2. **Name the limit of our own knowledge on the field it applies to** — never as a banner, never in a separate "about the data" screen. Outside met.no's ~10-day horizon we say it is a seasonal normal, and the load figure says which published method computed it.
+3. **Our numbers are about the consequence for this person, not about popularity.** No ratings in sort order, no "most popular route" — hours of walking, metres of ascent, kilometres to the next hut.
+4. **Explain someone else's system as a property of that system, never as something the person should have known.** "DNT sells the key to members only" — not "don't forget your key". This is the second persona's whole job, and the tone that makes it land is the difference between a guide and a hall monitor.
+5. **When something changes, say what can still be done and how much time is left.** The lead-time mechanism as a sentence pattern: the change, the remaining options, the deadline.
+
+**Three enforced sub-systems**, which is what makes the principles checkable rather than aspirational:
+
+- **Словник** — one concept, one word (a `перехід` is not a `день`; `нічліг` is not `житло`), the address fixed as **«ти»** on every screen, and an explicit allowed/banned anglicism list. It governs product text only — design documents are allowed their own vocabulary, and that boundary is written into the file because otherwise the dictionary starts editing the research.
+- **Заборонене** — eight bans, each with a real було/треба pair: error clichés, greetings and celebration, the word «успішно», exclamation marks, emoji in system messages, promises of ease, popularity counts, and internal screen/format names leaking into the UI.
+- **Мікрокопі** — a rule per element type (button, screen heading, form field, empty state, error, loading, success, destructive action), each with one Nestwood example. Buttons name the outcome, not the mechanism; an empty state always carries an exit; an error never jokes; success does not celebrate, it says what is now true.
+
+**Screen names get a blunt test**, added after two invented ones shipped: if a person has never met the phrase in any app, the name is invented. «Останні кроки» and «Сказати, куди йду» replaced «Що лишилось закріпити» and «Підсумок для передачі» on exactly that ground.
+
+The name of a screen lives in `_generate.py`'s `TREE` and nowhere else — `<title>`, the phone label, the header and the position line all read from it, and `_audit.py` fails if any of the four drifts. That check exists because a rename silently updated three places out of five and each of them looked correct on its own.
+
 ## Tech stack
 
 Decided against the evidenced constraints, not against build convenience. Full evaluation: [research/research.md](./research/research.md) §7.

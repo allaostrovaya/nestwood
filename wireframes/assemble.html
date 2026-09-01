@@ -200,10 +200,10 @@
     <h1>Зібрати маршрут</h1>
 
     <section aria-labelledby="input">
-      <h2 id="input">Що маємо</h2>
+      <h2 id="input">Рамки походу</h2>
       <form class="inline" action="./route.html" method="get">
         <fieldset>
-          <legend>Рамки походу</legend>
+          <legend>Дні, старт і фініш</legend>
           <label for="days">Скільки днів</label>
           <input type="text" id="days" name="days" value="5" />
           <label for="from">Звідки стартую</label>
@@ -213,38 +213,38 @@
           <label for="avoid">Чого уникати</label>
           <input type="text" id="avoid" name="avoid" value="броди по пояс" />
         </fieldset>
-        <p class="actions"><button class="primary" type="submit">Зібрати</button></p>
+        <p class="actions"><button class="primary" type="submit">Зібрати маршрут</button></p>
       </form>
-      <p>Старт і фініш обираються <b>зі списку</b> — місто, станція, точка входу, хижа. Не довільна точка на карті: поза мережею немає ні стежки, ні градації.</p>
-      <p>Регіон, місяць і режим ночівлі ми вже знаємо з фільтрів каталогу.</p>
+      <p>Старт і фініш — <b>зі списку</b>: місто, станція, точка входу, хижа. Маршрут іде маркованими стежками й за межі мережі не виходить.</p>
+      <p>Регіон, місяць і режим ночівлі — з фільтрів каталогу.</p>
     </section>
     <section aria-labelledby="result">
       <h2 id="result">Що зібралось</h2>
       <ol class="days">
         <li><article><h3>Abisko → Vakkotavare · 5 днів</h3>
           <p>78 км · +1 210 м · 4 ночі: Abiskojaure · Alesjaure · Tjäktja · Sälka</p>
-          <p><b>Зібрано під твій запит</b> — іменованої назви цей маршрут не має</p>
-          <p class="actions"><a class="cta" href="./route.html">Відкрити картку</a></p></article></li>
+          <p><b>Зібрано під твій запит</b> — власної назви цей маршрут не має</p>
+          <p class="actions"><a class="cta" href="./route.html">Картка маршруту</a></p></article></li>
         <li><article><h3>Nikkaluokta → Abisko · 5 днів, у зворотному напрямку</h3>
-          <p>81 км · +1 340 м · перевал у першій половині, поки сили є</p>
+          <p>81 км · +1 340 м · перевал у першій половині маршруту, поки сили є</p>
           <p><b>Зібрано під твій запит</b></p>
-          <p class="actions"><a href="./route.html">Відкрити картку</a></p></article></li>
+          <p class="actions"><a href="./route.html">Картка маршруту</a></p></article></li>
       </ol>
     </section>
     <section aria-labelledby="gap">
-      <h2 id="gap">Коли не складається</h2>
-      <p>Буває, що ланцюжок ночей не закривається. Тоді видно <b>де саме розрив і чому</b>:</p>
+      <h2 id="gap">Коли ланцюжок ночей не закривається</h2>
+      <p>Буває, що на кожну ніч ночівлі не стає. Тоді видно, <b>де розрив</b> і що ще можна зробити:</p>
       <ul class="signals">
         <li><b>Розрив</b> між Sitasjaure й Vaisaluokta 38 км — це не денний перехід</li>
-        <li><b>Вихід 1</b> намет на 4-ту ніч <small>дозволено allemansrätten, але це інший режим ночівлі</small></li>
+        <li><b>Вихід 1</b> намет на 4-ту ніч <small>allemansrätten це дозволяє, але ночівля буде іншого режиму</small></li>
         <li><b>Вихід 2</b> інший фініш — Kebnekaise, на 12 км коротше</li>
         <li><b>Вихід 3</b> +1 день</li>
       </ul>
     </section>
 
     <section aria-labelledby="chain">
-      <h2 id="chain">З чого це збирається</h2>
-      <p class="actions"><a href="./huts.html">Хижі, з яких збираємо</a> <a href="./huts-empty.html">Як виглядає розрив</a></p>
+      <h2 id="chain">Хижі</h2>
+      <p class="actions"><a href="./huts.html">Хижі маршруту</a> <a href="./huts-empty.html">Коли хиж на ділянці немає</a></p>
     </section>
 
   </main>
