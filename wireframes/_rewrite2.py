@@ -248,5 +248,8 @@ if miss:
 else:
     print('усі правила знайшли ціль')
 if not check:
-    (W / '_rewrite2_log.json').write_text(json.dumps(log, ensure_ascii=False, indent=1), encoding='utf-8')
-    print(f'застосовано: {len(log)} правок у {len({x["file"] for x in log})} сторінках')
+    # порожній прогін (усе вже застосовано) не затирає журнал попереднього
+    if log:
+        (W / '_rewrite2_log.json').write_text(json.dumps(log, ensure_ascii=False, indent=1), encoding='utf-8')
+    print(f'застосовано: {len(log)} правок у {len({x["file"] for x in log})} сторінках'
+          + ('' if log else ' — усе вже на місці, журнал збережено'))
