@@ -43,9 +43,9 @@ TREE = [
        ('Спорядження','gear.html',[], []),
        ('Дорога туди й назад','transport.html',[('порожній','transport-empty.html'),('помилка','transport-error.html'),('завантаження','transport-loading.html')], []),
        ('Що змінилось і що ще можна зробити','changes.html',[('завантаження','changes-loading.html'),('помилка','changes-error.html'),('варіантів немає','changes-nooptions.html')], []),
-       ('Що зробити до виходу','lock-in.html',[('порожній','lock-in-empty.html'),('помилка','lock-in-error.html'),('офлайн','lock-in-offline.html')], []),
+       ('Останні кроки','lock-in.html',[('порожній','lock-in-empty.html'),('помилка','lock-in-error.html'),('офлайн','lock-in-offline.html')], []),
        ('Офлайн-пакет','offline-pack.html',[], []),
-       ('Повідомити рідних','share.html',[], []),
+       ('Сказати, куди йду','share.html',[], []),
        ('Сьогодні','today.html',[('офлайн','today-offline.html')], []),
        ('Зберегти похід','account.html',[], []),
        ('Попереджати про зміни','notify.html',[], []),
@@ -73,13 +73,13 @@ TREE = [
 ]
 
 # ── похідні мапи: батько, назва, вкладка ─────────────────────
-PARENT, TITLE, TAB, BASE = {}, {}, {}, {}
+PARENT, TITLE, TAB, BASE, STATE = {}, {}, {}, {}, {}
 def _walk(nodes, tab, parent):
     for name, f, states, kids in nodes:
         clean = name.replace(' ⭐','')
-        TITLE[f] = clean; TAB[f] = tab; PARENT[f] = parent; BASE[f] = f
+        TITLE[f] = clean; TAB[f] = tab; PARENT[f] = parent; BASE[f] = f; STATE[f] = 'успіх'
         for slabel, sf in states:
-            TITLE[sf] = clean; TAB[sf] = tab; PARENT[sf] = parent; BASE[sf] = f
+            TITLE[sf] = clean; TAB[sf] = tab; PARENT[sf] = parent; BASE[sf] = f; STATE[sf] = slabel
         _walk(kids, tab, f)
 for _tab, _nodes in TREE:
     _walk(_nodes, _tab, None)
@@ -182,7 +182,7 @@ NOPLAN = {'plans-empty.html', 'plan-empty.html', 'catalogue-empty.html'}
 
 def appnav_for(f):
     t = tab_of(f)
-    b = '' if f in NOPLAN else '<span class="count" aria-label="лишилось зробити: 4">4</span>'
+    b = '' if f in NOPLAN else '<span class="count" aria-label="лишилось кроків: 4">4</span>'
     return APPNAV.format(b=b, m=' aria-current="page"' if t == 'Маршрути' else '',
                          p=' aria-current="page"' if t == 'Плани' else '',
                          d=' aria-current="page"' if t == 'Довідник' else '',
