@@ -115,7 +115,7 @@ exist.
 
 ## Capabilities and Constraints
 
-**Structure**: five tabs, 22 screens. Main flow: search → generation → new plan (unsaved) → save → plan → day. Карта (search bar + full-screen map + list sheet; a route of your own by tapping start and finish; the new plan), Плани (the plan opens with what's still needed from you and holds the map; days are pages that hold their night, transport and conditions), Довідник,
+**Structure**: five tabs, 20 screens. Main flow: search → generation → new plan (unsaved) → save → plan → day. Карта (search bar + full-screen map + list sheet; a route of your own by tapping start and finish; the new plan), Плани (the plan opens with what's still needed from you and holds the map; days are pages that hold their night, transport and conditions), Довідник,
 Безпека, Профіль. Home is contextual: the plan when one is active, the map otherwise.
 Navigation is deliberately ordinary and will not differentiate the product. **Two screens
 will: the new plan and the plan.**
@@ -195,7 +195,7 @@ element type**.
 Screen names get a blunt test: if a person has never met the phrase in any app, the name
 is invented.
 
-**UI language is Ukrainian during design**, English at productisation. Source-language
+**The UI will be English** (decision 2026-09-23); wireframes stay Ukrainian until the designer says texts and components are agreed, then they are translated once, on the designer's command. Source-language
 terms (`Selvbetjent`, `fjällstuga`, `betjeningsgrad`, place names) stay in the original
 either way.
 
@@ -232,7 +232,7 @@ Real, in-repo, and audited against primary sources:
 - `concept/personas.md`, `concept/jtbd.md` — two personas and eleven jobs, sourcing inline.
 - `research/research.md` — competitor audit, source audit (every source verified by direct
   request on 2026-08-06: licence, key requirement, liveness), stack evaluation §7.
-- `wireframes/` — 42 pages: all 22 screens and their 20 states, with `_generate.py` as the
+- `wireframes/` — 33 pages: all 20 screens and their 13 states, with `_generate.py` as the
   single structural source, `_refresh.py` regenerating navigation, and `_audit.py` which
   must print zero. Plus `flow.html`, the main flow on one page with real mockups extracted
   by `_flow.py`. Contract in `wireframes/_conventions.md`; audit trail in `_screens.md`,

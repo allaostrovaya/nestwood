@@ -16,7 +16,7 @@
     <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
     <li><a class="gnav-item" href="../concept/personas.html"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
-    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>42 сторінки, дерево праворуч</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>33 сторінки, дерево праворуч</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/flow.html"><span class="n">05</span><span><b>Головний флоу</b><small>десять екранів підряд, MAIN JOB</small></span></a></li>
   </ul>
 </nav>
@@ -40,7 +40,7 @@
                 <li><a class="st" href="./new-plan-error.html">помилка</a></li>
               </ul>
               <ul>
-                <li><a href="./huts.html">Хижі маршруту</a>
+                <li><a href="./huts.html">Інша хижа</a>
                   <ul class="states">
                     <li><a class="st" href="./huts-empty.html">порожній</a></li>
                   </ul>
@@ -54,9 +54,7 @@
                     <li><a class="st" href="./notes-empty.html">порожній</a></li>
                   </ul>
                 </li>
-                <li><a href="./account.html">Зберегти похід</a>
-                </li>
-                <li><a href="./notify.html">Попереджати про зміни</a>
+                <li><a href="./account.html">Вхід</a>
                 </li>
               </ul>
             </li>
@@ -73,12 +71,9 @@
           <ul>
             <li><a href="./plan.html">План ⭐</a>
               <ul class="states">
-                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
                 <li><a class="st" href="./plan-past.html">пройдений</a></li>
-                <li><a class="st" href="./plan-loading.html">завантаження</a></li>
                 <li><a class="st" href="./plan-error.html">помилка</a></li>
                 <li><a class="st" href="./plan-offline.html">офлайн</a></li>
-                <li><a class="st" href="./plan-degraded.html">degraded</a></li>
               </ul>
               <ul>
                 <li><a href="./day.html">День</a>
@@ -86,17 +81,13 @@
                     <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
                     <li><a class="st" href="./day-intrip.html">сьогодні</a></li>
                     <li><a class="st" href="./day-offline.html">офлайн</a></li>
-                    <li><a class="st" href="./day-degraded.html">degraded</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./booking.html">Забронювати</a>
+                    </li>
                   </ul>
                 </li>
                 <li><a href="./gear.html">Спорядження</a>
-                </li>
-                <li><a href="./changes.html">Що змінилось і що ще можна зробити</a>
-                  <ul class="states">
-                    <li><a class="st" href="./changes-loading.html">завантаження</a></li>
-                    <li><a class="st" href="./changes-error.html">помилка</a></li>
-                    <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
-                  </ul>
                 </li>
                 <li><a href="./share.html">Сказати, куди йду</a>
                 </li>
@@ -110,9 +101,7 @@
       <ul>
         <li><a href="./guide.html">Довідник</a>
           <ul>
-            <li><a href="./lodging-system.html">Як працює ця система ночівлі</a>
-            </li>
-            <li><a href="./rules.html">Правила й fjellvett</a>
+            <li><a href="./lodging-system.html">Стаття</a>
             </li>
           </ul>
         </li>
@@ -158,121 +147,28 @@
     <h1>Членство й ключ</h1>
 
     <section aria-labelledby="member">
-      <h2 id="member">Твоє членство</h2>
-      <dl>
-        <dt>Асоціація</dt>
-        <dd>STF — Svenska Turistföreningen (Шведська туристична асоціація)</dd>
-
-        <dt>Ти</dt>
-        <dd>Kristin · №4471902 · чинне до 28 лютого 2027</dd>
-
-        <dt>Другий учасник</dt>
-        <dd>Erik · №4471903 · чинне до 28 лютого 2027</dd>
-
-        <dt>Внесок</dt>
-        <dd>395 SEK на рік з людини · сплачено 3 березня 2026</dd>
-
-        <dt>Чому номери два</dt>
-        <dd>у логбук хижі кожен вписується окремо, своїм номером. Одне членство на двох не працює — ні для тарифу, ні для ключа</dd>
-      </dl>
-      <p class="actions">
-        <button type="button">Показати картку члена</button>
-        <button type="button">Поновити в офіційній системі STF</button>
-      </p>
+      <h2 id="member">Членство</h2>
+      <ul class="rows">
+        <li><div class="row"><span><b>STF</b><small>Kristin · №4471902 · до 28 лютого 2027</small></span></div></li>
+        <li><div class="row"><span><b>Другий учасник</b><small>без членства</small></span><span class="state warn">немає</span></div></li>
+      </ul>
+      <p class="actions"><button type="button">Показати картку</button> <button type="button">Поновити в STF ↗</button></p>
     </section>
 
-    <section aria-labelledby="what">
-      <h2 id="what">Що це змінює в цьому поході</h2>
-      <dl>
-        <dt>Ціна ночей</dt>
-        <dd><b>2 500 SEK з людини</b> — 4 × 450 SEK у fjällstuga плюс 700 SEK у Kebnekaise Fjällstation.<br>
-          Без членства ті самі пʼять ночей коштували б <b>3 700 SEK з людини</b>. Різниця 1 200 SEK проти внеску 395 SEK на рік</dd>
-
-        <dt>Право на ключ</dt>
-        <dd>без членства DNT-ключ не видають узагалі — не дорожче, а ніяк</dd>
-
-        <dt>Логбук</dt>
-        <dd>номер вписується в логбук хижі навіть після онлайн-броні й онлайн-оплати. Це не дубль, а окрема вимога системи</dd>
-
-        <dt>Ночі за членським тарифом</dt>
-        <dd>5 із 5 — членський тариф діє на всі
-        </dd>
-      </dl>
-      <p class="actions">
-        <a href="./plan.html">Що ще потрібно від тебе</a>
-        <a href="./day.html">День 3 · ночівля</a>
-      </p>
+    <section aria-labelledby="trip">
+      <h2 id="trip">У цьому поході</h2>
+      <ul class="rows">
+        <li><div class="row"><span><b>Ночі</b><small>2 500 SEK з людини з членством · 3 700 без</small></span></div></li>
+        <li><div class="row"><span><b>Ключ</b><small>не потрібен — усі хижі відчинені</small></span></div></li>
+      </ul>
     </section>
 
     <section aria-labelledby="key">
-      <h2 id="key">Ключ</h2>
-      <dl>
-        <dt>Стан</dt>
-        <dd>DNT-ключа в тебе немає</dd>
-
-        <dt>Чи потрібен у цьому поході</dt>
-        <dd>ні. Усі пʼять хиж — шведські STF, у сезон 20 червня — 15 вересня відчинені, при кожній стугвярт</dd>
-
-        <dt>Застава</dt>
-        <dd>100 NOK · це <b>застава, а не ціна</b>: повертається, коли ключ здають. Англомовні джерела подають її як плату за вхід — це не так</dd>
-
-        <dt>Де беруть</dt>
-        <dd>у крамницях DNT і в обслуговуваних хижах, <b>тільки членам</b> — тому крок «ключ» ніколи не стоїть перед кроком «членство»</dd>
-
-        <dt>Замок</dt>
-        <dd>хижа буває незамкнена, під спеціальним ключем або під DNT-ключем.<br>
-          Це читається на кожній хижі окремо — воно й вирішує, чи ніч узагалі можлива</dd>
-      </dl>
-      <p class="actions">
-        <button type="button">Замовити ключ в офіційній системі DNT</button>
-        <a href="./plan.html">Ключ — у «Що ще потрібно від тебе»</a>
-      </p>
-    </section>
-
-    <section aria-labelledby="chain">
-      <h2 id="chain">Ланцюжок: членство → ключ → замкнена хижа</h2>
-      <ol class="days">
-        <li>
-          <article aria-labelledby="c1">
-            <h3 id="c1">1 · Членство</h3>
-            <p>Без нього не буде ні ключа, ні членського тарифу. Оформлюється в офіційній системі асоціації.</p>
-          </article>
-        </li>
-        <li>
-          <article aria-labelledby="c2">
-            <h3 id="c2">2 · Ключ</h3>
-            <p>Видають тільки членам, під заставу 100 NOK. Взяти треба <b>до виходу</b> — у горах його брати нема де.</p>
-          </article>
-        </li>
-        <li>
-          <article aria-labelledby="c3">
-            <h3 id="c3">3 · Замкнена хижа</h3>
-            <p><b>Selvbetjent</b> (самообслуговування) або <b>Ubetjent</b> (без обслуговування) під замком: без DNT-ключа не відчиниться. Прийти без ключа тут не можна взагалі: це не «дорожче» й не «гірше», це зачинені двері за 20 км від найближчої дороги.</p>
-          </article>
-        </li>
-      </ol>
-      <p>У цьому поході ланцюжок не задіяний — усі хижі шведські й відчинені. Але саме він вирішує, чи можлива норвезька частина маршруту за кордоном.</p>
-      <p class="actions">
-        <a href="./lodging-system.html">Як працює ця система ночівлі</a>
-      </p>
-    </section>
-
-    <section aria-labelledby="boundary">
-      <h2 id="boundary">Що робимо ми, а що офіційна система</h2>
-      <dl>
-        <dt>Ми</dt>
-        <dd>тримаємо номер, дату закінчення й стан ключа — від них залежить, що тобі гарантовано на кожну ніч і які кроки лишились</dd>
-
-        <dt>Офіційна система</dt>
-        <dd>оформлення й поновлення членства, видача ключа, застава і її повернення — це STF і DNT</dd>
-
-        <dt>Чого ми не робимо ніколи</dt>
-        <dd>не продаємо членство, не видаємо й не пересилаємо ключ, не зберігаємо платіжних даних</dd>
-      </dl>
-      <p class="actions">
-        <a class="cta" href="./plan.html">До плану по днях</a>
-        <a href="./plan.html">Що ще потрібно від тебе</a>
-      </p>
+      <h2 id="key">DNT-ключ</h2>
+      <ul class="rows">
+        <li><div class="row"><span><b>Стан</b><small>немає</small></span></div></li>
+        <li><div class="row"><span><b>Де взяти</b><small>крамниці DNT і обслуговувані хижі · тільки членам · застава 100 NOK</small></span></div></li>
+      </ul>
     </section>
   </main>
 
@@ -280,8 +176,7 @@
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>
       <summary>Звідки це взято</summary>
-      <p>Внесок, членський тариф і сезонні дати — з опублікованих сторінок STF шведською, зчитано 13 серпня 2026. Умови ключа й депозит 100 NOK — зі сторінок DNT норвезькою. Англомовні сторінки обох асоціацій цих деталей не містять.</p>
-      <p>Тип хижі й те, чи вона під замком, — із публічної схеми обʼєктів. Твій номер членства зберігається на цьому пристрої, а не в нас.</p>
+      <p>Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF.</p>
     </details>
     <p>Остання перевірка: 13 серпня 2026, 09:12</p>
   </footer>

@@ -23,29 +23,28 @@ TREE = [
  ('Карта', [
    ('Куди можна піти','catalogue.html',[('порожній','catalogue-empty.html')], [
      ('Новий план ⭐','new-plan.html',[('генерація','new-plan-loading.html'),('неможливий маршрут','new-plan-conflict.html'),('помилка','new-plan-error.html')], [
-       ('Хижі маршруту','huts.html',[('порожній','huts-empty.html')], [
+       ('Інша хижа','huts.html',[('порожній','huts-empty.html')], [
          ('Хижа','hut.html',[], []),
        ]),
        ('Нотатки й відгуки','notes.html',[('порожній','notes-empty.html')], []),
-       ('Зберегти похід','account.html',[], []),
-       ('Попереджати про зміни','notify.html',[], []),
+       ('Вхід','account.html',[], []),
      ]),
    ]),
  ]),
  ('Плани', [
    ('Мої походи','plans.html',[('порожній','plans-empty.html')], [
-     ('План ⭐','plan.html',[('у дорозі','plan-intrip.html'),('пройдений','plan-past.html'),('завантаження','plan-loading.html'),('помилка','plan-error.html'),('офлайн','plan-offline.html'),('degraded','plan-degraded.html')], [
-       ('День','day.html',[('норма замість прогнозу','day-seasonal.html'),('сьогодні','day-intrip.html'),('офлайн','day-offline.html'),('degraded','day-degraded.html')], []),
+     ('План ⭐','plan.html',[('пройдений','plan-past.html'),('помилка','plan-error.html'),('офлайн','plan-offline.html')], [
+       ('День','day.html',[('норма замість прогнозу','day-seasonal.html'),('сьогодні','day-intrip.html'),('офлайн','day-offline.html')], [
+         ('Забронювати','booking.html',[], []),
+       ]),
        ('Спорядження','gear.html',[], []),
-       ('Що змінилось і що ще можна зробити','changes.html',[('завантаження','changes-loading.html'),('помилка','changes-error.html'),('варіантів немає','changes-nooptions.html')], []),
        ('Сказати, куди йду','share.html',[], []),
      ]),
    ]),
  ]),
  ('Довідник', [
    ('Довідник','guide.html',[], [
-     ('Як працює ця система ночівлі','lodging-system.html',[], []),
-     ('Правила й fjellvett','rules.html',[], []),
+     ('Стаття','lodging-system.html',[], []),
    ]),
  ]),
  ('Безпека', [
@@ -61,6 +60,7 @@ TREE = [
    ]),
  ]),
 ]
+
 
 # ── похідні мапи: батько, назва, вкладка ─────────────────────
 PARENT, TITLE, TAB, BASE, STATE = {}, {}, {}, {}, {}
@@ -121,11 +121,11 @@ def nav_html(current):
 # «✕ Закрити», не «‹ назад». У статичному макеті href веде до
 # найчастішого відкривача, бо стека в нас немає.
 SHEETS = {
-  'lodging-system.html': 'guide.html',
-  'account.html': 'new-plan.html', 'notify.html': 'new-plan.html',
-  'membership.html': 'plan.html', 'my-gear.html': 'gear.html',
+  'account.html': 'new-plan.html',
   'huts.html': 'new-plan.html', 'huts-empty.html': 'new-plan.html', 'hut.html': 'huts.html',
   'notes.html': 'new-plan.html', 'notes-empty.html': 'day.html',
+  'booking.html': 'day.html',
+  'membership.html': 'plan.html', 'my-gear.html': 'gear.html',
 }
 
 def topbar(current):
@@ -167,7 +167,7 @@ def tab_of(f):
 # Бейдж на «Планах» — єдиний лічильник продукту: компенсація за прибрану
 # вкладку «Закріпити» (sitemap, рішення про пʼять вкладок). Знімається там,
 # де плану немає, інакше бейдж бреше.
-NOPLAN = {'plans-empty.html', 'catalogue-empty.html', 'new-plan.html', 'new-plan-loading.html', 'new-plan-conflict.html', 'new-plan-error.html'}
+NOPLAN = {'plans-empty.html', 'catalogue-empty.html', 'new-plan.html', 'new-plan-loading.html', 'new-plan-conflict.html', 'new-plan-error.html', 'account.html'}
 
 def appnav_for(f):
     t = tab_of(f)

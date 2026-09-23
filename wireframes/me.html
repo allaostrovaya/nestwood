@@ -16,7 +16,7 @@
     <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
     <li><a class="gnav-item" href="../concept/personas.html"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
-    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>42 сторінки, дерево праворуч</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>33 сторінки, дерево праворуч</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/flow.html"><span class="n">05</span><span><b>Головний флоу</b><small>десять екранів підряд, MAIN JOB</small></span></a></li>
   </ul>
 </nav>
@@ -40,7 +40,7 @@
                 <li><a class="st" href="./new-plan-error.html">помилка</a></li>
               </ul>
               <ul>
-                <li><a href="./huts.html">Хижі маршруту</a>
+                <li><a href="./huts.html">Інша хижа</a>
                   <ul class="states">
                     <li><a class="st" href="./huts-empty.html">порожній</a></li>
                   </ul>
@@ -54,9 +54,7 @@
                     <li><a class="st" href="./notes-empty.html">порожній</a></li>
                   </ul>
                 </li>
-                <li><a href="./account.html">Зберегти похід</a>
-                </li>
-                <li><a href="./notify.html">Попереджати про зміни</a>
+                <li><a href="./account.html">Вхід</a>
                 </li>
               </ul>
             </li>
@@ -73,12 +71,9 @@
           <ul>
             <li><a href="./plan.html">План ⭐</a>
               <ul class="states">
-                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
                 <li><a class="st" href="./plan-past.html">пройдений</a></li>
-                <li><a class="st" href="./plan-loading.html">завантаження</a></li>
                 <li><a class="st" href="./plan-error.html">помилка</a></li>
                 <li><a class="st" href="./plan-offline.html">офлайн</a></li>
-                <li><a class="st" href="./plan-degraded.html">degraded</a></li>
               </ul>
               <ul>
                 <li><a href="./day.html">День</a>
@@ -86,17 +81,13 @@
                     <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
                     <li><a class="st" href="./day-intrip.html">сьогодні</a></li>
                     <li><a class="st" href="./day-offline.html">офлайн</a></li>
-                    <li><a class="st" href="./day-degraded.html">degraded</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./booking.html">Забронювати</a>
+                    </li>
                   </ul>
                 </li>
                 <li><a href="./gear.html">Спорядження</a>
-                </li>
-                <li><a href="./changes.html">Що змінилось і що ще можна зробити</a>
-                  <ul class="states">
-                    <li><a class="st" href="./changes-loading.html">завантаження</a></li>
-                    <li><a class="st" href="./changes-error.html">помилка</a></li>
-                    <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
-                  </ul>
                 </li>
                 <li><a href="./share.html">Сказати, куди йду</a>
                 </li>
@@ -110,9 +101,7 @@
       <ul>
         <li><a href="./guide.html">Довідник</a>
           <ul>
-            <li><a href="./lodging-system.html">Як працює ця система ночівлі</a>
-            </li>
-            <li><a href="./rules.html">Правила й fjellvett</a>
+            <li><a href="./lodging-system.html">Стаття</a>
             </li>
           </ul>
         </li>
@@ -158,66 +147,35 @@
     <h1>Я</h1>
 
     <section aria-labelledby="fit">
-      <h2 id="fit">Форма й темп</h2>
-      <label for="anchor">Найдовший денний перехід торік</label>
-      <p id="anchor">24 км · рюкзак 12 кг · третій день поспіль</p>
-      <label for="self">Як ти оцінюєш себе</label>
-      <p id="self">ходжу щороку · кілька багатоденних походів</p>
-      <p class="actions">
-        <button type="button">Імпортувати активність зі Strava</button>
-        <button type="button">Імпортувати активність із Garmin</button>
-      </p>
-      <p>Імпорту ще не було — цифри вище введені вручну.</p>
+      <h2 id="fit">Форма</h2>
+      <ul class="rows">
+        <li><div class="row"><span><b>Найдовший день торік</b><small>24 км · рюкзак 12 кг</small></span></div></li>
+      </ul>
+      <p class="actions"><button type="button">Імпорт зі Strava</button> <button type="button">Імпорт із Garmin</button></p>
     </section>
 
-    <section aria-labelledby="lang">
-      <h2 id="lang">Мова</h2>
-      <label for="ui-lang">Мова інтерфейсу</label>
-      <p id="ui-lang">українська</p>
-      <label for="no-read">Мови, якими не читаю</label>
-      <p id="no-read">норвезька, шведська</p>
-      <p>На дверях хижі, в логбуці й на аркуші самореєстрації напис буде норвезькою або шведською — іншої версії там немає. Правила таких хиж стоять у нас перекладом, а термін лишається як на місці: <b>Selvbetjent</b> (самообслуговування), <b>fjällstuga</b> (гірська хижа).</p>
-    </section>
-
-    <section aria-labelledby="membership">
-      <h2 id="membership">Членство й ключ</h2>
-      <dl>
-        <dt>Асоціація</dt>
-        <dd>STF — Svenska Turistföreningen (Шведська туристична асоціація)</dd>
-        <dt>Номер членства</dt>
-        <dd>№4471902 · чинне до 28 лютого 2027</dd>
-        <dt>Внесок</dt>
-        <dd>395 SEK на рік з людини · сплачено 3 березня 2026</dd>
-        <dt>DNT-ключ</dt>
-        <dd>немає — замкнені хижі DNT в Норвегії без нього не відчиняються</dd>
-      </dl>
-      <p>Номер членства вписується в логбук хижі окремо на кожного, навіть після онлайн-броні й онлайн-оплати. Ключ беруть у крамницях DNT і в обслуговуваних хижах, тільки члени, під заставу 100 NOK — це застава, а не ціна: повертається, коли ключ здають.</p>
-      <p class="actions"><a href="./membership.html">Членство й ключ — картка, тариф, застава за ключ</a></p>
-    </section>
-
-    <section aria-labelledby="back">
-      <h2 id="back">Повернутись</h2>
-      <p class="actions">
-        <a class="cta" href="./plan.html">До плану по днях</a>
-        <a href="./my-gear.html">Моє спорядження</a>
-        <a href="./plans.html">Мої походи</a>
-        <a href="./catalogue.html#assemble">Зібрати маршрут, якого немає в каталозі</a>
-      </p>
+    <section aria-labelledby="mine">
+      <h2 id="mine">Моє</h2>
+      <ul class="rows">
+        <li><a class="row" href="./membership.html"><span><b>Членство й ключ</b><small>STF · чинне до лютого 2027</small></span></a></li>
+        <li><a class="row" href="./my-gear.html"><span><b>Моє спорядження</b><small>19 речей</small></span></a></li>
+        <li><a class="row" href="./plans.html"><span><b>Мої походи</b><small>1 найближчий · 1 минулий</small></span></a></li>
+      </ul>
     </section>
 
     <section aria-labelledby="app">
       <h2 id="app">Застосунок</h2>
-      <p>Похідний режим вмикається зі стартом походу. Сповіщення про зміну в плані приходять, поки альтернатива ще є, — дозвіл на них питаємо тоді, коли план збережено. Позиція на карті — на вимогу, коли ти її відкриваєш.</p>
-      <p class="actions"><a href="./settings.html">Налаштування</a></p>
+      <ul class="rows">
+        <li><a class="row" href="./settings.html"><span><b>Налаштування</b><small>похідний режим, сповіщення, мова</small></span></a></li>
+      </ul>
     </section>
-
   </main>
 
   <footer class="app">
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>
       <summary>Звідки це взято</summary>
-      <p>Форма, мова й членство — твої власні дані: введені вручну або імпортовані з активності (Strava, Garmin). Тип обʼєкта, ключ і сезон, від яких залежить доступ, — із публічної схеми обʼєктів ночівлі.</p>
+      <p>Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF.</p>
     </details>
     <p>Остання перевірка: 13 серпня 2026, 09:12</p>
   </footer>

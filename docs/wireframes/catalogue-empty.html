@@ -16,7 +16,7 @@
     <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
     <li><a class="gnav-item" href="../concept/personas.html"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
-    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>42 сторінки, дерево праворуч</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>33 сторінки, дерево праворуч</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/flow.html"><span class="n">05</span><span><b>Головний флоу</b><small>десять екранів підряд, MAIN JOB</small></span></a></li>
   </ul>
 </nav>
@@ -40,7 +40,7 @@
                 <li><a class="st" href="./new-plan-error.html">помилка</a></li>
               </ul>
               <ul>
-                <li><a href="./huts.html">Хижі маршруту</a>
+                <li><a href="./huts.html">Інша хижа</a>
                   <ul class="states">
                     <li><a class="st" href="./huts-empty.html">порожній</a></li>
                   </ul>
@@ -54,9 +54,7 @@
                     <li><a class="st" href="./notes-empty.html">порожній</a></li>
                   </ul>
                 </li>
-                <li><a href="./account.html">Зберегти похід</a>
-                </li>
-                <li><a href="./notify.html">Попереджати про зміни</a>
+                <li><a href="./account.html">Вхід</a>
                 </li>
               </ul>
             </li>
@@ -73,12 +71,9 @@
           <ul>
             <li><a href="./plan.html">План ⭐</a>
               <ul class="states">
-                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
                 <li><a class="st" href="./plan-past.html">пройдений</a></li>
-                <li><a class="st" href="./plan-loading.html">завантаження</a></li>
                 <li><a class="st" href="./plan-error.html">помилка</a></li>
                 <li><a class="st" href="./plan-offline.html">офлайн</a></li>
-                <li><a class="st" href="./plan-degraded.html">degraded</a></li>
               </ul>
               <ul>
                 <li><a href="./day.html">День</a>
@@ -86,17 +81,13 @@
                     <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
                     <li><a class="st" href="./day-intrip.html">сьогодні</a></li>
                     <li><a class="st" href="./day-offline.html">офлайн</a></li>
-                    <li><a class="st" href="./day-degraded.html">degraded</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./booking.html">Забронювати</a>
+                    </li>
                   </ul>
                 </li>
                 <li><a href="./gear.html">Спорядження</a>
-                </li>
-                <li><a href="./changes.html">Що змінилось і що ще можна зробити</a>
-                  <ul class="states">
-                    <li><a class="st" href="./changes-loading.html">завантаження</a></li>
-                    <li><a class="st" href="./changes-error.html">помилка</a></li>
-                    <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
-                  </ul>
                 </li>
                 <li><a href="./share.html">Сказати, куди йду</a>
                 </li>
@@ -110,9 +101,7 @@
       <ul>
         <li><a href="./guide.html">Довідник</a>
           <ul>
-            <li><a href="./lodging-system.html">Як працює ця система ночівлі</a>
-            </li>
-            <li><a href="./rules.html">Правила й fjellvett</a>
+            <li><a href="./lodging-system.html">Стаття</a>
             </li>
           </ul>
         </li>
@@ -158,55 +147,37 @@
     <h1>Куди можна піти</h1>
 
     <section aria-labelledby="search">
-      <h2 id="search">Куди й коли</h2>
-      <form action="./catalogue.html" method="get">
-        <label for="q">Маршрут, регіон або точка старту</label>
-        <input type="search" id="q" name="q" placeholder="Kungsleden · Jotunheimen · Abisko" />
-      </form>
+      <h2 id="search">Куди, коли, хто</h2>
       <ul class="rows">
-        <li><a class="row" href="./catalogue.html"><span><b>Країна й регіон</b><small>Швеція · Лапландія</small></span></a></li>
-        <li><a class="row" href="./catalogue.html"><span><b>Коли</b><small>гнучкі дати: 6 днів у серпні · точні спитаємо, коли від них залежатимуть броні</small></span></a></li>
-        <li><a class="row" href="./catalogue.html"><span><b>Хто йде</b><small>відкривається, коли обрано країну: людина · людина-член STF</small></span><span class="state">двоє, 1 член STF</span></a></li>
+        <li><a class="row" href="./catalogue.html"><span><b>Куди</b><small>Лапландія, Швеція — або свій маршрут: звідки → куди</small></span></a></li>
+        <li><a class="row" href="./catalogue.html"><span><b>Коли</b><small>17–22 серпня</small></span></a></li>
+        <li><a class="row" href="./catalogue.html"><span><b>Хто</b><small>2 людини · 1 член STF</small></span></a></li>
       </ul>
       <ul class="chips">
-        <li><button class="chip on" type="button">ночівля в хижах</button></li>
-        <li><button class="chip" type="button">намет дозволений</button></li>
+        <li><button class="chip on" type="button">хижі</button></li>
+        <li><button class="chip" type="button">намет</button></li>
       </ul>
-      <p>Результати видно одразу — поля мають типові значення, і нічого не треба заповнювати, щоб дивитись.</p>
     </section>
 
     <section aria-labelledby="where">
       <h2 id="where">Карта</h2>
-      <figure class="bleed">
-        <div class="frame frame--screen" data-fit="на весь екран під пошуком · аркуш зверху">
-          <span>map · Sweden · no route lines · regions shown as closed for February</span>
-        </div>
-        <figcaption>Карта лишається картою: регіони видно, ліній маршрутів немає — бо сезон закритий, а не бо даних бракує.</figcaption>
-      </figure>
-    </section>
-
-    <section aria-labelledby="custom">
-      <h2 id="custom">Свій маршрут</h2>
-      <p>Свій маршрут у лютому теж не складеться — ті самі хижі й та сама мережа, і вони зачинені.</p>
-      <p class="actions"><a href="./catalogue.html">Змінити дати на червень — вересень</a></p>
+      <div class="frame frame--screen" data-fit="на весь екран під пошуком · аркуш зверху"><span>map · Sweden · no route lines · huts closed for February</span></div>
+      <p>У лютому хижі зачинені — маршрутів із ночівлею в хижах немає.</p>
+      <p class="actions"><a class="cta" href="./catalogue.html">Обрати дати в червні — вересні</a></p>
     </section>
 
     <section aria-labelledby="local">
       <h2 id="local">Найкраще у Швеції в лютому</h2>
-      <div class="empty">
-        <p><b>Жодного — і ми знаємо, чому.</b> У лютому хижі зачинені, стежки під снігом, а зимові переходи ми поки не плануємо.</p>
-      </div>
       <ul class="rows">
-        <li><a class="row" href="./catalogue.html"><span><b>Кінець червня — липень</b><small>Kungsleden відкривається, хижі працюють</small></span><span class="state">6 маршрутів</span></a></li>
-        <li><a class="row" href="./catalogue.html"><span><b>Серпень — вересень</b><small>менше людей, коротший світловий день</small></span><span class="state">6 маршрутів</span></a></li>
+        <li><a class="row" href="./catalogue.html"><span><b>Кінець червня — липень</b><small>хижі відчинені, Kungsleden у сезоні</small></span><span class="state">6 маршрутів</span></a></li>
+        <li><a class="row" href="./catalogue.html"><span><b>Серпень — вересень</b><small>менше людей, коротший день</small></span><span class="state">6 маршрутів</span></a></li>
       </ul>
     </section>
 
     <section aria-labelledby="classic">
       <h2 id="classic">Класика Скандинавії</h2>
-      <p>У Jotunheimen узимку частина хиж лишається відчиненою як <b>selvbetjent</b> — але це вже зимовий перехід з іншими вимогами, і обіцяти його багатоденним маршрутом ми не будемо.</p>
       <ul class="rows">
-        <li><a class="row" href="./catalogue.html"><span><b>Показати класику на літо</b><small>Jotunheimen, Hardangervidda, Aurlandsdalen</small></span></a></li>
+        <li><a class="row" href="./catalogue.html"><span><b>Класика на літо</b><small>Jotunheimen · Hardangervidda · Kungsleden</small></span></a></li>
       </ul>
     </section>
   </main>

@@ -16,7 +16,7 @@
     <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
     <li><a class="gnav-item" href="../concept/personas.html"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
-    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>42 сторінки, дерево праворуч</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>33 сторінки, дерево праворуч</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/flow.html"><span class="n">05</span><span><b>Головний флоу</b><small>десять екранів підряд, MAIN JOB</small></span></a></li>
   </ul>
 </nav>
@@ -40,7 +40,7 @@
                 <li><a class="st" href="./new-plan-error.html">помилка</a></li>
               </ul>
               <ul>
-                <li><a href="./huts.html">Хижі маршруту</a>
+                <li><a href="./huts.html">Інша хижа</a>
                   <ul class="states">
                     <li><a class="st" href="./huts-empty.html">порожній</a></li>
                   </ul>
@@ -54,9 +54,7 @@
                     <li><a class="st" href="./notes-empty.html">порожній</a></li>
                   </ul>
                 </li>
-                <li><a href="./account.html">Зберегти похід</a>
-                </li>
-                <li><a href="./notify.html">Попереджати про зміни</a>
+                <li><a href="./account.html">Вхід</a>
                 </li>
               </ul>
             </li>
@@ -73,12 +71,9 @@
           <ul>
             <li><a href="./plan.html">План ⭐</a>
               <ul class="states">
-                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
                 <li><a class="st" href="./plan-past.html">пройдений</a></li>
-                <li><a class="st" href="./plan-loading.html">завантаження</a></li>
                 <li><a class="st" href="./plan-error.html">помилка</a></li>
                 <li><a class="st" href="./plan-offline.html">офлайн</a></li>
-                <li><a class="st" href="./plan-degraded.html">degraded</a></li>
               </ul>
               <ul>
                 <li><a href="./day.html">День</a>
@@ -86,17 +81,13 @@
                     <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
                     <li><a class="st" href="./day-intrip.html">сьогодні</a></li>
                     <li><a class="st" href="./day-offline.html">офлайн</a></li>
-                    <li><a class="st" href="./day-degraded.html">degraded</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./booking.html">Забронювати</a>
+                    </li>
                   </ul>
                 </li>
                 <li><a href="./gear.html">Спорядження</a>
-                </li>
-                <li><a href="./changes.html">Що змінилось і що ще можна зробити</a>
-                  <ul class="states">
-                    <li><a class="st" href="./changes-loading.html">завантаження</a></li>
-                    <li><a class="st" href="./changes-error.html">помилка</a></li>
-                    <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
-                  </ul>
                 </li>
                 <li><a href="./share.html">Сказати, куди йду</a>
                 </li>
@@ -110,9 +101,7 @@
       <ul>
         <li><a href="./guide.html">Довідник</a>
           <ul>
-            <li><a href="./lodging-system.html">Як працює ця система ночівлі</a>
-            </li>
-            <li><a href="./rules.html">Правила й fjellvett</a>
+            <li><a href="./lodging-system.html">Стаття</a>
             </li>
           </ul>
         </li>
@@ -158,58 +147,42 @@
     <h1>Куди можна піти</h1>
 
     <section aria-labelledby="search">
-      <h2 id="search">Куди й коли</h2>
-      <form action="./catalogue.html" method="get">
-        <label for="q">Маршрут, регіон або точка старту</label>
-        <input type="search" id="q" name="q" placeholder="Kungsleden · Jotunheimen · Abisko" />
-      </form>
+      <h2 id="search">Куди, коли, хто</h2>
       <ul class="rows">
-        <li><a class="row" href="./catalogue.html"><span><b>Країна й регіон</b><small>Швеція · Лапландія</small></span></a></li>
-        <li><a class="row" href="./catalogue.html"><span><b>Коли</b><small>гнучкі дати: 6 днів у серпні · точні спитаємо, коли від них залежатимуть броні</small></span></a></li>
-        <li><a class="row" href="./catalogue.html"><span><b>Хто йде</b><small>відкривається, коли обрано країну: людина · людина-член STF</small></span><span class="state">двоє, 1 член STF</span></a></li>
+        <li><a class="row" href="./catalogue.html"><span><b>Куди</b><small>Лапландія, Швеція — або свій маршрут: звідки → куди</small></span></a></li>
+        <li><a class="row" href="./catalogue.html"><span><b>Коли</b><small>17–22 серпня</small></span></a></li>
+        <li><a class="row" href="./catalogue.html"><span><b>Хто</b><small>2 людини · 1 член STF</small></span></a></li>
       </ul>
       <ul class="chips">
-        <li><button class="chip on" type="button">ночівля в хижах</button></li>
-        <li><button class="chip" type="button">намет дозволений</button></li>
+        <li><button class="chip on" type="button">хижі</button></li>
+        <li><button class="chip" type="button">намет</button></li>
       </ul>
-      <p>Результати видно одразу — поля мають типові значення, і нічого не треба заповнювати, щоб дивитись.</p>
     </section>
 
     <section aria-labelledby="where">
       <h2 id="where">Карта</h2>
-      <figure class="bleed">
-        <div class="frame frame--screen" data-fit="на весь екран під пошуком · аркуш зі списком лежить зверху й тягнеться на три висоти">
-          <span>map · Sweden · route lines of the presets · preset start/finish points: stations, trailheads, huts</span>
-        </div>
-        <figcaption>На яке питання відповідає: де маршрути, наскільки далеко від потяга. Тап по лінії — пресет маршруту в аркуші. Тап по двох точках — старт і фініш свого маршруту.</figcaption>
-      </figure>
-    </section>
-
-    <section aria-labelledby="custom">
-      <h2 id="custom">Свій маршрут</h2>
-      <p>Тапни на карті точку старту й точку фінішу. Точки — тільки ті, де маршрут реально починається: станції, зупинки, входи на марковану мережу, хижі. Тап між ними прилипає до найближчої — тому маршрут <b>ніколи не виходить за марковану мережу</b>.</p>
+      <div class="frame frame--screen" data-fit="на весь екран під пошуком · аркуш зі списком зверху"><span>map · Sweden · preset route lines · start/finish points: stations, trailheads, huts · own route drawn: Abisko Turiststation → Nikkaluokta</span></div>
       <ul class="rows">
-        <li><div class="row"><span><b>Старт</b><small>Abisko Turiststation · станція й вхід на Kungsleden</small></span><span class="state">обрано</span></div></li>
-        <li><div class="row"><span><b>Фініш</b><small>тапни точку на карті</small></span></div></li>
+        <li><div class="row"><span><b>Abisko Turiststation → Nikkaluokta</b><small>свій маршрут · 101 км · 6 днів · 5 хиж</small></span></div></li>
       </ul>
-      <p class="actions"><a class="cta" href="./new-plan-loading.html">Скласти план</a></p>
+      <p class="actions"><a class="cta" href="./new-plan-loading.html">Скласти план</a> <a href="./catalogue.html">Скинути точки</a></p>
     </section>
 
     <section aria-labelledby="local">
       <h2 id="local">Найкраще у Швеції в серпні</h2>
       <ul class="cards">
         <li><a class="card" href="./new-plan-loading.html">
-          <b>Kungsleden · Abisko → Nikkaluokta</b><span class="state">5–6 днів</span>
-          <small>101 км · 1 940 м · 5 хиж STF щоночі · blå / medium, одна ділянка röd</small>
-          <small>Потяг просто до старту, автобус із фінішу</small></a></li>
+          <div class="frame frame--photo"><span>photo · Kungsleden · path along Abiskojaure lake</span></div>
+          <b>Kungsleden · Abisko → Nikkaluokta</b><span class="state">6 днів</span>
+          <small>101 км · 1 940 м · 5 хиж STF · blå / medium</small></a></li>
         <li><a class="card" href="./new-plan-loading.html">
+          <div class="frame frame--photo"><span>photo · Kebnekaise valley from the trail</span></div>
           <b>Kungsleden · Abisko → Kebnekaise</b><span class="state">5 днів</span>
-          <small>82 км · 1 460 м · 4 хижі STF · blå / medium</small>
-          <small>Та сама стежка без останнього дня</small></a></li>
+          <small>82 км · 1 460 м · 4 хижі STF · blå / medium</small></a></li>
         <li><a class="card" href="./new-plan-loading.html">
+          <div class="frame frame--photo"><span>photo · Padjelanta plateau, Sami huts</span></div>
           <b>Padjelantaleden · Kvikkjokk → Ritsem</b><span class="state">7 днів</span>
-          <small>140 км · 900 м · хижі саамських громад і STF · градації немає в офіційних даних</small>
-          <small>Човен на початку й у кінці ходить до 20 вересня</small></a></li>
+          <small>140 км · 900 м · хижі STF і саамських громад</small></a></li>
       </ul>
     </section>
 
@@ -217,14 +190,13 @@
       <h2 id="classic">Класика Скандинавії</h2>
       <ul class="cards">
         <li><a class="card" href="./new-plan-loading.html">
+          <div class="frame frame--photo"><span>photo · Besseggen ridge, Jotunheimen</span></div>
           <b>Jotunheimen · Gjendesheim → Spiterstulen</b><span class="state">4 дні</span>
-          <small>58 км · 2 300 м · хижі DNT · замкнені хижі — потрібен DNT-ключ, а він лише для членів</small></a></li>
+          <small>58 км · 2 300 м · хижі DNT · потрібен DNT-ключ</small></a></li>
         <li><a class="card" href="./new-plan-loading.html">
+          <div class="frame frame--photo"><span>photo · Hardangervidda plateau at Finse</span></div>
           <b>Hardangervidda · Finse → Haukeliseter</b><span class="state">7 днів</span>
-          <small>120 км · 1 100 м · хижі DNT · довгі відкриті переходи</small></a></li>
-        <li><a class="card" href="./new-plan-loading.html">
-          <b>Aurlandsdalen · Finse → Vassbygdi</b><span class="state">3–4 дні</span>
-          <small>55 км · вниз по долині · хижі DNT і приватні</small></a></li>
+          <small>120 км · 1 100 м · хижі DNT</small></a></li>
       </ul>
     </section>
   </main>

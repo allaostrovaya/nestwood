@@ -16,7 +16,7 @@
     <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
     <li><a class="gnav-item" href="../concept/personas.html"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
-    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>42 сторінки, дерево праворуч</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>33 сторінки, дерево праворуч</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/flow.html"><span class="n">05</span><span><b>Головний флоу</b><small>десять екранів підряд, MAIN JOB</small></span></a></li>
   </ul>
 </nav>
@@ -40,7 +40,7 @@
                 <li><a class="st" href="./new-plan-error.html">помилка</a></li>
               </ul>
               <ul>
-                <li><a href="./huts.html">Хижі маршруту</a>
+                <li><a href="./huts.html">Інша хижа</a>
                   <ul class="states">
                     <li><a class="st" href="./huts-empty.html">порожній</a></li>
                   </ul>
@@ -54,9 +54,7 @@
                     <li><a class="st" href="./notes-empty.html">порожній</a></li>
                   </ul>
                 </li>
-                <li><a href="./account.html">Зберегти похід</a>
-                </li>
-                <li><a href="./notify.html">Попереджати про зміни</a>
+                <li><a href="./account.html">Вхід</a>
                 </li>
               </ul>
             </li>
@@ -73,12 +71,9 @@
           <ul>
             <li><a href="./plan.html">План ⭐</a>
               <ul class="states">
-                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
                 <li><a class="st" href="./plan-past.html">пройдений</a></li>
-                <li><a class="st" href="./plan-loading.html">завантаження</a></li>
                 <li><a class="st" href="./plan-error.html">помилка</a></li>
                 <li><a class="st" href="./plan-offline.html">офлайн</a></li>
-                <li><a class="st" href="./plan-degraded.html">degraded</a></li>
               </ul>
               <ul>
                 <li><a href="./day.html">День</a>
@@ -86,17 +81,13 @@
                     <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
                     <li><a class="st" href="./day-intrip.html">сьогодні</a></li>
                     <li><a class="st" href="./day-offline.html">офлайн</a></li>
-                    <li><a class="st" href="./day-degraded.html">degraded</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./booking.html">Забронювати</a>
+                    </li>
                   </ul>
                 </li>
                 <li><a href="./gear.html">Спорядження</a>
-                </li>
-                <li><a href="./changes.html">Що змінилось і що ще можна зробити</a>
-                  <ul class="states">
-                    <li><a class="st" href="./changes-loading.html">завантаження</a></li>
-                    <li><a class="st" href="./changes-error.html">помилка</a></li>
-                    <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
-                  </ul>
                 </li>
                 <li><a href="./share.html">Сказати, куди йду</a>
                 </li>
@@ -110,9 +101,7 @@
       <ul>
         <li><a href="./guide.html">Довідник</a>
           <ul>
-            <li><a href="./lodging-system.html">Як працює ця система ночівлі</a>
-            </li>
-            <li><a href="./rules.html">Правила й fjellvett</a>
+            <li><a href="./lodging-system.html">Стаття</a>
             </li>
           </ul>
         </li>
@@ -158,60 +147,28 @@
     <h1>Моє спорядження</h1>
 
     <section aria-labelledby="inventory">
-      <h2 id="inventory">Що в тебе є</h2>
-      <ul class="signals">
-        <li><b>Сон</b>
-          <label><input type="checkbox" checked> спальник −5 °C</label> ·
-          <label><input type="checkbox" checked> каремат</label>
-        </li>
-        <li><b>Кухня</b>
-          <label><input type="checkbox" checked> пальник і газовий балон</label> ·
-          <label><input type="checkbox" checked> казанок 1,5 л</label>
-        </li>
-        <li><b>Одяг</b>
-          <label><input type="checkbox" checked> дощовик</label> ·
-          <label><input type="checkbox"> гамаші</label> ·
-          <label><input type="checkbox"> водонепроникні рукавиці</label>
-        </li>
-        <li><b>Навігація</b>
-          <label><input type="checkbox" checked> GPS-годинник</label> ·
-          <label><input type="checkbox" checked> павербанк 10 000 мА·г</label>
-        </li>
+      <h2 id="inventory">Що є</h2>
+      <ul class="rows">
+        <li><div class="row"><span><b>Сон</b><small>спальник −5 °C · каремат</small></span></div></li>
+        <li><div class="row"><span><b>Кухня</b><small>пальник і газ · казанок 1,5 л</small></span></div></li>
+        <li><div class="row"><span><b>Одяг</b><small>дощовик · гамаші</small></span></div></li>
+        <li><div class="row"><span><b>Навігація</b><small>GPS-годинник · павербанк</small></span></div></li>
       </ul>
-      <p>19 позицій є · 3 докупити · 1 позичити на кожен похід: намет, і він на двох</p>
     </section>
 
     <section aria-labelledby="missing">
-      <h2 id="missing">Чого бракує вже зараз</h2>
-      <ul class="signals">
-        <li><b>Гамаші</b> — там, де маршрут іде болотистою ділянкою. В останніх походах знадобились щоразу</li>
-        <li><b>Рукавиці</b> водонепроникні — на Kungsleden уже стоять як «докупити»: так вирішує прогноз на перевалі</li>
+      <h2 id="missing">Купити</h2>
+      <ul class="rows">
+        <li><div class="row"><span><b>Водонепроникні рукавиці</b><small>потрібні на Kungsleden</small></span><span class="state warn">купити</span></div></li>
       </ul>
-      <p class="actions"><button type="button">Додати до списку покупок</button></p>
     </section>
-
-    <section aria-labelledby="how">
-      <h2 id="how">Спорядження на конкретний похід</h2>
-      <p>Список на похід складається звідси: те, що є в тебе, звіряється з погодою й типом ночівлі того маршруту — що вже є, що взяти, що докупити. Це спорядження лишається в профілі між походами.</p>
-    </section>
-
-    <section aria-labelledby="back">
-      <h2 id="back">Повернутись</h2>
-      <p class="actions">
-        <a class="cta" href="./plan.html">До плану по днях</a>
-        <a href="./gear.html">Спорядження</a>
-        <a href="./me.html">До «Я» — форма, мова, членство</a>
-        <a href="./plans.html">Мої походи</a>
-      </p>
-    </section>
-
   </main>
 
   <footer class="app">
     <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
     <details>
       <summary>Звідки це взято</summary>
-      <p>Це твої власні дані, введені вручну й збережені в акаунті. Список на конкретний похід додатково звіряє його з погодою (met.no) і типом ночівлі (публічна схема обʼєктів).</p>
+      <p>Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF.</p>
     </details>
     <p>Остання перевірка: 13 серпня 2026, 09:12</p>
   </footer>

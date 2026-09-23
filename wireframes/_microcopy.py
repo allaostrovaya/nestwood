@@ -172,7 +172,7 @@ def is_chrome(r):
     return False
 
 # ── позначки ─────────────────────────────────────────────────
-EDITORIAL = {'guide.html', 'lodging-system.html', 'rules.html', 'first-aid.html'}
+EDITORIAL = {'guide.html', 'lodging-system.html', 'first-aid.html'}
 
 SHARE = {'Надіслати маршрут і час повернення', 'Передати маршрут і час повернення',
          'Поділитися маршрутом і часом повернення', 'Поділитися планом', 'Сказати близьким, де ми',
@@ -244,8 +244,8 @@ for r in rows: r['flags'] = flags(r)
 
 # ── групування: вкладка → базовий екран → стан ───────────────
 TABORDER = ['Карта', 'Плани', 'Довідник', 'Безпека', 'Профіль']
-FLOW = ['catalogue.html','route.html','plan-loading.html','plan.html','day.html',
-        'night.html','gear.html','transport.html','lock-in.html','share.html']
+FLOW = ['catalogue.html','new-plan-loading.html','new-plan.html','huts.html','account.html',
+        'plan.html','day.html','day-intrip.html']
 byfile = collections.OrderedDict()
 for r in rows:
     byfile.setdefault(r['file'], []).append(r)
@@ -602,9 +602,8 @@ excl = [r for r in rows if '!' in r['text']]
 A(f'**Окличних знаків у наборі: {len(excl)}.** Бадьорого тону, «Ой, щось пішло не так», «Вітаємо» і '
   'подібного немає — перевірено пошуком по словах. Це рідкість, і її варто зберегти.')
 A('')
-A('**Помилки говорять однаково**: дія повтору на екранах помилки — `Спробувати ще раз` '
-  '(`new-plan-error`, `changes-error`) або `Перевірити ще раз` (`plan-error`, бо там перевіряється свіжість '
-  'вже складеного плану). Після перебудови 2026-09-23 екранів помилки менше, бо ніч, транспорт і останні кроки стали зонами.')
+A('**Помилки говорять однаково**: на обох екранах помилки (`new-plan-error`, `plan-error`) дія одна — '
+  '`Спробувати ще раз`.')
 A('')
 em = [r for r in rows if RX_EMOJI.search(r['text'])]
 byem = collections.defaultdict(list)
@@ -675,19 +674,15 @@ A('| Екран | Рядків | Слів | Чий це текст |')
 A('|---|---|---|---|')
 ED_WHO = {
  'guide.html': 'наш вступний шар над чужим змістом; статті — DNT (норвезькою), переклад наш',
- 'lodging-system.html': 'зібрано вручну з офіційних сторінок DNT і STF — сам екран це каже',
- 'rules.html': 'Fjellvettreglene — DNT, цитата; allemansrätten — Naturvårdsverket; friluftsloven — Miljødirektoratet',
+ 'lodging-system.html': 'шаблон статті довідника; зміст — DNT, STF, Naturvårdsverket, Miljødirektoratet, з джерелом у кожній',
  'first-aid.html': '**не наш** — Røde Kors / Röda Korset, цитата з атрибуцією; медичний зміст ми не авторуємо',
 }
 for f in sorted(EDITORIAL):
     rs = [r for r in byfile[f] if not is_chrome(r)]
     A(f"| `{f}` | {len(rs)} | {sum(len(r['text'].split()) for r in rs)} | {ED_WHO[f]} |")
 A('')
-A('**Редакційний текст просочується і за межі цих чотирьох екранів.** Ті самі правила переказані '
-  'своїми словами всередині продуктових екранів — `night.html` пояснює гарантію ліжка, `lock-in.html` '
-  'нагадує про логбук і неписані правила, `safety.html` каже «Не наш текст. Матеріали Røde Kors / '
-  'Röda Korset». Це місця, де межа між нашим копірайтом і чужим змістом проходить **усередині '
-  'екрана**, і в таблиці правди вона має бути позначена, а не стерта.')
+A('**Редакційний текст за межами цих екранів** після перебудови 2026-09-23 зведено до коротких '
+  'фактів на самих полях: ночівля на дні й хижі каже «прийти до 18:00 · логбук», а не переказує правила.')
 A('')
 
 # ── розділ 8: жаргон ─────────────────────────────────────────

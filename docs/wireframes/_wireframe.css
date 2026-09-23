@@ -571,3 +571,13 @@ footer.app details { margin-bottom: var(--s2); }
 section.sheet[aria-labelledby="list"]::before {
   content: ""; display: block; width: 36px; height: 4px; margin: 0 auto var(--s2); background: var(--line-2);
 }
+
+/* фото на картці пресета: зображення несе картку, виміри — одразу під ним */
+.card .frame { grid-column: 1 / -1; margin: calc(var(--s2) * -1) calc(var(--s3) * -1) var(--s2); border-inline: 0; border-top: 0; aspect-ratio: 16 / 9; }
+
+/* скелетон під час генерації: форма без тексту */
+.skel { display: block; height: 14px; margin: 0 0 8px; background: var(--fill); border-radius: 4px; }
+.skel.w60 { width: 60%; } .skel.w40 { width: 40%; } .skel.tall { height: 120px; }
+.card .frame { grid-row: 1; }
+.card .frame ~ b { grid-row: 2; }
+.card .frame ~ .state { grid-row: 2; }
