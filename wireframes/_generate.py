@@ -27,7 +27,6 @@ TREE = [
          ('Хижа','hut.html',[], []),
        ]),
        ('Нотатки й відгуки','notes.html',[('порожній','notes-empty.html')], []),
-       ('Вхід','account.html',[], []),
      ]),
    ]),
  ]),
@@ -54,6 +53,7 @@ TREE = [
  ]),
  ('Профіль', [
    ('Я','me.html',[], [
+     ('Вхід','account.html',[], []),
      ('Моє спорядження','my-gear.html',[], []),
      ('Членство й ключ','membership.html',[], []),
      ('Налаштування','settings.html',[], []),
@@ -121,7 +121,7 @@ def nav_html(current):
 # «✕ Закрити», не «‹ назад». У статичному макеті href веде до
 # найчастішого відкривача, бо стека в нас немає.
 SHEETS = {
-  'account.html': 'new-plan.html',
+  'account.html': 'me.html',
   'huts.html': 'new-plan.html', 'huts-empty.html': 'new-plan.html', 'hut.html': 'huts.html',
   'notes.html': 'new-plan.html', 'notes-empty.html': 'day.html',
   'booking.html': 'day.html',
@@ -167,7 +167,7 @@ def tab_of(f):
 # Бейдж на «Планах» — єдиний лічильник продукту: компенсація за прибрану
 # вкладку «Закріпити» (sitemap, рішення про пʼять вкладок). Знімається там,
 # де плану немає, інакше бейдж бреше.
-NOPLAN = {'plans-empty.html', 'catalogue-empty.html', 'new-plan.html', 'new-plan-loading.html', 'new-plan-conflict.html', 'new-plan-error.html', 'account.html'}
+NOPLAN = {'plans-empty.html', 'catalogue-empty.html', 'new-plan.html', 'new-plan-loading.html', 'new-plan-conflict.html', 'new-plan-error.html'}
 
 def appnav_for(f):
     t = tab_of(f)

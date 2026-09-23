@@ -31,10 +31,9 @@
       <li><a href="#s2"><span class="rn">02</span>Генерація</a></li>
       <li><a href="#s3"><span class="rn">03</span>Новий план ⭐</a></li>
       <li><a href="#s4"><span class="rn">04</span>Інша хижа</a></li>
-      <li><a href="#s5"><span class="rn">05</span>Вхід</a></li>
-      <li><a href="#s6"><span class="rn">06</span>План ⭐</a></li>
-      <li><a href="#s7"><span class="rn">07</span>День</a></li>
-      <li><a href="#s8"><span class="rn">08</span>Сьогодні</a></li>
+      <li><a href="#s5"><span class="rn">05</span>План ⭐</a></li>
+      <li><a href="#s6"><span class="rn">06</span>День</a></li>
+      <li><a href="#s7"><span class="rn">07</span>Сьогодні</a></li>
   </ol>
   <p class="rail-foot">Три тапи до плану, цінність на нульовому.<br>
   Джерела: <a href="./flows.md">flows.md</a> · <a href="./sitemap.md">sitemap.md</a><br>
@@ -58,9 +57,9 @@
   ночівлі, квитки й навантаження до збереження, і <b>план</b> (крок 06), де зверху загальні
   алерти, а під ними дні зі своїми. Порядок: пошук → генерація → новий план → збереження → план → день.</p>
   <ul class="mast-facts">
-    <li><b>8</b> екранів у хребті</li>
+    <li><b>7</b> екранів у хребті</li>
     <li><b>3</b> тапи до плану</li>
-    <li><b>20</b> гілок і станів названо</li>
+    <li><b>19</b> гілок і станів названо</li>
     <li><b>0</b> битих виходів</li>
   </ul>
 </header>
@@ -358,7 +357,7 @@
 
     <section aria-labelledby="s3-save">
       <h2 id="s3-save">Зберегти</h2>
-      <form action="./account.html" method="get"><p class="actions"><button class="cta" type="submit">Зберегти план</button> <a href="./catalogue.html">Скасувати</a></p></form>
+      <form action="./plan.html" method="get"><p class="actions"><button class="cta" type="submit">Зберегти план</button> <a href="./catalogue.html">Скасувати</a></p></form>
     </section>
   </main>
 
@@ -392,7 +391,7 @@
       <ul class="branches">
       <li><span class="b-k"><a href="./huts.html">змінити ночівлю</a></span> <code>huts.html</code> — хижі поруч, компактні картки</li>
       <li><span class="b-k"><a href="./notes.html">нотатки й відгуки</a></span> <code>notes.html</code> — нотатка може змінити план, відгук — ніколи</li>
-      <li><span class="b-k"><a href="./account.html">зберегти</a></span> <code>account.html</code> — аркуш входу</li>
+      <li><span class="b-k"><a href="./plan.html">зберегти</a></span> <code>plan.html</code> — план переїжджає в «Плани» — акаунт уже є</li>
       <li><span class="b-k"><a href="./catalogue.html">скасувати</a></span> <code>catalogue.html</code> — план зникає</li>
       </ul>
     </div>
@@ -477,86 +476,14 @@
 <section class="step" id="s5" aria-labelledby="s5-h">
   <div class="step-head">
     <span class="step-n">05</span>
-    <h2 id="s5-h">Вхід</h2>
-    <p class="step-src" data-review lang="uk">7.3 · <code>account.html</code> · вкладка Карта · jobs 7</p>
-  </div>
-  <div class="step-body">
-    <div class="flow-screen">
-      <p class="meta" data-review lang="uk"><b>7.3</b> · Вхід · <i>як у наборі</i></p>
-      <input class="flow-exp" type="checkbox" id="exp5" />
-      <label class="flow-exp-l" for="exp5"></label>
-      <div class="flow-dev">
-<div class="device" data-screen="Вхід" data-state="успіх">
-
-  <div class="screen">
-  <header class="topbar"><a class="close" href="./new-plan.html">✕ Закрити</a><span class="title">Вхід</span></header>
-
-  <main>
-    <h1>Увійди, щоб зберегти похід</h1>
-
-    <section aria-labelledby="s5-why">
-      <h2 id="s5-why">Навіщо</h2>
-      <p>Броні й квитки тримаються в поході днями — він не має загубитись із телефоном.</p>
-    </section>
-
-    <section aria-labelledby="s5-do">
-      <h2 id="s5-do">Увійти</h2>
-      <form action="./plan.html" method="get">
-        <p class="actions"><button class="cta" type="submit">Продовжити з Apple</button></p>
-        <p class="actions"><button type="submit">Продовжити з Google</button></p>
-        <label for="s5-mail">Пошта</label>
-        <input type="email" id="s5-mail" name="mail" placeholder="ти@пошта" />
-      </form>
-      <p>Далі — один запит на сповіщення, щоб попередити за два дні до виходу.</p>
-      <p class="actions"><a href="./plan.html">Продовжити без входу</a></p>
-    </section>
-  </main>
-
-  <footer class="app">
-    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
-    <details>
-      <summary>Звідки це взято</summary>
-      <p>Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF.</p>
-    </details>
-    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
-  </footer>
-  </div>
-  <nav class="tabbar" aria-label="Головна навігація">
-    <ul>
-      <li><a href="./catalogue.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Карта</a></li>
-      <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Плани</a></li>
-      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
-      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
-      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
-    </ul>
-  </nav>
-</div>
-      </div>
-      <p class="flow-open"><a href="./account.html">відкрити сторінку макета →</a></p>
-    </div>
-    <div class="step-note">
-      <p class="lead">Замість екрана з поясненнями — аркуш входу: Apple, Google, пошта. Далі системний запит на сповіщення.</p>
-      <p>Можна продовжити без входу — план лишиться на цьому телефоні.</p>
-      <h3>Рішення</h3>
-      <p class="q">Увійшли?</p>
-      <ul class="branches">
-      <li><span class="b-k"><a href="./plan.html">так</a></span> <code>plan.html</code> — план у «Планах»</li>
-      </ul>
-    </div>
-  </div>
-</section>
-<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">«Зберегти план»</span></p>
-<section class="step" id="s6" aria-labelledby="s6-h">
-  <div class="step-head">
-    <span class="step-n">06</span>
-    <h2 id="s6-h">План ⭐</h2>
+    <h2 id="s5-h">План ⭐</h2>
     <p class="step-src" data-review lang="uk">0.3 · <code>plan.html</code> · вкладка Плани · jobs 1 · 3 · 4 · 7 · 9 · MAIN</p>
   </div>
   <div class="step-body">
     <div class="flow-screen">
       <p class="meta" data-review lang="uk"><b>0.3</b> · План · <i>як у наборі</i></p>
-      <input class="flow-exp" type="checkbox" id="exp6" />
-      <label class="flow-exp-l" for="exp6"></label>
+      <input class="flow-exp" type="checkbox" id="exp5" />
+      <label class="flow-exp-l" for="exp5"></label>
       <div class="flow-dev">
 <div class="device" data-screen="План" data-state="успіх">
 
@@ -566,8 +493,8 @@
   <main>
     <h1>Kungsleden · Abisko → Nikkaluokta</h1>
 
-    <section aria-labelledby="s6-hero">
-      <h2 id="s6-hero">Огляд</h2>
+    <section aria-labelledby="s5-hero">
+      <h2 id="s5-hero">Огляд</h2>
       <div class="frame frame--photo" data-fit="на всю ширину"><span>photo · Kungsleden · path along Abiskojaure lake</span></div>
       <ul class="rows">
         <li><div class="row"><span><b>17–22 серпня · 2 людини · 1 член STF</b><small>офлайн ✓</small></span></div></li>
@@ -580,15 +507,15 @@
       </details>
     </section>
 
-    <section aria-labelledby="s6-health">
-      <h2 id="s6-health">Потребує уваги</h2>
+    <section aria-labelledby="s5-health">
+      <h2 id="s5-health">Потребує уваги</h2>
       <ul class="rows">
         <li><a class="row" href="./day.html"><span><b>Повінь на Abiskojåkka</b><small>день 2: не встигаєш до Alesjaure до 18:00 · рішення до 15 серпня</small></span><span class="state warn">день 2</span></a></li>
       </ul>
     </section>
 
-    <section aria-labelledby="s6-route">
-      <h2 id="s6-route">Маршрут</h2>
+    <section aria-labelledby="s5-route">
+      <h2 id="s5-route">Маршрут</h2>
       <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран, шари там"><span>map · Kungsleden · day legs · huts · bail-out points</span></div>
       <ul class="stats">
         <li><b>101 км</b><small>довжина</small></li>
@@ -598,8 +525,8 @@
       </ul>
     </section>
 
-    <section aria-labelledby="s6-general">
-      <h2 id="s6-general">Про похід</h2>
+    <section aria-labelledby="s5-general">
+      <h2 id="s5-general">Про похід</h2>
       <ul class="rows">
         <li><a class="row" href="./membership.html"><span><b>Членство й ключ</b><small>обоє члени STF</small></span></a></li>
         <li><a class="row" href="./gear.html"><span><b>Спорядження</b><small>23 речі · 11,4 кг</small></span><span class="state warn">1 бракує</span></a></li>
@@ -608,8 +535,8 @@
       </ul>
     </section>
 
-    <section aria-labelledby="s6-days">
-      <h2 id="s6-days">Дні</h2>
+    <section aria-labelledby="s5-days">
+      <h2 id="s5-days">Дні</h2>
       <ul class="rows">
         <li><div class="row"><span><b>Дорога туди · нд 16 серп</b><small>нічний потяг 94 · Stockholm C → Abisko</small></span></div></li>
         <li><a class="row" href="./day.html"><span><b>1 · Abisko → Abiskojaure</b><small>14 км · ~4 год 30</small></span></a></li>
@@ -660,18 +587,18 @@
     </div>
   </div>
 </section>
-<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">план у «Планах»</span></p>
-<section class="step" id="s7" aria-labelledby="s7-h">
+<p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">«Зберегти план» — план у «Планах»</span></p>
+<section class="step" id="s6" aria-labelledby="s6-h">
   <div class="step-head">
-    <span class="step-n">07</span>
-    <h2 id="s7-h">День</h2>
+    <span class="step-n">06</span>
+    <h2 id="s6-h">День</h2>
     <p class="step-src" data-review lang="uk">0.4 · <code>day.html</code> · вкладка Плани · jobs 1 · 2 · 3 · 6</p>
   </div>
   <div class="step-body">
     <div class="flow-screen">
       <p class="meta" data-review lang="uk"><b>0.4</b> · День · <i>як у наборі</i></p>
-      <input class="flow-exp" type="checkbox" id="exp7" />
-      <label class="flow-exp-l" for="exp7"></label>
+      <input class="flow-exp" type="checkbox" id="exp6" />
+      <label class="flow-exp-l" for="exp6"></label>
       <div class="flow-dev">
 <div class="device" data-screen="День" data-state="успіх">
 
@@ -681,8 +608,8 @@
   <main>
     <h1>День 3 · ср 19 серпня</h1>
 
-    <section aria-labelledby="s7-leg">
-      <h2 id="s7-leg">Перехід</h2>
+    <section aria-labelledby="s6-leg">
+      <h2 id="s6-leg">Перехід</h2>
       <p class="actions"><a href="./day.html">‹ День 2</a> <a href="./day.html">День 4 ›</a></p>
       <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран"><span>map · day 3 · Alesjaure → Tjäktja · ford before the hut</span></div>
       <div class="frame frame--profile" data-fit="на всю ширину"><span>profile · +260 m</span></div>
@@ -693,16 +620,16 @@
       </ul>
     </section>
 
-    <section aria-labelledby="s7-night">
-      <h2 id="s7-night">Ночівля</h2>
+    <section aria-labelledby="s6-night">
+      <h2 id="s6-night">Ночівля</h2>
       <ul class="rows">
         <li><a class="row" href="./hut.html"><span><b>Tjäktja fjällstuga</b><small>самообслуговування · 24 ліжка · без ключа</small></span><span class="state">тільки на місці</span></a></li>
       </ul>
       <p>Прийти до 18:00 · логбук: імена й номери членства.</p>
     </section>
 
-    <section aria-labelledby="s7-cond">
-      <h2 id="s7-cond">На ділянці</h2>
+    <section aria-labelledby="s6-cond">
+      <h2 id="s6-cond">На ділянці</h2>
       <ul class="rows">
         <li><a class="row" href="./notes.html"><span><b>Місток перед Tjäktja знесло</b><small>нотатка · 6 серпня · брід по коліно</small></span><span class="state warn">брід</span></a></li>
         <li><div class="row"><span><b>Вода</b><small>струмки кожні 2–3 км</small></span></div></li>
@@ -710,8 +637,8 @@
       </ul>
     </section>
 
-    <section aria-labelledby="s7-weather">
-      <h2 id="s7-weather">Погода</h2>
+    <section aria-labelledby="s6-weather">
+      <h2 id="s6-weather">Погода</h2>
       <p>+9 °C · дощ 4 мм · вітер 7 м/с · met.no</p>
     </section>
   </main>
@@ -751,17 +678,17 @@
   </div>
 </section>
 <p class="hop" aria-hidden="false"><span class="hop-arrow">↓</span><span class="hop-t">тап по дню</span></p>
-<section class="step" id="s8" aria-labelledby="s8-h">
+<section class="step" id="s7" aria-labelledby="s7-h">
   <div class="step-head">
-    <span class="step-n">08</span>
-    <h2 id="s8-h">Сьогодні</h2>
+    <span class="step-n">07</span>
+    <h2 id="s7-h">Сьогодні</h2>
     <p class="step-src" data-review lang="uk">0.4 · <code>day-intrip.html</code> · вкладка Плани · jobs 3 · 6</p>
   </div>
   <div class="step-body">
     <div class="flow-screen">
       <p class="meta" data-review lang="uk"><b>0.4</b> · Сьогодні · <i>як у наборі</i></p>
-      <input class="flow-exp" type="checkbox" id="exp8" />
-      <label class="flow-exp-l" for="exp8"></label>
+      <input class="flow-exp" type="checkbox" id="exp7" />
+      <label class="flow-exp-l" for="exp7"></label>
       <div class="flow-dev">
 <div class="device" data-screen="День" data-state="сьогодні">
 
@@ -771,8 +698,8 @@
   <main>
     <h1>Сьогодні · Alesjaure → Tjäktja</h1>
 
-    <section aria-labelledby="s8-leg">
-      <h2 id="s8-leg">Зараз</h2>
+    <section aria-labelledby="s7-leg">
+      <h2 id="s7-leg">Зараз</h2>
       <p class="actions"><a class="cta" href="./safety.html">SOS · 112</a></p>
       <ul class="stats">
         <li><b>9 км</b><small>лишилось</small></li>
@@ -782,23 +709,23 @@
       <div class="frame frame--map" data-fit="на всю ширину · позиція на вимогу"><span>map · you are here · 4 km from Alesjaure · ford before the hut</span></div>
     </section>
 
-    <section aria-labelledby="s8-night">
-      <h2 id="s8-night">Ночівля</h2>
+    <section aria-labelledby="s7-night">
+      <h2 id="s7-night">Ночівля</h2>
       <ul class="rows">
         <li><a class="row" href="./hut.html"><span><b>Tjäktja fjällstuga</b><small>тільки на місці · 24 ліжка · без ключа</small></span><span class="state warn">до 18:00</span></a></li>
       </ul>
     </section>
 
-    <section aria-labelledby="s8-cond">
-      <h2 id="s8-cond">На ділянці</h2>
+    <section aria-labelledby="s7-cond">
+      <h2 id="s7-cond">На ділянці</h2>
       <ul class="rows">
         <li><a class="row" href="./notes.html"><span><b>Брід перед хижею</b><small>після дощу вищий — переходь до 15:00</small></span><span class="state warn">брід</span></a></li>
       </ul>
       <p class="actions"><a href="./notes.html">Написати нотатку з місця</a></p>
     </section>
 
-    <section aria-labelledby="s8-weather">
-      <h2 id="s8-weather">Погода</h2>
+    <section aria-labelledby="s7-weather">
+      <h2 id="s7-weather">Погода</h2>
       <p>+9 °C · дощ з 15:00 · вітер 7 м/с</p>
     </section>
   </main>

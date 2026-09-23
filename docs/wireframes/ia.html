@@ -95,7 +95,7 @@
             </li>
             <li class="tree-item">
               <span class="tree-id">7.3</span><span class="tree-name">Вхід</span>
-              <span class="tree-desc">аркуш: Apple · Google · пошта, далі системний запит на сповіщення</span>
+              <span class="tree-desc">аркуш поза основним флоу (акаунт уже є); відкривається з «Я»</span>
               <span class="tree-jobs"><span class="tag tag-ok">7</span></span>
               <span class="tree-p">P</span>
             </li>
@@ -304,8 +304,7 @@ flowchart TD
     GEN --> new["new-plan · Новий план"]
     CONF --> new
     new -->|"тап по дню"| huts["huts · інша хижа"]
-    new -->|"Зберегти план"| acc["account · вхід"]
-    acc --> plan["plan · алерти → дні зі своїми"]
+    new -->|"Зберегти план"| plan["plan · алерти → дні зі своїми"]
     plan --> day["day · День"]
     plan -->|"задача"| bk["booking · поза основним флоу"]
 </pre></div>
