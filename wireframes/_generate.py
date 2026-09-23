@@ -20,35 +20,25 @@ GNAV = _g.gnav('wireframes', '../')
 # обʼєкта (маршрут, день, ніч, відгуки) — там h1 показує назву обʼєкта.
 # Батько виводиться з вкладеності: «‹ назад» веде саме до нього.
 TREE = [
- ('Маршрути', [
+ ('Карта', [
    ('Куди можна піти','catalogue.html',[('порожній','catalogue-empty.html')], [
-     ('Картка маршруту ⭐','route.html',[('порожній','route-empty.html'),('помилка','route-error.html'),('завантаження','route-loading.html')], [
-       ('Карта маршруту','map.html',[('помилка','map-error.html'),('завантаження','map-loading.html'),('офлайн','map-offline.html')], []),
+     ('Новий план ⭐','new-plan.html',[('генерація','new-plan-loading.html'),('неможливий маршрут','new-plan-conflict.html'),('помилка','new-plan-error.html')], [
        ('Хижі маршруту','huts.html',[('порожній','huts-empty.html')], [
          ('Хижа','hut.html',[], []),
        ]),
-       ('Нотатки з місця','field-notes.html',[('порожній','field-notes-empty.html')], []),
-       ('Відгуки','reviews.html',[], []),
+       ('Нотатки й відгуки','notes.html',[('порожній','notes-empty.html')], []),
+       ('Зберегти похід','account.html',[], []),
+       ('Попереджати про зміни','notify.html',[], []),
      ]),
-     ('Зібрати маршрут','assemble.html',[], []),
    ]),
  ]),
  ('Плани', [
    ('Мої походи','plans.html',[('порожній','plans-empty.html')], [
-     ('План по днях ⭐','plan.html',[('у дорозі','plan-intrip.html'),('пройдений','plan-past.html'),('порожній','plan-empty.html'),('помилка','plan-error.html'),('завантаження','plan-loading.html'),('конфлікт','plan-conflict.html'),('офлайн','plan-offline.html'),('degraded','plan-degraded.html')], [
-       ('День','day.html',[('норма замість прогнозу','day-seasonal.html')], [
-         ('Ніч','night.html',[('порожній','night-empty.html'),('помилка','night-error.html'),('degraded','night-degraded.html')], []),
-       ]),
-       ('Ночівлі — ланцюжок ночей','nights.html',[], []),
+     ('План ⭐','plan.html',[('у дорозі','plan-intrip.html'),('пройдений','plan-past.html'),('завантаження','plan-loading.html'),('помилка','plan-error.html'),('офлайн','plan-offline.html'),('degraded','plan-degraded.html')], [
+       ('День','day.html',[('норма замість прогнозу','day-seasonal.html'),('сьогодні','day-intrip.html'),('офлайн','day-offline.html'),('degraded','day-degraded.html')], []),
        ('Спорядження','gear.html',[], []),
-       ('Дорога туди й назад','transport.html',[('порожній','transport-empty.html'),('помилка','transport-error.html'),('завантаження','transport-loading.html')], []),
        ('Що змінилось і що ще можна зробити','changes.html',[('завантаження','changes-loading.html'),('помилка','changes-error.html'),('варіантів немає','changes-nooptions.html')], []),
-       ('Останні кроки','lock-in.html',[('порожній','lock-in-empty.html'),('помилка','lock-in-error.html'),('офлайн','lock-in-offline.html')], []),
-       ('Офлайн-пакет','offline-pack.html',[], []),
        ('Сказати, куди йду','share.html',[], []),
-       ('Сьогодні','today.html',[('офлайн','today-offline.html')], []),
-       ('Зберегти похід','account.html',[], []),
-       ('Попереджати про зміни','notify.html',[], []),
      ]),
    ]),
  ]),
@@ -131,12 +121,11 @@ def nav_html(current):
 # «✕ Закрити», не «‹ назад». У статичному макеті href веде до
 # найчастішого відкривача, бо стека в нас немає.
 SHEETS = {
-  'map.html': 'catalogue.html', 'map-error.html': 'catalogue.html',
-  'map-loading.html': 'catalogue.html', 'map-offline.html': 'plan.html',
   'lodging-system.html': 'guide.html',
-  'account.html': 'plan.html', 'notify.html': 'plan.html',
-  'membership.html': 'lock-in.html', 'my-gear.html': 'gear.html',
-  'huts.html': 'route.html', 'huts-empty.html': 'night.html', 'hut.html': 'huts.html',
+  'account.html': 'new-plan.html', 'notify.html': 'new-plan.html',
+  'membership.html': 'plan.html', 'my-gear.html': 'gear.html',
+  'huts.html': 'new-plan.html', 'huts-empty.html': 'new-plan.html', 'hut.html': 'huts.html',
+  'notes.html': 'new-plan.html', 'notes-empty.html': 'day.html',
 }
 
 def topbar(current):
@@ -178,12 +167,12 @@ def tab_of(f):
 # Бейдж на «Планах» — єдиний лічильник продукту: компенсація за прибрану
 # вкладку «Закріпити» (sitemap, рішення про пʼять вкладок). Знімається там,
 # де плану немає, інакше бейдж бреше.
-NOPLAN = {'plans-empty.html', 'plan-empty.html', 'catalogue-empty.html'}
+NOPLAN = {'plans-empty.html', 'catalogue-empty.html', 'new-plan.html', 'new-plan-loading.html', 'new-plan-conflict.html', 'new-plan-error.html'}
 
 def appnav_for(f):
     t = tab_of(f)
     b = '' if f in NOPLAN else '<span class="count" aria-label="лишилось кроків: 4">4</span>'
-    return APPNAV.format(b=b, m=' aria-current="page"' if t == 'Маршрути' else '',
+    return APPNAV.format(b=b, m=' aria-current="page"' if t == 'Карта' else '',
                          p=' aria-current="page"' if t == 'Плани' else '',
                          d=' aria-current="page"' if t == 'Довідник' else '',
                          x=' aria-current="page"' if t == 'Безпека' else '',

@@ -1,17 +1,17 @@
 # Wireframes — Nestwood
 
-Status: **complete — 27 screens × 29 states = 56 pages, nothing left grey.**
+Status: **complete — 22 screens + 20 states = 42 pages, nothing left grey.**
 
 The catalogue is now the navigation root, there is no wizard, and there are five tabs instead of seven clusters. The IA documents below are rewritten against that; the 59 drawn pages were built against the wizard-spine structure and are the next step.
 
 | Step | Output | State |
 |---|---|---|
 | 1 · Entities | [sitemap.md](./sitemap.md) § Сутності — 23 entities, each traced to a job | done |
-| 2 · Screen tree | [sitemap.md](./sitemap.md) § Екрани — five tabs, ~27 screens, states, coverage both ways | **rewritten** |
+| 2 · Screen tree | [sitemap.md](./sitemap.md) § Екрани — five tabs, 22 screens, states, coverage both ways | **rewritten** |
 | 3 · Navigation | [sitemap.md](./sitemap.md) § Навігація — five tabs, contextual home, depth in taps | **rewritten** — 3 taps to a plan, value at tap zero |
 | 4 · User flows | [flows.md](./flows.md) — MAIN, 2, 7, 3+6, 11, 10 as Mermaid | **rewritten** |
-| 5 · Traceability | [sitemap.md](./sitemap.md) § Трасування — 12 jobs × 27 screens + hypothesis H6, orphan lists with a decision each | **recomputed** |
-| 6 · Wireframes | 56 pages · all 27 screens and their states | **done** — every named exit leads to a real screen |
+| 5 · Traceability | [sitemap.md](./sitemap.md) § Трасування — 12 jobs × 22 screens + hypothesis H6, orphan lists with a decision each | **recomputed** |
+| 6 · Wireframes | 42 pages · all 22 screens and their states | **done** — every named exit leads to a real screen |
 
 Low- and mid-fidelity flows for the core user journey: input (fitness, time, what to walk, lodging regime + membership, gear, preferences; budget optional) → multi-day itinerary output (route, overnight stays, gear checklist, weather adaptation, transport legs, and what still has to be booked).
 

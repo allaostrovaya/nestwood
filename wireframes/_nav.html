@@ -3,27 +3,20 @@
 <nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
   <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>
   <ul>
-    <li><span class="grp">Маршрути</span>
+    <li><span class="grp">Карта</span>
       <ul>
         <li><a href="./catalogue.html">Куди можна піти</a>
           <ul class="states">
             <li><a class="st" href="./catalogue-empty.html">порожній</a></li>
           </ul>
           <ul>
-            <li><a href="./route.html">Картка маршруту ⭐</a>
+            <li><a href="./new-plan.html">Новий план ⭐</a>
               <ul class="states">
-                <li><a class="st" href="./route-empty.html">порожній</a></li>
-                <li><a class="st" href="./route-error.html">помилка</a></li>
-                <li><a class="st" href="./route-loading.html">завантаження</a></li>
+                <li><a class="st" href="./new-plan-loading.html">генерація</a></li>
+                <li><a class="st" href="./new-plan-conflict.html">неможливий маршрут</a></li>
+                <li><a class="st" href="./new-plan-error.html">помилка</a></li>
               </ul>
               <ul>
-                <li><a href="./map.html">Карта маршруту</a>
-                  <ul class="states">
-                    <li><a class="st" href="./map-error.html">помилка</a></li>
-                    <li><a class="st" href="./map-loading.html">завантаження</a></li>
-                    <li><a class="st" href="./map-offline.html">офлайн</a></li>
-                  </ul>
-                </li>
                 <li><a href="./huts.html">Хижі маршруту</a>
                   <ul class="states">
                     <li><a class="st" href="./huts-empty.html">порожній</a></li>
@@ -33,16 +26,16 @@
                     </li>
                   </ul>
                 </li>
-                <li><a href="./field-notes.html">Нотатки з місця</a>
+                <li><a href="./notes.html">Нотатки й відгуки</a>
                   <ul class="states">
-                    <li><a class="st" href="./field-notes-empty.html">порожній</a></li>
+                    <li><a class="st" href="./notes-empty.html">порожній</a></li>
                   </ul>
                 </li>
-                <li><a href="./reviews.html">Відгуки</a>
+                <li><a href="./account.html">Зберегти похід</a>
+                </li>
+                <li><a href="./notify.html">Попереджати про зміни</a>
                 </li>
               </ul>
-            </li>
-            <li><a href="./assemble.html">Зібрати маршрут</a>
             </li>
           </ul>
         </li>
@@ -55,14 +48,12 @@
             <li><a class="st" href="./plans-empty.html">порожній</a></li>
           </ul>
           <ul>
-            <li><a href="./plan.html">План по днях ⭐</a>
+            <li><a href="./plan.html">План ⭐</a>
               <ul class="states">
                 <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
                 <li><a class="st" href="./plan-past.html">пройдений</a></li>
-                <li><a class="st" href="./plan-empty.html">порожній</a></li>
-                <li><a class="st" href="./plan-error.html">помилка</a></li>
                 <li><a class="st" href="./plan-loading.html">завантаження</a></li>
-                <li><a class="st" href="./plan-conflict.html">конфлікт</a></li>
+                <li><a class="st" href="./plan-error.html">помилка</a></li>
                 <li><a class="st" href="./plan-offline.html">офлайн</a></li>
                 <li><a class="st" href="./plan-degraded.html">degraded</a></li>
               </ul>
@@ -70,27 +61,12 @@
                 <li><a href="./day.html">День</a>
                   <ul class="states">
                     <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
+                    <li><a class="st" href="./day-intrip.html">сьогодні</a></li>
+                    <li><a class="st" href="./day-offline.html">офлайн</a></li>
+                    <li><a class="st" href="./day-degraded.html">degraded</a></li>
                   </ul>
-                  <ul>
-                    <li><a href="./night.html">Ніч</a>
-                      <ul class="states">
-                        <li><a class="st" href="./night-empty.html">порожній</a></li>
-                        <li><a class="st" href="./night-error.html">помилка</a></li>
-                        <li><a class="st" href="./night-degraded.html">degraded</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="./nights.html">Ночівлі — ланцюжок ночей</a>
                 </li>
                 <li><a href="./gear.html">Спорядження</a>
-                </li>
-                <li><a href="./transport.html">Дорога туди й назад</a>
-                  <ul class="states">
-                    <li><a class="st" href="./transport-empty.html">порожній</a></li>
-                    <li><a class="st" href="./transport-error.html">помилка</a></li>
-                    <li><a class="st" href="./transport-loading.html">завантаження</a></li>
-                  </ul>
                 </li>
                 <li><a href="./changes.html">Що змінилось і що ще можна зробити</a>
                   <ul class="states">
@@ -99,25 +75,7 @@
                     <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
                   </ul>
                 </li>
-                <li><a href="./lock-in.html">Останні кроки</a>
-                  <ul class="states">
-                    <li><a class="st" href="./lock-in-empty.html">порожній</a></li>
-                    <li><a class="st" href="./lock-in-error.html">помилка</a></li>
-                    <li><a class="st" href="./lock-in-offline.html">офлайн</a></li>
-                  </ul>
-                </li>
-                <li><a href="./offline-pack.html">Офлайн-пакет</a>
-                </li>
                 <li><a href="./share.html">Сказати, куди йду</a>
-                </li>
-                <li><a href="./today.html">Сьогодні</a>
-                  <ul class="states">
-                    <li><a class="st" href="./today-offline.html">офлайн</a></li>
-                  </ul>
-                </li>
-                <li><a href="./account.html">Зберегти похід</a>
-                </li>
-                <li><a href="./notify.html">Попереджати про зміни</a>
                 </li>
               </ul>
             </li>

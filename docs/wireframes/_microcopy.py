@@ -243,7 +243,7 @@ def flags(r):
 for r in rows: r['flags'] = flags(r)
 
 # ── групування: вкладка → базовий екран → стан ───────────────
-TABORDER = ['Маршрути', 'Плани', 'Довідник', 'Безпека', 'Профіль']
+TABORDER = ['Карта', 'Плани', 'Довідник', 'Безпека', 'Профіль']
 FLOW = ['catalogue.html','route.html','plan-loading.html','plan.html','day.html',
         'night.html','gear.html','transport.html','lock-in.html','share.html']
 byfile = collections.OrderedDict()
@@ -602,9 +602,9 @@ excl = [r for r in rows if '!' in r['text']]
 A(f'**Окличних знаків у наборі: {len(excl)}.** Бадьорого тону, «Ой, щось пішло не так», «Вітаємо» і '
   'подібного немає — перевірено пошуком по словах. Це рідкість, і її варто зберегти.')
 A('')
-A('**Помилки говорять однаково**: `Спробувати ще раз` стоїть на всіх девʼяти екранах помилки '
-  '(`route-error`, `plan-error` ×2, `map-error`, `night-error`, `transport-error`, `changes-error`, '
-  '`lock-in-error` ×2). Це вже узгоджено.')
+A('**Помилки говорять однаково**: дія повтору на екранах помилки — `Спробувати ще раз` '
+  '(`new-plan-error`, `changes-error`) або `Перевірити ще раз` (`plan-error`, бо там перевіряється свіжість '
+  'вже складеного плану). Після перебудови 2026-09-23 екранів помилки менше, бо ніч, транспорт і останні кроки стали зонами.')
 A('')
 em = [r for r in rows if RX_EMOJI.search(r['text'])]
 byem = collections.defaultdict(list)

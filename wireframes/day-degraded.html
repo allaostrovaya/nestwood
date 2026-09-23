@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wireframe · День · degraded</title>
+<link rel="stylesheet" href="./_wireframe.css" />
+<link rel="stylesheet" href="../design-system/docs/globalnav.css" />
+</head>
+<body>
+
+<nav class="gnav" aria-label="Документи проєкту">
+  <a class="gnav-brand" href="../wireframes/plan.html">Nestwood<span>ДОКУМЕНТИ</span></a>
+  <p class="gnav-label">Проєкт</p>
+  <ul>
+    <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
+    <li><a class="gnav-item" href="../concept/personas.html"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>42 сторінки, дерево праворуч</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/flow.html"><span class="n">05</span><span><b>Головний флоу</b><small>десять екранів підряд, MAIN JOB</small></span></a></li>
+  </ul>
+</nav>
+
+<div class="wf-shell">
+
+<nav class="wf-tree" data-review lang="uk" aria-label="Структура вайрфреймів">
+  <h2>NESTWOOD · ВАЙРФРЕЙМИ</h2>
+  <ul>
+    <li><span class="grp">Карта</span>
+      <ul>
+        <li><a href="./catalogue.html">Куди можна піти</a>
+          <ul class="states">
+            <li><a class="st" href="./catalogue-empty.html">порожній</a></li>
+          </ul>
+          <ul>
+            <li><a href="./new-plan.html">Новий план ⭐</a>
+              <ul class="states">
+                <li><a class="st" href="./new-plan-loading.html">генерація</a></li>
+                <li><a class="st" href="./new-plan-conflict.html">неможливий маршрут</a></li>
+                <li><a class="st" href="./new-plan-error.html">помилка</a></li>
+              </ul>
+              <ul>
+                <li><a href="./huts.html">Хижі маршруту</a>
+                  <ul class="states">
+                    <li><a class="st" href="./huts-empty.html">порожній</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="./hut.html">Хижа</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="./notes.html">Нотатки й відгуки</a>
+                  <ul class="states">
+                    <li><a class="st" href="./notes-empty.html">порожній</a></li>
+                  </ul>
+                </li>
+                <li><a href="./account.html">Зберегти похід</a>
+                </li>
+                <li><a href="./notify.html">Попереджати про зміни</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Плани</span>
+      <ul>
+        <li><a href="./plans.html">Мої походи</a>
+          <ul class="states">
+            <li><a class="st" href="./plans-empty.html">порожній</a></li>
+          </ul>
+          <ul>
+            <li><a href="./plan.html">План ⭐</a>
+              <ul class="states">
+                <li><a class="st" href="./plan-intrip.html">у дорозі</a></li>
+                <li><a class="st" href="./plan-past.html">пройдений</a></li>
+                <li><a class="st" href="./plan-loading.html">завантаження</a></li>
+                <li><a class="st" href="./plan-error.html">помилка</a></li>
+                <li><a class="st" href="./plan-offline.html">офлайн</a></li>
+                <li><a class="st" href="./plan-degraded.html">degraded</a></li>
+              </ul>
+              <ul>
+                <li><a href="./day.html">День</a>
+                  <ul class="states">
+                    <li><a class="st" href="./day-seasonal.html">норма замість прогнозу</a></li>
+                    <li><a class="st" href="./day-intrip.html">сьогодні</a></li>
+                    <li><a class="st" href="./day-offline.html">офлайн</a></li>
+                    <li><a class="st" href="./day-degraded.html" aria-current="page">degraded</a></li>
+                  </ul>
+                </li>
+                <li><a href="./gear.html">Спорядження</a>
+                </li>
+                <li><a href="./changes.html">Що змінилось і що ще можна зробити</a>
+                  <ul class="states">
+                    <li><a class="st" href="./changes-loading.html">завантаження</a></li>
+                    <li><a class="st" href="./changes-error.html">помилка</a></li>
+                    <li><a class="st" href="./changes-nooptions.html">варіантів немає</a></li>
+                  </ul>
+                </li>
+                <li><a href="./share.html">Сказати, куди йду</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Довідник</span>
+      <ul>
+        <li><a href="./guide.html">Довідник</a>
+          <ul>
+            <li><a href="./lodging-system.html">Як працює ця система ночівлі</a>
+            </li>
+            <li><a href="./rules.html">Правила й fjellvett</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Безпека</span>
+      <ul>
+        <li><a href="./safety.html">Безпека</a>
+          <ul>
+            <li><a href="./first-aid.html">Перша допомога</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="grp">Профіль</span>
+      <ul>
+        <li><a href="./me.html">Я</a>
+          <ul>
+            <li><a href="./my-gear.html">Моє спорядження</a>
+            </li>
+            <li><a href="./membership.html">Членство й ключ</a>
+            </li>
+            <li><a href="./settings.html">Налаштування</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="wf-main">
+
+<p class="meta" data-review lang="uk"><b>0.4</b> · День · <i>degraded</i></p>
+
+<div class="device" data-screen="День" data-state="degraded">
+
+  <div class="screen">
+  <header class="topbar"><a class="back" href="./plan.html">‹ План</a><span class="title">День</span></header>
+
+  <main>
+    <h1>День 3 · ср 19 серпня</h1>
+
+    <section aria-labelledby="now">
+      <h2 id="now">Зараз</h2>
+      <p>Цей день настане 19 серпня. У дорозі тут стоятиме головне на сьогодні: скільки лишилось, до котрої прийти, що з погодою.</p>
+    </section>
+
+    <section aria-labelledby="leg">
+      <h2 id="leg">Перехід</h2>
+      <p>Alesjaure → Tjäktja · 13 км · +260 м · близько 4 год 30</p>
+      <figure class="bleed">
+        <div class="frame frame--map" data-fit="на всю ширину · шматок маршруту цього дня">
+          <span>map · day 3 · Alesjaure → Tjäktja · 13 km · ford before the hut</span>
+        </div>
+        <figcaption>Де стежка виходить із долини й де брід перед хижею.</figcaption>
+      </figure>
+      <div class="frame frame--profile" data-fit="на всю ширину"><span>profile · +260 m · steepest before the hut</span></div>
+      <p>Офіційної градації цій ділянці не проставили — це типовий випадок. Виміри вище: суди сам. Навантаження — Naismith + Langmuir.</p>
+    </section>
+
+    <section aria-labelledby="night">
+      <h2 id="night">Ночівля</h2>
+      <p><b>Tjäktja fjällstuga (STF)</b> · тільки на місці, до 18:00.</p>
+      <p>Скільки ліжок вільно сьогодні, ми не знаємо — живої наявності немає. Гарантія та сама: нікого не виганяють, після 18:00 — можливо, матрац на підлозі.</p>
+    </section>
+
+    <section aria-labelledby="transport">
+      <h2 id="transport">Транспорт і квитки цього дня</h2>
+      <p>Цього дня транспорту немає. Найближчий вихід — Alesjaure, 13 км назад: човен до Abisko ходить до 15 вересня.</p>
+    </section>
+
+    <section aria-labelledby="cond">
+      <h2 id="cond">Умови на ділянці</h2>
+      <ul class="rows">
+        <li><a class="row" href="./notes.html"><span><b>Місток перед Tjäktja знесло</b><small>нотатка з місця · 6 серпня · брід по коліно, після дощу вище</small></span><span class="state warn">розходження</span></a></li>
+        <li><div class="row"><span><b>Вода</b><small>струмки кожні 2–3 км, останній за 1 км до хижі</small></span></div></li>
+        <li><div class="row"><span><b>Поверхня</b><small>8 км мостків, 5 км каміння</small></span></div></li>
+        <li><div class="row"><span><b>Звʼязок</b><small>невідомо — оператори не публікують карти покриття</small></span></div></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="weather">
+      <h2 id="weather">Погода</h2>
+      <p>+9 °C, дощ 4 мм, вітер 7 м/с · met.no, зчитано 13 серпня 09:12. Дощовик і гамаші сьогодні критичні.</p>
+    </section>
+
+    <section aria-labelledby="pager">
+      <h2 id="pager">Інші дні</h2>
+      <p class="actions"><a href="./day.html">‹ День 2</a> <a href="./plan.html">Усі дні</a> <a href="./day.html">День 4 ›</a></p>
+    </section>
+  </main>
+
+  <footer class="app">
+    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <details>
+      <summary>Звідки це взято</summary>
+      <p>Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF.</p>
+    </details>
+    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+  </footer>
+  </div>
+  <nav class="tabbar" aria-label="Головна навігація">
+    <ul>
+      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Карта</a></li>
+      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Плани<span class="count" aria-label="лишилось кроків: 4">4</span></a></li>
+      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Довідник</a></li>
+      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Безпека</a></li>
+      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+    </ul>
+  </nav>
+</div>
+
+</div><!-- /.wf-main -->
+</div><!-- /.wf-shell -->
+
+</body>
+</html>

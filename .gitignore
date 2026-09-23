@@ -29,3 +29,6 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+
+# impeccable — локальні перевизначення детектора
+.impeccable/config.local.json

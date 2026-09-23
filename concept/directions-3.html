@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nestwood · Трансляція × Годинник</title><link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Saira:wght@300;400;500;600&family=Martian+Mono:wght@300;400;500&family=Tektur:wght@400;500;600&family=Onest:wght@400;500;600&family=Wix+Madefor+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#E9EAE8; --page-2:#F4F5F3; --ink:#17191B; --mut:#5E6368; --line:#CFD2D0;
+    --grad-bla:#4A90E2; --grad-rod:#C8102E;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:"Golos Text",system-ui,sans-serif;font-size:15px;line-height:1.55}
+  a{color:inherit}
+  .wrap{max-width:1320px;margin:0 auto;padding:44px 24px 96px}
+  [data-lucide]{width:18px;height:18px;stroke-width:1.6;flex:none}
+
+  /* ── шапка ───────────────────────────── */
+  .mast{margin-bottom:40px}
+  .kick{font:500 12px/1 "Geist Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:0 0 14px}
+  .mast h1{font:600 clamp(30px,4.4vw,52px)/1.04 "Golos Text",sans-serif;letter-spacing:-.035em;margin:0 0 18px;max-width:20ch;text-wrap:balance}
+  .lede{max-width:70ch;color:#3A3E42;font-size:16.5px;margin:0}
+  .brief{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin:28px 0 0;padding:0;list-style:none}
+  .brief li{background:var(--page-2);border-radius:16px;padding:14px 16px;font-size:13.5px;color:#3A3E42}
+  .brief b{display:block;color:var(--ink);font-weight:600;margin-bottom:3px}
+
+  .audit{margin:44px 0 12px;display:grid;gap:14px;grid-template-columns:1.1fr 1fr}
+  .audit h2,.sec-h{font:600 22px/1.2 "Golos Text",sans-serif;letter-spacing:-.02em;margin:0 0 12px}
+  .panel{background:var(--page-2);border-radius:20px;padding:20px 22px}
+  .panel p{margin:0 0 10px;font-size:14px;color:#3A3E42}
+  .panel p:last-child{margin:0}
+  .panel b{color:var(--ink)}
+  .rut{display:flex;gap:8px;margin:12px 0 4px;flex-wrap:wrap}
+  .rut span{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;background:#fff;border-radius:999px;padding:5px 12px 5px 6px}
+  .rut i{width:16px;height:16px;border-radius:50%;display:inline-block}
+  .src{font:400 11.5px/1.4 "Geist Mono",monospace;color:var(--mut)}
+
+  /* ── напрям ──────────────────────────── */
+  .deck{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:40px;align-items:start;
+    background:#fff;border-radius:28px;padding:36px;margin-top:28px}
+  .deck-kick{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+  .pill{font:500 11.5px/1 "Geist Mono",monospace;letter-spacing:.07em;text-transform:uppercase;border-radius:999px;padding:7px 11px;background:var(--page);color:var(--ink)}
+  .pill.lead{background:var(--ink);color:#fff}
+  .deck h2{font:600 clamp(28px,3.2vw,40px)/1.05 "Golos Text",sans-serif;letter-spacing:-.03em;margin:0 0 6px}
+  .deck h2 small{display:block;font:400 15px/1.4 "Golos Text",sans-serif;letter-spacing:0;color:var(--mut);margin-top:6px}
+  .thesis{font-size:17px;line-height:1.5;margin:16px 0 8px;max-width:58ch}
+  .refuse{font-size:14px;color:var(--mut);margin:0 0 22px;max-width:58ch}
+  .sect{border-top:1px solid #ECEDEC;padding:18px 0}
+  .sect-h{font:500 11.5px/1 "Geist Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:0 0 12px}
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px}
+  .chip{border-radius:14px;overflow:hidden;background:var(--page-2);font-size:12.5px;line-height:1.3}
+  .chip i{display:block;height:46px}
+  .chip div{padding:8px 10px 10px}
+  .chip b{display:block;font-weight:600}
+  .chip code{font:400 11px "Geist Mono",monospace;color:var(--mut)}
+  .chip em{display:block;font-style:normal;color:var(--mut);font-size:11.5px;margin-top:2px}
+  .facts{display:grid;grid-template-columns:120px 1fr;gap:8px 16px;font-size:14px;margin:0}
+  .facts dt{color:var(--mut)}
+  .facts dd{margin:0}
+  .raises{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .raises li{font-size:14px;padding-left:18px;position:relative}
+  .raises li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--ink)}
+  .raises b{font-weight:600}
+  .risk{background:#FFF6E0;border-radius:16px;padding:14px 16px;font-size:14px;margin-top:18px;color:#3D3322}
+  .risk b{display:block;font:500 11.5px/1 "Geist Mono",monospace;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;color:#7A5A12}
+  .qb{display:flex;gap:12px;align-items:center;margin-top:14px;font-size:13px;color:var(--mut)}
+  .qb img{width:180px;border-radius:12px;display:block}
+
+  /* ── телефон ─────────────────────────── */
+  .phone-col{position:sticky;top:20px}
+  .phone{width:100%;max-width:390px;margin:0 auto;border-radius:48px;padding:10px;background:#101214;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+  .screen{border-radius:39px;overflow:hidden;position:relative}
+  .sbar{display:flex;justify-content:space-between;align-items:center;padding:14px 26px 6px;font:600 14px/1 -apple-system,"SF Pro Text",system-ui,sans-serif}
+  .sbar .dots{display:flex;gap:5px;align-items:center}
+  .sbar .dots i{width:16px;height:10px;border-radius:3px;background:currentColor;opacity:.9;display:block}
+  .phone-cap{text-align:center;font:400 12px "Geist Mono",monospace;color:var(--mut);margin-top:12px}
+  .shot{position:relative;overflow:hidden}
+  .shot img{display:block;width:100%;height:100%;object-fit:cover}
+  .cred{position:absolute;right:10px;bottom:8px;font:500 8.5px/1.2 "Geist Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.88);text-shadow:0 1px 2px rgba(0,0,0,.5)}
+  .grad{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;border-radius:999px;padding:4px 10px 4px 6px;background:#fff;color:#17191B;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+  .grad i{width:10px;height:10px;border-radius:50%;background:var(--grad-bla);display:block}
+  .grad.rod i{background:var(--grad-rod)}
+
+  /* ── канон і відхилені ───────────────── */
+  .quiet{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+  .dcard{background:var(--page-2);border-radius:18px;padding:16px;font-size:13.5px;color:#3A3E42}
+  .dcard img{width:100%;border-radius:10px;display:block;margin-bottom:10px;aspect-ratio:16/9;object-fit:cover;filter:saturate(.7)}
+  .dcard h4{margin:0 0 4px;font-size:14.5px;color:var(--ink)}
+  .dcard .v{font:500 10.5px/1 "Geist Mono",monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:8px}
+  .dcard p{margin:0 0 6px}
+  .dcard .kept{color:var(--ink)}
+  .canon{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--page-2);border-radius:20px;padding:18px 20px;margin-top:14px;font-size:14px;color:#3A3E42}
+  .canon .sw{display:flex}
+  .canon .sw i{width:30px;height:30px;border-radius:50%;margin-right:-8px;border:2px solid var(--page-2)}
+  .ask{margin-top:48px;background:var(--ink);color:#fff;border-radius:24px;padding:26px 28px}
+  .ask h2{margin:0 0 10px;font-size:22px;letter-spacing:-.02em}
+  .ask p{margin:0 0 8px;color:#C9CCCF;max-width:72ch}
+  .ask b{color:#fff}
+
+  
+  .from{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px;margin:0}
+  .from dt{font:500 11px/1.9 "Geist Mono",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+  .from dd{margin:0}
+
+  /* ═══ G · ЕФІР ═══ */
+  .G .screen{background:#fff;color:#0C0F12;font-family:"Saira",sans-serif}
+  .G .shot{height:420px;margin:4px 10px 0;border-radius:32px}
+  .G .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.3) 0%,rgba(0,0,0,0) 24%,rgba(0,0,0,0) 44%,rgba(0,0,0,.66) 100%)}
+  .G .hud{position:absolute;z-index:2;color:#fff;font:400 10px/1.35 "Martian Mono",monospace;letter-spacing:.03em}
+  .G .hud.tl{left:18px;top:16px}.G .hud.tr{right:18px;top:16px;text-align:right}
+  .G .hud b{font-weight:500}
+  .G .cx{position:absolute;z-index:2;left:14px;right:14px;bottom:60px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .G .cx div{background:rgba(12,15,18,.34);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:22px;padding:8px 6px 8px;text-align:center;color:#fff}
+  .G .cx svg{width:56px;height:56px;display:block;margin:0 auto 3px}
+  .G .cx span{font:400 8.5px/1.2 "Martian Mono",monospace;letter-spacing:.04em;text-transform:uppercase;opacity:.9}
+  .G .tl-bar{position:absolute;z-index:2;left:18px;right:18px;bottom:16px;height:30px}
+  .G .tl-bar .axis{position:absolute;left:0;right:0;top:9px;height:1.5px;background:rgba(255,255,255,.55)}
+  .G .tl-bar .tk{position:absolute;top:4px;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;background:rgba(12,15,18,.55);box-shadow:inset 0 0 0 1.5px #fff}
+  .G .tl-bar .tk.on{background:#00D2E6;box-shadow:0 0 0 3px rgba(0,210,230,.35)}
+  .G .tl-bar .tk.warn{box-shadow:inset 0 0 0 1.5px #FFC53D;background:rgba(255,197,61,.4)}
+  .G .tl-bar .lab{position:absolute;top:19px;transform:translateX(-50%);font:400 8.5px/1 "Martian Mono",monospace;color:rgba(255,255,255,.9)}
+  .G .body{padding:16px 20px 22px}
+  .G h3{font:600 24px/1.05 "Saira",sans-serif;margin:0 0 6px}
+  .G .sum{margin:0 0 12px;font-size:15px;line-height:1.4;color:#475057}
+  .G .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .G .leg{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid #E6EAED;font-size:14.5px}
+  .G .legs{margin-top:12px}
+  .G .leg .n{font:400 11px "Martian Mono",monospace;color:#8A949B}
+  .G .leg .v{font:500 13px "Tektur",sans-serif;font-variant-numeric:tabular-nums}
+  .G .alert{display:grid;grid-template-columns:4px 1fr;gap:12px;margin:12px 0 0;font-size:13px;line-height:1.45;color:#2A2F33}
+  .G .alert::before{content:"";background:#FFB400;border-radius:4px}
+  .G .alert b{display:block;font-weight:600;color:#0C0F12}
+  .G .alert .t{font:400 11px "Martian Mono",monospace;color:#8A6200}
+  .G .cta{display:flex;gap:8px;margin-top:16px}
+  .G .btn{flex:1;display:inline-flex;justify-content:center;align-items:center;gap:8px;border:0;border-radius:22px;background:#0C0F12;color:#fff;font:500 16px/1 "Saira",sans-serif;padding:16px 18px}
+  .G .btn .ac{width:8px;height:8px;border-radius:50%;background:#00D2E6}
+  .G .btn2{border:0;border-radius:22px;background:#EEF1F3;color:#0C0F12;font:500 16px/1 "Saira",sans-serif;padding:16px 18px}
+
+  /* ═══ H · БЕЗЕЛЬ ═══ */
+  .H .screen{background:#F6F6F4;color:#111315;font-family:"Onest",sans-serif}
+  .H .shot{height:250px;margin:4px 12px 0;border-radius:34px}
+  .H .shot .hud{position:absolute;left:18px;top:16px;color:#fff;font:500 10px/1.35 "Tektur",sans-serif;letter-spacing:.06em;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+  .H .dial{width:168px;height:168px;margin:-92px auto 0;position:relative;z-index:2;border-radius:50%;padding:4px;background:#F6F6F4;box-shadow:0 10px 28px -12px rgba(0,0,0,.35)}
+  .H .dial svg{width:100%;height:100%;display:block}
+  .H .body{padding:10px 18px 22px;text-align:left}
+  .H h3{font:600 23px/1.08 "Onest",sans-serif;letter-spacing:-.02em;margin:0 0 6px;text-align:center}
+  .H .sum{margin:0 0 12px;font-size:14.5px;color:#55595E;text-align:center}
+  .H .row{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .H .cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 6px}
+  .H .cmp div{background:#fff;border-radius:22px;padding:10px 14px;display:flex;align-items:center;gap:10px}
+  .H .cmp svg{width:40px;height:40px;flex:none}
+  .H .cmp b{display:block;font:600 18px/1 "Tektur",sans-serif}
+  .H .cmp span{font:500 10px/1.3 "Onest",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8E9297}
+  .H .leg{display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #E7E8E6;font-size:14px}
+  .H .leg .n{font:500 12px "Tektur",sans-serif;color:#8E9297}
+  .H .leg .v{font:500 13px "Tektur",sans-serif}
+  .H .alert{margin-top:12px;border-radius:20px;padding:12px 14px;font-size:13px;line-height:1.45;color:#1C1A10;background:repeating-linear-gradient(135deg,#FFD84D 0 10px,#FFE27A 10px 20px)}
+  .H .alert b{display:block;font-weight:600}
+  .H .cta{display:flex;gap:8px;margin-top:14px}
+  .H .btn{flex:1;border:0;border-radius:22px;background:#FF5F1F;color:#fff;font:600 15px/1 "Onest",sans-serif;padding:16px 18px}
+  .H .btn2{border:0;border-radius:22px;background:#E4E5E3;color:#111315;font:600 15px/1 "Onest",sans-serif;padding:16px 18px}
+
+  /* ═══ I · ПРИЛАД ═══ */
+  .I{--ac:#F2E500;--ac-glow:rgba(242,229,0,.45);--btn:#F2E500;--btn-fg:#0F1113;--ac-txt:#F2E500}
+  .I .screen{background:#F4F5F5;color:#0F1113;font-family:"Wix Madefor Display",sans-serif}
+  .I .shot{height:360px;margin:4px 10px 0;border-radius:32px}
+  .I .hud{position:absolute;left:18px;top:16px;z-index:2;color:#fff;font:500 10px/1.35 "Tektur",sans-serif;letter-spacing:.06em;text-shadow:0 1px 3px rgba(0,0,0,.4)}
+  .I .band{position:absolute;z-index:2;left:10px;right:10px;bottom:10px;border-radius:24px;padding:12px 14px 10px;
+    background:rgba(250,250,250,.78);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2)}
+  .I .band .nums{display:grid;grid-template-columns:repeat(3,1fr)}
+  .I .band .nums div{padding:0 8px;border-left:1px solid rgba(15,17,19,.12)}
+  .I .band .nums div:first-child{border-left:0;padding-left:2px}
+  .I .band b{display:block;font:600 24px/1 "Tektur",sans-serif;font-variant-numeric:tabular-nums}
+  .I .band span{font:500 9.5px/1.3 "Wix Madefor Display",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#5E6368}
+  .I .band .track{position:relative;height:22px;margin-top:10px}
+  .I .band .track .ax{position:absolute;left:0;right:0;top:6px;height:4px;border-radius:4px;background:rgba(15,17,19,.12)}
+  .I .band .track .fill{position:absolute;left:0;top:6px;height:4px;border-radius:4px;width:33%;background:#0F1113}
+  .I .band .track i{position:absolute;top:3px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px #0F1113}
+  .I .band .track i.on{background:var(--ac);box-shadow:inset 0 0 0 2px #0F1113,0 0 0 3px var(--ac-glow)}
+  .I .band .track i.w{background:repeating-linear-gradient(135deg,#0F1113 0 2px,var(--hatch,#FFD84D) 2px 4px)}
+  .I .band .track em{position:absolute;top:15px;transform:translateX(-50%);font:500 8.5px/1 "Tektur",sans-serif;font-style:normal;color:#3C4044}
+  .I .body{padding:16px 20px 22px}
+  .I h3{font:600 23px/1.08 "Wix Madefor Display",sans-serif;letter-spacing:-.02em;margin:0 0 6px}
+  .I .sum{margin:0 0 12px;font-size:14.5px;color:#55595E}
+  .I .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .I .legs{margin-top:12px}
+  .I .leg{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #E2E4E4;font-size:14px}
+  .I .leg .n{font:500 12px "Tektur",sans-serif;color:#8B9095}
+  .I .leg .v{font:500 13px "Tektur",sans-serif}
+  .I .alert{margin-top:12px;border-radius:20px;padding:12px 14px 12px 20px;font-size:13px;line-height:1.45;color:#fff;background:#0F1113;position:relative;overflow:hidden}
+  .I .alert::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:repeating-linear-gradient(135deg,var(--hatch,#FFD84D) 0 5px,#0F1113 5px 10px)}
+  .I .alert b{display:block;font-weight:600}
+  .I .alert .t{font:500 11.5px "Tektur",sans-serif;color:var(--hatch,#FFD84D)}
+  .I .cta{display:flex;gap:8px;margin-top:14px}
+  .I .btn{flex:1;display:inline-flex;justify-content:center;align-items:center;gap:9px;border:0;border-radius:22px;background:var(--btn);color:var(--btn-fg);font:600 15px/1 "Wix Madefor Display",sans-serif;padding:16px 18px}
+  .I .btn .ac{width:8px;height:8px;border-radius:50%;background:var(--ac);display:none}
+  .I.ink .btn .ac{display:block}
+  .I .btn2{border:0;border-radius:22px;background:#fff;color:#0F1113;font:600 15px/1 "Wix Madefor Display",sans-serif;padding:16px 18px;box-shadow:inset 0 0 0 1.5px #0F1113}
+@media (max-width:980px){
+    .deck{grid-template-columns:1fr;padding:24px 18px}
+    .phone-col{position:static}
+    .audit{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .wrap{padding:28px 16px 72px}
+    .facts{grid-template-columns:1fr}
+    .facts dt{margin-top:6px}
+    .phone{border-radius:40px;padding:7px}
+    .screen{border-radius:34px}
+  }
+
+  .variants{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:22px}
+  .variant h3{font:600 18px/1.2 "Golos Text",sans-serif;margin:14px 0 4px;letter-spacing:-.01em}
+  .variant p{margin:0;font-size:13.5px;color:#3A3E42}
+  .variant .sw{display:flex;gap:6px;margin:8px 0 0}
+  .variant .sw i{width:22px;height:22px;border-radius:50%;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+  .variants .phone-col{position:static}
+</style></head><body><div class="wrap">
+<header class="mast">
+  <p class="kick">Nestwood · візуальна мова · роздача 3 · 23.09</p>
+  <h1>Трансляція × Годинник</h1>
+  <p class="lede">Три варіанти на основі двох напрямів, які тобі сподобались. Спільне в них — <strong>прилад поверх живої картинки</strong>:
+    числа, які зчитуються за секунду, і пейзаж, який лишається героєм. Різниця — у пропорції: від ефіру з кільцями на фото до циферблата, в який згорнуто весь похід.
+    Маршрут і тривога ті самі, що й у попередній роздачі.</p>
+  <ul class="brief">
+    <li><b>G · Ефір</b>Ближче до Трансляції. Кільця — прямо на фото.</li>
+    <li><b>H · Безель</b>Ближче до Годинника. Ночі — сегменти навколо циферблата.</li>
+    <li><b>I · Прилад</b>Порівну. Скляна панель комплікацій на фото.</li>
+    <li><b>Спільні правила</b>Цифри Tektur · тривога ніколи не лише кольором · акцент тільки в одній ролі · градація — тільки свої кольори.</li>
+  </ul>
+</header>
+
+<section class="deck" aria-labelledby="dG">
+  <div>
+    <div class="deck-kick"><span class="pill lead">Ближче до Трансляції</span><span class="pill">Operate · світла тема</span></div>
+    <h2 id="dG">Ефір<small>Прямий ефір на весь кадр, а головні числа — кільця-комплікації просто на фото</small></h2>
+    <p class="thesis">Фото лишається героєм і займає більше половини екрана. Поверх — тонка телеметрія в кутах, три скляні кільця з головними числами і шкала місії з ночами. Все, що треба для рішення «хочу туди», видно, не гортаючи.</p>
+    <p class="refuse">Відмовляється від окремого блоку статистики під фото: інструмент живе на пейзажі.</p>
+    <div class="sect"><p class="sect-h">Що від кого</p><dl class="from"><dt>Трансляція</dt><dd>фото на весь кадр, HUD у кутах, шкала місії, блакитний сигнал, тривога-смужка</dd><dt>Годинник</dt><dd>кільця-комплікації (тут скляні, на фото), цифри дисплея Tektur</dd></dl></div>
+    <div class="sect"><p class="sect-h">Палітра · стримана, акцент як сигнал</p><div class="chips"><div class="chip"><i style="background:#fff;box-shadow:inset 0 0 0 1px #E6EAED"></i><div><b>Studio white</b><code>#FFFFFF</code><em>фон</em></div></div><div class="chip"><i style="background:#EEF1F3"></i><div><b>Haze</b><code>#EEF1F3</code><em>другорядні поверхні</em></div></div><div class="chip"><i style="background:#0C0F12"></i><div><b>Console</b><code>#0C0F12</code><em>текст, кнопка</em></div></div><div class="chip"><i style="background:#00D2E6"></i><div><b>Telemetry cyan</b><code>#00D2E6</code><em>тільки «живе»: плейхед, прогрес</em></div></div><div class="chip"><i style="background:#FFB400"></i><div><b>Caution</b><code>#FFB400</code><em>тільки тривога</em></div></div></div></div>
+    <div class="sect"><p class="sect-h">Форма</p><dl class="facts"><dt>Гарнітури</dt><dd><b style="font-family:Saira">Saira</b> — назви й текст · <span style="font-family:Tektur">Tektur</span> — числа, як на дисплеї годинника · <span style="font-family:'Martian Mono'">Martian Mono</span> — HUD</dd><dt>Скруглення</dt><dd>32 фото · 22 кнопки й скляні кільця · 4 мітки HUD</dd><dt>Сигнатура</dt><dd>Протягнути по шкалі місії — кільця перераховуються на обраний день, фото панорамується</dd></dl></div>
+    <div class="risk"><b>Чесний ризик</b>Найщільніше фото: на світлих або засніжених кадрах білі кільця й HUD потребують сильнішого затемнення. Блакитний у родині синього — біля чипа <i>blå</i> не стоїть ніколи.</div>
+  </div>
+  <div class="phone-col G">
+    <div class="phone"><div class="screen">
+      <div class="sbar"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579996025-c31d66789a9d?w=900&q=80&auto=format&fit=crop" alt="Стежка через осінню тундру до горизонту, Kungsleden">
+        <div class="hud tl"><b>T–320 d</b><br>AUG · PLANNING</div><div class="hud tr">68.35°N<br>18.83°E</div>
+        <div class="cx">
+          <div><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28.0" cy="28.0" r="24.5" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="5"/><circle cx="28.0" cy="28.0" r="24.5" fill="none" stroke="#00D2E6" stroke-width="5" stroke-linecap="round" stroke-dasharray="153.9" stroke-dashoffset="102.6" transform="rotate(-90 28.0 28.0)"/><text x="28.0" y="32.7" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="Tektur">2/6</text></svg><span>nights booked</span></div>
+          <div><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28.0" cy="28.0" r="24.5" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="5"/><circle cx="28.0" cy="28.0" r="24.5" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-dasharray="153.9" stroke-dashoffset="34.2" transform="rotate(-90 28.0 28.0)"/><text x="28.0" y="32.7" text-anchor="middle" font-size="13" font-weight="600" fill="#fff" font-family="Tektur">7 h</text></svg><span>hardest day</span></div>
+          <div><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28.0" cy="28.0" r="24.5" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="5"/><circle cx="28.0" cy="28.0" r="24.5" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-dasharray="153.9" stroke-dashoffset="35.9" transform="rotate(-90 28.0 28.0)"/><text x="28.0" y="32.3" text-anchor="middle" font-size="12" font-weight="600" fill="#fff" font-family="Tektur">1150</text></svg><span>m · top pass</span></div>
+        </div>
+        <div class="tl-bar" aria-hidden="true"><div class="axis"></div>
+          <span class="tk on" style="left:0%"></span><span class="lab" style="left:0%;transform:none">ABK</span>
+          <span class="tk" style="left:20%"></span><span class="lab" style="left:20%">N1</span>
+          <span class="tk warn" style="left:40%"></span><span class="lab" style="left:40%">N2</span>
+          <span class="tk" style="left:60%"></span><span class="lab" style="left:60%">N3</span>
+          <span class="tk" style="left:80%"></span><span class="lab" style="left:80%">N4</span>
+          <span class="tk" style="left:100%"></span><span class="lab" style="left:100%;transform:translateX(-100%)">NIK</span></div>
+        <div class="cred" style="bottom:auto;top:52px;right:18px">Photo: Anders Norén · Unsplash</div></div>
+      <div class="body">
+        <h3>Kungsleden · Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><div><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. <span class="t">decide by 12.08 · 18:00</span></div></div>
+        <div class="cta"><button class="btn"><span class="ac"></span>Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div>
+    <p class="phone-cap">G · картка маршруту · 390 pt</p>
+  </div>
+</section>
+<section class="deck" aria-labelledby="dH">
+  <div>
+    <div class="deck-kick"><span class="pill">Ближче до Годинника</span><span class="pill">Operate · світла тема</span></div>
+    <h2 id="dH">Безель<small>Циферблат із безелем: ланцюжок ночей — сегменти навколо кола, фото — небо над ним</small></h2>
+    <p class="thesis">Центр картки — круглий циферблат, наполовину на фото. Безель поділений на шість ночей: заброньовані горять помаранчевим, ніч із тривогою позначена штрихованою міткою. Шкала місії з Трансляції тут згорнута в коло, як на годиннику.</p>
+    <p class="refuse">Відмовляється від лінійного списку як першого, що бачиш: спершу форма всього походу одним колом.</p>
+    <div class="sect"><p class="sect-h">Що від кого</p><dl class="from"><dt>Трансляція</dt><dd>ланцюжок ночей як шкала місії — тут згорнутий у безель, HUD-підпис на фото</dd><dt>Годинник</dt><dd>циферблат, комплікації, керамічний фон, помаранчевий, штрихована тривога</dd></dl></div>
+    <div class="sect"><p class="sect-h">Палітра · стримана + сигнальний акцент, тривога — патерн</p><div class="chips"><div class="chip"><i style="background:#F6F6F4"></i><div><b>Ceramic</b><code>#F6F6F4</code><em>фон</em></div></div><div class="chip"><i style="background:#8E9297"></i><div><b>Titanium</b><code>#8E9297</code><em>підписи, треки</em></div></div><div class="chip"><i style="background:#111315"></i><div><b>Dial ink</b><code>#111315</code><em>текст</em></div></div><div class="chip"><i style="background:#FF5F1F"></i><div><b>Intl. orange</b><code>#FF5F1F</code><em>дія, заброньовані ночі</em></div></div><div class="chip"><i style="background:repeating-linear-gradient(135deg,#FFD84D 0 6px,#FFE27A 6px 12px)"></i><div><b>Hazard hatch</b><code>#FFD84D</code><em>тривога — штрихування</em></div></div></div></div>
+    <div class="sect"><p class="sect-h">Форма</p><dl class="facts"><dt>Гарнітури</dt><dd><b style="font-family:Onest">Onest</b> — інтерфейс · <span style="font-family:Tektur">Tektur</span> — числа</dd><dt>Скруглення</dt><dd>34 фото · коло циферблата · 22 кнопки й комплікації</dd><dt>Сигнатура</dt><dd>Прокрутити безель пальцем — стрілка переходить від ночі до ночі, фото змінюється на краєвид цієї ночі</dd></dl></div>
+    <div class="risk"><b>Чесний ризик</b>Коло — найсильніша й найризикованіша форма: для 10–12 ночей сегменти стають дрібними, тож безель треба розраховувати під максимальну довжину походу. Помаранчевий — колір Strava.</div>
+  </div>
+  <div class="phone-col H">
+    <div class="phone"><div class="screen">
+      <div class="sbar" style="color:#111"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579995988-0a955366ad18?w=900&q=80&auto=format&fit=crop" alt="Стежка вздовж озера в горах, Kungsleden">
+        <div class="hud">KUNGSLEDEN · SE · AUG</div><div class="cred" style="bottom:auto;top:16px;right:18px">Photo: Anders Norén · Unsplash</div></div>
+      <div class="dial"><svg viewBox="0 0 160 160" aria-hidden="true"><defs><pattern id="hh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#FFE27A"/><rect width="3" height="6" fill="#FFD84D"/></pattern></defs><circle cx="80" cy="80" r="79" fill="#fff"/><path d="M84.6,14.2 A66,66 0 0 1 134.7,43.1" fill="none" stroke="#FF5F1F" stroke-width="10" stroke-linecap="round"/><text x="102.0" y="45.4" text-anchor="middle" font-size="9.5" fill="#8E9297" font-family="Tektur">N1</text><path d="M139.3,51.1 A66,66 0 0 1 139.3,108.9" fill="none" stroke="#FF5F1F" stroke-width="10" stroke-linecap="round"/><text x="124.0" y="83.5" text-anchor="middle" font-size="9.5" fill="#8E9297" font-family="Tektur">N2</text><path d="M134.7,116.9 A66,66 0 0 1 84.6,145.8" fill="none" stroke="#D9DAD7" stroke-width="10" stroke-linecap="round"/><text x="102.0" y="121.6" text-anchor="middle" font-size="9.5" fill="#8E9297" font-family="Tektur">N3</text><path d="M75.4,145.8 A66,66 0 0 1 25.3,116.9" fill="none" stroke="#D9DAD7" stroke-width="10" stroke-linecap="round"/><text x="58.0" y="121.6" text-anchor="middle" font-size="9.5" fill="#8E9297" font-family="Tektur">N4</text><path d="M20.7,108.9 A66,66 0 0 1 20.7,51.1" fill="none" stroke="#D9DAD7" stroke-width="10" stroke-linecap="round"/><text x="36.0" y="83.5" text-anchor="middle" font-size="9.5" fill="#8E9297" font-family="Tektur">N5</text><path d="M25.3,43.1 A66,66 0 0 1 75.4,14.2" fill="none" stroke="#D9DAD7" stroke-width="10" stroke-linecap="round"/><text x="58.0" y="45.4" text-anchor="middle" font-size="9.5" fill="#8E9297" font-family="Tektur">N6</text><path d="M139.3,51.1 A66,66 0 0 1 139.3,108.9" fill="none" stroke="#111315" stroke-width="2" stroke-dasharray="2 3" transform="translate(0,0)"/><circle cx="146.0" cy="80.0" r="7" fill="url(#hh)" stroke="#111315" stroke-width="1.2"/><text x="80" y="80" text-anchor="middle" font-size="30" font-weight="600" fill="#111315" font-family="Tektur">105</text><text x="80" y="98" text-anchor="middle" font-size="9.5" fill="#8E9297" font-family="Onest" letter-spacing="1">KM · 6 NIGHTS</text></svg></div>
+      <div class="body">
+        <h3>Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="cmp">
+          <div><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20.0" cy="20.0" r="16.5" fill="none" stroke="#E4E5E3" stroke-width="5"/><circle cx="20.0" cy="20.0" r="16.5" fill="none" stroke="#111315" stroke-width="5" stroke-linecap="round" stroke-dasharray="103.7" stroke-dashoffset="23.0" transform="rotate(-90 20.0 20.0)"/><text x="20.0" y="25.8" text-anchor="middle" font-size="16" font-weight="600" fill="#111315" font-family="Tektur"></text></svg><p style="margin:0"><b>~7 h</b><span>hardest day</span></p></div>
+          <div><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20.0" cy="20.0" r="16.5" fill="none" stroke="#E4E5E3" stroke-width="5"/><circle cx="20.0" cy="20.0" r="16.5" fill="none" stroke="#8E9297" stroke-width="5" stroke-linecap="round" stroke-dasharray="103.7" stroke-dashoffset="24.2" transform="rotate(-90 20.0 20.0)"/><text x="20.0" y="25.8" text-anchor="middle" font-size="16" font-weight="600" fill="#111315" font-family="Tektur"></text></svg><p style="margin:0"><b>1 150</b><span>m · top pass</span></p></div>
+        </div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. Decide by 12.08, 18:00.</div>
+        <div class="cta"><button class="btn">Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div>
+    <p class="phone-cap">H · картка маршруту · 390 pt</p>
+  </div>
+</section>
+<section class="deck" aria-labelledby="dI">
+  <div>
+    <div class="deck-kick"><span class="pill">Порівну</span><span class="pill">Operate · світла тема</span></div>
+    <h2 id="dI">Прилад<small>Скляна приладова панель на фото: три числа й шкала місії в одній смузі, як нижній ряд комплікацій</small></h2>
+    <p class="thesis">Фото зверху, а в його нижній частині — матова скляна панель, як ряд комплікацій на годиннику: три числа великими цифрами й шкала ночей під ними. Тривога — інверсія: чорна панель зі штрихованим краєм. Вона найконтрастніша на екрані, тож читається навіть на сонці.</p>
+    <p class="refuse">Відмовляється від кольору як носія тривоги: тривогу несе інверсія і штрихування, тож акцент вільний.</p>
+    <div class="sect"><p class="sect-h">Що від кого</p><dl class="from"><dt>Трансляція</dt><dd>фото, телеметрія, шкала місії з ночами</dd><dt>Годинник</dt><dd>ряд комплікацій, цифри Tektur, патерн тривоги замість кольору</dd></dl></div>
+    <div class="sect"><p class="sect-h">Палітра · стримана + яскравий сигнал, тривога — інверсія</p><div class="chips"><div class="chip"><i style="background:#F4F5F5"></i><div><b>Glass</b><code>#F4F5F5</code><em>фон, скло панелі</em></div></div><div class="chip"><i style="background:#5E6368"></i><div><b>Graphite</b><code>#5E6368</code><em>підписи</em></div></div><div class="chip"><i style="background:#0F1113"></i><div><b>Instrument ink</b><code>#0F1113</code><em>текст, тривога-інверсія</em></div></div><div class="chip"><i style="background:#F2E500"></i><div><b>Hi-vis yellow</b><code>#F2E500</code><em>дія, активна ніч — тільки під чорним текстом</em></div></div><div class="chip"><i style="background:repeating-linear-gradient(135deg,#F2E500 0 5px,#0F1113 5px 10px)"></i><div><b>Hatch</b><code>#F2E500 / #0F1113</code><em>край тривоги, ніч із проблемою</em></div></div></div></div>
+    <div class="sect"><p class="sect-h">Форма</p><dl class="facts"><dt>Гарнітури</dt><dd><b style="font-family:'Wix Madefor Display'">Wix Madefor Display</b> — інтерфейс · <span style="font-family:Tektur">Tektur</span> — числа</dd><dt>Скруглення</dt><dd>32 фото · 24 скляна панель · 22 кнопки й тривога</dd><dt>Сигнатура</dt><dd>Панель — той самий обʼєкт, що й віджет і Live Activity: у день виходу вона «зістрибує» з фото на екран блокування</dd></dl></div>
+    <div class="risk"><b>Чесний ризик</b>Жовтий на білому не читається як текст — тільки як заливка під чорним. Чорна тривога — найсильніший елемент екрана, тож на картці без проблем картка виглядає спокійніше, ніж з ними: це правильно, але до цього треба звикнути.</div>
+  </div>
+  <div class="phone-col I">
+    <div class="phone"><div class="screen">
+      <div class="sbar" style="color:#111"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою біля озера, Kungsleden">
+        <div class="hud">T–320 D</div><div class="cred" style="bottom:auto;top:16px;right:18px">Photo: Anders Norén · Unsplash</div>
+        <div class="band">
+          <div class="nums"><div><b>105</b><span>km</span></div><div><b>~7 h</b><span>hardest</span></div><div><b>2/6</b><span>booked</span></div></div>
+          <div class="track" aria-hidden="true"><div class="ax"></div><div class="fill"></div>
+            <i class="on" style="left:0%"></i><em style="left:0%;transform:none">ABK</em>
+            <i style="left:20%"></i><em style="left:20%">N1</em>
+            <i class="w" style="left:40%"></i><em style="left:40%">N2</em>
+            <i style="left:60%"></i><em style="left:60%">N3</em>
+            <i style="left:80%"></i><em style="left:80%">N4</em>
+            <i style="left:100%"></i><em style="left:100%;transform:translateX(-100%)">NIK</em></div>
+        </div></div>
+      <div class="body">
+        <h3>Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. <span class="t">Decide by 12.08 · 18:00</span></div>
+        <div class="cta"><button class="btn">Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div>
+    <p class="phone-cap">I · картка маршруту · 390 pt</p>
+  </div>
+</section>
+
+
+
+<section class="deck" aria-labelledby="dFinal" style="margin-top:48px">
+  <div>
+    <div class="deck-kick"><span class="pill lead">Обрано · 23.09</span><span class="pill">Operate · світла тема</span></div>
+    <h2 id="dFinal">Прилад · фінальна палітра<small>Ультрамарин — дія, жовтий — те, що «живе» на приладі</small></h2>
+    <p class="thesis">Два сигнальні кольори з різними ролями, щоб не сперечались. <b>Ультрамарин</b> — усе, що натискаєш: кнопки, посилання.
+      <b>Жовтий</b> — стан на самому приладі: активна ніч на шкалі й штрихування тривоги. На матовому склі поверх фото ультрамарин губиться, а жовтий горить — тому там він.</p>
+    <p class="refuse">Ні один колір не несе обидві ролі: те, що натискається, і те, що показує стан, розрізняються з першого погляду.</p>
+    <div class="sect"><p class="sect-h">Палітра · нейтральні + дві сигнальні ролі</p><div class="chips"><div class="chip"><i style="background:#F4F5F5;box-shadow:inset 0 0 0 1px #E3E5E5"></i><div><b>Glass</b><code>#F4F5F5</code><em>фон, скло панелі</em></div></div><div class="chip"><i style="background:#5E6368"></i><div><b>Graphite</b><code>#5E6368</code><em>підписи</em></div></div><div class="chip"><i style="background:#0F1113"></i><div><b>Instrument ink</b><code>#0F1113</code><em>текст, тривога-інверсія</em></div></div><div class="chip"><i style="background:#1A3CFF"></i><div><b>Ultramarine</b><code>#1A3CFF</code><em>дія: кнопки, посилання · білий текст 6.7:1</em></div></div><div class="chip"><i style="background:#F2E500"></i><div><b>Hi-vis yellow</b><code>#F2E500</code><em>«живе»: активна ніч на шкалі — тільки на склі або під чорним</em></div></div><div class="chip"><i style="background:#4A90E2"></i><div><b>Grading blå</b><code>#4A90E2</code><em>точка в чипі «blå · medium» — світліша, щоб не плутати з ультрамарином</em></div></div><div class="chip"><i style="background:repeating-linear-gradient(135deg,#F2E500 0 6px,#0F1113 6px 12px)"></i><div><b>Hatch</b><code>#F2E500 / #0F1113</code><em>край тривоги, ніч із проблемою</em></div></div></div></div>
+    <div class="sect"><p class="sect-h">Правила ролей</p>
+      <ul class="raises">
+        <li><b>Ультрамарин</b> — тільки дія. Ніколи не стан, ніколи не на фото чи склі.</li>
+        <li><b>Жовтий</b> — тільки стан приладу й увага. Ніколи як фон кнопки, ніколи як текст на світлому.</li>
+        <li><b>Тривога</b> — чорна інверсія зі штрихованим краєм: читається без кольору, на сонці.</li>
+        <li><b>Сірі</b> — тільки Graphite і прозорість Instrument ink.</li>
+      </ul></div>
+  </div>
+  <div class="phone-col I" style="--ac:#F2E500;--ac-glow:rgba(242,229,0,.5);--btn:#1A3CFF;--btn-fg:#fff;--hatch:#F2E500">
+    <div class="phone"><div class="screen">
+      <div class="sbar" style="color:#111"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою біля озера, Kungsleden">
+        <div class="hud">T–320 D</div><div class="cred" style="bottom:auto;top:16px;right:18px">Photo: Anders Norén · Unsplash</div>
+        <div class="band">
+          <div class="nums"><div><b>105</b><span>km</span></div><div><b>~7 h</b><span>hardest</span></div><div><b>2/6</b><span>booked</span></div></div>
+          <div class="track" aria-hidden="true"><div class="ax"></div><div class="fill"></div>
+            <i class="on" style="left:0%"></i><em style="left:0%;transform:none">ABK</em>
+            <i style="left:20%"></i><em style="left:20%">N1</em>
+            <i class="w" style="left:40%"></i><em style="left:40%">N2</em>
+            <i style="left:60%"></i><em style="left:60%">N3</em>
+            <i style="left:80%"></i><em style="left:80%">N4</em>
+            <i style="left:100%"></i><em style="left:100%;transform:translateX(-100%)">NIK</em></div>
+        </div></div>
+      <div class="body">
+        <h3>Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. <span class="t">Decide by 12.08 · 18:00</span></div>
+        <div class="cta"><button class="btn">Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div>
+    <p class="phone-cap">Прилад · фінальна палітра · 390 pt</p>
+  </div>
+</section>
+<section style="margin-top:48px" aria-labelledby="ivg">
+  <h2 class="sec-h" id="ivg">Прилад · фіолетовий, синій, зелений</h2>
+  <p style="margin:0;color:var(--mut);max-width:76ch;font-size:14px">Той самий Прилад, акцент на кнопці й активній ночі. Тривога в усіх однакова: чорна інверсія з тепло-жовтим штрихуванням. Усі три кольори проходять контраст для білого тексту на кнопці (≥ 4.5:1).</p>
+  <div class="variants" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))"><div class="variant"><div class="phone-col I" style="--ac:#5A2EE6;--ac-glow:rgba(90,46,230,.3);--btn:#5A2EE6;--btn-fg:#fff"><div class="phone"><div class="screen">
+      <div class="sbar" style="color:#111"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою біля озера, Kungsleden">
+        <div class="hud">T–320 D</div><div class="cred" style="bottom:auto;top:16px;right:18px">Photo: Anders Norén · Unsplash</div>
+        <div class="band">
+          <div class="nums"><div><b>105</b><span>km</span></div><div><b>~7 h</b><span>hardest</span></div><div><b>2/6</b><span>booked</span></div></div>
+          <div class="track" aria-hidden="true"><div class="ax"></div><div class="fill"></div>
+            <i class="on" style="left:0%"></i><em style="left:0%;transform:none">ABK</em>
+            <i style="left:20%"></i><em style="left:20%">N1</em>
+            <i class="w" style="left:40%"></i><em style="left:40%">N2</em>
+            <i style="left:60%"></i><em style="left:60%">N3</em>
+            <i style="left:80%"></i><em style="left:80%">N4</em>
+            <i style="left:100%"></i><em style="left:100%;transform:translateX(-100%)">NIK</em></div>
+        </div></div>
+      <div class="body">
+        <h3>Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. <span class="t">Decide by 12.08 · 18:00</span></div>
+        <div class="cta"><button class="btn">Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div></div>
+      <h3>Фіолетовий · Anodised violet <code style="font:400 12px 'Geist Mono',monospace;color:#5E6368">#5A2EE6</code></h3><p>Анодований фіолет, як на карабіні. Найвищий контраст із трьох — білий текст 7.1:1. Ризик один: асоціація з «AI-фіолетовим».</p><div class="sw"><i style="background:#5A2EE6"></i><i style="background:#0F1113"></i><i style="background:#F4F5F5"></i></div></div><div class="variant"><div class="phone-col I" style="--ac:#1A3CFF;--ac-glow:rgba(26,60,255,.3);--btn:#1A3CFF;--btn-fg:#fff"><div class="phone"><div class="screen">
+      <div class="sbar" style="color:#111"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою біля озера, Kungsleden">
+        <div class="hud">T–320 D</div><div class="cred" style="bottom:auto;top:16px;right:18px">Photo: Anders Norén · Unsplash</div>
+        <div class="band">
+          <div class="nums"><div><b>105</b><span>km</span></div><div><b>~7 h</b><span>hardest</span></div><div><b>2/6</b><span>booked</span></div></div>
+          <div class="track" aria-hidden="true"><div class="ax"></div><div class="fill"></div>
+            <i class="on" style="left:0%"></i><em style="left:0%;transform:none">ABK</em>
+            <i style="left:20%"></i><em style="left:20%">N1</em>
+            <i class="w" style="left:40%"></i><em style="left:40%">N2</em>
+            <i style="left:60%"></i><em style="left:60%">N3</em>
+            <i style="left:80%"></i><em style="left:80%">N4</em>
+            <i style="left:100%"></i><em style="left:100%;transform:translateX(-100%)">NIK</em></div>
+        </div></div>
+      <div class="body">
+        <h3>Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. <span class="t">Decide by 12.08 · 18:00</span></div>
+        <div class="cta"><button class="btn">Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div></div>
+      <h3>Синій · Ultramarine <code style="font:400 12px 'Geist Mono',monospace;color:#5E6368">#1A3CFF</code></h3><p>Насичений ультрамарин замість спокійнішого синього: сильніший сигнал, більше енергії, чітко «технологічний». Білий текст 6.7:1.</p><div class="sw"><i style="background:#1A3CFF"></i><i style="background:#0F1113"></i><i style="background:#F4F5F5"></i></div></div><div class="variant"><div class="phone-col I" style="--ac:#00844D;--ac-glow:rgba(0,132,77,.3);--btn:#00844D;--btn-fg:#fff"><div class="phone"><div class="screen">
+      <div class="sbar" style="color:#111"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою біля озера, Kungsleden">
+        <div class="hud">T–320 D</div><div class="cred" style="bottom:auto;top:16px;right:18px">Photo: Anders Norén · Unsplash</div>
+        <div class="band">
+          <div class="nums"><div><b>105</b><span>km</span></div><div><b>~7 h</b><span>hardest</span></div><div><b>2/6</b><span>booked</span></div></div>
+          <div class="track" aria-hidden="true"><div class="ax"></div><div class="fill"></div>
+            <i class="on" style="left:0%"></i><em style="left:0%;transform:none">ABK</em>
+            <i style="left:20%"></i><em style="left:20%">N1</em>
+            <i class="w" style="left:40%"></i><em style="left:40%">N2</em>
+            <i style="left:60%"></i><em style="left:60%">N3</em>
+            <i style="left:80%"></i><em style="left:80%">N4</em>
+            <i style="left:100%"></i><em style="left:100%;transform:translateX(-100%)">NIK</em></div>
+        </div></div>
+      <div class="body">
+        <h3>Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. <span class="t">Decide by 12.08 · 18:00</span></div>
+        <div class="cta"><button class="btn">Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div></div>
+      <h3>Зелений · Fell green <code style="font:400 12px 'Geist Mono',monospace;color:#5E6368">#00844D</code></h3><p>Насичений зелений, підібраний під контраст: білий текст 4.8:1, тобто проходить норму для тексту на кнопці (4.5:1). Найприродніший із трьох — природа прямо в сигналі дії.</p><div class="sw"><i style="background:#00844D"></i><i style="background:#0F1113"></i><i style="background:#F4F5F5"></i></div></div></div>
+</section>
+<section style="margin-top:48px" aria-labelledby="iv">
+  <h2 class="sec-h" id="iv">Прилад · чотири варіанти акценту</h2>
+  <p style="margin:0;color:var(--mut);max-width:74ch;font-size:14px">Жовтий не працює як фон кнопки. Тут чотири виходи: залишити жовтий тільки сигналом або замінити акцент.
+    Тривога в усіх однакова — чорна інверсія зі штрихованим краєм. Штрихування тепер тепло-жовте в усіх варіантах: воно означає «увага», а не бренд, тож акцент звільнений від цієї ролі.</p>
+  <div class="variants"><div class="variant"><div class="phone-col I ink" style="--btn:#0F1113;--btn-fg:#fff"><div class="phone"><div class="screen">
+      <div class="sbar" style="color:#111"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою біля озера, Kungsleden">
+        <div class="hud">T–320 D</div><div class="cred" style="bottom:auto;top:16px;right:18px">Photo: Anders Norén · Unsplash</div>
+        <div class="band">
+          <div class="nums"><div><b>105</b><span>km</span></div><div><b>~7 h</b><span>hardest</span></div><div><b>2/6</b><span>booked</span></div></div>
+          <div class="track" aria-hidden="true"><div class="ax"></div><div class="fill"></div>
+            <i class="on" style="left:0%"></i><em style="left:0%;transform:none">ABK</em>
+            <i style="left:20%"></i><em style="left:20%">N1</em>
+            <i class="w" style="left:40%"></i><em style="left:40%">N2</em>
+            <i style="left:60%"></i><em style="left:60%">N3</em>
+            <i style="left:80%"></i><em style="left:80%">N4</em>
+            <i style="left:100%"></i><em style="left:100%;transform:translateX(-100%)">NIK</em></div>
+        </div></div>
+      <div class="body">
+        <h3>Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. <span class="t">Decide by 12.08 · 18:00</span></div>
+        <div class="cta"><button class="btn"><span class="ac"></span>Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div></div>
+      <h3>I·a — жовтий лишається сигналом</h3><p>Кнопка чорна, жовтий — тільки там, де щось «живе»: активна ніч, точка на кнопці. Найменша зміна, характер Приладу зберігається.</p><div class="sw"><i style="background:#0F1113"></i><i style="background:#F2E500"></i><i style="background:#F4F5F5"></i></div></div><div class="variant"><div class="phone-col I " style="--ac:#FF5F1F;--ac-glow:rgba(255,95,31,.35);--btn:#FF5F1F;--btn-fg:#fff"><div class="phone"><div class="screen">
+      <div class="sbar" style="color:#111"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою біля озера, Kungsleden">
+        <div class="hud">T–320 D</div><div class="cred" style="bottom:auto;top:16px;right:18px">Photo: Anders Norén · Unsplash</div>
+        <div class="band">
+          <div class="nums"><div><b>105</b><span>km</span></div><div><b>~7 h</b><span>hardest</span></div><div><b>2/6</b><span>booked</span></div></div>
+          <div class="track" aria-hidden="true"><div class="ax"></div><div class="fill"></div>
+            <i class="on" style="left:0%"></i><em style="left:0%;transform:none">ABK</em>
+            <i style="left:20%"></i><em style="left:20%">N1</em>
+            <i class="w" style="left:40%"></i><em style="left:40%">N2</em>
+            <i style="left:60%"></i><em style="left:60%">N3</em>
+            <i style="left:80%"></i><em style="left:80%">N4</em>
+            <i style="left:100%"></i><em style="left:100%;transform:translateX(-100%)">NIK</em></div>
+        </div></div>
+      <div class="body">
+        <h3>Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. <span class="t">Decide by 12.08 · 18:00</span></div>
+        <div class="cta"><button class="btn">Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div></div>
+      <h3>I·b — міжнародний помаранчевий</h3><p>Акцент із Годинника. Біла кнопка-текст читається, енергія подорожі є. Ризик той самий: колір Strava.</p><div class="sw"><i style="background:#FF5F1F"></i><i style="background:#0F1113"></i><i style="background:#F4F5F5"></i></div></div><div class="variant"><div class="phone-col I " style="--ac:#5A2EE6;--ac-glow:rgba(90,46,230,.3);--btn:#5A2EE6;--btn-fg:#fff"><div class="phone"><div class="screen">
+      <div class="sbar" style="color:#111"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою біля озера, Kungsleden">
+        <div class="hud">T–320 D</div><div class="cred" style="bottom:auto;top:16px;right:18px">Photo: Anders Norén · Unsplash</div>
+        <div class="band">
+          <div class="nums"><div><b>105</b><span>km</span></div><div><b>~7 h</b><span>hardest</span></div><div><b>2/6</b><span>booked</span></div></div>
+          <div class="track" aria-hidden="true"><div class="ax"></div><div class="fill"></div>
+            <i class="on" style="left:0%"></i><em style="left:0%;transform:none">ABK</em>
+            <i style="left:20%"></i><em style="left:20%">N1</em>
+            <i class="w" style="left:40%"></i><em style="left:40%">N2</em>
+            <i style="left:60%"></i><em style="left:60%">N3</em>
+            <i style="left:80%"></i><em style="left:80%">N4</em>
+            <i style="left:100%"></i><em style="left:100%;transform:translateX(-100%)">NIK</em></div>
+        </div></div>
+      <div class="body">
+        <h3>Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. <span class="t">Decide by 12.08 · 18:00</span></div>
+        <div class="cta"><button class="btn">Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div></div>
+      <h3>I·c — анодований фіолет</h3><p>Акцент із Мембрани. Найкращий контраст з білим текстом і найдалі від офіційної градації та лавинної шкали. Ризик: «AI-фіолетовий».</p><div class="sw"><i style="background:#5A2EE6"></i><i style="background:#0F1113"></i><i style="background:#F4F5F5"></i></div></div><div class="variant"><div class="phone-col I " style="--ac:#007C89;--ac-glow:rgba(0,124,137,.3);--btn:#007C89;--btn-fg:#fff"><div class="phone"><div class="screen">
+      <div class="sbar" style="color:#111"><span>9:41</span><span class="dots"><i></i><i></i></span></div>
+      <div class="shot"><img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою біля озера, Kungsleden">
+        <div class="hud">T–320 D</div><div class="cred" style="bottom:auto;top:16px;right:18px">Photo: Anders Norén · Unsplash</div>
+        <div class="band">
+          <div class="nums"><div><b>105</b><span>km</span></div><div><b>~7 h</b><span>hardest</span></div><div><b>2/6</b><span>booked</span></div></div>
+          <div class="track" aria-hidden="true"><div class="ax"></div><div class="fill"></div>
+            <i class="on" style="left:0%"></i><em style="left:0%;transform:none">ABK</em>
+            <i style="left:20%"></i><em style="left:20%">N1</em>
+            <i class="w" style="left:40%"></i><em style="left:40%">N2</em>
+            <i style="left:60%"></i><em style="left:60%">N3</em>
+            <i style="left:80%"></i><em style="left:80%">N4</em>
+            <i style="left:100%"></i><em style="left:100%;transform:translateX(-100%)">NIK</em></div>
+        </div></div>
+      <div class="body">
+        <h3>Abisko → Nikkaluokta</h3>
+        <p class="sum">Six days, a roof every night, water the whole way.</p>
+        <div class="row"><span class="grad"><i></i>blå · medium</span><span class="grad rod"><i></i>one leg röd</span></div>
+        <div class="legs">
+          <div class="leg"><span class="n">N1</span><span>Abiskojaure</span><span class="v">14 km</span></div>
+          <div class="leg"><span class="n">N2</span><span>Alesjaure</span><span class="v">21 km</span></div>
+          <div class="leg"><span class="n">N3</span><span>Tjäktja · walk-in beds</span><span class="v">13 km</span></div></div>
+        <div class="alert"><b>Night 2 · wind 14 m/s on Thursday</b>Still possible: an extra night at Abiskojaure. <span class="t">Decide by 12.08 · 18:00</span></div>
+        <div class="cta"><button class="btn">Make my plan</button><button class="btn2">Map</button></div></div>
+    </div></div></div>
+      <h3>I·d — глибокий бірюзовий</h3><p>Холодний «приладовий» сигнал, темніший за блакитний із Трансляції, щоб тримати білий текст. У родині синього — біля чипа blå не стоїть.</p><div class="sw"><i style="background:#007C89"></i><i style="background:#0F1113"></i><i style="background:#F4F5F5"></i></div></div></div>
+</section>
+<section class="ask"><h2>Що далі</h2>
+  <p>Обери варіант або скажи, що зібрати з кількох: наприклад, скляну панель з <b>I</b> і безель з <b>H</b> на екрані плану.</p>
+  <p>Після вибору зберу напрям на кількох екранах — каталог, план, «сьогодні» в поході — і тоді стане видно, чи тримається він поза карткою.</p></section>
+<p class="src" style="margin-top:28px">Фото: Anders Norén · Unsplash · Unsplash Licence. Попередні роздачі: <a href="directions-2.html">directions-2.html</a> · <a href="directions.html">directions.html</a></p>
+</div></body></html>
