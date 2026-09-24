@@ -729,3 +729,20 @@ body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rota
 .device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row:has(.state)::after { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
 .device section[aria-labelledby$="general"] a.row:has(.state) { grid-template-columns: 22px 1fr 16px; }
 .device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row[href="./booking.html"] > .state { margin-top: 6px; }
+
+/* ── каталог: карта стоїть, аркуш їде поверх неї (Карти Apple, Airbnb; стенд — телефон 1) ── */
+.device[data-screen="Where to go"] section[aria-labelledby$="search"] {
+  position: sticky; top: 10px; left: auto; right: auto; z-index: 5; order: 2; margin: 10px -4px 0;
+}
+.device[data-screen="Where to go"] section[aria-labelledby$="where"] { display: contents; }
+.device[data-screen="Where to go"] section[aria-labelledby$="where"] > * { order: 2; }
+.device[data-screen="Where to go"] .frame--screen { position: sticky; top: 0; z-index: 0; margin-top: -116px; }
+.device[data-screen="Where to go"] section:is([aria-labelledby$="local"],[aria-labelledby$="classic"]) { position: relative; z-index: 1; }
+.device[data-screen="Where to go"] footer.app { position: relative; z-index: 1; }
+.device[data-screen="Where to go"] section[aria-labelledby$="where"] > .actions { position: relative; z-index: 2; }
+/* прибита лише пігулка пошуку; чипи лежать на карті й прокручуються */
+.device[data-screen="Where to go"] section[aria-labelledby$="search"] { display: contents; }
+.device[data-screen="Where to go"] section[aria-labelledby$="search"] > * { order: 2; }
+.device[data-screen="Where to go"] section[aria-labelledby$="search"] > .rows { position: sticky; top: 10px; z-index: 5; margin: 10px -4px 0; background: var(--surface); }
+.device[data-screen="Where to go"] section[aria-labelledby$="search"] > .chips { position: relative; z-index: 3; margin: 8px -4px 0; }
+.device[data-screen="Where to go"] .frame--screen { margin-top: -114px; }
