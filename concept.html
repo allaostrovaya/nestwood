@@ -152,8 +152,9 @@
   .grad.none i{background:transparent;box-shadow:inset 0 0 0 1.5px var(--graphite)}
   .cond{display:grid;grid-template-columns:20px 1fr;gap:10px;margin:14px 0 0;font-size:14px;line-height:1.45}
   .cond .ic{color:var(--graphite);margin-top:1px}
-  .gap{margin:14px 0 0;background:var(--surface);border-radius:var(--r-card);padding:12px 14px;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:14px}
-  .gap b{font-weight:600;white-space:nowrap}
+  .brief{display:inline-flex;align-items:center;gap:4px;margin:0 0 10px;font-size:14px;color:var(--ink);text-decoration:none;min-height:32px}
+  .brief .num{font-weight:500}
+  .brief .ic{width:16px;height:16px;color:var(--graphite)}
   .cta{display:flex;gap:8px;margin-top:14px}
 
   /* таб-бар */
@@ -376,10 +377,10 @@
           </div>
           <div class="body">
             <p class="title">Kungsleden · Abisko → Nikkaluokta</p>
+            <a class="brief" href="#h-comp"><span class="num">17–22 серп</span> · 2 людини · 1 член STF<svg class="ic" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></a>
             <p class="sum">Шість днів, дах щоночі, вода вздовж усього маршруту.</p>
             <div class="row"><span class="grad"><i></i>blå / medium</span><span class="grad rod"><i></i>röd на перевалі</span></div>
             <div class="cond"><svg class="ic" aria-hidden="true"><use href="#i-bed-linear"/></svg><span>Одна ніч не бронюється: у Tjäktja ліжка тільки для тих, хто прийшов на місце.</span></div>
-            <div class="gap"><span>Скільки вас і членство</span><b>двоє · 1 член STF</b></div>
             <div class="cta"><button class="btn btn-primary" type="button">Скласти мій план</button><button class="btn btn-icon" type="button" aria-label="Зберегти на потім"><svg class="ic" aria-hidden="true"><use href="#i-bookmark-linear"/></svg></button></div>
           </div>
         </div>
