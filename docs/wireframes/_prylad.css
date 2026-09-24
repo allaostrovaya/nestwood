@@ -178,7 +178,7 @@
 /* межа знання — пунктир і слово (стан «offline · data from…» зі стенду) */
 .device section[aria-labelledby$="health"] > p:first-of-type {
   position: relative; display: block; margin: 0;
-  padding: 16px 16px 16px 46px; border-radius: var(--r-card); border: 1.5px dashed var(--dash);
+  padding: 16px 16px 16px 48px; border-radius: var(--r-card); border: 1.5px dashed var(--dash);
   font-size: 16px; line-height: 1.45; color: var(--graphite);
 }
 .device section[aria-labelledby$="health"] > p:first-of-type b { color: var(--ink); font-weight: 600; }

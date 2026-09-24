@@ -183,7 +183,7 @@ A landscape photo carries the screen; on top of it, in the lower part of the fra
 
 The system is quiet by default and loud only when something needs a decision. There is one action colour (Signal blue) and one live-state colour (Hi-vis yellow, always paired with ink). An alert is an inverted ink panel with a hatched yellow edge, readable without colour and in direct sunlight. Everything that asserts something carries its source: every photo prints its author and licence on the image, every map prints ©Kartverket on the map.
 
-Rejected, by the designer: PrivatBank-grade missing craft (dirty colours, a broken type scale, uneven spacing, no hierarchy, clutter); grey gradients in place of photos; screens without icons.
+Rejected, by the designer: PrivatBank-grade missing craft (dirty colours, a broken type scale, uneven spacing, no hierarchy, clutter); grey gradients in place of photos (a static placeholder — a loading skeleton is an animation and is allowed); screens without icons.
 
 **Key Characteristics:**
 - Photo-led hero with a frosted instrument panel; register below.
@@ -314,7 +314,8 @@ The alert's 8px hatched edge (`repeating-linear-gradient(135deg, #F2E500 0 5px, 
 ### Alert and verdict
 - **Alert (attention):** Ink panel, radius 20, 8px hatched yellow edge; title 16/600 white, body 14 at 80% white, deadline tag Tektur 12 yellow; opens the place where it is fixed.
 - **Verdict (conflict):** the same panel with a Conflict-on-Ink edge; options below it are an ordinary grouped list.
-- **Knowledge limit:** Graphite text in a 1.5px dashed Graphite frame, radius 20, with a Solar cloud icon — used when data is kept but not fresh (offline, couldn't update).
+- **Knowledge limit:** Graphite text in a 1.5px dashed Graphite frame, radius 20, padding 16 with 48 on the icon side, a 20px Solar cloud icon — used when data is kept but not fresh (offline, couldn't update).
+- **Loading skeleton:** Hairline blocks with a shimmer (1.4s, off under reduced motion); the hero skeleton takes the photo's place and shape for the seconds it takes to generate — an animation, not a photo substitute.
 
 ### Cards / Containers
 - **Grouped list:** Surface, radius 20, 1px inset Hairline, 16px side padding, Hairline dividers; rows 12px vertical, 56px minimum, title 16/600, secondary 12 Graphite, chevron 16px Graphite; rows in "About the trip" carry a 22px Solar icon.
