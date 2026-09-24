@@ -132,8 +132,8 @@
   .nums div:first-child{border-left:0;padding-left:2px}
   .nums b{display:block;font:600 24px/1 var(--f-num);font-variant-numeric:tabular-nums}
   .nums span{font:500 11px/1.3 var(--f-ui);letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
-  .track{position:relative;height:24px;margin-top:10px}
-  .track .ax{position:absolute;left:0;right:0;top:6px;height:4px;border-radius:4px;background:rgba(15,17,19,.14)}
+  .track{position:relative;height:30px;margin-top:10px}
+  .track .ax{position:absolute;left:2%;right:2%;top:6px;height:4px;border-radius:4px;background:rgba(15,17,19,.14)}
   .track .fill{position:absolute;left:0;top:6px;height:4px;border-radius:4px;background:var(--ink)}
   .track i{position:absolute;top:3px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px var(--ink)}
   .track i.on{background:var(--yellow);box-shadow:inset 0 0 0 2px #0F1113,0 0 0 3px rgba(242,229,0,.5)}
@@ -372,7 +372,7 @@
   @media (max-width:520px){.wrap{padding:28px 16px 72px}.phone{border-radius:42px;padding:7px}.screen{border-radius:36px}.radii{grid-template-columns:repeat(3,1fr)}}
 
   /* ═══ v2 ═══ */
-  :root{--panel-bg:rgba(250,250,250,.82); --bar-bg:rgba(255,255,255,.88); --alert-bg:var(--ink); --alert-fg:#fff; --act-link:var(--ultra); --onink:#fff}
+  :root{--panel-bg:rgba(250,250,250,.9); --bar-bg:rgba(255,255,255,.88); --alert-bg:var(--ink); --alert-fg:#fff; --act-link:var(--ultra); --onink:#fff}
   :root[data-theme="dark"]{--glass:#0F1113; --surface:#1C1E21; --hair:#34383C; --graphite:#A3A9AE; --ink:#F2F3F4;
     --ultra:#3A66F5; --ultra-press:#2E57E0; --ultra-soft:#1D2A55; --act-bg:#3A66F5; --act-press:#2E57E0; --act-link:#7C9BFF; --act-ring:#7C9BFF; --act-ring-soft:#1D2A55;
     --yellow-soft:#35300F; --fixed:#4CC38A; --fixed-soft:#12301F; --conflict:#FF7A6B; --conflict-soft:#3A1714;
@@ -617,6 +617,7 @@
             <button class="info" type="button" aria-label="Photo: Anders Norén · Unsplash · Unsplash Licence"><svg class="ic" aria-hidden="true"><use href="#i-info-circle-linear"/></svg></button>
             <div class="panel" role="group" aria-label="101 kilometres, 1,940 metres of ascent, longest day about 8 hours">
               <div class="nums" aria-hidden="true"><div><b>101<u>km</u></b><span>distance</span></div><div><b>1,940<u>m</u></b><span>ascent</span></div><div><b>~8<u>h</u></b><span>longest day</span></div></div>
+              <div class="track" aria-hidden="true"><span class="ax"></span><i style="left:2.0%"></i><em style="left:2.0%">ABK</em><i style="left:18.0%"></i><em style="left:18.0%">AJ</em><i style="left:34.0%"></i><em style="left:34.0%">AL</em><i style="left:50.0%" class="x"></i><em style="left:50.0%">TJ</em><i style="left:66.0%"></i><em style="left:66.0%">SÄ</em><i style="left:82.0%"></i><em style="left:82.0%">KB</em><i style="left:98.0%"></i><em style="left:98.0%">NIK</em></div>
             </div>
           </div>
           <div class="body">
@@ -641,7 +642,7 @@
       <div class="phone"><div class="screen">
         <div class="sbar on-photo"><span>9:41</span><span><i></i><i></i></span></div>
         <div class="scroll" style="padding:0 0 110px">
-          <div class="hero" style="height:250px">
+          <div class="hero" style="height:300px">
             <img width="900" height="600" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Trail with a birch above the lake, Kungsleden">
             <div class="glassnav"><button class="gbtn wide" type="button"><svg class="ic" aria-hidden="true"><use href="#i-alt-arrow-left-linear"/></svg>My trips</button><span></span><button class="gbtn" type="button" aria-label="Share my route"><svg class="ic" aria-hidden="true"><use href="#i-share-linear"/></svg></button></div>
             <button class="info" type="button" aria-label="Photo: Anders Norén · Unsplash · Unsplash Licence"><svg class="ic" aria-hidden="true"><use href="#i-info-circle-linear"/></svg></button>

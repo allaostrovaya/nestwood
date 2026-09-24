@@ -847,3 +847,33 @@ body:has(#nw-dark:checked) .device { --panel-bg: rgba(28,30,33,.88); }
 .device[data-screen="Where to go"] section[aria-labelledby$="local"] { scroll-snap-align: start; scroll-margin-top: 88px; }
 /* таб-бар завжди над вмістом екрана — аркуш і картки мають власний z-index */
 .device .tabbar { z-index: 10; }
+
+/* ── панель приладу на фото нового плану — як у «Приладі»: три великі числа й шкала ланцюжка ночей ──
+   (попередня версія — чотири числа по 17 в один рядок — була тісною й губила шкалу) */
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 0; row-gap: 12px;
+  top: auto; bottom: auto; top: 160px; left: 12px; right: 12px; padding: 16px 16px 12px;
+}
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li,
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:not(:first-child),
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:last-child { flex: none; padding: 0 0 0 12px; border-left: 1px solid var(--hair); min-width: 0; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:first-child { padding-left: 0; border-left: 0; }
+/* кількість днів панель показує шкалою ночей — окреме число не потрібне */
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:nth-child(3) { display: none; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats b { font-size: 22px; letter-spacing: -.02em; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats small { margin-top: 6px; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats::after {
+  content: ""; grid-column: 1 / -1; height: 34px;
+  background: url("./img/track-kungsleden.svg") center / 100% 100% no-repeat;
+}
+body:has(#nw-dark:checked) .device[data-screen="New plan"] section[aria-labelledby$="route"] .stats::after { filter: invert(1); }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats { grid-template-columns: 1fr 1.25fr 1fr; }
+/* картки дня: числа не впираються в край — менше бічне поле, щільніший трекінг цифр */
+.device[data-screen="Day"] .stats li,
+.device[data-screen="Day"] .stats li:nth-child(even),
+.device[data-screen="Day"] .stats li:nth-child(n+3) { padding: 12px 12px; min-width: 0; }
+.device[data-screen="Day"] .stats b { letter-spacing: -.03em; white-space: nowrap; }
+.device[data-screen="Day"] .stats { gap: 6px; }
+.device[data-screen="Day"] .stats li,
+.device[data-screen="Day"] .stats li:nth-child(even),
+.device[data-screen="Day"] .stats li:nth-child(n+3) { padding: 12px 8px 12px 10px; }
