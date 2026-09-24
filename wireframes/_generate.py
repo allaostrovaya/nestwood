@@ -53,10 +53,11 @@ TREE = [
  ]),
  ('Профіль', [
    ('Я','me.html',[], [
-     ('Вхід','account.html',[], []),
      ('Моє спорядження','my-gear.html',[], []),
      ('Членство й ключ','membership.html',[], []),
-     ('Налаштування','settings.html',[], []),
+     ('Налаштування','settings.html',[], [
+       ('Вхід','account.html',[], []),
+     ]),
    ]),
  ]),
 ]
@@ -121,11 +122,16 @@ def nav_html(current):
 # «✕ Закрити», не «‹ назад». У статичному макеті href веде до
 # найчастішого відкривача, бо стека в нас немає.
 SHEETS = {
-  'account.html': 'me.html',
+  'account.html': 'settings.html',
   'huts.html': 'new-plan.html', 'huts-empty.html': 'new-plan.html', 'hut.html': 'huts.html',
   'notes.html': 'new-plan.html', 'notes-empty.html': 'day.html',
   'booking.html': 'day.html',
   'membership.html': 'plan.html', 'my-gear.html': 'gear.html',
+}
+
+# дія праворуч у шапці: шестерня налаштувань у профілі, як у Strava / Komoot / AllTrails
+TOPBAR_ACT = {
+  'me.html': '<a class="act" href="./settings.html" aria-label="Налаштування"><span class="ico" aria-hidden="true"></span></a>',
 }
 
 def topbar(current):
@@ -137,7 +143,8 @@ def topbar(current):
     if current in SHEETS:
         return f'  <header class="topbar"><a class="close" href="./{SHEETS[current]}">✕ Закрити</a><span class="title">{title}</span></header>'
     back = f'<a class="back" href="./{p}">‹ {pname}</a>' if p else ''
-    return f'  <header class="topbar">{back}<span class="title">{title}</span></header>'
+    act = TOPBAR_ACT.get(current, '')
+    return f'  <header class="topbar">{back}<span class="title">{title}</span>{act}</header>'
 
 APPNAV = '''  <nav class="tabbar" aria-label="Головна навігація">
     <ul>

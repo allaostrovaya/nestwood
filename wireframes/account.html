@@ -119,13 +119,15 @@
       <ul>
         <li><a href="./me.html">Я</a>
           <ul>
-            <li><a href="./account.html" aria-current="page">Вхід</a>
-            </li>
             <li><a href="./my-gear.html">Моє спорядження</a>
             </li>
             <li><a href="./membership.html">Членство й ключ</a>
             </li>
             <li><a href="./settings.html">Налаштування</a>
+              <ul>
+                <li><a href="./account.html" aria-current="page">Вхід</a>
+                </li>
+              </ul>
             </li>
           </ul>
         </li>
@@ -141,7 +143,7 @@
 <div class="device" data-screen="Вхід" data-state="успіх">
 
   <div class="screen">
-  <header class="topbar"><a class="close" href="./me.html">✕ Закрити</a><span class="title">Вхід</span></header>
+  <header class="topbar"><a class="close" href="./settings.html">✕ Закрити</a><span class="title">Вхід</span></header>
 
   <main>
     <h1>Увійди, щоб зберегти похід</h1>
@@ -153,14 +155,14 @@
 
     <section aria-labelledby="do">
       <h2 id="do">Увійти</h2>
-      <form action="./me.html" method="get">
+      <form action="./settings.html" method="get">
         <p class="actions"><button class="cta" type="submit">Продовжити з Apple</button></p>
         <p class="actions"><button type="submit">Продовжити з Google</button></p>
         <label for="mail">Пошта</label>
         <input type="email" id="mail" name="mail" placeholder="ти@пошта" />
       </form>
       <p>Далі — один запит на сповіщення, щоб попередити за два дні до виходу.</p>
-      <p class="actions"><a href="./me.html">Продовжити без входу</a></p>
+      <p class="actions"><a href="./settings.html">Продовжити без входу</a></p>
     </section>
   </main>
 

@@ -119,13 +119,15 @@
       <ul>
         <li><a href="./me.html">Я</a>
           <ul>
-            <li><a href="./account.html">Вхід</a>
-            </li>
             <li><a href="./my-gear.html">Моє спорядження</a>
             </li>
             <li><a href="./membership.html">Членство й ключ</a>
             </li>
             <li><a href="./settings.html" aria-current="page">Налаштування</a>
+              <ul>
+                <li><a href="./account.html">Вхід</a>
+                </li>
+              </ul>
             </li>
           </ul>
         </li>
@@ -145,6 +147,14 @@
 
   <main>
     <h1>Налаштування</h1>
+
+    <section aria-labelledby="account">
+      <h2 id="account">Акаунт</h2>
+      <ul class="rows">
+        <li><div class="row"><span><b>kristin@пошта</b><small>вхід через Apple</small></span></div></li>
+      </ul>
+      <p class="actions"><a href="./account.html">Вийти</a> <button type="button">Видалити акаунт</button></p>
+    </section>
 
     <section aria-labelledby="field">
       <h2 id="field">Похідний режим</h2>

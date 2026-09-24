@@ -581,3 +581,11 @@ section.sheet[aria-labelledby="list"]::before {
 .card .frame { grid-row: 1; }
 .card .frame ~ b { grid-row: 2; }
 .card .frame ~ .state { grid-row: 2; }
+
+/* дія праворуч у шапці — зона тапу 44×44 */
+.topbar .act { margin-left: auto; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-block: -12px; margin-right: calc(var(--s2) * -1); }
+.topbar .act .ico { width: 20px; height: 20px; border: 1.5px solid var(--ink-2); border-radius: 50%; }
+
+/* рядок-перемикач і рядок чеклиста — це рядок списку, а не підпис поля форми */
+label.row { text-transform: none; letter-spacing: 0; font-size: inherit; font-weight: inherit; color: inherit; margin: 0; }
+label.row b { font-size: 15px; }
