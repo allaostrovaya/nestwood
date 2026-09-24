@@ -87,7 +87,7 @@
 .device section[aria-labelledby$="hero"] .frame--photo {
   aspect-ratio: auto; height: 300px; margin: 0 -16px;
   border-radius: 0 0 var(--r-photo) var(--r-photo); overflow: hidden;
-  background: var(--glass) url("./img/plan-kungsleden.jpg") center 62% / cover no-repeat;
+  background: var(--glass) url("./img/kungsleden-abiskojaure-birch-trail.jpg") center 62% / cover no-repeat;
 }
 .device section[aria-labelledby$="hero"] .frame--photo::before {           /* скрим під скляною кнопкою */
   content: ""; position: absolute; inset: 0 0 auto 0; height: 110px;
@@ -605,11 +605,11 @@ body:has(#nw-dark:checked) .device[data-screen="Where to go"] .frame--screen { f
 .device .card .state::after { content: " · "; }
 .device .card small { display: inline; margin: 0; font-size: 14px; line-height: 1.4; color: var(--graphite); }
 /* фото карток — за змістом, з джерелом на самому фото */
-.device section[aria-labelledby$="local"] li:nth-child(1) .frame--photo { background-image: url("./img/plan-kungsleden.jpg"); --src: "Anders Norén · Unsplash"; }
-.device section[aria-labelledby$="local"] li:nth-child(2) .frame--photo { background-image: url("./img/card-kebnekaise.jpg"); --src: "Anders Norén · Unsplash"; }
-.device section[aria-labelledby$="local"] li:nth-child(3) .frame--photo { background-image: url("./img/card-padjelanta.jpg"); --src: "Trougnouf · CC BY 4.0"; }
-.device section[aria-labelledby$="classic"] li:nth-child(1) .frame--photo { background-image: url("./img/card-besseggen.jpg"); --src: "Rosan Harmens · CC0"; }
-.device section[aria-labelledby$="classic"] li:nth-child(2) .frame--photo { background-image: url("./img/card-finse.jpg"); --src: "Kjenshaugmyra · CC BY-SA 4.0"; }
+.device section[aria-labelledby$="local"] li:nth-child(1) .frame--photo { background-image: url("./img/kungsleden-abiskojaure-birch-trail.jpg"); --src: "Anders Norén · Unsplash"; }
+.device section[aria-labelledby$="local"] li:nth-child(2) .frame--photo { background-image: url("./img/kebnekaise-valley-cottongrass.jpg"); --src: "Anders Norén · Unsplash"; }
+.device section[aria-labelledby$="local"] li:nth-child(3) .frame--photo { background-image: url("./img/padjelanta-plateau-snowy-peaks.jpg"); --src: "Trougnouf · CC BY 4.0"; }
+.device section[aria-labelledby$="classic"] li:nth-child(1) .frame--photo { background-image: url("./img/besseggen-ridge-lake-reflection.jpg"); --src: "Rosan Harmens · CC0"; }
+.device section[aria-labelledby$="classic"] li:nth-child(2) .frame--photo { background-image: url("./img/finsevatnet-hardangervidda.jpg"); --src: "Kjenshaugmyra · CC BY-SA 4.0"; }
 
 /* ══ АРКУШ «Інша хижа»: біла поверхня з ручкою ══ */
 .device[data-screen="Another hut"] .screen { background: var(--surface); }
@@ -710,7 +710,7 @@ body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rota
 
 /* ── аркуш «Інша хижа» лежить поверх нового плану: згори видно затемнений план, таб-бару немає ── */
 .device[data-screen="Another hut"] .screen {
-  background: linear-gradient(rgba(15,17,19,.5), rgba(15,17,19,.5)), var(--glass) url("./img/plan-kungsleden.jpg") center top / 100% auto no-repeat;
+  background: linear-gradient(rgba(15,17,19,.5), rgba(15,17,19,.5)), var(--glass) url("./img/kungsleden-abiskojaure-birch-trail.jpg") center top / 100% auto no-repeat;
   padding-bottom: 0;
 }
 .device[data-screen="Another hut"] .tabbar { display: none; }

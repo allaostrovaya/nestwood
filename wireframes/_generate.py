@@ -204,7 +204,7 @@ def page(current, title, h1, metaline, zones, src, appnav=True, base=None):
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260924h" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
