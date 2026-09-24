@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368 253" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="4" height="8" fill="#F2E500"/><rect x="4" width="4" height="8" fill="#0F1113"/>
+    </pattern>
+  </defs>
+  <rect width="368" height="253" fill="#E8ECE3"/>
+  <g fill="none" stroke="#CDD5C4" stroke-width="1.1">
+    <path d="M-10 212 C50 196 86 150 142 160 S246 214 380 178"/>
+    <path d="M-10 238 C62 222 104 184 162 190 S256 240 380 208"/>
+    <path d="M-10 70 C44 88 112 44 178 62 S292 28 380 54"/>
+    <path d="M-10 44 C56 62 124 18 190 36 S300 4 380 28"/>
+    <path d="M40 124 C96 104 138 132 190 114 S276 86 340 108"/>
+    <path d="M70 146 C120 128 160 152 210 136 S290 112 350 132" stroke="#C3CCB8"/>
+  </g>
+  <g fill="#CFE0EA">
+    <ellipse cx="66" cy="30" rx="70" ry="15" transform="rotate(-8 66 30)"/>
+    <ellipse cx="104" cy="74" rx="20" ry="7" transform="rotate(20 104 74)"/>
+    <ellipse cx="146" cy="112" rx="15" ry="6"/>
+    <ellipse cx="300" cy="222" rx="30" ry="8" transform="rotate(-12 300 222)"/>
+  </g>
+  <!-- маршрут: дні 1–6 -->
+  <path d="M58 22 L96 64 L140 104 L176 136 L210 164 L262 192 L322 234" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M58 22 L96 64 L140 104 L176 136 L210 164 L262 192 L322 234" fill="none" stroke="#0F1113" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- день 2 — тривога: повінь на Abiskojåkka -->
+  <path d="M96 64 L140 104" fill="none" stroke="url(#hatch)" stroke-width="5" stroke-linecap="round"/>
+  <!-- хижі -->
+  <g fill="#fff" stroke="#0F1113" stroke-width="2">
+    <rect x="91" y="59" width="10" height="10" rx="2.5"/>
+    <rect x="135" y="99" width="10" height="10" rx="2.5"/>
+    <rect x="171" y="131" width="10" height="10" rx="2.5"/>
+    <rect x="205" y="159" width="10" height="10" rx="2.5"/>
+    <rect x="257" y="187" width="10" height="10" rx="2.5"/>
+  </g>
+  <!-- старт і фініш -->
+  <circle cx="58" cy="22" r="7" fill="#0F1113"/><circle cx="58" cy="22" r="2.6" fill="#fff"/>
+  <circle cx="322" cy="234" r="7" fill="#0F1113"/>
+  <!-- точки сходу -->
+  <g fill="none" stroke="#5E6368" stroke-width="1.6">
+    <path d="M150 150 l6 -10 l6 10 z"/><path d="M236 226 l6 -10 l6 10 z"/>
+  </g>
+  <g font-family="Tektur, Wix Madefor Display, sans-serif" font-size="9.5" font-weight="500" fill="#0F1113" letter-spacing=".04em">
+    <text x="70" y="19">ABISKO</text>
+    <text x="228" y="246">NIKKALUOKTA</text>
+  </g>
+</svg>
