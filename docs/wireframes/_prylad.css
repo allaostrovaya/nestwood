@@ -952,3 +952,48 @@ body:has(#nw-dark:checked) .device[data-screen="New plan"] section[aria-labelled
 .device[data-screen="Plan"] section[aria-labelledby$="hero"] > .actions { right: 12px; top: 12px; }
 .device[data-screen="Plan"] section[aria-labelledby$="hero"] .frame--photo::after { right: 12px; }
 .device[data-screen="Plan"] section[aria-labelledby$="hero"] .row small { left: 12px; }
+
+/* ════════ щільність і тиша (2026-09-24) ════════ */
+/* одиниця біля числа — дрібно й сіро, як на стенді: число читається першим */
+.device .stats b .u { font: 500 14px/1 var(--f-ui); letter-spacing: 0; color: var(--graphite); margin: 0 1px; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats b,
+.device[data-screen="Day"] .stats b { letter-spacing: -.02em; }
+/* вторинний текст у картках — 12, заголовок секції — 16 */
+.device .row small, .device .card small { font-size: 12px; line-height: 1.4; }
+.device h2 { font-size: 16px; margin-bottom: 8px; }
+.device main > section { padding-top: 20px; }
+.device .row { min-height: 56px; padding: 12px 0; }
+
+/* панель на фото — повітря: ширші поля, числа не впритул до розділювачів */
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats { grid-template-columns: 1fr 1fr 1fr; justify-content: stretch; padding: 16px 16px 12px; top: 173px; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:not(:first-child) { padding-left: 16px; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats small { font-size: 12px; letter-spacing: .06em; margin-top: 6px; }
+.device[data-screen="New plan"] section[aria-labelledby$="hero"] .frame--photo::after { top: 153px; }
+/* картки дня — рівні стовпці знову, бо одиниці дрібні */
+.device[data-screen="Day"]:not([data-state="сьогодні"]) .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.device[data-screen="Day"] .stats li,
+.device[data-screen="Day"] .stats li:nth-child(even),
+.device[data-screen="Day"] .stats li:nth-child(n+3) { padding: 12px; }
+
+/* перемикач днів — дві круглі кнопки ‹ › праворуч від назви дня (як у Mail і Календарі iOS) */
+.device[data-screen="Day"]:not([data-state="сьогодні"]) main > h1 { padding-right: 88px; }
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > .actions:first-of-type {
+  position: absolute; top: 72px; right: 16px; z-index: 2; display: flex; gap: 8px; margin: 0; padding: 0;
+  background: none; box-shadow: none; border-radius: 0; overflow: visible;
+}
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > .actions:first-of-type a {
+  position: relative; width: 36px; min-height: 36px; height: 36px; padding: 0; border-radius: 50%;
+  justify-content: center; font-size: 0; gap: 0; color: var(--ink);
+  background: var(--surface); box-shadow: var(--e-hair);
+}
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > .actions:first-of-type a + a { border-left: 0; }
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > .actions:first-of-type a::before,
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > .actions:first-of-type a::after { width: 18px; height: 18px; }
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > .actions:first-of-type a > span { display: none; }
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > h2 { margin-top: 20px; }
+/* круг 36 видно, зона тапу 44 — прозорою рамкою */
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > .actions:first-of-type { top: 68px; right: 12px; gap: 0; }
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > .actions:first-of-type a {
+  width: 44px; height: 44px; min-height: 44px; border: 4px solid transparent; background-clip: padding-box;
+  box-shadow: inset 0 0 0 1px var(--hair);
+}

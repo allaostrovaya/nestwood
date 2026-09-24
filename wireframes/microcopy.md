@@ -1,6 +1,6 @@
 # microcopy.md — увесь текст інтерфейсу Nestwood
 
-**33 екранів · 1244 рядків тексту · 467 унікальних.** Це перепис того, що зараз написано в макетах, без жодної правки. До кінця роботи над флоу він має стати таблицею, з якою звіряється кожен рядок продукту.
+**33 екранів · 1273 рядків тексту · 470 унікальних.** Це перепис того, що зараз написано в макетах, без жодної правки. До кінця роботи над флоу він має стати таблицею, з якою звіряється кожен рядок продукту.
 
 ## Як це зібрано
 
@@ -53,7 +53,7 @@
 
 ## 2. Таблиця — увесь текст інтерфейсу
 
-953 рядків. Згруповано за вкладками, усередині вкладки — базовий екран і його стани одразу за ним, щоб було видно, де стан говорить про те саме інакше.
+982 рядків. Згруповано за вкладками, усередині вкладки — базовий екран і його стани одразу за ним, щоб було видно, де стан говорить про те саме інакше.
 
 ### Map · Where to go
 
@@ -154,12 +154,15 @@
 | Route | Route | заголовок зони |  |
 | Route | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
 | Route | map · Abisko → Nikkaluokta · day legs · huts · bail-out points | заглушка макета | `З1` |
+| Route | km | підпис |  |
 | Route | distance | підпис |  |
 | Route | 101 km | пункт списку |  |
+| Route | m | підпис |  |
 | Route | ascent | підпис |  |
 | Route | 1,940 m | пункт списку |  |
 | Route | days | підпис |  |
 | Route | 6 | пункт списку |  |
+| Route | h | підпис |  |
 | Route | longest day | підпис |  |
 | Route | ~8 h | пункт списку |  |
 | Route | blå / medium · röd / krevende on the pass | текст |  |
@@ -229,12 +232,15 @@
 | Route | Route | заголовок зони |  |
 | Route | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
 | Route | map · Abisko → Nikkaluokta · day legs · huts · bail-out points | заглушка макета | `З1` |
+| Route | km | підпис |  |
 | Route | distance | підпис |  |
 | Route | 101 km | пункт списку |  |
+| Route | m | підпис |  |
 | Route | ascent | підпис |  |
 | Route | 1,940 m | пункт списку |  |
 | Route | days | підпис |  |
 | Route | 6 | пункт списку |  |
+| Route | h | підпис |  |
 | Route | longest day | підпис |  |
 | Route | ~8 h | пункт списку |  |
 | Route | blå / medium · röd / krevende on the pass | текст |  |
@@ -499,12 +505,15 @@
 | Route | Route | заголовок зони |  |
 | Route | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
 | Route | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
+| Route | km | підпис |  |
 | Route | distance | підпис |  |
 | Route | 101 km | пункт списку |  |
+| Route | m | підпис |  |
 | Route | ascent | підпис |  |
 | Route | 1,940 m | пункт списку |  |
 | Route | days | підпис |  |
 | Route | 6 | пункт списку |  |
+| Route | h | підпис |  |
 | Route | longest day | підпис |  |
 | Route | ~8 h | пункт списку |  |
 | About the trip | About the trip | заголовок зони |  |
@@ -561,12 +570,15 @@
 | Route | Route | заголовок зони |  |
 | Route | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
 | Route | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
+| Route | km | підпис |  |
 | Route | distance | підпис |  |
 | Route | 101 km | пункт списку |  |
+| Route | m | підпис |  |
 | Route | ascent | підпис |  |
 | Route | 1,940 m | пункт списку |  |
 | Route | days | підпис |  |
 | Route | 6 | пункт списку |  |
+| Route | h | підпис |  |
 | Route | longest day | підпис |  |
 | Route | ~8 h | пункт списку |  |
 | About the trip | About the trip | заголовок зони |  |
@@ -622,12 +634,15 @@
 | Route | Route | заголовок зони |  |
 | Route | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
 | Route | map · Kungsleden · day legs · huts · bail-out points · offline pack | заглушка макета | `З1` |
+| Route | km | підпис |  |
 | Route | distance | підпис |  |
 | Route | 101 km | пункт списку |  |
+| Route | m | підпис |  |
 | Route | ascent | підпис |  |
 | Route | 1,940 m | пункт списку |  |
 | Route | days | підпис |  |
 | Route | 6 | пункт списку |  |
+| Route | h | підпис |  |
 | Route | longest day | підпис |  |
 | Route | ~8 h | пункт списку |  |
 | About the trip | About the trip | заголовок зони |  |
@@ -684,12 +699,15 @@
 | Route | Route | заголовок зони |  |
 | Route | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
 | Route | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
+| Route | km | підпис |  |
 | Route | distance | підпис |  |
 | Route | 101 km | пункт списку |  |
+| Route | m | підпис |  |
 | Route | ascent | підпис |  |
 | Route | 1,940 m | пункт списку |  |
 | Route | days | підпис |  |
 | Route | 6 | пункт списку |  |
+| Route | h | підпис |  |
 | Route | longest day | підпис |  |
 | Route | ~8 h | пункт списку |  |
 | About the trip | About the trip | заголовок зони |  |
@@ -736,10 +754,13 @@
 | Leg | map · day 3 · Alesjaure → Tjäktja · ford before the hut | заглушка макета | `З1` |
 | Leg | на всю ширину | заглушка макета | `З1` |
 | Leg | profile · +260 m | заглушка макета | `З1` |
+| Leg | km | підпис |  |
 | Leg | distance | підпис |  |
 | Leg | 13 km | пункт списку |  |
+| Leg | m | підпис |  |
 | Leg | ascent | підпис |  |
 | Leg | +260 m | пункт списку |  |
+| Leg | h | підпис |  |
 | Leg | walking | підпис |  |
 | Leg | ~4 h 30 | пункт списку |  |
 | Night | Night | заголовок зони |  |
@@ -768,8 +789,10 @@
 | — | Today · Alesjaure → Tjäktja | заголовок екрана |  |
 | Now | Now | заголовок зони |  |
 | Now | SOS · 112 | кнопка |  |
+| Now | km | підпис |  |
 | Now | to go | підпис |  |
 | Now | 9 km | пункт списку |  |
+| Now | h | підпис |  |
 | Now | walking | підпис |  |
 | Now | ~3 h | пункт списку |  |
 | Now | arrive by | підпис |  |
@@ -803,10 +826,13 @@
 | Leg | map · day 3 · Alesjaure → Tjäktja · ford before the hut · offline pack | заглушка макета | `З1` |
 | Leg | на всю ширину | заглушка макета | `З1` |
 | Leg | profile · +260 m | заглушка макета | `З1` |
+| Leg | km | підпис |  |
 | Leg | distance | підпис |  |
 | Leg | 13 km | пункт списку |  |
+| Leg | m | підпис |  |
 | Leg | ascent | підпис |  |
 | Leg | +260 m | пункт списку |  |
+| Leg | h | підпис |  |
 | Leg | walking | підпис |  |
 | Leg | ~4 h 30 | пункт списку |  |
 | Night | Night | заголовок зони |  |
@@ -840,10 +866,13 @@
 | Leg | map · day 3 · Alesjaure → Tjäktja · ford before the hut | заглушка макета | `З1` |
 | Leg | на всю ширину | заглушка макета | `З1` |
 | Leg | profile · +260 m | заглушка макета | `З1` |
+| Leg | km | підпис |  |
 | Leg | distance | підпис |  |
 | Leg | 13 km | пункт списку |  |
+| Leg | m | підпис |  |
 | Leg | ascent | підпис |  |
 | Leg | +260 m | пункт списку |  |
+| Leg | h | підпис |  |
 | Leg | walking | підпис |  |
 | Leg | ~4 h 30 | пункт списку |  |
 | Night | Night | заголовок зони |  |
@@ -1411,7 +1440,7 @@
 
 ## 9. Що це дає, поки рішень ще нема
 
-Позначено 166 рядків із 953. Жодного не змінено.
+Позначено 166 рядків із 982. Жодного не змінено.
 
 Що видно тільки з такої таблиці:
 
