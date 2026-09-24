@@ -502,10 +502,9 @@
   .locktime small{text-shadow:0 1px 3px rgba(0,0,0,.5)}
   :root[data-theme="dark"] .attrib{background:rgba(28,30,33,.8);color:#C9CDD1}
 
-  /* виміри за Refero (Komoot, The Outsiders): підпис над числом, звичайним регістром, дрібно й сіро */
-  .nums div,.bigs div{display:flex;flex-direction:column-reverse;justify-content:flex-end}
-  .nums span,.bigs span{font:400 12px/1.3 var(--f-ui)!important;letter-spacing:0!important;text-transform:none!important;color:var(--graphite)!important;margin:0 0 4px}
-  .nums span::first-letter,.bigs span::first-letter{text-transform:uppercase}
+  /* панель приладу — один компонент для плану й нового плану: підпис під числом, капсом 10 px */
+  .nums div,.bigs div{display:flex;flex-direction:column;justify-content:flex-start}
+  .nums span,.bigs span{font:500 10px/1.2 var(--f-ui)!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:var(--graphite)!important;margin:6px 0 0}
   .track em{color:var(--graphite)}
   .bigs{background:var(--surface);border-radius:var(--r-card);box-shadow:var(--e-hair);padding:16px;gap:0!important}
   .bigs div{background:none!important;border-radius:0!important;padding:0 0 0 16px!important;border-left:1px solid var(--hair)}
@@ -628,7 +627,6 @@
             <button class="info" type="button" aria-label="Photo: Anders Norén · Unsplash · Unsplash Licence"><svg class="ic" aria-hidden="true"><use href="#i-info-circle-linear"/></svg></button>
             <div class="panel" role="group" aria-label="101 kilometres, 1,940 metres of ascent, longest day about 8 hours">
               <div class="nums" aria-hidden="true"><div><b>101<u>km</u></b><span>distance</span></div><div><b>1,940<u>m</u></b><span>ascent</span></div><div><b>~8<u>h</u></b><span>longest day</span></div></div>
-              <div class="track" aria-hidden="true"><span class="axis"></span><i style="left:2.0%"></i><em style="left:2.0%">ABK</em><i style="left:18.0%"></i><em style="left:18.0%">AJ</em><i style="left:34.0%"></i><em style="left:34.0%">AL</em><i style="left:50.0%" class="x"></i><em style="left:50.0%">TJ</em><i style="left:66.0%"></i><em style="left:66.0%">SÄ</em><i style="left:82.0%"></i><em style="left:82.0%">KB</em><i style="left:98.0%"></i><em style="left:98.0%">NIK</em></div>
             </div>
           </div>
           <div class="body">
@@ -657,7 +655,10 @@
             <img width="900" height="600" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Trail with a birch above the lake, Kungsleden">
             <div class="glassnav"><button class="gbtn wide" type="button"><svg class="ic" aria-hidden="true"><use href="#i-alt-arrow-left-linear"/></svg>My trips</button><span></span><button class="gbtn" type="button" aria-label="Share my route"><svg class="ic" aria-hidden="true"><use href="#i-share-linear"/></svg></button></div>
             <button class="info" type="button" aria-label="Photo: Anders Norén · Unsplash · Unsplash Licence"><svg class="ic" aria-hidden="true"><use href="#i-info-circle-linear"/></svg></button>
-            <span class="hud" style="top:auto;bottom:18px">in 4 days · available offline</span>
+            <span class="hud" style="top:auto;bottom:112px">in 4 days · available offline</span>
+            <div class="panel" role="group" aria-label="101 kilometres, 1,940 metres of ascent, longest day about 8 hours">
+              <div class="nums" aria-hidden="true"><div><b>101<u>km</u></b><span>distance</span></div><div><b>1,940<u>m</u></b><span>ascent</span></div><div><b>~8<u>h</u></b><span>longest day</span></div></div>
+            </div>
           </div>
           <div class="body">
             <p class="title">Kungsleden · Abisko → Nikkaluokta</p>

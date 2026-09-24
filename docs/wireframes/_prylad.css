@@ -1026,3 +1026,35 @@ body:has(#nw-dark:checked) .device[data-screen="New plan"] section[aria-labelled
 .device[data-screen="New plan"] section[aria-labelledby$="hero"] .frame--photo::after { top: 150px; }
 .device[data-screen="New plan"] section[aria-labelledby$="route"] .stats { top: 166px; }
 .device[data-screen="New plan"] section[aria-labelledby$="hero"] .frame--photo::after { top: 144px; }
+
+/* ════════ панель приладу — один компонент для плану й нового плану (2026-09-24, за референсом стенду):
+   три числа на склі поверх фото, одиниця дрібна, підпис під числом капсом 10 px; без шкали ночей ════════ */
+.device .stats li { flex-direction: column; }
+.device .stats small { order: 0; margin: 6px 0 0; font: 500 10px/1.2 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--graphite); }
+.device .stats small::first-letter { text-transform: uppercase; }
+
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats {
+  position: absolute; top: 216px; left: 12px; right: 12px; bottom: auto; z-index: 2; margin: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; row-gap: 0; padding: 16px;
+  background: var(--panel-bg); -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2);
+  box-shadow: none; border-radius: var(--r-panel);
+}
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats li,
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats li:nth-child(even),
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats li:nth-child(n+3),
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats li:not(:first-child),
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats li:last-child {
+  flex: none; padding: 0 0 0 16px; border: 0; border-left: 1px solid var(--hair); min-width: 0;
+}
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats li:first-child { padding-left: 0; border-left: 0; }
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats li:nth-child(3) { display: none; }
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats b { font-size: 24px; letter-spacing: -.02em; }
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats small { margin: 6px 0 0; font-size: 10px; letter-spacing: .06em; }
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats::after { content: none; }
+/* підпис джерела — під кнопками вгорі праворуч; статус офлайн — над панеллю ліворуч */
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="hero"] .frame--photo::after { top: 64px; right: 12px; bottom: auto; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] .row small { top: 188px; left: 12px; }
+.device[data-screen="New plan"][data-state="генерація"] section[aria-labelledby$="route"] .stats { display: none; }
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats { grid-template-columns: 1fr 1.28fr .92fr; top: 214px; }
+.device[data-screen="Day"] .stats, .device[data-screen="Day"]:not([data-state="сьогодні"]) .stats { grid-template-columns: .82fr 1.09fr 1.09fr; }
+.device[data-screen="Day"][data-state="сьогодні"] .stats { grid-template-columns: repeat(3, 1fr); }
