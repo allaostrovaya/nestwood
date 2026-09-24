@@ -1058,3 +1058,10 @@ body:has(#nw-dark:checked) .device[data-screen="New plan"] section[aria-labelled
 .device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats { grid-template-columns: 1fr 1.28fr .92fr; top: 214px; }
 .device[data-screen="Day"] .stats, .device[data-screen="Day"]:not([data-state="сьогодні"]) .stats { grid-template-columns: .82fr 1.09fr 1.09fr; }
 .device[data-screen="Day"][data-state="сьогодні"] .stats { grid-template-columns: repeat(3, 1fr); }
+/* панель: три рівні стовпці — метрики однакової ваги */
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats li:not(:first-child) { padding-left: 12px; }
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats b { letter-spacing: -.03em; }
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats b .u { margin-left: 2px; }
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats b { letter-spacing: -.04em; }
+.device:is([data-screen="New plan"],[data-screen="Plan"]) section[aria-labelledby$="route"] .stats b .u { font-size: 12px; margin-left: 3px; letter-spacing: 0; }
