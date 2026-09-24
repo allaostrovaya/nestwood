@@ -700,3 +700,32 @@ body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rota
 }
 .device[data-state="генерація"] section[aria-labelledby$="health"] .row small { color: var(--graphite); font-size: 13px; }
 .device[data-state="генерація"] section[aria-labelledby$="health"] .row .state { align-self: center; }
+
+/* ── повітря в рядках: крок 4 стенду, iOS inset grouped ── */
+.device .row { gap: 12px; min-height: 60px; padding: 14px 0; }
+.device .row b { line-height: 1.3; }
+.device .row small { margin-top: 4px; line-height: 1.4; }
+.device section[aria-labelledby$="days"] .row { column-gap: 14px; }
+.device section[aria-labelledby$="general"] .row { column-gap: 14px; }
+.device .rows .state { margin-left: 4px; }
+
+/* ── аркуш «Інша хижа» лежить поверх нового плану: згори видно затемнений план, таб-бару немає ── */
+.device[data-screen="Another hut"] .screen {
+  background: linear-gradient(rgba(15,17,19,.5), rgba(15,17,19,.5)), #6d7a70 url("./img/plan-kungsleden.jpg") center top / 100% auto no-repeat;
+  padding-bottom: 0;
+}
+.device[data-screen="Another hut"] .tabbar { display: none; }
+.device[data-screen="Another hut"] .topbar {
+  position: relative; margin-top: 40px; border-radius: var(--r-panel) var(--r-panel) 0 0; padding-top: 12px;
+}
+.device[data-screen="Another hut"] main,
+.device[data-screen="Another hut"] footer.app { background: var(--surface); }
+.device[data-screen="Another hut"] footer.app { padding-bottom: 40px; min-height: 40vh; }
+/* стан рядка дня й «Що треба» — під текстом, щоб текст мав усю ширину */
+.device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row:has(.state) { grid-template-columns: 24px 1fr 16px; row-gap: 0; }
+.device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row:has(.state) > span:first-child { grid-column: 2; grid-row: 1; }
+.device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row:has(.state) > .state { grid-column: 2; grid-row: 2; justify-self: start; margin: 8px 0 0; }
+.device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row:has(.state)::before { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+.device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row:has(.state)::after { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
+.device section[aria-labelledby$="general"] a.row:has(.state) { grid-template-columns: 22px 1fr 16px; }
+.device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row[href="./booking.html"] > .state { margin-top: 6px; }
