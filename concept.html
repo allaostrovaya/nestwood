@@ -501,6 +501,15 @@
   .info .ic{width:22px;height:22px;color:#fff}
   .locktime small{text-shadow:0 1px 3px rgba(0,0,0,.5)}
   :root[data-theme="dark"] .attrib{background:rgba(28,30,33,.8);color:#C9CDD1}
+
+  /* виміри за Refero (Komoot, The Outsiders): підпис над числом, звичайним регістром, дрібно й сіро */
+  .nums div,.bigs div{display:flex;flex-direction:column-reverse;justify-content:flex-end}
+  .nums span,.bigs span{font:400 12px/1.3 var(--f-ui)!important;letter-spacing:0!important;text-transform:none!important;color:var(--graphite)!important;margin:0 0 4px}
+  .nums span::first-letter,.bigs span::first-letter{text-transform:uppercase}
+  .track em{color:var(--graphite)}
+  .bigs{background:var(--surface);border-radius:var(--r-card);box-shadow:var(--e-hair);padding:16px;gap:0!important}
+  .bigs div{background:none!important;border-radius:0!important;padding:0 0 0 16px!important;border-left:1px solid var(--hair)}
+  .bigs div:first-child{padding-left:0!important;border-left:0}
 </style>
 </head>
 <body>

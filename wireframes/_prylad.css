@@ -997,3 +997,32 @@ body:has(#nw-dark:checked) .device[data-screen="New plan"] section[aria-labelled
   width: 44px; height: 44px; min-height: 44px; border: 4px solid transparent; background-clip: padding-box;
   box-shadow: inset 0 0 0 1px var(--hair);
 }
+
+/* ════════ виміри за Refero (Komoot, The Outsiders): підпис над числом, звичайним регістром, дрібно й сіро;
+   число велике, одиниця дрібна; без коробки навколо кожного числа ════════ */
+.device .stats li { display: flex; flex-direction: column-reverse; justify-content: flex-end; }
+.device .stats small { margin: 0 0 4px; font: 400 12px/1.3 var(--f-ui); letter-spacing: 0; text-transform: none; color: var(--graphite); white-space: nowrap; }
+.device .stats small::first-letter { text-transform: uppercase; }
+.device .stats b { font-size: 24px; line-height: 1; letter-spacing: -.02em; }
+.device .stats b .u { font: 500 14px/1 var(--f-ui); color: var(--graphite); }
+
+/* день: три числа в одній картці з тонкими розділювачами — як панель і план */
+.device[data-screen="Day"] .stats,
+.device[data-screen="Day"]:not([data-state="сьогодні"]) .stats {
+  grid-template-columns: repeat(3, 1fr); gap: 0; padding: 16px; margin-top: 12px;
+  background: var(--surface); box-shadow: var(--e-hair); border-radius: var(--r-card);
+}
+.device[data-screen="Day"] .stats li,
+.device[data-screen="Day"] .stats li:nth-child(even),
+.device[data-screen="Day"] .stats li:nth-child(n+3) { padding: 0 0 0 16px; border: 0; border-left: 1px solid var(--hair); border-radius: 0; background: none; box-shadow: none; }
+.device[data-screen="Day"] .stats li:first-child { padding-left: 0; border-left: 0; }
+.device[data-screen="Day"]:not([data-state="сьогодні"]) main > h1 { padding-right: 0; }
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > h2 { margin-top: 20px; }
+
+/* панель на фото: поля 16 з усіх боків, стоїть на 12 від низу фото */
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats { padding: 16px; top: 172px; row-gap: 16px; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats small { margin: 0 0 4px; font-size: 12px; letter-spacing: 0; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats::after { height: 30px; }
+.device[data-screen="New plan"] section[aria-labelledby$="hero"] .frame--photo::after { top: 150px; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats { top: 166px; }
+.device[data-screen="New plan"] section[aria-labelledby$="hero"] .frame--photo::after { top: 144px; }
