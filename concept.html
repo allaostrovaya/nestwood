@@ -318,9 +318,49 @@
   .others .chips i{width:18px;height:18px;border-radius:50%;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
   .foot{margin-top:28px;font:500 11px/1.5 var(--f-num);letter-spacing:.04em;color:var(--graphite)}
 
-  @media (max-width:1240px){.live{grid-template-columns:repeat(2,minmax(0,390px));justify-content:center}.live .ctrl{grid-column:1/-1}}
+
+  .live{grid-template-rows:auto auto}
+  .live .ctrl{grid-column:3;grid-row:1 / span 2}
+  .mapwrap{position:relative;height:430px;overflow:hidden}
+  .mapwrap .topo{position:absolute;inset:0;width:100%;height:100%}
+  .mapwrap.mini{height:170px;border-radius:var(--r-card);margin-top:12px}
+  .search{position:absolute;left:12px;right:12px;top:8px;display:grid;grid-template-columns:1.2fr 1fr 1fr;border:0;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--e-float);padding:8px 10px;text-align:left;cursor:pointer;font:inherit;color:var(--ink)}
+  .search span{padding:2px 10px;border-left:1px solid var(--hair);min-width:0}
+  .search span:first-child{border-left:0}
+  .search small{display:block;font:500 10.5px var(--f-ui);color:var(--graphite)}
+  .search b{display:block;font:600 13.5px/1.25 var(--f-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .own{position:absolute;left:12px;right:12px;bottom:12px;display:flex;gap:10px;align-items:center;justify-content:space-between;background:var(--surface);border-radius:var(--r-card);padding:10px 10px 10px 14px;box-shadow:var(--e-float)}
+  .own b{display:block;font-size:14.5px}
+  .own small{font-size:12.5px;color:var(--graphite)}
+  .sheetp{margin-top:-14px;position:relative;background:var(--glass);border-radius:var(--r-panel) var(--r-panel) 0 0;padding:10px 16px 0}
+  .sheetp::before{content:"";display:block;width:36px;height:4px;border-radius:2px;background:var(--hair);margin:0 auto 10px}
+  .shl{font:600 17px var(--f-ui);margin:0 0 10px}
+  .presets{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .preset{display:block;color:var(--ink);text-decoration:none;font-size:14px}
+  .preset img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-card);display:block;margin-bottom:6px}
+  .preset b{display:block;font-weight:600}
+  .preset small{color:var(--graphite);font-size:12.5px}
+  .days{list-style:none;margin:0;padding:0}
+  .days li{display:grid;grid-template-columns:24px 1fr auto 16px;gap:10px;align-items:center;padding:10px 0;border-top:1px solid var(--hair);font-size:14px;line-height:1.3}
+  .days li:first-child{border-top:0}
+  .days li:not(:has(.st)){grid-template-columns:24px 1fr 16px}
+  .days li:not(:has(.chev)){grid-template-columns:24px 1fr auto}
+  .days .d{font:600 13px var(--f-num);color:var(--graphite);text-align:center}
+  .days .d .ic{width:18px;height:18px;color:var(--graphite)}
+  .days b{display:block;font-weight:600}
+  .days small{display:block;font-size:12.5px;color:var(--graphite)}
+  .days .chev{width:16px;height:16px;color:var(--graphite)}
+  .days li > span:nth-child(2){min-width:0}
+  .st-act{background:var(--ultra-soft);color:var(--ultra)}
+  .savebar{position:absolute;left:0;right:0;bottom:0;display:flex;gap:8px;align-items:center;padding:12px 16px 26px;background:rgba(244,245,245,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--hair)}
+  .sos{flex:none;display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:var(--conflict);color:#fff;font:700 15px var(--f-num);text-decoration:none;letter-spacing:.04em}
+  .bigs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .bigs div{background:var(--surface);border-radius:var(--r-card);padding:12px}
+  .bigs b{display:block;font:600 24px/1 var(--f-num);font-variant-numeric:tabular-nums}
+  .bigs span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--graphite)}
+  @media (max-width:1240px){.live{grid-template-columns:repeat(2,minmax(0,390px));justify-content:center}.live .ctrl{grid-column:1/-1;grid-row:auto}}
   @media (max-width:980px){.comp,.form3,.others,.pair{grid-template-columns:1fr}.mast{grid-template-columns:1fr}}
-  @media (max-width:860px){.live{grid-template-columns:1fr}.sec{padding:22px 16px}.ty .hide-m{display:none}}
+  @media (max-width:860px){.live{grid-template-columns:1fr}.live .ctrl{grid-column:auto}.sec{padding:22px 16px}.ty .hide-m{display:none}}
   @media (max-width:520px){.wrap{padding:28px 16px 72px}.phone{border-radius:42px;padding:7px}.screen{border-radius:36px}.radii{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
@@ -350,89 +390,162 @@
 <!-- ═══════════ МОВА ЖИВЦЕМ ═══════════ -->
 <section class="sec" aria-labelledby="h-live">
   <div class="sec-h"><h2 id="h-live">Мова живцем</h2><div class="attrs"><span class="attr"><b>3</b> Місце в кадрі</span><span class="attr"><b>1</b> Зведено</span></div></div>
-  <p class="sec-sub">Два екрани, як вони виглядали б у продукті: картка маршруту в каталозі (фото-центрична, бо тут обирають місце) і вкладка «Плани» (реєстр, бо тут перевіряють). Справа — кнопки, стани й тривога, якими ці екрани зібрані.</p>
+  <p class="sec-sub">Головний флоу з вайрфреймів: пошук → новий план → план → сьогодні. Справа — кнопки, стани й тривога, якими ці екрани зібрані.</p>
 
   <div class="live">
-    <!-- телефон 1 · Карта -->
+    <!-- 1 · Куди можна піти -->
     <div>
       <div class="phone"><div class="screen">
         <div class="sbar"><span>9:41</span><span><i></i><i></i></span></div>
-        <div class="scroll">
-          <div class="shot">
-            <img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою над озером, Kungsleden, Швеція">
-            <span class="hud">Швеція · серпень</span>
+        <div class="scroll" style="padding:0 0 110px">
+          <div class="mapwrap">
+            <svg class="topo" viewBox="0 0 370 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="370" height="330" fill="#E8ECE3"/>
+              <path d="M-10 250 C60 230 90 180 150 190 S250 250 380 210" fill="none" stroke="#CDD5C4" stroke-width="1.2"/>
+              <path d="M-10 280 C70 260 110 215 170 222 S260 280 380 245" fill="none" stroke="#CDD5C4" stroke-width="1.2"/>
+              <path d="M-10 90 C50 110 120 60 190 80 S300 40 380 70" fill="none" stroke="#CDD5C4" stroke-width="1.2"/>
+              <path d="M-10 60 C60 80 130 30 200 50 S310 10 380 40" fill="none" stroke="#CDD5C4" stroke-width="1.2"/>
+              <path d="M60 140 C110 120 150 150 200 130 S280 100 330 125" fill="none" stroke="#C3CCB8" stroke-width="1.2"/>
+              <ellipse cx="95" cy="75" rx="60" ry="16" fill="#CFE0EA" transform="rotate(-12 95 75)"/>
+              <ellipse cx="250" cy="175" rx="34" ry="10" fill="#CFE0EA"/>
+              <path d="M300 300 L230 250 L175 205 L150 160 L110 120 L70 85" fill="none" stroke="#9AA0A6" stroke-width="2" stroke-dasharray="3 4"/>
+              <path d="M70 85 L110 120 L150 160 L175 205 L230 250 L300 300" fill="none" stroke="#0F1113" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <g fill="#fff" stroke="#0F1113" stroke-width="2"><circle cx="110" cy="120" r="4"/><circle cx="150" cy="160" r="4"/><circle cx="175" cy="205" r="4"/><circle cx="230" cy="250" r="4"/></g>
+              <circle cx="70" cy="85" r="7" fill="#0F1113"/><circle cx="300" cy="300" r="7" fill="#0F1113"/>
+              <g fill="#fff" stroke="#5E6368" stroke-width="1.5"><rect x="40" y="200" width="8" height="8" rx="2"/><rect x="310" y="120" width="8" height="8" rx="2"/><rect x="200" y="60" width="8" height="8" rx="2"/></g>
+            </svg>
+            <button class="search" type="button" aria-label="Пошук: куди, коли, хто">
+              <span><small>Куди</small><b>Лапландія</b></span><span><small>Коли</small><b class="num">17–22.08</b></span><span><small>Хто</small><b>2 · 1 член</b></span>
+            </button>
+            <div class="own">
+              <div><b>Abisko → Nikkaluokta</b><small><span class="num">101 км · 6 днів</span> · 5 хиж</small></div>
+              <button class="btn btn-primary" type="button" style="flex:0 0 auto;min-height:44px;padding:0 16px">Скласти план</button>
+            </div>
+          </div>
+          <div class="sheetp">
+            <p class="shl">Найкраще у Швеції в серпні</p>
+            <div class="presets">
+              <a class="preset" href="#h-live"><img src="https://images.unsplash.com/photo-1703579995988-0a955366ad18?w=600&q=80&auto=format&fit=crop" alt="Стежка вздовж озера Abiskojaure"><b>Kungsleden</b><small class="num">6 днів · 101 км</small></a>
+              <a class="preset" href="#h-live"><img src="https://images.unsplash.com/photo-1703579996023-943faf8c3f01?w=600&q=80&auto=format&fit=crop" alt="Долина під Kebnekaise"><b>Abisko → Kebnekaise</b><small class="num">5 днів · 82 км</small></a>
+            </div>
+          </div>
+        </div>
+        <nav class="tabbar" aria-label="Вкладки">
+          <button class="tab on" type="button" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-map-bold"/></svg>Карта</button>
+          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-document-text-linear"/></svg>Плани<span class="ct">2</span></button>
+          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-book-2-linear"/></svg>Довідник</button>
+          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-shield-check-linear"/></svg>Безпека</button>
+          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user-circle-linear"/></svg>Профіль</button>
+        </nav>
+      </div></div>
+      <p class="cap">Куди можна піти · пошук і свій маршрут</p>
+    </div>
+
+    <!-- 2 · Новий план -->
+    <div>
+      <div class="phone"><div class="screen">
+        <div class="sbar"><span>9:41</span><span><i></i><i></i></span></div>
+        <div class="scroll" style="padding:0 0 100px">
+          <div class="shot" style="height:250px">
+            <img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою над озером, Kungsleden">
+            <span class="hud">Новий план</span>
             <span class="src">Фото: Anders Norén · Unsplash</span>
             <div class="panel">
-              <div class="nums"><div><b>101</b><span>км</span></div><div><b>1 940</b><span>м набору</span></div><div><b>~7 год</b><span>найдовший</span></div></div>
-              <div class="track" aria-label="Ланцюжок ночей: 5 хиж, у Tjäktja не бронюється">
-                <div class="ax"></div>
-                <i style="left:0%"></i><em style="left:0%;transform:none">ABK</em>
-                <i style="left:20%"></i><em style="left:20%">AJ</em>
-                <i style="left:40%"></i><em style="left:40%">AL</em>
-                <i class="x" style="left:60%"></i><em style="left:60%">TJ</em>
-                <i style="left:80%"></i><em style="left:80%">SÄ</em>
-                <i style="left:100%"></i><em style="left:100%;transform:translateX(-100%)">NIK</em>
-              </div>
+              <div class="nums"><div><b>101</b><span>км</span></div><div><b>1 940</b><span>м набору</span></div><div><b>~8 год</b><span>найдовший</span></div></div>
             </div>
           </div>
           <div class="body">
             <p class="title">Kungsleden · Abisko → Nikkaluokta</p>
             <a class="brief" href="#h-comp"><span class="num">17–22 серп</span> · 2 людини · 1 член STF<svg class="ic" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></a>
-            <p class="sum">Шість днів, дах щоночі, вода вздовж усього маршруту.</p>
-            <div class="row"><span class="grad"><i></i>blå / medium</span><span class="grad rod"><i></i>röd на перевалі</span></div>
-            <div class="cond"><svg class="ic" aria-hidden="true"><use href="#i-bed-linear"/></svg><span>Одна ніч не бронюється: у Tjäktja ліжка тільки для тих, хто прийшов на місце.</span></div>
-            <div class="cta"><button class="btn btn-primary" type="button">Скласти мій план</button><button class="btn btn-icon" type="button" aria-label="Зберегти на потім"><svg class="ic" aria-hidden="true"><use href="#i-bookmark-linear"/></svg></button></div>
+            <div class="row" style="margin-bottom:6px"><span class="st st-fixed"><svg class="ic" aria-hidden="true"><use href="#i-check-circle-linear"/></svg>усе сходиться</span></div>
+            <ul class="days">
+              <li><span class="d num">1</span><span><b>Abisko → Abiskojaure</b><small class="num">14 км · ~4 год 30</small></span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+              <li><span class="d num">2</span><span><b>Abiskojaure → Alesjaure</b><small class="num">22 км · ~7 год</small></span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+              <li><span class="d num">3</span><span><b>Alesjaure → Tjäktja</b><small>тільки на місці</small></span><span class="st st-none" style="padding:5px 9px">до 18:00</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+              <li><span class="d num">4</span><span><b>Tjäktja → Sälka</b><small class="num">12 км · перевал 1 150 м</small></span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+            </ul>
           </div>
         </div>
-        <nav class="tabbar" aria-label="Вкладки">
-          <button class="tab on" type="button" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-map-bold"/></svg>Карта</button>
-          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-document-text-linear"/></svg>Плани<span class="ct">4</span></button>
-          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-book-2-linear"/></svg>Довідник</button>
-          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-shield-check-linear"/></svg>Безпека</button>
-          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user-circle-linear"/></svg>Профіль</button>
-        </nav>
+        <div class="savebar"><button class="btn btn-primary" type="button">Зберегти план</button><button class="btn btn-text" type="button" style="color:var(--ink)">Скасувати</button></div>
       </div></div>
-      <p class="cap">Карта · картка маршруту</p>
+      <p class="cap">Новий план · ще не збережений</p>
     </div>
 
-    <!-- телефон 2 · Плани -->
+    <!-- 3 · План -->
     <div>
       <div class="phone"><div class="screen">
         <div class="sbar"><span>9:41</span><span><i></i><i></i></span></div>
-        <div class="scroll" style="padding:6px 16px 110px">
-          <p class="title" style="font-size:30px;margin:8px 4px 14px">Мої походи</p>
-          <div class="alert" style="margin-bottom:12px"><b>Прогноз на Tjäktjapasset погіршився з учора</b>Ще можна перенести бронь Sälka. <span class="t">рішення до 15.08 · 12:00</span></div>
-          <div class="plan" data-plan>
-            <div class="plan-photo">
-              <img src="https://images.unsplash.com/photo-1703579995999-31348982c361?w=900&q=80&auto=format&fit=crop" alt="Будинок Abisko Turiststation зі стежкою до входу">
-              <span class="when">17–22 серпня · <b>вихід через 4 дні</b></span>
-              <span class="src" style="top:10px;right:12px">Фото: Anders Norén · Unsplash</span>
-            </div>
-            <div class="plan-in">
-              <h4>Kungsleden · Abisko → Nikkaluokta</h4>
-              <div class="meta"><span><svg class="ic" aria-hidden="true"><use href="#i-routing-2-linear"/></svg><span class="num">101 км</span></span><span><svg class="ic" aria-hidden="true"><use href="#i-users-group-rounded-linear"/></svg>двоє</span><span><svg class="ic" aria-hidden="true"><use href="#i-bed-linear"/></svg><span class="num">5 ночей</span></span></div>
-              <div class="nights" role="group" aria-label="Ночі — натисни, щоб позначити бронь">
-                <button type="button" class="b" data-n="Abiskojaure">AJ<br>бронь</button>
-                <button type="button" data-n="Alesjaure">AL<br>—</button>
-                <button type="button" class="x" data-fixed aria-disabled="true">TJ<br>на місці</button>
-                <button type="button" data-n="Sälka">SÄ<br>—</button>
-                <button type="button" data-n="Kebnekaise">KB<br>—</button>
-              </div>
-              <div class="plan-count"><span>Ночі з бронню</span><b class="js-count">1 з 4</b></div>
-              <a class="plan-next js-next" href="#h-comp"><svg class="ic" aria-hidden="true"><use href="#i-calendar-linear"/></svg><span><b>Далі — Alesjaure</b><small>бронь у STF</small></span><span class="dl">сб 15.08 · 12:00</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></a>
-              <div class="cta"><button class="btn btn-primary" type="button">Відкрити похід</button></div>
-            </div>
+        <div class="scroll" style="padding:0 0 110px">
+          <div class="shot" style="height:190px">
+            <img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою над озером, Kungsleden">
+            <span class="hud">через 4 дні</span>
+            <span class="src">Фото: Anders Norén · Unsplash</span>
+          </div>
+          <div class="body">
+            <p class="title">Kungsleden · Abisko → Nikkaluokta</p>
+            <div class="row" style="justify-content:space-between;margin-bottom:12px"><a class="brief" href="#h-comp" style="margin:0"><span class="num">17–22 серп</span> · 2 · 1 член<svg class="ic" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></a><span class="st st-limit" style="padding:5px 9px"><svg class="ic" aria-hidden="true"><use href="#i-cloud-download-linear"/></svg>офлайн ✓</span></div>
+            <div class="alert"><b>Повінь на Abiskojåkka</b>День 2: не встигаєш до Alesjaure до 18:00. <span class="t">рішення до 15.08</span></div>
+            <ul class="days" style="margin-top:10px">
+              <li><span class="d num">2</span><span><b>Abiskojaure → Alesjaure</b><small class="num">22 км · ~7 год</small></span><span class="st st-attn" style="padding:5px 9px"><svg class="ic" aria-hidden="true"><use href="#i-danger-triangle-bold"/></svg>повінь</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+              <li><span class="d num">3</span><span><b>Alesjaure → Tjäktja</b><small>тільки на місці</small></span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+              <li><span class="d num">4</span><span><b>Tjäktja → Sälka</b><small>Sälka не заброньована</small></span><span class="st st-act" style="padding:5px 9px">забронювати</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+              <li><span class="d"><svg class="ic" aria-hidden="true"><use href="#i-bus-linear"/></svg></span><span><b>Дорога назад</b><small>автобус 91 → Kiruna</small></span><span class="st st-act" style="padding:5px 9px">купити</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+            </ul>
           </div>
         </div>
         <nav class="tabbar" aria-label="Вкладки">
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-map-linear"/></svg>Карта</button>
-          <button class="tab on" type="button" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-document-text-bold"/></svg>Плани<span class="ct">4</span></button>
+          <button class="tab on" type="button" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-document-text-bold"/></svg>Плани<span class="ct">2</span></button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-book-2-linear"/></svg>Довідник</button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-shield-check-linear"/></svg>Безпека</button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user-circle-linear"/></svg>Профіль</button>
         </nav>
       </div></div>
-      <p class="cap">Плани · картка плану жива — натискай ночі</p>
+      <p class="cap">План · алерти на своїх днях</p>
+    </div>
+
+    <!-- 4 · Сьогодні -->
+    <div>
+      <div class="phone"><div class="screen">
+        <div class="sbar"><span>9:41</span><span><i></i><i></i></span></div>
+        <div class="scroll" style="padding:4px 18px 110px">
+          <div class="row" style="justify-content:space-between;align-items:flex-start;margin:6px 0 14px">
+            <div><span class="kick" style="margin:0 0 6px;display:block">Сьогодні · день 3</span><p class="title" style="margin:0">Alesjaure → Tjäktja</p></div>
+            <a class="sos" href="#h-live">SOS</a>
+          </div>
+          <div class="bigs">
+            <div><b>9 км</b><span>лишилось</span></div><div><b>~3 год</b><span>ходу</span></div><div><b>18:00</b><span>прийти до</span></div>
+          </div>
+          <div class="mapwrap mini"><svg class="topo" viewBox="0 0 370 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="370" height="330" fill="#E8ECE3"/>
+              <path d="M-10 250 C60 230 90 180 150 190 S250 250 380 210" fill="none" stroke="#CDD5C4" stroke-width="1.2"/>
+              <path d="M-10 280 C70 260 110 215 170 222 S260 280 380 245" fill="none" stroke="#CDD5C4" stroke-width="1.2"/>
+              <path d="M-10 90 C50 110 120 60 190 80 S300 40 380 70" fill="none" stroke="#CDD5C4" stroke-width="1.2"/>
+              <path d="M-10 60 C60 80 130 30 200 50 S310 10 380 40" fill="none" stroke="#CDD5C4" stroke-width="1.2"/>
+              <path d="M60 140 C110 120 150 150 200 130 S280 100 330 125" fill="none" stroke="#C3CCB8" stroke-width="1.2"/>
+              <ellipse cx="95" cy="75" rx="60" ry="16" fill="#CFE0EA" transform="rotate(-12 95 75)"/>
+              <ellipse cx="250" cy="175" rx="34" ry="10" fill="#CFE0EA"/>
+              <path d="M300 300 L230 250 L175 205 L150 160 L110 120 L70 85" fill="none" stroke="#9AA0A6" stroke-width="2" stroke-dasharray="3 4"/>
+              <path d="M70 85 L110 120 L150 160 L175 205 L230 250 L300 300" fill="none" stroke="#0F1113" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <g fill="#fff" stroke="#0F1113" stroke-width="2"><circle cx="110" cy="120" r="4"/><circle cx="150" cy="160" r="4"/><circle cx="175" cy="205" r="4"/><circle cx="162" cy="182" r="9" fill="#2D5BFF" stroke="#fff" stroke-width="3"/><circle cx="230" cy="250" r="4"/></g>
+              <circle cx="70" cy="85" r="7" fill="#0F1113"/><circle cx="300" cy="300" r="7" fill="#0F1113"/>
+              <g fill="#fff" stroke="#5E6368" stroke-width="1.5"><rect x="40" y="200" width="8" height="8" rx="2"/><rect x="310" y="120" width="8" height="8" rx="2"/><rect x="200" y="60" width="8" height="8" rx="2"/></g>
+            </svg></div>
+          <ul class="days" style="margin-top:12px">
+            <li><span class="d"><svg class="ic" aria-hidden="true"><use href="#i-bed-linear"/></svg></span><span><b>Tjäktja fjällstuga</b><small>тільки на місці · 24 ліжка</small></span><span class="st st-none" style="padding:5px 9px">до 18:00</span></li>
+          </ul>
+          <div class="alert" style="margin-top:10px"><b>Брід перед хижею</b>Після дощу вищий — переходь до 15:00. <span class="t">дощ з 15:00</span></div>
+          <button class="btn btn-secondary" type="button" style="width:100%;margin-top:12px">Написати нотатку з місця</button>
+        </div>
+        <nav class="tabbar" aria-label="Вкладки">
+          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-map-linear"/></svg>Карта</button>
+          <button class="tab on" type="button" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-document-text-bold"/></svg>Плани<span class="ct">2</span></button>
+          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-book-2-linear"/></svg>Довідник</button>
+          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-shield-check-linear"/></svg>Безпека</button>
+          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user-circle-linear"/></svg>Профіль</button>
+        </nav>
+      </div></div>
+      <p class="cap">Сьогодні · один екран, SOS постійно</p>
     </div>
 
     <!-- кнопки й стани -->
@@ -497,9 +610,30 @@
       </ul>
     </div>
     <div>
-      <h3>Картка плану</h3>
+      <h3>Картка походу</h3>
       <div class="attrs"><span class="attr"><b>1</b> Зведено</span><span class="attr"><b>3</b> Місце в кадрі</span><span class="attr"><b>4</b> Слово стверджує</span></div>
-      <p class="note" style="margin:0">Живий екземпляр — на телефоні «Плани» вище: натисни ночі, і лічильник та наступний крок перерахуються.</p>
+      <p class="note" style="margin:0">У «Моїх походах». Жива — натисни ночі, і лічильник та наступний крок перерахуються.</p>
+          <div class="plan" data-plan>
+            <div class="plan-photo">
+              <img src="https://images.unsplash.com/photo-1703579995999-31348982c361?w=900&q=80&auto=format&fit=crop" alt="Будинок Abisko Turiststation зі стежкою до входу">
+              <span class="when">17–22 серпня · <b>вихід через 4 дні</b></span>
+              <span class="src" style="top:10px;right:12px">Фото: Anders Norén · Unsplash</span>
+            </div>
+            <div class="plan-in">
+              <h4>Kungsleden · Abisko → Nikkaluokta</h4>
+              <div class="meta"><span><svg class="ic" aria-hidden="true"><use href="#i-routing-2-linear"/></svg><span class="num">101 км</span></span><span><svg class="ic" aria-hidden="true"><use href="#i-users-group-rounded-linear"/></svg>двоє</span><span><svg class="ic" aria-hidden="true"><use href="#i-bed-linear"/></svg><span class="num">5 ночей</span></span></div>
+              <div class="nights" role="group" aria-label="Ночі — натисни, щоб позначити бронь">
+                <button type="button" class="b" data-n="Abiskojaure">AJ<br>бронь</button>
+                <button type="button" data-n="Alesjaure">AL<br>—</button>
+                <button type="button" class="x" data-fixed aria-disabled="true">TJ<br>на місці</button>
+                <button type="button" data-n="Sälka">SÄ<br>—</button>
+                <button type="button" data-n="Kebnekaise">KB<br>—</button>
+              </div>
+              <div class="plan-count"><span>Ночі з бронню</span><b class="js-count">1 з 4</b></div>
+              <a class="plan-next js-next" href="#h-comp"><svg class="ic" aria-hidden="true"><use href="#i-calendar-linear"/></svg><span><b>Далі — Alesjaure</b><small>бронь у STF</small></span><span class="dl">сб 15.08 · 12:00</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></a>
+              
+            </div>
+          </div>
       <div class="states">
         <div><div class="lab">ніч — бронь · без броні · на місці · проблема</div>
           <div class="nights" style="margin:0"><button type="button" class="b" tabindex="-1">AJ<br>бронь</button><button type="button" tabindex="-1">AL<br>—</button><button type="button" class="x" tabindex="-1">TJ<br>на місці</button><button type="button" tabindex="-1" style="background:var(--hatch)" aria-label="SÄ — проблема"></button><button type="button" class="b" tabindex="-1">KB<br>бронь</button></div></div>
