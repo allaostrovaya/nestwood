@@ -12,94 +12,24 @@
 
 ⚠️ **Тут нічого не переписано.** Колонка «Позначки» лише вказує на розбіжність; що з нею робити — окреме рішення, і воно ще не ухвалене.
 
-**Правила, з якими це звіряється**, — [../design-system/voice.md](../design-system/voice.md): пʼять принципів голосу, кожен виведений з рядка в дослідженні. Ця таблиця — інвентар, voice.md — правила; розбіжність `план` / `похід` не розвʼязується жодним із них і лишається питанням глосарія.
+**Правила, з якими це звіряється**, — [../design-system/voice.md](../design-system/voice.md): пʼять принципів голосу, кожен виведений з рядка в дослідженні. Ця таблиця — інвентар, voice.md — правила; розбіжність `plan` / `trip` не розвʼязується жодним із них і лишається питанням глосарія.
 
 ## Словник позначок
 
 | Код | Що означає |
 |---|---|
-| `С1` | той самий обʼєкт: **«похід»** там, де 275 разів ужито «план» |
-| `С2` | той самий обʼєкт: **«шлях», «трейл», «траса», «трек», «подорож»** проти «маршруту» |
-| `С3` | той самий обʼєкт: **«чеклист», «інвентар»** проти «спорядження» |
-| `С5` | той самий обʼєкт: **«перехід»** проти «дня» / «ноги» |
-| `Д1`–`Д15` | та сама дія під різними назвами кнопок — розшифровка в розділі 4 |
+| `С1` | той самий обʼєкт: **«trek», «journey», «itinerary»** проти пари «plan» (документ) / «trip» (подія) |
+| `С2` | той самий обʼєкт: **«path», «track»** проти «route» / «trail» |
+| `С3` | той самий обʼєкт: **«checklist», «inventory», «packing list»** проти «gear» |
+| `С5` | той самий обʼєкт: **«stage», «segment»** проти «day» / «leg» / «section» |
+| `Д1`–`Д12` | та сама дія під різними назвами кнопок — розшифровка в розділі 4 |
 | `Т1` | піктограма або емодзі в тексті продукту |
-| `Ж` | технічний жаргон або витік службової назви екрана |
+| `Ж` | технічний жаргон або витік службової назви екрана чи файлу |
 | `З1` | заглушка макета — опис того, що буде намальовано в рамці |
 | `З2` | текст-заглушка замість змісту, якого ще немає |
-| `✎` | рядок **переписано** за `voice.md` — було/стало в розділі «Перепис» нижче |
 | `Р` | **редакційний текст** — пише автор статей або третя сторона, не продуктовий копірайтер |
 
----
-
-## Перепис за voice.md — було / стало
-
-65 замін на 21 сторінках, 43 правил. Змінено **тільки текст**: розмітка, зони, порядок секцій і навігація не чіпались, аудит лишився на нулі. Застосовує `_rewrite.py`, там же лежать самі правила — правити треба їх, а не цей файл.
-
-Обсяг: десять екранів головного флоу та їхні стани `-empty`, `-error`, `-loading`.
-
-### Звертання — «ти» замість «ви»
-
-| Було | Стало | Де | Чому |
-|---|---|---|---|
-| «ваша форма → складність» | **«твоя форма → складність»** | `day` | звертання |
-| Ви обрали ночівлю без броні. | **У брифі — ночівля без броні.** | `lock-in-empty` | звертання: «ти» + минулий час вимагав би роду |
-| Відмовило джерело, а не ваш вибір. | **Відмовило джерело, а не твій вибір.** | `route-error` | звертання |
-| Навіщо ви тут | **Навіщо ти тут** | `share` | звертання |
-| Що вам гарантовано | **Що тобі гарантовано** | `night-empty`, `night-error`, `night` | звертання |
-| а поставити намет між ними ви не хотіли. Дати ви позначили як жорсткі | **а намету між ними в брифі немає. Дати позначені як жорсткі** | `plan-empty` | звертання: «ти» + минулий час вимагав би роду |
-| без ваших дат і складу | **без твоїх дат і складу** | `route-empty`, `route` | звертання |
-| від того місця, де ви є | **від того місця, де ти є** | `night` | звертання |
-| від чого залежить, що вам дістанеться | **від чого залежить, що тобі дістанеться** | `lock-in-empty` | звертання |
-| засумнівався у вашому рішенні йти — і вам треба | **засумнівався у твоєму рішенні йти — і тобі треба** | `share` | звертання |
-| мовою, якою ви читаєте | **мовою, якою ти читаєш** | `lock-in` | звертання |
-| не вкладається у ваші дати чи тривалість | **не вкладається у твої дати чи тривалість** | `catalogue` | звертання |
-| не тримаємо ваших платіжних даних, не гарантуємо ліжко й не скасовуємо бронь за вас | **не тримаємо твоїх платіжних даних, не гарантуємо ліжко й не скасовуємо бронь за тебе** | `lock-in` | звертання |
-| під вашим номером члена | **під твоїм номером члена** | `lock-in-empty`, `lock-in` | звертання |
-| те, що ви тут поставите, стане параметрами плану | **те, що ти тут поставиш, стане параметрами плану** | `catalogue-empty`, `catalogue` | звертання |
-| у якій хижі ви ночуєте | **у якій хижі ночуєш** | `plan` | звертання |
-| цей маршрут ви відкриваєте вперше | **цей маршрут ти відкриваєш уперше** | `transport-error` | звертання |
-| чи вкладаються вони у вашу подорож | **чи вкладаються вони у твій похід** | `catalogue` | звертання + словник: подорож → похід |
-| читається з вашого профілю | **читається з твого профілю** | `lock-in-error` | звертання |
-| єдиний слід вашої присутності | **єдиний слід твоєї присутності** | `lock-in-empty` | звертання |
-
-### Словник — одне поняття, одне слово
-
-| Було | Стало | Де | Чому |
-|---|---|---|---|
-| Відкрити транспорт | **Дорога туди й назад** | `lock-in-empty`, `lock-in-error`, `lock-in`, `plan-empty`, `plan-error` | словник: job 6 про обидва напрямки, «транспорт» губить «назад» |
-| Оновити інвентар | **Оновити моє спорядження** | `gear` | словник: інвентар → спорядження |
-| Кожен перехід відповідає вашому темпу | **Кожен день лягає в твій темп** | `plan` | словник: перехід → день · звертання |
-| Оформлення відбувається в системах STF і Länstrafiken | **Бронювання відбувається в системах STF і Länstrafiken** | `lock-in` | словник: у їхній системі — «забронювати», не «оформити» |
-| Розкладаю переходи під вашу форму | **Розкладаю дні під твою форму** | `plan-loading` | словник: перехід → день · звертання |
-| ваш найдовший перехід торік — 24 км | **твій найдовший день торік — 24 км** | `day` | словник: перехід → день · звертання |
-| оформити ночі 2, 3 і 4 просто зараз не вийде | **забронювати ночі 2, 3 і 4 просто зараз не вийде** | `lock-in-error` | словник: оформити → забронювати |
-| трейлхеди, до яких є транспорт | **старти маршрутів, до яких є транспорт** | `catalogue` | словник: трейлхед — слово чужої категорії |
-| цей похід не потребує жодного оформлення | **у цьому поході нічого не бронюється наперед** | `lock-in-empty` | словник: оформити → забронювати |
-
-### Кнопки — одна дія, одна назва
-
-| Було | Стало | Де | Чому |
-|---|---|---|---|
-| Інший маршрут | **Обрати інший маршрут** | `plan-empty`, `plan-error`, `route-empty`, `route-loading`, `route` | Д8: одна дія — одна назва |
-| Зібрати під бриф | **Зібрати маршрут під бриф** | `plan-empty` | Д3: одна дія — одна назва |
-| Обрати маршрут | **Обрати інший маршрут** | `plan-empty` | Д8: одна дія — одна назва |
-| Повернутись до плану | **До плану по днях** | `transport-error` | Д9: дві назви на одному екрані |
-| Точки сходу | **Найближчі точки сходу** | `transport-empty` | Д14: одна дія — одна назва |
-| Що змінилось | **Що змінилось і що ще можна зробити** | `plan`, `share`, `transport-error` | одна назва екрана скрізь |
-| Інша хижа на цю ніч | **Замінити ніч 3** | `night` | Д5: словник — замінюється ніч, не будівля |
-| Гарантія й доступ на цю ніч | **Ніч 3 — гарантія й доступ** | `day` | Д4: одна дія — одна назва |
-| Гарантія на цю ніч | **Ніч 3 — гарантія й доступ** | `day` | Д4: дві назви на одному екрані |
-| Замінити цю ніч | **Замінити ніч 3** | `night-empty` | Д5: одна дія — одна назва |
-| Надіслати маршрут і час повернення | **Передати маршрут і час повернення** | `share` | Д1: словник — «передати», екран так і зветься |
-| Ніч: гарантія й доступ | **Ніч 3 — гарантія й доступ** | `lock-in-empty`, `night-empty`, `night-error`, `night` | Д4: одна дія — одна назва |
-
-### Заборонене
-
-| Було | Стало | Де | Чому |
-|---|---|---|---|
-| Abiskojaure ✓ · Alesjaure ✓ · Tjäktja — не бронюється · Sälka ✗ · Kebnekaise ✓ | **Abiskojaure заброньовано · Alesjaure заброньовано · Tjäktja не бронюється · Sälka без броні · Kebnekaise заброньовано** | `plan` | заборонене 5: індикатор — слово, не значок |
-| спробуйте пізніше або поверніться до кроку, який не залежить від STF | **спробуй ще раз або візьмись за крок, який від STF не залежить** | `lock-in-error` | заборонене 1: «спробуйте пізніше» · звертання |
+Позначка `✎` («переписано за voice.md») була в українській версії й зникла разом із нею: переклад 2026-09-24 замінив увесь текст, тож було/стало з `_rewrite.py` більше ні на що не вказує.
 
 ## 1. Глобальний хром — винесено з таблиці
 
@@ -147,7 +77,7 @@
 | Map | map · Sweden · preset route lines · start/finish points: stations, trailheads, huts · own route drawn: Abisko Turiststation → Nikkaluokta | заглушка макета | `З1` |
 | Map | your route · 101 km · 6 days · 5 huts | підпис |  |
 | Map | Abisko Turiststation → Nikkaluokta | підпис |  |
-| Map | Make a plan | кнопка |  |
+| Map | Make a plan | кнопка | `Д3` |
 | Map | Clear points | кнопка |  |
 | Best in Sweden in August | Best in Sweden in August | заголовок зони |  |
 | Best in Sweden in August | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
@@ -240,7 +170,7 @@
 | What you need | seasonal normal · +6…+14 °C, rain every third day | підпис |  |
 | What you need | Weather in August | підпис |  |
 | What you need | 23 items · 11.4 kg | підпис |  |
-| What you need | Gear | пункт списку |  |
+| What you need | Gear | пункт списку | `Д6` |
 | What you need | 2 missing | індикатор |  |
 | What you need | 2,500 SEK nights per person · transport 1,430 SEK | підпис |  |
 | What you need | Cost | підпис |  |
@@ -267,7 +197,7 @@
 | Notes and reviews | Bridge before Tjäktja washed out | пункт списку |  |
 | Notes and reviews | day 3 | індикатор |  |
 | Notes and reviews | 128 · latest 13 Aug | підпис |  |
-| Notes and reviews | Reviews | пункт списку |  |
+| Notes and reviews | Reviews | пункт списку | `Д9` |
 | Notes and reviews | 4.3 | індикатор |  |
 | Save | Save | заголовок зони |  |
 | Save | Save plan | кнопка |  |
@@ -315,7 +245,7 @@
 | What you need | seasonal normal · +6…+14 °C, rain every third day | підпис |  |
 | What you need | Weather in August | підпис |  |
 | What you need | 23 items · 11.4 kg | підпис |  |
-| What you need | Gear | пункт списку |  |
+| What you need | Gear | пункт списку | `Д6` |
 | What you need | 2 missing | індикатор |  |
 | What you need | 2,500 SEK nights per person · transport 1,430 SEK | підпис |  |
 | What you need | Cost | підпис |  |
@@ -342,7 +272,7 @@
 | Notes and reviews | Bridge before Tjäktja washed out | пункт списку |  |
 | Notes and reviews | day 3 | індикатор |  |
 | Notes and reviews | 128 · latest 13 Aug | підпис |  |
-| Notes and reviews | Reviews | пункт списку |  |
+| Notes and reviews | Reviews | пункт списку | `Д9` |
 | Notes and reviews | 4.3 | індикатор |  |
 | Save | Save | заголовок зони |  |
 | Save | Choose one of the options | кнопка |  |
@@ -364,7 +294,7 @@
 | Plan status | Plan status | заголовок зони |  |
 | Plan status | Couldn’t build the plan | повідомлення стану |  |
 | Plan status | Trail data is unavailable right now. Try again in a minute. | повідомлення стану |  |
-| Plan status | Try again | кнопка |  |
+| Plan status | Try again | кнопка | `Д11` |
 | Route | Route | заголовок зони |  |
 | Route | No trail data. | текст |  |
 | What you need | What you need | заголовок зони |  |
@@ -403,7 +333,7 @@
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
 | — | ✕ Close | кнопка | `Т1` |
-| — | Another hut | заголовок екрана |  |
+| — | Another hut | заголовок екрана | `Д4` |
 | — | Night 4 · another hut | заголовок екрана |  |
 | Filters | Filters | заголовок зони |  |
 | Filters | within 5 km of the trail | кнопка |  |
@@ -429,7 +359,7 @@
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
 | — | ✕ Close | кнопка | `Т1` |
-| — | Another hut | заголовок екрана |  |
+| — | Another hut | заголовок екрана | `Д4` |
 | — | Night 4 · another hut | заголовок екрана |  |
 | Filters | Filters | заголовок зони |  |
 | Filters | within 5 km of the trail | кнопка |  |
@@ -474,11 +404,11 @@
 | On site | Sauna | підпис |  |
 | On site | names and membership numbers | підпис |  |
 | On site | Logbook | підпис |  |
-| Field notes | Field notes | заголовок зони |  |
+| Field notes | Field notes | заголовок зони | `Д8` |
 | Field notes | note · 8 Aug | підпис |  |
 | Field notes | Beds ran out at 16:00 | пункт списку |  |
 | In your plan | In your plan | заголовок зони |  |
-| In your plan | Stay here on night 4 | кнопка |  |
+| In your plan | Stay here on night 4 | кнопка | `Д4` |
 | футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 ### Map · Notes and reviews
@@ -491,15 +421,15 @@
 | — | Notes and reviews | заголовок екрана |  |
 | — | Alesjaure → Tjäktja | заголовок екрана |  |
 | Show | Show | заголовок зони |  |
-| Show | Field notes | посилання |  |
-| Show | Reviews | посилання |  |
-| Field notes | Field notes | заголовок зони |  |
+| Show | Field notes | посилання | `Д8` |
+| Show | Reviews | посилання | `Д9` |
+| Field notes | Field notes | заголовок зони | `Д8` |
 | Field notes | 6 Aug · ford knee-deep, waist-deep after rain | підпис |  |
 | Field notes | Bridge before Tjäktja washed out | підпис |  |
 | Field notes | in your plan | індикатор |  |
 | Field notes | 3 Aug · follow the cairns | підпис |  |
 | Field notes | Sparse waymarks after the ford | підпис |  |
-| Reviews | Reviews | заголовок зони |  |
+| Reviews | Reviews | заголовок зони | `Д9` |
 | Reviews | 8–13 Aug · got a mattress on the floor | підпис |  |
 | Reviews | Beds at Sälka ran out at 16:00 | підпис |  |
 | Reviews | 4 of 5 | індикатор |  |
@@ -526,11 +456,11 @@
 | — | Notes and reviews | заголовок екрана |  |
 | — | Alesjaure → Tjäktja | заголовок екрана |  |
 | Show | Show | заголовок зони |  |
-| Show | Field notes | посилання |  |
-| Show | Reviews | посилання |  |
-| Field notes | Field notes | заголовок зони |  |
+| Show | Field notes | посилання | `Д8` |
+| Show | Reviews | посилання | `Д9` |
+| Field notes | Field notes | заголовок зони | `Д8` |
 | Field notes | No notes for this section yet. | текст |  |
-| Reviews | Reviews | заголовок зони |  |
+| Reviews | Reviews | заголовок зони | `Д9` |
 | Reviews | No reviews yet. | текст |  |
 | Write a note | Write a note | заголовок зони |  |
 | Write a note | trail | кнопка |  |
@@ -558,7 +488,7 @@
 | Overview | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
 | Overview | offline ✓ | підпис | `Т1` |
 | Overview | 17–22 August · 2 people · 1 STF member | підпис |  |
-| Overview | Share my route | кнопка |  |
+| Overview | Share my route | кнопка | `Д1` |
 | Overview | Change plan | розкривач |  |
 | Overview | Booking and ticket marks in the plan will be reset. They stay in STF and SJ — cancel there if you need to. | текст |  |
 | Overview | Change and reset | кнопка |  |
@@ -581,7 +511,7 @@
 | About the trip | both STF members | підпис |  |
 | About the trip | Membership and key | пункт списку |  |
 | About the trip | 23 items · 11.4 kg | підпис |  |
-| About the trip | Gear | пункт списку |  |
+| About the trip | Gear | пункт списку | `Д6` |
 | About the trip | 1 missing | індикатор |  |
 | About the trip | met.no forecast · 13 Aug 09:12 | підпис |  |
 | About the trip | Weather | підпис |  |
@@ -599,7 +529,7 @@
 | Days | 3 · Alesjaure → Tjäktja | пункт списку |  |
 | Days | 12 km · pass 1,150 m · Sälka not booked | підпис |  |
 | Days | 4 · Tjäktja → Sälka | пункт списку |  |
-| Days | book | індикатор |  |
+| Days | book | індикатор | `Д2` |
 | Days | 26 km · ~8 h | підпис |  |
 | Days | 5 · Sälka → Kebnekaise | пункт списку |  |
 | Days | 19 km · ~5 h | підпис |  |
@@ -621,13 +551,13 @@
 | Overview | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
 | Overview | offline ✓ | підпис | `Т1` |
 | Overview | 17–22 August · 2 people · 1 STF member | підпис |  |
-| Overview | Share my route | кнопка |  |
+| Overview | Share my route | кнопка | `Д1` |
 | Overview | Change plan | розкривач |  |
 | Overview | Booking and ticket marks in the plan will be reset. They stay in STF and SJ — cancel there if you need to. | текст |  |
 | Overview | Change and reset | кнопка |  |
 | Needs attention | Needs attention | заголовок зони |  |
 | Needs attention | Couldn’t update. Data from 13 August, 09:12. | текст |  |
-| Needs attention | Try again | кнопка |  |
+| Needs attention | Try again | кнопка | `Д11` |
 | Route | Route | заголовок зони |  |
 | Route | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
 | Route | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
@@ -643,7 +573,7 @@
 | About the trip | both STF members | підпис |  |
 | About the trip | Membership and key | пункт списку |  |
 | About the trip | 23 items · 11.4 kg | підпис |  |
-| About the trip | Gear | пункт списку |  |
+| About the trip | Gear | пункт списку | `Д6` |
 | About the trip | 1 missing | індикатор |  |
 | About the trip | met.no forecast · 13 Aug 09:12 | підпис |  |
 | About the trip | Weather | підпис |  |
@@ -661,7 +591,7 @@
 | Days | 3 · Alesjaure → Tjäktja | пункт списку |  |
 | Days | 12 km · pass 1,150 m · Sälka not booked | підпис |  |
 | Days | 4 · Tjäktja → Sälka | пункт списку |  |
-| Days | book | індикатор |  |
+| Days | book | індикатор | `Д2` |
 | Days | 26 km · ~8 h | підпис |  |
 | Days | 5 · Sälka → Kebnekaise | пункт списку |  |
 | Days | 19 km · ~5 h | підпис |  |
@@ -683,7 +613,7 @@
 | Overview | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
 | Overview | offline pack from 14 Aug | підпис |  |
 | Overview | 17–22 August · 2 people · 1 STF member | підпис |  |
-| Overview | Share my route | кнопка |  |
+| Overview | Share my route | кнопка | `Д1` |
 | Overview | Change plan | розкривач |  |
 | Overview | Booking and ticket marks in the plan will be reset. They stay in STF and SJ — cancel there if you need to. | текст |  |
 | Overview | Change and reset | кнопка |  |
@@ -704,7 +634,7 @@
 | About the trip | both STF members | підпис |  |
 | About the trip | Membership and key | пункт списку |  |
 | About the trip | 23 items · 11.4 kg | підпис |  |
-| About the trip | Gear | пункт списку |  |
+| About the trip | Gear | пункт списку | `Д6` |
 | About the trip | 1 missing | індикатор |  |
 | About the trip | met.no forecast · 13 Aug 09:12 | підпис |  |
 | About the trip | Weather | підпис |  |
@@ -722,7 +652,7 @@
 | Days | 3 · Alesjaure → Tjäktja | пункт списку |  |
 | Days | 12 km · pass 1,150 m · Sälka not booked | підпис |  |
 | Days | 4 · Tjäktja → Sälka | пункт списку |  |
-| Days | book | індикатор |  |
+| Days | book | індикатор | `Д2` |
 | Days | 26 km · ~8 h | підпис |  |
 | Days | 5 · Sälka → Kebnekaise | пункт списку |  |
 | Days | 19 km · ~5 h | підпис |  |
@@ -744,13 +674,13 @@
 | Overview | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
 | Overview | offline ✓ | підпис | `Т1` |
 | Overview | 17–22 August · 2 people · 1 STF member | підпис |  |
-| Overview | Share my route | кнопка |  |
+| Overview | Share my route | кнопка | `Д1` |
 | Overview | Change plan | розкривач |  |
 | Overview | Booking and ticket marks in the plan will be reset. They stay in STF and SJ — cancel there if you need to. | текст |  |
 | Overview | Change and reset | кнопка |  |
 | Needs attention | Needs attention | заголовок зони |  |
 | Needs attention | Walked 17–22 August 2025. | текст |  |
-| Needs attention | Plan again from this trip | кнопка |  |
+| Needs attention | Plan again from this trip | кнопка | `Д3` |
 | Route | Route | заголовок зони |  |
 | Route | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
 | Route | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
@@ -766,7 +696,7 @@
 | About the trip | both STF members | підпис |  |
 | About the trip | Membership and key | пункт списку |  |
 | About the trip | 23 items · 11.4 kg | підпис |  |
-| About the trip | Gear | пункт списку |  |
+| About the trip | Gear | пункт списку | `Д6` |
 | About the trip | as it was: two rainy days out of five | підпис |  |
 | About the trip | Weather | підпис |  |
 | About the trip | 2,500 SEK nights per person · transport 1,430 SEK | підпис |  |
@@ -854,7 +784,7 @@
 | On this section | higher after rain — cross before 15:00 | підпис |  |
 | On this section | Ford before the hut | пункт списку |  |
 | On this section | ford | індикатор |  |
-| On this section | Write a field note | кнопка |  |
+| On this section | Write a field note | кнопка | `Д8` |
 | Weather | Weather | заголовок зони |  |
 | Weather | +9 °C · rain from 15:00 · wind 7 m/s | текст |  |
 | футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
@@ -940,7 +870,7 @@
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
 | — | ✕ Close | кнопка | `Т1` |
-| — | Book | заголовок екрана |  |
+| — | Book | заголовок екрана | `Д2` |
 | — | Night 4 · Sälka fjällstuga | заголовок екрана |  |
 | What you’re booking | What you’re booking | заголовок зони |  |
 | What you’re booking | 2 beds · member rate · 900 SEK for two | підпис |  |
@@ -957,9 +887,9 @@
 | Order | after Sälka | підпис |  |
 | Order | 3 · Kebnekaise fjällstation | підпис |  |
 | Order | STF takes payment for one night before the next. | текст |  |
-| Book | Book | заголовок зони |  |
+| Book | Book | заголовок зони | `Д2` |
 | Book | Booking and payment happen in STF’s system. Dates and number of beds are filled in. | текст |  |
-| Book | Open STF booking ↗ | кнопка |  |
+| Book | Open STF booking ↗ | кнопка | `Д2` |
 | After booking | After booking | заголовок зони |  |
 | After booking | Booking number | підпис поля |  |
 | After booking | STF-2026-… | плейсхолдер поля |  |
@@ -974,8 +904,8 @@
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
 | — | ‹ Plan | кнопка |  |
-| — | Gear | заголовок екрана |  |
-| — | Gear | заголовок екрана |  |
+| — | Gear | заголовок екрана | `Д6` |
+| — | Gear | заголовок екрана | `Д6` |
 | Pack | Pack | заголовок зони |  |
 | Pack | three self-service nights — no blankets | підпис |  |
 | Pack | sleeping bag −5 °C | підпис |  |
@@ -990,8 +920,8 @@
 | Pack | shared | підпис |  |
 | Pack | first-aid kit | підпис |  |
 | Pack | 19 of 23 packed · 11.4 kg | текст |  |
-| My gear | My gear | заголовок зони |  |
-| My gear | Open inventory | кнопка |  |
+| My gear | My gear | заголовок зони | `Д6` |
+| My gear | Open inventory | кнопка | `С3` `Д6` |
 | футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 ### Plans · My trips
@@ -1000,8 +930,8 @@
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | My trips | заголовок екрана |  |
-| — | My trips | заголовок екрана |  |
+| — | My trips | заголовок екрана | `Д5` |
+| — | My trips | заголовок екрана | `Д5` |
 | Upcoming | Upcoming | заголовок зони |  |
 | Upcoming | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
 | Upcoming | in 4 days | індикатор |  |
@@ -1016,8 +946,8 @@
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | My trips | заголовок екрана |  |
-| — | My trips | заголовок екрана |  |
+| — | My trips | заголовок екрана | `Д5` |
+| — | My trips | заголовок екрана | `Д5` |
 | Upcoming | Upcoming | заголовок зони |  |
 | Upcoming | No trips yet. | текст |  |
 | Upcoming | Where to go | кнопка |  |
@@ -1032,8 +962,8 @@
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
 | — | ‹ Plan | кнопка |  |
-| — | Share my route | заголовок екрана |  |
-| — | Share my route | заголовок екрана |  |
+| — | Share my route | заголовок екрана | `Д1` |
+| — | Share my route | заголовок екрана | `Д1` |
 | Message | Message | заголовок зони |  |
 | Message | Kungsleden, Abisko → Nikkaluokta · 17–22 August | підпис |  |
 | Message | Route | підпис |  |
@@ -1144,14 +1074,14 @@
 | If it’s happening now | 67°55′14″N 18°37′02″E · 8 m · 3 min ago | підпис |  |
 | If it’s happening now | My coordinates | підпис |  |
 | If it’s happening now | Alesjaure — 6.2 km back, then the boat | підпис |  |
-| If it’s happening now | Nearest bail-out point | пункт списку |  |
+| If it’s happening now | Nearest bail-out point | пункт списку | `Д10` |
 | If it’s happening now | 2 of 5 · NVE Varsom · 06:00 | підпис |  |
 | If it’s happening now | Avalanche danger | підпис |  |
 | First aid | First aid | заголовок зони |  |
 | First aid | Røde Kors · Röda Korset · work offline | підпис |  |
 | First aid | First-aid cards | пункт списку |  |
 | Who knows where you are | Who knows where you are | заголовок зони |  |
-| Who knows where you are | Share my route | кнопка |  |
+| Who knows where you are | Share my route | кнопка | `Д1` |
 | Before you go | Before you go | заголовок зони |  |
 | Before you go | nine rules for the mountains | підпис |  |
 | Before you go | Fjellvett | пункт списку |  |
@@ -1194,9 +1124,9 @@
 | Mine | STF · valid until February 2027 | підпис |  |
 | Mine | Membership and key | пункт списку |  |
 | Mine | 19 items | підпис |  |
-| Mine | My gear | пункт списку |  |
+| Mine | My gear | пункт списку | `Д6` |
 | Mine | 1 upcoming · 1 past | підпис |  |
-| Mine | My trips | пункт списку |  |
+| Mine | My trips | пункт списку | `Д5` |
 | футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 ### Profile · Membership and key
@@ -1235,8 +1165,8 @@
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
 | — | ✕ Close | кнопка | `Т1` |
-| — | My gear | заголовок екрана |  |
-| — | My gear | заголовок екрана |  |
+| — | My gear | заголовок екрана | `Д6` |
+| — | My gear | заголовок екрана | `Д6` |
 | What you have | What you have | заголовок зони |  |
 | What you have | sleeping bag −5 °C · mat | підпис |  |
 | What you have | Sleep | підпис |  |
@@ -1264,7 +1194,7 @@
 | Account | Account | заголовок зони |  |
 | Account | signed in with Apple | підпис |  |
 | Account | kristin@email | підпис |  |
-| Account | Sign out | кнопка |  |
+| Account | Sign out | кнопка | `Д12` |
 | Account | Delete account | кнопка |  |
 | Trail mode | Trail mode | заголовок зони |  |
 | Trail mode | Turn on when the trip starts | підпис |  |
@@ -1287,48 +1217,63 @@
 
 ## 3. Той самий предмет під різними іменами
 
-### Багатоденна подорож  ·  `С1`
+### Багатоденний обʼєкт  ·  `С1`
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
+| **plan** | 68 | 33 |  |
+| **trip** | 21 | 10 |  |
 
 ### Лінія на місцевості  ·  `С2`
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
+| **route** | 26 | 12 |  |
+| **trail** | 75 | 33 |  |
+| **path** | 11 | 9 |  |
 
-### Список речей  ·  `С3`
+### Речі  ·  `С3`
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
+| **gear** | 12 | 9 |  |
+| **pack** | 10 | 5 |  |
+| **inventory** | 1 | 1 | `gear.html` |
 
 ### Ночівля
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
+| **hut** | 73 | 32 |  |
+| **night** | 32 | 21 |  |
+| **stay** | 9 | 9 |  |
+| **bed** | 46 | 31 |  |
 
 ### Денний відрізок  ·  `С5`
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
+| **day** | 78 | 22 |  |
+| **leg** | 9 | 9 |  |
+| **section** | 7 | 6 |  |
 
-### Закріпити ночівлі
+### Бронювання
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
+| **book / booking** | 31 | 12 |  |
 
 **Що з цього справді розбіжність, а що ні.**
 
-- **`план` / `похід` — 275 проти 111, і обидва живі.** Це не викид, а два імені одного обʼєкта, що ходять поруч: «Мої походи» веде на «План по днях», «До чеклиста цього походу» стоїть поряд із «Поділитися планом». Найбільша розбіжність у наборі.
-- **`трек`, `подорож`, `трейл`, `шлях`, `етап`, `резервувати` — одиничні.** Це вже не система, а випадковість: кожне трапилось 1–3 рази на 1–3 екранах. «Траси» в наборі немає жодної.
-- **`маршрут` / `стежка` — 245 проти 124, і це, схоже, НЕ розбіжність.** Схоже, тут два різні обʼєкти: маршрут це те, що ми пропонуємо, стежка — те, по чому йдуть, і вона ж джерело даних (Turrutebasen). Перевірити навмисність, перш ніж зводити.
-- **`хижа` / `ніч` / `ночівля` / `ліжко` — теж, найпевніше, чотири різні обʼєкти**, а не синоніми: обʼєкт, календарна ніч, факт ночівлі й одиниця гарантії. Але вони вживаються поруч у тих самих рядках, і на око межа не тримається.
-- **`чеклист` (7) та `інвентар` (6) проти `спорядження` (63)** — два рідкісні імені для того, що всюди зветься спорядженням.
-- **`бронювати` (205) / `закріпити` (43) / `оформити` (21)** — тут розбіжність може бути навмисною: «бронювати» це дія офіційної системи, «закріпити» — наша. Але «оформити» не належить ні туди, ні туди.
+- **`plan` / `trip` — 68 проти 21.** Після перекладу це свідомий поділ, а не розкол: «trip» — похід як подія в житті людини («My trips», «About the trip», «Plan again from this trip»), «plan» — документ, який ми склали й міняємо («New plan», «Save plan», «Change plan»). Межа: «trip» ніколи не стоїть на дії, що змінює документ.
+- **`route` / `trail` — 26 проти 75, і це не розбіжність.** Два обʼєкти: route — те, що ми пропонуємо; trail — те, по чому йдуть, і джерело даних (Turrutebasen). `path` (11) живе лише в описах фото й місць на стежці.
+- **`hut` / `night` / `stay` / `bed` — чотири обʼєкти, а не синоніми**: обʼєкт, календарна ніч, факт ночівлі й одиниця гарантії. Англійська тримає межу краще за українську: «Stay here on night 4» вживає два з них в одному рядку, кожне у своєму значенні.
+- **`gear` (12) проти `inventory` (1) і `checklist` (0)** — «Open inventory» єдиний рідкісний напис для того, що всюди зветься gear.
+- **`book` (31) — єдине дієслово бронювання.** `reserve`, `lock in`, `secure` трапляються 0 разів: розрізнення «забронювати / закріпити» з української версії в англійській не відтворилось, і воно не потрібне — бронює завжди офіційна система, а ми показуємо, що лишилось забронювати.
 
 ### Шапка й заголовок кажуть те саме двічі — 13 з 33
 
-У смузі згори й у `h1` під нею стоїть один і той самий рядок, і людина бачить його двічі підряд. На решті 20 екранів `h1` натомість несе **імʼя самого обʼєкта** — `route.html` каже «Kungsleden · Abisko → Nikkaluokta» під шапкою «Картка маршруту», `night.html` — «Ніч 3 · Tjäktja» під шапкою «Ніч». Тобто в наборі співіснують два різні рішення про те, що робить `h1`.
+У смузі згори й у `h1` під нею стоїть один і той самий рядок, і людина бачить його двічі підряд. На решті 20 екранів `h1` натомість несе **імʼя самого обʼєкта** — `plan.html` каже «Kungsleden · Abisko → Nikkaluokta» під шапкою «Plan», `day.html` — «Day 3 · Wed 19 August» під шапкою «Day». Тобто в наборі співіснують два різні рішення про те, що робить `h1`: на хабах вкладок повтор свідомий (великий заголовок iOS), на екранах обʼєкта — ні.
 
 | Екран | Рядок |
 |---|---|
@@ -1350,11 +1295,24 @@
 
 ## 4. Та сама дія під різними назвами кнопок
 
-**Три з цих кластерів варті окремої уваги.**
+### `Д3` · Скласти план — 2 назв
 
-- **`Д1` — пʼять назв на одну дію**, і вони не синоніми за відтінком: «Надіслати», «Передати», «Поділитися» і «Сказати близьким, де ми» описують ту саму передачу підсумку, але останнє звучить як інша функція.
-- **`Д2` містить витік службової назви**: `Закріпити ночівлі — екран lock-in, крок 8` стоїть на `plan-conflict.html` і `plan-offline.html`. «Екран lock-in» — це імʼя файлу, а не те, що людина має прочитати.
-- **`Д4` роздутий нумерацією**: пʼять рядків «Ніч 1–5 — гарантія й доступ» це один патерн, а не пʼять назв. Різних формулювань там сім, і всі сім описують один перехід.
+| Напис на кнопці | Де стоїть |
+|---|---|
+| Make a plan | `catalogue.html` |
+| Plan again from this trip | `plan-past.html` |
+
+### `Д8` · Нотатки з місця — 2 назв
+
+| Напис на кнопці | Де стоїть |
+|---|---|
+| Field notes | `notes-empty.html`, `notes.html` |
+| Write a field note | `day-intrip.html` |
+
+**Кластерів, де одна дія має два й більше написи: 2 з 12.** Жоден не є розбіжністю:
+
+- `Д3` — «Make a plan» — з нуля, «Plan again from this trip» — з минулого походу: дві точки входу однієї дії, і це свідомо
+- `Д8` — прочитати нотатки й написати свою — сусідні дії над одним обʼєктом, а не синоніми
 
 ### Найгостріше: дві назви однієї дії на одному екрані
 
@@ -1365,9 +1323,9 @@
 | Екран | Кластер | Кнопки, що стоять поруч | Вердикт |
 |---|---|---|---|
 
-**0 пар потрапило у фільтр, із них 0 — справді одна дія двома написами.** Решта — моє надто широке групування, і це теж корисно знати: воно показує, де межа між двома діями тримається тільки на довшому написі.
+**Жодної такої пари в наборі немає.**
 
-Найгостріші три: `day.html` пропонує «Гарантія й доступ на цю ніч» і «Гарантія на цю ніч» — два написи на той самий перехід, в одному екрані. `plan-conflict.html` тримає «Замінити ночівлю на день 3», «Замінити ніч» та «Інша хижа на цю ніч» одночасно. А `plans.html` ставить поруч «Відкрити план» і «Відкрити похід» — розкол `план / похід` із розділу 3, видимий в одному рядку.
+Два написи однієї дії поруч на одному екрані — найгостріший вид розбіжності, бо людина бачить обидва водночас. Українська версія мала їх кілька («Гарантія на цю ніч» поруч із «Гарантія й доступ на цю ніч»); англійська писалась одразу з одним написом на дію.
 
 ---
 
@@ -1375,7 +1333,7 @@
 
 **Окличних знаків у наборі: 0.** Бадьорого тону, «Ой, щось пішло не так», «Вітаємо» і подібного немає — перевірено пошуком по словах. Це рідкість, і її варто зберегти.
 
-**Помилки говорять однаково**: на обох екранах помилки (`new-plan-error`, `plan-error`) дія одна — `Спробувати ще раз`.
+**Помилки говорять однаково**: на екранах помилки (`new-plan-error`, `plan-error`) дія одна — `Try again`.
 
 ### Піктограми — 12 рядків  ·  `Т1`
 
@@ -1384,7 +1342,7 @@
 | ✕ Close | кнопка | 9 екранів | функційний хрестик закриття — не порушення |
 | offline ✓ | підпис | `plan-error.html`, `plan-past.html`, `plan.html` | ✓/✗ як індикатор — контракт вимагає слова, не значка |
 
-**Із чотирьох різних рядків хрестик закриття питань не викликає, решта три — викликають.** `_next.md` каже: «індикатор — слово, не кольорова крапка». Рядок `Abiskojaure ✓ · Alesjaure ✓ · Tjäktja — не бронюється · Sälka ✗ · Kebnekaise ✓` на `plan.html` і `plan-intrip.html` змішує обидва підходи в одному рядку: два стани словом, три значком. А ⚠️ на `settings.html` — це стиль наших документів (`CLAUDE.md` повний таких), який просочився в текст продукту.
+**Хрестик закриття питань не викликає — це системний жест.** `offline ✓` на плані — інша річ: `_next.md` каже «індикатор — слово, не значок», і тут слово є («offline»), а галочка лише підсилює його. Лишається під наглядом: у стані `plan-offline` замість неї стоїть дата пакета, тобто значок і слово вже роз’їхались по станах.
 
 ---
 
@@ -1424,13 +1382,12 @@
 
 ### `З2` · Текст замість змісту — 0 рядків
 
-Це вже інше: тут стоїть **опис того, що напишуть**, у місці, де людина чекає сам зміст. Усе — на 0 екранах: трьох редакційних і на `safety.html`, де про це сказано прямо.
+Це вже інше: тут стоїть **опис того, що напишуть**, у місці, де людина чекає сам зміст. Таких рядків 0 на 0 екранах.
 
 | Екран | Зона | Рядок |
 |---|---|---|
 
-**`first-aid.html` майже цілком складається з таких рядків.** «Ознаки · що робити перші 10 хвилин · чого не робити» — це план статті, а не стаття; «Røde Kors · цитата з атрибуцією» — нотатка про те, звідки візьмуть текст. Причина відома й записана: медичний зміст ми не авторуємо, і його ліцензію ще не з'ясовано (`CLAUDE.md`, відкриті питання). Але зараз це видно як інтерфейс.
-
+**`first-aid.html` тримає назви карток, а не їхній текст** («Hypothermia · Røde Kors»). Це свідомо: медичний зміст ми не авторуємо, його ліцензію ще не з'ясовано (`CLAUDE.md`, відкриті питання), тож картка називає джерело замість того, щоб вигадувати зміст.
 ---
 
 ## 7. Рядки, які пише автор статей  ·  `Р`
@@ -1456,13 +1413,11 @@
 
 ## 9. Що це дає, поки рішень ще нема
 
-Позначено 123 рядків із 953. Жодного не змінено.
+Позначено 175 рядків із 953. Жодного не змінено.
 
-Три речі, які видно тільки з такої таблиці й не видно з окремого екрана:
+Що видно тільки з такої таблиці:
 
-1. **Розбіжність зростає з відстанню між екранами.** Усередині одного екрана мова тримається; ламається вона на переходах — кнопка на `plan` і заголовок на `lock-in` описують той самий крок різними словами, і людина, яка щойно натиснула перше, читає друге як щось інше.
-2. **Стани розходяться з базою частіше, ніж базові екрани між собою.** `_audit.py` стежить, щоб у стану був той самий перелік зон, що й у бази, — але за словами всередині зон не стежить ніхто.
-3. **Частина «розбіжностей» — насправді різні обʼєкти без різних імен.** `хижа` / `ніч` / `ночівля` / `ліжко` вживаються поруч, і зі сторони не видно, де межа навмисна. Це питання до глосарія, який уже стоїть відкладеним у `_next.md`.
-
-**Перший крок — не переписувати, а вирішити три речі**: як зветься обʼєкт (план чи похід), де межа між «забронювати» й «закріпити», і чи `хижа`/`ніч`/`ночівля`/`ліжко` — чотири обʼєкти чи одне. Решта розбіжностей після цього посиплеться сама.
+1. **Переклад прибрав більшість розбіжностей, бо писався як один текст.** Українська версія накопичувала синоніми з кожною перебудовою; англійська — один прохід по всіх 33 сторінках, тому кластери `Д*` зараз здебільшого порожні. Словники вище тримають відомі синоніми, щоб дрейф було видно з першого ж рядка.
+2. **Стани розходяться з базою частіше, ніж базові екрани між собою.** `_audit.py` стежить, щоб у стану був той самий перелік зон, що й у бази, — але за словами всередині зон стежить лише ця таблиця.
+3. **`plan` / `trip` — єдина межа, яку варто записати в глосарій.** Вона свідома (документ проти події), але тримається тільки на звичці; наступний, хто писатиме текст, має знати її явно.
 
