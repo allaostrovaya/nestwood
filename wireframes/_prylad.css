@@ -838,3 +838,12 @@ body:has(#nw-dark:checked) .device { --panel-bg: rgba(28,30,33,.88); }
 .device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:last-child { flex: 0 1 auto; padding-right: 0; }
 .device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:not(:first-child) { padding-left: 8px; }
 .device[data-screen="New plan"] section[aria-labelledby$="route"] .stats b { font-size: 17px; }
+
+/* ── аркуш пресетів: дві висоти, як ручка й обіцяє (стенд «Аркуш · три висоти») ──
+   без скрипта: прокрутка прив'язується або до початку (половина — карта видна),
+   або до верху аркуша під пігулкою пошуку (повна висота); далі вміст аркуша гортається вільно */
+.device[data-screen="Where to go"] .screen { scroll-snap-type: y proximity; }
+.device[data-screen="Where to go"] main > :first-child { scroll-snap-align: start; }
+.device[data-screen="Where to go"] section[aria-labelledby$="local"] { scroll-snap-align: start; scroll-margin-top: 88px; }
+/* таб-бар завжди над вмістом екрана — аркуш і картки мають власний z-index */
+.device .tabbar { z-index: 10; }
