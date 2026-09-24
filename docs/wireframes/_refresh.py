@@ -20,8 +20,8 @@ for p in sorted(pathlib.Path('wireframes').glob('*.html')):
     s = p.read_text(encoding='utf-8')
     new = re.sub(r'<nav class="wf-tree".*?</nav>', lambda m: nav_html(p.name), s, flags=re.S)
     # перемикач теми макета — прибитий до верху, однаковий на всіх сторінках
-    new = re.sub(r'<div class="nw-theme".*?</div>\n', '', new, flags=re.S)
-    new = new.replace('<body>\n', '<body>\n' + THEME + '\n', 1)
+    new = re.sub(r'<div class="nw-theme".*?</div>(<script src="\./_theme\.js"></script>)?\n', '', new, flags=re.S)
+    new = new.replace('<body>\n', '<body>\n' + THEME + '<script src="./_theme.js"></script>\n', 1)
     hdr = appnav_for(p.name)
     new = re.sub(r'  <header class="topbar">.*?</header>', topbar(p.name), new, flags=re.S)
     new = re.sub(r'  <nav class="tabbar".*?</nav>\n', hdr, new, flags=re.S)

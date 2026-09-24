@@ -211,7 +211,7 @@ HTML = f'''<!doctype html>
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
-<div class="nw-theme" data-review lang="uk" role="radiogroup" aria-label="Тема макета"><input type="radio" name="nw-theme" id="nw-light" checked><label for="nw-light">Світла</label><input type="radio" name="nw-theme" id="nw-dark"><label for="nw-dark">Темна</label></div>
+<div class="nw-theme" data-review lang="uk" role="radiogroup" aria-label="Тема макета"><input type="radio" name="nw-theme" id="nw-light" checked><label for="nw-light">Світла</label><input type="radio" name="nw-theme" id="nw-dark"><label for="nw-dark">Темна</label></div><script src="./_theme.js"></script>
 
 {GNAV}
 

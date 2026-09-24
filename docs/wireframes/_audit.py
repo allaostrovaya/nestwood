@@ -33,7 +33,8 @@ for p in pages:
     if 'details class="review"' in s: issues[n].append('лишилась шапка-details')
     # семантика
     if re.search(r'<a[^>]*>\s*<button', s): issues[n].append('<button> усередині <a>')
-    if re.search(r'<script', s): issues[n].append('є <script>')
+    # єдиний дозволений скрипт — пам'ять перемикача теми (рев'ю-хром)
+    if re.search(r'<script(?! src="\./_theme\.js"></script>)', s): issues[n].append('є <script>')
     if re.search(r'https?://(?!www\.w3)', s): issues[n].append('зовнішнє посилання')
     if 'lorem' in s.lower(): issues[n].append('lorem ipsum')
     # колір
