@@ -202,8 +202,8 @@ either way.
 ### Binding visual constraints — recorded, not expanded
 
 The visual direction is chosen — **Прилад** (`concept/directions-3.html`), designer's
-decision 2026-09-23 — but not yet built, so no DESIGN.md exists (it is written at the
-finish, from the built world). Palette: Glass `#F4F5F5`, Graphite `#5E6368`, Instrument
+decision 2026-09-23 — and now built in the main-flow wireframes; the system as it is in those
+wireframes is recorded in [DESIGN.md](./DESIGN.md) (generated 2026-09-24 from the painted pages). Palette: Glass `#F4F5F5`, Graphite `#5E6368`, Instrument
 ink `#0F1113`, **Signal blue `#2D5BFF` for action** (buttons, links; replaced ultramarine on 2026-09-24), **Hi-vis yellow
 `#F2E500` for live state on the instrument** (active night on the track, alert hatch;
 never a button fill). The official *blå* grading dot renders lighter, `#4A90E2`, so

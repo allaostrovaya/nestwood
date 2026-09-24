@@ -32,7 +32,7 @@ Screen names get a blunt test, added after two invented ones shipped: if a perso
 
 ## Concept
 
-The visual side is written down in [concept.md](./concept.md) and shown live on the stand, [concept.html](./concept.html). The designer's taste comes first and is named as input (monobank's character, Airbnb's photo-led cards, Google Maps' map-as-surface, Raiffeisen's large radii; PrivatBank as the anti-reference for missing craft). Five attributes pair a line of research data with a borrowed technique.
+The visual side is written down in [concept.md](./concept.md), shown live on the stand, [concept.html](./concept.html), and recorded as built in [DESIGN.md](./DESIGN.md) — generated from the painted wireframes; concept.md follows the wireframes. The designer's taste comes first and is named as input (monobank's character, Airbnb's photo-led cards, Google Maps' map-as-surface, Raiffeisen's large radii; PrivatBank as the anti-reference for missing craft). Five attributes pair a line of research data with a borrowed technique.
 
 **Chosen direction — Прилад** (2026-09-23): the landscape photo carries the screen, a frosted glass instrument panel of measurements sits on it, alerts are an inverted ink panel with a hatched edge. Signal blue `#2D5BFF` is the only action colour, hi-vis yellow `#F2E500` is only live state. Wix Madefor Display for text, Tektur for digits, Solar icons.
 
