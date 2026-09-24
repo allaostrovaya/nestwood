@@ -589,3 +589,14 @@ section.sheet[aria-labelledby="list"]::before {
 /* рядок-перемикач і рядок чеклиста — це рядок списку, а не підпис поля форми */
 label.row { text-transform: none; letter-spacing: 0; font-size: inherit; font-weight: inherit; color: inherit; margin: 0; }
 label.row b { font-size: 15px; }
+
+/* ── перемикач теми макета: рев'ю-хром, прибитий до верху сторінки ──
+   Діє на екрани, уже перенесені на мову «Прилад» (_prylad.css). Без JS: :has(). */
+.nw-theme { position: fixed; top: 12px; right: 16px; z-index: 60; display: flex; gap: 4px; padding: 4px;
+  border-radius: 999px; background: #fff; box-shadow: 0 0 0 1px #cfcfcf, 0 8px 24px -12px rgba(0,0,0,.35);
+  font: 600 13px/1 ui-sans-serif, system-ui, sans-serif; }
+.nw-theme input { position: absolute; opacity: 0; pointer-events: none; }
+.nw-theme label { margin: 0; padding: 9px 16px; min-height: 36px; display: inline-flex; align-items: center; border-radius: 999px;
+  cursor: pointer; color: #4a4a4a; font: inherit; text-transform: none; letter-spacing: 0; }
+.nw-theme input:checked + label { background: #141414; color: #fff; }
+.nw-theme input:focus-visible + label { outline: 3px solid #141414; outline-offset: 2px; }

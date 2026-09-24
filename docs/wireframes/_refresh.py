@@ -13,11 +13,15 @@ exec(src.split('P = {}')[0], ns)          # тільки дані й ренде�
 nav_html, TREE, appnav_for, topbar = ns['nav_html'], ns['TREE'], ns['appnav_for'], ns['topbar']
 TITLE, STATE = ns['TITLE'], ns['STATE']
 files = {p.name for p in pathlib.Path('wireframes').glob('*.html')}
+THEME = '<div class="nw-theme" data-review lang="uk" role="radiogroup" aria-label="Тема макета"><input type="radio" name="nw-theme" id="nw-light" checked><label for="nw-light">Світла</label><input type="radio" name="nw-theme" id="nw-dark"><label for="nw-dark">Темна</label></div>'
 n = 0
 for p in sorted(pathlib.Path('wireframes').glob('*.html')):
     if p.name in ('_nav.html','ia.html','flow.html','index.html'): continue
     s = p.read_text(encoding='utf-8')
     new = re.sub(r'<nav class="wf-tree".*?</nav>', lambda m: nav_html(p.name), s, flags=re.S)
+    # перемикач теми макета — прибитий до верху, однаковий на всіх сторінках
+    new = re.sub(r'<div class="nw-theme".*?</div>\n', '', new, flags=re.S)
+    new = new.replace('<body>\n', '<body>\n' + THEME + '\n', 1)
     hdr = appnav_for(p.name)
     new = re.sub(r'  <header class="topbar">.*?</header>', topbar(p.name), new, flags=re.S)
     new = re.sub(r'  <nav class="tabbar".*?</nav>\n', hdr, new, flags=re.S)

@@ -2,7 +2,7 @@
    Джерело кожного значення — concept.html (стенд мови). Цей файл не міняє
    розмітку: він лише перефарбовує ті самі елементи. Підключається після
    _wireframe.css на тих сторінках, куди мову вже перенесено (зараз — План і
-   три його стани). Усе обмежено .device: дерево, рядок позиції й документна
+   три його стани). Усе обмежено .device[data-screen="Plan"] — щоб на flow.html мова лягала лише на перенесені екрани: дерево, рядок позиції й документна
    навігація лишаються рев'ю-хромом.
 
    Контраст нових пар (WCAG 2.1, пораховано 2026-09-24):
@@ -25,7 +25,7 @@
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+A720-A7FF; }
 
 /* ═══ токени ═══ */
-.device {
+.device[data-screen="Plan"] {
   --glass: #F4F5F5; --surface: #FFFFFF; --hair: #D9DCDF; --graphite: #5E6368; --ink: #0F1113; --onink: #fff;
   --blue: #2D5BFF; --blue-press: #2149E0; --blue-soft: #E8EEFF; --link: var(--blue);
   --yellow: #F2E500;
@@ -42,373 +42,352 @@
 
 
 /* ═══ телефон і екран ═══ */
-.device {
+.device[data-screen="Plan"] {
   border: 10px solid #101214; border-radius: 50px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.45);
   background: var(--glass); color: var(--ink);
   font: 400 16px/1.45 var(--f-ui);
 }
-.device .screen { position: relative; background: var(--glass); padding-bottom: 96px; }
-.device ::selection { background: var(--blue-soft); color: var(--ink); }
-.device a:focus-visible, .device button:focus-visible, .device summary:focus-visible {
+.device[data-screen="Plan"] .screen { position: relative; background: var(--glass); padding-bottom: 96px; }
+.device[data-screen="Plan"] ::selection { background: var(--blue-soft); color: var(--ink); }
+.device[data-screen="Plan"] a:focus-visible, .device[data-screen="Plan"] button:focus-visible, .device[data-screen="Plan"] summary:focus-visible {
   outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 12px; }
 
 /* шапка лягає склом на фото: «‹ My trips» — скляна кнопка, назва — в h1 */
-.device .topbar {
+.device[data-screen="Plan"] .topbar {
   position: absolute; top: 0; left: 0; right: 0; z-index: 3;
   background: none; border: 0; padding: 14px 12px; min-height: 0; align-items: center;
 }
-.device .topbar .back {
+.device[data-screen="Plan"] .topbar .back {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
   border-radius: var(--r-pill); color: #fff; font: 600 15px/1 var(--f-ui);
   background: rgba(255,255,255,.28); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
 }
-.device .topbar .title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.device[data-screen="Plan"] .topbar .title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
 /* ═══ порядок: фото на всю ширину згори, під ним назва ═══ */
-.device main { display: flex; flex-direction: column; padding: 0 16px; }
-.device main > h1 { order: 1; }
-.device main > section { order: 2; }
-.device section[aria-labelledby="hero"] { display: contents; }
-.device section[aria-labelledby="hero"] > .frame--photo { order: 0; }
-.device section[aria-labelledby="hero"] > .rows { order: 1; }
-.device section[aria-labelledby="hero"] > .actions { order: 1; }
-.device section[aria-labelledby="hero"] > details { order: 1; }
-.device #hero { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.device[data-screen="Plan"] main { display: flex; flex-direction: column; padding: 0 16px; }
+.device[data-screen="Plan"] main > h1 { order: 1; }
+.device[data-screen="Plan"] main > section { order: 2; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] { display: contents; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > .frame--photo { order: 0; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > .rows { order: 1; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > .actions { order: 1; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > details { order: 1; }
+.device[data-screen="Plan"] h2[id$="hero"] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
 /* ═══ типографіка ═══ */
-.device h1 { font: 600 23px/1.12 var(--f-ui); letter-spacing: -.02em; margin: 16px 0 4px; text-wrap: balance; }
-.device h2 { font: 600 13px/1.3 var(--f-ui); letter-spacing: 0; text-transform: none; color: var(--graphite); margin: 0 0 8px 4px; }
-.device section { border: 0; padding: 24px 0 0; }
-.device main p { font-size: 15px; }
+.device[data-screen="Plan"] h1 { font: 600 23px/1.12 var(--f-ui); letter-spacing: -.02em; margin: 16px 0 4px; text-wrap: balance; }
+.device[data-screen="Plan"] h2 { font: 600 13px/1.3 var(--f-ui); letter-spacing: 0; text-transform: none; color: var(--graphite); margin: 0 0 8px 4px; }
+.device[data-screen="Plan"] section { border: 0; padding: 24px 0 0; }
+.device[data-screen="Plan"] main p { font-size: 15px; }
 
 /* ═══ фото ═══ */
-.device .frame { border: 0; padding: 0; }
-.device .frame > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); padding: 0; border: 0; }
-.device .frame--photo {
+.device[data-screen="Plan"] .frame { border: 0; padding: 0; }
+.device[data-screen="Plan"] .frame > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); padding: 0; border: 0; }
+.device[data-screen="Plan"] .frame--photo {
   aspect-ratio: auto; height: 300px; margin: 0 -16px;
   border-radius: 0 0 var(--r-photo) var(--r-photo); overflow: hidden;
   background: #6d7a70 url("./img/plan-kungsleden.jpg") center 62% / cover no-repeat;
 }
-.device .frame--photo::before {           /* скрим під скляною кнопкою */
+.device[data-screen="Plan"] .frame--photo::before {           /* скрим під скляною кнопкою */
   content: ""; position: absolute; inset: 0 0 auto 0; height: 110px;
   background: linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,0));
 }
-.device .frame--photo::after {            /* джерело — на самому фото */
+.device[data-screen="Plan"] .frame--photo::after {            /* джерело — на самому фото */
   content: "Photo · Anders Norén · Unsplash"; position: absolute; right: 16px; bottom: 14px;
   color: rgba(255,255,255,.94); font: 500 11px/1 var(--f-num); letter-spacing: .04em;
   text-shadow: 0 1px 3px rgba(0,0,0,.55);
 }
 
 /* рядок «дати · хто» під назвою — бриф, не картка */
-.device section[aria-labelledby="hero"] > .rows { border: 0; margin: 0; padding: 0 4px; background: none; box-shadow: none; border-radius: 0; }
-.device section[aria-labelledby="hero"] > .rows > li { border: 0; }
-.device section[aria-labelledby="hero"] .row { display: block; min-height: 0; padding: 0; }
-.device section[aria-labelledby="hero"] .row::after { content: none; }
-.device section[aria-labelledby="hero"] .row b { display: inline; font: 500 14px/1.4 var(--f-ui); }
-.device section[aria-labelledby="hero"] .row small {
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > .rows { border: 0; margin: 0; padding: 0 4px; background: none; box-shadow: none; border-radius: 0; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > .rows > li { border: 0; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] .row { display: block; min-height: 0; padding: 0; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] .row::after { content: none; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] .row b { display: inline; font: 500 14px/1.4 var(--f-ui); }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] .row small {
   display: inline-flex; align-items: center; gap: 5px; margin: 0 0 0 8px;
   font: 500 12px/1 var(--f-num); letter-spacing: .03em; color: var(--graphite);
 }
-.device[data-state="офлайн"] section[aria-labelledby="hero"] .row small::before {
+.device[data-screen="Plan"][data-state="офлайн"] section[aria-labelledby$="hero"] .row small::before {
   content: ""; width: 14px; height: 14px; background: currentColor;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath d=%22M13.5 17.5L12 19M12 19L10.5 20.5M12 19L10.5 17.5M12 19L13.5 20.5%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath d=%22M13.5 17.5L12 19M12 19L10.5 20.5M12 19L10.5 17.5M12 19L13.5 20.5%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 /* ═══ кнопки ═══ */
 /* дії героя: «Share my route» — вторинна кнопка; «Change plan» — розкривач нижче */
-.device section[aria-labelledby="hero"] > .actions { margin: 14px 0 0; }
-.device .actions a:not(.cta), .device form.inline button, .device details .actions a {
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > .actions { margin: 14px 0 0; }
+.device[data-screen="Plan"] .actions a:not(.cta), .device[data-screen="Plan"] form.inline button, .device[data-screen="Plan"] details .actions a {
   display: inline-flex; align-items: center; justify-content: center; gap: 9px;
   min-height: 52px; padding: 0 20px; border: 0; border-radius: var(--r-control);
   background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--hair);
   font: 600 16px/1 var(--f-ui); text-decoration: none; cursor: pointer;
 }
-.device section[aria-labelledby="hero"] > .actions a { width: 100%; }
-.device .actions a:not(.cta):active, .device form.inline button:active { background: #EDEEEE; }
-.device .actions a[href="./share.html"]::before, .device form.inline button::before, .device .actions a[href="./catalogue.html"]::before {
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > .actions a { width: 100%; }
+.device[data-screen="Plan"] .actions a:not(.cta):active, .device[data-screen="Plan"] form.inline button:active { background: #EDEEEE; }
+.device[data-screen="Plan"] .actions a[href="./share.html"]::before, .device[data-screen="Plan"] form.inline button::before, .device[data-screen="Plan"] .actions a[href="./catalogue.html"]::before {
   content: ""; width: 20px; height: 20px; flex: none; background: currentColor;
   -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat;
 }
-.device .actions a[href="./share.html"] { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M19.5 5.5C19.5 6.88071 18.3807 8 17 8C15.6193 8 14.5 6.88071 14.5 5.5C14.5 4.11929 15.6193 3 17 3C18.3807 3 19.5 4.11929 19.5 5.5Z%22/%3E%3Cpath d=%22M17 16C15.6193 16 14.5 17.1193 14.5 18.5C14.5 19.8807 15.6193 21 17 21C18.3807 21 19.5 19.8807 19.5 18.5C19.5 17.1193 18.3807 16 17 16Z%22/%3E%3Cpath d=%22M7 9.5C5.61929 9.5 4.5 10.6193 4.5 12C4.5 13.3807 5.61929 14.5 7 14.5C8.38071 14.5 9.5 13.3807 9.5 12C9.5 10.6193 8.38071 9.5 7 9.5Z%22/%3E%3Cpath d=%22M9.09668 13.3628C11.0324 14.621 12.9681 15.8792 14.9038 17.1374%22/%3E%3Cpath d=%22M9.09668 10.6372C11.0324 9.379 12.9681 8.12079 14.9039 6.86258%22/%3E%3C/g%3E%3C/svg%3E"); }
-.device form.inline button { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M18.364 8.04928L17.6569 7.34217C14.5327 4.21798 9.46734 4.21798 6.34315 7.34217C3.21895 10.4664 3.21895 15.5317 6.34315 18.6559C9.46734 21.7801 14.5327 21.7801 17.6569 18.6559C19.4737 16.8391 20.234 14.3658 19.9377 11.9995M18.364 3.80664V8.04928H14.1213%22/%3E%3C/svg%3E"); }
-.device .actions a[href="./catalogue.html"] { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z%22/%3E%3Cpath d=%22M7 4V2.5%22/%3E%3Cpath d=%22M17 4V2.5%22/%3E%3Cpath d=%22M2.5 9H21.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 13H17.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 13H12.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 13H7.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 17.0234H17.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 17.0234H12.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 17.0234H7.0001%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] .actions a[href="./share.html"] { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M19.5 5.5C19.5 6.88071 18.3807 8 17 8C15.6193 8 14.5 6.88071 14.5 5.5C14.5 4.11929 15.6193 3 17 3C18.3807 3 19.5 4.11929 19.5 5.5Z%22/%3E%3Cpath d=%22M17 16C15.6193 16 14.5 17.1193 14.5 18.5C14.5 19.8807 15.6193 21 17 21C18.3807 21 19.5 19.8807 19.5 18.5C19.5 17.1193 18.3807 16 17 16Z%22/%3E%3Cpath d=%22M7 9.5C5.61929 9.5 4.5 10.6193 4.5 12C4.5 13.3807 5.61929 14.5 7 14.5C8.38071 14.5 9.5 13.3807 9.5 12C9.5 10.6193 8.38071 9.5 7 9.5Z%22/%3E%3Cpath d=%22M9.09668 13.3628C11.0324 14.621 12.9681 15.8792 14.9038 17.1374%22/%3E%3Cpath d=%22M9.09668 10.6372C11.0324 9.379 12.9681 8.12079 14.9039 6.86258%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] form.inline button { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M18.364 8.04928L17.6569 7.34217C14.5327 4.21798 9.46734 4.21798 6.34315 7.34217C3.21895 10.4664 3.21895 15.5317 6.34315 18.6559C9.46734 21.7801 14.5327 21.7801 17.6569 18.6559C19.4737 16.8391 20.234 14.3658 19.9377 11.9995M18.364 3.80664V8.04928H14.1213%22/%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] .actions a[href="./catalogue.html"] { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z%22/%3E%3Cpath d=%22M7 4V2.5%22/%3E%3Cpath d=%22M17 4V2.5%22/%3E%3Cpath d=%22M2.5 9H21.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 13H17.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 13H12.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 13H7.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 17.0234H17.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 17.0234H12.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 17.0234H7.0001%22/%3E%3C/g%3E%3C/svg%3E"); }
 /* пройдений похід: «Plan again from this trip» — єдина головна дія екрана */
-.device[data-state="пройдений"] section[aria-labelledby="health"] .actions a {
+.device[data-screen="Plan"][data-state="пройдений"] section[aria-labelledby$="health"] .actions a {
   width: 100%; background: var(--blue); color: #fff; box-shadow: none;
 }
-.device[data-state="пройдений"] section[aria-labelledby="health"] .actions a:active { background: var(--blue-press); }
+.device[data-screen="Plan"][data-state="пройдений"] section[aria-labelledby$="health"] .actions a:active { background: var(--blue-press); }
 
 /* «Change plan» — розкривач, небезпечна дія всередині */
-.device details {
+.device[data-screen="Plan"] details {
   margin: 10px 0 0; padding: 0 16px; border: 0; border-radius: var(--r-card);
   background: var(--surface); box-shadow: var(--e-hair);
 }
-.device details > summary {
+.device[data-screen="Plan"] details > summary {
   display: flex; align-items: center; justify-content: space-between; min-height: 52px;
   font: 600 15px/1 var(--f-ui); color: var(--ink); list-style: none; cursor: pointer;
 }
-.device details > summary::-webkit-details-marker { display: none; }
-.device details > summary::after {
+.device[data-screen="Plan"] details > summary::-webkit-details-marker { display: none; }
+.device[data-screen="Plan"] details > summary::after {
   content: ""; width: 16px; height: 16px; background: var(--graphite);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M19 9L12 15L5 9%22/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M19 9L12 15L5 9%22/%3E%3C/svg%3E") center / contain no-repeat;
   transition: transform .2s cubic-bezier(.2,.8,.2,1);
 }
-.device details[open] > summary::after { transform: rotate(180deg); }
-.device details > p { font-size: 14px; line-height: 1.45; color: var(--graphite); margin: 0 0 12px; }
-.device details .actions { margin: 0 0 16px; }
-.device details .actions a { width: 100%; color: var(--conflict); }
+.device[data-screen="Plan"] details[open] > summary::after { transform: rotate(180deg); }
+.device[data-screen="Plan"] details > p { font-size: 14px; line-height: 1.45; color: var(--graphite); margin: 0 0 12px; }
+.device[data-screen="Plan"] details .actions { margin: 0 0 16px; }
+.device[data-screen="Plan"] details .actions a { width: 100%; color: var(--conflict); }
 
 /* ═══ тривога — інверсія зі штрихованим краєм ═══ */
-.device section[aria-labelledby="health"] .rows { border: 0; margin: 0; padding: 0; background: none; box-shadow: none; border-radius: 0; }
-.device section[aria-labelledby="health"] .rows > li { border: 0; }
-.device section[aria-labelledby="health"] .row {
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .rows { border: 0; margin: 0; padding: 0; background: none; box-shadow: none; border-radius: 0; }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .rows > li { border: 0; }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .row {
   position: relative; overflow: hidden; grid-template-columns: 1fr auto 16px; gap: 10px;
   min-height: 0; padding: 12px 14px 12px 22px; border-radius: var(--r-card);
   background: var(--alert-bg); color: var(--alert-fg);
 }
-.device section[aria-labelledby="health"] .row::before {
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .row::before {
   content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: var(--hatch);
 }
-.device section[aria-labelledby="health"] .row b { font: 600 15px/1.3 var(--f-ui); }
-.device section[aria-labelledby="health"] .row small { font-size: 13.5px; line-height: 1.4; color: var(--alert-sub); margin-top: 3px; }
-.device section[aria-labelledby="health"] .row .state.warn {
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .row b { font: 600 15px/1.3 var(--f-ui); }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .row small { font-size: 13.5px; line-height: 1.4; color: var(--alert-sub); margin-top: 3px; }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .row .state.warn {
   align-self: start; font: 500 12px/1.3 var(--f-num); letter-spacing: .03em; color: var(--yellow); background: none; padding: 2px 0 0;
 }
-.device section[aria-labelledby="health"] .row::after { background: var(--alert-sub); }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .row::after { background: var(--alert-sub); }
 /* межа знання — пунктир і слово (стан «offline · data from…» зі стенду) */
-.device section[aria-labelledby="health"] > p:first-of-type {
+.device[data-screen="Plan"] section[aria-labelledby$="health"] > p:first-of-type {
   position: relative; display: block; margin: 0;
   padding: 14px 16px 14px 46px; border-radius: var(--r-card); border: 1.5px dashed #9AA0A6;
   font-size: 14px; line-height: 1.45; color: var(--graphite);
 }
-.device section[aria-labelledby="health"] > p:first-of-type b { color: var(--ink); font-weight: 600; }
-.device[data-state="офлайн"] section[aria-labelledby="health"] > p:first-of-type::before,
-.device[data-state="помилка"] section[aria-labelledby="health"] > p:first-of-type::before {
+.device[data-screen="Plan"] section[aria-labelledby$="health"] > p:first-of-type b { color: var(--ink); font-weight: 600; }
+.device[data-screen="Plan"][data-state="офлайн"] section[aria-labelledby$="health"] > p:first-of-type::before,
+.device[data-screen="Plan"][data-state="помилка"] section[aria-labelledby$="health"] > p:first-of-type::before {
   content: ""; position: absolute; left: 16px; top: 15px; width: 20px; height: 20px; background: var(--graphite);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath d=%22M13.5 17.5L12 19M12 19L10.5 20.5M12 19L10.5 17.5M12 19L13.5 20.5%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath d=%22M13.5 17.5L12 19M12 19L10.5 20.5M12 19L10.5 17.5M12 19L13.5 20.5%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
 }
-.device[data-state="пройдений"] section[aria-labelledby="health"] > p:first-of-type { border: 0; padding: 0 4px 0 32px; }
-.device[data-state="пройдений"] section[aria-labelledby="health"] > p:first-of-type::before {
+.device[data-screen="Plan"][data-state="пройдений"] section[aria-labelledby$="health"] > p:first-of-type { border: 0; padding: 0 4px 0 32px; }
+.device[data-screen="Plan"][data-state="пройдений"] section[aria-labelledby$="health"] > p:first-of-type::before {
   content: ""; position: absolute; left: 4px; top: 1px; width: 20px; height: 20px; background: var(--graphite);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M8.5 12.5L10.5 14.5L15.5 9.5%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M8.5 12.5L10.5 14.5L15.5 9.5%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
 }
-.device section[aria-labelledby="health"] form.inline { display: block; margin: 10px 0 0; }
-.device section[aria-labelledby="health"] form.inline button { width: 100%; }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] form.inline { display: block; margin: 10px 0 0; }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] form.inline button { width: 100%; }
 
 /* ═══ карта й прилад ═══ */
-.device .frame--map {
+.device[data-screen="Plan"] .frame--map {
   aspect-ratio: 16 / 11; border-radius: var(--r-card); overflow: hidden;
   background: #E8ECE3 url("./img/map-kungsleden.svg") center / cover no-repeat;
 }
-.device .frame--map::after {             /* атрибуція CC BY 4.0 — на самій карті */
+.device[data-screen="Plan"] .frame--map::after {             /* атрибуція CC BY 4.0 — на самій карті */
   content: "© Kartverket · Lantmäteriet"; position: absolute; left: 8px; bottom: 8px;
   font: 500 11px/1 var(--f-ui); color: #4A4F54; background: rgba(255,255,255,.7); border-radius: 6px; padding: 3px 6px;
 }
-.device[data-state="офлайн"] .frame--map::before {   /* карта з офлайн-пакета */
+.device[data-screen="Plan"][data-state="офлайн"] .frame--map::before {   /* карта з офлайн-пакета */
   content: "offline pack"; position: absolute; right: 8px; top: 8px;
   font: 500 11px/1 var(--f-num); letter-spacing: .03em; color: #4A4F54; background: rgba(255,255,255,.7); border-radius: 6px; padding: 4px 7px;
 }
-.device .stats {
+.device[data-screen="Plan"] .stats {
   display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 10px 0 0; padding: 4px 16px;
   border-radius: var(--r-panel); background: var(--surface); box-shadow: var(--e-hair);
 }
-.device .stats li { padding: 12px 0 11px; min-width: 0; }
-.device .stats li:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--hair); }
-.device .stats li:nth-child(n+3) { border-top: 1px solid var(--hair); }
-.device .stats b { font: 600 24px/1 var(--f-num); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.device .stats small { display: block; margin-top: 6px; font: 500 11px/1.25 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--graphite); }
+.device[data-screen="Plan"] .stats li { padding: 12px 0 11px; min-width: 0; }
+.device[data-screen="Plan"] .stats li:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--hair); }
+.device[data-screen="Plan"] .stats li:nth-child(n+3) { border-top: 1px solid var(--hair); }
+.device[data-screen="Plan"] .stats b { font: 600 24px/1 var(--f-num); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.device[data-screen="Plan"] .stats small { display: block; margin-top: 6px; font: 500 11px/1.25 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--graphite); }
 
 /* ═══ згруповані списки (iOS inset grouped) ═══ */
-.device .rows { border: 0; margin: 0; padding: 0 16px; border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-hair); }
-.device .rows > li { border-bottom: 1px solid var(--hair); }
-.device .rows > li:last-child { border-bottom: 0; }
-.device .row { grid-template-columns: 1fr auto 16px; gap: 10px; min-height: 56px; padding: 11px 0; color: var(--ink); }
-.device div.row { grid-template-columns: 1fr auto; }
-.device .row b { font: 600 15px/1.3 var(--f-ui); }
-.device .row small { font-size: 13px; line-height: 1.35; color: var(--graphite); margin-top: 2px; }
-.device .row::after {
+.device[data-screen="Plan"] .rows { border: 0; margin: 0; padding: 0 16px; border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-hair); }
+.device[data-screen="Plan"] .rows > li { border-bottom: 1px solid var(--hair); }
+.device[data-screen="Plan"] .rows > li:last-child { border-bottom: 0; }
+.device[data-screen="Plan"] .row { grid-template-columns: 1fr auto 16px; gap: 10px; min-height: 56px; padding: 11px 0; color: var(--ink); }
+.device[data-screen="Plan"] div.row { grid-template-columns: 1fr auto; }
+.device[data-screen="Plan"] .row b { font: 600 15px/1.3 var(--f-ui); }
+.device[data-screen="Plan"] .row small { font-size: 13px; line-height: 1.35; color: var(--graphite); margin-top: 2px; }
+.device[data-screen="Plan"] .row::after {
   content: ""; width: 16px; height: 16px; background: var(--graphite);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M9 5L15 12L9 19%22/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M9 5L15 12L9 19%22/%3E%3C/svg%3E") center / contain no-repeat;
 }
-.device div.row::after { content: none; }
+.device[data-screen="Plan"] div.row::after { content: none; }
 
 /* іконки рядків «About the trip» — за тим, куди рядок веде і про що він */
-.device section[aria-labelledby="general"] .row { grid-template-columns: 22px 1fr auto 16px; }
-.device section[aria-labelledby="general"] div.row { grid-template-columns: 22px 1fr; }
-.device section[aria-labelledby="general"] .row::before {
+.device[data-screen="Plan"] section[aria-labelledby$="general"] .row { grid-template-columns: 22px 1fr auto 16px; }
+.device[data-screen="Plan"] section[aria-labelledby$="general"] div.row { grid-template-columns: 22px 1fr; }
+.device[data-screen="Plan"] section[aria-labelledby$="general"] .row::before {
   content: ""; width: 22px; height: 22px; background: var(--graphite);
   -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat;
 }
-.device section[aria-labelledby="general"] li:nth-child(1) .row { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z%22/%3E%3Cpath d=%22M10 16.5H6%22/%3E%3Cpath d=%22M8 13.5H6%22/%3E%3Cpath d=%22M2 10L22 10%22/%3E%3Cpath d=%22M14 15C14 14.0572 14 13.5858 14.2929 13.2929C14.5858 13 15.0572 13 16 13C16.9428 13 17.4142 13 17.7071 13.2929C18 13.5858 18 14.0572 18 15C18 15.9428 18 16.4142 17.7071 16.7071C17.4142 17 16.9428 17 16 17C15.0572 17 14.5858 17 14.2929 16.7071C14 16.4142 14 15.9428 14 15Z%22/%3E%3C/g%3E%3C/svg%3E"); }
-.device section[aria-labelledby="general"] li:nth-child(2) .row { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10.9112C3 10.8182 3 10.7717 3.00057 10.7303C3.0385 7.98021 4.94139 5.60803 7.61778 4.97443C7.65803 4.9649 7.70344 4.95481 7.79425 4.93463C7.87787 4.91605 7.91968 4.90675 7.96109 4.89775C10.6226 4.31875 13.3774 4.31875 16.0389 4.89775C16.0803 4.90675 16.1221 4.91605 16.2057 4.93463C16.2966 4.95481 16.342 4.9649 16.3822 4.97443C19.0586 5.60803 20.9615 7.98021 20.9994 10.7303C21 10.7717 21 10.8182 21 10.9112V16.3752C21 18.4931 19.529 20.3269 17.4615 20.7864C13.8644 21.5857 10.1356 21.5857 6.53853 20.7864C4.47101 20.3269 3 18.4931 3 16.3752V10.9112Z%22/%3E%3Cpath d=%22M17.5 15.5V17%22/%3E%3Cpath d=%22M15.9585 4.5C15.7205 3.08114 14.4865 2 13 2H11C9.51353 2 8.27954 3.08114 8.0415 4.5%22/%3E%3Cpath d=%22M3 14C8.72979 16.5466 15.2702 16.5466 21 14%22/%3E%3Cpath d=%22M10 13H14%22/%3E%3C/g%3E%3C/svg%3E"); }
-.device section[aria-labelledby="general"] li:nth-child(3) .row { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 16.0746 2.60178 17.2457 3.54704 18.0226M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 15.2939 21.0091 17.0061 19.5 18.0226%22/%3E%3Cpath d=%22M17 19L15 21%22/%3E%3Cpath d=%22M16 15.5L14 17.5%22/%3E%3Cpath d=%22M12 20L10 22%22/%3E%3Cpath d=%22M11.5 15.5L9.5 17.5%22/%3E%3Cpath d=%22M7.5 19L5.5 21%22/%3E%3C/g%3E%3C/svg%3E"); }
-.device section[aria-labelledby="general"] li:nth-child(4) .row { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath stroke-linejoin=%22round%22 d=%22M6 8H10%22/%3E%3Cpath d=%22M20.8333 9H18.2308C16.4465 9 15 10.3431 15 12C15 13.6569 16.4465 15 18.2308 15H20.8333C20.9167 15 20.9583 15 20.9935 14.9979C21.5328 14.965 21.9623 14.5662 21.9977 14.0654C22 14.0327 22 13.994 22 13.9167V10.0833C22 10.006 22 9.96726 21.9977 9.9346C21.9623 9.43384 21.5328 9.03496 20.9935 9.00214C20.9583 9 20.9167 9 20.8333 9Z%22/%3E%3Cpath d=%22M20.965 9C20.8873 7.1277 20.6366 5.97975 19.8284 5.17157C18.6569 4 16.7712 4 13 4L10 4C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20H13C16.7712 20 18.6569 20 19.8284 18.8284C20.6366 18.0203 20.8873 16.8723 20.965 15%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17.9912 12H18.0002%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] section[aria-labelledby$="general"] li:nth-child(1) .row { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z%22/%3E%3Cpath d=%22M10 16.5H6%22/%3E%3Cpath d=%22M8 13.5H6%22/%3E%3Cpath d=%22M2 10L22 10%22/%3E%3Cpath d=%22M14 15C14 14.0572 14 13.5858 14.2929 13.2929C14.5858 13 15.0572 13 16 13C16.9428 13 17.4142 13 17.7071 13.2929C18 13.5858 18 14.0572 18 15C18 15.9428 18 16.4142 17.7071 16.7071C17.4142 17 16.9428 17 16 17C15.0572 17 14.5858 17 14.2929 16.7071C14 16.4142 14 15.9428 14 15Z%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] section[aria-labelledby$="general"] li:nth-child(2) .row { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10.9112C3 10.8182 3 10.7717 3.00057 10.7303C3.0385 7.98021 4.94139 5.60803 7.61778 4.97443C7.65803 4.9649 7.70344 4.95481 7.79425 4.93463C7.87787 4.91605 7.91968 4.90675 7.96109 4.89775C10.6226 4.31875 13.3774 4.31875 16.0389 4.89775C16.0803 4.90675 16.1221 4.91605 16.2057 4.93463C16.2966 4.95481 16.342 4.9649 16.3822 4.97443C19.0586 5.60803 20.9615 7.98021 20.9994 10.7303C21 10.7717 21 10.8182 21 10.9112V16.3752C21 18.4931 19.529 20.3269 17.4615 20.7864C13.8644 21.5857 10.1356 21.5857 6.53853 20.7864C4.47101 20.3269 3 18.4931 3 16.3752V10.9112Z%22/%3E%3Cpath d=%22M17.5 15.5V17%22/%3E%3Cpath d=%22M15.9585 4.5C15.7205 3.08114 14.4865 2 13 2H11C9.51353 2 8.27954 3.08114 8.0415 4.5%22/%3E%3Cpath d=%22M3 14C8.72979 16.5466 15.2702 16.5466 21 14%22/%3E%3Cpath d=%22M10 13H14%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] section[aria-labelledby$="general"] li:nth-child(3) .row { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 16.0746 2.60178 17.2457 3.54704 18.0226M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 15.2939 21.0091 17.0061 19.5 18.0226%22/%3E%3Cpath d=%22M17 19L15 21%22/%3E%3Cpath d=%22M16 15.5L14 17.5%22/%3E%3Cpath d=%22M12 20L10 22%22/%3E%3Cpath d=%22M11.5 15.5L9.5 17.5%22/%3E%3Cpath d=%22M7.5 19L5.5 21%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] section[aria-labelledby$="general"] li:nth-child(4) .row { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath stroke-linejoin=%22round%22 d=%22M6 8H10%22/%3E%3Cpath d=%22M20.8333 9H18.2308C16.4465 9 15 10.3431 15 12C15 13.6569 16.4465 15 18.2308 15H20.8333C20.9167 15 20.9583 15 20.9935 14.9979C21.5328 14.965 21.9623 14.5662 21.9977 14.0654C22 14.0327 22 13.994 22 13.9167V10.0833C22 10.006 22 9.96726 21.9977 9.9346C21.9623 9.43384 21.5328 9.03496 20.9935 9.00214C20.9583 9 20.9167 9 20.8333 9Z%22/%3E%3Cpath d=%22M20.965 9C20.8873 7.1277 20.6366 5.97975 19.8284 5.17157C18.6569 4 16.7712 4 13 4L10 4C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20H13C16.7712 20 18.6569 20 19.8284 18.8284C20.6366 18.0203 20.8873 16.8723 20.965 15%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17.9912 12H18.0002%22/%3E%3C/g%3E%3C/svg%3E"); }
 
 /* ═══ стан «увага» — інверсія з жовтою іконкою (варіант А стенду) ═══ */
-.device .rows .state.warn {
+.device[data-screen="Plan"] .rows .state.warn {
   display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px 7px 8px; border-radius: var(--r-pill);
   background: var(--alert-bg); color: var(--alert-fg); font: 600 12.5px/1 var(--f-ui); white-space: nowrap;
 }
-.device .rows .state.warn::before {
+.device[data-screen="Plan"] .rows .state.warn::before {
   content: ""; width: 14px; height: 14px; background: var(--yellow);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M5.31171 10.7615C8.23007 5.58716 9.68925 3 12 3C14.3107 3 15.7699 5.58716 18.6883 10.7615L19.0519 11.4063C21.4771 15.7061 22.6897 17.856 21.5937 19.428C20.4978 21 17.7864 21 12.3637 21H11.6363C6.21356 21 3.50217 21 2.40626 19.428C1.31034 17.856 2.52291 15.7061 4.94805 11.4063L5.31171 10.7615ZM12 7.25C12.4142 7.25 12.75 7.58579 12.75 8V13C12.75 13.4142 12.4142 13.75 12 13.75C11.5858 13.75 11.25 13.4142 11.25 13V8C11.25 7.58579 11.5858 7.25 12 7.25ZM12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M5.31171 10.7615C8.23007 5.58716 9.68925 3 12 3C14.3107 3 15.7699 5.58716 18.6883 10.7615L19.0519 11.4063C21.4771 15.7061 22.6897 17.856 21.5937 19.428C20.4978 21 17.7864 21 12.3637 21H11.6363C6.21356 21 3.50217 21 2.40626 19.428C1.31034 17.856 2.52291 15.7061 4.94805 11.4063L5.31171 10.7615ZM12 7.25C12.4142 7.25 12.75 7.58579 12.75 8V13C12.75 13.4142 12.4142 13.75 12 13.75C11.5858 13.75 11.25 13.4142 11.25 13V8C11.25 7.58579 11.5858 7.25 12 7.25ZM12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E") center / contain no-repeat;
 }
 /* дія над своєю сутністю: забронювати ніч, купити квиток — синій текст, не бейдж */
-.device .rows a[href="./booking.html"] .state.warn {
+.device[data-screen="Plan"] .rows a[href="./booking.html"] .state.warn {
   padding: 0; background: none; color: var(--link); font: 600 14px/1 var(--f-ui);
 }
-.device .rows a[href="./booking.html"] .state.warn::before { content: none; }
+.device[data-screen="Plan"] .rows a[href="./booking.html"] .state.warn::before { content: none; }
 
 /* ═══ дні — ланцюжок ═══ */
-.device section[aria-labelledby="days"] .rows > li { position: relative; border-bottom: 0; }
-.device section[aria-labelledby="days"] .row { grid-template-columns: 24px 1fr auto 16px; }
-.device section[aria-labelledby="days"] div.row { grid-template-columns: 24px 1fr; }
-.device section[aria-labelledby="days"] .rows > li::before {        /* нитка ланцюжка */
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .rows > li { position: relative; border-bottom: 0; }
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .row { grid-template-columns: 24px 1fr auto 16px; }
+.device[data-screen="Plan"] section[aria-labelledby$="days"] div.row { grid-template-columns: 24px 1fr; }
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .rows > li::before {        /* нитка ланцюжка */
   content: ""; position: absolute; left: 11px; top: 0; bottom: 0; width: 2px; background: var(--hair);
 }
-.device section[aria-labelledby="days"] .row::before {              /* вузол дня */
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .row::before {              /* вузол дня */
   content: ""; position: relative; z-index: 1; justify-self: center;
   width: 12px; height: 12px; border-radius: 50%; background: var(--surface); box-shadow: inset 0 0 0 2px var(--ink);
 }
-.device section[aria-labelledby="days"] a.row[href="./day.html"]:has(.state.warn)::before {   /* день із тривогою */
+.device[data-screen="Plan"] section[aria-labelledby$="days"] a.row[href="./day.html"]:has(.state.warn)::before {   /* день із тривогою */
   width: 14px; height: 14px; background: var(--yellow); box-shadow: inset 0 0 0 2px #0F1113, 0 0 0 3px rgba(242,229,0,.45);
 }
-.device section[aria-labelledby="days"] li:first-child .row::before,
-.device section[aria-labelledby="days"] li:last-child .row::before {    /* дорога туди й назад */
+.device[data-screen="Plan"] section[aria-labelledby$="days"] li:first-child .row::before,
+.device[data-screen="Plan"] section[aria-labelledby$="days"] li:last-child .row::before {    /* дорога туди й назад */
   width: 20px; height: 20px; border-radius: 0; box-shadow: none; background: var(--graphite);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10V12C20 15.7712 20 17.6569 18.8284 18.8284C17.6569 20 15.7712 20 12 20C8.22876 20 6.34315 20 5.17157 18.8284C4 17.6569 4 15.7712 4 12V10Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 13H20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M15.5 16H17%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 16H8.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 20L6 22%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 20L18 22%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M10 2V2.5C10 3.60457 10.8954 4.5 12 4.5C13.1046 4.5 14 3.60457 14 2.5V2%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10V12C20 15.7712 20 17.6569 18.8284 18.8284C17.6569 20 15.7712 20 12 20C8.22876 20 6.34315 20 5.17157 18.8284C4 17.6569 4 15.7712 4 12V10Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 13H20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M15.5 16H17%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 16H8.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 20L6 22%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 20L18 22%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M10 2V2.5C10 3.60457 10.8954 4.5 12 4.5C13.1046 4.5 14 3.60457 14 2.5V2%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
 }
-.device section[aria-labelledby="days"] li:last-child .row::before {
+.device[data-screen="Plan"] section[aria-labelledby$="days"] li:last-child .row::before {
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10V12C20 15.7712 20 17.6569 18.8284 18.8284C17.6569 20 15.7712 20 12 20C8.22876 20 6.34315 20 5.17157 18.8284C4 17.6569 4 15.7712 4 12V10Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 13H20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M15.5 16H17%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 16H8.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M6 19.5V21C6 21.5523 6.44772 22 7 22H8.5C9.05228 22 9.5 21.5523 9.5 21V20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M18 19.5V21C18 21.5523 17.5523 22 17 22H15.5C14.9477 22 14.5 21.5523 14.5 21V20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M20 9H21C21.5523 9 22 9.44772 22 10V11C22 11.3148 21.8518 11.6111 21.6 11.8L20 13%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 9H3C2.44772 9 2 9.44772 2 10V11C2 11.3148 2.14819 11.6111 2.4 11.8L4 13%22/%3E%3Cpath d=%22M19.5 5H4.5%22/%3E%3C/g%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10V12C20 15.7712 20 17.6569 18.8284 18.8284C17.6569 20 15.7712 20 12 20C8.22876 20 6.34315 20 5.17157 18.8284C4 17.6569 4 15.7712 4 12V10Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 13H20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M15.5 16H17%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 16H8.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M6 19.5V21C6 21.5523 6.44772 22 7 22H8.5C9.05228 22 9.5 21.5523 9.5 21V20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M18 19.5V21C18 21.5523 17.5523 22 17 22H15.5C14.9477 22 14.5 21.5523 14.5 21V20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M20 9H21C21.5523 9 22 9.44772 22 10V11C22 11.3148 21.8518 11.6111 21.6 11.8L20 13%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 9H3C2.44772 9 2 9.44772 2 10V11C2 11.3148 2.14819 11.6111 2.4 11.8L4 13%22/%3E%3Cpath d=%22M19.5 5H4.5%22/%3E%3C/g%3E%3C/svg%3E");
 }
-.device section[aria-labelledby="days"] .rows > li:first-child::before { top: calc(50% + 13px); }
-.device section[aria-labelledby="days"] .rows > li:last-child::before { bottom: calc(50% + 13px); }
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .rows > li:first-child::before { top: calc(50% + 13px); }
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .rows > li:last-child::before { bottom: calc(50% + 13px); }
 
 /* ═══ футер: атрибуція — постійна й компактна ═══ */
-.device footer.app { border: 0; padding: 28px 20px 24px; font: 400 11.5px/1.5 var(--f-ui); color: var(--graphite); }
-.device footer.app details { margin: 8px 0; padding: 0 12px; background: transparent; box-shadow: var(--e-hair); border-radius: 12px; }
-.device footer.app details > summary { min-height: 44px; font: 600 12.5px/1 var(--f-ui); color: var(--graphite); }
-.device footer.app details > p { font-size: 12px; }
+.device[data-screen="Plan"] footer.app { border: 0; padding: 28px 20px 24px; font: 400 11.5px/1.5 var(--f-ui); color: var(--graphite); }
+.device[data-screen="Plan"] footer.app details { margin: 8px 0; padding: 0 12px; background: transparent; box-shadow: var(--e-hair); border-radius: 12px; }
+.device[data-screen="Plan"] footer.app details > summary { min-height: 44px; font: 600 12.5px/1 var(--f-ui); color: var(--graphite); }
+.device[data-screen="Plan"] footer.app details > p { font-size: 12px; }
 
 /* ═══ таб-бар — плаваюче скло ═══ */
-.device .tabbar {
+.device[data-screen="Plan"] .tabbar {
   left: 10px; right: 10px; bottom: 10px; height: auto; padding: 8px 6px 10px; border: 0; border-radius: 30px;
   background: var(--bar-bg); -webkit-backdrop-filter: blur(18px) saturate(1.3); backdrop-filter: blur(18px) saturate(1.3);
   box-shadow: var(--e-float);
 }
-.device .tabbar a {
+.device[data-screen="Plan"] .tabbar a {
   position: relative; min-height: 44px; gap: 3px; font: 500 10.5px/1.1 var(--f-ui); color: var(--graphite);
 }
-.device .tabbar .ico {
+.device[data-screen="Plan"] .tabbar .ico {
   width: 22px; height: 22px; border: 0; border-radius: 0; background: currentColor;
   -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat;
 }
-.device .tabbar li:nth-child(1) a { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 8.70938C3 7.23584 3 6.49907 3.39264 6.06935C3.53204 5.91678 3.70147 5.79466 3.89029 5.71066C4.42213 5.47406 5.12109 5.70705 6.51901 6.17302C7.58626 6.52877 8.11989 6.70665 8.6591 6.68823C8.85714 6.68147 9.05401 6.65511 9.24685 6.60952C9.77191 6.48541 10.2399 6.1734 11.176 5.54937L12.5583 4.62778C13.7574 3.82843 14.3569 3.42876 15.0451 3.3366C15.7333 3.24444 16.4168 3.47229 17.7839 3.92799L18.9487 4.31624C19.9387 4.64625 20.4337 4.81126 20.7169 5.20409C21 5.59692 21 6.11871 21 7.16229V15.2907C21 16.7642 21 17.501 20.6074 17.9307C20.468 18.0833 20.2985 18.2054 20.1097 18.2894C19.5779 18.526 18.8789 18.293 17.481 17.827C16.4137 17.4713 15.8801 17.2934 15.3409 17.3118C15.1429 17.3186 14.946 17.3449 14.7532 17.3905C14.2281 17.5146 13.7601 17.8266 12.824 18.4507L11.4417 19.3722C10.2426 20.1716 9.64311 20.5713 8.95493 20.6634C8.26674 20.7556 7.58319 20.5277 6.21609 20.072L5.05132 19.6838C4.06129 19.3538 3.56627 19.1888 3.28314 18.7959C3 18.4031 3 17.8813 3 16.8377V8.70938Z%22/%3E%3Cpath d=%22M9 6.65723V20.6569%22/%3E%3Cpath d=%22M15 3.34277V17.3425%22/%3E%3C/g%3E%3C/svg%3E"); }
-.device .tabbar li:nth-child(2) a { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z%22/%3E%3Cpath d=%22M8 12H16%22/%3E%3Cpath d=%22M8 8H16%22/%3E%3Cpath d=%22M8 16H13%22/%3E%3C/g%3E%3C/svg%3E"); }
-.device .tabbar li:nth-child(3) a { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 8C4 5.17157 4 3.75736 4.87868 2.87868C5.75736 2 7.17157 2 10 2H14C16.8284 2 18.2426 2 19.1213 2.87868C20 3.75736 20 5.17157 20 8V16C20 18.8284 20 20.2426 19.1213 21.1213C18.2426 22 16.8284 22 14 22H10C7.17157 22 5.75736 22 4.87868 21.1213C4 20.2426 4 18.8284 4 16V8Z%22/%3E%3Cpath d=%22M19.9997 16H7.89749C6.96751 16 6.50253 16 6.12103 16.1022C5.08575 16.3796 4.29986 17.1212 4.02246 18.1564%22/%3E%3Cpath d=%22M8 7H16%22/%3E%3Cpath d=%22M8 10.5H13%22/%3E%3Cpath d=%22M19.9239 19H8%22/%3E%3C/g%3E%3C/svg%3E"); }
-.device .tabbar li:nth-child(4) a { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M9.5 12.4L10.9286 14L14.5 10%22/%3E%3C/g%3E%3C/svg%3E"); }
-.device .tabbar li:nth-child(5) a { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%229%22 r=%223%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20%22/%3E%3C/g%3E%3C/svg%3E"); }
-.device .tabbar li:nth-child(1) a[aria-current="page"] { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M2.43627 5.14686C2 5.64345 2 6.49488 2 8.19773V17.591C2 18.797 2 19.4 2.3146 19.854C2.62919 20.3079 3.17921 20.4986 4.27924 20.88L5.57343 21.3286C6.27436 21.5717 6.81371 21.7586 7.26633 21.879C7.5616 21.9576 7.83333 21.7258 7.83333 21.4203V6.2701C7.83333 6.02118 7.64964 5.81111 7.40837 5.74991C7.01914 5.65118 6.55127 5.48897 5.91002 5.26666C4.35676 4.72817 3.58014 4.45893 2.98922 4.73235C2.77941 4.82942 2.59116 4.97054 2.43627 5.14686Z%22/%3E%3Cpath d=%22M12.6204 3.48096L11.0844 4.54596C10.5287 4.93124 10.1215 5.2136 9.77375 5.41491C9.60895 5.51032 9.5 5.68291 9.5 5.87334V20.9203C9.5 21.2909 9.88398 21.5222 10.1962 21.3225C10.5312 21.1082 10.9149 20.8422 11.3796 20.5199L12.9156 19.4549C13.4712 19.0697 13.8785 18.7873 14.2262 18.586C14.3911 18.4906 14.5 18.318 14.5 18.1276V3.08063C14.5 2.71004 14.116 2.47866 13.8038 2.67836C13.4688 2.89271 13.0851 3.15874 12.6204 3.48096Z%22/%3E%3Cpath d=%22M19.7208 3.12093L18.4266 2.67226C17.7256 2.42923 17.1863 2.24228 16.7337 2.12187C16.4384 2.04333 16.1667 2.2751 16.1667 2.58064V17.7308C16.1667 17.9797 16.3504 18.1898 16.5916 18.251C16.9809 18.3497 17.4488 18.5119 18.09 18.7342C19.6432 19.2727 20.4199 19.542 21.0108 19.2686C21.2206 19.1715 21.4088 19.0304 21.5637 18.854C22 18.3575 22 17.506 22 15.8032V6.40988C22 5.2039 22 4.60091 21.6854 4.14695C21.3708 3.69298 20.8208 3.5023 19.7208 3.12093Z%22/%3E%3C/g%3E%3C/svg%3E"); }
-.device .tabbar li:nth-child(2) a[aria-current="page"] { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M4.17157 3.17157C3 4.34315 3 6.22876 3 10V14C3 17.7712 3 19.6569 4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284C21 19.6569 21 17.7712 21 14V10C21 6.22876 21 4.34315 19.8284 3.17157C18.6569 2 16.7712 2 13 2H11C7.22876 2 5.34315 2 4.17157 3.17157ZM7.25 8C7.25 7.58579 7.58579 7.25 8 7.25H16C16.4142 7.25 16.75 7.58579 16.75 8C16.75 8.41421 16.4142 8.75 16 8.75H8C7.58579 8.75 7.25 8.41421 7.25 8ZM7.25 12C7.25 11.5858 7.58579 11.25 8 11.25H16C16.4142 11.25 16.75 11.5858 16.75 12C16.75 12.4142 16.4142 12.75 16 12.75H8C7.58579 12.75 7.25 12.4142 7.25 12ZM8 15.25C7.58579 15.25 7.25 15.5858 7.25 16C7.25 16.4142 7.58579 16.75 8 16.75H13C13.4142 16.75 13.75 16.4142 13.75 16C13.75 15.5858 13.4142 15.25 13 15.25H8Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); }
-.device .tabbar a[aria-current="page"] { color: var(--ink); font-weight: 600; }
-.device .tabbar a[aria-current="page"] .ico { border: 0; background: currentColor; }
-.device .tabbar .count {
+.device[data-screen="Plan"] .tabbar li:nth-child(1) a { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 8.70938C3 7.23584 3 6.49907 3.39264 6.06935C3.53204 5.91678 3.70147 5.79466 3.89029 5.71066C4.42213 5.47406 5.12109 5.70705 6.51901 6.17302C7.58626 6.52877 8.11989 6.70665 8.6591 6.68823C8.85714 6.68147 9.05401 6.65511 9.24685 6.60952C9.77191 6.48541 10.2399 6.1734 11.176 5.54937L12.5583 4.62778C13.7574 3.82843 14.3569 3.42876 15.0451 3.3366C15.7333 3.24444 16.4168 3.47229 17.7839 3.92799L18.9487 4.31624C19.9387 4.64625 20.4337 4.81126 20.7169 5.20409C21 5.59692 21 6.11871 21 7.16229V15.2907C21 16.7642 21 17.501 20.6074 17.9307C20.468 18.0833 20.2985 18.2054 20.1097 18.2894C19.5779 18.526 18.8789 18.293 17.481 17.827C16.4137 17.4713 15.8801 17.2934 15.3409 17.3118C15.1429 17.3186 14.946 17.3449 14.7532 17.3905C14.2281 17.5146 13.7601 17.8266 12.824 18.4507L11.4417 19.3722C10.2426 20.1716 9.64311 20.5713 8.95493 20.6634C8.26674 20.7556 7.58319 20.5277 6.21609 20.072L5.05132 19.6838C4.06129 19.3538 3.56627 19.1888 3.28314 18.7959C3 18.4031 3 17.8813 3 16.8377V8.70938Z%22/%3E%3Cpath d=%22M9 6.65723V20.6569%22/%3E%3Cpath d=%22M15 3.34277V17.3425%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] .tabbar li:nth-child(2) a { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z%22/%3E%3Cpath d=%22M8 12H16%22/%3E%3Cpath d=%22M8 8H16%22/%3E%3Cpath d=%22M8 16H13%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] .tabbar li:nth-child(3) a { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 8C4 5.17157 4 3.75736 4.87868 2.87868C5.75736 2 7.17157 2 10 2H14C16.8284 2 18.2426 2 19.1213 2.87868C20 3.75736 20 5.17157 20 8V16C20 18.8284 20 20.2426 19.1213 21.1213C18.2426 22 16.8284 22 14 22H10C7.17157 22 5.75736 22 4.87868 21.1213C4 20.2426 4 18.8284 4 16V8Z%22/%3E%3Cpath d=%22M19.9997 16H7.89749C6.96751 16 6.50253 16 6.12103 16.1022C5.08575 16.3796 4.29986 17.1212 4.02246 18.1564%22/%3E%3Cpath d=%22M8 7H16%22/%3E%3Cpath d=%22M8 10.5H13%22/%3E%3Cpath d=%22M19.9239 19H8%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] .tabbar li:nth-child(4) a { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M9.5 12.4L10.9286 14L14.5 10%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] .tabbar li:nth-child(5) a { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%229%22 r=%223%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] .tabbar li:nth-child(1) a[aria-current="page"] { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M2.43627 5.14686C2 5.64345 2 6.49488 2 8.19773V17.591C2 18.797 2 19.4 2.3146 19.854C2.62919 20.3079 3.17921 20.4986 4.27924 20.88L5.57343 21.3286C6.27436 21.5717 6.81371 21.7586 7.26633 21.879C7.5616 21.9576 7.83333 21.7258 7.83333 21.4203V6.2701C7.83333 6.02118 7.64964 5.81111 7.40837 5.74991C7.01914 5.65118 6.55127 5.48897 5.91002 5.26666C4.35676 4.72817 3.58014 4.45893 2.98922 4.73235C2.77941 4.82942 2.59116 4.97054 2.43627 5.14686Z%22/%3E%3Cpath d=%22M12.6204 3.48096L11.0844 4.54596C10.5287 4.93124 10.1215 5.2136 9.77375 5.41491C9.60895 5.51032 9.5 5.68291 9.5 5.87334V20.9203C9.5 21.2909 9.88398 21.5222 10.1962 21.3225C10.5312 21.1082 10.9149 20.8422 11.3796 20.5199L12.9156 19.4549C13.4712 19.0697 13.8785 18.7873 14.2262 18.586C14.3911 18.4906 14.5 18.318 14.5 18.1276V3.08063C14.5 2.71004 14.116 2.47866 13.8038 2.67836C13.4688 2.89271 13.0851 3.15874 12.6204 3.48096Z%22/%3E%3Cpath d=%22M19.7208 3.12093L18.4266 2.67226C17.7256 2.42923 17.1863 2.24228 16.7337 2.12187C16.4384 2.04333 16.1667 2.2751 16.1667 2.58064V17.7308C16.1667 17.9797 16.3504 18.1898 16.5916 18.251C16.9809 18.3497 17.4488 18.5119 18.09 18.7342C19.6432 19.2727 20.4199 19.542 21.0108 19.2686C21.2206 19.1715 21.4088 19.0304 21.5637 18.854C22 18.3575 22 17.506 22 15.8032V6.40988C22 5.2039 22 4.60091 21.6854 4.14695C21.3708 3.69298 20.8208 3.5023 19.7208 3.12093Z%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] .tabbar li:nth-child(2) a[aria-current="page"] { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M4.17157 3.17157C3 4.34315 3 6.22876 3 10V14C3 17.7712 3 19.6569 4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284C21 19.6569 21 17.7712 21 14V10C21 6.22876 21 4.34315 19.8284 3.17157C18.6569 2 16.7712 2 13 2H11C7.22876 2 5.34315 2 4.17157 3.17157ZM7.25 8C7.25 7.58579 7.58579 7.25 8 7.25H16C16.4142 7.25 16.75 7.58579 16.75 8C16.75 8.41421 16.4142 8.75 16 8.75H8C7.58579 8.75 7.25 8.41421 7.25 8ZM7.25 12C7.25 11.5858 7.58579 11.25 8 11.25H16C16.4142 11.25 16.75 11.5858 16.75 12C16.75 12.4142 16.4142 12.75 16 12.75H8C7.58579 12.75 7.25 12.4142 7.25 12ZM8 15.25C7.58579 15.25 7.25 15.5858 7.25 16C7.25 16.4142 7.58579 16.75 8 16.75H13C13.4142 16.75 13.75 16.4142 13.75 16C13.75 15.5858 13.4142 15.25 13 15.25H8Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] .tabbar a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+.device[data-screen="Plan"] .tabbar a[aria-current="page"] .ico { border: 0; background: currentColor; }
+.device[data-screen="Plan"] .tabbar .count {
   top: 0; left: calc(50% + 6px); margin: 0; min-width: 18px; height: 18px; padding: 0 5px;
   border-radius: 9px; background: var(--yellow); color: #0F1113; font: 600 10.5px/18px var(--f-num);
   box-shadow: 0 0 0 2px var(--surface);
 }
 
-@media (prefers-reduced-motion: reduce) { .device details > summary::after { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .device[data-screen="Plan"] details > summary::after { transition: none; } }
 
 /* ═══ critique 2026-09-24 · виправлення ═══ */
 /* P1 · тривога — одразу після брифу: «Change plan» іде в кінець, «Share» — скляна іконка на фото */
-.device main > details, .device section[aria-labelledby="hero"] > details { order: 9; margin-top: 24px; }
-.device section[aria-labelledby="hero"] > .actions { order: 1; position: absolute; top: 14px; right: 12px; margin: 0; z-index: 3; }
-.device section[aria-labelledby="hero"] > .actions a {
+.device[data-screen="Plan"] main > details, .device[data-screen="Plan"] section[aria-labelledby$="hero"] > details { order: 9; margin-top: 24px; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > .actions { order: 1; position: absolute; top: 14px; right: 12px; margin: 0; z-index: 3; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > .actions a {
   width: 44px; min-height: 44px; height: 44px; padding: 0; border-radius: 50%; font-size: 0; gap: 0;
   color: #fff; background: rgba(255,255,255,.28); box-shadow: none;
   -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
 }
-.device section[aria-labelledby="hero"] > .actions a::before { width: 22px; height: 22px; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] > .actions a::before { width: 22px; height: 22px; }
 /* P1 · статус офлайн — HUD на фото, як на стенді */
-.device section[aria-labelledby="hero"] .row small {
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] .row small {
   position: absolute; top: 270px; left: 20px; margin: 0; z-index: 2;
   color: #fff; font: 500 11px/1.3 var(--f-num); letter-spacing: .07em; text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0,0,0,.55);
 }
-.device section[aria-labelledby="hero"] .row b { font-size: 15px; }
-.device .frame--photo::after { bottom: auto; top: 246px; right: 16px; }
-.device .frame--photo { position: relative; }
-.device .frame--photo { box-shadow: inset 0 -90px 60px -40px rgba(0,0,0,.35); }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] .row b { font-size: 15px; }
+.device[data-screen="Plan"] .frame--photo::after { bottom: auto; top: 246px; right: 16px; }
+.device[data-screen="Plan"] .frame--photo { position: relative; }
+.device[data-screen="Plan"] .frame--photo { box-shadow: inset 0 -90px 60px -40px rgba(0,0,0,.35); }
 /* P2 · у тривозі трикутник дублює штрих */
-.device section[aria-labelledby="health"] .row .state.warn::before { content: none; }
-.device section[aria-labelledby="health"] .row .state.warn { padding: 2px 0 0; background: none; }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .row .state.warn::before { content: none; }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .row .state.warn { padding: 2px 0 0; background: none; }
 /* P2 · вузли днів — 24 px кола з номером, як на стенді */
-.device section[aria-labelledby="days"] .rows { counter-reset: d -1; }
-.device section[aria-labelledby="days"] .rows > li { counter-increment: d; }
-.device section[aria-labelledby="days"] .row::before {
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .rows { counter-reset: d -1; }
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .rows > li { counter-increment: d; }
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .row::before {
   content: counter(d); width: 24px; height: 24px; border-radius: 50%;
   display: grid; place-items: center; font: 600 12px/1 var(--f-num); color: var(--ink);
   background: var(--surface); box-shadow: inset 0 0 0 1.5px var(--hair);
 }
-.device section[aria-labelledby="days"] a.row[href="./day.html"]:has(.state.warn)::before {
+.device[data-screen="Plan"] section[aria-labelledby$="days"] a.row[href="./day.html"]:has(.state.warn)::before {
   width: 24px; height: 24px; color: #0F1113; background: var(--yellow); box-shadow: inset 0 0 0 2px #0F1113;
 }
-.device section[aria-labelledby="days"] li:first-child .row::before,
-.device section[aria-labelledby="days"] li:last-child .row::before { content: ""; width: 20px; height: 20px; border-radius: 0; box-shadow: none; }
-.device section[aria-labelledby="days"] .rows > li:first-child::before { top: calc(50% + 12px); }
-.device section[aria-labelledby="days"] .rows > li:last-child::before { bottom: calc(50% + 12px); }
-.device .row small { text-wrap: pretty; }
+.device[data-screen="Plan"] section[aria-labelledby$="days"] li:first-child .row::before,
+.device[data-screen="Plan"] section[aria-labelledby$="days"] li:last-child .row::before { content: ""; width: 20px; height: 20px; border-radius: 0; box-shadow: none; }
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .rows > li:first-child::before { top: calc(50% + 12px); }
+.device[data-screen="Plan"] section[aria-labelledby$="days"] .rows > li:last-child::before { bottom: calc(50% + 12px); }
+.device[data-screen="Plan"] .row small { text-wrap: pretty; }
 /* P3 · пройдений похід — без живого хрому */
-.device[data-state="пройдений"] ~ * .count, .device[data-state="пройдений"] .tabbar .count { display: none; }
+.device[data-screen="Plan"][data-state="пройдений"] ~ * .count, .device[data-screen="Plan"][data-state="пройдений"] .tabbar .count { display: none; }
 /* дрібне: темна тема */
-.device { --dash: #9AA0A6; --press: #EDEEEE; }
+.device[data-screen="Plan"] { --dash: #9AA0A6; --press: #EDEEEE; }
 
-.device section[aria-labelledby="health"] > p:first-of-type { border-color: var(--dash); }
-.device .actions a:not(.cta):active, .device form.inline button:active { background: var(--press); }
-.device .rows .state.warn { box-shadow: inset 0 0 0 1px var(--hair); }
-.device .rows a[href="./booking.html"] .state.warn { box-shadow: none; }
-.device section[aria-labelledby="health"] .row .state.warn { box-shadow: none; }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] > p:first-of-type { border-color: var(--dash); }
+.device[data-screen="Plan"] .actions a:not(.cta):active, .device[data-screen="Plan"] form.inline button:active { background: var(--press); }
+.device[data-screen="Plan"] .rows .state.warn { box-shadow: inset 0 0 0 1px var(--hair); }
+.device[data-screen="Plan"] .rows a[href="./booking.html"] .state.warn { box-shadow: none; }
+.device[data-screen="Plan"] section[aria-labelledby$="health"] .row .state.warn { box-shadow: none; }
 /* детектор critique: підпис таб-бару 10.5 px був нижче порогу 11 px (PRODUCT.md, Accessibility) */
-.device .tabbar a { font-size: 11px; }
-.device .tabbar .count { font-size: 11px; }
+.device[data-screen="Plan"] .tabbar a { font-size: 11px; }
+.device[data-screen="Plan"] .tabbar .count { font-size: 11px; }
 
 /* скролбар усередині телефона — у справжньому iPhone його немає */
-.device .screen { scrollbar-width: none; }
-.device .screen::-webkit-scrollbar { display: none; }
+.device[data-screen="Plan"] .screen { scrollbar-width: none; }
+.device[data-screen="Plan"] .screen::-webkit-scrollbar { display: none; }
 /* мітка макета — у колір корпусу, а не біла смуга над фото */
-.device::before { background: #101214; color: #8A9095; border: 0; }
+.device[data-screen="Plan"]::before { background: #101214; color: #8A9095; border: 0; }
 
-/* ═══ темна тема: за системою, або примусово перемикачем над телефоном ═══
-   Перемикач — радіокнопки в рев'ю-хромі (.nw-theme); без JS, через :has(). */
-@media (prefers-color-scheme: dark) {
-  body:not(:has(#nw-light:checked)) .device {
-    --glass: #0F1113; --surface: #1C1E21; --hair: #34383C; --graphite: #A3A9AE; --ink: #F2F3F4; --onink: #0F1113;
-    --blue: #3A66F5; --blue-press: #2E57E0; --blue-soft: #1D2A55; --link: #7C9BFF;
-    --conflict: #FF7A6B;
-    --alert-bg: #26292D; --alert-fg: #F2F3F4; --alert-sub: rgba(242,243,244,.8);
-    --bar-bg: rgba(28,30,33,.88);
-  }
-  body:not(:has(#nw-light:checked)) .device .frame--map { filter: invert(.88) hue-rotate(180deg) saturate(.7); }
-  body:not(:has(#nw-light:checked)) .device .frame--map::after { filter: invert(1) hue-rotate(180deg); }
-  body:not(:has(#nw-light:checked)) .device { --dash: #5E6368; --press: #26292D; }
+/* ═══ темна тема — перемикачем «Світла · Темна» вгорі сторінки ═══
+   Перемикач — радіокнопки в рев'ю-хромі (.nw-theme, стилі в _wireframe.css); без JS, через :has(). */
+body:has(#nw-dark:checked) .device[data-screen="Plan"] {
+  --glass: #0F1113; --surface: #1C1E21; --hair: #34383C; --graphite: #A3A9AE; --ink: #F2F3F4; --onink: #0F1113;
+  --blue: #3A66F5; --blue-press: #2E57E0; --blue-soft: #1D2A55; --link: #7C9BFF;
+  --conflict: #FF7A6B;
+  --alert-bg: #26292D; --alert-fg: #F2F3F4; --alert-sub: rgba(242,243,244,.8);
+  --bar-bg: rgba(28,30,33,.88);
 }
-body:has(#nw-dark:checked) .device {
-    --glass: #0F1113; --surface: #1C1E21; --hair: #34383C; --graphite: #A3A9AE; --ink: #F2F3F4; --onink: #0F1113;
-    --blue: #3A66F5; --blue-press: #2E57E0; --blue-soft: #1D2A55; --link: #7C9BFF;
-    --conflict: #FF7A6B;
-    --alert-bg: #26292D; --alert-fg: #F2F3F4; --alert-sub: rgba(242,243,244,.8);
-    --bar-bg: rgba(28,30,33,.88);
-  }
-body:has(#nw-dark:checked) .device .frame--map { filter: invert(.88) hue-rotate(180deg) saturate(.7); }
-body:has(#nw-dark:checked) .device .frame--map::after { filter: invert(1) hue-rotate(180deg); }
-body:has(#nw-dark:checked) .device { --dash: #5E6368; --press: #26292D; }
-
-/* перемикач теми — рев'ю-хром, не частина застосунку */
-.nw-theme { display: flex; justify-content: center; gap: 4px; width: max-content; margin: 0 auto 14px; padding: 4px;
-  border-radius: 999px; background: #fff; box-shadow: inset 0 0 0 1px #cfcfcf; font: 600 13px/1 ui-sans-serif, system-ui, sans-serif; }
-.nw-theme input { position: absolute; opacity: 0; pointer-events: none; }
-.nw-theme label { margin: 0; padding: 9px 14px; min-height: 36px; display: inline-flex; align-items: center; border-radius: 999px;
-  cursor: pointer; color: #4a4a4a; font: inherit; text-transform: none; letter-spacing: 0; }
-.nw-theme input:checked + label { background: #141414; color: #fff; }
-.nw-theme input:focus-visible + label { outline: 3px solid #141414; outline-offset: 2px; }
+body:has(#nw-dark:checked) .device[data-screen="Plan"] .frame--map { filter: invert(.88) hue-rotate(180deg) saturate(.7); }
+body:has(#nw-dark:checked) .device[data-screen="Plan"] .frame--map::after { filter: invert(1) hue-rotate(180deg); }
+body:has(#nw-dark:checked) .device[data-screen="Plan"] { --dash: #5E6368; --press: #26292D; }
