@@ -216,6 +216,24 @@ Full text: [design-system/voice.md](./design-system/voice.md). The audit trail o
 
 The name of a screen lives in `_generate.py`'s `TREE` and nowhere else — `<title>`, the phone label, the header and the position line all read from it, and `_audit.py` fails if any of the four drifts. That check exists because a rename silently updated three places out of five and each of them looked correct on its own.
 
+## Концепт
+
+Full text: [concept.md](./concept.md) (taste, five attributes, the chosen direction and every rule added since), live stand: [concept.html](./concept.html), log of all direction rounds: [concept/directions.md](./concept/directions.md).
+
+**Direction: Прилад** (chosen 2026-09-23). A landscape photo is the hero; a frosted glass panel of measurements sits on it like watch complications; below it a light, dense register. Alerts are an **inverted ink panel with a hatched yellow edge** — readable without colour, in sunlight. Signal blue `#2D5BFF` is the only action colour; hi-vis yellow `#F2E500` is only live state on the instrument, always paired with ink. Wix Madefor Display for the UI, Tektur for digits and Latin only, Solar icons (tab bar 22 px, active tab black).
+
+**One system, written down, not assumed** (defect sweep 2026-09-24 — 34 defects, all fixed):
+- **Palette** is closed: every colour in the product is listed in concept.md, including map, soft state backgrounds and the dark theme. A colour that is not there is a defect.
+- **Type scale**: text 11 · 13 · 15 · 17 · 23 (28 · 34 for large titles), buttons 17, Tektur digits 13 · 17 · 22 · 40. 11 px is the floor for every string in the app.
+- **Spacing** on a 4 px step; **radii** only 32 · 24 · 20 · 16 · 12 · 999 · 0.
+- **No Unicode glyph stands in for an icon** — ‹ › ✕ ✓ ↗ were removed from the copy; Solar icons carry back, close, offline and day arrows.
+- **Error ≠ knowledge limit**: an error that left data behind is a limit (Graphite, dashed); an error with no result is a conflict (inverted panel, red edge).
+- **White text on a photo** sits on glass no lighter than ink at 45% over the photo's top scrim; every photo carries author and licence on the image itself.
+
+**Where the language lives in the wireframes.** The main-flow screens — catalogue, new plan, another hut, plan, day, with all their states (16 pages) — and `wireframes/flow.html` are painted with the stand's language by `wireframes/_prylad.css`, layered over `_wireframe.css` without touching markup or copy. The other screens are still grey wireframes. A fixed «Світла · Темна» toggle sits at the top of every page, and `_theme.js` (the only script the audit allows) remembers the choice.
+
+**Checking it.** The impeccable detector needs its parsers installed in the plugin folder (`htmlparser2`, `css-select`, `css-tree`, `domutils`, `puppeteer`); without them it silently degrades to regex and returns an empty list. Browser mode runs against the system Chrome via `PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"`. The packages live in the plugin cache, so an impeccable update requires reinstalling them.
+
 ## Tech stack
 
 Decided against the evidenced constraints, not against build convenience. Full evaluation: [research/research.md](./research/research.md) §7.

@@ -45,17 +45,17 @@
 .device {
   border: 10px solid #101214; border-radius: 50px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.45);
   background: var(--glass); color: var(--ink);
-  font: 400 16px/1.45 var(--f-ui);
+  font: 400 17px/1.45 var(--f-ui);
 }
 .device .screen { position: relative; background: var(--glass); padding-bottom: 96px; }
 .device ::selection { background: var(--blue-soft); color: var(--ink); }
 .device a:focus-visible, .device button:focus-visible, .device summary:focus-visible {
-  outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 12px; }
+  outline: 3px solid var(--ink); outline-offset: 3px; }
 
 /* шапка лягає склом на фото: «‹ My trips» — скляна кнопка, назва — в h1 */
 .device .topbar {
   position: absolute; top: 0; left: 0; right: 0; z-index: 3;
-  background: none; border: 0; padding: 14px 12px; min-height: 0; align-items: center;
+  background: none; border: 0; padding: 16px 12px; min-height: 0; align-items: center;
 }
 .device .topbar .back {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
@@ -87,7 +87,7 @@
 .device section[aria-labelledby$="hero"] .frame--photo {
   aspect-ratio: auto; height: 300px; margin: 0 -16px;
   border-radius: 0 0 var(--r-photo) var(--r-photo); overflow: hidden;
-  background: #6d7a70 url("./img/plan-kungsleden.jpg") center 62% / cover no-repeat;
+  background: var(--glass) url("./img/plan-kungsleden.jpg") center 62% / cover no-repeat;
 }
 .device section[aria-labelledby$="hero"] .frame--photo::before {           /* скрим під скляною кнопкою */
   content: ""; position: absolute; inset: 0 0 auto 0; height: 110px;
@@ -104,10 +104,10 @@
 .device section[aria-labelledby$="hero"] > .rows > li { border: 0; }
 .device section[aria-labelledby$="hero"] .row { display: block; min-height: 0; padding: 0; }
 .device section[aria-labelledby$="hero"] .row::after { content: none; }
-.device section[aria-labelledby$="hero"] .row b { display: inline; font: 500 14px/1.4 var(--f-ui); }
+.device section[aria-labelledby$="hero"] .row b { display: inline; font: 500 15px/1.4 var(--f-ui); }
 .device section[aria-labelledby$="hero"] .row small {
-  display: inline-flex; align-items: center; gap: 5px; margin: 0 0 0 8px;
-  font: 500 12px/1 var(--f-num); letter-spacing: .03em; color: var(--graphite);
+  display: inline-flex; align-items: center; gap: 4px; margin: 0 0 0 8px;
+  font: 500 13px/1 var(--f-num); letter-spacing: .03em; color: var(--graphite);
 }
 .device[data-state="офлайн"] section[aria-labelledby$="hero"] .row small::before {
   content: ""; width: 14px; height: 14px; background: currentColor;
@@ -116,15 +116,15 @@
 
 /* ═══ кнопки ═══ */
 /* дії героя: «Share my route» — вторинна кнопка; «Change plan» — розкривач нижче */
-.device section[aria-labelledby$="hero"] > .actions { margin: 14px 0 0; }
+.device section[aria-labelledby$="hero"] > .actions { margin: 16px 0 0; }
 .device .actions a:not(.cta), .device form.inline button, .device details .actions a {
-  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   min-height: 52px; padding: 0 20px; border: 0; border-radius: var(--r-control);
   background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--hair);
-  font: 600 16px/1 var(--f-ui); text-decoration: none; cursor: pointer;
+  font: 600 17px/1 var(--f-ui); text-decoration: none; cursor: pointer;
 }
 .device section[aria-labelledby$="hero"] > .actions a { width: 100%; }
-.device .actions a:not(.cta):active, .device form.inline button:active { background: #EDEEEE; }
+.device .actions a:not(.cta):active, .device form.inline button:active { background: var(--glass); }
 .device .actions a[href="./share.html"]::before, .device form.inline button::before, .device[data-state="пройдений"] .actions a[href="./catalogue.html"]::before {
   content: ""; width: 20px; height: 20px; flex: none; background: currentColor;
   -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat;
@@ -140,7 +140,7 @@
 
 /* «Change plan» — розкривач, небезпечна дія всередині */
 .device details {
-  margin: 10px 0 0; padding: 0 16px; border: 0; border-radius: var(--r-card);
+  margin: 12px 0 0; padding: 0 16px; border: 0; border-radius: var(--r-card);
   background: var(--surface); box-shadow: var(--e-hair);
 }
 .device details > summary {
@@ -154,7 +154,7 @@
   transition: transform .2s cubic-bezier(.2,.8,.2,1);
 }
 .device details[open] > summary::after { transform: rotate(180deg); }
-.device details > p { font-size: 14px; line-height: 1.45; color: var(--graphite); margin: 0 0 12px; }
+.device details > p { font-size: 15px; line-height: 1.45; color: var(--graphite); margin: 0 0 12px; }
 .device details .actions { margin: 0 0 16px; }
 .device details .actions a { width: 100%; color: var(--conflict); }
 
@@ -162,24 +162,24 @@
 .device section[aria-labelledby$="health"] .rows { border: 0; margin: 0; padding: 0; background: none; box-shadow: none; border-radius: 0; }
 .device section[aria-labelledby$="health"] .rows > li { border: 0; }
 .device section[aria-labelledby$="health"] .row {
-  position: relative; overflow: hidden; grid-template-columns: 1fr auto 16px; gap: 10px;
-  min-height: 0; padding: 12px 14px 12px 22px; border-radius: var(--r-card);
+  position: relative; overflow: hidden; grid-template-columns: 1fr auto 16px; gap: 12px;
+  min-height: 0; padding: 12px 16px 12px 24px; border-radius: var(--r-card);
   background: var(--alert-bg); color: var(--alert-fg);
 }
 .device section[aria-labelledby$="health"] .row::before {
   content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: var(--hatch);
 }
 .device section[aria-labelledby$="health"] .row b { font: 600 15px/1.3 var(--f-ui); }
-.device section[aria-labelledby$="health"] .row small { font-size: 13.5px; line-height: 1.4; color: var(--alert-sub); margin-top: 3px; }
+.device section[aria-labelledby$="health"] .row small { font-size: 13px; line-height: 1.4; color: var(--alert-sub); margin-top: 4px; }
 .device section[aria-labelledby$="health"] .row .state.warn {
-  align-self: start; font: 500 12px/1.3 var(--f-num); letter-spacing: .03em; color: var(--yellow); background: none; padding: 2px 0 0;
+  align-self: start; font: 500 13px/1.3 var(--f-num); letter-spacing: .03em; color: var(--yellow); background: none; padding: 4px 0 0;
 }
 .device section[aria-labelledby$="health"] .row::after { background: var(--alert-sub); }
 /* межа знання — пунктир і слово (стан «offline · data from…» зі стенду) */
 .device section[aria-labelledby$="health"] > p:first-of-type {
   position: relative; display: block; margin: 0;
-  padding: 14px 16px 14px 46px; border-radius: var(--r-card); border: 1.5px dashed #9AA0A6;
-  font-size: 14px; line-height: 1.45; color: var(--graphite);
+  padding: 16px 16px 16px 46px; border-radius: var(--r-card); border: 1.5px dashed var(--dash);
+  font-size: 15px; line-height: 1.45; color: var(--graphite);
 }
 .device section[aria-labelledby$="health"] > p:first-of-type b { color: var(--ink); font-weight: 600; }
 .device[data-state="офлайн"] section[aria-labelledby$="health"] > p:first-of-type::before,
@@ -192,7 +192,7 @@
   content: ""; position: absolute; left: 4px; top: 1px; width: 20px; height: 20px; background: var(--graphite);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M8.5 12.5L10.5 14.5L15.5 9.5%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M8.5 12.5L10.5 14.5L15.5 9.5%22/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
 }
-.device section[aria-labelledby$="health"] form.inline { display: block; margin: 10px 0 0; }
+.device section[aria-labelledby$="health"] form.inline { display: block; margin: 12px 0 0; }
 .device section[aria-labelledby$="health"] form.inline button { width: 100%; }
 
 /* ═══ карта й прилад ═══ */
@@ -202,30 +202,30 @@
 }
 .device .frame--map::after {             /* атрибуція CC BY 4.0 — на самій карті */
   content: "© Kartverket · Lantmäteriet"; position: absolute; left: 8px; bottom: 8px;
-  font: 500 11px/1 var(--f-ui); color: #4A4F54; background: rgba(255,255,255,.7); border-radius: 6px; padding: 3px 6px;
+  font: 500 11px/1 var(--f-ui); color: var(--graphite); background: rgba(255,255,255,.7); border-radius: var(--r-pill); padding: 4px 8px;
 }
 .device[data-state="офлайн"] .frame--map::before {   /* карта з офлайн-пакета */
   content: "offline pack"; position: absolute; right: 8px; top: 8px;
-  font: 500 11px/1 var(--f-num); letter-spacing: .03em; color: #4A4F54; background: rgba(255,255,255,.7); border-radius: 6px; padding: 4px 7px;
+  font: 500 11px/1 var(--f-num); letter-spacing: .03em; color: var(--graphite); background: rgba(255,255,255,.7); border-radius: var(--r-pill); padding: 4px 8px;
 }
 .device .stats {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 10px 0 0; padding: 4px 16px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 12px 0 0; padding: 4px 16px;
   border-radius: var(--r-panel); background: var(--surface); box-shadow: var(--e-hair);
 }
-.device .stats li { padding: 12px 0 11px; min-width: 0; }
+.device .stats li { padding: 12px 0 12px; min-width: 0; }
 .device .stats li:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--hair); }
 .device .stats li:nth-child(n+3) { border-top: 1px solid var(--hair); }
-.device .stats b { font: 600 24px/1 var(--f-num); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.device .stats small { display: block; margin-top: 6px; font: 500 11px/1.25 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--graphite); }
+.device .stats b { font: 600 22px/1 var(--f-num); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.device .stats small { display: block; margin-top: 8px; font: 500 11px/1.25 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--graphite); }
 
 /* ═══ згруповані списки (iOS inset grouped) ═══ */
 .device .rows { border: 0; margin: 0; padding: 0 16px; border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-hair); }
 .device .rows > li { border-bottom: 1px solid var(--hair); }
 .device .rows > li:last-child { border-bottom: 0; }
-.device .row { grid-template-columns: 1fr auto 16px; gap: 10px; min-height: 56px; padding: 11px 0; color: var(--ink); }
+.device .row { grid-template-columns: 1fr auto 16px; gap: 12px; min-height: 56px; padding: 12px 0; color: var(--ink); }
 .device div.row { grid-template-columns: 1fr auto; }
 .device .row b { font: 600 15px/1.3 var(--f-ui); }
-.device .row small { font-size: 13px; line-height: 1.35; color: var(--graphite); margin-top: 2px; }
+.device .row small { font-size: 13px; line-height: 1.35; color: var(--graphite); margin-top: 4px; }
 .device .row::after {
   content: ""; width: 16px; height: 16px; background: var(--graphite);
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M9 5L15 12L9 19%22/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M9 5L15 12L9 19%22/%3E%3C/svg%3E") center / contain no-repeat;
@@ -246,8 +246,8 @@
 
 /* ═══ стан «увага» — інверсія з жовтою іконкою (варіант А стенду) ═══ */
 .device .rows .state.warn {
-  display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px 7px 8px; border-radius: var(--r-pill);
-  background: var(--alert-bg); color: var(--alert-fg); font: 600 12.5px/1 var(--f-ui); white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px 8px 8px; border-radius: var(--r-pill);
+  background: var(--alert-bg); color: var(--alert-fg); font: 600 13px/1 var(--f-ui); white-space: nowrap;
 }
 .device .rows .state.warn::before {
   content: ""; width: 14px; height: 14px; background: var(--yellow);
@@ -255,7 +255,7 @@
 }
 /* дія над своєю сутністю: забронювати ніч, купити квиток — синій текст, не бейдж */
 .device .rows a[href="./booking.html"] .state.warn {
-  padding: 0; background: none; color: var(--link); font: 600 14px/1 var(--f-ui);
+  padding: 0; background: none; color: var(--link); font: 600 15px/1 var(--f-ui);
 }
 .device .rows a[href="./booking.html"] .state.warn::before { content: none; }
 
@@ -285,19 +285,19 @@
 .device section[aria-labelledby$="days"] .rows > li:last-child::before { bottom: calc(50% + 13px); }
 
 /* ═══ футер: атрибуція — постійна й компактна ═══ */
-.device footer.app { border: 0; padding: 28px 20px 24px; font: 400 11.5px/1.5 var(--f-ui); color: var(--graphite); }
-.device footer.app details { margin: 8px 0; padding: 0 12px; background: transparent; box-shadow: var(--e-hair); border-radius: 12px; }
-.device footer.app details > summary { min-height: 44px; font: 600 12.5px/1 var(--f-ui); color: var(--graphite); }
-.device footer.app details > p { font-size: 12px; }
+.device footer.app { border: 0; padding: 24px 20px 24px; font: 400 13px/1.5 var(--f-ui); color: var(--graphite); }
+.device footer.app details { margin: 8px 0; padding: 0 12px; background: transparent; box-shadow: var(--e-hair); border-radius: var(--r-control); }
+.device footer.app details > summary { min-height: 44px; font: 600 13px/1 var(--f-ui); color: var(--graphite); }
+.device footer.app details > p { font-size: 13px; }
 
 /* ═══ таб-бар — плаваюче скло ═══ */
 .device .tabbar {
-  left: 10px; right: 10px; bottom: 10px; height: auto; padding: 8px 6px 10px; border: 0; border-radius: 30px;
+  left: 10px; right: 10px; bottom: 10px; height: auto; padding: 8px 8px 12px; border: 0; border-radius: var(--r-pill);
   background: var(--bar-bg); -webkit-backdrop-filter: blur(18px) saturate(1.3); backdrop-filter: blur(18px) saturate(1.3);
   box-shadow: var(--e-float);
 }
 .device .tabbar a {
-  position: relative; min-height: 44px; gap: 3px; font: 500 10.5px/1.1 var(--f-ui); color: var(--graphite);
+  position: relative; min-height: 44px; gap: 4px; font: 500 11px/1.1 var(--f-ui); color: var(--graphite);
 }
 .device .tabbar .ico {
   width: 22px; height: 22px; border: 0; border-radius: 0; background: currentColor;
@@ -313,8 +313,8 @@
 .device .tabbar a[aria-current="page"] { color: var(--ink); font-weight: 600; }
 .device .tabbar a[aria-current="page"] .ico { border: 0; background: currentColor; }
 .device .tabbar .count {
-  top: 0; left: calc(50% + 6px); margin: 0; min-width: 18px; height: 18px; padding: 0 5px;
-  border-radius: 9px; background: var(--yellow); color: #0F1113; font: 600 10.5px/18px var(--f-num);
+  top: 0; left: calc(50% + 6px); margin: 0; min-width: 18px; height: 18px; padding: 0 4px;
+  border-radius: var(--r-pill); background: var(--yellow); color: #0F1113; font: 600 11px/18px var(--f-num);
   box-shadow: 0 0 0 2px var(--surface);
 }
 
@@ -342,13 +342,13 @@
 .device section[aria-labelledby$="hero"] .frame--photo { box-shadow: inset 0 -90px 60px -40px rgba(0,0,0,.35); }
 /* P2 · у тривозі трикутник дублює штрих */
 .device section[aria-labelledby$="health"] .row .state.warn::before { content: none; }
-.device section[aria-labelledby$="health"] .row .state.warn { padding: 2px 0 0; background: none; }
+.device section[aria-labelledby$="health"] .row .state.warn { padding: 4px 0 0; background: none; }
 /* P2 · вузли днів — 24 px кола з номером, як на стенді */
 .device section[aria-labelledby$="days"] .rows { counter-reset: d -1; }
 .device section[aria-labelledby$="days"] .rows > li { counter-increment: d; }
 .device section[aria-labelledby$="days"] .row::before {
   content: counter(d); width: 24px; height: 24px; border-radius: 50%;
-  display: grid; place-items: center; font: 600 12px/1 var(--f-num); color: var(--ink);
+  display: grid; place-items: center; font: 600 13px/1 var(--f-num); color: var(--ink);
   background: var(--surface); box-shadow: inset 0 0 0 1.5px var(--hair);
 }
 .device section[aria-labelledby$="days"] a.row:not([href="./booking.html"]):has(.state.warn)::before {
@@ -362,7 +362,7 @@
 /* P3 · пройдений похід — без живого хрому */
 .device[data-state="пройдений"] ~ * .count, .device[data-state="пройдений"] .tabbar .count { display: none; }
 /* дрібне: темна тема */
-.device { --dash: #9AA0A6; --press: #EDEEEE; }
+.device { --dash: var(--graphite); --press: var(--glass); }
 
 .device section[aria-labelledby$="health"] > p:first-of-type { border-color: var(--dash); }
 .device .actions a:not(.cta):active, .device form.inline button:active { background: var(--press); }
@@ -389,7 +389,6 @@ body:has(#nw-dark:checked) .device {
   --bar-bg: rgba(28,30,33,.88);
 }
 body:has(#nw-dark:checked) .device .frame--map { filter: invert(.88) hue-rotate(180deg) saturate(.7); }
-body:has(#nw-dark:checked) .device .frame--map::after { filter: invert(1) hue-rotate(180deg); }
 body:has(#nw-dark:checked) .device { --dash: #5E6368; --press: #26292D; }
 
 /* ════════════════════════════════════════════════════════════════
@@ -399,7 +398,7 @@ body:has(#nw-dark:checked) .device { --dash: #5E6368; --press: #26292D; }
    сьогодні = SOS, великі числа, міні-карта, тривога (телефон 4),
    аркуш = біла поверхня з ручкою (контроль «Аркуш · три висоти»).
    Нові пари кольорів: немає — лише пари, вже пораховані вгорі файла,
-   плюс пари зі стенду, перераховані тут: white / #B42318 (SOS) 6.57 · #4A4F54 / #C9CDD1 (недоступна) 5.18 ·
+   плюс пари зі стенду, перераховані тут: white / #B42318 (SOS) 6.57 · var(--graphite) / #C9CDD1 (недоступна) 5.18 ·
    #0B7A4B / #E7F4EC («усе сходиться») 4.76 · темна: #4CC38A / #12301F 6.46 · #A3A9AE / #34383C 4.98 · #A3A9AE / #26292D 6.15.
    ════════════════════════════════════════════════════════════════ */
 
@@ -412,8 +411,8 @@ body:has(#nw-dark:checked) .device { --dash: #5E6368; --press: #26292D; }
 .device:is([data-screen="Another hut"],[data-screen="Day"]) .topbar .back,
 .device:is([data-screen="Another hut"],[data-screen="Day"]) .topbar .close {
   position: absolute; left: 8px; top: 4px; display: inline-flex; align-items: center; min-height: 44px; padding: 0 8px;
-  background: none; -webkit-backdrop-filter: none; backdrop-filter: none; border-radius: 12px;
-  color: var(--link); font: 600 16px/1 var(--f-ui); text-decoration: none;
+  background: none; -webkit-backdrop-filter: none; backdrop-filter: none; border-radius: var(--r-control);
+  color: var(--link); font: 600 17px/1 var(--f-ui); text-decoration: none;
 }
 .device:is([data-screen="Another hut"],[data-screen="Day"]) .topbar .title {
   position: static; width: auto; height: auto; overflow: visible; clip: auto;
@@ -436,17 +435,17 @@ body:has(#nw-dark:checked) .device { --dash: #5E6368; --press: #26292D; }
 
 /* бриф «дати · хто · change» — посилання з шевроном, як на стенді */
 .device[data-screen="New plan"] section[aria-labelledby$="hero"] .row {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0; color: var(--ink);
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; color: var(--ink);
 }
 .device[data-screen="New plan"] section[aria-labelledby$="hero"] .row small {
-  display: inline; margin: 0; font: 600 14px/1 var(--f-ui); letter-spacing: 0; text-transform: none; color: var(--link);
+  display: inline; margin: 0; font: 600 15px/1 var(--f-ui); letter-spacing: 0; text-transform: none; color: var(--link);
 }
 .device[data-screen="New plan"] section[aria-labelledby$="hero"] .row::after { content: ""; }
 
 /* «усе сходиться» — стан «закріплено» стенду: зелене слово з галочкою */
 .device[data-screen="New plan"][data-state="успіх"] section[aria-labelledby$="health"] > p:first-of-type {
-  display: inline-flex; align-items: center; gap: 6px; width: max-content; padding: 7px 11px 7px 8px; border: 0;
-  border-radius: var(--r-pill); background: #E7F4EC; color: #0B7A4B; font: 600 12.5px/1 var(--f-ui);
+  display: inline-flex; align-items: center; gap: 8px; width: max-content; padding: 8px 12px 8px 8px; border: 0;
+  border-radius: var(--r-pill); background: #E7F4EC; color: #0B7A4B; font: 600 13px/1 var(--f-ui);
 }
 .device[data-screen="New plan"][data-state="успіх"] section[aria-labelledby$="health"] > p:first-of-type b { color: inherit; font-weight: 600; }
 .device[data-screen="New plan"][data-state="успіх"] section[aria-labelledby$="health"] > p:first-of-type::before {
@@ -457,16 +456,16 @@ body:has(#nw-dark:checked) .device[data-screen="New plan"][data-state="успі�
 
 /* вердикт — тривога-конфлікт стенду: інверсія, червоний край */
 .device .verdict {
-  position: relative; overflow: hidden; padding: 12px 14px 12px 22px; border: 0; border-radius: var(--r-card);
-  background: var(--alert-bg); color: var(--alert-fg); font-size: 14px; line-height: 1.45;
+  position: relative; overflow: hidden; padding: 12px 16px 12px 24px; border: 0; border-radius: var(--r-card);
+  background: var(--alert-bg); color: var(--alert-fg); font-size: 15px; line-height: 1.45;
 }
-.device .verdict::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: #FF6B5B; }
+.device .verdict::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: #FF7A6B; }
 .device .verdict strong { display: block; font: 600 15px/1.3 var(--f-ui); }
-.device .verdict p { margin: 3px 0 0; font-size: 13.5px; color: var(--alert-sub); }
-.device[data-screen="New plan"] section[aria-labelledby$="health"] .verdict + .rows { margin-top: 10px; background: var(--surface); box-shadow: var(--e-hair); border-radius: var(--r-card); padding: 0 16px; }
+.device .verdict p { margin: 4px 0 0; font-size: 13px; color: var(--alert-sub); }
+.device[data-screen="New plan"] section[aria-labelledby$="health"] .verdict + .rows { margin-top: 12px; background: var(--surface); box-shadow: var(--e-hair); border-radius: var(--r-card); padding: 0 16px; }
 
 /* градація під приладом — підпис, не абзац */
-.device section[aria-labelledby$="route"] > p { margin: 10px 4px 0; font: 500 13px/1.4 var(--f-ui); color: var(--graphite); }
+.device section[aria-labelledby$="route"] > p { margin: 12px 4px 0; font: 500 13px/1.4 var(--f-ui); color: var(--graphite); }
 
 /* «Що треба» нового плану — іконки за змістом рядка */
 .device[data-screen="New plan"] section[aria-labelledby$="general"] li:nth-child(2) .row { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 16.0746 2.60178 17.2457 3.54704 18.0226M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 15.2939 21.0091 17.0061 19.5 18.0226%22/%3E%3Cpath d=%22M17 19L15 21%22/%3E%3Cpath d=%22M16 15.5L14 17.5%22/%3E%3Cpath d=%22M12 20L10 22%22/%3E%3Cpath d=%22M11.5 15.5L9.5 17.5%22/%3E%3Cpath d=%22M7.5 19L5.5 21%22/%3E%3C/g%3E%3C/svg%3E"); }
@@ -474,7 +473,7 @@ body:has(#nw-dark:checked) .device[data-screen="New plan"][data-state="успі�
 
 /* панель дії — Primary + Secondary внизу, біле скло */
 .device section[aria-labelledby$="save"] {
-  position: sticky; bottom: 0; z-index: 4; margin: 24px -16px 0; padding: 12px 16px 26px;
+  position: sticky; bottom: 0; z-index: 4; margin: 24px -16px 0; padding: 12px 16px 24px;
   background: var(--bar-bg); border-top: 1px solid var(--hair);
   -webkit-backdrop-filter: blur(18px) saturate(1.3); backdrop-filter: blur(18px) saturate(1.3);
 }
@@ -484,20 +483,20 @@ body:has(#nw-dark:checked) .device[data-screen="New plan"][data-state="успі�
 .device section[aria-labelledby$="save"] .actions > * { flex: 1; }
 .device section[aria-labelledby$="save"] .actions > button { flex: 1.4; }
 .device button.cta, .device a.cta {
-  display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 52px; padding: 0 20px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 20px;
   border: 0; border-radius: var(--r-control); background: var(--blue); color: #fff; box-shadow: none;
-  font: 600 16px/1 var(--f-ui); text-decoration: none; cursor: pointer;
+  font: 600 17px/1 var(--f-ui); text-decoration: none; cursor: pointer;
 }
 .device button.cta:active, .device a.cta:active { background: var(--blue-press); transform: scale(.985); }
 .device button[disabled] {
   display: inline-flex; align-items: center; justify-content: center; flex: 1.4; min-height: 52px; padding: 0 16px; border: 0;
-  border-radius: var(--r-control); background: #C9CDD1; color: #4A4F54; font: 600 15px/1.2 var(--f-ui); cursor: not-allowed;
+  border-radius: var(--r-control); background: #C9CDD1; color: var(--graphite); font: 600 15px/1.2 var(--f-ui); cursor: not-allowed;
 }
 body:has(#nw-dark:checked) .device button[disabled] { background: #34383C; color: #A3A9AE; }
 
 /* ── скелет генерації ── */
 .device .skel {
-  display: block; height: 16px; margin: 0 0 10px; border-radius: var(--r-field, 12px); background: var(--hair);
+  display: block; height: 16px; margin: 0 0 12px; border-radius: var(--r-pill); background: var(--hair);
   background-image: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
   background-size: 200% 100%; animation: nw-shimmer 1.4s linear infinite;
 }
@@ -519,23 +518,23 @@ body:has(#nw-dark:checked) .device button[disabled] { background: #34383C; color
 
 /* ── стан без позначки «увага» — нейтральна пігулка стенду (st-none) ── */
 .device .rows .state:not(.warn) {
-  display: inline-flex; align-items: center; padding: 6px 10px; border-radius: var(--r-pill);
-  background: var(--glass); color: var(--ink); box-shadow: var(--e-hair); font: 600 12.5px/1 var(--f-ui); white-space: nowrap;
+  display: inline-flex; align-items: center; padding: 8px 12px; border-radius: var(--r-pill);
+  background: var(--glass); color: var(--ink); box-shadow: var(--e-hair); font: 600 13px/1 var(--f-ui); white-space: nowrap;
 }
 .device[data-state="генерація"] .rows .state:not(.warn) { font-family: var(--f-num); box-shadow: none; background: none; color: var(--graphite); }
 
 /* ── чипи: 999, вибраний — чорна інверсія (як натиснута кнопка теми стенду) ── */
-.device .chips { gap: 6px; margin: 0; }
+.device .chips { gap: 8px; margin: 0; }
 .device .chip {
-  min-height: 36px; padding: 0 14px; border: 0; border-radius: var(--r-pill);
+  min-height: 36px; padding: 0 16px; border: 0; border-radius: var(--r-pill);
   background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--hair);
   font: 600 13px/1 var(--f-ui);
 }
 .device .chip.on { background: var(--ink); color: var(--glass); box-shadow: none; font-weight: 600; }
 
 /* ── порожній стан — пунктир і слово (межа, не помилка) ── */
-.device .empty { margin: 0 0 10px; padding: 14px 16px; border: 1.5px dashed var(--dash); border-radius: var(--r-card); background: none; }
-.device .empty p { margin: 0; font-size: 14px; color: var(--graphite); }
+.device .empty { margin: 0 0 12px; padding: 16px 16px; border: 1.5px dashed var(--dash); border-radius: var(--r-card); background: none; }
+.device .empty p { margin: 0; font-size: 15px; color: var(--graphite); }
 
 /* ══ КАТАЛОГ: карта — поверхня, пошук — пігулка, пресети — аркуш ══ */
 .device[data-screen="Where to go"] .topbar { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); padding: 0; }
@@ -545,15 +544,15 @@ body:has(#nw-dark:checked) .device button[disabled] { background: #34383C; color
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] > h2,
 .device[data-screen="Where to go"] section[aria-labelledby$="where"] > h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); margin: 0; }
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] .rows {
-  display: grid; grid-template-columns: 1.3fr 1fr 1fr; padding: 8px 6px; border-radius: var(--r-pill); box-shadow: var(--e-float);
+  display: grid; grid-template-columns: 1.3fr 1fr 1fr; padding: 8px 8px; border-radius: var(--r-pill); box-shadow: var(--e-float);
 }
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] .rows > li { border: 0; min-width: 0; border-left: 1px solid var(--hair); }
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] .rows > li:first-child { border-left: 0; }
-.device[data-screen="Where to go"] section[aria-labelledby$="search"] .row { display: block; min-height: 0; padding: 2px 10px; }
+.device[data-screen="Where to go"] section[aria-labelledby$="search"] .row { display: block; min-height: 0; padding: 4px 12px; }
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] .row::after { content: none; }
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] .row b { font: 500 11px/1.2 var(--f-ui); color: var(--graphite); }
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] .row small {
-  margin: 1px 0 0; font: 600 13.5px/1.25 var(--f-ui); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  margin: 1px 0 0; font: 600 13px/1.25 var(--f-ui); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] .chips { margin-top: 8px; }
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] .chip:not(.on) { box-shadow: var(--e-float); }
@@ -563,48 +562,48 @@ body:has(#nw-dark:checked) .device button[disabled] { background: #34383C; color
 }
 .device[data-screen="Where to go"] .frame--screen::after {
   content: "© Kartverket · Lantmäteriet"; position: absolute; left: 12px; bottom: 96px;
-  font: 500 11px/1 var(--f-ui); color: #4A4F54; background: rgba(255,255,255,.7); border-radius: 6px; padding: 3px 6px;
+  font: 500 11px/1 var(--f-ui); color: var(--graphite); background: rgba(255,255,255,.7); border-radius: var(--r-pill); padding: 4px 8px;
 }
 body:has(#nw-dark:checked) .device[data-screen="Where to go"] .frame--screen { filter: invert(.88) hue-rotate(180deg) saturate(.7); }
 /* свій маршрут — картка на карті */
 .device[data-screen="Where to go"] section[aria-labelledby$="where"] > .rows { position: relative; z-index: 2; margin: -84px 0 0; box-shadow: var(--e-float); }
 .device[data-screen="Where to go"] section[aria-labelledby$="where"] > .actions,
 .device[data-screen="Where to go"] section[aria-labelledby$="where"] > p:not(.actions) { position: relative; z-index: 2; }
-.device[data-screen="Where to go"] section[aria-labelledby$="where"] > .actions { display: flex; gap: 8px; flex-wrap: nowrap; margin: 10px 0 0; }
+.device[data-screen="Where to go"] section[aria-labelledby$="where"] > .actions { display: flex; gap: 8px; flex-wrap: nowrap; margin: 12px 0 0; }
 .device[data-screen="Where to go"] section[aria-labelledby$="where"] > .actions > * { flex: 1; }
 .device[data-screen="Where to go"] section[aria-labelledby$="where"] > .actions > .cta { flex: 1.4; }
 .device[data-screen="Where to go"] section[aria-labelledby$="where"] > p:not(.actions) {
-  margin: -84px 0 0; padding: 14px 16px; border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-float);
-  font-size: 14.5px; color: var(--ink);
+  margin: -84px 0 0; padding: 16px 16px; border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-float);
+  font-size: 15px; color: var(--ink);
 }
 /* аркуш пресетів */
 .device[data-screen="Where to go"] section:is([aria-labelledby$="local"],[aria-labelledby$="classic"]) {
-  margin: 0 -16px; padding: 18px 16px 8px; background: var(--surface);
+  margin: 0 -16px; padding: 16px 16px 8px; background: var(--surface);
 }
 .device[data-screen="Where to go"] section[aria-labelledby$="local"] {
-  margin-top: 16px; border-radius: var(--r-panel) var(--r-panel) 0 0; box-shadow: 0 -8px 24px -18px rgba(15,17,19,.35); padding-top: 10px;
+  margin-top: 16px; border-radius: var(--r-panel) var(--r-panel) 0 0; box-shadow: 0 -8px 24px -18px rgba(15,17,19,.35); padding-top: 12px;
 }
 .device[data-screen="Where to go"] section[aria-labelledby$="local"]::before {
-  content: ""; display: block; width: 36px; height: 4px; margin: 0 auto 12px; border-radius: 2px; background: var(--hair);
+  content: ""; display: block; width: 36px; height: 4px; margin: 0 auto 12px; border-radius: var(--r-pill); background: var(--hair);
 }
 .device[data-screen="Where to go"] section[aria-labelledby$="classic"] { padding-bottom: 24px; }
 .device[data-screen="Where to go"] section:is([aria-labelledby$="local"],[aria-labelledby$="classic"]) > h2 {
-  margin: 0 0 10px; font: 600 17px/1.2 var(--f-ui); color: var(--ink);
+  margin: 0 0 12px; font: 600 17px/1.2 var(--f-ui); color: var(--ink);
 }
 .device[data-screen="Where to go"] footer.app { background: var(--surface); }
-.device .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 10px; margin: 0; padding: 0; list-style: none; }
+.device .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 12px; margin: 0; padding: 0; list-style: none; }
 .device .card { display: block; padding: 0; border: 0; background: none; color: var(--ink); text-decoration: none; }
 .device .card .frame--photo {
-  aspect-ratio: 4 / 3; height: auto; margin: 0 0 6px; border: 0; border-radius: var(--r-card); overflow: hidden; background: #6d7a70 center / cover no-repeat;
+  aspect-ratio: 4 / 3; height: auto; margin: 0 0 8px; border: 0; border-radius: var(--r-card); overflow: hidden; background: var(--glass) center / cover no-repeat;
 }
 .device .card .frame--photo::after {
   content: var(--src); position: absolute; left: 8px; right: 8px; bottom: 7px;
-  color: rgba(255,255,255,.94); font: 500 9.5px/1.2 var(--f-num); letter-spacing: .03em; text-shadow: 0 1px 3px rgba(0,0,0,.6);
+  color: rgba(255,255,255,.94); font: 500 11px/1.2 var(--f-num); letter-spacing: .03em; text-shadow: 0 1px 3px rgba(0,0,0,.6);
 }
-.device .card b { display: block; font: 600 14px/1.3 var(--f-ui); }
-.device .card .state { display: inline; padding: 0; margin: 0; background: none; font: 500 12.5px/1.4 var(--f-num); color: var(--graphite); }
+.device .card b { display: block; font: 600 15px/1.3 var(--f-ui); }
+.device .card .state { display: inline; padding: 0; margin: 0; background: none; font: 500 13px/1.4 var(--f-num); color: var(--graphite); }
 .device .card .state::after { content: " · "; }
-.device .card small { display: inline; margin: 0; font-size: 12.5px; line-height: 1.4; color: var(--graphite); }
+.device .card small { display: inline; margin: 0; font-size: 13px; line-height: 1.4; color: var(--graphite); }
 /* фото карток — за змістом, з джерелом на самому фото */
 .device section[aria-labelledby$="local"] li:nth-child(1) .frame--photo { background-image: url("./img/plan-kungsleden.jpg"); --src: "Anders Norén · Unsplash"; }
 .device section[aria-labelledby$="local"] li:nth-child(2) .frame--photo { background-image: url("./img/card-kebnekaise.jpg"); --src: "Anders Norén · Unsplash"; }
@@ -614,9 +613,9 @@ body:has(#nw-dark:checked) .device[data-screen="Where to go"] .frame--screen { f
 
 /* ══ АРКУШ «Інша хижа»: біла поверхня з ручкою ══ */
 .device[data-screen="Another hut"] .screen { background: var(--surface); }
-.device[data-screen="Another hut"] .topbar { background: var(--surface); border-bottom: 0; padding-top: 10px; }
+.device[data-screen="Another hut"] .topbar { background: var(--surface); border-bottom: 0; padding-top: 12px; }
 .device[data-screen="Another hut"] .topbar::before {
-  content: ""; position: absolute; top: 6px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: var(--hair);
+  content: ""; position: absolute; top: 6px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: var(--r-pill); background: var(--hair);
 }
 .device[data-screen="Another hut"] .rows { background: var(--glass); box-shadow: none; }
 body:has(#nw-dark:checked) .device[data-screen="Another hut"] .rows { background: #26292D; }
@@ -629,7 +628,7 @@ body:has(#nw-dark:checked) .device[data-screen="Another hut"] .rows { background
 .device[data-screen="Day"] .frame--map { background-image: url("./img/map-day3.svg"); }
 .device[data-screen="Day"][data-state="сьогодні"] .frame--map { aspect-ratio: auto; height: 170px; margin-top: 12px; background-image: url("./img/map-today.svg"); }
 .device .frame--profile {
-  margin-top: 10px; aspect-ratio: 5 / 1; border-radius: var(--r-card); overflow: hidden;
+  margin-top: 12px; aspect-ratio: 5 / 1; border-radius: var(--r-card); overflow: hidden;
   background: var(--surface) url("./img/profile-day3.svg") center / 100% 100% no-repeat; box-shadow: var(--e-hair);
 }
 body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rotate(180deg); }
@@ -641,7 +640,7 @@ body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rota
 .device[data-screen="Day"] .stats b { font-size: 22px; }
 /* рядки-умови стенду (.cond): іконка + текст */
 .device[data-screen="Day"] :is(section[aria-labelledby$="night"], section[aria-labelledby$="weather"]) > p {
-  position: relative; margin: 10px 0 0; padding: 0 4px 0 34px; font-size: 14px; line-height: 1.45; color: var(--ink);
+  position: relative; margin: 12px 0 0; padding: 0 4px 0 32px; font-size: 15px; line-height: 1.45; color: var(--ink);
 }
 .device[data-screen="Day"] :is(section[aria-labelledby$="night"], section[aria-labelledby$="weather"]) > p::before {
   content: ""; position: absolute; left: 4px; top: 0; width: 20px; height: 20px; background: var(--graphite);
@@ -652,18 +651,18 @@ body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rota
 .device[data-screen="Day"][data-state="офлайн"] section[aria-labelledby$="weather"] > p { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath d=%22M13.5 17.5L12 19M12 19L10.5 20.5M12 19L10.5 17.5M12 19L13.5 20.5%22/%3E%3C/g%3E%3C/svg%3E"); }
 .device[data-screen="Day"][data-state="норма замість прогнозу"] section[aria-labelledby$="weather"] > p { --ic: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M12 2V4%22/%3E%3Cpath d=%22M12 20V22%22/%3E%3Cpath d=%22M4 12L2 12%22/%3E%3Cpath d=%22M22 12L20 12%22/%3E%3Cpath d=%22M19.7778 4.22266L17.5558 6.25424%22/%3E%3Cpath d=%22M4.22217 4.22266L6.44418 6.25424%22/%3E%3Cpath d=%22M6.44434 17.5557L4.22211 19.7779%22/%3E%3Cpath d=%22M19.7778 19.7773L17.5558 17.5551%22/%3E%3C/g%3E%3C/svg%3E"); color: var(--graphite); }
 /* сьогодні: SOS — постійно, червоний; тривога на ділянці — інверсія */
-.device[data-state="сьогодні"] section[aria-labelledby$="leg"] > .actions:first-of-type { display: block; margin: 0 0 10px; }
+.device[data-state="сьогодні"] section[aria-labelledby$="leg"] > .actions:first-of-type { display: block; margin: 0 0 12px; }
 .device[data-state="сьогодні"] section[aria-labelledby$="leg"] > .actions a.cta {
-  width: 100%; background: #B42318; color: #fff; font: 700 16px/1 var(--f-num); letter-spacing: .04em;
+  width: 100%; background: #B42318; color: #fff; font: 700 17px/1 var(--f-num); letter-spacing: .04em;
 }
 .device[data-state="сьогодні"] section[aria-labelledby$="cond"] .rows { padding: 0; background: none; box-shadow: none; }
 .device[data-state="сьогодні"] section[aria-labelledby$="cond"] .row {
-  position: relative; overflow: hidden; padding: 12px 14px 12px 22px; border-radius: var(--r-card);
+  position: relative; overflow: hidden; padding: 12px 16px 12px 24px; border-radius: var(--r-card);
   background: var(--alert-bg); color: var(--alert-fg);
 }
 .device[data-state="сьогодні"] section[aria-labelledby$="cond"] .row::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: var(--hatch); }
 .device[data-state="сьогодні"] section[aria-labelledby$="cond"] .row small { color: var(--alert-sub); }
-.device[data-state="сьогодні"] section[aria-labelledby$="cond"] .row .state.warn { padding: 2px 0 0; align-self: start; background: none; box-shadow: none; color: var(--yellow); font: 500 12px/1.3 var(--f-num); }
+.device[data-state="сьогодні"] section[aria-labelledby$="cond"] .row .state.warn { padding: 4px 0 0; align-self: start; background: none; box-shadow: none; color: var(--yellow); font: 500 13px/1.3 var(--f-num); }
 .device[data-state="сьогодні"] section[aria-labelledby$="cond"] .row .state.warn::before { content: none; }
 .device[data-state="сьогодні"] section[aria-labelledby$="cond"] .row::after { background: var(--alert-sub); }
 .device[data-state="сьогодні"] section[aria-labelledby$="cond"] > .actions { margin-top: 12px; }
@@ -671,20 +670,20 @@ body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rota
 
 /* ── critique-прохід по флоу ── */
 /* бриф нового плану: текст і «change» в один рядок */
-.device[data-screen="New plan"] section[aria-labelledby$="hero"] .row { display: block; min-height: 44px; padding: 10px 0 0; }
+.device[data-screen="New plan"] section[aria-labelledby$="hero"] .row { display: block; min-height: 44px; padding: 12px 0 0; }
 .device[data-screen="New plan"] section[aria-labelledby$="hero"] .row b { display: inline; }
-.device[data-screen="New plan"] section[aria-labelledby$="hero"] .row small { margin-left: 6px; }
+.device[data-screen="New plan"] section[aria-labelledby$="hero"] .row small { margin-left: 8px; }
 .device[data-screen="New plan"] section[aria-labelledby$="hero"] .row::after { content: none; }
 /* варіанти виходу під вердиктом — звичайний список, не тривога */
 .device section[aria-labelledby$="health"] .verdict ~ .rows .row {
-  overflow: visible; padding: 11px 0; border-radius: 0; background: none; color: var(--ink); grid-template-columns: 1fr auto 16px;
+  overflow: visible; padding: 12px 0; border-radius: 0; background: none; color: var(--ink); grid-template-columns: 1fr auto 16px;
 }
 .device section[aria-labelledby$="health"] .verdict ~ .rows .row::before { content: none; }
 .device section[aria-labelledby$="health"] .verdict ~ .rows .row small { color: var(--graphite); font-size: 13px; }
 .device section[aria-labelledby$="health"] .verdict ~ .rows .row::after { background: var(--graphite); }
 .device section[aria-labelledby$="health"] .verdict ~ .rows .row .state.warn {
-  align-self: center; padding: 7px 11px 7px 8px; border-radius: var(--r-pill); background: var(--alert-bg); color: var(--alert-fg);
-  box-shadow: inset 0 0 0 1px var(--hair); font: 600 12.5px/1 var(--f-ui);
+  align-self: center; padding: 8px 12px 8px 8px; border-radius: var(--r-pill); background: var(--alert-bg); color: var(--alert-fg);
+  box-shadow: inset 0 0 0 1px var(--hair); font: 600 13px/1 var(--f-ui);
 }
 .device section[aria-labelledby$="health"] .verdict ~ .rows .row .state.warn::before {
   content: ""; width: 14px; height: 14px; background: var(--yellow);
@@ -692,7 +691,7 @@ body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rota
 }
 /* генерація: «Building your plan» — рядок зі спінером, не тривога */
 .device[data-state="генерація"] section[aria-labelledby$="health"] .row {
-  overflow: visible; padding: 11px 0; border-radius: 0; background: none; color: var(--ink);
+  overflow: visible; padding: 12px 0; border-radius: 0; background: none; color: var(--ink);
 }
 .device[data-state="генерація"] section[aria-labelledby$="health"] .row::before {
   position: static; width: 18px; height: 18px; background: none; border-radius: 50%;
@@ -702,16 +701,16 @@ body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rota
 .device[data-state="генерація"] section[aria-labelledby$="health"] .row .state { align-self: center; }
 
 /* ── повітря в рядках: крок 4 стенду, iOS inset grouped ── */
-.device .row { gap: 12px; min-height: 60px; padding: 14px 0; }
+.device .row { gap: 12px; min-height: 60px; padding: 16px 0; }
 .device .row b { line-height: 1.3; }
 .device .row small { margin-top: 4px; line-height: 1.4; }
-.device section[aria-labelledby$="days"] .row { column-gap: 14px; }
-.device section[aria-labelledby$="general"] .row { column-gap: 14px; }
+.device section[aria-labelledby$="days"] .row { column-gap: 16px; }
+.device section[aria-labelledby$="general"] .row { column-gap: 16px; }
 .device .rows .state { margin-left: 4px; }
 
 /* ── аркуш «Інша хижа» лежить поверх нового плану: згори видно затемнений план, таб-бару немає ── */
 .device[data-screen="Another hut"] .screen {
-  background: linear-gradient(rgba(15,17,19,.5), rgba(15,17,19,.5)), #6d7a70 url("./img/plan-kungsleden.jpg") center top / 100% auto no-repeat;
+  background: linear-gradient(rgba(15,17,19,.5), rgba(15,17,19,.5)), var(--glass) url("./img/plan-kungsleden.jpg") center top / 100% auto no-repeat;
   padding-bottom: 0;
 }
 .device[data-screen="Another hut"] .tabbar { display: none; }
@@ -728,11 +727,11 @@ body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rota
 .device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row:has(.state)::before { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
 .device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row:has(.state)::after { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
 .device section[aria-labelledby$="general"] a.row:has(.state) { grid-template-columns: 22px 1fr 16px; }
-.device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row[href="./booking.html"] > .state { margin-top: 6px; }
+.device :is(section[aria-labelledby$="days"], section[aria-labelledby$="general"]) a.row[href="./booking.html"] > .state { margin-top: 8px; }
 
 /* ── каталог: карта стоїть, аркуш їде поверх неї (Карти Apple, Airbnb; стенд — телефон 1) ── */
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] {
-  position: sticky; top: 10px; left: auto; right: auto; z-index: 5; order: 2; margin: 10px -4px 0;
+  position: sticky; top: 10px; left: auto; right: auto; z-index: 5; order: 2; margin: 12px -4px 0;
 }
 .device[data-screen="Where to go"] section[aria-labelledby$="where"] { display: contents; }
 .device[data-screen="Where to go"] section[aria-labelledby$="where"] > * { order: 2; }
@@ -743,6 +742,99 @@ body:has(#nw-dark:checked) .device .frame--profile { filter: invert(.9) hue-rota
 /* прибита лише пігулка пошуку; чипи лежать на карті й прокручуються */
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] { display: contents; }
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] > * { order: 2; }
-.device[data-screen="Where to go"] section[aria-labelledby$="search"] > .rows { position: sticky; top: 10px; z-index: 5; margin: 10px -4px 0; background: var(--surface); }
+.device[data-screen="Where to go"] section[aria-labelledby$="search"] > .rows { position: sticky; top: 10px; z-index: 5; margin: 12px -4px 0; background: var(--surface); }
 .device[data-screen="Where to go"] section[aria-labelledby$="search"] > .chips { position: relative; z-index: 3; margin: 8px -4px 0; }
 .device[data-screen="Where to go"] .frame--screen { margin-top: -114px; }
+
+/* ════════ прискіплива перевірка 2026-09-24 · виправлення таблиці дефектів ════════ */
+/* 12 · заголовок секції — один компонент на всіх екранах: 17/600 Ink (як «Best in Sweden» стенду) */
+.device h2 { font: 600 17px/1.2 var(--f-ui); color: var(--ink); margin: 0 0 12px; }
+
+/* 13 · новий план: головні виміри — скляною панеллю на фото (рішення «Прилад», атрибут 3) */
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats {
+  position: absolute; top: 216px; left: 24px; right: 24px; z-index: 2; margin: 0;
+  display: flex; justify-content: space-between; padding: 12px 16px;
+  background: var(--panel-bg); -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2);
+  box-shadow: none; border-radius: var(--r-panel);
+}
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li,
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:nth-child(even),
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:nth-child(n+3) { padding: 0 0 0 12px; border: 0; border-left: 1px solid var(--hair); }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:first-child { padding-left: 0; border-left: 0; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats b { font-size: 17px; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats small { margin-top: 4px; }
+.device[data-screen="New plan"] section[aria-labelledby$="hero"] .frame--photo::after { top: 72px; }
+.device[data-screen="New plan"][data-state="генерація"] section[aria-labelledby$="route"] .stats { display: none; }
+.device { --panel-bg: rgba(250,250,250,.9); }
+body:has(#nw-dark:checked) .device { --panel-bg: rgba(28,30,33,.88); }
+
+/* 14 · статус пресету — біла пігулка у верхньому лівому куті фото (Airbnb, атрибут 3) */
+.device .card { position: relative; }
+.device .card .state {
+  position: absolute; top: 8px; left: 8px; z-index: 1; padding: 4px 8px; border-radius: var(--r-pill);
+  background: rgba(255,255,255,.92); color: #0F1113; font: 600 13px/1 var(--f-num);
+}
+.device .card .state::after { content: none; }
+.device .card small { display: block; margin-top: 4px; }
+/* 27 · підпис джерела на фото картки — 11 px на затемненому низі */
+.device .card .frame--photo::before { content: ""; position: absolute; inset: auto 0 0 0; height: 40%; background: linear-gradient(transparent, rgba(0,0,0,.45)); }
+.device .card .frame--photo::after { font-size: 11px; z-index: 1; }
+
+/* 15 · SOS — червона капсула поруч із назвою дня, як на стенді */
+.device[data-state="сьогодні"] main > h1 { padding-right: 120px; }
+.device[data-state="сьогодні"] section[aria-labelledby$="leg"] > .actions:first-of-type { position: absolute; top: 64px; right: 16px; z-index: 3; margin: 0; }
+.device[data-state="сьогодні"] section[aria-labelledby$="leg"] > .actions a.cta { width: auto; min-height: 56px; padding: 0 20px; border-radius: var(--r-pill); }
+
+/* 16 · пошук: значення брифу не обрізається — до двох рядків */
+.device[data-screen="Where to go"] section[aria-labelledby$="search"] .row small {
+  white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: 13px;
+}
+.device[data-screen="Where to go"] section[aria-labelledby$="search"] .rows { border-radius: var(--r-panel); }
+
+/* 17 · іконки Solar замість гліфів ‹ › ✕ ✓ */
+.device .topbar .back, .device .topbar .close { gap: 4px; }
+.device .topbar .back::before, .device .topbar .close::before,
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > .actions:first-of-type a:first-child::before,
+.device[data-screen="Day"]:not([data-state="сьогодні"]) section[aria-labelledby$="leg"] > .actions:first-of-type a:last-child::after,
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] .row small::before {
+  content: ""; width: 18px; height: 18px; flex: none; background: currentColor;
+  -webkit-mask: var(--gi) center / contain no-repeat; mask: var(--gi) center / contain no-repeat;
+}
+.device .topbar .back::before { --gi: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M15 5L9 12L15 19%22/%3E%3C/svg%3E"); margin-left: -4px; }
+.device .topbar .close::before { --gi: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M19.0068 5L5.00684 19%22/%3E%3Cpath d=%22M19 19L5 5%22/%3E%3C/g%3E%3C/svg%3E"); }
+.device[data-screen="Day"] section[aria-labelledby$="leg"] > .actions:first-of-type a { display: inline-flex; align-items: center; gap: 4px; }
+.device[data-screen="Day"] section[aria-labelledby$="leg"] > .actions:first-of-type a:first-child::before { --gi: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M15 5L9 12L15 19%22/%3E%3C/svg%3E"); }
+.device[data-screen="Day"] section[aria-labelledby$="leg"] > .actions:first-of-type a:last-child::after { --gi: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M9 5L15 12L9 19%22/%3E%3C/svg%3E"); }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] .row small { display: inline-flex; align-items: center; gap: 4px; }
+.device[data-screen="Plan"] section[aria-labelledby$="hero"] .row small::before { --gi: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M10 19.8L11.1429 21L14 18%22/%3E%3C/g%3E%3C/svg%3E"); width: 16px; height: 16px; }
+.device[data-screen="Plan"][data-state="офлайн"] section[aria-labelledby$="hero"] .row small::before { --gi: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath d=%22M13.5 17.5L12 19M12 19L10.5 20.5M12 19L10.5 17.5M12 19L13.5 20.5%22/%3E%3C/g%3E%3C/svg%3E"); }
+
+/* 21 · 22 · 32 · скло під білим текстом — темне, щоб текст тримав AA і на світлому небі */
+.device:is([data-screen="Plan"],[data-screen="New plan"]) .topbar .back,
+.device section[aria-labelledby$="hero"] > .actions a { background: rgba(15,17,19,.45); }
+.device[data-screen="New plan"][data-state="генерація"] .topbar .back { background: rgba(15,17,19,.6); }
+
+/* 23 · чипи — зона тапу 44 */
+.device .chip { min-height: 44px; }
+
+/* 28 · розмиття лише там, де під шаром щось є: у білої шапки аркуша — ні */
+.device[data-screen="Another hut"] .topbar { -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* 33 · «Change and reset» — текстова дія в розкривачі, не картка в картці */
+.device details .actions a { width: auto; min-height: 44px; padding: 0; justify-content: flex-start; background: none; box-shadow: none; }
+
+/* модальне: «назад» — скляна кнопка-іконка, як ✕ стенду; назва по центру не перекривається */
+.device[data-screen="New plan"] .topbar .back { width: 44px; min-height: 44px; padding: 0; justify-content: center; font-size: 0; gap: 0; }
+.device[data-screen="New plan"] .topbar .back::before { width: 22px; height: 22px; margin: 0; }
+/* панель на фото: чотири виміри в один рядок, підпис переноситься в межах свого стовпця */
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats { flex-wrap: nowrap; gap: 0; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li { flex: 0 1 auto; min-width: 0; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats small { white-space: normal; }
+/* SOS на «сьогодні» — лише слово, без стрілок */
+.device[data-state="сьогодні"] section[aria-labelledby$="leg"] > .actions a.cta::before,
+.device[data-state="сьогодні"] section[aria-labelledby$="leg"] > .actions a.cta::after { content: none; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats { padding: 12px 12px; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li { flex: 0 0 auto; padding-right: 8px; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:last-child { flex: 0 1 auto; padding-right: 0; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats li:not(:first-child) { padding-left: 8px; }
+.device[data-screen="New plan"] section[aria-labelledby$="route"] .stats b { font-size: 17px; }

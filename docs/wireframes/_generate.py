@@ -141,8 +141,8 @@ def topbar(current):
     p, pname = parent_of(current)
     title = TITLE.get(current, '')
     if current in SHEETS:
-        return f'  <header class="topbar"><a class="close" href="./{SHEETS[current]}">✕ Close</a><span class="title">{title}</span></header>'
-    back = f'<a class="back" href="./{p}">‹ {pname}</a>' if p else ''
+        return f'  <header class="topbar"><a class="close" href="./{SHEETS[current]}">Close</a><span class="title">{title}</span></header>'
+    back = f'<a class="back" href="./{p}">{pname}</a>' if p else ''
     act = TOPBAR_ACT.get(current, '')
     return f'  <header class="topbar">{back}<span class="title">{title}</span>{act}</header>'
 
@@ -204,7 +204,7 @@ def page(current, title, h1, metaline, zones, src, appnav=True, base=None):
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260924g" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260924h" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>

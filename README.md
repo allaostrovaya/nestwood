@@ -30,6 +30,16 @@ Three enforced sub-systems make this checkable: a **dictionary** (one concept, o
 
 Screen names get a blunt test, added after two invented ones shipped: if a person has never met the phrase in any app, the name is invented.
 
+## Concept
+
+The visual side is written down in [concept.md](./concept.md) and shown live on the stand, [concept.html](./concept.html). The designer's taste comes first and is named as input (monobank's character, Airbnb's photo-led cards, Google Maps' map-as-surface, Raiffeisen's large radii; PrivatBank as the anti-reference for missing craft). Five attributes pair a line of research data with a borrowed technique.
+
+**Chosen direction — Прилад** (2026-09-23): the landscape photo carries the screen, a frosted glass instrument panel of measurements sits on it, alerts are an inverted ink panel with a hatched edge. Signal blue `#2D5BFF` is the only action colour, hi-vis yellow `#F2E500` is only live state. Wix Madefor Display for text, Tektur for digits, Solar icons.
+
+**A closed system**, audited against concept.md on 2026-09-24 (34 defects found and fixed): a closed palette including map and dark theme, one type scale (text 11 · 13 · 15 · 17 · 23, digits 13 · 17 · 22 · 40, 11 px floor), a 4 px spacing step, radii 32 · 24 · 20 · 16 · 12 · 999 · 0, Solar icons instead of Unicode glyphs, WCAG AA for every text pair including white text on photos.
+
+The main flow of the wireframes — catalogue, new plan, another hut, plan, day, with every state, and [flow.html](./wireframes/flow.html) — is painted in this language by `wireframes/_prylad.css` without changing markup or copy; a «Світла · Темна» toggle at the top of every page switches the theme and remembers it.
+
 ## Repo index
 
 Phase pipeline — each folder tracks its own status; update the table below as phases progress.
@@ -38,8 +48,8 @@ Phase pipeline — each folder tracks its own status; update the table below as 
 |---|---|---|
 | 1. Concept | [concept/](./concept/) | Done — 2 personas + 2 axes, 12 jobs and 8 hypotheses; every claim audited against primary sources |
 | 2. Research | [research/](./research/) ([research.md](./research/research.md), [competitors.md](./research/competitors.md), [benchmark.md](./research/benchmark.md), [patterns.md](./research/patterns.md), [screens/](./research/screens/)) | Done — 15 competitors, benchmark, UX patterns, 8 data-source classes verified by direct request, tech stack decided. Interface pattern: catalogue, not wizard |
-| 3. Design system & tokens | [design-system/](./design-system/) ([voice.md](./design-system/voice.md)), [tokens/](./tokens/) | **Voice done and applied** — 5 principles each sourced to a line in the research, plus dictionary, bans and per-element microcopy rules; every one of the 63 wireframe pages rewritten under it. Visual language and tokens not started (brand accent still deferred: green/blue/red/black are the official grading) |
-| 4. Wireframes | [wireframes/](./wireframes/) ([sitemap.md](./wireframes/sitemap.md), [flows.md](./wireframes/flows.md), [ia.html](./wireframes/ia.html), [flow.html](./wireframes/flow.html), [microcopy.md](./wireframes/microcopy.md), [_conventions.md](./wireframes/_conventions.md)) | **Done** — 63 pages (31 screens × 32 states) against the five-tab catalogue structure, plus [flow.html](./wireframes/flow.html), the main path as ten screens in a row. All copy rewritten under `voice.md`; `_audit.py` prints zero |
+| 3. Design system & tokens | [design-system/](./design-system/) ([voice.md](./design-system/voice.md)), [tokens/](./tokens/) | **Voice done and applied**; **visual language chosen — Прилад** ([concept.md](./concept.md), stand [concept.html](./concept.html)): closed palette, one type scale, 4 px spacing, radii scale, Solar icons. Tokens as a package not started |
+| 4. Wireframes | [wireframes/](./wireframes/) ([sitemap.md](./wireframes/sitemap.md), [flows.md](./wireframes/flows.md), [ia.html](./wireframes/ia.html), [flow.html](./wireframes/flow.html), [microcopy.md](./wireframes/microcopy.md), [_conventions.md](./wireframes/_conventions.md)) | **Done** — 33 pages (20 screens × 13 states), English UI; the main flow (16 pages) and [flow.html](./wireframes/flow.html) painted in Прилад via `_prylad.css`, with a light/dark toggle. `_audit.py` prints zero |
 | 5. Components | [components/](./components/) | Not started |
 | 6. Handoff | [handoff/](./handoff/) | Not started |
 
