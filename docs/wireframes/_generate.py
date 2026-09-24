@@ -131,7 +131,7 @@ SHEETS = {
 
 # дія праворуч у шапці: шестерня налаштувань у профілі, як у Strava / Komoot / AllTrails
 TOPBAR_ACT = {
-  'me.html': '<a class="act" href="./settings.html" aria-label="Налаштування"><span class="ico" aria-hidden="true"></span></a>',
+  'me.html': '<a class="act" href="./settings.html" aria-label="Налаштування"><svg class="gear" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></a>',
 }
 
 def topbar(current):
@@ -204,7 +204,7 @@ def page(current, title, h1, metaline, zones, src, appnav=True, base=None):
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
-<link rel="stylesheet" href="./_wireframe.css" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260924" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>

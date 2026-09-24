@@ -205,7 +205,7 @@ HTML = f'''<!doctype html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nestwood — головний флоу</title>
-<link rel="stylesheet" href="./_wireframe.css" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260924" />
 <link rel="stylesheet" href="./_flow.css" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
