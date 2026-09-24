@@ -224,7 +224,7 @@ Full text: [concept.md](./concept.md) (taste, five attributes, the chosen direct
 
 **One system, written down, not assumed** (defect sweep 2026-09-24 — 34 defects, all fixed):
 - **Palette** is closed: every colour in the product is listed in concept.md, including map, soft state backgrounds and the dark theme. A colour that is not there is a defect.
-- **Type scale**: text 11 · 13 · 15 · 17 · 23 (28 · 34 for large titles), buttons 17, Tektur digits 13 · 17 · 22 · 40. 11 px is the floor for every string in the app.
+- **Type scale**: 10 · 12 · 14 · 16 · 18 · 24 · 28 · 32 (designer, 2026-09-24). 10 is for the tab bar label and badge only — as in iOS itself; every other string is 12 or larger (iOS minimum is 11 pt).
 - **Spacing** on a 4 px step; **radii** only 32 · 24 · 20 · 16 · 12 · 999 · 0.
 - **No Unicode glyph stands in for an icon** — ‹ › ✕ ✓ ↗ were removed from the copy; Solar icons carry back, close, offline and day arrows.
 - **Error ≠ knowledge limit**: an error that left data behind is a limit (Graphite, dashed); an error with no result is a conflict (inverted panel, red edge).

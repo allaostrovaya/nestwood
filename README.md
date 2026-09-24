@@ -36,7 +36,7 @@ The visual side is written down in [concept.md](./concept.md) and shown live on 
 
 **Chosen direction — Прилад** (2026-09-23): the landscape photo carries the screen, a frosted glass instrument panel of measurements sits on it, alerts are an inverted ink panel with a hatched edge. Signal blue `#2D5BFF` is the only action colour, hi-vis yellow `#F2E500` is only live state. Wix Madefor Display for text, Tektur for digits, Solar icons.
 
-**A closed system**, audited against concept.md on 2026-09-24 (34 defects found and fixed): a closed palette including map and dark theme, one type scale (text 11 · 13 · 15 · 17 · 23, digits 13 · 17 · 22 · 40, 11 px floor), a 4 px spacing step, radii 32 · 24 · 20 · 16 · 12 · 999 · 0, Solar icons instead of Unicode glyphs, WCAG AA for every text pair including white text on photos.
+**A closed system**, audited against concept.md on 2026-09-24 (34 defects found and fixed): a closed palette including map and dark theme, one type scale (10 · 12 · 14 · 16 · 18 · 24 · 28 · 32; 10 only for the tab bar, text from 12), a 4 px spacing step, radii 32 · 24 · 20 · 16 · 12 · 999 · 0, Solar icons instead of Unicode glyphs, WCAG AA for every text pair including white text on photos.
 
 The main flow of the wireframes — catalogue, new plan, another hut, plan, day, with every state, and [flow.html](./wireframes/flow.html) — is painted in this language by `wireframes/_prylad.css` without changing markup or copy; a «Світла · Темна» toggle at the top of every page switches the theme and remembers it.
 
