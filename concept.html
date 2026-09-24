@@ -74,7 +74,7 @@
     --fixed:#0B7A4B; --fixed-soft:#E7F4EC;
     --grad-bla:#4A90E2; --grad-rod:#C8102E;
     --hatch:repeating-linear-gradient(135deg,var(--yellow) 0 5px,var(--ink) 5px 10px);
-    --r-photo:32px; --r-panel:24px; --r-card:20px; --r-control:12px; --r-field:12px; --r-pill:999px;
+    --r-photo:32px; --r-panel:24px; --r-card:20px; --r-control:16px; --r-field:12px; --r-pill:999px;
     --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:20px; --s-6:24px; --s-8:32px; --s-12:48px;
     --e-hair:inset 0 0 0 1px var(--hair);
     --e-float:0 12px 32px -16px rgba(15,17,19,.38);
@@ -288,7 +288,7 @@
 
   .form3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
   .form3 > div{background:var(--glass);border-radius:var(--r-card);padding:20px}
-  .radii{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:end;margin:14px 0 10px}
+  .radii{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:end;margin:14px 0 10px}
   .radii div{background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--ink);height:64px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;font:500 11px var(--f-num)}
   .sh{display:grid;gap:12px;margin-top:14px}
   .sh div{background:var(--surface);border-radius:14px;padding:14px;font-size:13px}
@@ -737,10 +737,10 @@
     <div>
       <h3>Радіуси</h3>
       <div class="radii">
-        <div style="border-radius:32px">32</div><div style="border-radius:24px">24</div><div style="border-radius:20px">20</div><div style="border-radius:12px">12</div><div style="border-radius:0">0</div>
+        <div style="border-radius:32px">32</div><div style="border-radius:24px">24</div><div style="border-radius:20px">20</div><div style="border-radius:16px">16</div><div style="border-radius:12px">12</div><div style="border-radius:0">0</div>
       </div>
       <ul class="rules">
-        <li><b>32</b> фото · <b>24</b> скляна панель, аркуш · <b>20</b> картка, тривога · <b>12</b> кнопка й поле форми · <b>999</b> чипи</li>
+        <li><b>32</b> фото · <b>24</b> скляна панель, аркуш · <b>20</b> картка, тривога · <b>16</b> кнопка · <b>12</b> поле форми · <b>999</b> чипи</li>
         <li><b>0</b> — рядки вимірів усередині контейнера <span class="attr"><b>2</b></span></li>
         <li>Вкладений радіус = зовнішній − відступ: панель 24 у фото 32 з відступом 10 → ~22–24</li>
       </ul>
