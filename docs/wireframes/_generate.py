@@ -20,43 +20,43 @@ GNAV = _g.gnav('wireframes', '../')
 # обʼєкта (маршрут, день, ніч, відгуки) — там h1 показує назву обʼєкта.
 # Батько виводиться з вкладеності: «‹ назад» веде саме до нього.
 TREE = [
- ('Карта', [
-   ('Куди можна піти','catalogue.html',[('порожній','catalogue-empty.html')], [
-     ('Новий план ⭐','new-plan.html',[('генерація','new-plan-loading.html'),('неможливий маршрут','new-plan-conflict.html'),('помилка','new-plan-error.html')], [
-       ('Інша хижа','huts.html',[('порожній','huts-empty.html')], [
-         ('Хижа','hut.html',[], []),
+ ('Map', [
+   ('Where to go','catalogue.html',[('порожній','catalogue-empty.html')], [
+     ('New plan ⭐','new-plan.html',[('генерація','new-plan-loading.html'),('неможливий маршрут','new-plan-conflict.html'),('помилка','new-plan-error.html')], [
+       ('Another hut','huts.html',[('порожній','huts-empty.html')], [
+         ('Hut','hut.html',[], []),
        ]),
-       ('Нотатки й відгуки','notes.html',[('порожній','notes-empty.html')], []),
+       ('Notes and reviews','notes.html',[('порожній','notes-empty.html')], []),
      ]),
    ]),
  ]),
- ('Плани', [
-   ('Мої походи','plans.html',[('порожній','plans-empty.html')], [
-     ('План ⭐','plan.html',[('пройдений','plan-past.html'),('помилка','plan-error.html'),('офлайн','plan-offline.html')], [
-       ('День','day.html',[('норма замість прогнозу','day-seasonal.html'),('сьогодні','day-intrip.html'),('офлайн','day-offline.html')], [
-         ('Забронювати','booking.html',[], []),
+ ('Plans', [
+   ('My trips','plans.html',[('порожній','plans-empty.html')], [
+     ('Plan ⭐','plan.html',[('пройдений','plan-past.html'),('помилка','plan-error.html'),('офлайн','plan-offline.html')], [
+       ('Day','day.html',[('норма замість прогнозу','day-seasonal.html'),('сьогодні','day-intrip.html'),('офлайн','day-offline.html')], [
+         ('Book','booking.html',[], []),
        ]),
-       ('Спорядження','gear.html',[], []),
-       ('Сказати, куди йду','share.html',[], []),
+       ('Gear','gear.html',[], []),
+       ('Share my route','share.html',[], []),
      ]),
    ]),
  ]),
- ('Довідник', [
-   ('Довідник','guide.html',[], [
-     ('Стаття','lodging-system.html',[], []),
+ ('Guide', [
+   ('Guide','guide.html',[], [
+     ('Article','lodging-system.html',[], []),
    ]),
  ]),
- ('Безпека', [
-   ('Безпека','safety.html',[], [
-     ('Перша допомога','first-aid.html',[], []),
+ ('Safety', [
+   ('Safety','safety.html',[], [
+     ('First aid','first-aid.html',[], []),
    ]),
  ]),
- ('Профіль', [
-   ('Я','me.html',[], [
-     ('Моє спорядження','my-gear.html',[], []),
-     ('Членство й ключ','membership.html',[], []),
-     ('Налаштування','settings.html',[], [
-       ('Вхід','account.html',[], []),
+ ('Profile', [
+   ('Profile','me.html',[], [
+     ('My gear','my-gear.html',[], []),
+     ('Membership and key','membership.html',[], []),
+     ('Settings','settings.html',[], [
+       ('Sign in','account.html',[], []),
      ]),
    ]),
  ]),
@@ -131,7 +131,7 @@ SHEETS = {
 
 # дія праворуч у шапці: шестерня налаштувань у профілі, як у Strava / Komoot / AllTrails
 TOPBAR_ACT = {
-  'me.html': '<a class="act" href="./settings.html" aria-label="Налаштування"><svg class="gear" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></a>',
+  'me.html': '<a class="act" href="./settings.html" aria-label="Settings"><svg class="gear" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></a>',
 }
 
 def topbar(current):
@@ -141,29 +141,29 @@ def topbar(current):
     p, pname = parent_of(current)
     title = TITLE.get(current, '')
     if current in SHEETS:
-        return f'  <header class="topbar"><a class="close" href="./{SHEETS[current]}">✕ Закрити</a><span class="title">{title}</span></header>'
+        return f'  <header class="topbar"><a class="close" href="./{SHEETS[current]}">✕ Close</a><span class="title">{title}</span></header>'
     back = f'<a class="back" href="./{p}">‹ {pname}</a>' if p else ''
     act = TOPBAR_ACT.get(current, '')
     return f'  <header class="topbar">{back}<span class="title">{title}</span>{act}</header>'
 
-APPNAV = '''  <nav class="tabbar" aria-label="Головна навігація">
+APPNAV = '''  <nav class="tabbar" aria-label="Main navigation">
     <ul>
-      <li><a href="./catalogue.html"{m}><span class="ico" aria-hidden="true"></span>Карта</a></li>
-      <li><a href="./plans.html"{p}><span class="ico" aria-hidden="true"></span>Плани{b}</a></li>
-      <li><a href="./guide.html"{d}><span class="ico" aria-hidden="true"></span>Довідник</a></li>
-      <li><a href="./safety.html"{x}><span class="ico" aria-hidden="true"></span>Безпека</a></li>
-      <li><a href="./me.html"{f}><span class="ico" aria-hidden="true"></span>Профіль</a></li>
+      <li><a href="./catalogue.html"{m}><span class="ico" aria-hidden="true"></span>Map</a></li>
+      <li><a href="./plans.html"{p}><span class="ico" aria-hidden="true"></span>Plans{b}</a></li>
+      <li><a href="./guide.html"{d}><span class="ico" aria-hidden="true"></span>Guide</a></li>
+      <li><a href="./safety.html"{x}><span class="ico" aria-hidden="true"></span>Safety</a></li>
+      <li><a href="./me.html"{f}><span class="ico" aria-hidden="true"></span>Profile</a></li>
     </ul>
   </nav>
 '''
 
 FOOT = '''  <footer class="app">
-    <p>Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket</p>
+    <p>Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket</p>
     <details>
-      <summary>Звідки це взято</summary>
+      <summary>Where this comes from</summary>
       <p>{src}</p>
     </details>
-    <p>Остання перевірка: 13 серпня 2026, 09:12</p>
+    <p>Last checked: 13 August 2026, 09:12</p>
   </footer>
 '''
 
@@ -178,12 +178,12 @@ NOPLAN = {'plans-empty.html', 'catalogue-empty.html', 'new-plan.html', 'new-plan
 
 def appnav_for(f):
     t = tab_of(f)
-    b = '' if f in NOPLAN else '<span class="count" aria-label="лишилось кроків: 4">4</span>'
-    return APPNAV.format(b=b, m=' aria-current="page"' if t == 'Карта' else '',
-                         p=' aria-current="page"' if t == 'Плани' else '',
-                         d=' aria-current="page"' if t == 'Довідник' else '',
-                         x=' aria-current="page"' if t == 'Безпека' else '',
-                         f=' aria-current="page"' if t == 'Профіль' else '')
+    b = '' if f in NOPLAN else '<span class="count" aria-label="4 steps left">4</span>'
+    return APPNAV.format(b=b, m=' aria-current="page"' if t == 'Map' else '',
+                         p=' aria-current="page"' if t == 'Plans' else '',
+                         d=' aria-current="page"' if t == 'Guide' else '',
+                         x=' aria-current="page"' if t == 'Safety' else '',
+                         f=' aria-current="page"' if t == 'Profile' else '')
 
 def zone(zid, head, body):
     """Смислова зона екрана. Анотацій тут немає: у макеті — лише семантика
@@ -199,7 +199,7 @@ def page(current, title, h1, metaline, zones, src, appnav=True, base=None):
     parts = title.split(' · ')
     screen, state = (parts[1] if len(parts) > 1 else title), (parts[2] if len(parts) > 2 else 'успіх')
     return f'''<!doctype html>
-<html lang="uk">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />

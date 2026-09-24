@@ -67,7 +67,7 @@ External pitch to acquisition targets (AllTrails, Komoot, Google's Geospatial AI
     The field-note half of this layer keeps its original justification, which is not the social job but a hole in our own main asset: official trail data diverges from the terrain in both directions, and no official dataset can close that by definition. Demo rule: notes are curated rather than invented — fabricated "user reviews" in a buyer demo would be exactly the antipattern we criticise competitors for. They are not labelled as illustrative inside the UI; that disclosure belongs to the pitch.
   - **An account exists in v1, but is not the entrance.** It is storage for a credential (membership, key), a gear inventory and the accumulating booking-completion state — not a preferences screen. The account is also the main source of **prefill for progressive profiling** — fitness, membership and gear inventory come from here, and that is what shrinks the cold-start question set to two fields. Registration still never stands in front of the generated plan: the product starts with the substance, not with a signup form.
 - **Tech stack**: not yet decided — deferred to the research phase (`research/`), which should include a stack evaluation before it's locked in.
-- **UI language**: **the whole app interface will be in English** (decision 2026-09-23, replacing "Ukrainian during design"). **Translation happens only on the designer's command** — when the designer says every text and component in the wireframes is agreed. Until then the wireframes stay in Ukrainian so the copy is settled once and translated once, not translated while it is still changing. **At the end of every working session, ask: «Чи можна вже перекладати інтерфейс англійською?»** Source-language terms (`Selvbetjent`, `fjällstuga`, `betjeningsgrad`, place names) stay in the original either way.
+- **UI language**: **English** (decision 2026-09-23; translated 2026-09-24 on the designer's command). All product text — the 33 wireframe pages, screen and tab names in `_generate.py`'s `TREE`, the phones and components on the `concept.html` stand — is English. Design documents, review chrome (state labels, position lines, the wireframe tree) and the stand's annotations stay Ukrainian. Voice in English keeps the same five principles: second person, name the condition, no exclamation marks, no promises of ease. Source-language terms (`Selvbetjent`, `fjällstuga`, `betjeningsgrad`, place names) stay in the original either way.
 - **Timeline**: no hard deadline — iterate phase by phase.
 
 ## Core user flow
@@ -190,7 +190,7 @@ text. It is the fifth entry in the documents navigation.
 
 The audit trail is in `wireframes/_screens.md` (which states are real and why), `wireframes/_gaps.md` (what the framework was missing against five competitors) and `wireframes/_critique.md` (the final pass: four defects found and fixed, and why "deferred" only differs from "lost" if it is written down).
 
-**UI language of the wireframes is Ukrainian** — see the note under Scope for v1.
+**UI language of the wireframes is English** (translated 2026-09-24); review chrome stays Ukrainian — see the note under Scope for v1.
 
 ## Voice
 

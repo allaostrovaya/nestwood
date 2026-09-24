@@ -16,14 +16,14 @@ for p in pages:
     lab = re.findall(r'<section aria-labelledby="([a-z-]+)"', s)
     if len(lab) != len(set(lab)): issues[n].append('дубльована мітка зони: ' + ','.join(sorted({x for x in lab if lab.count(x) > 1})))
     if s.count('<h1>') != 1: issues[n].append('не один <h1>')
-    if '<html lang="uk">' not in s: issues[n].append('lang не uk')
+    if '<html lang="en">' not in s: issues[n].append('lang не en')
     if '<nav class="wf-tree"' not in s: issues[n].append('немає дерева')
     if 'aria-current="page"' not in s: issues[n].append('немає поточного вузла')
     if 'class="wf-shell"' not in s: issues[n].append('немає wf-shell')
     if 'class="device"' not in s: issues[n].append('немає device')
     # зобовʼязання
     if 'Kartverket' not in s: issues[n].append('немає атрибуції')
-    if '<summary>Звідки це взято</summary>' not in s: issues[n].append('немає шару «Звідки це взято»')
+    if '<summary>Where this comes from</summary>' not in s: issues[n].append('немає шару «Звідки це взято»')
     # зони
     sec = len(re.findall(r'<section aria-labelledby=', s))
     if sec == 0: issues[n].append('немає жодної зони')

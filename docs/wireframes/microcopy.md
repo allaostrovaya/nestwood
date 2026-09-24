@@ -1,6 +1,6 @@
 # microcopy.md — увесь текст інтерфейсу Nestwood
 
-**33 екранів · 1244 рядків тексту · 476 унікальних.** Це перепис того, що зараз написано в макетах, без жодної правки. До кінця роботи над флоу він має стати таблицею, з якою звіряється кожен рядок продукту.
+**33 екранів · 1244 рядків тексту · 473 унікальних.** Це перепис того, що зараз написано в макетах, без жодної правки. До кінця роботи над флоу він має стати таблицею, з якою звіряється кожен рядок продукту.
 
 ## Як це зібрано
 
@@ -107,17 +107,17 @@
 
 | Область | Рядок | Тип | Екранів |
 |---|---|---|---|
-| таббар | Карта | кнопка | 33 |
-| таббар | Плани | кнопка | 33 |
-| таббар | Довідник | кнопка | 33 |
-| таббар | Безпека | кнопка | 33 |
-| таббар | Профіль | кнопка | 33 |
+| таббар | Map | кнопка | 33 |
+| таббар | Plans | кнопка | 33 |
+| таббар | Guide | кнопка | 33 |
+| таббар | Safety | кнопка | 33 |
+| таббар | Profile | кнопка | 33 |
 | таббар | 4 *(бейдж «лишилось закріпити»)* | лічильник | 27 |
-| футер | Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket | атрибуція | 63 |
-| футер | Звідки це взято | розкривач | 63 |
-| футер | Остання перевірка: 13 серпня 2026, 09:12 | атрибуція | 51 |
+| футер | Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket | атрибуція | 63 |
+| футер | Where this comes from | розкривач | 63 |
+| футер | Last checked: 13 August 2026, 09:12 | атрибуція | 51 |
 
-**Одне спостереження вже тут.** Рядок джерел у футері (`Звідки це взято` → деталізація) **різний на кожному екрані** — тому він лишився в таблиці. Це правильно: він говорить про те, що на цьому екрані стверджується. А от «Остання перевірка: 13 серпня 2026, 09:12» стоїть на 51 екрані з 63 — і на екранах, де дані свіжі, і на тих, де вони з кешу.
+**Одне спостереження вже тут.** Рядок джерел у футері (`Where this comes from` → деталізація) **різний на кожному екрані** — тому він лишився в таблиці. Це правильно: він говорить про те, що на цьому екрані стверджується. А от «Last checked: 13 August 2026, 09:12» стоїть на 51 екрані з 63 — і на екранах, де дані свіжі, і на тих, де вони з кешу.
 
 ---
 
@@ -125,1163 +125,1163 @@
 
 953 рядків. Згруповано за вкладками, усередині вкладки — базовий екран і його стани одразу за ним, щоб було видно, де стан говорить про те саме інакше.
 
-### Карта · Куди можна піти
+### Map · Where to go
 
 #### `catalogue.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | Куди можна піти | заголовок екрана |  |
-| — | Куди можна піти | заголовок екрана |  |
-| Куди, коли, хто | Куди, коли, хто | заголовок зони |  |
-| Куди, коли, хто | Лапландія, Швеція — або свій маршрут: звідки → куди | підпис |  |
-| Куди, коли, хто | Куди | пункт списку |  |
-| Куди, коли, хто | 17–22 серпня | підпис |  |
-| Куди, коли, хто | Коли | пункт списку |  |
-| Куди, коли, хто | 2 людини · 1 член STF | підпис |  |
-| Куди, коли, хто | Хто | пункт списку |  |
-| Куди, коли, хто | хижі | кнопка |  |
-| Куди, коли, хто | намет | кнопка |  |
-| Карта | Карта | заголовок зони |  |
-| Карта | на весь екран під пошуком · аркуш зі списком зверху | заглушка макета | `З1` |
-| Карта | map · Sweden · preset route lines · start/finish points: stations, trailheads, huts · own route drawn: Abisko Turiststation → Nikkaluokta | заглушка макета | `З1` |
-| Карта | свій маршрут · 101 км · 6 днів · 5 хиж | підпис |  |
-| Карта | Abisko Turiststation → Nikkaluokta | підпис |  |
-| Карта | Скласти план | кнопка |  |
-| Карта | Скинути точки | кнопка |  |
-| Найкраще у Швеції в серпні | Найкраще у Швеції в серпні | заголовок зони |  |
-| Найкраще у Швеції в серпні | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
-| Найкраще у Швеції в серпні | 6 днів | індикатор |  |
-| Найкраще у Швеції в серпні | 101 км · 1 940 м · 5 хиж STF · blå / medium | підпис |  |
-| Найкраще у Швеції в серпні | photo · Kungsleden · path along Abiskojaure lake Kungsleden · Abisko → Nikkaluokta 6 днів | посилання |  |
-| Найкраще у Швеції в серпні | photo · Kebnekaise valley from the trail | заглушка макета | `З1` |
-| Найкраще у Швеції в серпні | 5 днів | індикатор |  |
-| Найкраще у Швеції в серпні | 82 км · 1 460 м · 4 хижі STF · blå / medium | підпис |  |
-| Найкраще у Швеції в серпні | photo · Kebnekaise valley from the trail Kungsleden · Abisko → Kebnekaise 5 днів | посилання |  |
-| Найкраще у Швеції в серпні | photo · Padjelanta plateau, Sami huts | заглушка макета | `З1` |
-| Найкраще у Швеції в серпні | 7 днів | індикатор |  |
-| Найкраще у Швеції в серпні | 140 км · 900 м · хижі STF і саамських громад | підпис |  |
-| Найкраще у Швеції в серпні | photo · Padjelanta plateau, Sami huts Padjelantaleden · Kvikkjokk → Ritsem 7 днів | посилання |  |
-| Класика Скандинавії | Класика Скандинавії | заголовок зони |  |
-| Класика Скандинавії | photo · Besseggen ridge, Jotunheimen | заглушка макета | `З1` |
-| Класика Скандинавії | 4 дні | індикатор |  |
-| Класика Скандинавії | 58 км · 2 300 м · хижі DNT · потрібен DNT-ключ | підпис |  |
-| Класика Скандинавії | photo · Besseggen ridge, Jotunheimen Jotunheimen · Gjendesheim → Spiterstulen 4 дні | посилання |  |
-| Класика Скандинавії | photo · Hardangervidda plateau at Finse | заглушка макета | `З1` |
-| Класика Скандинавії | 7 днів | індикатор |  |
-| Класика Скандинавії | 120 км · 1 100 м · хижі DNT | підпис |  |
-| Класика Скандинавії | photo · Hardangervidda plateau at Finse Hardangervidda · Finse → Haukeliseter 7 днів | посилання |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | Where to go | заголовок екрана |  |
+| — | Where to go | заголовок екрана |  |
+| Where, when, who | Where, when, who | заголовок зони |  |
+| Where, when, who | Lapland, Sweden — or your own route: from → to | підпис |  |
+| Where, when, who | Where | пункт списку |  |
+| Where, when, who | 17–22 August | підпис |  |
+| Where, when, who | When | пункт списку |  |
+| Where, when, who | 2 people · 1 STF member | підпис |  |
+| Where, when, who | Who | пункт списку |  |
+| Where, when, who | huts | кнопка |  |
+| Where, when, who | tent | кнопка |  |
+| Map | Map | заголовок зони |  |
+| Map | на весь екран під пошуком · аркуш зі списком зверху | заглушка макета | `З1` |
+| Map | map · Sweden · preset route lines · start/finish points: stations, trailheads, huts · own route drawn: Abisko Turiststation → Nikkaluokta | заглушка макета | `З1` |
+| Map | your route · 101 km · 6 days · 5 huts | підпис |  |
+| Map | Abisko Turiststation → Nikkaluokta | підпис |  |
+| Map | Make a plan | кнопка |  |
+| Map | Clear points | кнопка |  |
+| Best in Sweden in August | Best in Sweden in August | заголовок зони |  |
+| Best in Sweden in August | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
+| Best in Sweden in August | 6 days | індикатор |  |
+| Best in Sweden in August | 101 km · 1,940 m · 5 STF huts · blå / medium | підпис |  |
+| Best in Sweden in August | photo · Kungsleden · path along Abiskojaure lake Kungsleden · Abisko → Nikkaluokta 6 days | посилання |  |
+| Best in Sweden in August | photo · Kebnekaise valley from the trail | заглушка макета | `З1` |
+| Best in Sweden in August | 5 days | індикатор |  |
+| Best in Sweden in August | 82 km · 1,460 m · 4 STF huts · blå / medium | підпис |  |
+| Best in Sweden in August | photo · Kebnekaise valley from the trail Kungsleden · Abisko → Kebnekaise 5 days | посилання |  |
+| Best in Sweden in August | photo · Padjelanta plateau, Sami huts | заглушка макета | `З1` |
+| Best in Sweden in August | 7 days | індикатор |  |
+| Best in Sweden in August | 140 km · 900 m · STF and Sami community huts | підпис |  |
+| Best in Sweden in August | photo · Padjelanta plateau, Sami huts Padjelantaleden · Kvikkjokk → Ritsem 7 days | посилання |  |
+| Scandinavian classics | Scandinavian classics | заголовок зони |  |
+| Scandinavian classics | photo · Besseggen ridge, Jotunheimen | заглушка макета | `З1` |
+| Scandinavian classics | 4 days | індикатор |  |
+| Scandinavian classics | 58 km · 2,300 m · DNT huts · DNT key required | підпис |  |
+| Scandinavian classics | photo · Besseggen ridge, Jotunheimen Jotunheimen · Gjendesheim → Spiterstulen 4 days | посилання |  |
+| Scandinavian classics | photo · Hardangervidda plateau at Finse | заглушка макета | `З1` |
+| Scandinavian classics | 7 days | індикатор |  |
+| Scandinavian classics | 120 km · 1,100 m · DNT huts | підпис |  |
+| Scandinavian classics | photo · Hardangervidda plateau at Finse Hardangervidda · Finse → Haukeliseter 7 days | посилання |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `catalogue-empty.html` — порожній
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | Куди можна піти | заголовок екрана |  |
-| — | Куди можна піти | заголовок екрана |  |
-| Куди, коли, хто | Куди, коли, хто | заголовок зони |  |
-| Куди, коли, хто | Лапландія, Швеція — або свій маршрут: звідки → куди | підпис |  |
-| Куди, коли, хто | Куди | пункт списку |  |
-| Куди, коли, хто | 17–22 серпня | підпис |  |
-| Куди, коли, хто | Коли | пункт списку |  |
-| Куди, коли, хто | 2 людини · 1 член STF | підпис |  |
-| Куди, коли, хто | Хто | пункт списку |  |
-| Куди, коли, хто | хижі | кнопка |  |
-| Куди, коли, хто | намет | кнопка |  |
-| Карта | Карта | заголовок зони |  |
-| Карта | на весь екран під пошуком · аркуш зверху | заглушка макета | `З1` |
-| Карта | map · Sweden · no route lines · huts closed for February | заглушка макета | `З1` |
-| Карта | У лютому хижі зачинені — маршрутів із ночівлею в хижах немає. | текст |  |
-| Карта | Обрати дати в червні — вересні | кнопка |  |
-| Найкраще у Швеції в лютому | Найкраще у Швеції в лютому | заголовок зони |  |
-| Найкраще у Швеції в лютому | хижі відчинені, Kungsleden у сезоні | підпис |  |
-| Найкраще у Швеції в лютому | Кінець червня — липень | пункт списку |  |
-| Найкраще у Швеції в лютому | 6 маршрутів | індикатор |  |
-| Найкраще у Швеції в лютому | менше людей, коротший день | підпис |  |
-| Найкраще у Швеції в лютому | Серпень — вересень | пункт списку |  |
-| Найкраще у Швеції в лютому | 6 маршрутів | індикатор |  |
-| Класика Скандинавії | Класика Скандинавії | заголовок зони |  |
-| Класика Скандинавії | Jotunheimen · Hardangervidda · Kungsleden | підпис |  |
-| Класика Скандинавії | Класика на літо | пункт списку |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | Where to go | заголовок екрана |  |
+| — | Where to go | заголовок екрана |  |
+| Where, when, who | Where, when, who | заголовок зони |  |
+| Where, when, who | Lapland, Sweden — or your own route: from → to | підпис |  |
+| Where, when, who | Where | пункт списку |  |
+| Where, when, who | 17–22 August | підпис |  |
+| Where, when, who | When | пункт списку |  |
+| Where, when, who | 2 people · 1 STF member | підпис |  |
+| Where, when, who | Who | пункт списку |  |
+| Where, when, who | huts | кнопка |  |
+| Where, when, who | tent | кнопка |  |
+| Map | Map | заголовок зони |  |
+| Map | на весь екран під пошуком · аркуш зверху | заглушка макета | `З1` |
+| Map | map · Sweden · no route lines · huts closed for February | заглушка макета | `З1` |
+| Map | The huts are closed in February — there are no routes with hut nights. | текст |  |
+| Map | Pick dates in June — September | кнопка |  |
+| Best in Sweden in February | Best in Sweden in February | заголовок зони |  |
+| Best in Sweden in February | huts open, Kungsleden in season | підпис |  |
+| Best in Sweden in February | Late June — July | пункт списку |  |
+| Best in Sweden in February | 6 routes | індикатор |  |
+| Best in Sweden in February | fewer people, shorter days | підпис |  |
+| Best in Sweden in February | August — September | пункт списку |  |
+| Best in Sweden in February | 6 routes | індикатор |  |
+| Scandinavian classics | Scandinavian classics | заголовок зони |  |
+| Scandinavian classics | Jotunheimen · Hardangervidda · Kungsleden | підпис |  |
+| Scandinavian classics | Summer classics | пункт списку |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Карта · Новий план
+### Map · New plan
 
 #### `new-plan.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Куди можна піти | кнопка |  |
-| — | Новий план | заголовок екрана |  |
+| — | ‹ Where to go | кнопка |  |
+| — | New plan | заголовок екрана |  |
 | — | Kungsleden · Abisko → Nikkaluokta | заголовок екрана |  |
-| Огляд | Огляд | заголовок зони |  |
-| Огляд | на всю ширину | заглушка макета | `З1` |
-| Огляд | photo · Kungsleden · path along Abiskojaure lake — from the start point | заглушка макета | `З1` |
-| Огляд | змінити | підпис |  |
-| Огляд | 17–22 серпня · 2 людини · 1 член STF | пункт списку |  |
-| Стан плану | Стан плану | заголовок зони |  |
-| Стан плану | Усе сходиться. | текст |  |
-| Маршрут | Маршрут | заголовок зони |  |
-| Маршрут | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
-| Маршрут | map · Abisko → Nikkaluokta · day legs · huts · bail-out points | заглушка макета | `З1` |
-| Маршрут | довжина | підпис |  |
-| Маршрут | 101 км | пункт списку |  |
-| Маршрут | набір | підпис |  |
-| Маршрут | 1 940 м | пункт списку |  |
-| Маршрут | днів | підпис |  |
-| Маршрут | 6 | пункт списку |  |
-| Маршрут | найдовший день | підпис |  |
-| Маршрут | ~8 год | пункт списку |  |
-| Маршрут | blå / medium · на перевалі röd / krevende | текст |  |
-| Що треба | Що треба | заголовок зони |  |
-| Що треба | другий учасник без членства: +1 200 SEK за 5 ночей | підпис |  |
-| Що треба | Членство STF | пункт списку |  |
-| Що треба | 1 з 2 | індикатор |  |
-| Що треба | сезонна норма · +6…+14 °C, дощ кожен третій день | підпис |  |
-| Що треба | Погода в серпні | підпис |  |
-| Що треба | 23 речі · 11,4 кг | підпис |  |
-| Що треба | Спорядження | пункт списку | `Д10` |
-| Що треба | 2 бракує | індикатор |  |
-| Що треба | 2 500 SEK ночі з людини · транспорт 1 430 SEK | підпис |  |
-| Що треба | Вартість | підпис |  |
-| Дні | Дні | заголовок зони |  |
-| Дні | нічний потяг 94 · Stockholm C → Abisko | підпис |  |
-| Дні | Дорога туди · нд 16 серп | підпис |  |
-| Дні | 14 км · ~4 год 30 · Abiskojaure fjällstuga | підпис |  |
-| Дні | 1 · Abisko → Abiskojaure | пункт списку |  |
-| Дні | 22 км · ~7 год · Alesjaure fjällstuga | підпис |  |
-| Дні | 2 · Abiskojaure → Alesjaure | пункт списку |  |
-| Дні | 13 км · ~4 год 30 · Tjäktja — тільки на місці | підпис |  |
-| Дні | 3 · Alesjaure → Tjäktja | пункт списку |  |
-| Дні | до 18:00 | індикатор |  |
-| Дні | 12 км · перевал 1 150 м · Sälka fjällstuga | підпис |  |
-| Дні | 4 · Tjäktja → Sälka | пункт списку |  |
-| Дні | 26 км · ~8 год · Kebnekaise fjällstation | підпис |  |
-| Дні | 5 · Sälka → Kebnekaise | пункт списку |  |
-| Дні | 19 км · ~5 год | підпис |  |
-| Дні | 6 · Kebnekaise → Nikkaluokta | підпис |  |
-| Дні | автобус 91 Nikkaluokta → Kiruna · потяг 92 | підпис |  |
-| Дні | Дорога назад · сб 22 серп | підпис |  |
-| Нотатки й відгуки | Нотатки й відгуки | заголовок зони |  |
-| Нотатки й відгуки | нотатка з місця · 6 серпня · брід по коліно | підпис |  |
-| Нотатки й відгуки | Місток перед Tjäktja знесло | пункт списку |  |
-| Нотатки й відгуки | день 3 | індикатор |  |
-| Нотатки й відгуки | 128 · найсвіжіший 13 серпня | підпис |  |
-| Нотатки й відгуки | Відгуки | пункт списку | `Д13` |
-| Нотатки й відгуки | 4,3 | індикатор |  |
-| Зберегти | Зберегти | заголовок зони |  |
-| Зберегти | Зберегти план | кнопка |  |
-| Зберегти | Скасувати | кнопка |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Overview | Overview | заголовок зони |  |
+| Overview | на всю ширину | заглушка макета | `З1` |
+| Overview | photo · Kungsleden · path along Abiskojaure lake — from the start point | заглушка макета | `З1` |
+| Overview | change | підпис |  |
+| Overview | 17–22 August · 2 people · 1 STF member | пункт списку |  |
+| Plan status | Plan status | заголовок зони |  |
+| Plan status | Everything fits. | текст |  |
+| Route | Route | заголовок зони |  |
+| Route | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
+| Route | map · Abisko → Nikkaluokta · day legs · huts · bail-out points | заглушка макета | `З1` |
+| Route | distance | підпис |  |
+| Route | 101 km | пункт списку |  |
+| Route | ascent | підпис |  |
+| Route | 1,940 m | пункт списку |  |
+| Route | days | підпис |  |
+| Route | 6 | пункт списку |  |
+| Route | longest day | підпис |  |
+| Route | ~8 h | пункт списку |  |
+| Route | blå / medium · röd / krevende on the pass | текст |  |
+| What you need | What you need | заголовок зони |  |
+| What you need | second person isn’t a member: +1,200 SEK for 5 nights | підпис |  |
+| What you need | STF membership | пункт списку |  |
+| What you need | 1 of 2 | індикатор |  |
+| What you need | seasonal normal · +6…+14 °C, rain every third day | підпис |  |
+| What you need | Weather in August | підпис |  |
+| What you need | 23 items · 11.4 kg | підпис |  |
+| What you need | Gear | пункт списку |  |
+| What you need | 2 missing | індикатор |  |
+| What you need | 2,500 SEK nights per person · transport 1,430 SEK | підпис |  |
+| What you need | Cost | підпис |  |
+| Days | Days | заголовок зони |  |
+| Days | night train 94 · Stockholm C → Abisko | підпис |  |
+| Days | Getting there · Sun 16 Aug | підпис |  |
+| Days | 14 km · ~4 h 30 · Abiskojaure fjällstuga | підпис |  |
+| Days | 1 · Abisko → Abiskojaure | пункт списку |  |
+| Days | 22 km · ~7 h · Alesjaure fjällstuga | підпис |  |
+| Days | 2 · Abiskojaure → Alesjaure | пункт списку |  |
+| Days | 13 km · ~4 h 30 · Tjäktja — walk-in only | підпис |  |
+| Days | 3 · Alesjaure → Tjäktja | пункт списку |  |
+| Days | by 18:00 | індикатор |  |
+| Days | 12 km · pass 1,150 m · Sälka fjällstuga | підпис |  |
+| Days | 4 · Tjäktja → Sälka | пункт списку |  |
+| Days | 26 km · ~8 h · Kebnekaise fjällstation | підпис |  |
+| Days | 5 · Sälka → Kebnekaise | пункт списку |  |
+| Days | 19 km · ~5 h | підпис |  |
+| Days | 6 · Kebnekaise → Nikkaluokta | підпис |  |
+| Days | bus 91 Nikkaluokta → Kiruna · train 92 | підпис |  |
+| Days | Getting back · Sat 22 Aug | підпис |  |
+| Notes and reviews | Notes and reviews | заголовок зони |  |
+| Notes and reviews | field note · 6 Aug · ford knee-deep | підпис |  |
+| Notes and reviews | Bridge before Tjäktja washed out | пункт списку |  |
+| Notes and reviews | day 3 | індикатор |  |
+| Notes and reviews | 128 · latest 13 Aug | підпис |  |
+| Notes and reviews | Reviews | пункт списку |  |
+| Notes and reviews | 4.3 | індикатор |  |
+| Save | Save | заголовок зони |  |
+| Save | Save plan | кнопка |  |
+| Save | Cancel | кнопка |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `new-plan-conflict.html` — конфлікт
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Куди можна піти | кнопка |  |
-| — | Новий план | заголовок екрана |  |
+| — | ‹ Where to go | кнопка |  |
+| — | New plan | заголовок екрана |  |
 | — | Kungsleden · Abisko → Nikkaluokta | заголовок екрана |  |
-| Огляд | Огляд | заголовок зони |  |
-| Огляд | на всю ширину | заглушка макета | `З1` |
-| Огляд | photo · Kungsleden · path along Abiskojaure lake — from the start point | заглушка макета | `З1` |
-| Огляд | змінити | підпис |  |
-| Огляд | 17–20 серпня · 2 людини · 1 член STF | пункт списку |  |
-| Стан плану | Стан плану | заголовок зони |  |
-| Стан плану | 4 дні не вміщають маршрут | повідомлення стану |  |
-| Стан плану | Між Sälka і Nikkaluokta лишається 45 км — це не денний перехід. | повідомлення стану | `С5` |
-| Стан плану | 6 днів · найдовший перехід ~8 год | підпис | `С5` |
-| Стан плану | +2 дні | пункт списку |  |
-| Стан плану | на 19 км коротше | підпис |  |
-| Стан плану | Фініш у Kebnekaise | пункт списку |  |
-| Стан плану | між Sälka і Singi | підпис |  |
-| Стан плану | Намет на 4-ту ніч | пункт списку |  |
-| Стан плану | інша ночівля | індикатор |  |
-| Маршрут | Маршрут | заголовок зони |  |
-| Маршрут | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
-| Маршрут | map · Abisko → Nikkaluokta · day legs · huts · bail-out points | заглушка макета | `З1` |
-| Маршрут | довжина | підпис |  |
-| Маршрут | 101 км | пункт списку |  |
-| Маршрут | набір | підпис |  |
-| Маршрут | 1 940 м | пункт списку |  |
-| Маршрут | днів | підпис |  |
-| Маршрут | 6 | пункт списку |  |
-| Маршрут | найдовший день | підпис |  |
-| Маршрут | ~8 год | пункт списку |  |
-| Маршрут | blå / medium · на перевалі röd / krevende | текст |  |
-| Що треба | Що треба | заголовок зони |  |
-| Що треба | другий учасник без членства: +1 200 SEK за 5 ночей | підпис |  |
-| Що треба | Членство STF | пункт списку |  |
-| Що треба | 1 з 2 | індикатор |  |
-| Що треба | сезонна норма · +6…+14 °C, дощ кожен третій день | підпис |  |
-| Що треба | Погода в серпні | підпис |  |
-| Що треба | 23 речі · 11,4 кг | підпис |  |
-| Що треба | Спорядження | пункт списку | `Д10` |
-| Що треба | 2 бракує | індикатор |  |
-| Що треба | 2 500 SEK ночі з людини · транспорт 1 430 SEK | підпис |  |
-| Що треба | Вартість | підпис |  |
-| Дні | Дні | заголовок зони |  |
-| Дні | нічний потяг 94 · Stockholm C → Abisko | підпис |  |
-| Дні | Дорога туди · нд 16 серп | підпис |  |
-| Дні | 14 км · ~4 год 30 · Abiskojaure fjällstuga | підпис |  |
-| Дні | 1 · Abisko → Abiskojaure | пункт списку |  |
-| Дні | 22 км · ~7 год · Alesjaure fjällstuga | підпис |  |
-| Дні | 2 · Abiskojaure → Alesjaure | пункт списку |  |
-| Дні | 13 км · ~4 год 30 · Tjäktja — тільки на місці | підпис |  |
-| Дні | 3 · Alesjaure → Tjäktja | пункт списку |  |
-| Дні | до 18:00 | індикатор |  |
-| Дні | 12 км · перевал 1 150 м · Sälka fjällstuga | підпис |  |
-| Дні | 4 · Tjäktja → Sälka | пункт списку |  |
-| Дні | 26 км · ~8 год · Kebnekaise fjällstation | підпис |  |
-| Дні | 5 · Sälka → Kebnekaise | пункт списку |  |
-| Дні | 19 км · ~5 год | підпис |  |
-| Дні | 6 · Kebnekaise → Nikkaluokta | підпис |  |
-| Дні | автобус 91 Nikkaluokta → Kiruna · потяг 92 | підпис |  |
-| Дні | Дорога назад · сб 22 серп | підпис |  |
-| Нотатки й відгуки | Нотатки й відгуки | заголовок зони |  |
-| Нотатки й відгуки | нотатка з місця · 6 серпня · брід по коліно | підпис |  |
-| Нотатки й відгуки | Місток перед Tjäktja знесло | пункт списку |  |
-| Нотатки й відгуки | день 3 | індикатор |  |
-| Нотатки й відгуки | 128 · найсвіжіший 13 серпня | підпис |  |
-| Нотатки й відгуки | Відгуки | пункт списку | `Д13` |
-| Нотатки й відгуки | 4,3 | індикатор |  |
-| Зберегти | Зберегти | заголовок зони |  |
-| Зберегти | Обери один із виходів | кнопка |  |
-| Зберегти | Скасувати | кнопка |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Overview | Overview | заголовок зони |  |
+| Overview | на всю ширину | заглушка макета | `З1` |
+| Overview | photo · Kungsleden · path along Abiskojaure lake — from the start point | заглушка макета | `З1` |
+| Overview | change | підпис |  |
+| Overview | 17–20 August · 2 people · 1 STF member | пункт списку |  |
+| Plan status | Plan status | заголовок зони |  |
+| Plan status | 4 days don’t fit this route | повідомлення стану |  |
+| Plan status | Between Sälka and Nikkaluokta 45 km remain — that’s not a day’s walk. | повідомлення стану |  |
+| Plan status | 6 days · longest day ~8 h | підпис |  |
+| Plan status | +2 days | пункт списку |  |
+| Plan status | 19 km shorter | підпис |  |
+| Plan status | Finish at Kebnekaise | пункт списку |  |
+| Plan status | between Sälka and Singi | підпис |  |
+| Plan status | Tent on night 4 | пункт списку |  |
+| Plan status | different stay | індикатор |  |
+| Route | Route | заголовок зони |  |
+| Route | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
+| Route | map · Abisko → Nikkaluokta · day legs · huts · bail-out points | заглушка макета | `З1` |
+| Route | distance | підпис |  |
+| Route | 101 km | пункт списку |  |
+| Route | ascent | підпис |  |
+| Route | 1,940 m | пункт списку |  |
+| Route | days | підпис |  |
+| Route | 6 | пункт списку |  |
+| Route | longest day | підпис |  |
+| Route | ~8 h | пункт списку |  |
+| Route | blå / medium · röd / krevende on the pass | текст |  |
+| What you need | What you need | заголовок зони |  |
+| What you need | second person isn’t a member: +1,200 SEK for 5 nights | підпис |  |
+| What you need | STF membership | пункт списку |  |
+| What you need | 1 of 2 | індикатор |  |
+| What you need | seasonal normal · +6…+14 °C, rain every third day | підпис |  |
+| What you need | Weather in August | підпис |  |
+| What you need | 23 items · 11.4 kg | підпис |  |
+| What you need | Gear | пункт списку |  |
+| What you need | 2 missing | індикатор |  |
+| What you need | 2,500 SEK nights per person · transport 1,430 SEK | підпис |  |
+| What you need | Cost | підпис |  |
+| Days | Days | заголовок зони |  |
+| Days | night train 94 · Stockholm C → Abisko | підпис |  |
+| Days | Getting there · Sun 16 Aug | підпис |  |
+| Days | 14 km · ~4 h 30 · Abiskojaure fjällstuga | підпис |  |
+| Days | 1 · Abisko → Abiskojaure | пункт списку |  |
+| Days | 22 km · ~7 h · Alesjaure fjällstuga | підпис |  |
+| Days | 2 · Abiskojaure → Alesjaure | пункт списку |  |
+| Days | 13 km · ~4 h 30 · Tjäktja — walk-in only | підпис |  |
+| Days | 3 · Alesjaure → Tjäktja | пункт списку |  |
+| Days | by 18:00 | індикатор |  |
+| Days | 12 km · pass 1,150 m · Sälka fjällstuga | підпис |  |
+| Days | 4 · Tjäktja → Sälka | пункт списку |  |
+| Days | 26 km · ~8 h · Kebnekaise fjällstation | підпис |  |
+| Days | 5 · Sälka → Kebnekaise | пункт списку |  |
+| Days | 19 km · ~5 h | підпис |  |
+| Days | 6 · Kebnekaise → Nikkaluokta | підпис |  |
+| Days | bus 91 Nikkaluokta → Kiruna · train 92 | підпис |  |
+| Days | Getting back · Sat 22 Aug | підпис |  |
+| Notes and reviews | Notes and reviews | заголовок зони |  |
+| Notes and reviews | field note · 6 Aug · ford knee-deep | підпис |  |
+| Notes and reviews | Bridge before Tjäktja washed out | пункт списку |  |
+| Notes and reviews | day 3 | індикатор |  |
+| Notes and reviews | 128 · latest 13 Aug | підпис |  |
+| Notes and reviews | Reviews | пункт списку |  |
+| Notes and reviews | 4.3 | індикатор |  |
+| Save | Save | заголовок зони |  |
+| Save | Choose one of the options | кнопка |  |
+| Save | Cancel | кнопка |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `new-plan-error.html` — помилка
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Куди можна піти | кнопка |  |
-| — | Новий план | заголовок екрана |  |
+| — | ‹ Where to go | кнопка |  |
+| — | New plan | заголовок екрана |  |
 | — | Kungsleden · Abisko → Nikkaluokta | заголовок екрана |  |
-| Огляд | Огляд | заголовок зони |  |
-| Огляд | на всю ширину | заглушка макета | `З1` |
-| Огляд | photo · Kungsleden · path along Abiskojaure lake — from the start point | заглушка макета | `З1` |
-| Огляд | змінити | підпис |  |
-| Огляд | 17–22 серпня · 2 людини · 1 член STF | пункт списку |  |
-| Стан плану | Стан плану | заголовок зони |  |
-| Стан плану | Не вдалося скласти план | повідомлення стану |  |
-| Стан плану | Стежки зараз недоступні. Спробуй за хвилину. | повідомлення стану |  |
-| Стан плану | Спробувати ще раз | кнопка |  |
-| Маршрут | Маршрут | заголовок зони |  |
-| Маршрут | Немає даних про стежки. | текст |  |
-| Що треба | Що треба | заголовок зони |  |
-| Що треба | — | текст |  |
-| Дні | Дні | заголовок зони |  |
-| Дні | — | текст |  |
-| Нотатки й відгуки | Нотатки й відгуки | заголовок зони |  |
-| Нотатки й відгуки | — | текст |  |
-| Зберегти | Зберегти | заголовок зони |  |
-| Зберегти | Скасувати | кнопка |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Overview | Overview | заголовок зони |  |
+| Overview | на всю ширину | заглушка макета | `З1` |
+| Overview | photo · Kungsleden · path along Abiskojaure lake — from the start point | заглушка макета | `З1` |
+| Overview | change | підпис |  |
+| Overview | 17–22 August · 2 people · 1 STF member | пункт списку |  |
+| Plan status | Plan status | заголовок зони |  |
+| Plan status | Couldn’t build the plan | повідомлення стану |  |
+| Plan status | Trail data is unavailable right now. Try again in a minute. | повідомлення стану |  |
+| Plan status | Try again | кнопка |  |
+| Route | Route | заголовок зони |  |
+| Route | No trail data. | текст |  |
+| What you need | What you need | заголовок зони |  |
+| What you need | — | текст |  |
+| Days | Days | заголовок зони |  |
+| Days | — | текст |  |
+| Notes and reviews | Notes and reviews | заголовок зони |  |
+| Notes and reviews | — | текст |  |
+| Save | Save | заголовок зони |  |
+| Save | Cancel | кнопка |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `new-plan-loading.html` — завантаження
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Куди можна піти | кнопка |  |
-| — | Новий план | заголовок екрана |  |
+| — | ‹ Where to go | кнопка |  |
+| — | New plan | заголовок екрана |  |
 | — | Kungsleden · Abisko → Nikkaluokta | заголовок екрана |  |
-| Огляд | Огляд | заголовок зони |  |
-| Стан плану | Стан плану | заголовок зони |  |
-| Стан плану | стежки · ночівлі · навантаження · транспорт · погода | підпис |  |
-| Стан плану | Складаю план | підпис |  |
-| Стан плану | 4 з 6 | індикатор |  |
-| Маршрут | Маршрут | заголовок зони |  |
-| Що треба | Що треба | заголовок зони |  |
-| Дні | Дні | заголовок зони |  |
-| Нотатки й відгуки | Нотатки й відгуки | заголовок зони |  |
-| Зберегти | Зберегти | заголовок зони |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Overview | Overview | заголовок зони |  |
+| Plan status | Plan status | заголовок зони |  |
+| Plan status | trails · nights · load · transport · weather | підпис |  |
+| Plan status | Building your plan | підпис |  |
+| Plan status | 4 of 6 | індикатор |  |
+| Route | Route | заголовок зони |  |
+| What you need | What you need | заголовок зони |  |
+| Days | Days | заголовок зони |  |
+| Notes and reviews | Notes and reviews | заголовок зони |  |
+| Save | Save | заголовок зони |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Карта · Інша хижа
+### Map · Another hut
 
 #### `huts.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ✕ Закрити | кнопка | `Т1` |
-| — | Інша хижа | заголовок екрана |  |
-| — | Ніч 4 · інша хижа | заголовок екрана |  |
-| Фільтри | Фільтри | заголовок зони |  |
-| Фільтри | не далі 5 км від стежки | кнопка |  |
-| Фільтри | бронюється | кнопка |  |
-| Фільтри | без ключа | кнопка |  |
-| Хижі поруч | Хижі поруч | заголовок зони |  |
-| Хижі поруч | зараз у плані · 12 км · 24 ліжка · без ключа | підпис |  |
-| Хижі поруч | Sälka fjällstuga | пункт списку |  |
-| Хижі поруч | бронюється | індикатор |  |
-| Хижі поруч | +7 км убік від стежки · 14 ліжок · без ключа | підпис |  |
-| Хижі поруч | Nallostugan | пункт списку |  |
-| Хижі поруч | бронюється | індикатор |  |
-| Хижі поруч | 26 км — задовгий день після перевалу | підпис |  |
-| Хижі поруч | Singi fjällstuga | пункт списку |  |
-| Хижі поруч | ~9 год | індикатор |  |
-| Хижі поруч | лишитись ще на ніч · 24 ліжка | підпис |  |
-| Хижі поруч | Tjäktja fjällstuga | пункт списку |  |
-| Хижі поруч | тільки на місці | індикатор |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ✕ Close | кнопка | `Т1` |
+| — | Another hut | заголовок екрана |  |
+| — | Night 4 · another hut | заголовок екрана |  |
+| Filters | Filters | заголовок зони |  |
+| Filters | within 5 km of the trail | кнопка |  |
+| Filters | bookable | кнопка |  |
+| Filters | no key | кнопка |  |
+| Huts nearby | Huts nearby | заголовок зони |  |
+| Huts nearby | in your plan now · 12 km · 24 beds · no key | підпис |  |
+| Huts nearby | Sälka fjällstuga | пункт списку |  |
+| Huts nearby | bookable | індикатор |  |
+| Huts nearby | +7 km off the trail · 14 beds · no key | підпис |  |
+| Huts nearby | Nallostugan | пункт списку |  |
+| Huts nearby | bookable | індикатор |  |
+| Huts nearby | 26 km — too long a day after the pass | підпис |  |
+| Huts nearby | Singi fjällstuga | пункт списку |  |
+| Huts nearby | ~9 h | індикатор |  |
+| Huts nearby | stay another night · 24 beds | підпис |  |
+| Huts nearby | Tjäktja fjällstuga | пункт списку |  |
+| Huts nearby | walk-in only | індикатор |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `huts-empty.html` — порожній
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ✕ Закрити | кнопка | `Т1` |
-| — | Інша хижа | заголовок екрана |  |
-| — | Ніч 4 · інша хижа | заголовок екрана |  |
-| Фільтри | Фільтри | заголовок зони |  |
-| Фільтри | не далі 5 км від стежки | кнопка |  |
-| Фільтри | бронюється | кнопка |  |
-| Фільтри | без ключа | кнопка |  |
-| Хижі поруч | Хижі поруч | заголовок зони |  |
-| Хижі поруч | Під ці фільтри хиж немає. | текст |  |
-| Хижі поруч | Tjäktja — тільки на місці, до 18:00 | підпис |  |
-| Хижі поруч | Зняти «бронюється» | пункт списку |  |
-| Хижі поруч | між Tjäktja і Sälka · allemansrätten дозволяє | підпис |  |
-| Хижі поруч | Намет | підпис |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ✕ Close | кнопка | `Т1` |
+| — | Another hut | заголовок екрана |  |
+| — | Night 4 · another hut | заголовок екрана |  |
+| Filters | Filters | заголовок зони |  |
+| Filters | within 5 km of the trail | кнопка |  |
+| Filters | bookable | кнопка |  |
+| Filters | no key | кнопка |  |
+| Huts nearby | Huts nearby | заголовок зони |  |
+| Huts nearby | No huts match these filters. | текст |  |
+| Huts nearby | Tjäktja — walk-in only, by 18:00 | підпис |  |
+| Huts nearby | Remove “bookable” | пункт списку |  |
+| Huts nearby | between Tjäktja and Sälka · allemansrätten allows it | підпис |  |
+| Huts nearby | Tent | підпис |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Карта · Хижа
+### Map · Hut
 
 #### `hut.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ✕ Закрити | кнопка | `Т1` |
-| — | Хижа | заголовок екрана |  |
+| — | ✕ Close | кнопка | `Т1` |
+| — | Hut | заголовок екрана |  |
 | — | Sälka fjällstuga | заголовок екрана |  |
-| Хижа | Хижа | заголовок зони |  |
-| Хижа | на всю ширину | заглушка макета | `З1` |
-| Хижа | photo · Sälka fjällstuga under the pass | заглушка макета | `З1` |
-| Хижа | fjällstuga STF · самообслуговування | підпис |  |
-| Хижа | Тип | підпис |  |
-| Хижа | бронюється · після 18:00 ліжко не тримають, місце під дахом лишається | підпис |  |
-| Хижа | Бронь | підпис |  |
-| Хижа | 24 | підпис |  |
-| Хижа | Ліжка | підпис |  |
-| Хижа | не потрібен | підпис |  |
-| Хижа | Ключ | підпис |  |
-| Хижа | 20 червня — 15 вересня | підпис |  |
-| Хижа | Сезон | підпис |  |
-| На місці | На місці | заголовок зони |  |
-| На місці | газ і посуд · крамниця з базовими продуктами | підпис |  |
-| На місці | Кухня | підпис |  |
-| На місці | зі струмка за 100 м | підпис |  |
-| На місці | Вода | підпис |  |
-| На місці | є | підпис |  |
-| На місці | Сауна | підпис |  |
-| На місці | імена й номери членства | підпис |  |
-| На місці | Логбук | підпис |  |
-| Нотатки з місця | Нотатки з місця | заголовок зони | `Д12` |
-| Нотатки з місця | нотатка · 8 серпня | підпис |  |
-| Нотатки з місця | Ліжка закінчились о 16:00 | пункт списку |  |
-| У плані | У плані | заголовок зони |  |
-| У плані | Ночувати тут у ніч 4 | кнопка |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Hut | Hut | заголовок зони |  |
+| Hut | на всю ширину | заглушка макета | `З1` |
+| Hut | photo · Sälka fjällstuga under the pass | заглушка макета | `З1` |
+| Hut | STF fjällstuga · self-service | підпис |  |
+| Hut | Type | підпис |  |
+| Hut | bookable · after 18:00 the bed isn’t held; a place indoors still is | підпис |  |
+| Hut | Booking | підпис |  |
+| Hut | 24 | підпис |  |
+| Hut | Beds | підпис |  |
+| Hut | not needed | підпис |  |
+| Hut | Key | підпис |  |
+| Hut | 20 June — 15 September | підпис |  |
+| Hut | Season | підпис |  |
+| On site | On site | заголовок зони |  |
+| On site | gas and cookware · shop with basic food | підпис |  |
+| On site | Kitchen | підпис |  |
+| On site | from the stream 100 m away | підпис |  |
+| On site | Water | підпис |  |
+| On site | yes | підпис |  |
+| On site | Sauna | підпис |  |
+| On site | names and membership numbers | підпис |  |
+| On site | Logbook | підпис |  |
+| Field notes | Field notes | заголовок зони |  |
+| Field notes | note · 8 Aug | підпис |  |
+| Field notes | Beds ran out at 16:00 | пункт списку |  |
+| In your plan | In your plan | заголовок зони |  |
+| In your plan | Stay here on night 4 | кнопка |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Карта · Нотатки й відгуки
+### Map · Notes and reviews
 
 #### `notes.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ✕ Закрити | кнопка | `Т1` |
-| — | Нотатки й відгуки | заголовок екрана |  |
+| — | ✕ Close | кнопка | `Т1` |
+| — | Notes and reviews | заголовок екрана |  |
 | — | Alesjaure → Tjäktja | заголовок екрана |  |
-| Що показати | Що показати | заголовок зони |  |
-| Що показати | Нотатки з місця | посилання | `Д12` |
-| Що показати | Відгуки | посилання | `Д13` |
-| Нотатки з місця | Нотатки з місця | заголовок зони | `Д12` |
-| Нотатки з місця | 6 серпня · брід по коліно, після дощу по пояс | підпис |  |
-| Нотатки з місця | Місток перед Tjäktja знесло | підпис |  |
-| Нотатки з місця | враховано | індикатор |  |
-| Нотатки з місця | 3 серпня · орієнтуйся на тури з каміння | підпис |  |
-| Нотатки з місця | Маркування рідке після броду | підпис |  |
-| Відгуки | Відгуки | заголовок зони | `Д13` |
-| Відгуки | 8–13 серпня · місце дали на матраці | підпис |  |
-| Відгуки | Ліжка в Sälka закінчились о 16:00 | підпис |  |
-| Відгуки | 4 з 5 | індикатор |  |
-| Відгуки | 2–8 серпня | підпис |  |
-| Відгуки | Другий день важчий, ніж на профілі | підпис |  |
-| Відгуки | 5 з 5 | індикатор |  |
-| Написати нотатку | Написати нотатку | заголовок зони |  |
-| Написати нотатку | стежка | кнопка |  |
-| Написати нотатку | вода | кнопка |  |
-| Написати нотатку | брід | кнопка |  |
-| Написати нотатку | сніг | кнопка |  |
-| Написати нотатку | маркування | кнопка |  |
-| Написати нотатку | місце під намет | кнопка |  |
-| Написати нотатку | Що зараз на ділянці | підпис поля |  |
-| Написати нотатку | брід вище коліна після дощу | плейсхолдер поля |  |
-| Написати нотатку | Надіслати | кнопка |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Show | Show | заголовок зони |  |
+| Show | Field notes | посилання |  |
+| Show | Reviews | посилання |  |
+| Field notes | Field notes | заголовок зони |  |
+| Field notes | 6 Aug · ford knee-deep, waist-deep after rain | підпис |  |
+| Field notes | Bridge before Tjäktja washed out | підпис |  |
+| Field notes | in your plan | індикатор |  |
+| Field notes | 3 Aug · follow the cairns | підпис |  |
+| Field notes | Sparse waymarks after the ford | підпис |  |
+| Reviews | Reviews | заголовок зони |  |
+| Reviews | 8–13 Aug · got a mattress on the floor | підпис |  |
+| Reviews | Beds at Sälka ran out at 16:00 | підпис |  |
+| Reviews | 4 of 5 | індикатор |  |
+| Reviews | 2–8 Aug | підпис |  |
+| Reviews | Day two is harder than the profile suggests | підпис |  |
+| Reviews | 5 of 5 | індикатор |  |
+| Write a note | Write a note | заголовок зони |  |
+| Write a note | trail | кнопка |  |
+| Write a note | water | кнопка |  |
+| Write a note | ford | кнопка |  |
+| Write a note | snow | кнопка |  |
+| Write a note | waymarks | кнопка |  |
+| Write a note | tent spot | кнопка |  |
+| Write a note | What’s on this section right now | підпис поля |  |
+| Write a note | ford above the knee after rain | плейсхолдер поля |  |
+| Write a note | Send | кнопка |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `notes-empty.html` — порожній
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ✕ Закрити | кнопка | `Т1` |
-| — | Нотатки й відгуки | заголовок екрана |  |
+| — | ✕ Close | кнопка | `Т1` |
+| — | Notes and reviews | заголовок екрана |  |
 | — | Alesjaure → Tjäktja | заголовок екрана |  |
-| Що показати | Що показати | заголовок зони |  |
-| Що показати | Нотатки з місця | посилання | `Д12` |
-| Що показати | Відгуки | посилання | `Д13` |
-| Нотатки з місця | Нотатки з місця | заголовок зони | `Д12` |
-| Нотатки з місця | Нотаток про цю ділянку ще немає. | текст |  |
-| Відгуки | Відгуки | заголовок зони | `Д13` |
-| Відгуки | Відгуків ще немає. | текст |  |
-| Написати нотатку | Написати нотатку | заголовок зони |  |
-| Написати нотатку | стежка | кнопка |  |
-| Написати нотатку | вода | кнопка |  |
-| Написати нотатку | брід | кнопка |  |
-| Написати нотатку | сніг | кнопка |  |
-| Написати нотатку | маркування | кнопка |  |
-| Написати нотатку | місце під намет | кнопка |  |
-| Написати нотатку | Що зараз на ділянці | підпис поля |  |
-| Написати нотатку | брід вище коліна після дощу | плейсхолдер поля |  |
-| Написати нотатку | Надіслати | кнопка |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Show | Show | заголовок зони |  |
+| Show | Field notes | посилання |  |
+| Show | Reviews | посилання |  |
+| Field notes | Field notes | заголовок зони |  |
+| Field notes | No notes for this section yet. | текст |  |
+| Reviews | Reviews | заголовок зони |  |
+| Reviews | No reviews yet. | текст |  |
+| Write a note | Write a note | заголовок зони |  |
+| Write a note | trail | кнопка |  |
+| Write a note | water | кнопка |  |
+| Write a note | ford | кнопка |  |
+| Write a note | snow | кнопка |  |
+| Write a note | waymarks | кнопка |  |
+| Write a note | tent spot | кнопка |  |
+| Write a note | What’s on this section right now | підпис поля |  |
+| Write a note | ford above the knee after rain | плейсхолдер поля |  |
+| Write a note | Send | кнопка |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Плани · План
+### Plans · Plan
 
 #### `plan.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Мої походи | кнопка | `С1` |
-| — | План | заголовок екрана |  |
+| — | ‹ My trips | кнопка |  |
+| — | Plan | заголовок екрана |  |
 | — | Kungsleden · Abisko → Nikkaluokta | заголовок екрана |  |
-| Огляд | Огляд | заголовок зони |  |
-| Огляд | на всю ширину | заглушка макета | `З1` |
-| Огляд | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
-| Огляд | офлайн ✓ | підпис | `Т1` |
-| Огляд | 17–22 серпня · 2 людини · 1 член STF | підпис |  |
-| Огляд | Сказати, куди йду | кнопка |  |
-| Огляд | Змінити план | розкривач |  |
-| Огляд | Позначки броней і квитків у плані скинуться. У STF і SJ вони лишаться — скасуй там, якщо треба. | текст |  |
-| Огляд | Змінити й скинути | кнопка |  |
-| Потребує уваги | Потребує уваги | заголовок зони |  |
-| Потребує уваги | день 2: не встигаєш до Alesjaure до 18:00 · рішення до 15 серпня | підпис |  |
-| Потребує уваги | Повінь на Abiskojåkka | пункт списку |  |
-| Потребує уваги | день 2 | індикатор |  |
-| Маршрут | Маршрут | заголовок зони |  |
-| Маршрут | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
-| Маршрут | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
-| Маршрут | довжина | підпис |  |
-| Маршрут | 101 км | пункт списку |  |
-| Маршрут | набір | підпис |  |
-| Маршрут | 1 940 м | пункт списку |  |
-| Маршрут | днів | підпис |  |
-| Маршрут | 6 | пункт списку |  |
-| Маршрут | найдовший день | підпис |  |
-| Маршрут | ~8 год | пункт списку |  |
-| Про похід | Про похід | заголовок зони | `С1` |
-| Про похід | обоє члени STF | підпис |  |
-| Про похід | Членство й ключ | пункт списку |  |
-| Про похід | 23 речі · 11,4 кг | підпис |  |
-| Про похід | Спорядження | пункт списку | `Д10` |
-| Про похід | 1 бракує | індикатор |  |
-| Про похід | прогноз met.no · 13 серпня 09:12 | підпис |  |
-| Про похід | Погода | підпис |  |
-| Про похід | 2 500 SEK ночі з людини · транспорт 1 430 SEK | підпис |  |
-| Про похід | Вартість | підпис |  |
-| Дні | Дні | заголовок зони |  |
-| Дні | нічний потяг 94 · Stockholm C → Abisko | підпис |  |
-| Дні | Дорога туди · нд 16 серп | підпис |  |
-| Дні | 14 км · ~4 год 30 | підпис |  |
-| Дні | 1 · Abisko → Abiskojaure | пункт списку |  |
-| Дні | 22 км · ~7 год | підпис |  |
-| Дні | 2 · Abiskojaure → Alesjaure | пункт списку |  |
-| Дні | повінь | індикатор |  |
-| Дні | 13 км · ~4 год 30 · тільки на місці | підпис |  |
-| Дні | 3 · Alesjaure → Tjäktja | пункт списку |  |
-| Дні | 12 км · перевал 1 150 м · Sälka не заброньована | підпис |  |
-| Дні | 4 · Tjäktja → Sälka | пункт списку |  |
-| Дні | забронювати | індикатор |  |
-| Дні | 26 км · ~8 год | підпис |  |
-| Дні | 5 · Sälka → Kebnekaise | пункт списку |  |
-| Дні | 19 км · ~5 год | підпис |  |
-| Дні | 6 · Kebnekaise → Nikkaluokta | пункт списку |  |
-| Дні | автобус 91 → Kiruna · квиток не куплено | підпис |  |
-| Дні | Дорога назад · сб 22 серп | пункт списку |  |
-| Дні | купити | індикатор |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Overview | Overview | заголовок зони |  |
+| Overview | на всю ширину | заглушка макета | `З1` |
+| Overview | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
+| Overview | offline ✓ | підпис | `Т1` |
+| Overview | 17–22 August · 2 people · 1 STF member | підпис |  |
+| Overview | Share my route | кнопка |  |
+| Overview | Change plan | розкривач |  |
+| Overview | Booking and ticket marks in the plan will be reset. They stay in STF and SJ — cancel there if you need to. | текст |  |
+| Overview | Change and reset | кнопка |  |
+| Needs attention | Needs attention | заголовок зони |  |
+| Needs attention | day 2: you won’t reach Alesjaure by 18:00 · decide by 15 Aug | підпис |  |
+| Needs attention | Flooding on Abiskojåkka | пункт списку |  |
+| Needs attention | day 2 | індикатор |  |
+| Route | Route | заголовок зони |  |
+| Route | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
+| Route | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
+| Route | distance | підпис |  |
+| Route | 101 km | пункт списку |  |
+| Route | ascent | підпис |  |
+| Route | 1,940 m | пункт списку |  |
+| Route | days | підпис |  |
+| Route | 6 | пункт списку |  |
+| Route | longest day | підпис |  |
+| Route | ~8 h | пункт списку |  |
+| About the trip | About the trip | заголовок зони |  |
+| About the trip | both STF members | підпис |  |
+| About the trip | Membership and key | пункт списку |  |
+| About the trip | 23 items · 11.4 kg | підпис |  |
+| About the trip | Gear | пункт списку |  |
+| About the trip | 1 missing | індикатор |  |
+| About the trip | met.no forecast · 13 Aug 09:12 | підпис |  |
+| About the trip | Weather | підпис |  |
+| About the trip | 2,500 SEK nights per person · transport 1,430 SEK | підпис |  |
+| About the trip | Cost | підпис |  |
+| Days | Days | заголовок зони |  |
+| Days | night train 94 · Stockholm C → Abisko | підпис |  |
+| Days | Getting there · Sun 16 Aug | підпис |  |
+| Days | 14 km · ~4 h 30 | підпис |  |
+| Days | 1 · Abisko → Abiskojaure | пункт списку |  |
+| Days | 22 km · ~7 h | підпис |  |
+| Days | 2 · Abiskojaure → Alesjaure | пункт списку |  |
+| Days | flood | індикатор |  |
+| Days | 13 km · ~4 h 30 · walk-in only | підпис |  |
+| Days | 3 · Alesjaure → Tjäktja | пункт списку |  |
+| Days | 12 km · pass 1,150 m · Sälka not booked | підпис |  |
+| Days | 4 · Tjäktja → Sälka | пункт списку |  |
+| Days | book | індикатор |  |
+| Days | 26 km · ~8 h | підпис |  |
+| Days | 5 · Sälka → Kebnekaise | пункт списку |  |
+| Days | 19 km · ~5 h | підпис |  |
+| Days | 6 · Kebnekaise → Nikkaluokta | пункт списку |  |
+| Days | bus 91 → Kiruna · ticket not bought | підпис |  |
+| Days | Getting back · Sat 22 Aug | пункт списку |  |
+| Days | buy | індикатор |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `plan-error.html` — помилка
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Мої походи | кнопка | `С1` |
-| — | План | заголовок екрана |  |
+| — | ‹ My trips | кнопка |  |
+| — | Plan | заголовок екрана |  |
 | — | Kungsleden · Abisko → Nikkaluokta | заголовок екрана |  |
-| Огляд | Огляд | заголовок зони |  |
-| Огляд | на всю ширину | заглушка макета | `З1` |
-| Огляд | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
-| Огляд | офлайн ✓ | підпис | `Т1` |
-| Огляд | 17–22 серпня · 2 людини · 1 член STF | підпис |  |
-| Огляд | Сказати, куди йду | кнопка |  |
-| Огляд | Змінити план | розкривач |  |
-| Огляд | Позначки броней і квитків у плані скинуться. У STF і SJ вони лишаться — скасуй там, якщо треба. | текст |  |
-| Огляд | Змінити й скинути | кнопка |  |
-| Потребує уваги | Потребує уваги | заголовок зони |  |
-| Потребує уваги | Не вдалося оновити. Дані від 13 серпня, 09:12. | текст |  |
-| Потребує уваги | Спробувати ще раз | кнопка |  |
-| Маршрут | Маршрут | заголовок зони |  |
-| Маршрут | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
-| Маршрут | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
-| Маршрут | довжина | підпис |  |
-| Маршрут | 101 км | пункт списку |  |
-| Маршрут | набір | підпис |  |
-| Маршрут | 1 940 м | пункт списку |  |
-| Маршрут | днів | підпис |  |
-| Маршрут | 6 | пункт списку |  |
-| Маршрут | найдовший день | підпис |  |
-| Маршрут | ~8 год | пункт списку |  |
-| Про похід | Про похід | заголовок зони | `С1` |
-| Про похід | обоє члени STF | підпис |  |
-| Про похід | Членство й ключ | пункт списку |  |
-| Про похід | 23 речі · 11,4 кг | підпис |  |
-| Про похід | Спорядження | пункт списку | `Д10` |
-| Про похід | 1 бракує | індикатор |  |
-| Про похід | прогноз met.no · 13 серпня 09:12 | підпис |  |
-| Про похід | Погода | підпис |  |
-| Про похід | 2 500 SEK ночі з людини · транспорт 1 430 SEK | підпис |  |
-| Про похід | Вартість | підпис |  |
-| Дні | Дні | заголовок зони |  |
-| Дні | нічний потяг 94 · Stockholm C → Abisko | підпис |  |
-| Дні | Дорога туди · нд 16 серп | підпис |  |
-| Дні | 14 км · ~4 год 30 | підпис |  |
-| Дні | 1 · Abisko → Abiskojaure | пункт списку |  |
-| Дні | 22 км · ~7 год | підпис |  |
-| Дні | 2 · Abiskojaure → Alesjaure | пункт списку |  |
-| Дні | повінь | індикатор |  |
-| Дні | 13 км · ~4 год 30 · тільки на місці | підпис |  |
-| Дні | 3 · Alesjaure → Tjäktja | пункт списку |  |
-| Дні | 12 км · перевал 1 150 м · Sälka не заброньована | підпис |  |
-| Дні | 4 · Tjäktja → Sälka | пункт списку |  |
-| Дні | забронювати | індикатор |  |
-| Дні | 26 км · ~8 год | підпис |  |
-| Дні | 5 · Sälka → Kebnekaise | пункт списку |  |
-| Дні | 19 км · ~5 год | підпис |  |
-| Дні | 6 · Kebnekaise → Nikkaluokta | пункт списку |  |
-| Дні | автобус 91 → Kiruna · квиток не куплено | підпис |  |
-| Дні | Дорога назад · сб 22 серп | пункт списку |  |
-| Дні | купити | індикатор |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Overview | Overview | заголовок зони |  |
+| Overview | на всю ширину | заглушка макета | `З1` |
+| Overview | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
+| Overview | offline ✓ | підпис | `Т1` |
+| Overview | 17–22 August · 2 people · 1 STF member | підпис |  |
+| Overview | Share my route | кнопка |  |
+| Overview | Change plan | розкривач |  |
+| Overview | Booking and ticket marks in the plan will be reset. They stay in STF and SJ — cancel there if you need to. | текст |  |
+| Overview | Change and reset | кнопка |  |
+| Needs attention | Needs attention | заголовок зони |  |
+| Needs attention | Couldn’t update. Data from 13 August, 09:12. | текст |  |
+| Needs attention | Try again | кнопка |  |
+| Route | Route | заголовок зони |  |
+| Route | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
+| Route | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
+| Route | distance | підпис |  |
+| Route | 101 km | пункт списку |  |
+| Route | ascent | підпис |  |
+| Route | 1,940 m | пункт списку |  |
+| Route | days | підпис |  |
+| Route | 6 | пункт списку |  |
+| Route | longest day | підпис |  |
+| Route | ~8 h | пункт списку |  |
+| About the trip | About the trip | заголовок зони |  |
+| About the trip | both STF members | підпис |  |
+| About the trip | Membership and key | пункт списку |  |
+| About the trip | 23 items · 11.4 kg | підпис |  |
+| About the trip | Gear | пункт списку |  |
+| About the trip | 1 missing | індикатор |  |
+| About the trip | met.no forecast · 13 Aug 09:12 | підпис |  |
+| About the trip | Weather | підпис |  |
+| About the trip | 2,500 SEK nights per person · transport 1,430 SEK | підпис |  |
+| About the trip | Cost | підпис |  |
+| Days | Days | заголовок зони |  |
+| Days | night train 94 · Stockholm C → Abisko | підпис |  |
+| Days | Getting there · Sun 16 Aug | підпис |  |
+| Days | 14 km · ~4 h 30 | підпис |  |
+| Days | 1 · Abisko → Abiskojaure | пункт списку |  |
+| Days | 22 km · ~7 h | підпис |  |
+| Days | 2 · Abiskojaure → Alesjaure | пункт списку |  |
+| Days | flood | індикатор |  |
+| Days | 13 km · ~4 h 30 · walk-in only | підпис |  |
+| Days | 3 · Alesjaure → Tjäktja | пункт списку |  |
+| Days | 12 km · pass 1,150 m · Sälka not booked | підпис |  |
+| Days | 4 · Tjäktja → Sälka | пункт списку |  |
+| Days | book | індикатор |  |
+| Days | 26 km · ~8 h | підпис |  |
+| Days | 5 · Sälka → Kebnekaise | пункт списку |  |
+| Days | 19 km · ~5 h | підпис |  |
+| Days | 6 · Kebnekaise → Nikkaluokta | пункт списку |  |
+| Days | bus 91 → Kiruna · ticket not bought | підпис |  |
+| Days | Getting back · Sat 22 Aug | пункт списку |  |
+| Days | buy | індикатор |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `plan-offline.html` — офлайн
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Мої походи | кнопка | `С1` |
-| — | План | заголовок екрана |  |
+| — | ‹ My trips | кнопка |  |
+| — | Plan | заголовок екрана |  |
 | — | Kungsleden · Abisko → Nikkaluokta | заголовок екрана |  |
-| Огляд | Огляд | заголовок зони |  |
-| Огляд | на всю ширину | заглушка макета | `З1` |
-| Огляд | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
-| Огляд | офлайн-пакет від 14.08 | підпис |  |
-| Огляд | 17–22 серпня · 2 людини · 1 член STF | підпис |  |
-| Огляд | Сказати, куди йду | кнопка |  |
-| Огляд | Змінити план | розкривач |  |
-| Огляд | Позначки броней і квитків у плані скинуться. У STF і SJ вони лишаться — скасуй там, якщо треба. | текст |  |
-| Огляд | Змінити й скинути | кнопка |  |
-| Потребує уваги | Потребує уваги | заголовок зони |  |
-| Потребує уваги | Без мережі. Дані з офлайн-пакета від 14 серпня. | текст |  |
-| Маршрут | Маршрут | заголовок зони |  |
-| Маршрут | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
-| Маршрут | map · Kungsleden · day legs · huts · bail-out points · offline pack | заглушка макета | `З1` |
-| Маршрут | довжина | підпис |  |
-| Маршрут | 101 км | пункт списку |  |
-| Маршрут | набір | підпис |  |
-| Маршрут | 1 940 м | пункт списку |  |
-| Маршрут | днів | підпис |  |
-| Маршрут | 6 | пункт списку |  |
-| Маршрут | найдовший день | підпис |  |
-| Маршрут | ~8 год | пункт списку |  |
-| Про похід | Про похід | заголовок зони | `С1` |
-| Про похід | обоє члени STF | підпис |  |
-| Про похід | Членство й ключ | пункт списку |  |
-| Про похід | 23 речі · 11,4 кг | підпис |  |
-| Про похід | Спорядження | пункт списку | `Д10` |
-| Про похід | 1 бракує | індикатор |  |
-| Про похід | прогноз met.no · 13 серпня 09:12 | підпис |  |
-| Про похід | Погода | підпис |  |
-| Про похід | 2 500 SEK ночі з людини · транспорт 1 430 SEK | підпис |  |
-| Про похід | Вартість | підпис |  |
-| Дні | Дні | заголовок зони |  |
-| Дні | нічний потяг 94 · Stockholm C → Abisko | підпис |  |
-| Дні | Дорога туди · нд 16 серп | підпис |  |
-| Дні | 14 км · ~4 год 30 | підпис |  |
-| Дні | 1 · Abisko → Abiskojaure | пункт списку |  |
-| Дні | 22 км · ~7 год | підпис |  |
-| Дні | 2 · Abiskojaure → Alesjaure | пункт списку |  |
-| Дні | повінь | індикатор |  |
-| Дні | 13 км · ~4 год 30 · тільки на місці | підпис |  |
-| Дні | 3 · Alesjaure → Tjäktja | пункт списку |  |
-| Дні | 12 км · перевал 1 150 м · Sälka не заброньована | підпис |  |
-| Дні | 4 · Tjäktja → Sälka | пункт списку |  |
-| Дні | забронювати | індикатор |  |
-| Дні | 26 км · ~8 год | підпис |  |
-| Дні | 5 · Sälka → Kebnekaise | пункт списку |  |
-| Дні | 19 км · ~5 год | підпис |  |
-| Дні | 6 · Kebnekaise → Nikkaluokta | пункт списку |  |
-| Дні | автобус 91 → Kiruna · квиток не куплено | підпис |  |
-| Дні | Дорога назад · сб 22 серп | пункт списку |  |
-| Дні | купити | індикатор |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Overview | Overview | заголовок зони |  |
+| Overview | на всю ширину | заглушка макета | `З1` |
+| Overview | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
+| Overview | offline pack from 14 Aug | підпис |  |
+| Overview | 17–22 August · 2 people · 1 STF member | підпис |  |
+| Overview | Share my route | кнопка |  |
+| Overview | Change plan | розкривач |  |
+| Overview | Booking and ticket marks in the plan will be reset. They stay in STF and SJ — cancel there if you need to. | текст |  |
+| Overview | Change and reset | кнопка |  |
+| Needs attention | Needs attention | заголовок зони |  |
+| Needs attention | No connection. Data from the offline pack of 14 August. | текст |  |
+| Route | Route | заголовок зони |  |
+| Route | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
+| Route | map · Kungsleden · day legs · huts · bail-out points · offline pack | заглушка макета | `З1` |
+| Route | distance | підпис |  |
+| Route | 101 km | пункт списку |  |
+| Route | ascent | підпис |  |
+| Route | 1,940 m | пункт списку |  |
+| Route | days | підпис |  |
+| Route | 6 | пункт списку |  |
+| Route | longest day | підпис |  |
+| Route | ~8 h | пункт списку |  |
+| About the trip | About the trip | заголовок зони |  |
+| About the trip | both STF members | підпис |  |
+| About the trip | Membership and key | пункт списку |  |
+| About the trip | 23 items · 11.4 kg | підпис |  |
+| About the trip | Gear | пункт списку |  |
+| About the trip | 1 missing | індикатор |  |
+| About the trip | met.no forecast · 13 Aug 09:12 | підпис |  |
+| About the trip | Weather | підпис |  |
+| About the trip | 2,500 SEK nights per person · transport 1,430 SEK | підпис |  |
+| About the trip | Cost | підпис |  |
+| Days | Days | заголовок зони |  |
+| Days | night train 94 · Stockholm C → Abisko | підпис |  |
+| Days | Getting there · Sun 16 Aug | підпис |  |
+| Days | 14 km · ~4 h 30 | підпис |  |
+| Days | 1 · Abisko → Abiskojaure | пункт списку |  |
+| Days | 22 km · ~7 h | підпис |  |
+| Days | 2 · Abiskojaure → Alesjaure | пункт списку |  |
+| Days | flood | індикатор |  |
+| Days | 13 km · ~4 h 30 · walk-in only | підпис |  |
+| Days | 3 · Alesjaure → Tjäktja | пункт списку |  |
+| Days | 12 km · pass 1,150 m · Sälka not booked | підпис |  |
+| Days | 4 · Tjäktja → Sälka | пункт списку |  |
+| Days | book | індикатор |  |
+| Days | 26 km · ~8 h | підпис |  |
+| Days | 5 · Sälka → Kebnekaise | пункт списку |  |
+| Days | 19 km · ~5 h | підпис |  |
+| Days | 6 · Kebnekaise → Nikkaluokta | пункт списку |  |
+| Days | bus 91 → Kiruna · ticket not bought | підпис |  |
+| Days | Getting back · Sat 22 Aug | пункт списку |  |
+| Days | buy | індикатор |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `plan-past.html` — пройдений
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Мої походи | кнопка | `С1` |
-| — | План | заголовок екрана |  |
+| — | ‹ My trips | кнопка |  |
+| — | Plan | заголовок екрана |  |
 | — | Kungsleden · Abisko → Nikkaluokta | заголовок екрана |  |
-| Огляд | Огляд | заголовок зони |  |
-| Огляд | на всю ширину | заглушка макета | `З1` |
-| Огляд | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
-| Огляд | офлайн ✓ | підпис | `Т1` |
-| Огляд | 17–22 серпня · 2 людини · 1 член STF | підпис |  |
-| Огляд | Сказати, куди йду | кнопка |  |
-| Огляд | Змінити план | розкривач |  |
-| Огляд | Позначки броней і квитків у плані скинуться. У STF і SJ вони лишаться — скасуй там, якщо треба. | текст |  |
-| Огляд | Змінити й скинути | кнопка |  |
-| Потребує уваги | Потребує уваги | заголовок зони |  |
-| Потребує уваги | Пройдено 17–22 серпня 2025. | текст |  |
-| Потребує уваги | Скласти план за цим шаблоном | кнопка |  |
-| Маршрут | Маршрут | заголовок зони |  |
-| Маршрут | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
-| Маршрут | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
-| Маршрут | довжина | підпис |  |
-| Маршрут | 101 км | пункт списку |  |
-| Маршрут | набір | підпис |  |
-| Маршрут | 1 940 м | пункт списку |  |
-| Маршрут | днів | підпис |  |
-| Маршрут | 6 | пункт списку |  |
-| Маршрут | найдовший день | підпис |  |
-| Маршрут | ~8 год | пункт списку |  |
-| Про похід | Про похід | заголовок зони | `С1` |
-| Про похід | обоє члени STF | підпис |  |
-| Про похід | Членство й ключ | пункт списку |  |
-| Про похід | 23 речі · 11,4 кг | підпис |  |
-| Про похід | Спорядження | пункт списку | `Д10` |
-| Про похід | як було: два дощові дні з пʼяти | підпис |  |
-| Про похід | Погода | підпис |  |
-| Про похід | 2 500 SEK ночі з людини · транспорт 1 430 SEK | підпис |  |
-| Про похід | Вартість | підпис |  |
-| Дні | Дні | заголовок зони |  |
-| Дні | нічний потяг 94 · Stockholm C → Abisko | підпис |  |
-| Дні | Дорога туди · нд 16 серп | підпис |  |
-| Дні | 14 км · ~4 год 30 | підпис |  |
-| Дні | 1 · Abisko → Abiskojaure | пункт списку |  |
-| Дні | 22 км · ~7 год | підпис |  |
-| Дні | 2 · Abiskojaure → Alesjaure | пункт списку |  |
-| Дні | 13 км · ~4 год 30 · тільки на місці | підпис |  |
-| Дні | 3 · Alesjaure → Tjäktja | пункт списку |  |
-| Дні | 12 км · перевал 1 150 м | підпис |  |
-| Дні | 4 · Tjäktja → Sälka | пункт списку |  |
-| Дні | 26 км · ~8 год | підпис |  |
-| Дні | 5 · Sälka → Kebnekaise | пункт списку |  |
-| Дні | 19 км · ~5 год | підпис |  |
-| Дні | 6 · Kebnekaise → Nikkaluokta | пункт списку |  |
-| Дні | автобус 91 → Kiruna | підпис |  |
-| Дні | Дорога назад · сб 22 серп | підпис |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| Overview | Overview | заголовок зони |  |
+| Overview | на всю ширину | заглушка макета | `З1` |
+| Overview | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
+| Overview | offline ✓ | підпис | `Т1` |
+| Overview | 17–22 August · 2 people · 1 STF member | підпис |  |
+| Overview | Share my route | кнопка |  |
+| Overview | Change plan | розкривач |  |
+| Overview | Booking and ticket marks in the plan will be reset. They stay in STF and SJ — cancel there if you need to. | текст |  |
+| Overview | Change and reset | кнопка |  |
+| Needs attention | Needs attention | заголовок зони |  |
+| Needs attention | Walked 17–22 August 2025. | текст |  |
+| Needs attention | Plan again from this trip | кнопка |  |
+| Route | Route | заголовок зони |  |
+| Route | на всю ширину · тап → на весь екран, шари там | заглушка макета | `З1` |
+| Route | map · Kungsleden · day legs · huts · bail-out points | заглушка макета | `З1` |
+| Route | distance | підпис |  |
+| Route | 101 km | пункт списку |  |
+| Route | ascent | підпис |  |
+| Route | 1,940 m | пункт списку |  |
+| Route | days | підпис |  |
+| Route | 6 | пункт списку |  |
+| Route | longest day | підпис |  |
+| Route | ~8 h | пункт списку |  |
+| About the trip | About the trip | заголовок зони |  |
+| About the trip | both STF members | підпис |  |
+| About the trip | Membership and key | пункт списку |  |
+| About the trip | 23 items · 11.4 kg | підпис |  |
+| About the trip | Gear | пункт списку |  |
+| About the trip | as it was: two rainy days out of five | підпис |  |
+| About the trip | Weather | підпис |  |
+| About the trip | 2,500 SEK nights per person · transport 1,430 SEK | підпис |  |
+| About the trip | Cost | підпис |  |
+| Days | Days | заголовок зони |  |
+| Days | night train 94 · Stockholm C → Abisko | підпис |  |
+| Days | Getting there · Sun 16 Aug | підпис |  |
+| Days | 14 km · ~4 h 30 | підпис |  |
+| Days | 1 · Abisko → Abiskojaure | пункт списку |  |
+| Days | 22 km · ~7 h | підпис |  |
+| Days | 2 · Abiskojaure → Alesjaure | пункт списку |  |
+| Days | 13 km · ~4 h 30 · walk-in only | підпис |  |
+| Days | 3 · Alesjaure → Tjäktja | пункт списку |  |
+| Days | 12 km · pass 1,150 m | підпис |  |
+| Days | 4 · Tjäktja → Sälka | пункт списку |  |
+| Days | 26 km · ~8 h | підпис |  |
+| Days | 5 · Sälka → Kebnekaise | пункт списку |  |
+| Days | 19 km · ~5 h | підпис |  |
+| Days | 6 · Kebnekaise → Nikkaluokta | пункт списку |  |
+| Days | bus 91 → Kiruna | підпис |  |
+| Days | Getting back · Sat 22 Aug | підпис |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Плани · День
+### Plans · Day
 
 #### `day.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ План | кнопка |  |
-| — | День | заголовок екрана |  |
-| — | День 3 · ср 19 серпня | заголовок екрана |  |
-| Перехід | Перехід | заголовок зони | `С5` |
-| Перехід | ‹ День 2 | кнопка |  |
-| Перехід | День 4 › | кнопка |  |
-| Перехід | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
-| Перехід | map · day 3 · Alesjaure → Tjäktja · ford before the hut | заглушка макета | `З1` |
-| Перехід | на всю ширину | заглушка макета | `З1` |
-| Перехід | profile · +260 m | заглушка макета | `З1` |
-| Перехід | довжина | підпис |  |
-| Перехід | 13 км | пункт списку |  |
-| Перехід | набір | підпис |  |
-| Перехід | +260 м | пункт списку |  |
-| Перехід | ходу | підпис |  |
-| Перехід | ~4 год 30 | пункт списку |  |
-| Ночівля | Ночівля | заголовок зони |  |
-| Ночівля | самообслуговування · 24 ліжка · без ключа | підпис |  |
-| Ночівля | Tjäktja fjällstuga | пункт списку |  |
-| Ночівля | тільки на місці | індикатор |  |
-| Ночівля | Прийти до 18:00 · логбук: імена й номери членства. | текст |  |
-| На ділянці | На ділянці | заголовок зони |  |
-| На ділянці | нотатка · 6 серпня · брід по коліно | підпис |  |
-| На ділянці | Місток перед Tjäktja знесло | пункт списку |  |
-| На ділянці | брід | індикатор |  |
-| На ділянці | струмки кожні 2–3 км | підпис |  |
-| На ділянці | Вода | підпис |  |
-| На ділянці | 8 км мостків, 5 км каміння | підпис |  |
-| На ділянці | Поверхня | підпис |  |
-| Погода | Погода | заголовок зони |  |
-| Погода | +9 °C · дощ 4 мм · вітер 7 м/с · met.no | текст |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ‹ Plan | кнопка |  |
+| — | Day | заголовок екрана |  |
+| — | Day 3 · Wed 19 August | заголовок екрана |  |
+| Leg | Leg | заголовок зони |  |
+| Leg | ‹ Day 2 | кнопка |  |
+| Leg | Day 4 › | кнопка |  |
+| Leg | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
+| Leg | map · day 3 · Alesjaure → Tjäktja · ford before the hut | заглушка макета | `З1` |
+| Leg | на всю ширину | заглушка макета | `З1` |
+| Leg | profile · +260 m | заглушка макета | `З1` |
+| Leg | distance | підпис |  |
+| Leg | 13 km | пункт списку |  |
+| Leg | ascent | підпис |  |
+| Leg | +260 m | пункт списку |  |
+| Leg | walking | підпис |  |
+| Leg | ~4 h 30 | пункт списку |  |
+| Night | Night | заголовок зони |  |
+| Night | self-service · 24 beds · no key | підпис |  |
+| Night | Tjäktja fjällstuga | пункт списку |  |
+| Night | walk-in only | індикатор |  |
+| Night | Arrive by 18:00 · logbook: names and membership numbers. | текст |  |
+| On this section | On this section | заголовок зони |  |
+| On this section | note · 6 Aug · ford knee-deep | підпис |  |
+| On this section | Bridge before Tjäktja washed out | пункт списку |  |
+| On this section | ford | індикатор |  |
+| On this section | streams every 2–3 km | підпис |  |
+| On this section | Water | підпис |  |
+| On this section | 8 km of boardwalk, 5 km of rock | підпис |  |
+| On this section | Surface | підпис |  |
+| Weather | Weather | заголовок зони |  |
+| Weather | +9 °C · rain 4 mm · wind 7 m/s · met.no | текст |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `day-intrip.html` — у дорозі
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ План | кнопка |  |
-| — | День | заголовок екрана |  |
-| — | Сьогодні · Alesjaure → Tjäktja | заголовок екрана |  |
-| Зараз | Зараз | заголовок зони |  |
-| Зараз | SOS · 112 | кнопка |  |
-| Зараз | лишилось | підпис |  |
-| Зараз | 9 км | пункт списку |  |
-| Зараз | ходу | підпис |  |
-| Зараз | ~3 год | пункт списку |  |
-| Зараз | прийти до | підпис |  |
-| Зараз | 18:00 | пункт списку |  |
-| Зараз | на всю ширину · позиція на вимогу | заглушка макета | `З1` |
-| Зараз | map · you are here · 4 km from Alesjaure · ford before the hut | заглушка макета | `З1` |
-| Ночівля | Ночівля | заголовок зони |  |
-| Ночівля | тільки на місці · 24 ліжка · без ключа | підпис |  |
-| Ночівля | Tjäktja fjällstuga | пункт списку |  |
-| Ночівля | до 18:00 | індикатор |  |
-| На ділянці | На ділянці | заголовок зони |  |
-| На ділянці | після дощу вищий — переходь до 15:00 | підпис | `С5` |
-| На ділянці | Брід перед хижею | пункт списку |  |
-| На ділянці | брід | індикатор |  |
-| На ділянці | Написати нотатку з місця | кнопка |  |
-| Погода | Погода | заголовок зони |  |
-| Погода | +9 °C · дощ з 15:00 · вітер 7 м/с | текст |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ‹ Plan | кнопка |  |
+| — | Day | заголовок екрана |  |
+| — | Today · Alesjaure → Tjäktja | заголовок екрана |  |
+| Now | Now | заголовок зони |  |
+| Now | SOS · 112 | кнопка |  |
+| Now | to go | підпис |  |
+| Now | 9 km | пункт списку |  |
+| Now | walking | підпис |  |
+| Now | ~3 h | пункт списку |  |
+| Now | arrive by | підпис |  |
+| Now | 18:00 | пункт списку |  |
+| Now | на всю ширину · позиція на вимогу | заглушка макета | `З1` |
+| Now | map · you are here · 4 km from Alesjaure · ford before the hut | заглушка макета | `З1` |
+| Night | Night | заголовок зони |  |
+| Night | walk-in only · 24 beds · no key | підпис |  |
+| Night | Tjäktja fjällstuga | пункт списку |  |
+| Night | by 18:00 | індикатор |  |
+| On this section | On this section | заголовок зони |  |
+| On this section | higher after rain — cross before 15:00 | підпис |  |
+| On this section | Ford before the hut | пункт списку |  |
+| On this section | ford | індикатор |  |
+| On this section | Write a field note | кнопка |  |
+| Weather | Weather | заголовок зони |  |
+| Weather | +9 °C · rain from 15:00 · wind 7 m/s | текст |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `day-offline.html` — офлайн
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ План | кнопка |  |
-| — | День | заголовок екрана |  |
-| — | День 3 · ср 19 серпня | заголовок екрана |  |
-| Перехід | Перехід | заголовок зони | `С5` |
-| Перехід | ‹ День 2 | кнопка |  |
-| Перехід | День 4 › | кнопка |  |
-| Перехід | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
-| Перехід | map · day 3 · Alesjaure → Tjäktja · ford before the hut · offline pack | заглушка макета | `З1` |
-| Перехід | на всю ширину | заглушка макета | `З1` |
-| Перехід | profile · +260 m | заглушка макета | `З1` |
-| Перехід | довжина | підпис |  |
-| Перехід | 13 км | пункт списку |  |
-| Перехід | набір | підпис |  |
-| Перехід | +260 м | пункт списку |  |
-| Перехід | ходу | підпис |  |
-| Перехід | ~4 год 30 | пункт списку |  |
-| Ночівля | Ночівля | заголовок зони |  |
-| Ночівля | самообслуговування · 24 ліжка · без ключа | підпис |  |
-| Ночівля | Tjäktja fjällstuga | пункт списку |  |
-| Ночівля | тільки на місці | індикатор |  |
-| Ночівля | Прийти до 18:00 · логбук: імена й номери членства. | текст |  |
-| На ділянці | На ділянці | заголовок зони |  |
-| На ділянці | нотатка · 6 серпня · брід по коліно | підпис |  |
-| На ділянці | Місток перед Tjäktja знесло | пункт списку |  |
-| На ділянці | брід | індикатор |  |
-| На ділянці | струмки кожні 2–3 км | підпис |  |
-| На ділянці | Вода | підпис |  |
-| На ділянці | 8 км мостків, 5 км каміння | підпис |  |
-| На ділянці | Поверхня | підпис |  |
-| Погода | Погода | заголовок зони |  |
-| Погода | Прогноз від 14 серпня, 07:00 — з офлайн-пакета. | текст |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ‹ Plan | кнопка |  |
+| — | Day | заголовок екрана |  |
+| — | Day 3 · Wed 19 August | заголовок екрана |  |
+| Leg | Leg | заголовок зони |  |
+| Leg | ‹ Day 2 | кнопка |  |
+| Leg | Day 4 › | кнопка |  |
+| Leg | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
+| Leg | map · day 3 · Alesjaure → Tjäktja · ford before the hut · offline pack | заглушка макета | `З1` |
+| Leg | на всю ширину | заглушка макета | `З1` |
+| Leg | profile · +260 m | заглушка макета | `З1` |
+| Leg | distance | підпис |  |
+| Leg | 13 km | пункт списку |  |
+| Leg | ascent | підпис |  |
+| Leg | +260 m | пункт списку |  |
+| Leg | walking | підпис |  |
+| Leg | ~4 h 30 | пункт списку |  |
+| Night | Night | заголовок зони |  |
+| Night | self-service · 24 beds · no key | підпис |  |
+| Night | Tjäktja fjällstuga | пункт списку |  |
+| Night | walk-in only | індикатор |  |
+| Night | Arrive by 18:00 · logbook: names and membership numbers. | текст |  |
+| On this section | On this section | заголовок зони |  |
+| On this section | note · 6 Aug · ford knee-deep | підпис |  |
+| On this section | Bridge before Tjäktja washed out | пункт списку |  |
+| On this section | ford | індикатор |  |
+| On this section | streams every 2–3 km | підпис |  |
+| On this section | Water | підпис |  |
+| On this section | 8 km of boardwalk, 5 km of rock | підпис |  |
+| On this section | Surface | підпис |  |
+| Weather | Weather | заголовок зони |  |
+| Weather | Forecast from 14 August, 07:00 — from the offline pack. | текст |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `day-seasonal.html` — сезонна норма
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ План | кнопка |  |
-| — | День | заголовок екрана |  |
-| — | День 3 · ср 19 серпня | заголовок екрана |  |
-| Перехід | Перехід | заголовок зони | `С5` |
-| Перехід | ‹ День 2 | кнопка |  |
-| Перехід | День 4 › | кнопка |  |
-| Перехід | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
-| Перехід | map · day 3 · Alesjaure → Tjäktja · ford before the hut | заглушка макета | `З1` |
-| Перехід | на всю ширину | заглушка макета | `З1` |
-| Перехід | profile · +260 m | заглушка макета | `З1` |
-| Перехід | довжина | підпис |  |
-| Перехід | 13 км | пункт списку |  |
-| Перехід | набір | підпис |  |
-| Перехід | +260 м | пункт списку |  |
-| Перехід | ходу | підпис |  |
-| Перехід | ~4 год 30 | пункт списку |  |
-| Ночівля | Ночівля | заголовок зони |  |
-| Ночівля | самообслуговування · 24 ліжка · без ключа | підпис |  |
-| Ночівля | Tjäktja fjällstuga | пункт списку |  |
-| Ночівля | тільки на місці | індикатор |  |
-| Ночівля | Прийти до 18:00 · логбук: імена й номери членства. | текст |  |
-| На ділянці | На ділянці | заголовок зони |  |
-| На ділянці | нотатка · 6 серпня · брід по коліно | підпис |  |
-| На ділянці | Місток перед Tjäktja знесло | пункт списку |  |
-| На ділянці | брід | індикатор |  |
-| На ділянці | струмки кожні 2–3 км | підпис |  |
-| На ділянці | Вода | підпис |  |
-| На ділянці | 8 км мостків, 5 км каміння | підпис |  |
-| На ділянці | Поверхня | підпис |  |
-| Погода | Погода | заголовок зони |  |
-| Погода | Сезонна норма серпня: +6…+14 °C, дощ кожен третій день. Прогноз з'явиться за 10 днів до виходу. | текст |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ‹ Plan | кнопка |  |
+| — | Day | заголовок екрана |  |
+| — | Day 3 · Wed 19 August | заголовок екрана |  |
+| Leg | Leg | заголовок зони |  |
+| Leg | ‹ Day 2 | кнопка |  |
+| Leg | Day 4 › | кнопка |  |
+| Leg | на всю ширину · тап → на весь екран | заглушка макета | `З1` |
+| Leg | map · day 3 · Alesjaure → Tjäktja · ford before the hut | заглушка макета | `З1` |
+| Leg | на всю ширину | заглушка макета | `З1` |
+| Leg | profile · +260 m | заглушка макета | `З1` |
+| Leg | distance | підпис |  |
+| Leg | 13 km | пункт списку |  |
+| Leg | ascent | підпис |  |
+| Leg | +260 m | пункт списку |  |
+| Leg | walking | підпис |  |
+| Leg | ~4 h 30 | пункт списку |  |
+| Night | Night | заголовок зони |  |
+| Night | self-service · 24 beds · no key | підпис |  |
+| Night | Tjäktja fjällstuga | пункт списку |  |
+| Night | walk-in only | індикатор |  |
+| Night | Arrive by 18:00 · logbook: names and membership numbers. | текст |  |
+| On this section | On this section | заголовок зони |  |
+| On this section | note · 6 Aug · ford knee-deep | підпис |  |
+| On this section | Bridge before Tjäktja washed out | пункт списку |  |
+| On this section | ford | індикатор |  |
+| On this section | streams every 2–3 km | підпис |  |
+| On this section | Water | підпис |  |
+| On this section | 8 km of boardwalk, 5 km of rock | підпис |  |
+| On this section | Surface | підпис |  |
+| Weather | Weather | заголовок зони |  |
+| Weather | August seasonal normal: +6…+14 °C, rain every third day. The forecast appears 10 days before you set off. | текст |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Плани · Забронювати
+### Plans · Book
 
 #### `booking.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ✕ Закрити | кнопка | `Т1` |
-| — | Забронювати | заголовок екрана |  |
-| — | Ніч 4 · Sälka fjällstuga | заголовок екрана |  |
-| Що бронюємо | Що бронюємо | заголовок зони |  |
-| Що бронюємо | 2 ліжка · членський тариф · 900 SEK на двох | підпис |  |
-| Що бронюємо | чт 20 серпня | підпис |  |
-| Що бронюємо | сб 15 серпня, 12:00 | підпис |  |
-| Що бронюємо | Дедлайн | підпис |  |
-| Що бронюємо | через 2 дні | індикатор |  |
-| Порядок | Порядок | заголовок зони |  |
-| Порядок | заброньовано · STF-2026-118442 | підпис |  |
-| Порядок | 1 · Alesjaure | підпис |  |
-| Порядок | зараз | підпис |  |
-| Порядок | 2 · Sälka | підпис |  |
-| Порядок | далі | індикатор |  |
-| Порядок | після Sälka | підпис |  |
-| Порядок | 3 · Kebnekaise fjällstation | підпис |  |
-| Порядок | STF приймає оплату однієї ночі перед наступною. | текст |  |
-| Забронювати | Забронювати | заголовок зони |  |
-| Забронювати | Бронювання й оплата — у системі STF. Дати й кількість ліжок уже підставлені. | текст |  |
-| Забронювати | Відкрити бронювання STF ↗ | кнопка |  |
-| Після броні | Після броні | заголовок зони |  |
-| Після броні | Номер броні | підпис поля |  |
-| Після броні | STF-2026-… | плейсхолдер поля |  |
-| Після броні | Підтвердження або квиток — фото чи PDF | підпис поля |  |
-| Після броні | Зберегти | кнопка |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ✕ Close | кнопка | `Т1` |
+| — | Book | заголовок екрана |  |
+| — | Night 4 · Sälka fjällstuga | заголовок екрана |  |
+| What you’re booking | What you’re booking | заголовок зони |  |
+| What you’re booking | 2 beds · member rate · 900 SEK for two | підпис |  |
+| What you’re booking | Thu 20 August | підпис |  |
+| What you’re booking | Sat 15 August, 12:00 | підпис |  |
+| What you’re booking | Deadline | підпис |  |
+| What you’re booking | in 2 days | індикатор |  |
+| Order | Order | заголовок зони |  |
+| Order | booked · STF-2026-118442 | підпис |  |
+| Order | 1 · Alesjaure | підпис |  |
+| Order | now | підпис |  |
+| Order | 2 · Sälka | підпис |  |
+| Order | next | індикатор |  |
+| Order | after Sälka | підпис |  |
+| Order | 3 · Kebnekaise fjällstation | підпис |  |
+| Order | STF takes payment for one night before the next. | текст |  |
+| Book | Book | заголовок зони |  |
+| Book | Booking and payment happen in STF’s system. Dates and number of beds are filled in. | текст |  |
+| Book | Open STF booking ↗ | кнопка |  |
+| After booking | After booking | заголовок зони |  |
+| After booking | Booking number | підпис поля |  |
+| After booking | STF-2026-… | плейсхолдер поля |  |
+| After booking | Confirmation or ticket — photo or PDF | підпис поля |  |
+| After booking | Save | кнопка |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Плани · Спорядження
+### Plans · Gear
 
 #### `gear.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ План | кнопка |  |
-| — | Спорядження | заголовок екрана | `Д10` |
-| — | Спорядження | заголовок екрана | `Д10` |
-| Спакувати | Спакувати | заголовок зони |  |
-| Спакувати | три ночі в самообслуговуванні — ковдр немає | підпис |  |
-| Спакувати | спальник −5 °C | підпис |  |
-| Спакувати | дощ на дні 3 і 4 | підпис |  |
-| Спакувати | дощовик | підпис |  |
-| Спакувати | 11 км болотистого ґрунту | підпис |  |
-| Спакувати | гамаші | підпис |  |
-| Спакувати | купити | індикатор |  |
-| Спакувати | вітер 12 м/с на перевалі | підпис |  |
-| Спакувати | водонепроникні рукавиці | підпис |  |
-| Спакувати | купити | індикатор |  |
-| Спакувати | на двох | підпис |  |
-| Спакувати | аптечка | підпис |  |
-| Спакувати | 19 з 23 спаковано · 11,4 кг | текст |  |
-| Моє спорядження | Моє спорядження | заголовок зони |  |
-| Моє спорядження | Відкрити інвентар | кнопка | `С3` |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ‹ Plan | кнопка |  |
+| — | Gear | заголовок екрана |  |
+| — | Gear | заголовок екрана |  |
+| Pack | Pack | заголовок зони |  |
+| Pack | three self-service nights — no blankets | підпис |  |
+| Pack | sleeping bag −5 °C | підпис |  |
+| Pack | rain on days 3 and 4 | підпис |  |
+| Pack | rain jacket | підпис |  |
+| Pack | 11 km of boggy ground | підпис |  |
+| Pack | gaiters | підпис |  |
+| Pack | buy | індикатор |  |
+| Pack | wind 12 m/s on the pass | підпис |  |
+| Pack | waterproof gloves | підпис |  |
+| Pack | buy | індикатор |  |
+| Pack | shared | підпис |  |
+| Pack | first-aid kit | підпис |  |
+| Pack | 19 of 23 packed · 11.4 kg | текст |  |
+| My gear | My gear | заголовок зони |  |
+| My gear | Open inventory | кнопка |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Плани · Мої походи
+### Plans · My trips
 
 #### `plans.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | Мої походи | заголовок екрана | `С1` `Д9` |
-| — | Мої походи | заголовок екрана | `С1` `Д9` |
-| Найближчий | Найближчий | заголовок зони |  |
-| Найближчий | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
-| Найближчий | через 4 дні | індикатор |  |
-| Найближчий | 17–22 серпня · 2 людини · ночі 1 з 5 заброньовано · 2 задачі | підпис |  |
-| Найближчий | photo · Kungsleden · path along Abiskojaure lake Kungsleden · Abisko → Nikkaluokta через 4 дні | посилання |  |
-| Минулі | Минулі | заголовок зони |  |
-| Минулі | 12–15 серпня 2025 · 47 км | підпис |  |
-| Минулі | Jotunheimen · Gjendesheim → Bygdin | пункт списку |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | My trips | заголовок екрана |  |
+| — | My trips | заголовок екрана |  |
+| Upcoming | Upcoming | заголовок зони |  |
+| Upcoming | photo · Kungsleden · path along Abiskojaure lake | заглушка макета | `З1` |
+| Upcoming | in 4 days | індикатор |  |
+| Upcoming | 17–22 August · 2 people · 1 of 5 nights booked · 2 tasks | підпис |  |
+| Upcoming | photo · Kungsleden · path along Abiskojaure lake Kungsleden · Abisko → Nikkaluokta in 4 days | посилання |  |
+| Past | Past | заголовок зони |  |
+| Past | 12–15 August 2025 · 47 km | підпис |  |
+| Past | Jotunheimen · Gjendesheim → Bygdin | пункт списку |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 #### `plans-empty.html` — порожній
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | Мої походи | заголовок екрана | `С1` `Д9` |
-| — | Мої походи | заголовок екрана | `С1` `Д9` |
-| Найближчий | Найближчий | заголовок зони |  |
-| Найближчий | Походів ще немає. | текст | `С1` |
-| Найближчий | Куди можна піти | кнопка |  |
-| Минулі | Минулі | заголовок зони |  |
-| Минулі | Тут лишаться пройдені походи. | текст | `С1` |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | My trips | заголовок екрана |  |
+| — | My trips | заголовок екрана |  |
+| Upcoming | Upcoming | заголовок зони |  |
+| Upcoming | No trips yet. | текст |  |
+| Upcoming | Where to go | кнопка |  |
+| Past | Past | заголовок зони |  |
+| Past | Your walked trips will stay here. | текст |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Плани · Сказати, куди йду
+### Plans · Share my route
 
 #### `share.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ План | кнопка |  |
-| — | Сказати, куди йду | заголовок екрана |  |
-| — | Сказати, куди йду | заголовок екрана |  |
-| Повідомлення | Повідомлення | заголовок зони |  |
-| Повідомлення | Kungsleden, Abisko → Nikkaluokta · 17–22 серпня | підпис |  |
-| Повідомлення | Маршрут | підпис |  |
-| Повідомлення | Abiskojaure · Alesjaure · Tjäktja · Sälka · Kebnekaise | підпис |  |
-| Повідомлення | Ночівлі | підпис |  |
-| Повідомлення | день 3 · Alesjaure → Tjäktja | підпис |  |
-| Повідомлення | Зараз | підпис |  |
-| Повідомлення | Kiruna 19:44 · вдома вранці 23 серпня | підпис |  |
-| Повідомлення | Повернення | підпис |  |
-| Надіслати | Надіслати | заголовок зони |  |
-| Надіслати | Надіслати | кнопка |  |
-| Надіслати | Скопіювати посилання | кнопка |  |
-| Надіслати | PDF | кнопка |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ‹ Plan | кнопка |  |
+| — | Share my route | заголовок екрана |  |
+| — | Share my route | заголовок екрана |  |
+| Message | Message | заголовок зони |  |
+| Message | Kungsleden, Abisko → Nikkaluokta · 17–22 August | підпис |  |
+| Message | Route | підпис |  |
+| Message | Abiskojaure · Alesjaure · Tjäktja · Sälka · Kebnekaise | підпис |  |
+| Message | Nights | підпис |  |
+| Message | day 3 · Alesjaure → Tjäktja | підпис |  |
+| Message | Now | підпис |  |
+| Message | Kiruna 19:44 · home on the morning of 23 August | підпис |  |
+| Message | Back | підпис |  |
+| Send | Send | заголовок зони |  |
+| Send | Send | кнопка |  |
+| Send | Copy link | кнопка |  |
+| Send | PDF | кнопка |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Довідник · Довідник
+### Guide · Guide
 
 #### `guide.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | Довідник | заголовок екрана | `Р` |
-| — | Довідник | заголовок екрана | `Р` |
-| Пошук | Пошук | заголовок зони | `Р` |
-| Пошук | Слово, хижа або правило | підпис поля | `Р` |
-| Пошук | Норвегія | кнопка | `Р` |
-| Пошук | Швеція | кнопка | `Р` |
-| Пошук | Обидві | кнопка | `Р` |
-| Статті | Статті | заголовок зони | `Р` |
-| Статті | fjällstuga і fjällstation, правило 18:00, логбук | підпис | `Р` |
-| Статті | Хижі STF | пункт списку | `Р` |
-| Статті | Швеція | індикатор | `Р` |
-| Статті | типи хиж, DNT-ключ, логбук | підпис | `Р` |
-| Статті | Хижі DNT | пункт списку | `Р` |
-| Статті | Норвегія | індикатор | `Р` |
-| Статті | прибирання, взуття, спальні місця, честь-система | підпис | `Р` |
-| Статті | Неписані правила хижі | пункт списку | `Р` |
-| Статті | девʼять правил поведінки в горах | підпис | `Р` |
-| Статті | Fjellvett | пункт списку | `Р` |
-| Статті | allemansrätten · friluftsloven | підпис | `Р` |
-| Статті | Де можна ставити намет | пункт списку | `Р` |
-| футер | Статті: DNT, STF, Naturvårdsverket, Miljødirektoratet — з посиланням на першоджерело в кожній. | атрибуція | `Р` |
+| — | Guide | заголовок екрана | `Р` |
+| — | Guide | заголовок екрана | `Р` |
+| Search | Search | заголовок зони | `Р` |
+| Search | Word, hut or rule | підпис поля | `Р` |
+| Search | Norway | кнопка | `Р` |
+| Search | Sweden | кнопка | `Р` |
+| Search | Both | кнопка | `Р` |
+| Articles | Articles | заголовок зони | `Р` |
+| Articles | fjällstuga and fjällstation, the 18:00 rule, the logbook | підпис | `Р` |
+| Articles | STF huts | пункт списку | `Р` |
+| Articles | Sweden | індикатор | `Р` |
+| Articles | hut types, the DNT key, the logbook | підпис | `Р` |
+| Articles | DNT huts | пункт списку | `Р` |
+| Articles | Norway | індикатор | `Р` |
+| Articles | cleaning up, shoes off, shared sleeping space, the honour system | підпис | `Р` |
+| Articles | Unwritten hut rules | пункт списку | `Р` |
+| Articles | nine rules for the mountains | підпис | `Р` |
+| Articles | Fjellvett | пункт списку | `Р` |
+| Articles | allemansrätten · friluftsloven | підпис | `Р` |
+| Articles | Where you can pitch a tent | пункт списку | `Р` |
+| футер | Articles: DNT, STF, Naturvårdsverket, Miljødirektoratet — each linked to its primary source. | атрибуція | `Р` |
 
-### Довідник · Стаття
+### Guide · Article
 
 #### `lodging-system.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Довідник | кнопка | `Р` |
-| — | Стаття | заголовок екрана | `Р` |
-| — | Хижі STF | заголовок екрана | `Р` |
-| Головне | Головне | заголовок зони | `Р` |
-| Головне | Бронь купує ліжко. Без броні все одно буде місце під дахом — можливо, матрац на підлозі. Нікого не виганяють. | текст | `Р` |
-| Час приходу | Час приходу | заголовок зони | `Р` |
-| Час приходу | заброньоване ліжко тримають за тобою | підпис | `Р` |
-| Час приходу | До 18:00 | підпис | `Р` |
-| Час приходу | ліжко не тримають — місце під дахом лишається | підпис | `Р` |
-| Час приходу | Після 18:00 | підпис | `Р` |
-| На місці | На місці | заголовок зони | `Р` |
-| На місці | імена й номери членства — навіть після онлайн-оплати | підпис | `Р` |
-| На місці | Логбук | підпис | `Р` |
-| На місці | самореєстрація, якщо бронь не покриває всю ніч | підпис | `Р` |
-| На місці | Оплата | підпис | `Р` |
-| На місці | прибрати за собою перед виходом | підпис | `Р` |
-| На місці | Прибирання | підпис | `Р` |
-| На місці | знімати при вході | підпис | `Р` |
-| На місці | Взуття | підпис | `Р` |
-| Джерело | Джерело | заголовок зони | `Р` |
-| Джерело | Svenska Turistföreningen, сторінки про fjällstuga (шведською) · переклад | текст | `Р` |
-| футер | Svenska Turistföreningen — сторінки про fjällstuga, шведською. | атрибуція | `Р` |
+| — | ‹ Guide | кнопка | `Р` |
+| — | Article | заголовок екрана | `Р` |
+| — | STF huts | заголовок екрана | `Р` |
+| The key point | The key point | заголовок зони | `Р` |
+| The key point | A booking buys a bed. Without one you still get a place indoors — possibly a mattress on the floor. No one is turned away. | текст | `Р` |
+| Arrival time | Arrival time | заголовок зони | `Р` |
+| Arrival time | your booked bed is held for you | підпис | `Р` |
+| Arrival time | Before 18:00 | підпис | `Р` |
+| Arrival time | the bed isn’t held — a place indoors still is | підпис | `Р` |
+| Arrival time | After 18:00 | підпис | `Р` |
+| On site | On site | заголовок зони | `Р` |
+| On site | names and membership numbers — even after paying online | підпис | `Р` |
+| On site | Logbook | підпис | `Р` |
+| On site | self-registration if the booking doesn’t cover the whole night | підпис | `Р` |
+| On site | Payment | підпис | `Р` |
+| On site | clean up after yourself before you leave | підпис | `Р` |
+| On site | Cleaning | підпис | `Р` |
+| On site | off at the door | підпис | `Р` |
+| On site | Shoes | підпис | `Р` |
+| Source | Source | заголовок зони | `Р` |
+| Source | Svenska Turistföreningen, pages about fjällstuga (in Swedish) · translation | текст | `Р` |
+| футер | Svenska Turistföreningen — pages about fjällstuga, in Swedish. | атрибуція | `Р` |
 
-### Безпека · Перша допомога
+### Safety · First aid
 
 #### `first-aid.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Безпека | кнопка | `Р` |
-| — | Перша допомога | заголовок екрана | `Р` |
-| — | Перша допомога | заголовок екрана | `Р` |
-| Картки | Картки | заголовок зони | `Р` |
-| Картки | Røde Kors | підпис | `Р` |
-| Картки | Гіпотермія | підпис | `Р` |
-| Картки | Røde Kors | підпис | `Р` |
-| Картки | Переохолодження кінцівок | підпис | `Р` |
-| Картки | Röda Korset | підпис | `Р` |
-| Картки | Вивих і перелом | підпис | `Р` |
-| Картки | Röda Korset | підпис | `Р` |
-| Картки | Зневоднення й перегрів | підпис | `Р` |
-| Якщо це серйозно | Якщо це серйозно | заголовок зони | `Р` |
-| Якщо це серйозно | Картки працюють без мережі, дзвінок — ні. | текст | `Р` |
-| Якщо це серйозно | SOS і координати | кнопка | `Р` |
-| футер | Тексти: Røde Kors (Норвегія), Röda Korset (Швеція) — дослівно, з атрибуцією. | атрибуція | `Р` |
+| — | ‹ Safety | кнопка | `Р` |
+| — | First aid | заголовок екрана | `Р` |
+| — | First aid | заголовок екрана | `Р` |
+| Cards | Cards | заголовок зони | `Р` |
+| Cards | Røde Kors | підпис | `Р` |
+| Cards | Hypothermia | підпис | `Р` |
+| Cards | Røde Kors | підпис | `Р` |
+| Cards | Cold injury | підпис | `Р` |
+| Cards | Röda Korset | підпис | `Р` |
+| Cards | Sprains and fractures | підпис | `Р` |
+| Cards | Röda Korset | підпис | `Р` |
+| Cards | Dehydration and heat | підпис | `Р` |
+| If it’s serious | If it’s serious | заголовок зони | `Р` |
+| If it’s serious | The cards work offline; a call doesn’t. | текст | `Р` |
+| If it’s serious | SOS and coordinates | кнопка | `Р` |
+| футер | Texts: Røde Kors (Norway), Röda Korset (Sweden) — verbatim, with attribution. | атрибуція | `Р` |
 
-### Безпека · Безпека
+### Safety · Safety
 
 #### `safety.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | Безпека | заголовок екрана |  |
-| — | Безпека | заголовок екрана |  |
-| Якщо це сталося зараз | Якщо це сталося зараз | заголовок зони |  |
-| Якщо це сталося зараз | SOS · 112 | кнопка |  |
-| Якщо це сталося зараз | 112 — усі служби · 113 — медична, Норвегія | підпис |  |
-| Якщо це сталося зараз | Номери | підпис |  |
-| Якщо це сталося зараз | 67°55′14″N 18°37′02″E · 8 м · 3 хв тому | підпис |  |
-| Якщо це сталося зараз | Мої координати | підпис |  |
-| Якщо це сталося зараз | Alesjaure — 6,2 км назад, далі човен | підпис |  |
-| Якщо це сталося зараз | Найближча точка сходу | пункт списку | `Д14` |
-| Якщо це сталося зараз | 2 з 5 · NVE Varsom · 06:00 | підпис |  |
-| Якщо це сталося зараз | Лавинна небезпека | підпис |  |
-| Перша допомога | Перша допомога | заголовок зони |  |
-| Перша допомога | Røde Kors · Röda Korset · без мережі | підпис |  |
-| Перша допомога | Картки першої допомоги | пункт списку |  |
-| Хто знає, де ти | Хто знає, де ти | заголовок зони |  |
-| Хто знає, де ти | Сказати, куди йду | кнопка |  |
-| Перед виходом | Перед виходом | заголовок зони |  |
-| Перед виходом | девʼять правил поведінки в горах | підпис |  |
-| Перед виходом | Fjellvett | пункт списку |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | Safety | заголовок екрана |  |
+| — | Safety | заголовок екрана |  |
+| If it’s happening now | If it’s happening now | заголовок зони |  |
+| If it’s happening now | SOS · 112 | кнопка |  |
+| If it’s happening now | 112 — all services · 113 — medical, Norway | підпис |  |
+| If it’s happening now | Numbers | підпис |  |
+| If it’s happening now | 67°55′14″N 18°37′02″E · 8 m · 3 min ago | підпис |  |
+| If it’s happening now | My coordinates | підпис |  |
+| If it’s happening now | Alesjaure — 6.2 km back, then the boat | підпис |  |
+| If it’s happening now | Nearest bail-out point | пункт списку |  |
+| If it’s happening now | 2 of 5 · NVE Varsom · 06:00 | підпис |  |
+| If it’s happening now | Avalanche danger | підпис |  |
+| First aid | First aid | заголовок зони |  |
+| First aid | Røde Kors · Röda Korset · work offline | підпис |  |
+| First aid | First-aid cards | пункт списку |  |
+| Who knows where you are | Who knows where you are | заголовок зони |  |
+| Who knows where you are | Share my route | кнопка |  |
+| Before you go | Before you go | заголовок зони |  |
+| Before you go | nine rules for the mountains | підпис |  |
+| Before you go | Fjellvett | пункт списку |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Профіль · Вхід
+### Profile · Sign in
 
 #### `account.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ✕ Закрити | кнопка | `Т1` |
-| — | Вхід | заголовок екрана |  |
-| — | Увійди, щоб зберегти похід | заголовок екрана | `С1` |
-| Навіщо | Навіщо | заголовок зони |  |
-| Навіщо | Броні й квитки тримаються в поході днями — з акаунтом похід не загубиться разом із телефоном. | текст | `С1` |
-| Увійти | Увійти | заголовок зони |  |
-| Увійти | Продовжити з Apple | кнопка |  |
-| Увійти | Продовжити з Google | кнопка |  |
-| Увійти | Пошта | підпис поля |  |
-| Увійти | ти@пошта | плейсхолдер поля |  |
-| Увійти | Далі — один запит на сповіщення, щоб попередити за два дні до виходу. | текст |  |
-| Увійти | Продовжити без входу | кнопка |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ✕ Close | кнопка | `Т1` |
+| — | Sign in | заголовок екрана |  |
+| — | Sign in to save your trip | заголовок екрана |  |
+| Why | Why | заголовок зони |  |
+| Why | Bookings and tickets stay in a trip for days — with an account, your trip isn’t lost with your phone. | текст |  |
+| Sign in | Sign in | заголовок зони |  |
+| Sign in | Continue with Apple | кнопка |  |
+| Sign in | Continue with Google | кнопка |  |
+| Sign in | Email | підпис поля |  |
+| Sign in | you@email | плейсхолдер поля |  |
+| Sign in | Next, one notification request — so we can warn you two days before you set off. | текст |  |
+| Sign in | Continue without signing in | кнопка |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Профіль · Я
+### Profile · Profile
 
 #### `me.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | Я | заголовок екрана |  |
-| — | Я | заголовок екрана |  |
-| Форма | Форма | заголовок зони |  |
-| Форма | 24 км · рюкзак 12 кг | підпис |  |
-| Форма | Найдовший день торік | підпис |  |
-| Форма | Імпорт зі Strava | кнопка |  |
-| Форма | Імпорт із Garmin | кнопка |  |
-| Моє | Моє | заголовок зони |  |
-| Моє | STF · чинне до лютого 2027 | підпис |  |
-| Моє | Членство й ключ | пункт списку |  |
-| Моє | 19 речей | підпис |  |
-| Моє | Моє спорядження | пункт списку |  |
-| Моє | 1 найближчий · 1 минулий | підпис |  |
-| Моє | Мої походи | пункт списку | `С1` `Д9` |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | Profile | заголовок екрана |  |
+| — | Profile | заголовок екрана |  |
+| Fitness | Fitness | заголовок зони |  |
+| Fitness | 24 km · pack 12 kg | підпис |  |
+| Fitness | Longest day last year | підпис |  |
+| Fitness | Import from Strava | кнопка |  |
+| Fitness | Import from Garmin | кнопка |  |
+| Mine | Mine | заголовок зони |  |
+| Mine | STF · valid until February 2027 | підпис |  |
+| Mine | Membership and key | пункт списку |  |
+| Mine | 19 items | підпис |  |
+| Mine | My gear | пункт списку |  |
+| Mine | 1 upcoming · 1 past | підпис |  |
+| Mine | My trips | пункт списку |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Профіль · Членство й ключ
+### Profile · Membership and key
 
 #### `membership.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ✕ Закрити | кнопка | `Т1` |
-| — | Членство й ключ | заголовок екрана |  |
-| — | Членство й ключ | заголовок екрана |  |
-| Членство | Членство | заголовок зони |  |
-| Членство | Kristin · №4471902 · до 28 лютого 2027 | підпис |  |
-| Членство | STF | підпис |  |
-| Членство | без членства | підпис |  |
-| Членство | Другий учасник | підпис |  |
-| Членство | немає | індикатор |  |
-| Членство | Показати картку | кнопка |  |
-| Членство | Поновити в STF ↗ | кнопка |  |
-| У цьому поході | У цьому поході | заголовок зони | `С1` |
-| У цьому поході | 2 500 SEK з людини з членством · 3 700 без | підпис |  |
-| У цьому поході | Ночі | підпис |  |
-| У цьому поході | не потрібен — усі хижі відчинені | підпис |  |
-| У цьому поході | Ключ | підпис |  |
-| DNT-ключ | DNT-ключ | заголовок зони |  |
-| DNT-ключ | немає | підпис |  |
-| DNT-ключ | Стан | підпис |  |
-| DNT-ключ | крамниці DNT і обслуговувані хижі · тільки членам · застава 100 NOK | підпис |  |
-| DNT-ключ | Де взяти | підпис |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ✕ Close | кнопка | `Т1` |
+| — | Membership and key | заголовок екрана |  |
+| — | Membership and key | заголовок екрана |  |
+| Membership | Membership | заголовок зони |  |
+| Membership | Kristin · No. 4471902 · until 28 February 2027 | підпис |  |
+| Membership | STF | підпис |  |
+| Membership | not a member | підпис |  |
+| Membership | Second person | підпис |  |
+| Membership | none | індикатор |  |
+| Membership | Show card | кнопка |  |
+| Membership | Renew at STF ↗ | кнопка |  |
+| On this trip | On this trip | заголовок зони |  |
+| On this trip | 2,500 SEK per person as a member · 3,700 without | підпис |  |
+| On this trip | Nights | підпис |  |
+| On this trip | not needed — all huts are unlocked | підпис |  |
+| On this trip | Key | підпис |  |
+| DNT key | DNT key | заголовок зони |  |
+| DNT key | none | підпис |  |
+| DNT key | Status | підпис |  |
+| DNT key | DNT shops and staffed huts · members only · 100 NOK deposit | підпис |  |
+| DNT key | Where to get one | підпис |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Профіль · Моє спорядження
+### Profile · My gear
 
 #### `my-gear.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ✕ Закрити | кнопка | `Т1` |
-| — | Моє спорядження | заголовок екрана |  |
-| — | Моє спорядження | заголовок екрана |  |
-| Що є | Що є | заголовок зони |  |
-| Що є | спальник −5 °C · каремат | підпис |  |
-| Що є | Сон | підпис |  |
-| Що є | пальник і газ · казанок 1,5 л | підпис |  |
-| Що є | Кухня | підпис |  |
-| Що є | дощовик · гамаші | підпис |  |
-| Що є | Одяг | підпис |  |
-| Що є | GPS-годинник · павербанк | підпис |  |
-| Що є | Навігація | підпис |  |
-| Купити | Купити | заголовок зони |  |
-| Купити | потрібні на Kungsleden | підпис |  |
-| Купити | Водонепроникні рукавиці | підпис |  |
-| Купити | купити | індикатор |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ✕ Close | кнопка | `Т1` |
+| — | My gear | заголовок екрана |  |
+| — | My gear | заголовок екрана |  |
+| What you have | What you have | заголовок зони |  |
+| What you have | sleeping bag −5 °C · mat | підпис |  |
+| What you have | Sleep | підпис |  |
+| What you have | stove and gas · 1.5 l pot | підпис |  |
+| What you have | Kitchen | підпис |  |
+| What you have | rain jacket · gaiters | підпис |  |
+| What you have | Clothing | підпис |  |
+| What you have | GPS watch · power bank | підпис |  |
+| What you have | Navigation | підпис |  |
+| To buy | To buy | заголовок зони |  |
+| To buy | needed on Kungsleden | підпис |  |
+| To buy | Waterproof gloves | підпис |  |
+| To buy | buy | індикатор |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
-### Профіль · Налаштування
+### Profile · Settings
 
 #### `settings.html` — успіх
 
 | Зона | Рядок | Тип | Позначки |
 |---|---|---|---|
-| — | ‹ Я | кнопка |  |
-| — | Налаштування | заголовок екрана |  |
-| — | Налаштування | заголовок екрана |  |
-| Акаунт | Акаунт | заголовок зони |  |
-| Акаунт | вхід через Apple | підпис |  |
-| Акаунт | kristin@пошта | підпис |  |
-| Акаунт | Вийти | кнопка |  |
-| Акаунт | Видалити акаунт | кнопка |  |
-| Похідний режим | Похідний режим | заголовок зони | `С1` |
-| Похідний режим | Вмикати зі стартом походу | підпис | `С1` |
-| Сповіщення | Сповіщення | заголовок зони |  |
-| Сповіщення | Зміни в плані | підпис |  |
-| Сповіщення | Дедлайни броні | підпис |  |
-| Сповіщення | Пора пакуватись | підпис |  |
-| Офлайн | Офлайн | заголовок зони |  |
-| Офлайн | Kungsleden · 84,8 МБ | підпис |  |
-| Офлайн | Завантажувати пакет по Wi-Fi | підпис |  |
-| Геолокація | Геолокація | заголовок зони |  |
-| Геолокація | коли відкриваєш карту | підпис |  |
-| Геолокація | Позиція | підпис |  |
-| Мова | Мова | заголовок зони |  |
-| Мова | українська | підпис |  |
-| Мова | Інтерфейс | підпис |  |
-| футер | Стежки й рельєф: Lantmäteriet (CC0) для Швеції, Kartverket (CC BY 4.0) для Норвегії. Погода: met.no Locationforecast. Транспорт: Trafikverket, Entur. Хижі — тип, ключ, ліжка, сезон — зі статичних полів публічної схеми обʼєктів DNT і STF. | атрибуція |  |
+| — | ‹ Profile | кнопка |  |
+| — | Settings | заголовок екрана |  |
+| — | Settings | заголовок екрана |  |
+| Account | Account | заголовок зони |  |
+| Account | signed in with Apple | підпис |  |
+| Account | kristin@email | підпис |  |
+| Account | Sign out | кнопка |  |
+| Account | Delete account | кнопка |  |
+| Trail mode | Trail mode | заголовок зони |  |
+| Trail mode | Turn on when the trip starts | підпис |  |
+| Notifications | Notifications | заголовок зони |  |
+| Notifications | Changes to your plan | підпис |  |
+| Notifications | Booking deadlines | підпис |  |
+| Notifications | Time to pack | підпис |  |
+| Offline | Offline | заголовок зони |  |
+| Offline | Kungsleden · 84.8 MB | підпис |  |
+| Offline | Download the pack over Wi-Fi | підпис |  |
+| Location | Location | заголовок зони |  |
+| Location | when you open the map | підпис |  |
+| Location | Position | підпис |  |
+| Language | Language | заголовок зони |  |
+| Language | English | підпис |  |
+| Language | Interface | підпис |  |
+| футер | Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema. | атрибуція |  |
 
 ---
 
@@ -1291,45 +1291,31 @@
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
-| **план** | 69 | 33 |  |
-| **похід** | 21 | 10 |  |
 
 ### Лінія на місцевості  ·  `С2`
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
-| **маршрут** | 16 | 11 |  |
-| **стежка** | 71 | 33 |  |
 
 ### Список речей  ·  `С3`
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
-| **спорядження** | 12 | 9 |  |
-| **інвентар** | 1 | 1 | `gear.html` |
 
 ### Ночівля
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
-| **хижа** | 59 | 32 |  |
-| **ніч** | 13 | 11 |  |
-| **ночівля** | 8 | 8 |  |
-| **ліжко** | 44 | 31 |  |
 
 ### Денний відрізок  ·  `С5`
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
-| **день** | 49 | 22 |  |
-| **ділянка** | 1 | 1 | `notes-empty.html` |
-| **перехід** | 5 | 4 | `day-offline.html`, `day-seasonal.html`, `day.html`, `new-plan-conflict.html` |
 
 ### Закріпити ночівлі
 
 | Слово | Згадок | Екранів | Де саме, якщо рідкісне |
 |---|---|---|---|
-| **бронювати / бронь** | 32 | 12 |  |
 
 **Що з цього справді розбіжність, а що ні.**
 
@@ -1346,19 +1332,19 @@
 
 | Екран | Рядок |
 |---|---|
-| `catalogue-empty.html` | Куди можна піти |
-| `catalogue.html` | Куди можна піти |
-| `first-aid.html` | Перша допомога |
-| `gear.html` | Спорядження |
-| `guide.html` | Довідник |
-| `me.html` | Я |
-| `membership.html` | Членство й ключ |
-| `my-gear.html` | Моє спорядження |
-| `plans-empty.html` | Мої походи |
-| `plans.html` | Мої походи |
-| `safety.html` | Безпека |
-| `settings.html` | Налаштування |
-| `share.html` | Сказати, куди йду |
+| `catalogue-empty.html` | Where to go |
+| `catalogue.html` | Where to go |
+| `first-aid.html` | First aid |
+| `gear.html` | Gear |
+| `guide.html` | Guide |
+| `me.html` | Profile |
+| `membership.html` | Membership and key |
+| `my-gear.html` | My gear |
+| `plans-empty.html` | My trips |
+| `plans.html` | My trips |
+| `safety.html` | Safety |
+| `settings.html` | Settings |
+| `share.html` | Share my route |
 
 ---
 
@@ -1395,8 +1381,8 @@
 
 | Рядок | Тип | Де | Що це |
 |---|---|---|---|
-| ✕ Закрити | кнопка | 9 екранів | функційний хрестик закриття — не порушення |
-| офлайн ✓ | підпис | `plan-error.html`, `plan-past.html`, `plan.html` | ✓/✗ як індикатор — контракт вимагає слова, не значка |
+| ✕ Close | кнопка | 9 екранів | функційний хрестик закриття — не порушення |
+| offline ✓ | підпис | `plan-error.html`, `plan-past.html`, `plan.html` | ✓/✗ як індикатор — контракт вимагає слова, не значка |
 
 **Із чотирьох різних рядків хрестик закриття питань не викликає, решта три — викликають.** `_next.md` каже: «індикатор — слово, не кольорова крапка». Рядок `Abiskojaure ✓ · Alesjaure ✓ · Tjäktja — не бронюється · Sälka ✗ · Kebnekaise ✓` на `plan.html` і `plan-intrip.html` змішує обидва підходи в одному рядку: два стани словом, три значком. А ⚠️ на `settings.html` — це стиль наших документів (`CLAUDE.md` повний таких), який просочився в текст продукту.
 
@@ -1454,8 +1440,8 @@
 | Екран | Рядків | Слів | Чий це текст |
 |---|---|---|---|
 | `first-aid.html` | 16 | 48 | **не наш** — Røde Kors / Röda Korset, цитата з атрибуцією; медичний зміст ми не авторуємо |
-| `guide.html` | 21 | 60 | наш вступний шар над чужим змістом; статті — DNT (норвезькою), переклад наш |
-| `lodging-system.html` | 22 | 89 | шаблон статті довідника; зміст — DNT, STF, Naturvårdsverket, Miljødirektoratet, з джерелом у кожній |
+| `guide.html` | 21 | 72 | наш вступний шар над чужим змістом; статті — DNT (норвезькою), переклад наш |
+| `lodging-system.html` | 22 | 109 | шаблон статті довідника; зміст — DNT, STF, Naturvårdsverket, Miljødirektoratet, з джерелом у кожній |
 
 **Редакційний текст за межами цих екранів** після перебудови 2026-09-23 зведено до коротких фактів на самих полях: ночівля на дні й хижі каже «прийти до 18:00 · логбук», а не переказує правила.
 
@@ -1470,7 +1456,7 @@
 
 ## 9. Що це дає, поки рішень ще нема
 
-Позначено 170 рядків із 953. Жодного не змінено.
+Позначено 123 рядків із 953. Жодного не змінено.
 
 Три речі, які видно тільки з такої таблиці й не видно з окремого екрана:
 

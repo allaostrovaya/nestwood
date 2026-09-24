@@ -195,7 +195,7 @@ element type**.
 Screen names get a blunt test: if a person has never met the phrase in any app, the name
 is invented.
 
-**The UI will be English** (decision 2026-09-23); wireframes stay Ukrainian until the designer says texts and components are agreed, then they are translated once, on the designer's command. Source-language
+**The UI is English** (decision 2026-09-23, translated 2026-09-24 on the designer's command): wireframes, screen and tab names, and the stand's phones and components; design documents and review chrome stay Ukrainian. Source-language
 terms (`Selvbetjent`, `fjällstuga`, `betjeningsgrad`, place names) stay in the original
 either way.
 

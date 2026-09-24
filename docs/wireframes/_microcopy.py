@@ -163,12 +163,12 @@ g = importlib.util.module_from_spec(_sp); _sp.loader.exec_module(g)
 import json, re, collections, pathlib, importlib.util
 
 # ── що виноситься з таблиці як глобальний хром ───────────────
-TABBAR = {'Карта', 'Плани', 'Довідник', 'Безпека', 'Профіль', '4'}
-ATTR = 'Карти й стежки © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Погода met.no · Транспорт Trafikverket'
-CHROME_TS = 'Остання перевірка: 13 серпня 2026, 09:12'
+TABBAR = {'Map', 'Plans', 'Guide', 'Safety', 'Profile', '4'}
+ATTR = 'Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket'
+CHROME_TS = 'Last checked: 13 August 2026, 09:12'
 def is_chrome(r):
     if r['zone'] == 'таббар' and r['text'] in TABBAR: return True
-    if r['text'] == ATTR or r['text'] == 'Звідки це взято' or r['text'] == CHROME_TS: return True
+    if r['text'] == ATTR or r['text'] == 'Where this comes from' or r['text'] == CHROME_TS: return True
     return False
 
 # ── позначки ─────────────────────────────────────────────────
@@ -243,7 +243,7 @@ def flags(r):
 for r in rows: r['flags'] = flags(r)
 
 # ── групування: вкладка → базовий екран → стан ───────────────
-TABORDER = ['Карта', 'Плани', 'Довідник', 'Безпека', 'Профіль']
+TABORDER = ['Map', 'Plans', 'Guide', 'Safety', 'Profile']
 FLOW = ['catalogue.html','new-plan-loading.html','new-plan.html','huts.html','account.html',
         'plan.html','day.html','day-intrip.html']
 byfile = collections.OrderedDict()
@@ -366,18 +366,18 @@ A(f'Ці рядки стоять **однаково на всіх 63 екран�
 A('')
 A('| Область | Рядок | Тип | Екранів |')
 A('|---|---|---|---|')
-for t in ['Карта', 'Плани', 'Довідник', 'Безпека', 'Профіль']:
+for t in ['Map', 'Plans', 'Guide', 'Safety', 'Profile']:
     n = sum(1 for r in rows if r['zone'] == 'таббар' and r['text'] == t)
     A(f'| таббар | {t} | кнопка | {n} |')
 n4 = sum(1 for r in rows if r['zone'] == 'таббар' and r['text'] == '4')
 A(f'| таббар | 4 *(бейдж «лишилось закріпити»)* | лічильник | {n4} |')
 A(f'| футер | {esc(ATTR)} | атрибуція | 63 |')
-A('| футер | Звідки це взято | розкривач | 63 |')
+A('| футер | Where this comes from | розкривач | 63 |')
 A(f'| футер | {CHROME_TS} | атрибуція | 51 |')
 A('')
-A('**Одне спостереження вже тут.** Рядок джерел у футері (`Звідки це взято` → деталізація) '
+A('**Одне спостереження вже тут.** Рядок джерел у футері (`Where this comes from` → деталізація) '
   '**різний на кожному екрані** — тому він лишився в таблиці. Це правильно: він говорить про те, що '
-  'на цьому екрані стверджується. А от «Остання перевірка: 13 серпня 2026, 09:12» стоїть на 51 '
+  'на цьому екрані стверджується. А от «Last checked: 13 August 2026, 09:12» стоїть на 51 '
   'екрані з 63 — і на екранах, де дані свіжі, і на тих, де вони з кешу.')
 A('')
 
