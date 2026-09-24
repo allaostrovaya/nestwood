@@ -73,7 +73,7 @@
     --conflict:#B42318; --conflict-on-ink:#FF6B5B; --conflict-soft:#FDECEA;
     --fixed:#0B7A4B; --fixed-soft:#E7F4EC;
     --grad-bla:#4A90E2; --grad-rod:#C8102E;
-    --hatch:repeating-linear-gradient(135deg,var(--yellow) 0 5px,var(--ink) 5px 10px);
+    --hatch:repeating-linear-gradient(135deg,var(--yellow) 0 5px,#0F1113 5px 10px);
     --r-photo:32px; --r-panel:24px; --r-card:20px; --r-control:16px; --r-field:12px; --r-pill:999px;
     --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:20px; --s-6:24px; --s-8:32px; --s-12:48px;
     --e-hair:inset 0 0 0 1px var(--hair);
@@ -82,7 +82,7 @@
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--glass);color:var(--ink);font:400 16px/1.5 var(--f-ui)}
+  body{margin:0;background:var(--glass);color:var(--ink);transition:background .2s;font:400 16px/1.5 var(--f-ui)}
   a{color:var(--act-link)}
   
   .ic{width:20px;height:20px;flex:none;display:inline-block;vertical-align:-4px}
@@ -136,7 +136,7 @@
   .track .ax{position:absolute;left:0;right:0;top:6px;height:4px;border-radius:4px;background:rgba(15,17,19,.14)}
   .track .fill{position:absolute;left:0;top:6px;height:4px;border-radius:4px;background:var(--ink)}
   .track i{position:absolute;top:3px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 2px var(--ink)}
-  .track i.on{background:var(--yellow);box-shadow:inset 0 0 0 2px var(--ink),0 0 0 3px rgba(242,229,0,.5)}
+  .track i.on{background:var(--yellow);box-shadow:inset 0 0 0 2px #0F1113,0 0 0 3px rgba(242,229,0,.5)}
   .track i.w{background:var(--hatch)}
   .track i.x{background:transparent;box-shadow:inset 0 0 0 2px var(--ink);outline:1.5px dashed rgba(15,17,19,.5);outline-offset:1px}
   .track em{position:absolute;top:15px;transform:translateX(-50%);font:500 8.5px/1 var(--f-num);font-style:normal;color:#33373B}
@@ -164,7 +164,7 @@
   .tab .ic{width:22px;height:22px}
   .tabbar.demo{position:static;box-shadow:var(--e-hair);margin:0}
   .tab.on{color:var(--ink);font-weight:600}
-  .tab .ct{position:absolute;top:0;left:calc(50% + 6px);min-width:18px;height:18px;border-radius:9px;background:var(--yellow);color:var(--ink);font:600 10.5px/18px var(--f-num);text-align:center;padding:0 5px;box-shadow:0 0 0 2px #fff}
+  .tab .ct{position:absolute;top:0;left:calc(50% + 6px);min-width:18px;height:18px;border-radius:9px;background:var(--yellow);color:#0F1113;font:600 10.5px/18px var(--f-num);text-align:center;padding:0 5px;box-shadow:0 0 0 2px var(--surface)}
 
   /* ═══ кнопки ═══ */
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:0 20px;border:0;border-radius:var(--r-control);
@@ -190,8 +190,9 @@
   .st-attn{background:var(--ink);color:#fff}
   .st-attn .ic{color:var(--yellow)}
   .st-attn-b{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
-  .st-attn-b::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:inset 0 0 0 2px var(--ink);display:block}
-  .st-attn-c{background:var(--yellow);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+  .st-attn-b::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:inset 0 0 0 2px #0F1113;display:block}
+  .st-attn-c{background:var(--yellow);color:#0F1113;box-shadow:inset 0 0 0 1.5px #0F1113}
+  .st-attn-c .ic{color:#0F1113!important}
   .st-attn-c .ic{color:var(--ink)}
   .opt{display:grid;gap:10px;margin-top:12px}
   .opt div{display:grid;grid-template-columns:22px 1fr;gap:4px 10px;align-items:center;font-size:12.5px;color:var(--graphite)}
@@ -369,6 +370,132 @@
   @media (max-width:980px){.comp,.form3,.others,.pair{grid-template-columns:1fr}.mast{grid-template-columns:1fr}}
   @media (max-width:860px){.live{grid-template-columns:1fr}.live .ctrl{grid-column:auto}.sec{padding:22px 16px}.ty .hide-m{display:none}}
   @media (max-width:520px){.wrap{padding:28px 16px 72px}.phone{border-radius:42px;padding:7px}.screen{border-radius:36px}.radii{grid-template-columns:repeat(3,1fr)}}
+
+  /* ═══ v2 ═══ */
+  :root{--panel-bg:rgba(250,250,250,.82); --bar-bg:rgba(255,255,255,.88); --alert-bg:var(--ink); --alert-fg:#fff; --act-link:var(--ultra); --onink:#fff}
+  :root[data-theme="dark"]{--glass:#0F1113; --surface:#1C1E21; --hair:#34383C; --graphite:#A3A9AE; --ink:#F2F3F4;
+    --ultra:#3A66F5; --ultra-press:#2E57E0; --ultra-soft:#1D2A55; --act-bg:#3A66F5; --act-press:#2E57E0; --act-link:#7C9BFF; --act-ring:#7C9BFF; --act-ring-soft:#1D2A55;
+    --yellow-soft:#35300F; --fixed:#4CC38A; --fixed-soft:#12301F; --conflict:#FF7A6B; --conflict-soft:#3A1714;
+    --panel-bg:rgba(28,30,33,.8); --bar-bg:rgba(28,30,33,.88); --alert-bg:#26292D; --alert-fg:#F2F3F4; --onink:#0F1113}
+  :root[data-contrast="more"]{--hair:#6B7177}
+  :root[data-theme="dark"][data-contrast="more"]{--hair:#8A9095}
+  :root[data-theme="dark"] .topo{filter:invert(.88) hue-rotate(180deg) saturate(.7)}
+  :root[data-theme="dark"] .btn-primary.is-off{background:#34383C;color:#A3A9AE}
+  .panel{background:var(--panel-bg)!important}
+  .nums span{color:var(--graphite)!important;font-size:11px!important}
+  .nums b u,.bigs b u,.la-b b u{text-decoration:none;font:500 13px var(--f-ui);color:var(--graphite);margin-left:3px}
+  .nums b{font-size:26px!important}
+  .tabbar{background:var(--bar-bg)!important}
+  .savebar{background:var(--bar-bg)!important}
+  .alert{background:var(--alert-bg)!important;color:var(--alert-fg)!important}
+  .st-attn{background:var(--alert-bg)!important;color:var(--alert-fg)!important}
+  .nights button.b{color:var(--onink)!important}
+  .hud{font-size:11px!important}
+  .search small{font-size:11px!important}
+  .brief{min-height:44px!important}
+  .act-t{font:600 13px var(--f-ui);color:var(--act-link);white-space:nowrap}
+  .days li:has(.act-t){grid-template-columns:24px 1fr auto 16px}
+  .themes{display:inline-flex;gap:4px;align-items:center;padding:4px;border-radius:var(--r-pill);background:var(--surface);box-shadow:var(--e-hair);flex-wrap:wrap}
+  .themes button{border:0;border-radius:var(--r-pill);padding:9px 14px;font:600 13px var(--f-ui);background:none;color:var(--graphite);cursor:pointer;min-height:40px}
+  .themes button[aria-pressed="true"]{background:var(--ink);color:var(--glass)}
+  .themes .hc{display:inline-flex;gap:6px;align-items:center;font:600 13px var(--f-ui);color:var(--graphite);padding:0 10px;min-height:40px}
+  .v2list{margin:0;padding-left:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+  .v2list li{background:var(--glass);border-radius:var(--r-card);padding:14px 16px;font-size:14px;color:var(--graphite)}
+  .v2list b{color:var(--ink);display:block;margin-bottom:3px}
+  .live{grid-template-rows:auto auto auto}
+  .live .ctrl{grid-row:1 / span 3}
+  /* В1 · фото на всю ширину */
+  .sbar.on-photo{position:absolute;left:0;right:0;top:0;z-index:3;color:#fff}
+  .hero{position:relative;height:320px;border-radius:0 0 var(--r-photo) var(--r-photo);overflow:hidden}
+  .hero img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero::before{content:"";position:absolute;inset:0 0 auto 0;height:120px;background:linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,0));z-index:1}
+  .glassnav{position:absolute;left:12px;right:12px;top:44px;z-index:2;display:flex;justify-content:space-between;align-items:center}
+  .gbtn{width:44px;height:44px;border:0;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.28);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;font:600 15px var(--f-ui);cursor:pointer}
+  .gbtn.wide{width:auto;padding:0 14px;border-radius:var(--r-pill)}
+  .gbtn .ic{width:22px;height:22px}
+  .gtitle{color:#fff;font:600 15px var(--f-ui);text-shadow:0 1px 3px rgba(0,0,0,.35)}
+  .info{position:absolute;right:14px;bottom:118px;z-index:2;width:28px;height:28px;border:0;border-radius:50%;background:rgba(15,17,19,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font:600 13px var(--f-num);cursor:pointer;box-shadow:0 0 0 8px transparent}
+  .hero .info{bottom:auto;top:100px}
+  .hero .panel{z-index:2}
+  /* 8 · карта */
+  .attrib{position:absolute;left:12px;bottom:84px;font:500 11px var(--f-ui);color:#4A4F54;background:rgba(255,255,255,.7);border-radius:6px;padding:2px 6px}
+  .mapwrap.mini .attrib{bottom:8px;left:8px}
+  .mapctl{position:absolute;right:12px;top:72px;display:grid;gap:8px;z-index:2}
+  .mapctl button{width:44px;height:44px;border:0;border-radius:12px;background:var(--surface);box-shadow:var(--e-float);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+  .mapctl .ic{width:20px;height:20px}
+  /* В3 · дні — ланцюжок */
+  .days.tl li{position:relative}
+  .days.tl li::before{content:"";position:absolute;left:11px;top:0;bottom:0;width:2px;background:var(--hair)}
+  .days.tl li:first-child::before{top:50%}
+  .days.tl li:last-child::before{bottom:50%}
+  .days.tl .d{position:relative;z-index:1;width:24px;height:24px;line-height:24px;border-radius:50%;background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--hair);color:var(--ink);font-size:12px}
+  .days.tl .d.warn{background:var(--yellow);box-shadow:inset 0 0 0 2px #0F1113;color:#0F1113}
+  .days.tl li{border-top:0}
+  /* 6 · detents */
+  .detents{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .detents div{height:120px;border-radius:14px;background:var(--glass);box-shadow:var(--e-hair);position:relative;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;padding-top:6px}
+  .detents i{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-radius:10px 10px 0 0;box-shadow:0 -4px 10px -6px rgba(0,0,0,.3)}
+  .detents span{position:relative;z-index:1;font:500 11px var(--f-ui);color:var(--graphite)}
+  /* 7 · system controls */
+  .cal{background:var(--surface);border-radius:14px;padding:10px;margin-bottom:10px}
+  .cal-h{font-size:13px;margin-bottom:6px}
+  .cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
+  .cal-g span{font:500 10.5px var(--f-ui);color:var(--graphite);padding:2px 0}
+  .cal-g em{font:500 12px var(--f-num);font-style:normal;padding:5px 0;border-radius:8px;color:var(--ink)}
+  .cal-g em.r{background:var(--ultra-soft)}
+  .cal-g em.s{background:var(--ultra);color:#fff}
+  .step{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--hair);font-size:13.5px}
+  .stepper{display:inline-flex;align-items:center;gap:0;background:var(--glass);border-radius:10px;box-shadow:var(--e-hair)}
+  .stepper button{width:44px;height:36px;border:0;background:none;font:500 18px var(--f-ui);color:var(--ink);cursor:pointer}
+  .stepper b{min-width:28px;text-align:center}
+  .share{margin-top:10px}
+  .share-apps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center}
+  .share-apps span{font:500 11px var(--f-ui);color:var(--graphite);display:grid;justify-items:center;gap:4px}
+  .share-apps i{width:44px;height:44px;border-radius:12px;background:var(--glass);box-shadow:var(--e-hair);display:block}
+  /* 3 · AX */
+  .ax{background:var(--surface);border-radius:14px;padding:12px}
+  .ax .title{font-size:30px;line-height:1.15}
+  .ax-n{grid-template-columns:1fr!important}
+  .ax-n div{border-left:0!important;padding:6px 0!important;border-top:1px solid var(--hair)}
+  .ax-n div:first-child{border-top:0}
+  .ax-n b{font-size:34px!important}
+  .ax-n span{font-size:15px!important}
+  .ax .days b{font-size:22px}
+  .ax .days small{font-size:17px}
+  .vo{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:13px;color:var(--graphite)}
+  .vo b{display:block;color:var(--ink);font-size:12px}
+  /* 10 · lock screen */
+  .screen.lock{background:#1A1F24}
+  .lockbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.62) saturate(1.1)}
+  .island{position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:10px;background:#000;color:#fff;border-radius:22px;padding:8px 14px;font:600 13px var(--f-num)}
+  .island i{width:62px;height:6px;display:block}
+  .locktime{position:relative;z-index:1;text-align:center;color:#fff;padding-top:70px}
+  .locktime small{display:block;font:500 16px var(--f-ui);opacity:.9}
+  .locktime b{display:block;font:600 76px/1 var(--f-num);letter-spacing:-.02em}
+  .lockwidgets{position:relative;z-index:1;display:flex;justify-content:center;gap:10px;margin-top:10px}
+  .lockwidgets div{background:rgba(255,255,255,.18);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:14px;padding:8px 12px;color:#fff;text-align:center;min-width:86px}
+  .lockwidgets b{display:block;font:600 18px var(--f-num)}
+  .lockwidgets small{font-size:11px;opacity:.9}
+  .la{position:absolute;left:12px;right:12px;bottom:40px;z-index:1;background:rgba(18,20,22,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:24px;padding:14px 16px;color:#fff}
+  .la-h{display:flex;justify-content:space-between;font:500 12px var(--f-ui);opacity:.85}
+  .la-b{display:flex;align-items:baseline;gap:10px;margin:6px 0 10px}
+  .la-b b{font:600 34px/1 var(--f-num)}
+  .la-b b u{color:rgba(255,255,255,.7)}
+  .la-b span{font-size:14px;opacity:.9}
+  .la-bar{height:6px;border-radius:3px;background:rgba(255,255,255,.2);overflow:hidden}
+  .la-bar i{display:block;height:100%;background:var(--yellow)}
+  .la-f{display:flex;gap:6px;align-items:center;margin-top:10px;font:600 13px var(--f-ui)}
+  .la-f .ic{width:16px;height:16px;color:var(--yellow)}
+
+  .live{grid-template-columns:808px minmax(0,1fr)!important;grid-template-rows:auto!important}
+  .live .ctrl{grid-row:auto!important;grid-column:auto!important}
+  .phones{display:grid;grid-template-columns:390px 390px;gap:28px;align-items:start}
+  @media (max-width:1240px){.live{grid-template-columns:1fr!important}.phones{justify-content:center}}
+  @media (max-width:860px){.phones{grid-template-columns:1fr}}
+
+  .sos{background:#B42318!important;color:#fff!important}
+  .info{font:600 italic 14px Georgia,serif!important}
+  :root[data-theme="dark"] .attrib{background:rgba(28,30,33,.8);color:#C9CDD1}
 </style>
 </head>
 <body>
@@ -377,13 +504,18 @@
 
 <header class="mast">
   <div>
-    <p class="kick">Nestwood · мова інтерфейсу · обрано 23.09.2026 · друга версія — <a href="concept-v2.html">concept-v2.html</a></p>
+    <p class="kick">Nestwood · мова інтерфейсу · обрано 23.09.2026 · оновлено 24.09 за iOS HIG</p>
     <h1>Прилад</h1>
     <p class="lede">Пейзаж — герой, поверх нього скляна приладова панель: три виміри великими цифрами і шкала ланцюжка ночей.
       Синій — те, що натискаєш. Жовтий — те, що «живе» на приладі. Тривога — чорна інверсія зі штрихом, читається без кольору.
       Кожне рішення нижче підписане атрибутом із <a href="concept.md">concept.md</a>.</p>
   </div>
   <div style="display:grid;gap:14px;justify-items:start">
+  <div class="themes" role="group" aria-label="Вигляд">
+    <button type="button" data-theme-set="light" aria-pressed="true">Світла</button>
+    <button type="button" data-theme-set="dark" aria-pressed="false">Темна</button>
+    <label class="hc"><input type="checkbox" id="hc"> Підвищений контраст</label>
+  </div>
   <ul class="keys" aria-label="Атрибути">
     <li><b>1</b>Зведено — не зібрано з плиток</li>
     <li><b>2</b>Виміряно — не оцінено</li>
@@ -394,12 +526,33 @@
   </div>
 </header>
 
+
+<section class="sec" aria-labelledby="h-v2">
+  <div class="sec-h"><h2 id="h-v2">Оновлення 24.09 · iOS HIG</h2></div>
+  <ol class="v2list">
+    <li><b>1 · Навігація й модальність.</b> Новий план — модальне вікно: ✕ «Скасувати» зверху, одна кнопка «Зберегти план» знизу, свайп униз питає «Скасувати план?». План — із «‹ Мої походи».</li>
+    <li><b>2 · Мінімум 11 pt.</b> Підписи приладу, мітки на фото й поля пошуку — 11. Джерело фото — під кнопкою «i» на знімку.</li>
+    <li><b>3 · Dynamic Type.</b> Фрагмент нового плану на великому розмірі тексту: прилад і рядки днів переносяться, а не обрізаються.</li>
+    <li><b>4 · Темна тема й підвищений контраст.</b> Перемикачі вгорі сторінки перефарбовують увесь стенд.</li>
+    <li><b>5 · Зони тапу 44 pt.</b> «дати · хто» — 44 pt; «забронювати» й «купити» — текст дії в рядку, бо тапається весь рядок.</li>
+    <li><b>6 · Аркуш із трьома висотами</b>, як у Картах Apple; пошук відкривається аркушем.</li>
+    <li><b>7 · Системні контроли:</b> календар дат, степери «хто», системне меню «Поділитися».</li>
+    <li><b>8 · Карта за правилами iOS:</b> ©Kartverket на карті, кнопки «моє місце» й «шари», синя точка з ореолом точності.</li>
+    <li><b>9 · VoiceOver:</b> прилад читається однією фразою, бейдж — «2 задачі», штрих — декор, SOS — окрема дія.</li>
+    <li><b>10 · Live Activity й віджет</b> для дня походу — на екрані блокування й у Dynamic Island.</li>
+    <li><b>В1 · Фото на всю ширину</b> під статус-бар, кнопки на склі поверх нього.</li>
+    <li><b>В2 · Одиниці дрібно біля чисел:</b> «101 км» замість числа з підписом знизу.</li>
+    <li><b>В3 · Дні як ланцюжок ночей:</b> номери днів на одній лінії, проблемний день — жовтий вузол.</li>
+  </ol>
+</section>
+
 <!-- ═══════════ МОВА ЖИВЦЕМ ═══════════ -->
 <section class="sec" aria-labelledby="h-live">
   <div class="sec-h"><h2 id="h-live">Мова живцем</h2><div class="attrs"><span class="attr"><b>3</b> Місце в кадрі</span><span class="attr"><b>1</b> Зведено</span></div></div>
   <p class="sec-sub">Головний флоу з вайрфреймів: пошук → новий план → план → сьогодні. Справа — кнопки, стани й тривога, якими ці екрани зібрані.</p>
 
   <div class="live">
+    <div class="phones">
     <!-- 1 · Куди можна піти -->
     <div>
       <div class="phone"><div class="screen">
@@ -421,13 +574,15 @@
               <circle cx="70" cy="85" r="7" fill="#0F1113"/><circle cx="300" cy="300" r="7" fill="#0F1113"/>
               <g fill="#fff" stroke="#5E6368" stroke-width="1.5"><rect x="40" y="200" width="8" height="8" rx="2"/><rect x="310" y="120" width="8" height="8" rx="2"/><rect x="200" y="60" width="8" height="8" rx="2"/></g>
             </svg>
-            <button class="search" type="button" aria-label="Пошук: куди, коли, хто">
+            <button class="search" type="button" aria-label="Пошук: Лапландія, 17–22 серпня, 2 людини, 1 член. Відкрити аркуш пошуку">
               <span><small>Куди</small><b>Лапландія</b></span><span><small>Коли</small><b class="num">17–22.08</b></span><span><small>Хто</small><b>2 · 1 член</b></span>
             </button>
+            <div class="mapctl"><button type="button" aria-label="Моє місце"><svg class="ic" aria-hidden="true"><use href="#i-map-point-linear"/></svg></button><button type="button" aria-label="Шари карти"><svg class="ic" aria-hidden="true"><use href="#i-widget-linear"/></svg></button></div>
             <div class="own">
               <div><b>Abisko → Nikkaluokta</b><small><span class="num">101 км · 6 днів</span> · 5 хиж</small></div>
               <button class="btn btn-primary" type="button" style="flex:0 0 auto;min-height:44px;padding:0 16px">Скласти план</button>
             </div>
+            <span class="attrib">© Kartverket · Lantmäteriet</span>
           </div>
           <div class="sheetp" style="padding-bottom:130px">
             <p class="shl">Найкраще у Швеції в серпні</p>
@@ -439,76 +594,77 @@
         </div>
         <nav class="tabbar" aria-label="Вкладки">
           <button class="tab on" type="button" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-map-bold"/></svg>Карта</button>
-          <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-document-text-linear"/></svg>Плани<span class="ct">2</span></button>
+          <button class="tab" type="button" aria-label="Плани, 2 задачі"><svg class="ic" aria-hidden="true"><use href="#i-document-text-linear"/></svg>Плани<span class="ct" aria-hidden="true">2</span></button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-book-2-linear"/></svg>Довідник</button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-shield-check-linear"/></svg>Безпека</button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user-circle-linear"/></svg>Профіль</button>
         </nav>
       </div></div>
-      <p class="cap">Куди можна піти · пошук і свій маршрут</p>
+      <p class="cap">Куди можна піти · карта з контролами й атрибуцією</p>
     </div>
 
-    <!-- 2 · Новий план -->
+    <!-- 2 · Новий план (модальне) -->
     <div>
       <div class="phone"><div class="screen">
-        <div class="sbar"><span>9:41</span><span><i></i><i></i></span></div>
+        <div class="sbar on-photo"><span>9:41</span><span><i></i><i></i></span></div>
         <div class="scroll" style="padding:0 0 100px">
-          <div class="shot" style="height:250px">
+          <div class="hero">
             <img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою над озером, Kungsleden">
-            <span class="hud">Новий план</span>
-            <span class="src">Фото: Anders Norén · Unsplash</span>
-            <div class="panel">
-              <div class="nums"><div><b>101</b><span>км</span></div><div><b>1 940</b><span>м набору</span></div><div><b>~8 год</b><span>найдовший</span></div></div>
+            <div class="glassnav"><button class="gbtn" type="button" aria-label="Скасувати план"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><span class="gtitle">Новий план</span><span style="width:44px"></span></div>
+            <button class="info" type="button" aria-label="Фото: Anders Norén · Unsplash · Unsplash Licence">i</button>
+            <div class="panel" role="group" aria-label="101 кілометр, 1 940 метрів набору, найдовший день близько 8 годин">
+              <div class="nums" aria-hidden="true"><div><b>101<u>км</u></b><span>довжина</span></div><div><b>1 940<u>м</u></b><span>набір</span></div><div><b>~8<u>год</u></b><span>найдовший</span></div></div>
             </div>
           </div>
           <div class="body">
             <p class="title">Kungsleden · Abisko → Nikkaluokta</p>
             <a class="brief" href="#h-comp"><span class="num">17–22 серп</span> · 2 людини · 1 член STF<svg class="ic" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></a>
             <div class="row" style="margin-bottom:6px"><span class="st st-fixed"><svg class="ic" aria-hidden="true"><use href="#i-check-circle-linear"/></svg>усе сходиться</span></div>
-            <ul class="days">
+            <ul class="days tl">
               <li><span class="d num">1</span><span><b>Abisko → Abiskojaure</b><small class="num">14 км · ~4 год 30</small></span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
               <li><span class="d num">2</span><span><b>Abiskojaure → Alesjaure</b><small class="num">22 км · ~7 год</small></span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
-              <li><span class="d num">3</span><span><b>Alesjaure → Tjäktja</b><small>тільки на місці</small></span><span class="st st-none" style="padding:5px 9px">до 18:00</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+              <li><span class="d num">3</span><span><b>Alesjaure → Tjäktja</b><small>тільки на місці · до 18:00</small></span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
               <li><span class="d num">4</span><span><b>Tjäktja → Sälka</b><small class="num">12 км · перевал 1 150 м</small></span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
             </ul>
           </div>
         </div>
-        <div class="savebar"><button class="btn btn-primary" type="button">Зберегти план</button><button class="btn btn-secondary" type="button">Скасувати</button></div>
+        <div class="savebar"><button class="btn btn-primary" type="button" style="flex:1">Зберегти план</button></div>
       </div></div>
-      <p class="cap">Новий план · ще не збережений</p>
+      <p class="cap">Новий план · модальне, ✕ зверху, одна дія знизу</p>
     </div>
 
     <!-- 3 · План -->
     <div>
       <div class="phone"><div class="screen">
-        <div class="sbar"><span>9:41</span><span><i></i><i></i></span></div>
+        <div class="sbar on-photo"><span>9:41</span><span><i></i><i></i></span></div>
         <div class="scroll" style="padding:0 0 110px">
-          <div class="shot" style="height:190px">
+          <div class="hero" style="height:250px">
             <img src="https://images.unsplash.com/photo-1703579996032-4ab34a8c29a6?w=900&q=80&auto=format&fit=crop" alt="Стежка з березою над озером, Kungsleden">
-            <span class="hud">через 4 дні</span>
-            <span class="src">Фото: Anders Norén · Unsplash</span>
+            <div class="glassnav"><button class="gbtn wide" type="button">‹ Мої походи</button><span></span><button class="gbtn" type="button" aria-label="Сказати, куди йду"><svg class="ic" aria-hidden="true"><use href="#i-share-linear"/></svg></button></div>
+            <button class="info" type="button" aria-label="Фото: Anders Norén · Unsplash · Unsplash Licence">i</button>
+            <span class="hud" style="top:auto;bottom:18px">через 4 дні · офлайн ✓</span>
           </div>
           <div class="body">
             <p class="title">Kungsleden · Abisko → Nikkaluokta</p>
-            <div class="row" style="justify-content:space-between;margin-bottom:12px"><a class="brief" href="#h-comp" style="margin:0"><span class="num">17–22 серп</span> · 2 · 1 член<svg class="ic" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></a><span class="st st-limit" style="padding:5px 9px"><svg class="ic" aria-hidden="true"><use href="#i-cloud-download-linear"/></svg>офлайн ✓</span></div>
+            <a class="brief" href="#h-comp"><span class="num">17–22 серп</span> · 2 людини · 1 член STF<svg class="ic" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></a>
             <div class="alert"><b>Повінь на Abiskojåkka</b>День 2: не встигаєш до Alesjaure до 18:00. <span class="t">рішення до 15.08</span></div>
-            <ul class="days" style="margin-top:10px">
-              <li><span class="d num">2</span><span><b>Abiskojaure → Alesjaure</b><small class="num">22 км · ~7 год</small></span><span class="st st-attn" style="padding:5px 9px"><svg class="ic" aria-hidden="true"><use href="#i-danger-triangle-bold"/></svg>повінь</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+            <ul class="days tl" style="margin-top:10px">
+              <li><span class="d num warn">2</span><span><b>Abiskojaure → Alesjaure</b><small>повінь · рішення до 15.08</small></span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
               <li><span class="d num">3</span><span><b>Alesjaure → Tjäktja</b><small>тільки на місці</small></span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
-              <li><span class="d num">4</span><span><b>Tjäktja → Sälka</b><small>Sälka не заброньована</small></span><span class="st st-act" style="padding:5px 9px">забронювати</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
-              <li><span class="d"><svg class="ic" aria-hidden="true"><use href="#i-bus-linear"/></svg></span><span><b>Дорога назад</b><small>автобус 91 → Kiruna</small></span><span class="st st-act" style="padding:5px 9px">купити</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+              <li><span class="d num">4</span><span><b>Tjäktja → Sälka</b><small>Sälka не заброньована</small></span><span class="act-t">забронювати</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
+              <li><span class="d"><svg class="ic" aria-hidden="true"><use href="#i-bus-linear"/></svg></span><span><b>Дорога назад</b><small>автобус 91 → Kiruna</small></span><span class="act-t">купити</span><svg class="ic chev" aria-hidden="true"><use href="#i-alt-arrow-right-linear"/></svg></li>
             </ul>
           </div>
         </div>
         <nav class="tabbar" aria-label="Вкладки">
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-map-linear"/></svg>Карта</button>
-          <button class="tab on" type="button" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-document-text-bold"/></svg>Плани<span class="ct">2</span></button>
+          <button class="tab on" type="button" aria-current="page" aria-label="Плани, 2 задачі"><svg class="ic" aria-hidden="true"><use href="#i-document-text-bold"/></svg>Плани<span class="ct" aria-hidden="true">2</span></button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-book-2-linear"/></svg>Довідник</button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-shield-check-linear"/></svg>Безпека</button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user-circle-linear"/></svg>Профіль</button>
         </nav>
       </div></div>
-      <p class="cap">План · алерти на своїх днях</p>
+      <p class="cap">План · фото на всю ширину, дні — ланцюжок</p>
     </div>
 
     <!-- 4 · Сьогодні -->
@@ -518,10 +674,10 @@
         <div class="scroll" style="padding:4px 18px 110px">
           <div class="row" style="justify-content:space-between;align-items:flex-start;margin:6px 0 14px">
             <div><span class="kick" style="margin:0 0 6px;display:block">Сьогодні · день 3</span><p class="title" style="margin:0">Alesjaure → Tjäktja</p></div>
-            <a class="sos" href="#h-live">SOS</a>
+            <a class="sos" href="#h-live" aria-label="SOS — екстрений виклик 112">SOS</a>
           </div>
-          <div class="bigs">
-            <div><b>9 км</b><span>лишилось</span></div><div><b>~3 год</b><span>ходу</span></div><div><b>18:00</b><span>прийти до</span></div>
+          <div class="bigs" role="group" aria-label="Лишилось 9 кілометрів, близько 3 годин ходу, прийти до 18:00">
+            <div aria-hidden="true"><b>9<u>км</u></b><span>лишилось</span></div><div aria-hidden="true"><b>~3<u>год</u></b><span>ходу</span></div><div aria-hidden="true"><b>18:00</b><span>прийти до</span></div>
           </div>
           <div class="mapwrap mini"><svg class="topo" viewBox="0 0 370 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <rect width="370" height="330" fill="#E8ECE3"/>
@@ -534,10 +690,10 @@
               <ellipse cx="250" cy="175" rx="34" ry="10" fill="#CFE0EA"/>
               <path d="M300 300 L230 250 L175 205 L150 160 L110 120 L70 85" fill="none" stroke="#9AA0A6" stroke-width="2" stroke-dasharray="3 4"/>
               <path d="M70 85 L110 120 L150 160 L175 205 L230 250 L300 300" fill="none" stroke="#0F1113" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              <g fill="#fff" stroke="#0F1113" stroke-width="2"><circle cx="110" cy="120" r="4"/><circle cx="150" cy="160" r="4"/><circle cx="175" cy="205" r="4"/><circle cx="162" cy="182" r="9" fill="#2D5BFF" stroke="#fff" stroke-width="3"/><circle cx="230" cy="250" r="4"/></g>
+              <g fill="#fff" stroke="#0F1113" stroke-width="2"><circle cx="110" cy="120" r="4"/><circle cx="150" cy="160" r="4"/><circle cx="175" cy="205" r="4"/><circle cx="162" cy="182" r="22" fill="#2D5BFF" fill-opacity=".15"/><circle cx="162" cy="182" r="8" fill="#2D5BFF" stroke="#fff" stroke-width="3"/><circle cx="230" cy="250" r="4"/></g>
               <circle cx="70" cy="85" r="7" fill="#0F1113"/><circle cx="300" cy="300" r="7" fill="#0F1113"/>
               <g fill="#fff" stroke="#5E6368" stroke-width="1.5"><rect x="40" y="200" width="8" height="8" rx="2"/><rect x="310" y="120" width="8" height="8" rx="2"/><rect x="200" y="60" width="8" height="8" rx="2"/></g>
-            </svg></div>
+            </svg><span class="attrib">© Kartverket · Lantmäteriet</span><div class="mapctl" style="top:10px"><button type="button" aria-label="Моє місце"><svg class="ic" aria-hidden="true"><use href="#i-map-point-linear"/></svg></button></div></div>
           <ul class="days" style="margin-top:12px">
             <li><span class="d"><svg class="ic" aria-hidden="true"><use href="#i-bed-linear"/></svg></span><span><b>Tjäktja fjällstuga</b><small>тільки на місці · 24 ліжка</small></span><span class="st st-none" style="padding:5px 9px">до 18:00</span></li>
           </ul>
@@ -546,17 +702,81 @@
         </div>
         <nav class="tabbar" aria-label="Вкладки">
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-map-linear"/></svg>Карта</button>
-          <button class="tab on" type="button" aria-current="page"><svg class="ic" aria-hidden="true"><use href="#i-document-text-bold"/></svg>Плани<span class="ct">2</span></button>
+          <button class="tab on" type="button" aria-current="page" aria-label="Плани, 2 задачі"><svg class="ic" aria-hidden="true"><use href="#i-document-text-bold"/></svg>Плани<span class="ct" aria-hidden="true">2</span></button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-book-2-linear"/></svg>Довідник</button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-shield-check-linear"/></svg>Безпека</button>
           <button class="tab" type="button"><svg class="ic" aria-hidden="true"><use href="#i-user-circle-linear"/></svg>Профіль</button>
         </nav>
       </div></div>
-      <p class="cap">Сьогодні · один екран, SOS постійно</p>
+      <p class="cap">Сьогодні · SOS постійно, синя точка з ореолом</p>
     </div>
 
+    <!-- 5 · Екран блокування -->
+    <div>
+      <div class="phone"><div class="screen lock">
+        <img class="lockbg" src="https://images.unsplash.com/photo-1703579996025-c31d66789a9d?w=900&q=70&auto=format&fit=crop" alt="">
+        <div class="island" aria-label="Dynamic Island: 9 кілометрів, прийти до 18:00"><span class="num">9 км</span><i></i><span class="num">18:00</span></div>
+        <div class="locktime"><small>середа, 19 серпня</small><b class="num">9:41</b></div>
+        <div class="lockwidgets"><div><b class="num">+9°</b><small>дощ з 15:00</small></div><div><b class="num">2</b><small>задачі</small></div></div>
+        <div class="la" role="group" aria-label="Live Activity: Kungsleden, день 3, лишилось 9 кілометрів до Tjäktja, прийти до 18:00, брід переходь до 15:00">
+          <div class="la-h"><span>Kungsleden · день 3</span><span class="num">до 18:00</span></div>
+          <div class="la-b"><b class="num">9<u>км</u></b><span>до Tjäktja fjällstuga</span></div>
+          <div class="la-bar"><i style="width:31%"></i></div>
+          <div class="la-f"><svg class="ic" aria-hidden="true"><use href="#i-danger-triangle-bold"/></svg>Брід — переходь до 15:00</div>
+        </div>
+      </div></div>
+      <p class="cap">Live Activity · екран блокування й Dynamic Island</p>
+    </div>
+
+    </div>
     <!-- кнопки й стани -->
     <div class="ctrl">
+      <div class="blk">
+        <h3>Аркуш · три висоти</h3>
+        <div class="detents">
+          <div><i style="height:18%"></i><span>згорнутий</span></div>
+          <div><i style="height:50%"></i><span>половина</span></div>
+          <div><i style="height:90%"></i><span>весь екран</span></div>
+        </div>
+        <p class="note">Як у Картах Apple: тягнеш за ручку. Пошук «Куди · Коли · Хто» відкривається таким самим аркушем.</p>
+      </div>
+      <div class="blk">
+        <h3>Системні контроли</h3>
+        <div class="cal" aria-label="Серпень 2026, обрано 17–22">
+          <div class="cal-h"><b>Серпень 2026</b></div>
+          <div class="cal-g">
+            <span>пн</span><span>вт</span><span>ср</span><span>чт</span><span>пт</span><span>сб</span><span>нд</span>
+            <em></em><em></em><em></em><em></em><em></em><em>1</em><em>2</em>
+            <em>3</em><em>4</em><em>5</em><em>6</em><em>7</em><em>8</em><em>9</em>
+            <em>10</em><em>11</em><em>12</em><em>13</em><em>14</em><em>15</em><em>16</em>
+            <em class="s">17</em><em class="r">18</em><em class="r">19</em><em class="r">20</em><em class="r">21</em><em class="s">22</em><em>23</em>
+          </div>
+        </div>
+        <div class="step"><span>Людей</span><span class="stepper"><button type="button" aria-label="Менше">−</button><b class="num">2</b><button type="button" aria-label="Більше">+</button></span></div>
+        <div class="step"><span>З них членів STF</span><span class="stepper"><button type="button" aria-label="Менше">−</button><b class="num">1</b><button type="button" aria-label="Більше">+</button></span></div>
+        <div class="share">
+          <p class="lvl-k" style="margin:0 0 8px">Поділитися — системне меню</p>
+          <div class="share-apps"><span><i></i>Повідомлення</span><span><i></i>WhatsApp</span><span><i></i>Пошта</span><span><i></i>Ще</span></div>
+        </div>
+      </div>
+      <div class="blk">
+        <h3>Великий шрифт (AX3)</h3>
+        <div class="ax">
+          <p class="title">Kungsleden · Abisko → Nikkaluokta</p>
+          <div class="nums ax-n"><div><b>101<u>км</u></b><span>довжина</span></div><div><b>1 940<u>м</u></b><span>набір</span></div><div><b>~8<u>год</u></b><span>найдовший</span></div></div>
+          <ul class="days tl"><li><span class="d num">3</span><span><b>Alesjaure → Tjäktja</b><small>тільки на місці · до 18:00</small></span></li></ul>
+        </div>
+        <p class="note">Текст росте разом із налаштуванням iOS. Прилад переходить у стовпчик, рядки днів переносяться — нічого не обрізається.</p>
+      </div>
+      <div class="blk">
+        <h3>Що чує VoiceOver</h3>
+        <ul class="vo">
+          <li><b>Прилад</b>«101 кілометр, 1 940 метрів набору, найдовший день близько 8 годин»</li>
+          <li><b>Вкладка</b>«Плани, 2 задачі»</li>
+          <li><b>Тривога</b>«Повінь на Abiskojåkka. День 2: не встигаєш до Alesjaure до 18:00. Рішення до 15.08» — штрих не озвучується</li>
+          <li><b>SOS</b>«SOS — екстрений виклик 112», окрема дія в ротора</li>
+        </ul>
+      </div>
       <div class="blk">
         <h3>Кнопки <span class="attrs"><span class="attr"><b>5</b> Характер</span></span></h3>
         <div class="lvl">
@@ -890,6 +1110,15 @@
       else if(final||d.length>7){f.classList.add('err');inp.setAttribute('aria-invalid','true');msg.innerHTML=er+'У номері STF 7 цифр — зараз '+d.length+'.';}
       else{msg.innerHTML='';}}
     inp.addEventListener('input',function(){v(false)});inp.addEventListener('blur',function(){v(true)});}
+})();
+</script>
+<script>
+(function(){
+  var r=document.documentElement, bs=document.querySelectorAll('[data-theme-set]'), hc=document.getElementById('hc');
+  function th(v){r.setAttribute('data-theme',v);bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.themeSet===v)});try{localStorage.setItem('nw-theme',v)}catch(e){}}
+  bs.forEach(function(b){b.addEventListener('click',function(){th(b.dataset.themeSet)})});
+  if(hc)hc.addEventListener('change',function(){if(hc.checked)r.setAttribute('data-contrast','more');else r.removeAttribute('data-contrast')});
+  try{var v=localStorage.getItem('nw-theme');if(v)th(v)}catch(e){}
 })();
 </script>
 </body>
