@@ -67,7 +67,8 @@
   /* ═══ токени мови «Прилад» ═══ */
   :root{
     --glass:#F4F5F5; --surface:#FFFFFF; --hair:#D9DCDF; --graphite:#5E6368; --ink:#0F1113;
-    --ultra:#1A3CFF; --ultra-press:#1230D6; --ultra-soft:#E8ECFF;
+    --ultra:#2D5BFF; --ultra-press:#2149E0; --ultra-soft:#E8EEFF;
+    --act-bg:var(--ultra); --act-fg:#fff; --act-press:var(--ultra-press); --act-edge:transparent; --act-link:var(--ultra); --act-ring:var(--ultra); --act-ring-soft:var(--ultra-soft); --spin:#fff;
     --yellow:#F2E500; --yellow-soft:#FFF9C2;
     --conflict:#B42318; --conflict-on-ink:#FF6B5B; --conflict-soft:#FDECEA;
     --fixed:#0B7A4B; --fixed-soft:#E7F4EC;
@@ -82,7 +83,8 @@
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
   body{margin:0;background:var(--glass);color:var(--ink);font:400 16px/1.5 var(--f-ui)}
-  a{color:var(--ultra)}
+  a{color:var(--act-link)}
+  
   .ic{width:20px;height:20px;flex:none;display:inline-block;vertical-align:-4px}
   .wrap{max-width:1240px;margin:0 auto;padding:40px 24px 96px}
   .num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
@@ -166,16 +168,16 @@
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:0 20px;border:0;border-radius:var(--r-control);
     font:600 16px/1 var(--f-ui);cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;text-decoration:none}
   .btn .ic{width:20px;height:20px}
-  .btn-primary{background:var(--ultra);color:#fff;flex:1}
-  .btn-primary:hover{background:#1636F2}
-  .btn-primary:active,.btn-primary.is-press{background:var(--ultra-press);transform:scale(.985)}
+  .btn-primary{background:var(--act-bg);color:var(--act-fg);box-shadow:inset 0 0 0 1.5px var(--act-edge);flex:1}
+  .btn-primary:hover{filter:brightness(.97)}
+  .btn-primary:active,.btn-primary.is-press{background:var(--act-press);transform:scale(.985)}
   .btn:focus-visible,.btn.is-focus{outline:3px solid var(--ink);outline-offset:3px}
-  .btn-primary[disabled],.btn-primary.is-off{background:#C9CDD1;color:#4A4F54;cursor:not-allowed;transform:none}
+  .btn-primary[disabled],.btn-primary.is-off{background:#C9CDD1;color:#4A4F54;box-shadow:none;cursor:not-allowed;transform:none;filter:none}
   .btn-secondary{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
   .btn-secondary:active{background:#EDEEEE}
   .btn-icon{width:52px;padding:0;background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--hair)}
-  .btn-text{min-height:44px;padding:0 4px;background:none;color:var(--ultra);font-weight:600}
-  .spin{width:18px;height:18px;border-radius:50%;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;animation:sp .8s linear infinite}
+  .btn-text{min-height:44px;padding:0 4px;background:none;color:var(--act-link);font-weight:600}
+  .spin{width:18px;height:18px;border-radius:50%;border:2.5px solid color-mix(in srgb,var(--spin) 30%,transparent);border-top-color:var(--spin);animation:sp .8s linear infinite}
   @keyframes sp{to{transform:rotate(360deg)}}
   @media (prefers-reduced-motion:reduce){.spin{animation:none;border-top-color:rgba(255,255,255,.35);border-right-color:#fff}}
 
@@ -183,8 +185,17 @@
   .st{display:inline-flex;align-items:center;gap:6px;font:600 12.5px/1 var(--f-ui);border-radius:var(--r-pill);padding:7px 11px 7px 8px}
   .st .ic{width:16px;height:16px}
   .st-fixed{background:var(--fixed-soft);color:var(--fixed)}
-  .st-attn{background:var(--yellow-soft);color:var(--ink);box-shadow:inset 3px 0 0 var(--ink)}
-  .st-attn::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--hatch);display:block}
+  .st-attn{background:var(--ink);color:#fff}
+  .st-attn .ic{color:var(--yellow)}
+  .st-attn-b{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+  .st-attn-b::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--yellow);box-shadow:inset 0 0 0 2px var(--ink);display:block}
+  .st-attn-c{background:var(--yellow);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+  .st-attn-c .ic{color:var(--ink)}
+  .opt{display:grid;gap:10px;margin-top:12px}
+  .opt div{display:grid;grid-template-columns:22px 1fr;gap:4px 10px;align-items:center;font-size:12.5px;color:var(--graphite)}
+  .opt div .st{justify-self:start}
+  .opt div > span:last-child{grid-column:2}
+  .opt b{font:600 11px var(--f-num);color:var(--ink)}
   .st-conf{background:var(--conflict-soft);color:var(--conflict)}
   .st-limit{background:transparent;color:var(--graphite);box-shadow:none;border:1.5px dashed #9AA0A6}
   .st-none{background:var(--glass);color:var(--ink);box-shadow:var(--e-hair)}
@@ -228,7 +239,7 @@
   .input .ic{color:var(--graphite)}
   .input input{flex:1;border:0;outline:0;background:none;font:500 17px/1 var(--f-num);letter-spacing:.06em;color:var(--ink);min-width:0;padding:14px 0}
   .input input::placeholder{color:#8A9095;letter-spacing:.04em}
-  .input:focus-within,.input.is-focus{box-shadow:inset 0 0 0 2px var(--ultra),0 0 0 4px var(--ultra-soft)}
+  .input:focus-within,.input.is-focus{box-shadow:inset 0 0 0 2px var(--act-ring),0 0 0 4px var(--act-ring-soft)}
   .field.err .input{box-shadow:inset 0 0 0 2px var(--conflict)}
   .field.ok .input{box-shadow:inset 0 0 0 2px var(--fixed)}
   .msg{display:flex;gap:6px;align-items:flex-start;font-size:13px;line-height:1.4;min-height:18px}
@@ -316,9 +327,10 @@
     <p class="kick">Nestwood · мова інтерфейсу · обрано 23.09.2026</p>
     <h1>Прилад</h1>
     <p class="lede">Пейзаж — герой, поверх нього скляна приладова панель: три виміри великими цифрами і шкала ланцюжка ночей.
-      Ультрамарин — те, що натискаєш. Жовтий — те, що «живе» на приладі. Тривога — чорна інверсія зі штрихом, читається без кольору.
+      Синій — те, що натискаєш. Жовтий — те, що «живе» на приладі. Тривога — чорна інверсія зі штрихом, читається без кольору.
       Кожне рішення нижче підписане атрибутом із <a href="concept.md">concept.md</a>.</p>
   </div>
+  <div style="display:grid;gap:14px;justify-items:start">
   <ul class="keys" aria-label="Атрибути">
     <li><b>1</b>Зведено — не зібрано з плиток</li>
     <li><b>2</b>Виміряно — не оцінено</li>
@@ -326,6 +338,7 @@
     <li><b>4</b>Іконка орієнтує — слово стверджує</li>
     <li><b>5</b>Характер у формулюванні — не в оздобленні</li>
   </ul>
+  </div>
 </header>
 
 <!-- ═══════════ МОВА ЖИВЦЕМ ═══════════ -->
@@ -422,19 +435,24 @@
         <h3>Кнопки <span class="attrs"><span class="attr"><b>5</b> Характер</span></span></h3>
         <div class="line"><button class="btn btn-primary" type="button" style="flex:0 1 auto">Скласти мій план</button><button class="btn btn-secondary" type="button">Зберегти на потім</button></div>
         <div class="line" style="margin-top:8px"><button class="btn btn-icon" type="button" aria-label="Поділитися"><svg class="ic" aria-hidden="true"><use href="#i-share-linear"/></svg></button><button class="btn btn-icon" type="button" aria-label="Зберегти"><svg class="ic" aria-hidden="true"><use href="#i-bookmark-linear"/></svg></button><a class="btn btn-text" href="#h-comp">Відкрити карту <svg class="ic" aria-hidden="true"><use href="#i-arrow-right-linear"/></svg></a></div>
-        <p class="note">Ультрамарин на екрані один — на головній дії. Кнопка називає результат, а не механізм.</p>
+        <p class="note">Синій на екрані один — на головній дії. Кнопка називає результат, а не механізм.</p>
       </div>
       <div class="blk">
         <h3>Стани — словом <span class="attrs"><span class="attr"><b>4</b> Слово стверджує</span></span></h3>
         <div class="line">
           <span class="st st-fixed"><svg class="ic" aria-hidden="true"><use href="#i-check-circle-linear"/></svg>заброньовано</span>
           <span class="st st-none">без броні</span>
-          <span class="st st-attn">погода змінилась</span>
+          <span class="st st-attn"><svg class="ic" aria-hidden="true"><use href="#i-danger-triangle-bold"/></svg>погода змінилась</span>
           <span class="st st-conf"><svg class="ic" aria-hidden="true"><use href="#i-danger-triangle-linear"/></svg>ланцюжок не замикається</span>
           <span class="st st-limit">сезонна норма</span>
           <span class="st st-limit"><svg class="ic" aria-hidden="true"><use href="#i-cloud-cross-linear"/></svg>офлайн · дані від 13.08</span>
         </div>
         <p class="note">Колір лише підсилює слово. Без кольору стан читається так само — іконкою й текстом.</p>
+        <div class="opt" aria-label="Варіанти стану «увага»">
+          <div><b>А</b><span class="st st-attn"><svg class="ic" aria-hidden="true"><use href="#i-danger-triangle-bold"/></svg>погода змінилась</span><span>інверсія, як панель тривоги — обрано на стенді</span></div>
+          <div><b>Б</b><span class="st st-attn-b">погода змінилась</span><span>контур і жовта точка, як активна ніч на шкалі</span></div>
+          <div><b>В</b><span class="st st-attn-c"><svg class="ic" aria-hidden="true"><use href="#i-danger-triangle-bold"/></svg>погода змінилась</span><span>жовта заливка з обводкою — сперечається з жовтим станом приладу</span></div>
+        </div>
       </div>
       <div class="blk">
         <h3>Градація й виміри <span class="attrs"><span class="attr"><b>2</b> Виміряно</span></span></h3>
@@ -505,7 +523,7 @@
       <ul class="rules">
         <li>Підказка пояснює, навіщо поле, — як властивість системи STF.</li>
         <li>Помилка каже, що саме не так і скільки бракує.</li>
-        <li>Фокус — ультрамарин, бо це взаємодія; помилка — червоний і слово.</li>
+        <li>Фокус — синій, бо це взаємодія; помилка — червоний і слово.</li>
       </ul>
     </div>
   </div>
@@ -517,10 +535,11 @@
   <p class="sec-sub">Нейтральна основа і дві сигнальні ролі, які не перетинаються. Семантичні кольори завжди йдуть разом зі словом. Під кожним кольором — контраст тексту за WCAG.</p>
   <div class="pal">
     <div class="pal-g"><h3>Primary <small>дія</small></h3><div class="sw">
-      <div class="swc"><div class="c" style="background:#1A3CFF;color:#fff">Ultramarine</div><div class="d"><b>Ultramarine</b><code>#1A3CFF</code><span>Кнопки, посилання, фокус поля. Тільки те, що натискається.</span><span class="ratio">білий на ньому 6.7:1 · на Glass 6.1:1</span><span class="attr"><b>5</b> Характер</span></div></div>
-      <div class="swc"><div class="c" style="background:#1230D6;color:#fff">Pressed</div><div class="d"><b>Ultramarine pressed</b><code>#1230D6</code><span>Стан натискання.</span><span class="ratio">білий 8.7:1</span><span class="attr"><b>5</b> Характер</span></div></div>
-      <div class="swc"><div class="c" style="background:#E8ECFF;color:#1A3CFF">Soft</div><div class="d"><b>Ultramarine soft</b><code>#E8ECFF</code><span>Ореол фокусу. Ніколи не фон тексту.</span><span class="ratio">ультрамарин на ньому 5.7:1</span><span class="attr"><b>5</b> Характер</span></div></div>
-    </div></div>
+      <div class="swc"><div class="c" style="background:#2D5BFF;color:#fff">Signal blue</div><div class="d"><b>Signal blue</b><code>#2D5BFF</code><span>Кнопки й посилання. Близький до системного синього iOS, але темніший на крок — щоб білий текст проходив AA.</span><span class="ratio">білий на ньому 5.2:1 · на Glass 4.7:1</span><span class="attr"><b>5</b> Характер</span></div></div>
+      <div class="swc"><div class="c" style="background:#2149E0;color:#fff">Pressed</div><div class="d"><b>Blue pressed</b><code>#2149E0</code><span>Стан натискання.</span><span class="ratio">білий 6.8:1</span><span class="attr"><b>5</b> Характер</span></div></div>
+      <div class="swc"><div class="c" style="background:#E8EEFF;color:#2D5BFF">Soft</div><div class="d"><b>Blue soft</b><code>#E8EEFF</code><span>Ореол фокусу. Ніколи не фон тексту.</span><span class="ratio">декор · не фон тексту</span><span class="attr"><b>5</b> Характер</span></div></div>
+    </div>
+    <p class="note">Справжній системний синій iOS — <code>#007AFF</code>, але білий текст на ньому 4.0:1, нижче AA (4.5:1) для тексту кнопки. Точка офіційної градації <i>blå</i> — світліша <code>#4A90E2</code>.</p></div>
     <div class="pal-g"><h3>Accent <small>стан на приладі</small></h3><div class="sw">
       <div class="swc"><div class="c" style="background:#F2E500;color:#0F1113">Hi-vis yellow</div><div class="d"><b>Hi-vis yellow</b><code>#F2E500</code><span>Активна ніч на шкалі, лічильник на вкладці, штрих тривоги. Ніколи фон кнопки, ніколи текст на світлому.</span><span class="ratio">ink на ньому 14.4:1 · він на ink 14.4:1</span><span class="attr"><b>1</b> Зведено</span></div></div>
       <div class="swc"><div class="c" style="background:var(--hatch);color:#0F1113"></div><div class="d"><b>Hatch</b><code>#F2E500 / #0F1113</code><span>Край тривоги, ніч із проблемою. Патерн, тож читається без кольору.</span><span class="ratio">не текст · контраст смуг 14.4:1</span><span class="attr"><b>4</b> Слово стверджує</span></div></div>
@@ -537,7 +556,7 @@
       <div class="swc"><div class="c" style="background:#FDECEA;color:#B42318">Конфлікт</div><div class="d"><b>Конфлікт · план не складається</b><code>#B42318 · на ink #FF6B5B</code><span>Ланцюжок ночей не замикається, помилка поля.</span><span class="ratio">на білому 6.6:1 · на soft 5.8:1 · на ink 6.8:1</span><span class="attr"><b>4</b> Слово стверджує</span></div></div>
       <div class="swc"><div class="c" style="background:#E7F4EC;color:#0B7A4B">Закріплено</div><div class="d"><b>Закріплено</b><code>#0B7A4B · soft #E7F4EC</code><span>Ніч заброньована, крок зроблено. Без святкування.</span><span class="ratio">на білому 5.4:1 · на soft 4.8:1</span><span class="attr"><b>5</b> Характер</span></div></div>
       <div class="swc"><div class="c" style="background:#F4F5F5;color:#5E6368;box-shadow:inset 0 0 0 2px #9AA0A6;outline:2px dashed #F4F5F5;outline-offset:-2px">Межа знання</div><div class="d"><b>Межа знання</b><code>#5E6368 + пунктир</code><span>Сезонна норма, офлайн, джерело недоступне.</span><span class="ratio">graphite на Glass 5.6:1</span><span class="attr"><b>2</b> Виміряно</span></div></div>
-      <div class="swc"><div class="c" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #D9DCDF"><span style="display:inline-flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:50%;background:#4A90E2;display:block"></i>blå</span></div><div class="d"><b>Офіційна градація blå</b><code>#4A90E2</code><span>Точка в чипі градації, світліша за ультрамарин, завжди з підписом.</span><span class="ratio">не текст · 3.3:1 до білого</span><span class="attr"><b>2</b> Виміряно</span></div></div>
+      <div class="swc"><div class="c" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #D9DCDF"><span style="display:inline-flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:50%;background:#4A90E2;display:block"></i>blå</span></div><div class="d"><b>Офіційна градація blå</b><code>#4A90E2</code><span>Точка в чипі градації, світліша за синій дії, завжди з підписом.</span><span class="ratio">не текст · 3.3:1 до білого</span><span class="attr"><b>2</b> Виміряно</span></div></div>
     </div></div>
   </div>
 </section>
@@ -645,9 +664,8 @@
       <tr><td>Ink на Glass</td><td><span class="smp" style="background:#F4F5F5;color:#0F1113">Мої походи</span></td><td class="r">17.3:1</td><td class="pass">так</td></tr>
       <tr><td>Graphite на Glass</td><td><span class="smp" style="background:#F4F5F5;color:#5E6368">найдовший перехід</span></td><td class="r">5.6:1</td><td class="pass">так</td></tr>
       <tr><td>Graphite на білому</td><td><span class="smp" style="background:#fff;color:#5E6368;box-shadow:var(--e-hair)">14 км · +150 м</span></td><td class="r">6.1:1</td><td class="pass">так</td></tr>
-      <tr><td>Білий на Ultramarine</td><td><span class="smp" style="background:#1A3CFF;color:#fff">Скласти мій план</span></td><td class="r">6.7:1</td><td class="pass">так</td></tr>
-      <tr><td>Ultramarine на Glass</td><td><span class="smp" style="background:#F4F5F5;color:#1A3CFF">Відкрити карту</span></td><td class="r">6.1:1</td><td class="pass">так</td></tr>
-      <tr><td>Ink на Hi-vis yellow</td><td><span class="smp" style="background:#F2E500;color:#0F1113">4</span></td><td class="r">14.4:1</td><td class="pass">так</td></tr>
+      <tr><td>Білий на Signal blue</td><td><span class="smp" style="background:#2D5BFF;color:#fff">Скласти мій план</span></td><td class="r">5.2:1</td><td class="pass">так</td></tr>
+      <tr><td>Signal blue на Glass</td><td><span class="smp" style="background:#F4F5F5;color:#2D5BFF">Відкрити карту</span></td><td class="r">4.7:1</td><td class="pass">так</td></tr>
       <tr><td>Yellow на Ink</td><td><span class="smp" style="background:#0F1113;color:#F2E500">дедлайн 15.08 · 12:00</span></td><td class="r">14.4:1</td><td class="pass">так</td></tr>
       <tr><td>Конфлікт на білому</td><td><span class="smp" style="background:#fff;color:#B42318;box-shadow:var(--e-hair)">У номері 7 цифр</span></td><td class="r">6.6:1</td><td class="pass">так</td></tr>
       <tr><td>Конфлікт на Ink</td><td><span class="smp" style="background:#0F1113;color:#FF6B5B">3 виходи</span></td><td class="r">6.8:1</td><td class="pass">так</td></tr>

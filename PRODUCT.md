@@ -158,7 +158,7 @@ product".
 
 **Undecided, deliberately:**
 
-- Visual and brand direction — chosen (Прилад, ultramarine + hi-vis yellow), not yet built; see Brand Commitments.
+- Visual and brand direction — chosen (Прилад, signal blue + hi-vis yellow), not yet built; see Brand Commitments.
 - Job 11 ("is this realistic for someone like me") has no content at launch; reviews start
   empty and cannot be seeded honestly. Either accept it unserved or substitute curated
   third-party trip reports with attribution.
@@ -204,7 +204,7 @@ either way.
 The visual direction is chosen — **Прилад** (`concept/directions-3.html`), designer's
 decision 2026-09-23 — but not yet built, so no DESIGN.md exists (it is written at the
 finish, from the built world). Palette: Glass `#F4F5F5`, Graphite `#5E6368`, Instrument
-ink `#0F1113`, **Ultramarine `#1A3CFF` for action** (buttons, links), **Hi-vis yellow
+ink `#0F1113`, **Signal blue `#2D5BFF` for action** (buttons, links; replaced ultramarine on 2026-09-24), **Hi-vis yellow
 `#F2E500` for live state on the instrument** (active night on the track, alert hatch;
 never a button fill). The official *blå* grading dot renders lighter, `#4A90E2`, so
 it is never mistaken for the action colour. Alerts are an inverted ink panel with a hatched edge, readable
