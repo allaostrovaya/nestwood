@@ -379,3 +379,6 @@
 .device .rows .state.warn { box-shadow: inset 0 0 0 1px var(--hair); }
 .device .rows a[href="./booking.html"] .state.warn { box-shadow: none; }
 .device section[aria-labelledby="health"] .row .state.warn { box-shadow: none; }
+/* детектор critique: підпис таб-бару 10.5 px був нижче порогу 11 px (PRODUCT.md, Accessibility) */
+.device .tabbar a { font-size: 11px; }
+.device .tabbar .count { font-size: 11px; }
