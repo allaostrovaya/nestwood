@@ -207,7 +207,7 @@ HTML = f'''<!doctype html>
 <title>Nestwood — головний флоу</title>
 <link rel="stylesheet" href="./_wireframe.css?v=20260924g" />
 <link rel="stylesheet" href="./_flow.css" />
-<link rel="stylesheet" href="./_prylad.css?v=20260924h" />
+<link rel="stylesheet" href="./_prylad.css?v=20260924j" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
