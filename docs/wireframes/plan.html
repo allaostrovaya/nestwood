@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Plan · успіх</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
-<link rel="stylesheet" href="./_prylad.css?v=20260925n" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260925d" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -142,74 +142,78 @@
 
 <p class="meta" data-review lang="uk"><b>0.3</b> · Plan · <i>успіх</i></p>
 
-<div class="device" data-screen="Plan" data-state="успіх">
+<div class="device nw" data-screen="Plan" data-state="успіх">
 
-  <div class="screen">
-  <header class="topbar"><a class="back" href="./plans.html">My trips</a><span class="title">Plan</span></header>
-
-  <main>
-    <h1>Kungsleden · Abisko → Nikkaluokta</h1>
-
-    <section aria-labelledby="hero">
-      <h2 id="hero">Overview</h2>
-      <div class="frame frame--photo" data-fit="на всю ширину"><span>photo · Kungsleden · path along Abiskojaure lake</span></div>
-      <ul class="rows">
-        <li><div class="row"><span><b>17–22 August · 2 people · 1 STF member</b><small>available offline</small></span></div></li>
+  <div class="screen shell shell--photo">
+  <header class="shell__bar"><a class="shell__back" href="./plans.html">My trips</a><span class="shell__title">Plan</span><a class="shell__action" href="./share.html" aria-label="Share my route"><span class="ic i-share"></span></a></header>
+  <div class="shell__media">
+    <div class="hero" data-fit="на всю ширину">
+      <img class="hero__img" src="./img/kungsleden-abiskojaure-birch-trail.jpg" alt="photo · Kungsleden · path along Abiskojaure lake" />
+      <span class="hero__credit">Photo · Anders Norén · Unsplash</span>
+      <span class="hero__hud">available offline</span>
+      <ul class="panel">
+        <li class="panel__item"><b class="panel__value">101<span class="panel__unit"> km</span></b><small class="panel__label">distance</small></li>
+        <li class="panel__item"><b class="panel__value">1,940<span class="panel__unit"> m</span></b><small class="panel__label">ascent</small></li>
+        <li class="panel__item panel__item--hidden"><b class="panel__value">6</b><small class="panel__label">days</small></li>
+        <li class="panel__item"><b class="panel__value">~8<span class="panel__unit"> h</span></b><small class="panel__label">longest day</small></li>
       </ul>
-      <p class="actions"><a href="./share.html">Share my route</a></p>
-      <details>
+    </div>
+  </div>
+  <div class="shell__head">
+    <h1 class="shell__h1">Kungsleden · Abisko → Nikkaluokta</h1>
+    <p class="brief"><span class="brief__text">17–22 August · 2 people · 1 STF member</span></p>
+  </div>
+
+  <main class="shell__main">
+    <section aria-labelledby="hero" class="section section--last">
+      <h2 id="hero" class="section__title sr">Overview</h2>
+      <details class="disclosure">
         <summary>Change plan</summary>
         <p>Booking and ticket marks in the plan will be reset. They stay in STF and SJ — cancel there if you need to.</p>
-        <p class="actions"><a href="./new-plan.html">Change and reset</a></p>
+        <p class="actions"><a href="./new-plan.html" class="btn btn--secondary">Change and reset</a></p>
       </details>
     </section>
 
-    <section aria-labelledby="health">
-      <h2 id="health">Needs attention</h2>
-      <ul class="rows">
-        <li><a class="row" href="./day.html"><span><b>Flooding on Abiskojåkka</b><small>day 2: you won’t reach Alesjaure by 18:00 · decide by 15 Aug</small></span><span class="state warn">day 2</span></a></li>
+    <section aria-labelledby="health" class="section">
+      <h2 id="health" class="section__title">Needs attention</h2>
+      <ul class="list list--bare">
+        <li><a class="alert" href="./day.html"><span class="alert__text"><b class="alert__title">Flooding on Abiskojåkka</b><small class="alert__body">day 2: you won’t reach Alesjaure by 18:00 · decide by 15 Aug</small></span><span class="alert__tag">day 2</span></a></li>
       </ul>
     </section>
 
-    <section aria-labelledby="route">
-      <h2 id="route">Route</h2>
-      <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран, шари там"><span>map · Kungsleden · day legs · huts · bail-out points</span></div>
-      <ul class="stats">
-        <li><b>101<span class="u"> km</span></b><small>distance</small></li>
-        <li><b>1,940<span class="u"> m</span></b><small>ascent</small></li>
-        <li><b>6</b><small>days</small></li>
-        <li><b>~8<span class="u"> h</span></b><small>longest day</small></li>
+    <section aria-labelledby="route" class="section">
+      <h2 id="route" class="section__title">Route</h2>
+      <div class="map" data-fit="на всю ширину · тап → на весь екран, шари там"><img class="map__img" src="./img/map-kungsleden.svg" alt="map · Kungsleden · day legs · huts · bail-out points" /><span class="map__attrib">© Kartverket · Lantmäteriet</span></div>
+      </section>
+
+    <section aria-labelledby="general" class="section">
+      <h2 id="general" class="section__title">About the trip</h2>
+      <ul class="list list--icons">
+        <li><a class="row i-card" href="./membership.html"><span class="row__text"><b class="row__title">Membership and key</b><small class="row__sub">both STF members</small></span></a></li>
+        <li><a class="row i-backpack" href="./gear.html"><span class="row__text"><b class="row__title">Gear</b><small class="row__sub">23 items · 11.4 kg</small></span><span class="row__trail pill pill--attention">1 missing</span></a></li>
+        <li><div class="row i-cloud-rain"><span class="row__text"><b class="row__title">Weather</b><small class="row__sub">met.no forecast · 13 Aug 09:12</small></span></div></li>
+        <li><div class="row i-wallet"><span class="row__text"><b class="row__title">Cost</b><small class="row__sub">2,500 SEK nights per person · transport 1,430 SEK</small></span></div></li>
       </ul>
     </section>
 
-    <section aria-labelledby="general">
-      <h2 id="general">About the trip</h2>
-      <ul class="rows">
-        <li><a class="row" href="./membership.html"><span><b>Membership and key</b><small>both STF members</small></span></a></li>
-        <li><a class="row" href="./gear.html"><span><b>Gear</b><small>23 items · 11.4 kg</small></span><span class="state warn">1 missing</span></a></li>
-        <li><div class="row"><span><b>Weather</b><small>met.no forecast · 13 Aug 09:12</small></span></div></li>
-        <li><div class="row"><span><b>Cost</b><small>2,500 SEK nights per person · transport 1,430 SEK</small></span></div></li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="days">
-      <h2 id="days">Days</h2>
-      <ul class="rows">
-        <li><div class="row"><span><b>Getting there · Sun 16 Aug</b><small>night train 94 · Stockholm C → Abisko</small></span></div></li>
-        <li><a class="row" href="./day.html"><span><b>1 · Abisko → Abiskojaure</b><small>14 km · ~4 h 30</small></span></a></li>
-        <li><a class="row" href="./day.html"><span><b>2 · Abiskojaure → Alesjaure</b><small>22 km · ~7 h</small></span><span class="state warn">flood</span></a></li>
-        <li><a class="row" href="./day.html"><span><b>3 · Alesjaure → Tjäktja</b><small>13 km · ~4 h 30 · walk-in only</small></span></a></li>
-        <li><a class="row" href="./booking.html"><span><b>4 · Tjäktja → Sälka</b><small>12 km · pass 1,150 m · Sälka not booked</small></span><span class="state warn">book</span></a></li>
-        <li><a class="row" href="./day.html"><span><b>5 · Sälka → Kebnekaise</b><small>26 km · ~8 h</small></span></a></li>
-        <li><a class="row" href="./day.html"><span><b>6 · Kebnekaise → Nikkaluokta</b><small>19 km · ~5 h</small></span></a></li>
-        <li><a class="row" href="./booking.html"><span><b>Getting back · Sat 22 Aug</b><small>bus 91 → Kiruna · ticket not bought</small></span><span class="state warn">buy</span></a></li>
+    <section aria-labelledby="days" class="section">
+      <h2 id="days" class="section__title">Days</h2>
+      <ul class="days">
+        <li><div class="day day--transport i-tram"><span class="day__text"><b class="row__title">Getting there · Sun 16 Aug</b><small class="row__sub">night train 94 · Stockholm C → Abisko</small></span></div></li>
+        <li><a class="day" href="./day.html"><span class="day__text"><b class="row__title">1 · Abisko → Abiskojaure</b><small class="row__sub">14 km · ~4 h 30</small></span></a></li>
+        <li><a class="day day--warn" href="./day.html"><span class="day__text"><b class="row__title">2 · Abiskojaure → Alesjaure</b><small class="row__sub">22 km · ~7 h</small></span><span class="pill pill--attention">flood</span></a></li>
+        <li><a class="day" href="./day.html"><span class="day__text"><b class="row__title">3 · Alesjaure → Tjäktja</b><small class="row__sub">13 km · ~4 h 30 · walk-in only</small></span></a></li>
+        <li><a class="day" href="./booking.html"><span class="day__text"><b class="row__title">4 · Tjäktja → Sälka</b><small class="row__sub">12 km · pass 1,150 m · Sälka not booked</small></span><span class="action-text">book</span></a></li>
+        <li><a class="day" href="./day.html"><span class="day__text"><b class="row__title">5 · Sälka → Kebnekaise</b><small class="row__sub">26 km · ~8 h</small></span></a></li>
+        <li><a class="day" href="./day.html"><span class="day__text"><b class="row__title">6 · Kebnekaise → Nikkaluokta</b><small class="row__sub">19 km · ~5 h</small></span></a></li>
+        <li><a class="day day--transport i-bus" href="./booking.html"><span class="day__text"><b class="row__title">Getting back · Sat 22 Aug</b><small class="row__sub">bus 91 → Kiruna · ticket not bought</small></span><span class="action-text">buy</span></a></li>
       </ul>
     </section>
   </main>
 
-  <footer class="app">
+  <footer class="shell__footer">
     <p>Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket</p>
-    <details>
+    <details class="disclosure disclosure--quiet">
       <summary>Where this comes from</summary>
       <p>Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema.</p>
     </details>
@@ -217,12 +221,12 @@
   </footer>
   </div>
   <nav class="tabbar" aria-label="Main navigation">
-    <ul>
-      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Map</a></li>
-      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Plans<span class="count" aria-label="4 steps left">4</span></a></li>
-      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Guide</a></li>
-      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Safety</a></li>
-      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Profile</a></li>
+    <ul class="tabbar__list">
+      <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html">Map</a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html" aria-current="page">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
+      <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
+      <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
+      <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>
     </ul>
   </nav>
 </div>

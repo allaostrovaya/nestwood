@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Where to go · успіх</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
-<link rel="stylesheet" href="./_prylad.css?v=20260925n" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260925d" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -142,72 +142,73 @@
 
 <p class="meta" data-review lang="uk"><b>0.1</b> · Where to go · <i>успіх</i></p>
 
-<div class="device" data-screen="Where to go" data-state="успіх">
+<div class="device nw" data-screen="Where to go" data-state="успіх">
 
-  <div class="screen">
-  <header class="topbar"><span class="title">Where to go</span></header>
+  <div class="screen shell shell--map">
+  <header class="shell__bar"><span></span><span class="shell__title">Where to go</span></header>
+  <div class="shell__head">
+    <h1 class="shell__h1">Where to go</h1>
+  </div>
 
-  <main>
-    <h1>Where to go</h1>
-
-    <section aria-labelledby="search">
-      <h2 id="search">Where, when, who</h2>
-      <ul class="rows">
-        <li><a class="row" href="./catalogue.html"><span><b>Where</b><small>Lapland, Sweden — or your own route: from → to</small></span></a></li>
-        <li><a class="row" href="./catalogue.html"><span><b>When</b><small>17–22 August</small></span></a></li>
-        <li><a class="row" href="./catalogue.html"><span><b>Who</b><small>2 people · 1 STF member</small></span></a></li>
+  <main class="shell__main">
+    <section aria-labelledby="search" class="section section--bare">
+      <h2 id="search" class="section__title sr">Where, when, who</h2>
+      <ul class="search">
+        <li><a class="search__field" href="./catalogue.html"><span class="search__text"><b class="search__label">Where</b><small class="search__value">Lapland, Sweden — or your own route: from → to</small></span></a></li>
+        <li><a class="search__field" href="./catalogue.html"><span class="search__text"><b class="search__label">When</b><small class="search__value">17–22 August</small></span></a></li>
+        <li><a class="search__field" href="./catalogue.html"><span class="search__text"><b class="search__label">Who</b><small class="search__value">2 people · 1 STF member</small></span></a></li>
       </ul>
-      <ul class="chips">
-        <li><button class="chip on" type="button">huts</button></li>
-        <li><button class="chip" type="button">tent</button></li>
+      <ul class="chips chips--on-map">
+        <li><button class="chip" type="button" aria-pressed="true">huts</button></li>
+        <li><button class="chip" type="button" aria-pressed="false">tent</button></li>
       </ul>
     </section>
 
-    <section aria-labelledby="where">
-      <h2 id="where">Map</h2>
-      <div class="frame frame--screen" data-fit="на весь екран під пошуком · аркуш зі списком зверху"><span>map · Sweden · preset route lines · start/finish points: stations, trailheads, huts · own route drawn: Abisko Turiststation → Nikkaluokta</span></div>
-      <ul class="rows">
-        <li><div class="row"><span><b>Abisko Turiststation → Nikkaluokta</b><small>your route · 101 km · 6 days · 5 huts</small></span></div></li>
+    <section aria-labelledby="where" class="section section--bare">
+      <h2 id="where" class="section__title sr">Map</h2>
+      <div class="map map--surface" data-fit="на весь екран під пошуком · аркуш зі списком зверху"><img class="map__img" src="./img/map-catalogue.svg" alt="map · Sweden · preset route lines · start/finish points: stations, trailheads, huts · own route drawn: Abisko Turiststation → Nikkaluokta" /><span class="map__attrib">© Kartverket · Lantmäteriet</span></div>
+      <ul class="list list--float">
+        <li><div class="row"><span class="row__text"><b class="row__title">Abisko Turiststation → Nikkaluokta</b><small class="row__sub">your route · 101 km · 6 days · 5 huts</small></span></div></li>
       </ul>
-      <p class="actions"><a class="cta" href="./new-plan-loading.html">Make a plan</a> <a href="./catalogue.html">Clear points</a></p>
+      <p class="actions actions--split actions--on-map"><a class="btn btn--primary" href="./new-plan-loading.html">Make a plan</a> <a href="./catalogue.html" class="btn btn--secondary">Clear points</a></p>
     </section>
 
-    <section aria-labelledby="local">
-      <h2 id="local">Best in Sweden in August</h2>
+    <section aria-labelledby="local" class="section sheet sheet--first">
+      <h2 id="local" class="section__title">Best in Sweden in August</h2>
       <ul class="cards">
-        <li><a class="card" href="./new-plan-loading.html">
-          <div class="frame frame--photo"><span>photo · Kungsleden · path along Abiskojaure lake</span></div>
-          <b>Kungsleden · Abisko → Nikkaluokta</b><span class="state">6 days</span>
-          <small>101 km · 1,940 m · 5 STF huts · blå / medium</small></a></li>
-        <li><a class="card" href="./new-plan-loading.html">
-          <div class="frame frame--photo"><span>photo · Kebnekaise valley from the trail</span></div>
-          <b>Kungsleden · Abisko → Kebnekaise</b><span class="state">5 days</span>
-          <small>82 km · 1,460 m · 4 STF huts · blå / medium</small></a></li>
-        <li><a class="card" href="./new-plan-loading.html">
-          <div class="frame frame--photo"><span>photo · Padjelanta plateau, Sami huts</span></div>
-          <b>Padjelantaleden · Kvikkjokk → Ritsem</b><span class="state">7 days</span>
-          <small>140 km · 900 m · STF and Sami community huts</small></a></li>
+        <li><a class="card-photo" href="./new-plan-loading.html">
+          <div class="card-photo__img"><img class="card-photo__pic" src="./img/kungsleden-abiskojaure-birch-trail.jpg" alt="photo · Kungsleden · path along Abiskojaure lake" /><span class="card-photo__credit">Anders Norén · Unsplash</span></div>
+          <b class="card-photo__title">Kungsleden · Abisko → Nikkaluokta</b><span class="pill pill--photo">6 days</span>
+          <small class="card-photo__sub">101 km · 1,940 m · 5 STF huts · blå / medium</small></a></li>
+        <li><a class="card-photo" href="./new-plan-loading.html">
+          <div class="card-photo__img"><img class="card-photo__pic" src="./img/kebnekaise-valley-cottongrass.jpg" alt="photo · Kebnekaise valley from the trail" /><span class="card-photo__credit">Anders Norén · Unsplash</span></div>
+          <b class="card-photo__title">Kungsleden · Abisko → Kebnekaise</b><span class="pill pill--photo">5 days</span>
+          <small class="card-photo__sub">82 km · 1,460 m · 4 STF huts · blå / medium</small></a></li>
+        <li><a class="card-photo" href="./new-plan-loading.html">
+          <div class="card-photo__img"><img class="card-photo__pic" src="./img/padjelanta-plateau-snowy-peaks.jpg" alt="photo · Padjelanta plateau, Sami huts" /><span class="card-photo__credit">Trougnouf · CC BY 4.0</span></div>
+          <b class="card-photo__title">Padjelantaleden · Kvikkjokk → Ritsem</b><span class="pill pill--photo">7 days</span>
+          <small class="card-photo__sub">140 km · 900 m · STF and Sami community huts</small></a></li>
       </ul>
     </section>
 
-    <section aria-labelledby="classic">
-      <h2 id="classic">Scandinavian classics</h2>
+    <section aria-labelledby="classic" class="section sheet sheet--last">
+      <h2 id="classic" class="section__title">Scandinavian classics</h2>
       <ul class="cards">
-        <li><a class="card" href="./new-plan-loading.html">
-          <div class="frame frame--photo"><span>photo · Besseggen ridge, Jotunheimen</span></div>
-          <b>Jotunheimen · Gjendesheim → Spiterstulen</b><span class="state">4 days</span>
-          <small>58 km · 2,300 m · DNT huts · DNT key required</small></a></li>
-        <li><a class="card" href="./new-plan-loading.html">
-          <div class="frame frame--photo"><span>photo · Hardangervidda plateau at Finse</span></div>
-          <b>Hardangervidda · Finse → Haukeliseter</b><span class="state">7 days</span>
-          <small>120 km · 1,100 m · DNT huts</small></a></li>
+        <li><a class="card-photo" href="./new-plan-loading.html">
+          <div class="card-photo__img"><img class="card-photo__pic" src="./img/besseggen-ridge-lake-reflection.jpg" alt="photo · Besseggen ridge, Jotunheimen" /><span class="card-photo__credit">Rosan Harmens · CC0</span></div>
+          <b class="card-photo__title">Jotunheimen · Gjendesheim → Spiterstulen</b><span class="pill pill--photo">4 days</span>
+          <small class="card-photo__sub">58 km · 2,300 m · DNT huts · DNT key required</small></a></li>
+        <li><a class="card-photo" href="./new-plan-loading.html">
+          <div class="card-photo__img"><img class="card-photo__pic" src="./img/finsevatnet-hardangervidda.jpg" alt="photo · Hardangervidda plateau at Finse" /><span class="card-photo__credit">Kjenshaugmyra · CC BY-SA 4.0</span></div>
+          <b class="card-photo__title">Hardangervidda · Finse → Haukeliseter</b><span class="pill pill--photo">7 days</span>
+          <small class="card-photo__sub">120 km · 1,100 m · DNT huts</small></a></li>
       </ul>
     </section>
   </main>
 
-  <footer class="app">
+  <footer class="shell__footer">
     <p>Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket</p>
-    <details>
+    <details class="disclosure disclosure--quiet">
       <summary>Where this comes from</summary>
       <p>Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema.</p>
     </details>
@@ -215,12 +216,12 @@
   </footer>
   </div>
   <nav class="tabbar" aria-label="Main navigation">
-    <ul>
-      <li><a href="./catalogue.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Map</a></li>
-      <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Plans<span class="count" aria-label="4 steps left">4</span></a></li>
-      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Guide</a></li>
-      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Safety</a></li>
-      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Profile</a></li>
+    <ul class="tabbar__list">
+      <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html" aria-current="page">Map</a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
+      <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
+      <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
+      <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>
     </ul>
   </nav>
 </div>

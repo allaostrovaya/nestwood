@@ -23,7 +23,7 @@ for p in sorted(pathlib.Path('wireframes').glob('*.html')):
     new = re.sub(r'<div class="nw-theme".*?</div>(<script src="\./_theme\.js"></script>)?\n', '', new, flags=re.S)
     new = new.replace('<body>\n', '<body>\n' + THEME + '<script src="./_theme.js"></script>\n', 1)
     hdr = appnav_for(p.name)
-    new = re.sub(r'  <header class="topbar">.*?</header>', topbar(p.name), new, flags=re.S)
+    new = re.sub(r'  <header class="(?:topbar|shell__bar)[^"]*">.*?</header>', lambda m: topbar(p.name), new, flags=re.S)
     new = re.sub(r'  <nav class="tabbar".*?</nav>\n', hdr, new, flags=re.S)
     # <title> і мітка на телефоні теж походять із TREE — інакше вони розходяться
     # з назвою екрана при перейменуванні, і цього ніхто не помічає

@@ -1,0 +1,568 @@
+/* Nestwood UI kit — мова «Прилад».
+   Один файл, один рівень токенів: усі значення живуть у :root, класи компонентів беруть їх лише через var().
+   Темна тема — [data-theme="dark"] на будь-якому предку — перевизначає ТІ САМІ імена, нових рівнів не додає.
+   Джерела: DESIGN.md (система як у макетах), ui/inventory.md (що повторюється), wireframes/_prylad.css (еталон
+   пофарбованих екранів), concept.html (поле форми — зі стенду). Каркас вайрфреймів (.wf-*, рамка .device) сюди не входить.
+   Разові блоки з ui/inventory.md («Разове») сюди свідомо не входять. */
+
+@import url("https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700&display=swap");
+@font-face { font-family: "Tektur"; font-weight: 400 700; font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tektur/v6/XoH62YHtS7q969kXCjzlV0aSkS_o8OacszucvHPHpYw.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212; }
+@font-face { font-family: "Tektur"; font-weight: 400 700; font-display: swap;
+  src: url(https://fonts.gstatic.com/s/tektur/v6/XoH62YHtS7q969kXCjzlV0aSkS_o8OacszWcvHPHpYxRTw.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+A720-A7FF; }
+
+/* ════════════════════════ ТОКЕНИ ════════════════════════ */
+:root {
+  /* колір */
+  --glass: #F4F5F5; --surface: #FFFFFF; --hairline: #D9DCDF; --graphite: #5E6368; --ink: #0F1113; --dash: #5E6368;
+  --blue: #2D5BFF; --blue-pressed: #2149E0; --blue-soft: #E8EEFF; --link: #2D5BFF; --on-blue: #FFFFFF;
+  --yellow: #F2E500; --yellow-ink: #0F1113;
+  --conflict: #B42318; --conflict-on-ink: #FF7A6B; --on-conflict: #FFFFFF;
+  --fixed: #0B7A4B; --fixed-soft: #E7F4EC;
+  --disabled: #C9CDD1; --on-disabled: #5E6368;
+  --alert-bg: #0F1113; --alert-fg: #FFFFFF; --alert-sub: rgba(255,255,255,.8);
+  --on-photo: #FFFFFF; --glass-btn: rgba(15,17,19,.45); --glass-btn-strong: rgba(15,17,19,.6);
+  --panel-bg: rgba(250,250,250,.9); --bar-bg: rgba(255,255,255,.88);
+  --chip-photo: rgba(255,255,255,.92); --attrib-bg: rgba(255,255,255,.7); --attrib-fg: #5E6368;
+  --dim: rgba(15,17,19,.5);
+  --map-land: #E8ECE3; --map-water: #CFE0EA;
+  --hatch: repeating-linear-gradient(135deg, #F2E500 0 5px, #0F1113 5px 10px);
+  --scrim-top: linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,0));
+  --scrim-bottom: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.45));
+  --shimmer: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.45), rgba(255,255,255,0));
+
+  /* шрифт і шкала 10 · 12 · 14 · 16 · 18 · 24 · 28 · 32 */
+  --font-ui: "Wix Madefor Display", system-ui, sans-serif;
+  --font-num: "Tektur", "Wix Madefor Display", system-ui, sans-serif;
+  --fs-10: 10px; --fs-12: 12px; --fs-14: 14px; --fs-16: 16px; --fs-18: 18px; --fs-24: 24px; --fs-28: 28px; --fs-32: 32px;
+  --fw-regular: 400; --fw-medium: 500; --fw-semi: 600; --fw-bold: 700;
+  --lh-1: 1; --lh-title: 1.12; --lh-head: 1.2; --lh-row: 1.3; --lh-small: 1.4; --lh-body: 1.45;
+  --ls-title: -0.02em; --ls-num: -0.03em; --ls-caps: 0.06em; --ls-hud: 0.07em; --ls-0: 0;
+
+  /* відступи — крок 4 */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-12: 48px;
+  --gutter: 16px; --photo-inset: 12px;
+
+  /* радіуси */
+  --r-photo: 32px; --r-panel: 24px; --r-card: 20px; --r-control: 16px; --r-field: 12px; --r-pill: 999px; --r-0: 0;
+
+  /* розміри */
+  --h-control: 52px; --h-tap: 44px; --h-chip: 32px; --h-sos: 56px; --h-row: 56px; --h-hero: 300px; --h-bar: 52px;
+  --h-map: 222px; --h-skel-line: 16px; --h-skel-block: 120px;
+  --w-handle: 36px; --h-handle: 4px; --node: 24px; --hatch-w: 8px; --ic-s: 16px; --ic-m: 20px; --ic-l: 22px; --ic-glass: 18px;
+  --line: 1px; --stroke: 1.5px; --stroke-strong: 2px; --focus: 3px; --tab-clear: 96px;
+  --h-scrim: 110px; --h-panel: 74px; --h-card-scrim: 40%; --w-60: 60%; --w-40: 40%; --flex-primary: 1.4; --flex-secondary: 1;
+  --ratio-card: 4 / 3; --ratio-map: 16 / 11;
+
+  /* глибина */
+  --e-hair: inset 0 0 0 1px #D9DCDF;
+  --e-stroke: inset 0 0 0 1.5px #D9DCDF;
+  --e-float: 0 12px 32px -16px rgba(15,17,19,.38);
+  --e-sheet: 0 -8px 24px -18px rgba(15,17,19,.35);
+  --e-photo-floor: inset 0 -90px 60px -40px rgba(0,0,0,.35);
+  --e-badge-ring: 0 0 0 2px #FFFFFF;
+  --e-focus-ring: 0 0 0 4px #E8EEFF;
+  --shadow-text: 0 1px 3px rgba(0,0,0,.55);
+  --map-dark: invert(.88) hue-rotate(180deg) saturate(.7);
+  --blur-glass: blur(16px) saturate(1.2); --blur-bar: blur(18px) saturate(1.3); --blur-btn: blur(12px);
+
+  /* рух */
+  --dur-fast: .15s; --dur: .2s; --ease: cubic-bezier(.2,.8,.2,1); --dur-shimmer: 1.4s; --dur-spin: .8s; --press-scale: .985;
+
+  /* доповнення — з перенесення пофарбованих екранів на кіт (2026-09-25) */
+  --r-round: 50%; --s-10: 40px; --lh-footer: 1.5; --lh-footer-p: 1.45; --lh-tab: 1.1; --lh-search: 1.25;
+  --e-hair-bottom: inset 0 -1px 0 #D9DCDF;
+  --on-photo-soft: rgba(255,255,255,.94); --shadow-title: 0 1px 3px rgba(0,0,0,.35); --shadow-card: 0 1px 3px rgba(0,0,0,.6);
+  --dim-layer: linear-gradient(rgba(15,17,19,.5), rgba(15,17,19,.5));
+  --sheet-list: #F4F5F5; --h-sheet-bar: 60px; --sheet-offset: 40px; --handle-top: 6px; --sheet-foot-min: 40vh; --sheet-snap: 88px;
+  --tab-inset: 10px; --badge-offset: 6px;
+  --hero-y: 62%; --hud-top: 188px; --ls-credit: .04em; --ls-tag: .03em; --ls-num-tight: -.04em; --unit-gap: 3px;
+  --day-cols: .82fr 1.09fr 1.09fr; --thread-x: 11px; --spin-w: 2.5px; --limit-ic-top: 15px;
+  --h-map-mini: 170px; --h-map-surface: 470px; --map-surface-pull: -114px; --map-attrib-lift: 96px; --float-pull: -84px;
+  --search-cols: 1.3fr 1fr 1fr; --ratio-profile: 5 / 1; --profile-dark: invert(.9) hue-rotate(180deg);
+  --sos-top: 64px; --sos-clear: 120px; --sos-bg: #B42318; --sos-fg: #FFFFFF; --ls-sos: .04em;
+  --label-gap: 6px; --gap-legacy: 18px; --gap-legacy-10: 10px; --ls-bar-title: .01em;
+  --w-switch: 52px; --h-switch: 28px; --switch-pad: 2px; --switch-knob: 24px;
+
+  /* іконки Solar (CC BY 4.0) — маски */
+  --ic-chevron-right: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M9 5L15 12L9 19%22/%3E%3C/svg%3E");
+  --ic-chevron-left: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M15 5L9 12L15 19%22/%3E%3C/svg%3E");
+  --ic-chevron-down: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M19 9L12 15L5 9%22/%3E%3C/svg%3E");
+  --ic-close: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M19.0068 5L5.00684 19%22/%3E%3Cpath d=%22M19 19L5 5%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-share: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M19.5 5.5C19.5 6.88071 18.3807 8 17 8C15.6193 8 14.5 6.88071 14.5 5.5C14.5 4.11929 15.6193 3 17 3C18.3807 3 19.5 4.11929 19.5 5.5Z%22/%3E%3Cpath d=%22M17 16C15.6193 16 14.5 17.1193 14.5 18.5C14.5 19.8807 15.6193 21 17 21C18.3807 21 19.5 19.8807 19.5 18.5C19.5 17.1193 18.3807 16 17 16Z%22/%3E%3Cpath d=%22M7 9.5C5.61929 9.5 4.5 10.6193 4.5 12C4.5 13.3807 5.61929 14.5 7 14.5C8.38071 14.5 9.5 13.3807 9.5 12C9.5 10.6193 8.38071 9.5 7 9.5Z%22/%3E%3Cpath d=%22M9.09668 13.3628C11.0324 14.621 12.9681 15.8792 14.9038 17.1374%22/%3E%3Cpath d=%22M9.09668 10.6372C11.0324 9.379 12.9681 8.12079 14.9039 6.86258%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-danger: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M5.31171 10.7615C8.23007 5.58716 9.68925 3 12 3C14.3107 3 15.7699 5.58716 18.6883 10.7615L19.0519 11.4063C21.4771 15.7061 22.6897 17.856 21.5937 19.428C20.4978 21 17.7864 21 12.3637 21H11.6363C6.21356 21 3.50217 21 2.40626 19.428C1.31034 17.856 2.52291 15.7061 4.94805 11.4063L5.31171 10.7615ZM12 7.25C12.4142 7.25 12.75 7.58579 12.75 8V13C12.75 13.4142 12.4142 13.75 12 13.75C11.5858 13.75 11.25 13.4142 11.25 13V8C11.25 7.58579 11.5858 7.25 12 7.25ZM12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E");
+  --ic-check: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M8.5 12.5L10.5 14.5L15.5 9.5%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-cloud-cross: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath d=%22M13.5 17.5L12 19M12 19L10.5 20.5M12 19L10.5 17.5M12 19L13.5 20.5%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-cloud-check: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M10 19.8L11.1429 21L14 18%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-restart: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M18.364 8.04928L17.6569 7.34217C14.5327 4.21798 9.46734 4.21798 6.34315 7.34217C3.21895 10.4664 3.21895 15.5317 6.34315 18.6559C9.46734 21.7801 14.5327 21.7801 17.6569 18.6559C19.4737 16.8391 20.234 14.3658 19.9377 11.9995M18.364 3.80664V8.04928H14.1213%22/%3E%3C/svg%3E");
+  --ic-calendar: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z%22/%3E%3Cpath d=%22M7 4V2.5%22/%3E%3Cpath d=%22M17 4V2.5%22/%3E%3Cpath d=%22M2.5 9H21.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 13H17.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 13H12.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 13H7.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 17.0234H17.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 17.0234H12.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 17.0234H7.0001%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-settings: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%223%22/%3E%3Cpath d=%22M13.7654 2.15224C13.3978 2 12.9319 2 12 2C11.0681 2 10.6022 2 10.2346 2.15224C9.74457 2.35523 9.35522 2.74458 9.15223 3.23463C9.05957 3.45834 9.0233 3.7185 9.00911 4.09799C8.98826 4.65568 8.70226 5.17189 8.21894 5.45093C7.73564 5.72996 7.14559 5.71954 6.65219 5.45876C6.31645 5.2813 6.07301 5.18262 5.83294 5.15102C5.30704 5.08178 4.77518 5.22429 4.35436 5.5472C4.03874 5.78938 3.80577 6.1929 3.33983 6.99993C2.87389 7.80697 2.64092 8.21048 2.58899 8.60491C2.51976 9.1308 2.66227 9.66266 2.98518 10.0835C3.13256 10.2756 3.3397 10.437 3.66119 10.639C4.1338 10.936 4.43789 11.4419 4.43786 12C4.43783 12.5581 4.13375 13.0639 3.66118 13.3608C3.33965 13.5629 3.13248 13.7244 2.98508 13.9165C2.66217 14.3373 2.51966 14.8691 2.5889 15.395C2.64082 15.7894 2.87379 16.193 3.33973 17C3.80568 17.807 4.03865 18.2106 4.35426 18.4527C4.77508 18.7756 5.30694 18.9181 5.83284 18.8489C6.07289 18.8173 6.31632 18.7186 6.65204 18.5412C7.14547 18.2804 7.73556 18.27 8.2189 18.549C8.70224 18.8281 8.98826 19.3443 9.00911 19.9021C9.02331 20.2815 9.05957 20.5417 9.15223 20.7654C9.35522 21.2554 9.74457 21.6448 10.2346 21.8478C10.6022 22 11.0681 22 12 22C12.9319 22 13.3978 22 13.7654 21.8478C14.2554 21.6448 14.6448 21.2554 14.8477 20.7654C14.9404 20.5417 14.9767 20.2815 14.9909 19.902C15.0117 19.3443 15.2977 18.8281 15.781 18.549C16.2643 18.2699 16.8544 18.2804 17.3479 18.5412C17.6836 18.7186 17.927 18.8172 18.167 18.8488C18.6929 18.9181 19.2248 18.7756 19.6456 18.4527C19.9612 18.2105 20.1942 17.807 20.6601 16.9999C21.1261 16.1929 21.3591 15.7894 21.411 15.395C21.4802 14.8691 21.3377 14.3372 21.0148 13.9164C20.8674 13.7243 20.6602 13.5628 20.3387 13.3608C19.8662 13.0639 19.5621 12.558 19.5621 11.9999C19.5621 11.4418 19.8662 10.9361 20.3387 10.6392C20.6603 10.4371 20.8675 10.2757 21.0149 10.0835C21.3378 9.66273 21.4803 9.13087 21.4111 8.60497C21.3592 8.21055 21.1262 7.80703 20.6602 7C20.1943 6.19297 19.9613 5.78945 19.6457 5.54727C19.2249 5.22436 18.693 5.08185 18.1671 5.15109C17.9271 5.18269 17.6837 5.28136 17.3479 5.4588C16.8545 5.71959 16.2644 5.73002 15.7811 5.45096C15.2977 5.17191 15.0117 4.65566 14.9909 4.09794C14.9767 3.71848 14.9404 3.45833 14.8477 3.23463C14.6448 2.74458 14.2554 2.35523 13.7654 2.15224Z%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-map: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 8.70938C3 7.23584 3 6.49907 3.39264 6.06935C3.53204 5.91678 3.70147 5.79466 3.89029 5.71066C4.42213 5.47406 5.12109 5.70705 6.51901 6.17302C7.58626 6.52877 8.11989 6.70665 8.6591 6.68823C8.85714 6.68147 9.05401 6.65511 9.24685 6.60952C9.77191 6.48541 10.2399 6.1734 11.176 5.54937L12.5583 4.62778C13.7574 3.82843 14.3569 3.42876 15.0451 3.3366C15.7333 3.24444 16.4168 3.47229 17.7839 3.92799L18.9487 4.31624C19.9387 4.64625 20.4337 4.81126 20.7169 5.20409C21 5.59692 21 6.11871 21 7.16229V15.2907C21 16.7642 21 17.501 20.6074 17.9307C20.468 18.0833 20.2985 18.2054 20.1097 18.2894C19.5779 18.526 18.8789 18.293 17.481 17.827C16.4137 17.4713 15.8801 17.2934 15.3409 17.3118C15.1429 17.3186 14.946 17.3449 14.7532 17.3905C14.2281 17.5146 13.7601 17.8266 12.824 18.4507L11.4417 19.3722C10.2426 20.1716 9.64311 20.5713 8.95493 20.6634C8.26674 20.7556 7.58319 20.5277 6.21609 20.072L5.05132 19.6838C4.06129 19.3538 3.56627 19.1888 3.28314 18.7959C3 18.4031 3 17.8813 3 16.8377V8.70938Z%22/%3E%3Cpath d=%22M9 6.65723V20.6569%22/%3E%3Cpath d=%22M15 3.34277V17.3425%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-map-bold: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M2.43627 5.14686C2 5.64345 2 6.49488 2 8.19773V17.591C2 18.797 2 19.4 2.3146 19.854C2.62919 20.3079 3.17921 20.4986 4.27924 20.88L5.57343 21.3286C6.27436 21.5717 6.81371 21.7586 7.26633 21.879C7.5616 21.9576 7.83333 21.7258 7.83333 21.4203V6.2701C7.83333 6.02118 7.64964 5.81111 7.40837 5.74991C7.01914 5.65118 6.55127 5.48897 5.91002 5.26666C4.35676 4.72817 3.58014 4.45893 2.98922 4.73235C2.77941 4.82942 2.59116 4.97054 2.43627 5.14686Z%22/%3E%3Cpath d=%22M12.6204 3.48096L11.0844 4.54596C10.5287 4.93124 10.1215 5.2136 9.77375 5.41491C9.60895 5.51032 9.5 5.68291 9.5 5.87334V20.9203C9.5 21.2909 9.88398 21.5222 10.1962 21.3225C10.5312 21.1082 10.9149 20.8422 11.3796 20.5199L12.9156 19.4549C13.4712 19.0697 13.8785 18.7873 14.2262 18.586C14.3911 18.4906 14.5 18.318 14.5 18.1276V3.08063C14.5 2.71004 14.116 2.47866 13.8038 2.67836C13.4688 2.89271 13.0851 3.15874 12.6204 3.48096Z%22/%3E%3Cpath d=%22M19.7208 3.12093L18.4266 2.67226C17.7256 2.42923 17.1863 2.24228 16.7337 2.12187C16.4384 2.04333 16.1667 2.2751 16.1667 2.58064V17.7308C16.1667 17.9797 16.3504 18.1898 16.5916 18.251C16.9809 18.3497 17.4488 18.5119 18.09 18.7342C19.6432 19.2727 20.4199 19.542 21.0108 19.2686C21.2206 19.1715 21.4088 19.0304 21.5637 18.854C22 18.3575 22 17.506 22 15.8032V6.40988C22 5.2039 22 4.60091 21.6854 4.14695C21.3708 3.69298 20.8208 3.5023 19.7208 3.12093Z%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-doc: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z%22/%3E%3Cpath d=%22M8 12H16%22/%3E%3Cpath d=%22M8 8H16%22/%3E%3Cpath d=%22M8 16H13%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-doc-bold: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M4.17157 3.17157C3 4.34315 3 6.22876 3 10V14C3 17.7712 3 19.6569 4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284C21 19.6569 21 17.7712 21 14V10C21 6.22876 21 4.34315 19.8284 3.17157C18.6569 2 16.7712 2 13 2H11C7.22876 2 5.34315 2 4.17157 3.17157ZM7.25 8C7.25 7.58579 7.58579 7.25 8 7.25H16C16.4142 7.25 16.75 7.58579 16.75 8C16.75 8.41421 16.4142 8.75 16 8.75H8C7.58579 8.75 7.25 8.41421 7.25 8ZM7.25 12C7.25 11.5858 7.58579 11.25 8 11.25H16C16.4142 11.25 16.75 11.5858 16.75 12C16.75 12.4142 16.4142 12.75 16 12.75H8C7.58579 12.75 7.25 12.4142 7.25 12ZM8 15.25C7.58579 15.25 7.25 15.5858 7.25 16C7.25 16.4142 7.58579 16.75 8 16.75H13C13.4142 16.75 13.75 16.4142 13.75 16C13.75 15.5858 13.4142 15.25 13 15.25H8Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E");
+  --ic-book: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 8C4 5.17157 4 3.75736 4.87868 2.87868C5.75736 2 7.17157 2 10 2H14C16.8284 2 18.2426 2 19.1213 2.87868C20 3.75736 20 5.17157 20 8V16C20 18.8284 20 20.2426 19.1213 21.1213C18.2426 22 16.8284 22 14 22H10C7.17157 22 5.75736 22 4.87868 21.1213C4 20.2426 4 18.8284 4 16V8Z%22/%3E%3Cpath d=%22M19.9997 16H7.89749C6.96751 16 6.50253 16 6.12103 16.1022C5.08575 16.3796 4.29986 17.1212 4.02246 18.1564%22/%3E%3Cpath d=%22M8 7H16%22/%3E%3Cpath d=%22M8 10.5H13%22/%3E%3Cpath d=%22M19.9239 19H8%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-shield: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M9.5 12.4L10.9286 14L14.5 10%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-user: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%229%22 r=%223%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-card: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z%22/%3E%3Cpath d=%22M10 16.5H6%22/%3E%3Cpath d=%22M8 13.5H6%22/%3E%3Cpath d=%22M2 10L22 10%22/%3E%3Cpath d=%22M14 15C14 14.0572 14 13.5858 14.2929 13.2929C14.5858 13 15.0572 13 16 13C16.9428 13 17.4142 13 17.7071 13.2929C18 13.5858 18 14.0572 18 15C18 15.9428 18 16.4142 17.7071 16.7071C17.4142 17 16.9428 17 16 17C15.0572 17 14.5858 17 14.2929 16.7071C14 16.4142 14 15.9428 14 15Z%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-backpack: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10.9112C3 10.8182 3 10.7717 3.00057 10.7303C3.0385 7.98021 4.94139 5.60803 7.61778 4.97443C7.65803 4.9649 7.70344 4.95481 7.79425 4.93463C7.87787 4.91605 7.91968 4.90675 7.96109 4.89775C10.6226 4.31875 13.3774 4.31875 16.0389 4.89775C16.0803 4.90675 16.1221 4.91605 16.2057 4.93463C16.2966 4.95481 16.342 4.9649 16.3822 4.97443C19.0586 5.60803 20.9615 7.98021 20.9994 10.7303C21 10.7717 21 10.8182 21 10.9112V16.3752C21 18.4931 19.529 20.3269 17.4615 20.7864C13.8644 21.5857 10.1356 21.5857 6.53853 20.7864C4.47101 20.3269 3 18.4931 3 16.3752V10.9112Z%22/%3E%3Cpath d=%22M17.5 15.5V17%22/%3E%3Cpath d=%22M15.9585 4.5C15.7205 3.08114 14.4865 2 13 2H11C9.51353 2 8.27954 3.08114 8.0415 4.5%22/%3E%3Cpath d=%22M3 14C8.72979 16.5466 15.2702 16.5466 21 14%22/%3E%3Cpath d=%22M10 13H14%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-cloud-rain: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 16.0746 2.60178 17.2457 3.54704 18.0226M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 15.2939 21.0091 17.0061 19.5 18.0226%22/%3E%3Cpath d=%22M17 19L15 21%22/%3E%3Cpath d=%22M16 15.5L14 17.5%22/%3E%3Cpath d=%22M12 20L10 22%22/%3E%3Cpath d=%22M11.5 15.5L9.5 17.5%22/%3E%3Cpath d=%22M7.5 19L5.5 21%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-wallet: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath stroke-linejoin=%22round%22 d=%22M6 8H10%22/%3E%3Cpath d=%22M20.8333 9H18.2308C16.4465 9 15 10.3431 15 12C15 13.6569 16.4465 15 18.2308 15H20.8333C20.9167 15 20.9583 15 20.9935 14.9979C21.5328 14.965 21.9623 14.5662 21.9977 14.0654C22 14.0327 22 13.994 22 13.9167V10.0833C22 10.006 22 9.96726 21.9977 9.9346C21.9623 9.43384 21.5328 9.03496 20.9935 9.00214C20.9583 9 20.9167 9 20.8333 9Z%22/%3E%3Cpath d=%22M20.965 9C20.8873 7.1277 20.6366 5.97975 19.8284 5.17157C18.6569 4 16.7712 4 13 4L10 4C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20H13C16.7712 20 18.6569 20 19.8284 18.8284C20.6366 18.0203 20.8873 16.8723 20.965 15%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17.9912 12H18.0002%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-tram: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10V12C20 15.7712 20 17.6569 18.8284 18.8284C17.6569 20 15.7712 20 12 20C8.22876 20 6.34315 20 5.17157 18.8284C4 17.6569 4 15.7712 4 12V10Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 13H20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M15.5 16H17%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 16H8.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 20L6 22%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 20L18 22%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M10 2V2.5C10 3.60457 10.8954 4.5 12 4.5C13.1046 4.5 14 3.60457 14 2.5V2%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-bus: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10V12C20 15.7712 20 17.6569 18.8284 18.8284C17.6569 20 15.7712 20 12 20C8.22876 20 6.34315 20 5.17157 18.8284C4 17.6569 4 15.7712 4 12V10Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 13H20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M15.5 16H17%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 16H8.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M6 19.5V21C6 21.5523 6.44772 22 7 22H8.5C9.05228 22 9.5 21.5523 9.5 21V20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M18 19.5V21C18 21.5523 17.5523 22 17 22H15.5C14.9477 22 14.5 21.5523 14.5 21V20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M20 9H21C21.5523 9 22 9.44772 22 10V11C22 11.3148 21.8518 11.6111 21.6 11.8L20 13%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 9H3C2.44772 9 2 9.44772 2 10V11C2 11.3148 2.14819 11.6111 2.4 11.8L4 13%22/%3E%3Cpath d=%22M19.5 5H4.5%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-clock: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 8V12L14.5 14.5%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-sun: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M12 2V4%22/%3E%3Cpath d=%22M12 20V22%22/%3E%3Cpath d=%22M4 12L2 12%22/%3E%3Cpath d=%22M22 12L20 12%22/%3E%3Cpath d=%22M19.7778 4.22266L17.5558 6.25424%22/%3E%3Cpath d=%22M4.22217 4.22266L6.44418 6.25424%22/%3E%3Cpath d=%22M6.44434 17.5557L4.22211 19.7779%22/%3E%3Cpath d=%22M19.7778 19.7773L17.5558 17.5551%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-check-mark: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%222.5%22 d=%22M5 12.9L9 17L19 7%22/%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] {
+  --glass: #0F1113; --surface: #1C1E21; --hairline: #34383C; --graphite: #A3A9AE; --ink: #F2F3F4;
+  --blue: #3A66F5; --blue-pressed: #2E57E0; --blue-soft: #1D2A55; --link: #7C9BFF;
+  --conflict: #FF7A6B; --on-conflict: #0F1113;
+  --fixed: #4CC38A; --fixed-soft: #12301F;
+  --disabled: #34383C; --on-disabled: #A3A9AE;
+  --alert-bg: #26292D; --alert-fg: #F2F3F4; --alert-sub: rgba(242,243,244,.8);
+  --panel-bg: rgba(28,30,33,.88); --bar-bg: rgba(28,30,33,.88);
+  --sheet-list: #26292D; --e-hair-bottom: inset 0 -1px 0 #34383C;
+  --e-hair: inset 0 0 0 1px #34383C; --e-stroke: inset 0 0 0 1.5px #34383C;
+  --e-badge-ring: 0 0 0 2px #1C1E21; --e-focus-ring: 0 0 0 4px #1D2A55;
+  --shimmer: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.08), rgba(255,255,255,0));
+}
+
+
+/* ════════════════════════ ОСНОВА ════════════════════════
+   .nw — корінь продукту: усе, що всередині, бере вигляд тільки з кіта. */
+.nw { font: var(--fw-regular) var(--fs-16)/var(--lh-body) var(--font-ui); color: var(--ink); background: var(--glass); -webkit-text-size-adjust: 100%; }
+.nw *, .nw *::before, .nw *::after { box-sizing: border-box; }
+.nw :where(h1, h2, h3, p, ul, ol, figure) { margin: 0; }
+.nw :where(ul, ol) { padding: 0; list-style: none; }
+.nw :where(a) { color: inherit; text-decoration: none; }
+.nw :where(b, strong) { font-weight: var(--fw-semi); }
+.nw :where(small) { font-size: inherit; }
+.nw :where(button) { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; }
+.nw :where(form) { margin: 0; }
+.nw :where(a, button, summary):focus-visible { outline: var(--focus) solid var(--ink); outline-offset: var(--focus); }
+.nw ::selection { background: var(--blue-soft); color: var(--ink); }
+.ic { display: inline-block; flex: none; width: var(--ic-m); height: var(--ic-m); background: currentColor;
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.sr { position: absolute !important; width: var(--line); height: var(--line); overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; padding: 0; border: 0; }
+
+/* іконки за змістом — задають --ic для компонента, що малює її ::before */
+.i-card { --ic: var(--ic-card); } .i-backpack { --ic: var(--ic-backpack); } .i-cloud-rain { --ic: var(--ic-cloud-rain); }
+.i-wallet { --ic: var(--ic-wallet); } .i-tram { --ic: var(--ic-tram); } .i-bus { --ic: var(--ic-bus); }
+.i-clock { --ic: var(--ic-clock); } .i-sun { --ic: var(--ic-sun); } .i-cloud-cross { --ic: var(--ic-cloud-cross); }
+.i-cloud-check { --ic: var(--ic-cloud-check); } .i-share { --ic: var(--ic-share); } .i-restart { --ic: var(--ic-restart); }
+.i-calendar { --ic: var(--ic-calendar); } .i-settings { --ic: var(--ic-settings); } .i-check { --ic: var(--ic-check); }
+
+/* ════════════════════════ ОБОЛОНКА ════════════════════════
+   .shell — екран. Шар 1: .shell__bar (назад / закрити · назва · дія). [.shell__media — фото-герой.]
+   Шар 2: .shell__head (h1 + бриф). Далі .shell__main, .shell__footer; .tabbar — сусід .shell. */
+.shell { position: relative; display: block; background: var(--glass); padding-bottom: var(--tab-clear); }
+.shell__bar { position: sticky; top: 0; z-index: 3; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  min-height: var(--h-bar); padding: 0 var(--s-3); background: var(--bar-bg); box-shadow: var(--e-hair-bottom);
+  -webkit-backdrop-filter: var(--blur-bar); backdrop-filter: var(--blur-bar); }
+.shell__back, .shell__close { justify-self: start; display: inline-flex; align-items: center; gap: var(--s-1); min-height: var(--h-tap);
+  margin-left: calc(var(--s-2) * -1); padding: 0 var(--s-2); border-radius: var(--r-control); color: var(--link);
+  font: var(--fw-semi) var(--fs-16)/var(--lh-1) var(--font-ui); }
+.shell__back::before, .shell__close::before { content: ""; flex: none; width: var(--ic-glass); height: var(--ic-glass); background: currentColor;
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.shell__back { --ic: var(--ic-chevron-left); }
+.shell__back::before { margin-left: calc(var(--s-1) * -1); }
+.shell__close { --ic: var(--ic-close); }
+.shell__title { grid-column: 2; font: var(--fw-semi) var(--fs-16)/var(--lh-1) var(--font-ui); color: var(--ink); }
+.shell__action { grid-column: 3; justify-self: end; display: inline-flex; align-items: center; justify-content: center;
+  width: var(--h-tap); height: var(--h-tap); color: var(--ink); }
+.shell__action .ic { width: var(--ic-l); height: var(--ic-l); }
+.shell__media { padding: 0 var(--gutter); }
+.shell__head { padding: var(--s-5) var(--gutter) 0; display: flow-root; }
+.shell__h1 { margin: 0 0 var(--s-1); font: var(--fw-semi) var(--fs-24)/var(--lh-title) var(--font-ui); letter-spacing: var(--ls-title); text-wrap: balance; }
+.shell__main { display: flex; flex-direction: column; padding: 0 var(--gutter); }
+.shell__main > *, .shell__main > .section--bare > * { order: 2; }
+.shell__footer { padding: var(--s-6) var(--s-5); font: var(--fw-regular) var(--fs-14)/var(--lh-footer) var(--font-ui); color: var(--graphite); }
+.shell__footer > p { margin: 0 0 var(--gap-legacy-10); }
+
+/* на фото: шар 1 склом поверх фото-героя; назва — в h1 */
+.shell--photo .shell__bar { position: absolute; left: 0; right: 0; padding: var(--photo-inset); background: none; box-shadow: none;
+  -webkit-backdrop-filter: none; backdrop-filter: none; }
+.shell--photo .shell__back { margin-left: 0; padding: 0 var(--s-4); border-radius: var(--r-pill); color: var(--on-photo); background: var(--glass-btn);
+  -webkit-backdrop-filter: var(--blur-btn); backdrop-filter: var(--blur-btn); }
+.shell--photo .shell__title { position: absolute; width: var(--line); height: var(--line); overflow: hidden; clip: rect(0 0 0 0); }
+.shell--photo .shell__action { border-radius: var(--r-round); color: var(--on-photo); background: var(--glass-btn);
+  -webkit-backdrop-filter: var(--blur-btn); backdrop-filter: var(--blur-btn); }
+.shell--photo .shell__head { padding-top: var(--s-4); }
+/* модальне: «назад» — кругла скляна іконка, назва по центру білим, таб-бару немає */
+.shell--modal { padding-bottom: 0; }
+.shell--modal + .tabbar { display: none; }
+.shell--modal .shell__bar { justify-content: center; }
+.shell--modal .shell__h1 { margin-bottom: 0; }
+.shell--modal .shell__title { letter-spacing: var(--ls-bar-title); }
+.shell--modal .shell__back { width: var(--h-tap); padding: 0; justify-content: center; font-size: 0; gap: 0; }
+.shell--modal .shell__back::before { width: var(--ic-l); height: var(--ic-l); margin: 0; }
+.shell--modal .shell__title { position: static; width: auto; height: var(--h-tap); overflow: visible; clip: auto; display: inline-flex; align-items: center;
+  color: var(--on-photo); text-shadow: var(--shadow-title); }
+.shell--loading .shell__back { background: var(--glass-btn-strong); }
+.shell--loading .shell__title { color: var(--ink); text-shadow: none; }
+/* аркуш: лежить поверх затемненого екрана-джерела, з ручкою, перекриває таб-бар */
+.shell--sheet { padding-bottom: 0; }
+.shell__backdrop { position: absolute; top: 0; left: 0; z-index: 0; display: block; width: 100%; height: auto; }
+.shell--sheet::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--dim); }
+.shell--sheet > :not(.shell__backdrop) { position: relative; z-index: 2; }
+.shell--sheet + .tabbar { display: none; }
+.shell--sheet .shell__bar { position: relative; min-height: var(--h-sheet-bar); margin-top: var(--sheet-offset); padding: var(--s-4) var(--s-3) 0;
+  background: var(--surface); box-shadow: none; border-radius: var(--r-panel) var(--r-panel) var(--r-0) var(--r-0);
+  -webkit-backdrop-filter: none; backdrop-filter: none; }
+.shell--sheet .shell__bar::before { content: ""; position: absolute; top: var(--handle-top); left: 50%; width: var(--w-handle); height: var(--h-handle);
+  margin-left: calc(var(--w-handle) / -2); border-radius: var(--r-pill); background: var(--hairline); }
+.shell--sheet .shell__head, .shell--sheet .shell__main { background: var(--surface); }
+.shell--sheet .shell__head { padding-top: var(--s-5); }
+.shell--sheet .shell__footer { background: var(--surface); padding-bottom: var(--s-10); min-height: var(--sheet-foot-min); }
+.shell--sheet .list { background: var(--sheet-list); box-shadow: none; }
+/* карта-поверхня: шапки й назви не видно — вхід це сама карта */
+.shell--map .shell__bar, .shell--map .shell__head { position: absolute; width: var(--line); height: var(--line); overflow: hidden; clip: rect(0 0 0 0); padding: 0; margin: 0; }
+.shell--map .shell__footer { background: var(--surface); }
+.shell--map { scroll-snap-type: y proximity; }
+/* сьогодні: SOS поруч із назвою дня */
+.shell--today .shell__h1 { padding-right: var(--sos-clear); }
+
+/* ── таб-бар ── */
+.tabbar { position: absolute; left: var(--tab-inset); right: var(--tab-inset); bottom: var(--tab-inset); z-index: 10;
+  padding: var(--s-2) var(--s-2) var(--s-3); border-radius: var(--r-pill); background: var(--bar-bg); box-shadow: var(--e-float);
+  -webkit-backdrop-filter: var(--blur-bar); backdrop-filter: var(--blur-bar); }
+.tabbar__list { display: flex; margin: 0; padding: 0; list-style: none; }
+.tabbar__list > li { flex: 1; }
+.tabbar__item { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s-1);
+  min-height: var(--h-tap); color: var(--graphite); font: var(--fw-medium) var(--fs-10)/var(--lh-tab) var(--font-ui); }
+.tabbar__item::before { content: ""; width: var(--ic-l); height: var(--ic-l); background: currentColor;
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.tabbar__item[aria-current="page"] { color: var(--ink); font-weight: var(--fw-semi); --ic: var(--ic-on); }
+.tabbar__item--map { --ic: var(--ic-map); --ic-on: var(--ic-map-bold); }
+.tabbar__item--plans { --ic: var(--ic-doc); --ic-on: var(--ic-doc-bold); }
+.tabbar__item--guide { --ic: var(--ic-book); --ic-on: var(--ic-book); }
+.tabbar__item--safety { --ic: var(--ic-shield); --ic-on: var(--ic-shield); }
+.tabbar__item--profile { --ic: var(--ic-user); --ic-on: var(--ic-user); }
+.tabbar__badge { position: absolute; top: 0; left: calc(50% + var(--badge-offset)); min-width: var(--ic-glass); height: var(--ic-glass); padding: 0 var(--s-1);
+  border-radius: var(--r-pill); background: var(--yellow); color: var(--yellow-ink); box-shadow: var(--e-badge-ring);
+  font: var(--fw-semi) var(--fs-10)/var(--ic-glass) var(--font-num); text-align: center; }
+
+/* ════════════════════════ КАРТКИ Й СПИСКИ ════════════════════════ */
+.section { padding-top: var(--s-5); }
+.section__title { margin: 0 0 var(--s-2); font: var(--fw-semi) var(--fs-16)/var(--lh-head) var(--font-ui); color: var(--ink); }
+.section--tight { padding-top: var(--s-3); }
+.section--bare { display: contents; }
+.section--last { order: 9; padding-top: var(--s-6); }
+
+/* фото-герой: на всю ширину, нижні кути 32, джерело на знімку; .panel і .hero__hud лежать на ньому */
+.hero { position: relative; height: var(--h-hero); margin: 0 calc(var(--gutter) * -1); overflow: hidden; border-radius: var(--r-0) var(--r-0) var(--r-photo) var(--r-photo);
+  background: var(--glass); }
+.hero__img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center var(--hero-y); }
+.hero::before { content: ""; position: absolute; inset: 0 0 auto 0; z-index: 1; height: var(--h-scrim); background: var(--scrim-top); }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: 1; box-shadow: var(--e-photo-floor); pointer-events: none; }
+.hero__credit { position: absolute; z-index: 2; top: calc(var(--h-bar) + var(--photo-inset)); right: var(--photo-inset); color: var(--on-photo-soft);
+  font: var(--fw-medium) var(--fs-12)/var(--lh-1) var(--font-num); letter-spacing: var(--ls-credit); text-shadow: var(--shadow-text); }
+.hero__hud { position: absolute; top: var(--hud-top); left: var(--photo-inset); z-index: 2; display: inline-flex; align-items: center; gap: var(--s-1);
+  color: var(--on-photo); font: var(--fw-medium) var(--fs-12)/var(--lh-row) var(--font-num); letter-spacing: var(--ls-hud); text-transform: uppercase;
+  text-shadow: var(--shadow-text); }
+.hero__hud::before { content: ""; width: var(--ic-s); height: var(--ic-s); background: currentColor;
+  -webkit-mask: var(--ic-cloud-check) center / contain no-repeat; mask: var(--ic-cloud-check) center / contain no-repeat; }
+.hero__hud--offline::before { -webkit-mask-image: var(--ic-cloud-cross); mask-image: var(--ic-cloud-cross); }
+
+/* панель приладу: три рівні стовпці на склі поверх фото; .panel--card — той самий компонент на білій картці */
+.panel { position: absolute; left: var(--photo-inset); right: var(--photo-inset); bottom: var(--photo-inset); z-index: 2;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: var(--s-4); list-style: none;
+  border-radius: var(--r-panel); background: var(--panel-bg); -webkit-backdrop-filter: var(--blur-glass); backdrop-filter: var(--blur-glass); }
+.panel__item { display: flex; flex-direction: column; min-width: 0; padding-left: var(--s-3); border-left: var(--line) solid var(--hairline); }
+.panel__item:first-child { padding-left: 0; border-left: 0; }
+.panel__item--hidden { display: none; }
+.panel__value { font: var(--fw-semi) var(--fs-24)/var(--lh-1) var(--font-num); letter-spacing: var(--ls-num-tight); color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.panel__unit { margin: 0 var(--line) 0 var(--unit-gap); font: var(--fw-medium) var(--fs-12)/var(--lh-1) var(--font-ui); letter-spacing: 0; color: var(--graphite); }
+.panel__label { margin-top: var(--label-gap); font: var(--fw-medium) var(--fs-10)/var(--lh-head) var(--font-ui); letter-spacing: var(--ls-caps); text-transform: uppercase; color: var(--graphite); white-space: nowrap; }
+.panel--card { position: static; grid-template-columns: var(--day-cols); margin-top: var(--s-3); background: var(--surface); box-shadow: var(--e-hair);
+  border-radius: var(--r-card); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.panel--card .panel__item { padding-left: var(--s-4); }
+.panel--card .panel__item:first-child { padding-left: 0; }
+.panel--card .panel__value { letter-spacing: var(--ls-title); }
+.panel--card .panel__unit { margin: 0 var(--line); font-size: var(--fs-14); }
+.panel--even { grid-template-columns: repeat(3, 1fr); }
+
+/* бриф: «дати · хто» під назвою; --edit — з дією «change» */
+.brief { display: block; margin: 0; padding: 0 var(--s-1); }
+.brief__text { font: var(--fw-medium) var(--fs-16)/var(--lh-small) var(--font-ui); color: var(--ink); }
+.brief--edit { padding-top: var(--s-1); }
+.brief--edit .brief__text { font-size: var(--fs-14); color: var(--graphite); }
+.brief__action { margin-left: var(--s-1); color: var(--link); font: var(--fw-semi) var(--fs-14)/var(--lh-1) var(--font-ui); }
+
+/* згрупований список */
+.list { margin: 0; padding: 0 var(--s-4); list-style: none; border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-hair); }
+.list > li { border-bottom: var(--line) solid var(--hairline); }
+.list > li:last-child { border-bottom: 0; }
+.row { display: grid; grid-template-columns: 1fr auto var(--ic-s); gap: var(--s-3); align-items: center; min-height: var(--h-row);
+  padding: var(--s-3) 0; color: var(--ink); }
+div.row { grid-template-columns: 1fr auto; }
+.row::after { content: ""; width: var(--ic-s); height: var(--ic-s); background: var(--graphite);
+  -webkit-mask: var(--ic-chevron-right) center / contain no-repeat; mask: var(--ic-chevron-right) center / contain no-repeat; }
+div.row::after, label.row::after { content: none; }
+.row__text { display: block; min-width: 0; }
+.row__title { display: block; font: var(--fw-semi) var(--fs-16)/var(--lh-row) var(--font-ui); }
+.row__sub { display: block; margin-top: var(--s-1); font: var(--fw-regular) var(--fs-12)/var(--lh-small) var(--font-ui); color: var(--graphite); text-wrap: pretty; }
+.row__sub--roomy { font-size: var(--fs-14); }
+.row__trail { justify-self: end; margin-left: var(--s-1); }
+/* рядок з іконкою змісту: іконку задає .i-* на рядку */
+.list--icons .row { column-gap: var(--s-4); grid-template-columns: var(--ic-l) 1fr auto var(--ic-s); }
+.list--icons div.row { grid-template-columns: var(--ic-l) 1fr; }
+.list--icons .row::before { content: ""; width: var(--ic-l); height: var(--ic-l); background: var(--graphite);
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+/* стан рядка — під текстом, щоб текст мав усю ширину */
+.list--icons a.row:has(.row__trail) { grid-template-columns: var(--ic-l) 1fr var(--ic-s); row-gap: 0; }
+.list--icons a.row:has(.row__trail) > .row__text { grid-column: 2; grid-row: 1; }
+.list--icons a.row:has(.row__trail) > .row__trail { grid-column: 2; grid-row: 2; justify-self: start; margin: var(--s-2) 0 0; }
+.list--icons a.row:has(.row__trail)::before { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+.list--icons a.row:has(.row__trail)::after { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
+/* список без підкладки: під тривогою */
+.list--bare { padding: 0; background: none; box-shadow: none; border-radius: 0; }
+.list--bare > li { border: 0; }
+/* список, що плаває на карті */
+.list--float { position: relative; z-index: 2; margin-top: var(--float-pull); box-shadow: var(--e-float); }
+.alert + .list { margin-top: var(--s-3); }
+/* рядок у процесі: спінер замість іконки */
+div.row--loading { grid-template-columns: var(--ic-glass) 1fr auto; }
+.row--loading::before { content: ""; width: var(--ic-glass); height: var(--ic-glass); border-radius: var(--r-round); border: var(--spin-w) solid var(--hairline);
+  border-top-color: var(--blue); animation: kit-spin var(--dur-spin) linear infinite; }
+.row__count { justify-self: end; margin-left: var(--s-1); padding: var(--s-2) var(--s-3); font: var(--fw-semi) var(--fs-14)/var(--lh-1) var(--font-num); color: var(--graphite); white-space: nowrap; }
+
+/* стан словом: нейтральна пігулка, «увага», закріплено, на фото; і текстова дія над своєю сутністю */
+.pill { display: inline-flex; align-items: center; gap: var(--s-2); padding: var(--s-2) var(--s-3); border-radius: var(--r-pill);
+  background: var(--glass); color: var(--ink); box-shadow: var(--e-hair); font: var(--fw-semi) var(--fs-14)/var(--lh-1) var(--font-ui); white-space: nowrap; }
+.pill--attention { padding-left: var(--s-2); background: var(--alert-bg); color: var(--alert-fg); }
+.pill--attention::before { content: ""; width: var(--fs-14); height: var(--fs-14); background: var(--yellow);
+  -webkit-mask: var(--ic-danger) center / contain no-repeat; mask: var(--ic-danger) center / contain no-repeat; }
+.pill--fixed { width: max-content; margin: 0; padding-left: var(--s-2); background: var(--fixed-soft); color: var(--fixed); box-shadow: none; }
+.pill--fixed::before { content: ""; width: var(--ic-s); height: var(--ic-s); background: currentColor;
+  -webkit-mask: var(--ic-check) center / contain no-repeat; mask: var(--ic-check) center / contain no-repeat; }
+.pill--photo { padding: var(--s-1) var(--s-2); background: var(--chip-photo); color: var(--yellow-ink); box-shadow: none; font: var(--fw-semi) var(--fs-12)/var(--lh-1) var(--font-num); }
+.action-text { justify-self: end; margin-left: var(--s-1); color: var(--link); font: var(--fw-semi) var(--fs-16)/var(--lh-1) var(--font-ui); white-space: nowrap; }
+
+/* ланцюжок днів: нитка — li::before, вузол — ::before рядка (номер з лічильника), шеврон — ::after */
+.days { margin: 0; padding: 0 var(--s-4); list-style: none; border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-hair); counter-reset: day -1; }
+.days > li { position: relative; counter-increment: day; }
+.days > li::before { content: ""; position: absolute; left: var(--thread-x); top: 0; bottom: 0; width: var(--stroke-strong); background: var(--hairline); }
+.days > li:first-child::before { top: calc(50% + var(--s-3)); }
+.days > li:last-child::before { bottom: calc(50% + var(--s-3)); }
+.day { display: grid; grid-template-columns: var(--node) 1fr auto var(--ic-s); column-gap: var(--s-4); gap: var(--s-3) var(--s-4); align-items: center;
+  min-height: var(--h-row); padding: var(--s-3) 0; color: var(--ink); }
+div.day { grid-template-columns: var(--node) 1fr; }
+.day::before { content: counter(day); position: relative; z-index: 1; justify-self: center; display: grid; place-items: center;
+  width: var(--node); height: var(--node); border-radius: var(--r-round); background: var(--surface); box-shadow: var(--e-stroke);
+  font: var(--fw-semi) var(--fs-12)/var(--lh-1) var(--font-num); color: var(--ink); }
+.day::after { content: ""; width: var(--ic-s); height: var(--ic-s); background: var(--graphite);
+  -webkit-mask: var(--ic-chevron-right) center / contain no-repeat; mask: var(--ic-chevron-right) center / contain no-repeat; }
+div.day::after { content: none; }
+.day--warn::before { background: var(--yellow); color: var(--yellow-ink); box-shadow: inset 0 0 0 var(--stroke-strong) var(--yellow-ink); }
+.day--transport::before { content: ""; width: var(--ic-m); height: var(--ic-m); border-radius: 0; box-shadow: none; background: var(--graphite);
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; z-index: 2; }
+.day__text { display: block; min-width: 0; }
+.day:has(.pill, .action-text) { grid-template-columns: var(--node) 1fr var(--ic-s); row-gap: 0; }
+.day:has(.pill, .action-text) > .day__text { grid-column: 2; grid-row: 1; }
+.day:has(.pill, .action-text) > .pill, .day:has(.pill, .action-text) > .action-text { grid-column: 2; grid-row: 2; justify-self: start; margin: var(--s-2) 0 0; }
+.day:has(.pill, .action-text)::before { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+.day:has(.pill, .action-text)::after { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
+
+/* тривога: інверсія зі штрихованим краєм; --conflict — вердикт із червоним краєм; --static — без переходу */
+.alert { position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto var(--ic-s); gap: var(--s-3); align-items: center;
+  padding: var(--s-3) var(--s-4) var(--s-3) var(--s-6); border-radius: var(--r-card); background: var(--alert-bg); color: var(--alert-fg); }
+.alert::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: var(--hatch-w); background: var(--hatch); }
+.alert::after { content: ""; width: var(--ic-s); height: var(--ic-s); background: var(--alert-sub);
+  -webkit-mask: var(--ic-chevron-right) center / contain no-repeat; mask: var(--ic-chevron-right) center / contain no-repeat; }
+.alert__text { display: block; min-width: 0; }
+.alert__title { display: block; font: var(--fw-semi) var(--fs-16)/var(--lh-row) var(--font-ui); }
+.alert__body { display: block; margin-top: var(--s-1); font: var(--fw-regular) var(--fs-14)/var(--lh-small) var(--font-ui); color: var(--alert-sub); }
+.alert__body--short { font-size: var(--fs-12); }
+.alert__tag { align-self: start; margin-left: var(--s-1); padding-top: var(--s-1); font: var(--fw-medium) var(--fs-12)/var(--lh-row) var(--font-num); letter-spacing: var(--ls-tag); color: var(--yellow); white-space: nowrap; }
+.alert__tag--wide { font-size: var(--fs-14); }
+.alert--static { display: block; }
+.alert--static::after { content: none; }
+.alert--static .alert__body { font-size: var(--fs-14); line-height: var(--lh-body); }
+.alert--conflict::before { background: var(--conflict-on-ink); }
+
+/* межа знання: дані лишились, але не свіжі; --done — підсумок пройденого */
+.limit { position: relative; display: block; margin: 0; padding: var(--s-4) var(--s-4) var(--s-4) var(--s-12); border: var(--stroke) dashed var(--dash); border-radius: var(--r-card);
+  font: var(--fw-regular) var(--fs-16)/var(--lh-body) var(--font-ui); color: var(--graphite); }
+.limit::before { content: ""; position: absolute; left: var(--s-4); top: var(--limit-ic-top); width: var(--ic-m); height: var(--ic-m); background: var(--graphite);
+  -webkit-mask: var(--ic-cloud-cross) center / contain no-repeat; mask: var(--ic-cloud-cross) center / contain no-repeat; }
+.limit b { color: var(--ink); font-weight: var(--fw-semi); }
+.limit--done { padding: 0 var(--s-1) 0 var(--s-8); border: 0; }
+.limit--done + .actions { margin-top: var(--gap-legacy); }
+.limit--done::before { left: var(--s-1); top: var(--line); -webkit-mask-image: var(--ic-check); mask-image: var(--ic-check); }
+
+/* порожній стан */
+.empty { margin: 0 0 var(--s-3); padding: var(--s-4); text-align: center; border: var(--stroke) dashed var(--dash); border-radius: var(--r-card); }
+.empty > p { margin: 0; font: var(--fw-regular) var(--fs-16)/var(--lh-body) var(--font-ui); color: var(--graphite); }
+.empty + .list { margin-top: var(--s-3); }
+
+/* рядок-умова: іконка + текст (нічліг, погода) */
+.cond { position: relative; margin: var(--s-3) 0 0; padding: 0 var(--s-1) 0 var(--s-8); font: var(--fw-regular) var(--fs-16)/var(--lh-body) var(--font-ui); color: var(--ink); }
+.cond::before { content: ""; position: absolute; left: var(--s-1); top: 0; width: var(--ic-m); height: var(--ic-m); background: var(--graphite);
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.section__title + .cond { margin-top: 0; }
+.cond--muted { color: var(--graphite); }
+
+/* підпис під приладом (градація) */
+.caption-line { margin: var(--s-3) var(--s-1) 0; font: var(--fw-medium) var(--fs-14)/var(--lh-small) var(--font-ui); color: var(--graphite); }
+
+/* картка з фото */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4) var(--s-3); margin: 0; padding: 0; list-style: none; }
+.card-photo { position: relative; display: block; color: var(--ink); }
+.card-photo__img { position: relative; display: block; aspect-ratio: var(--ratio-card); margin: 0 0 var(--s-2); overflow: hidden; border-radius: var(--r-card); background: var(--glass); }
+.card-photo__pic { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.card-photo__img::before { content: ""; position: absolute; inset: auto 0 0 0; z-index: 1; height: var(--h-card-scrim); background: var(--scrim-bottom); }
+.card-photo__credit { position: absolute; left: var(--s-2); right: var(--s-2); bottom: var(--s-2); z-index: 2; color: var(--on-photo-soft);
+  font: var(--fw-medium) var(--fs-12)/var(--lh-head) var(--font-num); letter-spacing: var(--ls-tag); text-shadow: var(--shadow-card); }
+.card-photo .pill--photo { position: absolute; top: var(--s-2); left: var(--s-2); z-index: 2; }
+.card-photo__title { display: block; font: var(--fw-semi) var(--fs-16)/var(--lh-row) var(--font-ui); }
+.card-photo__sub { display: block; margin-top: var(--s-1); font: var(--fw-regular) var(--fs-12)/var(--lh-small) var(--font-ui); color: var(--graphite); }
+
+/* рамка карти; --surface — карта на весь екран під пошуком; --mini — «сьогодні» */
+.map { position: relative; aspect-ratio: var(--ratio-map); overflow: hidden; border-radius: var(--r-card); background: var(--map-land); }
+.map__img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.map__attrib, .map__badge { position: absolute; z-index: 1; padding: var(--s-1) var(--s-2); border-radius: var(--r-pill); background: var(--attrib-bg); color: var(--attrib-fg);
+  font: var(--fw-medium) var(--fs-12)/var(--lh-1) var(--font-ui); }
+.map__attrib { left: var(--s-2); bottom: var(--s-2); }
+.map__badge { right: var(--s-2); top: var(--s-2); font-family: var(--font-num); letter-spacing: var(--ls-tag); }
+.map--mini { aspect-ratio: auto; height: var(--h-map-mini); margin-top: var(--s-3); }
+.map--surface { position: sticky; top: 0; z-index: 0; aspect-ratio: auto; height: var(--h-map-surface); margin: var(--map-surface-pull) calc(var(--gutter) * -1) 0; border-radius: 0; }
+.map--surface .map__attrib { left: var(--s-3); bottom: var(--map-attrib-lift); }
+.map + .panel--card, .profile + .panel--card { margin-top: var(--s-3); }
+[data-theme="dark"] .map { filter: var(--map-dark); }
+
+/* профіль висоти */
+.profile { position: relative; margin-top: var(--s-3); aspect-ratio: var(--ratio-profile); overflow: hidden; border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-hair); }
+.profile__img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: fill; }
+[data-theme="dark"] .profile { filter: var(--profile-dark); }
+
+/* пошук «Where · When · Who»: пігулка прибита згори, поверх карти */
+.shell__main .search { position: sticky; top: var(--s-3); z-index: 5; display: grid; grid-template-columns: var(--search-cols); margin: var(--s-3) calc(var(--s-1) * -1) 0; padding: var(--s-2);
+  list-style: none; border-radius: var(--r-panel); background: var(--surface); box-shadow: var(--e-float); order: 1; }
+.search > li { min-width: 0; border-left: var(--line) solid var(--hairline); }
+.search > li:first-child { border-left: 0; }
+.search__field { display: block; padding: var(--s-1) var(--s-3); color: var(--ink); }
+.search__label { display: block; font: var(--fw-medium) var(--fs-12)/var(--lh-head) var(--font-ui); color: var(--graphite); }
+.search__value { display: -webkit-box; margin-top: var(--line); overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  font: var(--fw-semi) var(--fs-14)/var(--lh-search) var(--font-ui); color: var(--ink); }
+.chips.chips--on-map { position: relative; z-index: 3; margin: var(--s-2) calc(var(--s-1) * -1) 0; order: 1; }
+.chips--on-map .chip:not([aria-pressed="true"]) { box-shadow: var(--e-float); }
+
+/* картка, що плаває на карті (текст замість свого маршруту) */
+.float-card { position: relative; z-index: 2; margin: var(--float-pull) 0 0; padding: var(--s-4); border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-float);
+  font: var(--fw-regular) var(--fs-16)/var(--lh-body) var(--font-ui); color: var(--ink); }
+
+/* аркуш пресетів над картою: дві висоти — прив'язка прокрутки */
+.sheet { position: relative; z-index: 1; margin: 0 calc(var(--gutter) * -1); padding: var(--s-4) var(--gutter) var(--s-2); background: var(--surface); }
+.sheet--first { margin-top: var(--s-4); padding-top: var(--s-3); border-radius: var(--r-panel) var(--r-panel) var(--r-0) var(--r-0); box-shadow: var(--e-sheet);
+  scroll-snap-align: start; scroll-margin-top: var(--sheet-snap); }
+.sheet--first::before { content: ""; display: block; width: var(--w-handle); height: var(--h-handle); margin: 0 auto var(--s-3); border-radius: var(--r-pill); background: var(--hairline); }
+.sheet--last { padding-bottom: var(--s-6); }
+.shell--map .shell__main > :first-child { scroll-snap-align: start; }
+
+/* скелет і спінер генерації */
+.skeleton { display: block; height: var(--h-skel-line); margin-bottom: var(--s-3); border-radius: var(--r-pill); background: var(--hairline);
+  background-image: var(--shimmer); background-size: 200% 100%; animation: kit-shimmer var(--dur-shimmer) linear infinite; }
+.skeleton--block { height: var(--h-skel-block); border-radius: var(--r-card); }
+.skeleton--hero { height: var(--h-hero); margin: 0 calc(var(--gutter) * -1); border-radius: var(--r-0) var(--r-0) var(--r-photo) var(--r-photo); }
+.skeleton--brief { margin-top: var(--s-3); }
+.skeleton--w60 { width: var(--w-60); } .skeleton--w40 { width: var(--w-40); }
+.spinner { width: var(--ic-glass); height: var(--ic-glass); border-radius: var(--r-round); border: var(--spin-w) solid var(--hairline); border-top-color: var(--blue);
+  animation: kit-spin var(--dur-spin) linear infinite; }
+@keyframes kit-shimmer { to { background-position: -200% 0; } }
+@keyframes kit-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .skeleton, .spinner, .row--loading::before { animation: none; } .spinner, .row--loading::before { border-right-color: var(--blue); } }
+
+/* ════════════════════════ ФОРМИ Й ДІЇ ════════════════════════ */
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-4); margin: var(--s-3) 0 0; }
+.actions--split { flex-wrap: nowrap; gap: var(--s-2); }
+.actions--split > * { flex: var(--flex-secondary); }
+.actions--split > .btn--primary { flex: var(--flex-primary); }
+.actions--block > .btn { flex: 1; width: 100%; }
+.actions--sos { position: absolute; top: var(--sos-top); right: var(--gutter); z-index: 3; margin: 0; }
+.actions--on-map { position: relative; z-index: 2; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2); min-height: var(--h-control); padding: 0 var(--s-5); border: 0;
+  border-radius: var(--r-control); font: var(--fw-semi) var(--fs-16)/var(--lh-1) var(--font-ui); cursor: pointer;
+  transition: background var(--dur-fast), transform var(--dur-fast); }
+.btn--primary { background: var(--blue); color: var(--on-blue); }
+.btn--primary:active { background: var(--blue-pressed); transform: scale(var(--press-scale)); }
+.btn--secondary { background: var(--surface); color: var(--ink); box-shadow: var(--e-stroke); }
+.btn--secondary:active { background: var(--glass); }
+.btn--text { min-height: var(--h-tap); padding: 0; background: none; color: var(--link); }
+.btn--danger { background: var(--surface); color: var(--conflict); box-shadow: var(--e-stroke); }
+.btn--sos { min-height: var(--h-sos); border-radius: var(--r-pill); background: var(--sos-bg); color: var(--sos-fg); font: var(--fw-bold) var(--fs-16)/var(--lh-1) var(--font-num); letter-spacing: var(--ls-sos); }
+.btn:disabled, .btn[aria-disabled="true"] { padding: 0 var(--s-4); background: var(--disabled); color: var(--on-disabled); box-shadow: none; transform: none; cursor: not-allowed;
+  font-size: var(--fs-16); line-height: var(--lh-head); }
+.btn--block { width: 100%; }
+.btn .ic { width: var(--ic-m); height: var(--ic-m); }
+.btn--icon-lead::before { content: ""; flex: none; width: var(--ic-m); height: var(--ic-m); background: currentColor;
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+/* кнопка на фото — скло; --round — лише іконка, 44 */
+.btn--glass { min-height: var(--h-tap); padding: 0 var(--s-4); border-radius: var(--r-pill); background: var(--glass-btn); color: var(--on-photo);
+  -webkit-backdrop-filter: var(--blur-btn); backdrop-filter: var(--blur-btn); }
+.btn--round { width: var(--h-tap); padding: 0; border-radius: var(--r-round); }
+/* панель дії внизу модального */
+.actionbar { position: sticky; bottom: 0; z-index: 4; margin: var(--s-6) calc(var(--gutter) * -1) 0; padding: var(--s-5) var(--gutter) var(--s-6);
+  background: var(--bar-bg); border-top: var(--line) solid var(--hairline); -webkit-backdrop-filter: var(--blur-bar); backdrop-filter: var(--blur-bar); }
+.actionbar .actions { margin: 0; }
+
+/* чипи: 32 px, зона тапу 44 невидимим полем */
+.chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0; padding: 0; list-style: none; }
+.chip { position: relative; min-height: var(--h-chip); padding: 0 var(--s-3); border: 0; border-radius: var(--r-pill); background: var(--surface); color: var(--ink);
+  box-shadow: var(--e-stroke); font: var(--fw-medium) var(--fs-14)/var(--lh-1) var(--font-ui); cursor: pointer; }
+.chip::after { content: ""; position: absolute; inset: calc((var(--h-chip) - var(--h-tap)) / 2) 0; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--glass); box-shadow: none; font-weight: var(--fw-semi); }
+
+/* сегментований перемикач (Field notes · Reviews) — той самий принцип інверсії, що в .chip */
+.seg { display: flex; gap: var(--s-1); margin: 0; padding: var(--s-1); border-radius: var(--r-control); background: var(--surface); box-shadow: var(--e-hair); }
+.seg > a { flex: 1; display: flex; align-items: center; justify-content: center; min-height: var(--h-tap); border-radius: var(--r-field); color: var(--graphite);
+  font: var(--fw-semi) var(--fs-14)/var(--lh-1) var(--font-ui); text-align: center; }
+.seg > a[aria-current="page"] { background: var(--ink); color: var(--glass); }
+
+/* поле форми — зі стенду: підпис, поле 52 з радіусом 12, підказка; фокус синій, помилка червоним і словом */
+.field { display: grid; gap: var(--s-2); }
+.field__label { font: var(--fw-semi) var(--fs-14)/var(--lh-row) var(--font-ui); color: var(--ink); }
+.field__input { width: 100%; min-height: var(--h-control); padding: 0 var(--s-4); border: 0; border-radius: var(--r-field); background: var(--surface); color: var(--ink);
+  box-shadow: var(--e-stroke); font: var(--fw-regular) var(--fs-16)/var(--lh-1) var(--font-ui); transition: box-shadow var(--dur-fast); }
+.field__input::placeholder { color: var(--graphite); }
+.field__input:focus { outline: none; box-shadow: inset 0 0 0 var(--stroke-strong) var(--blue), var(--e-focus-ring); }
+.field__hint { font: var(--fw-regular) var(--fs-12)/var(--lh-small) var(--font-ui); color: var(--graphite); }
+.field--error .field__input { box-shadow: inset 0 0 0 var(--stroke-strong) var(--conflict); }
+.field--error .field__hint { color: var(--conflict); }
+.field--ok .field__input { box-shadow: inset 0 0 0 var(--stroke-strong) var(--fixed); }
+.field--ok .field__hint { color: var(--fixed); }
+
+/* рядок-перемикач (Settings) і рядок-відмітка (Gear) */
+.switch { position: relative; flex: none; width: var(--w-switch); height: var(--h-switch); margin: 0; border-radius: var(--r-pill);
+  background: var(--hairline); appearance: none; -webkit-appearance: none; cursor: pointer; transition: background var(--dur); }
+.switch::after { content: ""; position: absolute; top: var(--switch-pad); left: var(--switch-pad); width: var(--switch-knob); height: var(--switch-knob);
+  border-radius: var(--r-pill); background: var(--surface); box-shadow: var(--e-float); transition: transform var(--dur) var(--ease); }
+.switch:checked { background: var(--blue); }
+.switch:checked::after { transform: translateX(calc(var(--w-switch) - var(--switch-knob) - var(--switch-pad) * 2)); }
+.check { flex: none; width: var(--ic-l); height: var(--ic-l); margin: 0; border-radius: var(--r-pill); box-shadow: var(--e-stroke); background: var(--surface);
+  appearance: none; -webkit-appearance: none; cursor: pointer; }
+.check:checked { background: var(--blue); box-shadow: none; }
+.check:checked::after { content: ""; display: block; width: 100%; height: 100%; background: var(--on-blue);
+  -webkit-mask: var(--ic-check-mark) center / var(--w-60) no-repeat; mask: var(--ic-check-mark) center / var(--w-60) no-repeat; }
+.row--control { grid-template-columns: auto 1fr auto; }
+.row--toggle { grid-template-columns: 1fr auto; cursor: pointer; }
+
+/* розкривач; --quiet — у футері */
+.disclosure { padding: 0 var(--s-4); border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-hair); }
+.disclosure > summary { display: flex; align-items: center; justify-content: space-between; min-height: var(--h-control); list-style: none; cursor: pointer;
+  font: var(--fw-semi) var(--fs-16)/var(--lh-1) var(--font-ui); color: var(--ink); }
+.disclosure > summary::-webkit-details-marker { display: none; }
+.disclosure > summary::after { content: ""; width: var(--ic-s); height: var(--ic-s); background: var(--graphite); transition: transform var(--dur) var(--ease);
+  -webkit-mask: var(--ic-chevron-down) center / contain no-repeat; mask: var(--ic-chevron-down) center / contain no-repeat; }
+.disclosure[open] > summary::after { transform: rotate(180deg); }
+.disclosure > p { margin: 0 0 var(--s-3); font: var(--fw-regular) var(--fs-16)/var(--lh-body) var(--font-ui); color: var(--graphite); }
+.disclosure > .actions { margin: 0 0 var(--s-4); }
+.disclosure > .actions { flex-wrap: nowrap; }
+.disclosure--quiet { margin: var(--s-2) 0; padding: 0 var(--s-3); background: none; border-radius: var(--r-control); }
+.disclosure--quiet > summary { min-height: var(--h-tap); font-size: var(--fs-14); color: var(--graphite); }
+.disclosure--quiet > p { font-size: var(--fs-14); line-height: var(--lh-footer-p); }
+@media (prefers-reduced-motion: reduce) { .disclosure > summary::after, .switch, .switch::after { transition: none; } }

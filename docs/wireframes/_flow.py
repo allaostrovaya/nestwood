@@ -126,7 +126,7 @@ LINKS = [
 ]
 
 # ── витяг макета з готової сторінки ──────────────────────────
-DEV = re.compile(r'(<div class="device".*?)\n\n</div><!-- /\.wf-main -->', re.S)
+DEV = re.compile(r'(<div class="device[^"]*".*?)\n\n</div><!-- /\.wf-main -->', re.S)
 
 def device(fname, n):
     """Блок .device із файлу набору. Ідентифікатори префіксуються номером кроку,
@@ -205,9 +205,9 @@ HTML = f'''<!doctype html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nestwood — головний флоу</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
 <link rel="stylesheet" href="./_flow.css" />
-<link rel="stylesheet" href="./_prylad.css?v=20260925n" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260925a" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>

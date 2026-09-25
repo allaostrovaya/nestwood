@@ -4,7 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Notes and reviews · успіх</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260925d" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -141,56 +142,60 @@
 
 <p class="meta" data-review lang="uk"><b>11.1</b> · Notes and reviews · <i>успіх</i></p>
 
-<div class="device" data-screen="Notes and reviews" data-state="успіх">
+<div class="device nw" data-screen="Notes and reviews" data-state="успіх">
 
-  <div class="screen">
-  <header class="topbar"><a class="close" href="./new-plan.html">Close</a><span class="title">Notes and reviews</span></header>
+  <div class="screen shell shell--sheet">
+  <img class="shell__backdrop" src="./img/kungsleden-abiskojaure-birch-trail.jpg" alt="" />
+  <header class="shell__bar"><a class="shell__close" href="./new-plan.html">Close</a><span class="shell__title">Notes and reviews</span></header>
+  <div class="shell__head">
+    <h1 class="shell__h1">Alesjaure → Tjäktja</h1>
+  </div>
 
-  <main>
-    <h1>Alesjaure → Tjäktja</h1>
-
-    <section aria-labelledby="seg">
-      <h2 id="seg">Show</h2>
+  <main class="shell__main">
+    <section aria-labelledby="seg" class="section">
+      <h2 id="seg" class="section__title">Show</h2>
       <nav class="seg" aria-label="Notes or reviews"><a href="./notes.html" aria-current="page">Field notes</a> <a href="./notes.html">Reviews</a></nav>
     </section>
 
-    <section aria-labelledby="field">
-      <h2 id="field">Field notes</h2>
-      <ul class="rows">
-        <li><div class="row"><span><b>Bridge before Tjäktja washed out</b><small>6 Aug · ford knee-deep, waist-deep after rain</small></span><span class="state warn">in your plan</span></div></li>
-        <li><div class="row"><span><b>Sparse waymarks after the ford</b><small>3 Aug · follow the cairns</small></span></div></li>
+    <section aria-labelledby="field" class="section">
+      <h2 id="field" class="section__title">Field notes</h2>
+      <ul class="list">
+        <li><div class="row"><span class="row__text"><b class="row__title">Bridge before Tjäktja washed out</b><small class="row__sub">6 Aug · ford knee-deep, waist-deep after rain</small></span><span class="row__trail pill pill--attention">in your plan</span></div></li>
+        <li><div class="row"><span class="row__text"><b class="row__title">Sparse waymarks after the ford</b><small class="row__sub">3 Aug · follow the cairns</small></span></div></li>
       </ul>
     </section>
 
-    <section aria-labelledby="rev">
-      <h2 id="rev">Reviews</h2>
-      <ul class="rows">
-        <li><div class="row"><span><b>Beds at Sälka ran out at 16:00</b><small>8–13 Aug · got a mattress on the floor</small></span><span class="state">4 of 5</span></div></li>
-        <li><div class="row"><span><b>Day two is harder than the profile suggests</b><small>2–8 Aug</small></span><span class="state">5 of 5</span></div></li>
+    <section aria-labelledby="rev" class="section">
+      <h2 id="rev" class="section__title">Reviews</h2>
+      <ul class="list">
+        <li><div class="row"><span class="row__text"><b class="row__title">Beds at Sälka ran out at 16:00</b><small class="row__sub">8–13 Aug · got a mattress on the floor</small></span><span class="row__trail pill">4 of 5</span></div></li>
+        <li><div class="row"><span class="row__text"><b class="row__title">Day two is harder than the profile suggests</b><small class="row__sub">2–8 Aug</small></span><span class="row__trail pill">5 of 5</span></div></li>
       </ul>
     </section>
 
-    <section aria-labelledby="write">
-      <h2 id="write">Write a note</h2>
+    <section aria-labelledby="write" class="section">
+      <h2 id="write" class="section__title">Write a note</h2>
       <form action="./notes.html" method="get">
       <ul class="chips">
-        <li><button class="chip" type="button">trail</button></li>
-        <li><button class="chip" type="button">water</button></li>
-        <li><button class="chip on" type="button">ford</button></li>
-        <li><button class="chip" type="button">snow</button></li>
-        <li><button class="chip" type="button">waymarks</button></li>
-        <li><button class="chip" type="button">tent spot</button></li>
+        <li><button class="chip" type="button" aria-pressed="false">trail</button></li>
+        <li><button class="chip" type="button" aria-pressed="false">water</button></li>
+        <li><button class="chip" type="button" aria-pressed="true">ford</button></li>
+        <li><button class="chip" type="button" aria-pressed="false">snow</button></li>
+        <li><button class="chip" type="button" aria-pressed="false">waymarks</button></li>
+        <li><button class="chip" type="button" aria-pressed="false">tent spot</button></li>
       </ul>
-        <label for="nt">What’s on this section right now</label>
-        <input type="text" id="nt" name="nt" placeholder="ford above the knee after rain" />
-        <p class="actions"><button type="submit">Send</button></p>
+        <div class="field">
+          <label class="field__label" for="nt">What’s on this section right now</label>
+          <input class="field__input" type="text" id="nt" name="nt" placeholder="ford above the knee after rain" />
+        </div>
+        <p class="actions"><button class="btn btn--primary" type="submit">Send</button></p>
       </form>
     </section>
   </main>
 
-  <footer class="app">
+  <footer class="shell__footer">
     <p>Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket</p>
-    <details>
+    <details class="disclosure disclosure--quiet">
       <summary>Where this comes from</summary>
       <p>Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema.</p>
     </details>
@@ -198,12 +203,12 @@
   </footer>
   </div>
   <nav class="tabbar" aria-label="Main navigation">
-    <ul>
-      <li><a href="./catalogue.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Map</a></li>
-      <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Plans<span class="count" aria-label="4 steps left">4</span></a></li>
-      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Guide</a></li>
-      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Safety</a></li>
-      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Profile</a></li>
+    <ul class="tabbar__list">
+      <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html" aria-current="page">Map</a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
+      <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
+      <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
+      <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>
     </ul>
   </nav>
 </div>

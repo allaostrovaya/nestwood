@@ -10,17 +10,17 @@ for p in pages:
     s = p.read_text(encoding='utf-8')
     n = p.name
     # структура
-    if s.count('<main>') != 1: issues[n].append('не один <main>')
-    if s.count('<main>') != s.count('</main>'): issues[n].append('<main> не закритий')
+    if len(re.findall(r'<main[ >]', s)) != 1: issues[n].append('не один <main>')
+    if len(re.findall(r'<main[ >]', s)) != s.count('</main>'): issues[n].append('<main> не закритий')
     if s.count('<section ') != s.count('</section>'): issues[n].append('<section> не закритий')
     lab = re.findall(r'<section aria-labelledby="([a-z-]+)"', s)
     if len(lab) != len(set(lab)): issues[n].append('дубльована мітка зони: ' + ','.join(sorted({x for x in lab if lab.count(x) > 1})))
-    if s.count('<h1>') != 1: issues[n].append('не один <h1>')
+    if len(re.findall(r'<h1[ >]', s)) != 1: issues[n].append('не один <h1>')
     if '<html lang="en">' not in s: issues[n].append('lang не en')
     if '<nav class="wf-tree"' not in s: issues[n].append('немає дерева')
     if 'aria-current="page"' not in s: issues[n].append('немає поточного вузла')
     if 'class="wf-shell"' not in s: issues[n].append('немає wf-shell')
-    if 'class="device"' not in s: issues[n].append('немає device')
+    if not re.search(r'class="device[ "]', s): issues[n].append('немає device')
     # зобовʼязання
     if 'Kartverket' not in s: issues[n].append('немає атрибуції')
     if '<summary>Where this comes from</summary>' not in s: issues[n].append('немає шару «Звідки це взято»')
@@ -56,7 +56,7 @@ for n in sorted(issues):
 TABS = {'catalogue.html','plans.html','guide.html','safety.html','me.html'}
 SUF = ('-empty','-error','-loading','-offline','-degraded','-conflict','-seasonal','-nooptions','-intrip','-past')
 def in_device(t):
-    i = t.find('<div class="device"'); j = t.find('<nav class="tabbar"')
+    i = t.find('<div class="device'); j = t.find('<nav class="tabbar"')
     return t[i:j] if i >= 0 and j > i else ''
 inbound = collections.Counter()
 for p in pages:
@@ -134,7 +134,7 @@ for p in pages:
     if not want: continue
     for pat, label in ((r'<title>Wireframe · ([^·]+) ·', 'title'),
                        (r'data-screen="([^"]*)"', 'мітка'),
-                       (r'<span class="title">([^<]*)<', 'шапка'),
+                       (r'<span class="(?:title|shell__title)">([^<]*)<', 'шапка'),
                        (r'<p class="meta"[^>]*><b>[^<]*</b> · ([^·]+) ·', 'рядок позиції')):
         m = re.search(pat, t)
         if m and m.group(1).strip() != want:
@@ -154,10 +154,10 @@ for p in pages:
     t = p.read_text(encoding='utf-8')
     par, pname = _g.parent_of(p.name)
     if p.name in _g.SHEETS:                      # аркуш: «✕ Закрити», не «назад»
-        if '<a class="close"' not in t: bad_back.append(f'{p.name}: аркуш без «✕ Закрити»')
-        elif '<a class="back"' in t: bad_back.append(f'{p.name}: аркуш і «назад» одночасно')
+        if not re.search(r'<a class="(?:close|shell__close)"', t): bad_back.append(f'{p.name}: аркуш без «✕ Закрити»')
+        elif re.search(r'<a class="(?:back|shell__back)"', t): bad_back.append(f'{p.name}: аркуш і «назад» одночасно')
         continue
-    m = re.search(r'<a class="back" href="\./([a-z-]+\.html)"', t)
+    m = re.search(r'<a class="(?:back|shell__back)" href="\./([a-z-]+\.html)"', t)
     if par and not m: bad_back.append(f'{p.name}: немає «назад», батько {par}')
     elif par and m.group(1) != par: bad_back.append(f'{p.name}: «назад» веде на {m.group(1)}, а батько {par}')
     elif not par and m: bad_back.append(f'{p.name}: хаб вкладки, «назад» зайве')
