@@ -115,6 +115,7 @@
   --ic-clock: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 8V12L14.5 14.5%22/%3E%3C/g%3E%3C/svg%3E");
   --ic-sun: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M12 2V4%22/%3E%3Cpath d=%22M12 20V22%22/%3E%3Cpath d=%22M4 12L2 12%22/%3E%3Cpath d=%22M22 12L20 12%22/%3E%3Cpath d=%22M19.7778 4.22266L17.5558 6.25424%22/%3E%3Cpath d=%22M4.22217 4.22266L6.44418 6.25424%22/%3E%3Cpath d=%22M6.44434 17.5557L4.22211 19.7779%22/%3E%3Cpath d=%22M19.7778 19.7773L17.5558 17.5551%22/%3E%3C/g%3E%3C/svg%3E");
   --ic-check-mark: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%222.5%22 d=%22M5 12.9L9 17L19 7%22/%3E%3C/svg%3E");
+  --ic-search: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2211%22 cy=%2211%22 r=%227%22/%3E%3Cpath d=%22M21 21L16.65 16.65%22/%3E%3C/g%3E%3C/svg%3E");
 }
 
 [data-theme="dark"] {
@@ -155,6 +156,7 @@
 .i-clock { --ic: var(--ic-clock); } .i-sun { --ic: var(--ic-sun); } .i-cloud-cross { --ic: var(--ic-cloud-cross); }
 .i-cloud-check { --ic: var(--ic-cloud-check); } .i-share { --ic: var(--ic-share); } .i-restart { --ic: var(--ic-restart); }
 .i-calendar { --ic: var(--ic-calendar); } .i-settings { --ic: var(--ic-settings); } .i-check { --ic: var(--ic-check); }
+.i-search { --ic: var(--ic-search); }
 
 /* ════════════════════════ ОБОЛОНКА ════════════════════════
    .shell — екран. Шар 1: .shell__bar (назад / закрити · назва · дія). [.shell__media — фото-герой.]
@@ -267,6 +269,16 @@
 .hero__hud::before { content: ""; width: var(--ic-s); height: var(--ic-s); background: currentColor;
   -webkit-mask: var(--ic-cloud-check) center / contain no-repeat; mask: var(--ic-cloud-check) center / contain no-repeat; }
 .hero__hud--offline::before { -webkit-mask-image: var(--ic-cloud-cross); mask-image: var(--ic-cloud-cross); }
+/* коротший фото-герой із назвою екрана прямо на фото (хаб без окремого shell__head) — Guide, Safety */
+.hero--short { height: 190px; }
+.hero--short::after { content: ""; position: absolute; inset: auto 0 0 0; height: 46%; box-shadow: none; background: var(--scrim-bottom); }
+.hero__title { position: absolute; left: var(--photo-inset); bottom: var(--s-4); z-index: 2; color: var(--on-photo); font: var(--fw-semi) var(--fs-28)/var(--lh-title) var(--font-ui); text-shadow: var(--shadow-text); }
+/* поле пошуку, що наїжджає на нижній край фото-героя (Guide) */
+.search-float { position: relative; z-index: 2; margin: calc(var(--s-6) * -1) var(--gutter) 0; padding: 0 var(--s-4); min-height: var(--h-control); border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-float); display: flex; align-items: center; gap: var(--s-3); }
+.search-float .ic { color: var(--graphite); flex: none; }
+.search-float__input { flex: 1; min-width: 0; border: 0; background: none; font: var(--fw-regular) var(--fs-16)/var(--lh-1) var(--font-ui); color: var(--ink); }
+.search-float__input::placeholder { color: var(--graphite); }
+.search-float__input:focus { outline: none; }
 
 /* панель приладу: три рівні стовпці на склі поверх фото; .panel--card — той самий компонент на білій картці */
 .panel { position: absolute; left: var(--photo-inset); right: var(--photo-inset); bottom: var(--photo-inset); z-index: 2;
@@ -347,7 +359,7 @@ div.row--avatar { grid-template-columns: var(--s-14) 1fr; column-gap: var(--s-4)
 .action-text { justify-self: end; margin-left: var(--s-1); color: var(--link); font: var(--fw-semi) var(--fs-16)/var(--lh-1) var(--font-ui); white-space: nowrap; }
 
 /* шкала рівня (лавинна небезпека 1–5): позиція на шкалі, не заповнення — активний крок жовтий, як «живий стан на приладі», ніколи офіційна градація */
-.scale { display: flex; gap: var(--s-1); margin: var(--s-2) 0 var(--s-1); padding: 0; list-style: none; }
+.scale { display: flex; gap: var(--s-1); margin-top: var(--s-2); padding: 0 0 var(--s-3); list-style: none; }
 .scale__step { flex: 1; height: var(--s-2); border-radius: var(--r-pill); background: var(--hairline); }
 .scale__step--active { background: var(--yellow); }
 
@@ -429,6 +441,7 @@ div.day::after { content: none; }
 .card-photo .pill--photo { position: absolute; top: var(--s-2); left: var(--s-2); z-index: 2; }
 .card-photo__title { display: block; font: var(--fw-semi) var(--fs-16)/var(--lh-row) var(--font-ui); }
 .card-photo__sub { display: block; margin-top: var(--s-1); font: var(--fw-regular) var(--fs-12)/var(--lh-small) var(--font-ui); color: var(--graphite); }
+.cards > li.wide { grid-column: 1 / -1; }
 
 /* рамка карти; --surface — карта на весь екран під пошуком; --mini — «сьогодні» */
 .map { position: relative; aspect-ratio: var(--ratio-map); overflow: hidden; border-radius: var(--r-card); background: var(--map-land); }
@@ -487,6 +500,7 @@ div.day::after { content: none; }
 
 /* ════════════════════════ ФОРМИ Й ДІЇ ════════════════════════ */
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-4); margin: var(--s-3) 0 0; }
+.actions + .list { margin-top: var(--s-4); }
 .actions--split { flex-wrap: nowrap; gap: var(--s-2); }
 .actions--split > * { flex: var(--flex-secondary); }
 .actions--split > .btn--primary { flex: var(--flex-primary); }
@@ -520,6 +534,8 @@ div.day::after { content: none; }
 
 /* чипи: 32 px, зона тапу 44 невидимим полем */
 .chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0; padding: 0; list-style: none; }
+form + .chips, .field + .chips { margin-top: var(--s-3); }
+.chips + .field { margin-top: var(--s-4); }
 .chip { position: relative; min-height: var(--h-chip); padding: 0 var(--s-3); border: 0; border-radius: var(--r-pill); background: var(--surface); color: var(--ink);
   box-shadow: var(--e-stroke); font: var(--fw-medium) var(--fs-14)/var(--lh-1) var(--font-ui); cursor: pointer; }
 .chip::after { content: ""; position: absolute; inset: calc((var(--h-chip) - var(--h-tap)) / 2) 0; }
