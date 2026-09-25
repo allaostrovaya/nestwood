@@ -42,7 +42,7 @@
   --ls-title: -0.02em; --ls-num: -0.03em; --ls-caps: 0.06em; --ls-hud: 0.07em; --ls-0: 0;
 
   /* відступи — крок 4 */
-  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-12: 48px;
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-12: 48px; --s-14: 56px;
   --gutter: 16px; --photo-inset: 12px;
 
   /* радіуси */
@@ -330,6 +330,9 @@ div.row--loading { grid-template-columns: var(--ic-glass) 1fr auto; }
 .row--loading::before { content: ""; width: var(--ic-glass); height: var(--ic-glass); border-radius: var(--r-round); border: var(--spin-w) solid var(--hairline);
   border-top-color: var(--blue); animation: kit-spin var(--dur-spin) linear infinite; }
 .row__count { justify-self: end; margin-left: var(--s-1); padding: var(--s-2) var(--s-3); font: var(--fw-semi) var(--fs-14)/var(--lh-1) var(--font-num); color: var(--graphite); white-space: nowrap; }
+/* рядок з фото-аватаром замість піктограми (Profile) */
+div.row--avatar { grid-template-columns: var(--s-14) 1fr; column-gap: var(--s-4); }
+.avatar { grid-column: 1; width: var(--s-14); height: var(--s-14); border-radius: var(--r-round); object-fit: cover; background: var(--hairline); }
 
 /* стан словом: нейтральна пігулка, «увага», закріплено, на фото; і текстова дія над своєю сутністю */
 .pill { display: inline-flex; align-items: center; gap: var(--s-2); padding: var(--s-2) var(--s-3); border-radius: var(--r-pill);
@@ -342,6 +345,11 @@ div.row--loading { grid-template-columns: var(--ic-glass) 1fr auto; }
   -webkit-mask: var(--ic-check) center / contain no-repeat; mask: var(--ic-check) center / contain no-repeat; }
 .pill--photo { padding: var(--s-1) var(--s-2); background: var(--chip-photo); color: var(--yellow-ink); box-shadow: none; font: var(--fw-semi) var(--fs-12)/var(--lh-1) var(--font-num); }
 .action-text { justify-self: end; margin-left: var(--s-1); color: var(--link); font: var(--fw-semi) var(--fs-16)/var(--lh-1) var(--font-ui); white-space: nowrap; }
+
+/* шкала рівня (лавинна небезпека 1–5): позиція на шкалі, не заповнення — активний крок жовтий, як «живий стан на приладі», ніколи офіційна градація */
+.scale { display: flex; gap: var(--s-1); margin: var(--s-2) 0 var(--s-1); padding: 0; list-style: none; }
+.scale__step { flex: 1; height: var(--s-2); border-radius: var(--r-pill); background: var(--hairline); }
+.scale__step--active { background: var(--yellow); }
 
 /* ланцюжок днів: нитка — li::before, вузол — ::before рядка (номер з лічильника), шеврон — ::after */
 .days { margin: 0; padding: 0 var(--s-4); list-style: none; border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-hair); counter-reset: day -1; }
