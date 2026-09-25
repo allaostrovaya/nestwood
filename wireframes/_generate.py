@@ -134,10 +134,41 @@ TOPBAR_ACT = {
   'me.html': '<a class="act" href="./settings.html" aria-label="Settings"><svg class="gear" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></a>',
 }
 
+# ── екрани, вдягнені в ui/kit.css: шапка й таб-бар — розмітка оболонки ui/shell.html ──
+KIT = {'plan.html','plan-past.html','plan-error.html','plan-offline.html',
+       'catalogue.html','catalogue-empty.html',
+       'new-plan.html','new-plan-loading.html','new-plan-conflict.html','new-plan-error.html',
+       'huts.html','huts-empty.html',
+       'day.html','day-seasonal.html','day-intrip.html','day-offline.html'}
+# дія праворуч у шапці на кіті: «Share my route» на фото плану
+KIT_ACT = {f: '<a class="shell__action" href="./share.html" aria-label="Share my route"><span class="ic i-share"></span></a>'
+           for f in ('plan.html','plan-past.html','plan-error.html','plan-offline.html')}
+
+def kit_topbar(current):
+    p, pname = parent_of(current)
+    title = TITLE.get(current, '')
+    if current in SHEETS:
+        return f'  <header class="shell__bar"><a class="shell__close" href="./{SHEETS[current]}">Close</a><span class="shell__title">{title}</span></header>'
+    back = f'<a class="shell__back" href="./{p}">{pname}</a>' if p else '<span></span>'
+    return f'  <header class="shell__bar">{back}<span class="shell__title">{title}</span>{KIT_ACT.get(current, "")}</header>'
+
+KIT_TABS = [('map','./catalogue.html','Map'),('plans','./plans.html','Plans'),('guide','./guide.html','Guide'),
+            ('safety','./safety.html','Safety'),('profile','./me.html','Profile')]
+def kit_appnav(f):
+    t = tab_of(f)
+    cur = {'Map':'map','Plans':'plans','Guide':'guide','Safety':'safety','Profile':'profile'}.get(t)
+    items = []
+    for key, href, label in KIT_TABS:
+        ac = ' aria-current="page"' if key == cur else ''
+        badge = '<span class="tabbar__badge" aria-label="4 steps left">4</span>' if key == 'plans' and f not in NOPLAN else ''
+        items.append(f'      <li><a class="tabbar__item tabbar__item--{key}" href="{href}"{ac}>{label}{badge}</a></li>')
+    return '  <nav class="tabbar" aria-label="Main navigation">\n    <ul class="tabbar__list">\n' + '\n'.join(items) + '\n    </ul>\n  </nav>\n'
+
 def topbar(current):
     """Шапка макета: ‹ назад до батька · назва екрана.
     Хаб вкладки батька не має — там лише назва.
     Аркуш замість «назад» отримує «✕ Закрити»."""
+    if current in KIT: return kit_topbar(current)
     p, pname = parent_of(current)
     title = TITLE.get(current, '')
     if current in SHEETS:
@@ -177,6 +208,7 @@ def tab_of(f):
 NOPLAN = {'plans-empty.html', 'catalogue-empty.html', 'new-plan.html', 'new-plan-loading.html', 'new-plan-conflict.html', 'new-plan-error.html'}
 
 def appnav_for(f):
+    if f in KIT: return kit_appnav(f)
     t = tab_of(f)
     b = '' if f in NOPLAN else '<span class="count" aria-label="4 steps left">4</span>'
     return APPNAV.format(b=b, m=' aria-current="page"' if t == 'Map' else '',
@@ -204,7 +236,7 @@ def page(current, title, h1, metaline, zones, src, appnav=True, base=None):
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{title}</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>

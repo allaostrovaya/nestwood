@@ -73,7 +73,7 @@ body {
   padding-bottom: var(--tabbar-h);
 }
 
-.topbar {
+.topbar:not(.nw *) {
   position: sticky;
   top: 0;
   z-index: 2;
@@ -85,18 +85,18 @@ body {
   border-bottom: 1px solid var(--line-2);
   padding: 12px var(--s3);
 }
-.topbar .back {
+.topbar .back:not(.nw *) {
   flex: 0 0 auto;
   font-size: 13px;
   color: var(--act);
   text-decoration: none;
   white-space: nowrap;
 }
-.topbar .close {
+.topbar .close:not(.nw *) {
   position: absolute; left: var(--s3);
   font-size: 13px; color: var(--act); text-decoration: none;
 }
-.topbar .title {
+.topbar .title:not(.nw *) {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .01em;
@@ -107,16 +107,16 @@ body {
 }
 
 /* ── таббар ──────────────────────────────────────────────────── */
-.tabbar {
+.tabbar:not(.nw *) {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: var(--tabbar-h);
   background: #fff;
   border-top: 1px solid var(--ink);
 }
-.tabbar ul { display: flex; margin: 0; padding: 0; list-style: none; height: 100%; }
-.tabbar li { flex: 1; }
-.tabbar a {
+.tabbar ul:not(.nw *) { display: flex; margin: 0; padding: 0; list-style: none; height: 100%; }
+.tabbar li:not(.nw *) { flex: 1; }
+.tabbar a:not(.nw *) {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,14 +128,14 @@ body {
   color: var(--ink-2);
   text-decoration: none;
 }
-.tabbar .ico {
+.tabbar .ico:not(.nw *) {
   width: 20px; height: 20px;
   border: 1.5px solid var(--ink-2);
   border-radius: 6px;
 }
 /* бейдж на «Планах» — єдиний лічильник продукту: скільки лишилось закріпити.
    Чорно-білий і з числом: колір тут читався б як офіційна градація. */
-.tabbar .count {
+.tabbar .count:not(.nw *) {
   position: absolute;
   margin: -22px 0 0 26px;
   min-width: 15px; padding: 1px 4px;
@@ -143,8 +143,8 @@ body {
   color: #fff; background: var(--ink);
   border-radius: 999px;
 }
-.tabbar a[aria-current="page"] { color: var(--act); font-weight: 700; }
-.tabbar a[aria-current="page"] .ico { border-color: var(--act); background: var(--act-soft); }
+.tabbar a[aria-current="page"]:not(.nw *) { color: var(--act); font-weight: 700; }
+.tabbar a[aria-current="page"] .ico:not(.nw *) { border-color: var(--act); background: var(--act-soft); }
 
 /* мітка макета: який це екран і в якому стані. Без неї колонка не
    відрізняється від звичайної сторінки — самої рамки замало. */
@@ -167,7 +167,7 @@ body {
    Усередині макета коментарів розробників немає: там тільки
    семантика самого застосунку. */
 
-.meta {
+.meta:not(.nw *) {
   max-width: var(--col);
   margin: 0 auto var(--s2);
   padding: var(--s2) var(--s3);
@@ -175,16 +175,16 @@ body {
   border: 1px solid var(--line);
   border-bottom: 0;
 }
-.meta b { color: var(--ink); }
-.meta i { font-style: normal; color: var(--ink-2); }
+.meta b:not(.nw *) { color: var(--ink); }
+.meta i:not(.nw *) { font-style: normal; color: var(--ink-2); }
 
-[data-review] {
+[data-review]:not(.nw *) {
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 11px;
   line-height: 1.5;
   color: var(--ink-2);
 }
-code { background: #e2e2e2; padding: 0 3px; font-size: .95em; }
+code:not(.nw *) { background: #e2e2e2; padding: 0 3px; font-size: .95em; }
 
 /* ── рев'ю-каркас: дерево ліворуч, макет праворуч ─────────────
    Дерево однакове на кожній сторінці й показує ВСЮ структуру:
@@ -230,7 +230,7 @@ code { background: #e2e2e2; padding: 0 3px; font-size: .95em; }
 }
 
 /* ── оболонка застосунку ─────────────────────────────────────── */
-header.app {
+header.app:not(.nw *) {
   position: sticky;
   top: 0;
   z-index: 2;
@@ -238,16 +238,16 @@ header.app {
   border-bottom: 1px solid var(--ink);
   padding: var(--s2) var(--s3) 0;
 }
-.brand {
+.brand:not(.nw *) {
   margin: 0 0 var(--s2);
   font-size: 11px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ink-2);
 }
-header.app nav ul { display: flex; gap: 3px; margin: 0; padding: 0; list-style: none; }
-header.app nav li { flex: 1; }
-header.app nav a {
+header.app nav ul:not(.nw *) { display: flex; gap: 3px; margin: 0; padding: 0; list-style: none; }
+header.app nav li:not(.nw *) { flex: 1; }
+header.app nav a:not(.nw *) {
   display: block;
   padding: var(--s2) 2px;
   text-align: center;
@@ -258,32 +258,32 @@ header.app nav a {
   border: 1px solid var(--line);
   border-bottom: 0;
 }
-header.app nav a[aria-current="page"] {
+header.app nav a[aria-current="page"]:not(.nw *) {
   background: #fff;
   color: var(--ink);
   font-weight: 700;
   border-color: var(--ink);
 }
-.count { font-variant-numeric: tabular-nums; font-weight: 700; }
+.count:not(.nw *) { font-variant-numeric: tabular-nums; font-weight: 700; }
 /* ціль, якої ще немає у вайрфреймах: не посилання, щоб не робити 404-тупик */
-header.app nav .nav-todo {
+header.app nav .nav-todo:not(.nw *) {
   display: block; padding: var(--s2) 2px; text-align: center; font-size: 12px;
   color: #979797; background: var(--fill); border: 1px solid var(--line-2); border-bottom: 0;
 }
-.nav-todo { color: #8e8e8e; }
-.inline { display: inline; margin: 0; }
+.nav-todo:not(.nw *) { color: #8e8e8e; }
+.inline:not(.nw *) { display: inline; margin: 0; }
 
 /* ── зміст ───────────────────────────────────────────────────── */
-main { padding: var(--s3); }
+main:not(.nw *) { padding: var(--s3); }
 
-h1 {
+h1:not(.nw *) {
   margin: 0 0 var(--s3);
   font-size: 26px;
   line-height: 1.15;
   letter-spacing: -.02em;
   font-weight: 700;
 }
-h2 {
+h2:not(.nw *) {
   margin: 0 0 var(--s2);
   font-size: 11px;
   letter-spacing: .1em;
@@ -291,42 +291,42 @@ h2 {
   font-weight: 700;
   color: var(--ink-2);
 }
-h3 { margin: 0 0 var(--s1); font-size: 17px; line-height: 1.25; font-weight: 700; }
-p  { margin: 0 0 var(--s2); }
-main p { font-size: 15px; }
-main > p, section > p { color: var(--ink-2); }
+h3:not(.nw *) { margin: 0 0 var(--s1); font-size: 17px; line-height: 1.25; font-weight: 700; }
+p:not(.nw *)  { margin: 0 0 var(--s2); }
+main p:not(.nw *) { font-size: 15px; }
+main > p:not(.nw *), section > p:not(.nw *) { color: var(--ink-2); }
 
-section { padding: var(--s4) 0; border-top: 1px solid var(--line-2); }
-section:first-of-type { border-top: 0; padding-top: 0; }
+section:not(.nw *) { padding: var(--s4) 0; border-top: 1px solid var(--line-2); }
+section:first-of-type:not(.nw *) { border-top: 0; padding-top: 0; }
 
 /* поле → значення */
-dl { margin: 0 0 var(--s3); }
-dt {
+dl:not(.nw *) { margin: 0 0 var(--s3); }
+dt:not(.nw *) {
   font-size: 11px;
   letter-spacing: .07em;
   text-transform: uppercase;
   color: var(--ink-2);
   margin-bottom: 1px;
 }
-dd { margin: 0 0 var(--s3); font-size: 15px; }
-dd:last-of-type { margin-bottom: 0; }
+dd:not(.nw *) { margin: 0 0 var(--s3); font-size: 15px; }
+dd:last-of-type:not(.nw *) { margin-bottom: 0; }
 
 /* самостійна одиниця: день, рейс, крок */
-article {
+article:not(.nw *) {
   border: 1px solid var(--line);
   border-radius: 4px;          /* картка майже прямокутна — 4px проти 12px у дії */
   padding: var(--s3);
   margin: 0 0 var(--s3);
   background: #fff;
 }
-article.leg { border-style: dashed; background: var(--fill); }
-article > h3 + p { color: var(--ink-2); font-size: 14px; }
+article.leg:not(.nw *) { border-style: dashed; background: var(--fill); }
+article > h3 + p:not(.nw *) { color: var(--ink-2); font-size: 14px; }
 
-ol.days { margin: 0 0 var(--s2); padding: 0; list-style: none; }
+ol.days:not(.nw *) { margin: 0 0 var(--s2); padding: 0; list-style: none; }
 
 /* чотири елементи MAIN JOB у рядку дня — текстом, не кольором і не іконкою */
-ul.signals { margin: var(--s2) 0 var(--s3); padding: 0; list-style: none; }
-ul.signals li {
+ul.signals:not(.nw *) { margin: var(--s2) 0 var(--s3); padding: 0; list-style: none; }
+ul.signals li:not(.nw *) {
   display: grid;
   grid-template-columns: 72px 1fr;
   gap: var(--s2);
@@ -335,7 +335,7 @@ ul.signals li {
   font-size: 13px;
   line-height: 1.4;
 }
-ul.signals b {
+ul.signals b:not(.nw *) {
   font-size: 10px;
   letter-spacing: .09em;
   text-transform: uppercase;
@@ -344,23 +344,23 @@ ul.signals b {
 }
 
 /* вердикт: найважливіший блок екрана — вага, а не колір */
-.verdict { border: 2px solid var(--ink); padding: var(--s3); margin: 0 0 var(--s3); }
-.verdict strong { display: block; margin-bottom: var(--s2); font-size: 17px; line-height: 1.3; }
-.verdict p:last-child { margin: 0; color: var(--ink-2); font-size: 14px; }
+.verdict:not(.nw *) { border: 2px solid var(--ink); padding: var(--s3); margin: 0 0 var(--s3); }
+.verdict strong:not(.nw *) { display: block; margin-bottom: var(--s2); font-size: 17px; line-height: 1.3; }
+.verdict p:last-child:not(.nw *) { margin: 0; color: var(--ink-2); font-size: 14px; }
 
 /* позначка ілюстративності — на самому полі, не в хромі */
 
 /* ── елементи керування ──────────────────────────────────────── */
-.actions {
+.actions:not(.nw *) {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--s2) var(--s3);
   margin: var(--s3) 0 0;
 }
-.actions:last-child { margin-bottom: 0; }
+.actions:last-child:not(.nw *) { margin-bottom: 0; }
 
-button {
+button:not(.nw *) {
   font: inherit;
   font-size: 14px;
   font-weight: 600;
@@ -371,11 +371,11 @@ button {
   border-radius: var(--r);
   cursor: pointer;
 }
-button.primary { background: var(--act); color: #fff; border-color: var(--act); }
+button.primary:not(.nw *) { background: var(--act); color: #fff; border-color: var(--act); }
 
-a { color: var(--ink); }
+a:not(.nw *) { color: var(--ink); }
 /* головна дія, що є переходом, лишається <a> і не стає <button> заради вигляду */
-a.cta {
+a.cta:not(.nw *) {
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
@@ -387,8 +387,8 @@ a.cta {
   text-decoration: none;
 }
 
-label { display: block; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-2); margin-bottom: var(--s1); }
-textarea, input[type="text"] {
+label:not(.nw *) { display: block; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-2); margin-bottom: var(--s1); }
+textarea:not(.nw *), input[type="text"]:not(.nw *) {
   width: 100%;
   font: inherit;
   font-size: 15px;
@@ -399,18 +399,18 @@ textarea, input[type="text"] {
 }
 
 /* шар зі sitemap */
-details { border: 1px solid var(--line); padding: var(--s2) var(--s3); }
-summary { cursor: pointer; font-size: 13px; }
-details > p { margin: var(--s2) 0 0; font-size: 12px; line-height: 1.45; color: var(--ink-2); }
+details:not(.nw *) { border: 1px solid var(--line); padding: var(--s2) var(--s3); }
+summary:not(.nw *) { cursor: pointer; font-size: 13px; }
+details > p:not(.nw *) { margin: var(--s2) 0 0; font-size: 12px; line-height: 1.45; color: var(--ink-2); }
 
 /* ── медіа-зони ───────────────────────────────────────────────
    Вайрфрейм не малює карту й фото — але мусить показати їхній
    РОЗМІР І МІСЦЕ: пропорцію, чи блок на всю ширину, чи на весь
    екран. Це структурна інформація, без якої макет не оцінити.
    Перехрестя — стандартна вайрфреймна мова для «тут зображення». */
-figure { margin: 0 0 var(--s3); }
+figure:not(.nw *) { margin: 0 0 var(--s3); }
 
-.frame {
+.frame:not(.nw *) {
   position: relative;
   display: flex;
   align-items: center;
@@ -422,7 +422,7 @@ figure { margin: 0 0 var(--s3); }
     linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--line-2) 50%, transparent calc(50% + 0.5px)),
     var(--fill);
 }
-.frame > span {
+.frame > span:not(.nw *) {
   background: #fff;
   border: 1px solid var(--line-2);
   padding: var(--s1) var(--s2);
@@ -434,31 +434,31 @@ figure { margin: 0 0 var(--s3); }
   max-width: 92%;
 }
 
-.frame--map      { aspect-ratio: 16 / 11; }
-.frame--profile  { aspect-ratio: 5 / 1; }
-.frame--photo    { aspect-ratio: 4 / 3; }
-.frame--screen   { height: 62vh; }
+.frame--map:not(.nw *)      { aspect-ratio: 16 / 11; }
+.frame--profile:not(.nw *)  { aspect-ratio: 5 / 1; }
+.frame--photo:not(.nw *)    { aspect-ratio: 4 / 3; }
+.frame--screen:not(.nw *)   { height: 62vh; }
 
 /* на всю ширину колонки — виходить за поля main, і це видно */
-.bleed { margin-inline: calc(var(--s3) * -1); }
-.bleed .frame { border-inline: 0; }
+.bleed:not(.nw *) { margin-inline: calc(var(--s3) * -1); }
+.bleed .frame:not(.nw *) { border-inline: 0; }
 
 /* стрічка знімків */
-.strip { display: flex; gap: var(--s2); overflow-x: auto; margin: 0 0 var(--s3); }
-.strip .frame { flex: 0 0 42%; aspect-ratio: 4 / 3; }
+.strip:not(.nw *) { display: flex; gap: var(--s2); overflow-x: auto; margin: 0 0 var(--s3); }
+.strip .frame:not(.nw *) { flex: 0 0 42%; aspect-ratio: 4 / 3; }
 
-figcaption { margin-top: var(--s2); font-size: 12px; line-height: 1.5; color: var(--ink-2); }
+figcaption:not(.nw *) { margin-top: var(--s2); font-size: 12px; line-height: 1.5; color: var(--ink-2); }
 
 /* ── футер: атрибуція — юридична вимога, не підпис ───────────── */
-footer.app {
+footer.app:not(.nw *) {
   border-top: 1px solid var(--ink);
   padding: var(--s3) var(--s3) var(--s5);
   font-size: 11px;
   line-height: 1.5;
   color: var(--ink-2);
 }
-footer.app p { margin: 0 0 var(--s2); }
-footer.app details { margin-bottom: var(--s2); }
+footer.app p:not(.nw *) { margin: 0 0 var(--s2); }
+footer.app details:not(.nw *) { margin-bottom: var(--s2); }
 
 
 
@@ -467,8 +467,8 @@ footer.app details { margin-bottom: var(--s2); }
    Абзац лишається для прози, не для структури. */
 
 /* chip — фільтр, тег, вибір значення */
-.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 var(--s3); padding: 0; list-style: none; }
-.chip {
+.chips:not(.nw *) { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 var(--s3); padding: 0; list-style: none; }
+.chip:not(.nw *) {
   display: inline-block;
   padding: 7px 12px;
   font-size: 13px;
@@ -480,12 +480,12 @@ footer.app details { margin-bottom: var(--s2); }
   text-decoration: none;
   cursor: pointer;
 }
-.chip[aria-pressed="true"], .chip.on { background: var(--act-soft); border-color: var(--act); color: var(--act); font-weight: 600; }
+.chip[aria-pressed="true"]:not(.nw *), .chip.on:not(.nw *) { background: var(--act-soft); border-color: var(--act); color: var(--act); font-weight: 600; }
 
 /* row — рядок списку з шевроном: назва, підпис, стан справа */
-.rows { margin: 0 0 var(--s3); padding: 0; list-style: none; border-top: 1px solid var(--line-2); }
-.rows > li { border-bottom: 1px solid var(--line-2); }
-.row {
+.rows:not(.nw *) { margin: 0 0 var(--s3); padding: 0; list-style: none; border-top: 1px solid var(--line-2); }
+.rows > li:not(.nw *) { border-bottom: 1px solid var(--line-2); }
+.row:not(.nw *) {
   display: grid;
   grid-template-columns: 1fr auto 10px;
   align-items: center;
@@ -495,17 +495,17 @@ footer.app details { margin-bottom: var(--s2); }
   color: var(--ink);
   text-decoration: none;
 }
-.row b { display: block; font-size: 15px; font-weight: 600; }
-.row small { display: block; margin-top: 2px; font-size: 12px; color: var(--ink-2); }
-.row .state { font-size: 12px; color: var(--ink-2); text-align: right; white-space: nowrap; }
-.row .state.warn { color: var(--ink); font-weight: 700; }
-.row::after { content: "›"; color: var(--line); font-size: 18px; line-height: 1; }
+.row b:not(.nw *) { display: block; font-size: 15px; font-weight: 600; }
+.row small:not(.nw *) { display: block; margin-top: 2px; font-size: 12px; color: var(--ink-2); }
+.row .state:not(.nw *) { font-size: 12px; color: var(--ink-2); text-align: right; white-space: nowrap; }
+.row .state.warn:not(.nw *) { color: var(--ink); font-weight: 700; }
+.row:not(.nw *)::after { content: "›"; color: var(--line); font-size: 18px; line-height: 1; }
 
 /* card — превʼю сутності на дашборді: назва, стан, рядок реального вмісту.
    Відрізняється від row тим, що несе зміст, а не лише назву: на плані треба
    бачити, ЩО саме не закріплено, не виходячи з екрана. */
-.cards { display: grid; gap: 8px; margin: 0 0 var(--s3); padding: 0; list-style: none; }
-.card {
+.cards:not(.nw *) { display: grid; gap: 8px; margin: 0 0 var(--s3); padding: 0; list-style: none; }
+.card:not(.nw *) {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 2px var(--s2);
@@ -516,21 +516,21 @@ footer.app details { margin-bottom: var(--s2); }
   color: var(--ink);
   text-decoration: none;
 }
-.card b { grid-column: 1; font-size: 15px; font-weight: 600; }
-.card .state { grid-column: 2; grid-row: 1; font-size: 12px; color: var(--ink-2); text-align: right; white-space: nowrap; }
-.card .state.warn { color: var(--ink); font-weight: 700; }
-.card small { grid-column: 1 / -1; font-size: 12px; line-height: 1.45; color: var(--ink-2); }
+.card b:not(.nw *) { grid-column: 1; font-size: 15px; font-weight: 600; }
+.card .state:not(.nw *) { grid-column: 2; grid-row: 1; font-size: 12px; color: var(--ink-2); text-align: right; white-space: nowrap; }
+.card .state.warn:not(.nw *) { color: var(--ink); font-weight: 700; }
+.card small:not(.nw *) { grid-column: 1 / -1; font-size: 12px; line-height: 1.45; color: var(--ink-2); }
 
 /* stat — ряд ключових чисел */
-.stats { display: flex; flex-wrap: wrap; gap: var(--s3); margin: 0 0 var(--s3); padding: 0; list-style: none; }
-.stats li { flex: 0 0 auto; }
-.stats b { display: block; font-size: 17px; font-weight: 700; line-height: 1.1; }
-.stats small { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.stats:not(.nw *) { display: flex; flex-wrap: wrap; gap: var(--s3); margin: 0 0 var(--s3); padding: 0; list-style: none; }
+.stats li:not(.nw *) { flex: 0 0 auto; }
+.stats b:not(.nw *) { display: block; font-size: 17px; font-weight: 700; line-height: 1.1; }
+.stats small:not(.nw *) { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
 
 /* bar — липка панель головної дії.
    bottom:0 — це низ скролпорта, зменшений на його padding-bottom, тобто рівно
    верх таббара. Працює тільки тому, що .screen тепер має правильну висоту. */
-.bar {
+.bar:not(.nw *) {
   position: sticky;
   bottom: 0;
   z-index: 1;
@@ -539,15 +539,15 @@ footer.app details { margin-bottom: var(--s2); }
   background: #fff;
   border-top: 1px solid var(--line);
 }
-.bar .cta, .bar button { width: 100%; text-align: center; }
+.bar .cta:not(.nw *), .bar button:not(.nw *) { width: 100%; text-align: center; }
 
 /* seg — сегментований перемикач */
-.seg { display: flex; margin: 0 0 var(--s3); padding: 2px; background: var(--fill); border-radius: 10px; }
-.seg a { flex: 1; padding: 7px; font-size: 13px; text-align: center; color: var(--ink-2); text-decoration: none; border-radius: 8px; }
-.seg a[aria-current="page"] { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 0 0 1px var(--line-2); }
+.seg:not(.nw *) { display: flex; margin: 0 0 var(--s3); padding: 2px; background: var(--fill); border-radius: 10px; }
+.seg a:not(.nw *) { flex: 1; padding: 7px; font-size: 13px; text-align: center; color: var(--ink-2); text-decoration: none; border-radius: 8px; }
+.seg a[aria-current="page"]:not(.nw *) { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 0 0 1px var(--line-2); }
 
 /* note — виносне попередження або уточнення */
-.note {
+.note:not(.nw *) {
   margin: 0 0 var(--s3);
   padding: var(--s2) var(--s3);
   background: var(--fill);
@@ -557,38 +557,38 @@ footer.app details { margin-bottom: var(--s2); }
 }
 
 /* empty — порожній стан: причина + виходи */
-.empty { padding: var(--s4) var(--s3); text-align: center; border: 1px dashed var(--line); border-radius: 8px; }
-.empty p { color: var(--ink-2); }
+.empty:not(.nw *) { padding: var(--s4) var(--s3); text-align: center; border: 1px dashed var(--line); border-radius: 8px; }
+.empty p:not(.nw *) { color: var(--ink-2); }
 
 /* progress — крок N з M, лічильник закріплення */
-.progress { display: flex; align-items: center; gap: var(--s2); margin: 0 0 var(--s3); font-size: 12px; color: var(--ink-2); }
-.progress .track { flex: 1; height: 4px; background: var(--fill); border-radius: 2px; overflow: hidden; }
-.progress .fill { display: block; height: 100%; background: var(--act); }
+.progress:not(.nw *) { display: flex; align-items: center; gap: var(--s2); margin: 0 0 var(--s3); font-size: 12px; color: var(--ink-2); }
+.progress .track:not(.nw *) { flex: 1; height: 4px; background: var(--fill); border-radius: 2px; overflow: hidden; }
+.progress .fill:not(.nw *) { display: block; height: 100%; background: var(--act); }
 
 /* аркуш над картою: каталог — це карта, список лежить зверху й тягнеться на три висоти.
    Мінімальна межа й «ручка», без тіні — як і решта набору */
-.sheet { border-top: 1px solid var(--line); padding-top: var(--s2); }
-section.sheet[aria-labelledby="list"]::before {
+.sheet:not(.nw *) { border-top: 1px solid var(--line); padding-top: var(--s2); }
+section.sheet[aria-labelledby="list"]:not(.nw *)::before {
   content: ""; display: block; width: 36px; height: 4px; margin: 0 auto var(--s2); background: var(--line-2);
 }
 
 /* фото на картці пресета: зображення несе картку, виміри — одразу під ним */
-.card .frame { grid-column: 1 / -1; margin: calc(var(--s2) * -1) calc(var(--s3) * -1) var(--s2); border-inline: 0; border-top: 0; aspect-ratio: 16 / 9; }
+.card .frame:not(.nw *) { grid-column: 1 / -1; margin: calc(var(--s2) * -1) calc(var(--s3) * -1) var(--s2); border-inline: 0; border-top: 0; aspect-ratio: 16 / 9; }
 
 /* скелетон під час генерації: форма без тексту */
-.skel { display: block; height: 14px; margin: 0 0 8px; background: var(--fill); border-radius: 4px; }
-.skel.w60 { width: 60%; } .skel.w40 { width: 40%; } .skel.tall { height: 120px; }
-.card .frame { grid-row: 1; }
-.card .frame ~ b { grid-row: 2; }
-.card .frame ~ .state { grid-row: 2; }
+.skel:not(.nw *) { display: block; height: 14px; margin: 0 0 8px; background: var(--fill); border-radius: 4px; }
+.skel.w60:not(.nw *) { width: 60%; } .skel.w40:not(.nw *) { width: 40%; } .skel.tall:not(.nw *) { height: 120px; }
+.card .frame:not(.nw *) { grid-row: 1; }
+.card .frame ~ b:not(.nw *) { grid-row: 2; }
+.card .frame ~ .state:not(.nw *) { grid-row: 2; }
 
 /* дія праворуч у шапці — зона тапу 44×44 */
-.topbar .act { margin-left: auto; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-block: -12px; margin-right: calc(var(--s2) * -1); }
-.topbar .act .gear { display: block; }
+.topbar .act:not(.nw *) { margin-left: auto; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-block: -12px; margin-right: calc(var(--s2) * -1); }
+.topbar .act .gear:not(.nw *) { display: block; }
 
 /* рядок-перемикач і рядок чеклиста — це рядок списку, а не підпис поля форми */
-label.row { text-transform: none; letter-spacing: 0; font-size: inherit; font-weight: inherit; color: inherit; margin: 0; }
-label.row b { font-size: 15px; }
+label.row:not(.nw *) { text-transform: none; letter-spacing: 0; font-size: inherit; font-weight: inherit; color: inherit; margin: 0; }
+label.row b:not(.nw *) { font-size: 15px; }
 
 /* ── перемикач теми макета: рев'ю-хром, прибитий до верху сторінки ──
    Діє на екрани, уже перенесені на мову «Прилад» (_prylad.css). Без JS: :has(). */
@@ -609,4 +609,12 @@ label.row b { font-size: 15px; }
 .frame--photo[data-credit]::after { content: attr(data-credit); position: absolute; right: 8px; bottom: 8px;
   padding: 2px 6px; background: rgba(0,0,0,.55); color: #fff; font: 11px/1.3 ui-sans-serif, system-ui, sans-serif; }
 /* аркуш: «✕ Close» зліва не налазить на назву — назва по центру */
-.topbar:has(.close) { justify-content: center; }
+.topbar:has(.close):not(.nw *) { justify-content: center; }
+
+
+/* ── рамка телефона для екранів, вдягнених у ui/kit.css (.device.nw) ──
+   Рамка й мітка — каркас вайрфрейма, не продукт: вигляд екрана всередині бере тільки з кіта. */
+.device.nw { border: 10px solid #101214; border-radius: 50px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.45); }
+.device.nw::before { background: #101214; color: #8A9095; border: 0; }
+.device.nw > .screen { scrollbar-width: none; }
+.device.nw > .screen::-webkit-scrollbar { display: none; }

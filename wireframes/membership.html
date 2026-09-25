@@ -4,7 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Membership and key · успіх</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260925d" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -141,43 +142,45 @@
 
 <p class="meta" data-review lang="uk"><b>7.2</b> · Membership and key · <i>успіх</i></p>
 
-<div class="device" data-screen="Membership and key" data-state="успіх">
+<div class="device nw" data-screen="Membership and key" data-state="успіх">
 
-  <div class="screen">
-  <header class="topbar"><a class="close" href="./plan.html">Close</a><span class="title">Membership and key</span></header>
+  <div class="screen shell shell--sheet">
+  <img class="shell__backdrop" src="./img/kungsleden-abiskojaure-birch-trail.jpg" alt="" />
+  <header class="shell__bar"><a class="shell__close" href="./plan.html">Close</a><span class="shell__title">Membership and key</span></header>
+  <div class="shell__head">
+    <h1 class="shell__h1">Membership and key</h1>
+  </div>
 
-  <main>
-    <h1>Membership and key</h1>
-
-    <section aria-labelledby="member">
-      <h2 id="member">Membership</h2>
-      <ul class="rows">
-        <li><div class="row"><span><b>STF</b><small>Kristin · No. 4471902 · until 28 February 2027</small></span></div></li>
-        <li><div class="row"><span><b>Second person</b><small>not a member</small></span><span class="state warn">none</span></div></li>
+  <main class="shell__main">
+    <section aria-labelledby="member" class="section">
+      <h2 id="member" class="section__title">Membership</h2>
+      <ul class="list">
+        <li><div class="row"><span class="row__text"><b class="row__title">STF</b><small class="row__sub">Kristin · No. 4471902 · until 28 February 2027</small></span></div></li>
+        <li><div class="row"><span class="row__text"><b class="row__title">Second person</b><small class="row__sub">not a member</small></span><span class="row__trail pill pill--attention">none</span></div></li>
       </ul>
-      <p class="actions"><button type="button">Show card</button> <button type="button">Renew at STF</button></p>
+      <p class="actions actions--split"><button class="btn btn--secondary" type="button">Show card</button> <button class="btn btn--secondary" type="button">Renew at STF</button></p>
     </section>
 
-    <section aria-labelledby="trip">
-      <h2 id="trip">On this trip</h2>
-      <ul class="rows">
-        <li><div class="row"><span><b>Nights</b><small>2,500 SEK per person as a member · 3,700 without</small></span></div></li>
-        <li><div class="row"><span><b>Key</b><small>not needed — all huts are unlocked</small></span></div></li>
+    <section aria-labelledby="trip" class="section">
+      <h2 id="trip" class="section__title">On this trip</h2>
+      <ul class="list">
+        <li><div class="row"><span class="row__text"><b class="row__title">Nights</b><small class="row__sub">2,500 SEK per person as a member · 3,700 without</small></span></div></li>
+        <li><div class="row"><span class="row__text"><b class="row__title">Key</b><small class="row__sub">not needed — all huts are unlocked</small></span></div></li>
       </ul>
     </section>
 
-    <section aria-labelledby="key">
-      <h2 id="key">DNT key</h2>
-      <ul class="rows">
-        <li><div class="row"><span><b>Status</b><small>none</small></span></div></li>
-        <li><div class="row"><span><b>Where to get one</b><small>DNT shops and staffed huts · members only · 100 NOK deposit</small></span></div></li>
+    <section aria-labelledby="key" class="section">
+      <h2 id="key" class="section__title">DNT key</h2>
+      <ul class="list">
+        <li><div class="row"><span class="row__text"><b class="row__title">Status</b><small class="row__sub">none</small></span></div></li>
+        <li><div class="row"><span class="row__text"><b class="row__title">Where to get one</b><small class="row__sub">DNT shops and staffed huts · members only · 100 NOK deposit</small></span></div></li>
       </ul>
     </section>
   </main>
 
-  <footer class="app">
+  <footer class="shell__footer">
     <p>Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket</p>
-    <details>
+    <details class="disclosure disclosure--quiet">
       <summary>Where this comes from</summary>
       <p>Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema.</p>
     </details>
@@ -185,12 +188,12 @@
   </footer>
   </div>
   <nav class="tabbar" aria-label="Main navigation">
-    <ul>
-      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Map</a></li>
-      <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Plans<span class="count" aria-label="4 steps left">4</span></a></li>
-      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Guide</a></li>
-      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Safety</a></li>
-      <li><a href="./me.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Profile</a></li>
+    <ul class="tabbar__list">
+      <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html">Map</a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
+      <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
+      <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
+      <li><a class="tabbar__item tabbar__item--profile" href="./me.html" aria-current="page">Profile</a></li>
     </ul>
   </nav>
 </div>

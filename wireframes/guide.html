@@ -4,7 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Guide · успіх</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260925d" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -141,42 +142,42 @@
 
 <p class="meta" data-review lang="uk"><b>8.1</b> · Guide · <i>успіх</i></p>
 
-<div class="device" data-screen="Guide" data-state="успіх">
+<div class="device nw" data-screen="Guide" data-state="успіх">
 
-  <div class="screen">
-  <header class="topbar"><span class="title">Guide</span></header>
+  <div class="screen shell">
+  <header class="shell__bar"><span></span><span class="shell__title">Guide</span></header>
+  <div class="shell__head">
+    <h1 class="shell__h1">Guide</h1>
+  </div>
 
-  <main>
-    <h1>Guide</h1>
-
-    <section aria-labelledby="search">
-      <h2 id="search">Search</h2>
+  <main class="shell__main">
+    <section aria-labelledby="search" class="section">
+      <h2 id="search" class="section__title">Search</h2>
       <form action="./guide.html" method="get">
-        <label for="gq">Word, hut or rule</label>
-        <input type="search" id="gq" name="gq" />
+        <div class="field"><label class="field__label" for="gq">Word, hut or rule</label><input class="field__input" type="search" id="gq" name="gq" /></div>
       </form>
       <ul class="chips">
-        <li><button class="chip" type="button">Norway</button></li>
-        <li><button class="chip" type="button">Sweden</button></li>
-        <li><button class="chip on" type="button">Both</button></li>
+        <li><button class="chip" type="button" aria-pressed="false">Norway</button></li>
+        <li><button class="chip" type="button" aria-pressed="false">Sweden</button></li>
+        <li><button class="chip" type="button" aria-pressed="true">Both</button></li>
       </ul>
     </section>
 
-    <section aria-labelledby="articles">
-      <h2 id="articles">Articles</h2>
-      <ul class="rows">
-        <li><a class="row" href="./lodging-system.html"><span><b>STF huts</b><small>fjällstuga and fjällstation, the 18:00 rule, the logbook</small></span><span class="state">Sweden</span></a></li>
-        <li><a class="row" href="./lodging-system.html"><span><b>DNT huts</b><small>hut types, the DNT key, the logbook</small></span><span class="state">Norway</span></a></li>
-        <li><a class="row" href="./lodging-system.html"><span><b>Unwritten hut rules</b><small>cleaning up, shoes off, shared sleeping space, the honour system</small></span></a></li>
-        <li><a class="row" href="./lodging-system.html"><span><b>Fjellvett</b><small>nine rules for the mountains</small></span></a></li>
-        <li><a class="row" href="./lodging-system.html"><span><b>Where you can pitch a tent</b><small>allemansrätten · friluftsloven</small></span></a></li>
+    <section aria-labelledby="articles" class="section">
+      <h2 id="articles" class="section__title">Articles</h2>
+      <ul class="list">
+        <li><a class="row" href="./lodging-system.html"><span class="row__text"><b class="row__title">STF huts</b><small class="row__sub">fjällstuga and fjällstation, the 18:00 rule, the logbook</small></span><span class="row__trail pill">Sweden</span></a></li>
+        <li><a class="row" href="./lodging-system.html"><span class="row__text"><b class="row__title">DNT huts</b><small class="row__sub">hut types, the DNT key, the logbook</small></span><span class="row__trail pill">Norway</span></a></li>
+        <li><a class="row" href="./lodging-system.html"><span class="row__text"><b class="row__title">Unwritten hut rules</b><small class="row__sub">cleaning up, shoes off, shared sleeping space, the honour system</small></span></a></li>
+        <li><a class="row" href="./lodging-system.html"><span class="row__text"><b class="row__title">Fjellvett</b><small class="row__sub">nine rules for the mountains</small></span></a></li>
+        <li><a class="row" href="./lodging-system.html"><span class="row__text"><b class="row__title">Where you can pitch a tent</b><small class="row__sub">allemansrätten · friluftsloven</small></span></a></li>
       </ul>
     </section>
   </main>
 
-  <footer class="app">
+  <footer class="shell__footer">
     <p>Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket</p>
-    <details>
+    <details class="disclosure disclosure--quiet">
       <summary>Where this comes from</summary>
       <p>Articles: DNT, STF, Naturvårdsverket, Miljødirektoratet — each linked to its primary source.</p>
     </details>
@@ -184,12 +185,12 @@
   </footer>
   </div>
   <nav class="tabbar" aria-label="Main navigation">
-    <ul>
-      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Map</a></li>
-      <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Plans<span class="count" aria-label="4 steps left">4</span></a></li>
-      <li><a href="./guide.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Guide</a></li>
-      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Safety</a></li>
-      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Profile</a></li>
+    <ul class="tabbar__list">
+      <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html">Map</a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
+      <li><a class="tabbar__item tabbar__item--guide" href="./guide.html" aria-current="page">Guide</a></li>
+      <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
+      <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>
     </ul>
   </nav>
 </div>

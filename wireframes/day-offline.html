@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Day · офлайн</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
-<link rel="stylesheet" href="./_prylad.css?v=20260925n" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260925d" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -142,51 +142,52 @@
 
 <p class="meta" data-review lang="uk"><b>0.4</b> · Day · <i>офлайн</i></p>
 
-<div class="device" data-screen="Day" data-state="офлайн">
+<div class="device nw" data-screen="Day" data-state="офлайн">
 
-  <div class="screen">
-  <header class="topbar"><a class="back" href="./plan.html">Plan</a><span class="title">Day</span></header>
+  <div class="screen shell">
+  <header class="shell__bar"><a class="shell__back" href="./plan.html">Plan</a><span class="shell__title">Day</span></header>
+  <div class="shell__head">
+    <h1 class="shell__h1">Day 3 · Wed 19 August</h1>
+  </div>
 
-  <main>
-    <h1>Day 3 · Wed 19 August</h1>
-
-    <section aria-labelledby="leg">
-      <h2 id="leg">Leg</h2>
-      <div class="frame frame--map" data-fit="на всю ширину · тап → на весь екран"><span>map · day 3 · Alesjaure → Tjäktja · ford before the hut · offline pack</span></div>
-      <div class="frame frame--profile" data-fit="на всю ширину"><span>profile · +260 m</span></div>
-      <ul class="stats">
-        <li><b>13<span class="u"> km</span></b><small>distance</small></li>
-        <li><b>+260<span class="u"> m</span></b><small>ascent</small></li>
-        <li><b>~4<span class="u"> h </span>30</b><small>walking</small></li>
+  <main class="shell__main">
+    <section aria-labelledby="leg" class="section">
+      <h2 id="leg" class="section__title">Leg</h2>
+      <div class="map" data-fit="на всю ширину · тап → на весь екран"><img class="map__img" src="./img/map-day3.svg" alt="map · day 3 · Alesjaure → Tjäktja · ford before the hut · offline pack" /><span class="map__attrib">© Kartverket · Lantmäteriet</span><span class="map__badge">offline pack</span></div>
+      <div class="profile" data-fit="на всю ширину"><img class="profile__img" src="./img/profile-day3.svg" alt="profile · +260 m" /></div>
+      <ul class="panel panel--card">
+        <li class="panel__item"><b class="panel__value">13<span class="panel__unit"> km</span></b><small class="panel__label">distance</small></li>
+        <li class="panel__item"><b class="panel__value">+260<span class="panel__unit"> m</span></b><small class="panel__label">ascent</small></li>
+        <li class="panel__item"><b class="panel__value">~4<span class="panel__unit"> h </span>30</b><small class="panel__label">walking</small></li>
       </ul>
     </section>
 
-    <section aria-labelledby="night">
-      <h2 id="night">Night</h2>
-      <ul class="rows">
-        <li><a class="row" href="./hut.html"><span><b>Tjäktja fjällstuga</b><small>self-service · 24 beds · no key</small></span><span class="state">walk-in only</span></a></li>
+    <section aria-labelledby="night" class="section">
+      <h2 id="night" class="section__title">Night</h2>
+      <ul class="list">
+        <li><a class="row" href="./hut.html"><span class="row__text"><b class="row__title">Tjäktja fjällstuga</b><small class="row__sub">self-service · 24 beds · no key</small></span><span class="row__trail pill">walk-in only</span></a></li>
       </ul>
-      <p>Arrive by 18:00 · logbook: names and membership numbers.</p>
+      <p class="cond i-clock">Arrive by 18:00 · logbook: names and membership numbers.</p>
     </section>
 
-    <section aria-labelledby="cond">
-      <h2 id="cond">On this section</h2>
-      <ul class="rows">
-        <li><a class="row" href="./notes.html"><span><b>Bridge before Tjäktja washed out</b><small>note · 6 Aug · ford knee-deep</small></span><span class="state warn">ford</span></a></li>
-        <li><div class="row"><span><b>Water</b><small>streams every 2–3 km</small></span></div></li>
-        <li><div class="row"><span><b>Surface</b><small>8 km of boardwalk, 5 km of rock</small></span></div></li>
+    <section aria-labelledby="cond" class="section">
+      <h2 id="cond" class="section__title">On this section</h2>
+      <ul class="list">
+        <li><a class="row" href="./notes.html"><span class="row__text"><b class="row__title">Bridge before Tjäktja washed out</b><small class="row__sub">note · 6 Aug · ford knee-deep</small></span><span class="row__trail pill pill--attention">ford</span></a></li>
+        <li><div class="row"><span class="row__text"><b class="row__title">Water</b><small class="row__sub">streams every 2–3 km</small></span></div></li>
+        <li><div class="row"><span class="row__text"><b class="row__title">Surface</b><small class="row__sub">8 km of boardwalk, 5 km of rock</small></span></div></li>
       </ul>
     </section>
 
-    <section aria-labelledby="weather">
-      <h2 id="weather">Weather</h2>
-      <p>Forecast from 14 August, 07:00 — from the offline pack.</p>
+    <section aria-labelledby="weather" class="section">
+      <h2 id="weather" class="section__title">Weather</h2>
+      <p class="cond i-cloud-cross">Forecast from 14 August, 07:00 — from the offline pack.</p>
     </section>
   </main>
 
-  <footer class="app">
+  <footer class="shell__footer">
     <p>Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket</p>
-    <details>
+    <details class="disclosure disclosure--quiet">
       <summary>Where this comes from</summary>
       <p>Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema.</p>
     </details>
@@ -194,12 +195,12 @@
   </footer>
   </div>
   <nav class="tabbar" aria-label="Main navigation">
-    <ul>
-      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Map</a></li>
-      <li><a href="./plans.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Plans<span class="count" aria-label="4 steps left">4</span></a></li>
-      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Guide</a></li>
-      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Safety</a></li>
-      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Profile</a></li>
+    <ul class="tabbar__list">
+      <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html">Map</a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html" aria-current="page">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
+      <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
+      <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
+      <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>
     </ul>
   </nav>
 </div>

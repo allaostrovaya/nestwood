@@ -4,7 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · My gear · успіх</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260925d" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -141,35 +142,37 @@
 
 <p class="meta" data-review lang="uk"><b>4.2</b> · My gear · <i>успіх</i></p>
 
-<div class="device" data-screen="My gear" data-state="успіх">
+<div class="device nw" data-screen="My gear" data-state="успіх">
 
-  <div class="screen">
-  <header class="topbar"><a class="close" href="./gear.html">Close</a><span class="title">My gear</span></header>
+  <div class="screen shell shell--sheet">
+  <img class="shell__backdrop" src="./img/kungsleden-abiskojaure-birch-trail.jpg" alt="" />
+  <header class="shell__bar"><a class="shell__close" href="./gear.html">Close</a><span class="shell__title">My gear</span></header>
+  <div class="shell__head">
+    <h1 class="shell__h1">My gear</h1>
+  </div>
 
-  <main>
-    <h1>My gear</h1>
-
-    <section aria-labelledby="inventory">
-      <h2 id="inventory">What you have</h2>
-      <ul class="rows">
-        <li><div class="row"><span><b>Sleep</b><small>sleeping bag −5 °C · mat</small></span></div></li>
-        <li><div class="row"><span><b>Kitchen</b><small>stove and gas · 1.5 l pot</small></span></div></li>
-        <li><div class="row"><span><b>Clothing</b><small>rain jacket · gaiters</small></span></div></li>
-        <li><div class="row"><span><b>Navigation</b><small>GPS watch · power bank</small></span></div></li>
+  <main class="shell__main">
+    <section aria-labelledby="inventory" class="section">
+      <h2 id="inventory" class="section__title">What you have</h2>
+      <ul class="list">
+        <li><label class="row row--control"><input class="check" type="checkbox" checked><span class="row__text"><b class="row__title">Sleep</b><small class="row__sub">sleeping bag −5 °C · mat</small></span></label></li>
+        <li><label class="row row--control"><input class="check" type="checkbox" checked><span class="row__text"><b class="row__title">Kitchen</b><small class="row__sub">stove and gas · 1.5 l pot</small></span></label></li>
+        <li><label class="row row--control"><input class="check" type="checkbox" checked><span class="row__text"><b class="row__title">Clothing</b><small class="row__sub">rain jacket · gaiters</small></span></label></li>
+        <li><label class="row row--control"><input class="check" type="checkbox" checked><span class="row__text"><b class="row__title">Navigation</b><small class="row__sub">GPS watch · power bank</small></span></label></li>
       </ul>
     </section>
 
-    <section aria-labelledby="missing">
-      <h2 id="missing">To buy</h2>
-      <ul class="rows">
-        <li><div class="row"><span><b>Waterproof gloves</b><small>needed on Kungsleden</small></span><span class="state warn">buy</span></div></li>
+    <section aria-labelledby="missing" class="section">
+      <h2 id="missing" class="section__title">To buy</h2>
+      <ul class="list">
+        <li><label class="row row--control"><input class="check" type="checkbox"><span class="row__text"><b class="row__title">Waterproof gloves</b><small class="row__sub">needed on Kungsleden</small></span><span class="row__trail pill pill--attention">buy</span></label></li>
       </ul>
     </section>
   </main>
 
-  <footer class="app">
+  <footer class="shell__footer">
     <p>Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket</p>
-    <details>
+    <details class="disclosure disclosure--quiet">
       <summary>Where this comes from</summary>
       <p>Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema.</p>
     </details>
@@ -177,12 +180,12 @@
   </footer>
   </div>
   <nav class="tabbar" aria-label="Main navigation">
-    <ul>
-      <li><a href="./catalogue.html"><span class="ico" aria-hidden="true"></span>Map</a></li>
-      <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Plans<span class="count" aria-label="4 steps left">4</span></a></li>
-      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Guide</a></li>
-      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Safety</a></li>
-      <li><a href="./me.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Profile</a></li>
+    <ul class="tabbar__list">
+      <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html">Map</a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
+      <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
+      <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
+      <li><a class="tabbar__item tabbar__item--profile" href="./me.html" aria-current="page">Profile</a></li>
     </ul>
   </nav>
 </div>

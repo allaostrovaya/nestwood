@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Where to go · порожній</title>
-<link rel="stylesheet" href="./_wireframe.css?v=20260925j" />
-<link rel="stylesheet" href="./_prylad.css?v=20260925n" />
+<link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260925d" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -142,53 +142,54 @@
 
 <p class="meta" data-review lang="uk"><b>0.1</b> · Where to go · <i>порожній</i></p>
 
-<div class="device" data-screen="Where to go" data-state="порожній">
+<div class="device nw" data-screen="Where to go" data-state="порожній">
 
-  <div class="screen">
-  <header class="topbar"><span class="title">Where to go</span></header>
+  <div class="screen shell shell--map">
+  <header class="shell__bar"><span></span><span class="shell__title">Where to go</span></header>
+  <div class="shell__head">
+    <h1 class="shell__h1">Where to go</h1>
+  </div>
 
-  <main>
-    <h1>Where to go</h1>
-
-    <section aria-labelledby="search">
-      <h2 id="search">Where, when, who</h2>
-      <ul class="rows">
-        <li><a class="row" href="./catalogue.html"><span><b>Where</b><small>Lapland, Sweden — or your own route: from → to</small></span></a></li>
-        <li><a class="row" href="./catalogue.html"><span><b>When</b><small>17–22 August</small></span></a></li>
-        <li><a class="row" href="./catalogue.html"><span><b>Who</b><small>2 people · 1 STF member</small></span></a></li>
+  <main class="shell__main">
+    <section aria-labelledby="search" class="section section--bare">
+      <h2 id="search" class="section__title sr">Where, when, who</h2>
+      <ul class="search">
+        <li><a class="search__field" href="./catalogue.html"><span class="search__text"><b class="search__label">Where</b><small class="search__value">Lapland, Sweden — or your own route: from → to</small></span></a></li>
+        <li><a class="search__field" href="./catalogue.html"><span class="search__text"><b class="search__label">When</b><small class="search__value">17–22 August</small></span></a></li>
+        <li><a class="search__field" href="./catalogue.html"><span class="search__text"><b class="search__label">Who</b><small class="search__value">2 people · 1 STF member</small></span></a></li>
       </ul>
-      <ul class="chips">
-        <li><button class="chip on" type="button">huts</button></li>
-        <li><button class="chip" type="button">tent</button></li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="where">
-      <h2 id="where">Map</h2>
-      <div class="frame frame--screen" data-fit="на весь екран під пошуком · аркуш зверху"><span>map · Sweden · no route lines · huts closed for February</span></div>
-      <p>The huts are closed in February — there are no routes with hut nights.</p>
-      <p class="actions"><a class="cta" href="./catalogue.html">Pick dates in June — September</a></p>
-    </section>
-
-    <section aria-labelledby="local">
-      <h2 id="local">Best in Sweden in February</h2>
-      <ul class="rows">
-        <li><a class="row" href="./catalogue.html"><span><b>Late June — July</b><small>huts open, Kungsleden in season</small></span><span class="state">6 routes</span></a></li>
-        <li><a class="row" href="./catalogue.html"><span><b>August — September</b><small>fewer people, shorter days</small></span><span class="state">6 routes</span></a></li>
+      <ul class="chips chips--on-map">
+        <li><button class="chip" type="button" aria-pressed="true">huts</button></li>
+        <li><button class="chip" type="button" aria-pressed="false">tent</button></li>
       </ul>
     </section>
 
-    <section aria-labelledby="classic">
-      <h2 id="classic">Scandinavian classics</h2>
-      <ul class="rows">
-        <li><a class="row" href="./catalogue.html"><span><b>Summer classics</b><small>Jotunheimen · Hardangervidda · Kungsleden</small></span></a></li>
+    <section aria-labelledby="where" class="section section--bare">
+      <h2 id="where" class="section__title sr">Map</h2>
+      <div class="map map--surface" data-fit="на весь екран під пошуком · аркуш зверху"><img class="map__img" src="./img/map-catalogue.svg" alt="map · Sweden · no route lines · huts closed for February" /><span class="map__attrib">© Kartverket · Lantmäteriet</span></div>
+      <p class="float-card">The huts are closed in February — there are no routes with hut nights.</p>
+      <p class="actions actions--split actions--on-map"><a class="btn btn--primary" href="./catalogue.html">Pick dates in June — September</a></p>
+    </section>
+
+    <section aria-labelledby="local" class="section sheet sheet--first">
+      <h2 id="local" class="section__title">Best in Sweden in February</h2>
+      <ul class="list">
+        <li><a class="row" href="./catalogue.html"><span class="row__text"><b class="row__title">Late June — July</b><small class="row__sub">huts open, Kungsleden in season</small></span><span class="row__trail pill">6 routes</span></a></li>
+        <li><a class="row" href="./catalogue.html"><span class="row__text"><b class="row__title">August — September</b><small class="row__sub">fewer people, shorter days</small></span><span class="row__trail pill">6 routes</span></a></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="classic" class="section sheet sheet--last">
+      <h2 id="classic" class="section__title">Scandinavian classics</h2>
+      <ul class="list">
+        <li><a class="row" href="./catalogue.html"><span class="row__text"><b class="row__title">Summer classics</b><small class="row__sub">Jotunheimen · Hardangervidda · Kungsleden</small></span></a></li>
       </ul>
     </section>
   </main>
 
-  <footer class="app">
+  <footer class="shell__footer">
     <p>Maps and trails © Kartverket (CC BY 4.0) · Lantmäteriet (CC0) · Weather met.no · Transport Trafikverket</p>
-    <details>
+    <details class="disclosure disclosure--quiet">
       <summary>Where this comes from</summary>
       <p>Trails and terrain: Lantmäteriet (CC0) for Sweden, Kartverket (CC BY 4.0) for Norway. Weather: met.no Locationforecast. Transport: Trafikverket, Entur. Huts — type, key, beds, season — from the static fields of the public DNT and STF object schema.</p>
     </details>
@@ -196,12 +197,12 @@
   </footer>
   </div>
   <nav class="tabbar" aria-label="Main navigation">
-    <ul>
-      <li><a href="./catalogue.html" aria-current="page"><span class="ico" aria-hidden="true"></span>Map</a></li>
-      <li><a href="./plans.html"><span class="ico" aria-hidden="true"></span>Plans</a></li>
-      <li><a href="./guide.html"><span class="ico" aria-hidden="true"></span>Guide</a></li>
-      <li><a href="./safety.html"><span class="ico" aria-hidden="true"></span>Safety</a></li>
-      <li><a href="./me.html"><span class="ico" aria-hidden="true"></span>Profile</a></li>
+    <ul class="tabbar__list">
+      <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html" aria-current="page">Map</a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html">Plans</a></li>
+      <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
+      <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
+      <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>
     </ul>
   </nav>
 </div>
