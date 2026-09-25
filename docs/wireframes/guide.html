@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Guide · успіх</title>
 <link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
-<link rel="stylesheet" href="../ui/kit.css?v=20260925e" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260925h" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -144,17 +144,23 @@
 
 <div class="device nw" data-screen="Guide" data-state="успіх">
 
-  <div class="screen shell">
+  <div class="screen shell shell--photo">
   <header class="shell__bar"><span></span><span class="shell__title">Guide</span></header>
-  <div class="shell__head">
-    <h1 class="shell__h1">Guide</h1>
+  <div class="shell__media">
+    <div class="hero hero--short" data-fit="на всю ширину">
+      <img class="hero__img" src="./img/grosse-scheidegg-trail-signpost.jpg" alt="photo · trail signpost at Grosse Scheidegg, Switzerland" />
+      <span class="hero__credit">Photo · UCaetano · CC BY-SA 4.0</span>
+      <h1 class="hero__title">Guide</h1>
+    </div>
   </div>
 
   <main class="shell__main">
     <section aria-labelledby="search" class="section">
-      <h2 id="search" class="section__title">Search</h2>
-      <form action="./guide.html" method="get">
-        <div class="field"><label class="field__label" for="gq">Word, hut or rule</label><input class="field__input" type="search" id="gq" name="gq" /></div>
+      <h2 id="search" class="section__title sr">Search</h2>
+      <form class="search-float" action="./guide.html" method="get">
+        <span class="ic i-search"></span>
+        <label class="sr" for="gq">Word, hut or rule</label>
+        <input class="search-float__input" type="search" id="gq" name="gq" placeholder="Word, hut or rule" />
       </form>
       <ul class="chips">
         <li><button class="chip" type="button" aria-pressed="false">Norway</button></li>
@@ -165,12 +171,27 @@
 
     <section aria-labelledby="articles" class="section">
       <h2 id="articles" class="section__title">Articles</h2>
-      <ul class="list">
-        <li><a class="row" href="./lodging-system.html"><span class="row__text"><b class="row__title">STF huts</b><small class="row__sub">fjällstuga and fjällstation, the 18:00 rule, the logbook</small></span><span class="row__trail pill">Sweden</span></a></li>
-        <li><a class="row" href="./lodging-system.html"><span class="row__text"><b class="row__title">DNT huts</b><small class="row__sub">hut types, the DNT key, the logbook</small></span><span class="row__trail pill">Norway</span></a></li>
-        <li><a class="row" href="./lodging-system.html"><span class="row__text"><b class="row__title">Unwritten hut rules</b><small class="row__sub">cleaning up, shoes off, shared sleeping space, the honour system</small></span></a></li>
-        <li><a class="row" href="./lodging-system.html"><span class="row__text"><b class="row__title">Fjellvett</b><small class="row__sub">nine rules for the mountains</small></span></a></li>
-        <li><a class="row" href="./lodging-system.html"><span class="row__text"><b class="row__title">Where you can pitch a tent</b><small class="row__sub">allemansrätten · friluftsloven</small></span></a></li>
+      <ul class="cards">
+        <li><a class="card-photo" href="./lodging-system.html">
+          <div class="card-photo__img"><img class="card-photo__pic" src="./img/salka-massif-above-the-hut.jpg" alt="photo · Sälka fjällstuga under the pass" /><span class="pill--photo">Sweden</span><span class="card-photo__credit">Christoph Strässler · CC BY-SA 2.0</span></div>
+          <b class="card-photo__title">STF huts</b><small class="card-photo__sub">fjällstuga, the 18:00 rule</small>
+        </a></li>
+        <li><a class="card-photo" href="./lodging-system.html">
+          <div class="card-photo__img"><img class="card-photo__pic" src="./img/besseggen-ridge-lake-reflection.jpg" alt="photo · Besseggen ridge, Jotunheimen" /><span class="pill--photo">Norway</span><span class="card-photo__credit">Rosan Harmens · CC0</span></div>
+          <b class="card-photo__title">DNT huts</b><small class="card-photo__sub">hut types, the DNT key</small>
+        </a></li>
+        <li><a class="card-photo" href="./lodging-system.html">
+          <div class="card-photo__img"><img class="card-photo__pic" src="./img/kungsleden-abiskojaure-birch-trail.jpg" alt="photo · Kungsleden · path along Abiskojaure lake" /><span class="card-photo__credit">Anders Norén · Unsplash</span></div>
+          <b class="card-photo__title">Unwritten hut rules</b><small class="card-photo__sub">cleaning up, shoes off, shared sleeping space</small>
+        </a></li>
+        <li><a class="card-photo" href="./lodging-system.html">
+          <div class="card-photo__img"><img class="card-photo__pic" src="./img/padjelanta-plateau-snowy-peaks.jpg" alt="photo · Padjelanta plateau, Sami huts" /><span class="card-photo__credit">Trougnouf · CC BY 4.0</span></div>
+          <b class="card-photo__title">Fjellvett</b><small class="card-photo__sub">nine rules for the mountains</small>
+        </a></li>
+        <li class="wide"><a class="card-photo" href="./lodging-system.html">
+          <div class="card-photo__img"><img class="card-photo__pic" src="./img/kebnekaise-valley-cottongrass.jpg" alt="photo · Kebnekaise valley from the trail" /><span class="card-photo__credit">Anders Norén · Unsplash</span></div>
+          <b class="card-photo__title">Where you can pitch a tent</b><small class="card-photo__sub">allemansrätten · friluftsloven</small>
+        </a></li>
       </ul>
     </section>
   </main>
