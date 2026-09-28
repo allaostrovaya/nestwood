@@ -119,6 +119,7 @@ spacing:
   "10": "40px"
   "12": "48px"
   "14": "56px"
+  "18": "72px"
 components:
   button-primary:
     backgroundColor: "{colors.signal-blue}"
@@ -369,7 +370,7 @@ Component coverage below is organised the way `ui/inventory.md` groups it — by
 ### Cards / Lists (near-universal)
 - **Section** (`.section` + `.section__title`, all 20 screens): an h2 and its content, 20px top padding, 8px under the title.
 - **Grouped list / row** (`.list` / `.row`, 19 of 20 screens — absent only on Sign in): Surface, radius 20, 1px inset Hairline, 16px side padding, Hairline dividers; rows 12px vertical, 56px minimum, title 16/600, secondary 12 Graphite, chevron 16px Graphite. `.list--icons` prefixes each row with a 22px content icon (`.i-*` classes select the mask). A row can carry a neutral state word, an attention pill, a switch, or checkbox at its trailing edge instead of a chevron.
-- **Avatar row** (`div.row--avatar`, Profile — and available generally as a row shape): a 56px round photo in the icon column instead of a Solar icon, title + subtitle beside it. New since the last recording; not yet reused elsewhere, but structurally identical to `.list--icons` so it is documented as a row variant rather than a one-off.
+- **Profile identity** (`.profile-id`, Profile): superseded the earlier boxed avatar row — a card built from the ordinary grouped-list row read as a cramped, generic settings item, not the one identity header of the whole screen. Sits directly on the screen background, no Surface fill or Hairline border: a 72px round photo (`--s-18`, added to the spacing scale for this) next to the name at Title scale (24/600, the same size as the screen's own h1) with the subtitle in Callout Graphite below. Not a `.list` row, so it never gets a chevron or a card outline — nothing to navigate to here, it just states who you are.
 - **Disclosure** (`.disclosure` / `.disclosure--quiet`, present on all 20 screens as the footer's "Where this comes from", plus standalone on Plan as "Change plan"): Surface card or quiet inline, chevron rotates open.
 - **Empty state** (`.empty`, 4 screens: Another hut, New plan error, Notes and reviews, My trips): dashed Graphite border, centred sentence, always paired with an exit (a list of alternatives or a primary button) — never a dead end.
 
@@ -398,7 +399,7 @@ A 4:3 (`--ratio-card`) photo, radius 20, with the credit printed on the image ov
 - **SOS, urgent/floating** (`.btn--sos`): Conflict capsule, 56px, Tektur 700, floats absolutely over a photo/map (`.actions--sos`) on Day (in-trip).
 - **SOS, static** (`.btn--danger-fill`): the ordinary primary button shape (16px radius, 52px, Wix Madefor 600) filled Conflict instead of Signal Blue — used where SOS sits in the page flow next to a secondary action rather than floating alone, e.g. Safety's "If it's happening now" paired with "Share my route" (`.actions--split`).
 - **Focus:** 3px ink outline, 3px offset (`:focus-visible`).
-- **Third-party sign-in** (`.btn--apple`, `.btn--google`): the one deliberate hole in the Closed Palette Rule. Apple and Google each require their own button colour and logo mark, so these two are hardcoded outside `ui/kit.css`'s `:root` — same reasoning as the mandatory ©Kartverket attribution string. `.btn--apple`: solid black (`#000`), white text and Apple glyph. `.btn--google`: white fill, `#1F1F1F` text, `#747775` 1px border, the official four-colour "G" mark — Google's own light-button spec, not our Signal Blue. Both keep the ordinary 16px/52px button shape and stay fixed in dark mode (brand identity, not a themed surface). Used on Sign in.
+- **Third-party sign-in / connect** (`.btn--apple`, `.btn--google`, `.btn--strava`): the one deliberate hole in the Closed Palette Rule. Apple, Google and Strava each require their own button colour and logo mark, so these are hardcoded outside `ui/kit.css`'s `:root` — same reasoning as the mandatory ©Kartverket attribution string. `.btn--apple`: solid black (`#000`), white text and Apple glyph. `.btn--google`: white fill, `#1F1F1F` text, `#747775` 1px border, the official four-colour "G" mark — Google's own light-button spec, not our Signal Blue. `.btn--strava`: solid Strava orange (`#FC4C02`), white text and the Strava mark — used for "Import from Strava" on Profile. All three keep the ordinary 16px/52px button shape and stay fixed in dark mode (brand identity, not a themed surface). **Garmin has no equivalent codified consumer-facing button the way Apple/Google/Strava do** — "Import from Garmin" deliberately stays `.btn--secondary`, our own style, rather than guessing at a brand treatment; confirm against Garmin's own developer brand guidelines before this ships.
 
 ### Chips (`.chip`)
 32px, 14/500, pill; unselected Surface with 1.5px Hairline, selected Ink with Glass text (`[aria-pressed="true"]`). The 44px tap target comes from an invisible `::after`, not from a bigger chip. `.chips--on-map` variant floats chips over the catalogue map with the Float shadow on the unselected state.

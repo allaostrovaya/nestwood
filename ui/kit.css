@@ -42,7 +42,7 @@
   --ls-title: -0.02em; --ls-num: -0.03em; --ls-caps: 0.06em; --ls-hud: 0.07em; --ls-0: 0;
 
   /* відступи — крок 4 */
-  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-12: 48px; --s-14: 56px;
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-12: 48px; --s-14: 56px; --s-18: 72px;
   --gutter: 16px; --photo-inset: 12px;
 
   /* радіуси */
@@ -343,9 +343,11 @@ div.row--loading { grid-template-columns: var(--ic-glass) 1fr auto; }
 .row--loading::before { content: ""; width: var(--ic-glass); height: var(--ic-glass); border-radius: var(--r-round); border: var(--spin-w) solid var(--hairline);
   border-top-color: var(--blue); animation: kit-spin var(--dur-spin) linear infinite; }
 .row__count { justify-self: end; margin-left: var(--s-1); padding: var(--s-2) var(--s-3); font: var(--fw-semi) var(--fs-14)/var(--lh-1) var(--font-num); color: var(--graphite); white-space: nowrap; }
-/* рядок з фото-аватаром замість піктограми (Profile) */
-div.row--avatar { grid-template-columns: var(--s-14) 1fr; column-gap: var(--s-4); }
-.avatar { grid-column: 1; width: var(--s-14); height: var(--s-14); border-radius: var(--r-round); object-fit: cover; background: var(--hairline); }
+/* особистість профілю — без картки: великий круглий аватар прямо на тлі екрана, імʼя в масштабі заголовка (Profile) */
+.profile-id { display: flex; align-items: center; gap: var(--s-4); }
+.profile-id__avatar { flex: none; width: var(--s-18); height: var(--s-18); border-radius: var(--r-round); object-fit: cover; background: var(--hairline); }
+.profile-id__name { display: block; font: var(--fw-semi) var(--fs-24)/var(--lh-title) var(--font-ui); letter-spacing: var(--ls-title); color: var(--ink); }
+.profile-id__sub { display: block; margin-top: var(--s-1); font: var(--fw-regular) var(--fs-14)/var(--lh-small) var(--font-ui); color: var(--graphite); }
 
 /* стан словом: нейтральна пігулка, «увага», закріплено, на фото; і текстова дія над своєю сутністю */
 .pill { display: inline-flex; align-items: center; gap: var(--s-2); padding: var(--s-2) var(--s-3); border-radius: var(--r-pill);
@@ -525,6 +527,8 @@ div.day::after { content: none; }
 .btn--apple:active { background: #1a1a1a; }
 .btn--google { background: #fff; color: #1F1F1F; box-shadow: inset 0 0 0 var(--line) #747775; }
 .btn--google:active { background: #F7F8F8; }
+.btn--strava { background: #FC4C02; color: #fff; }
+.btn--strava:active { background: #E34402; }
 .btn .ic-brand { flex: none; }
 .btn:disabled, .btn[aria-disabled="true"] { padding: 0 var(--s-4); background: var(--disabled); color: var(--on-disabled); box-shadow: none; transform: none; cursor: not-allowed;
   font-size: var(--fs-16); line-height: var(--lh-head); }

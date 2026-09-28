@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Profile · успіх</title>
 <link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
-<link rel="stylesheet" href="../ui/kit.css?v=20260928f" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260928g" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -151,12 +151,13 @@
   </div>
 
   <main class="shell__main">
-    <!-- відступ від _conventions.md: аватарка 56 px замала для розбірливого напису джерела на самому фото — кредит винесено в підпис нижче рядка -->
+    <!-- відступ від _conventions.md: аватарка навіть на 72 px замала для розбірливого напису джерела на самому фото — кредит винесено в підпис нижче -->
     <section aria-labelledby="who" class="section">
       <h2 id="who" class="section__title sr">Who you are</h2>
-      <ul class="list">
-        <li><div class="row row--avatar"><img class="avatar" src="./img/trekker-portrait-misty-trail.jpg" alt="" /><span class="row__text"><b class="row__title">Kristin</b><small class="row__sub">DNT · STF member</small></span></div></li>
-      </ul>
+      <div class="profile-id">
+        <img class="profile-id__avatar" src="./img/trekker-portrait-misty-trail.jpg" alt="" />
+        <span><b class="profile-id__name">Kristin</b><span class="profile-id__sub">DNT · STF member</span></span>
+      </div>
       <p class="caption-line">Photo · Kampus Production · Pexels</p>
     </section>
 
@@ -165,7 +166,7 @@
       <ul class="list">
         <li><div class="row"><span class="row__text"><b class="row__title">Longest day last year</b><small class="row__sub">24 km · pack 12 kg</small></span></div></li>
       </ul>
-      <p class="actions"><button class="btn btn--secondary" type="button">Import from Strava</button> <button class="btn btn--secondary" type="button">Import from Garmin</button></p>
+      <p class="actions"><button class="btn btn--strava" type="button"><svg class="ic-brand" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066zM8.613 6.372L11.68 12.4h-3.062l-1.92-3.75-1.918 3.75H1.72z"/></svg>Import from Strava</button> <button class="btn btn--secondary" type="button">Import from Garmin</button></p>
     </section>
 
     <section aria-labelledby="mine" class="section">
