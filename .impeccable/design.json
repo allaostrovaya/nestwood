@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-28T00:00:00",
+  "title": "Design System: Nestwood",
+  "extensions": {
+    "colorMeta": {
+      "signal-blue": {
+        "role": "primary",
+        "displayName": "Signal Blue",
+        "tonalRamp": [
+          "#0E1F66",
+          "#152E99",
+          "#1D3DCC",
+          "#2149E0",
+          "#2D5BFF",
+          "#6A8BFF",
+          "#A9BCFF",
+          "#E8EEFF"
+        ]
+      },
+      "hi-vis-yellow": {
+        "role": "secondary",
+        "displayName": "Hi-vis Yellow",
+        "tonalRamp": [
+          "#3D3900",
+          "#6B6400",
+          "#A39800",
+          "#D1C400",
+          "#F2E500",
+          "#F7EE55",
+          "#FBF59A",
+          "#FFF9C2"
+        ]
+      },
+      "ink": { "role": "neutral", "displayName": "Instrument Ink" },
+      "graphite": { "role": "neutral", "displayName": "Graphite" },
+      "glass": { "role": "neutral", "displayName": "Glass" },
+      "surface": { "role": "neutral", "displayName": "Surface" },
+      "hairline": { "role": "neutral", "displayName": "Hairline" },
+      "conflict": { "role": "semantic", "displayName": "Conflict" },
+      "fixed": { "role": "semantic", "displayName": "Fixed" },
+      "disabled-fill": { "role": "neutral", "displayName": "Disabled" },
+      "dim": { "role": "neutral", "displayName": "Dim overlay", "canonical": "rgba(15,17,19,.5)" }
+    },
+    "typographyMeta": {
+      "title": { "displayName": "Title", "purpose": "Screen name (h1)." },
+      "headline": { "displayName": "Headline", "purpose": "Section and sheet headers." },
+      "body": { "displayName": "Body", "purpose": "Row titles, buttons, running text, field inputs." },
+      "callout": { "displayName": "Callout", "purpose": "Status pills, alert body, brief, chips." },
+      "caption": { "displayName": "Caption", "purpose": "Secondary line of rows and cards, units on the panel, credits." },
+      "label": { "displayName": "Label", "purpose": "Uppercase label under a measurement; tab bar." },
+      "numeral": { "displayName": "Numeral", "purpose": "Measurements on the instrument panel and day card." },
+      "hero-title": { "displayName": "Hero title", "purpose": "28px h1 printed directly on a short hero photo on hub screens (Guide, Safety) that have no separate head block." }
+    },
+    "shadows": [
+      { "name": "float", "value": "0 12px 32px -16px rgba(15,17,19,.38)", "purpose": "Tab bar, search pill, cards and chips floating on the map." },
+      { "name": "sheet-edge", "value": "0 -8px 24px -18px rgba(15,17,19,.35)", "purpose": "Top edge of a sheet over the map." },
+      { "name": "photo-floor", "value": "inset 0 -90px 60px -40px rgba(0,0,0,.35)", "purpose": "Keeps white text on the hero photo at AA." },
+      { "name": "text-title", "value": "0 1px 3px rgba(0,0,0,.35)", "purpose": "Soft shadow behind the hero title printed on a short-hero photo." },
+      { "name": "text-card", "value": "0 1px 3px rgba(0,0,0,.6)", "purpose": "Soft shadow behind a card-photo's credit line on the image." }
+    ],
+    "motion": [
+      { "name": "disclosure", "value": "transform .2s cubic-bezier(.2,.8,.2,1)", "purpose": "Chevron of a disclosure row." },
+      { "name": "shimmer", "value": "kit-shimmer 1.4s linear infinite", "purpose": "Loading skeleton; off under prefers-reduced-motion." },
+      { "name": "switch-knob", "value": "transform .2s cubic-bezier(.2,.8,.2,1)", "purpose": "Settings switch knob sliding on toggle." }
+    ],
+    "breakpoints": [
+      { "name": "phone", "value": "375px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one main action on a screen.",
+      "html": "<button class=\"ds-btn-primary\">Save plan</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;border:0;border-radius:16px;background:#2D5BFF;color:#fff;font:600 16px/1 'Wix Madefor Display',system-ui,sans-serif;cursor:pointer}.ds-btn-primary:active{background:#2149E0;transform:scale(.985)}.ds-btn-primary:focus-visible{outline:3px solid #0F1113;outline-offset:3px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Alternative or refusal next to the primary.",
+      "html": "<button class=\"ds-btn-secondary\">Cancel</button>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;border:0;border-radius:16px;background:#fff;color:#0F1113;box-shadow:inset 0 0 0 1.5px #D9DCDF;font:600 16px/1 'Wix Madefor Display',system-ui,sans-serif;cursor:pointer}.ds-btn-secondary:active{background:#F4F5F5}.ds-btn-secondary:focus-visible{outline:3px solid #0F1113;outline-offset:3px}"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "32px filter chip; selected is ink.",
+      "html": "<button class=\"ds-chip ds-chip-on\">within 5 km of the trail</button> <button class=\"ds-chip\">bookable</button>",
+      "css": ".ds-chip{min-height:32px;padding:0 12px;border:0;border-radius:999px;background:#fff;color:#0F1113;box-shadow:inset 0 0 0 1.5px #D9DCDF;font:500 14px/1 'Wix Madefor Display',system-ui,sans-serif;cursor:pointer}.ds-chip-on{background:#0F1113;color:#F4F5F5;box-shadow:none;font-weight:600}.ds-chip:focus-visible{outline:3px solid #0F1113;outline-offset:3px}"
+    },
+    {
+      "name": "Attention Pill",
+      "kind": "chip",
+      "refersTo": "pill-attention",
+      "description": "State that needs a look: ink pill, yellow icon, a word.",
+      "html": "<span class=\"ds-attn\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\"><path fill=\"#F2E500\" d=\"M12 3 2 21h20L12 3zm1 14h-2v-2h2v2zm0-4h-2V9h2v4z\"/></svg>1 missing</span>",
+      "css": ".ds-attn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px 8px 8px;border-radius:999px;background:#0F1113;color:#fff;font:600 14px/1 'Wix Madefor Display',system-ui,sans-serif}"
+    },
+    {
+      "name": "Alert",
+      "kind": "card",
+      "refersTo": "alert",
+      "description": "Trip-level alert: inverted ink panel with a hatched yellow edge.",
+      "html": "<div class=\"ds-alert\"><b>Flooding on Abiskojåkka</b><span>day 2: you won’t reach Alesjaure by 18:00 · decide by 15 Aug</span><i>day 2</i></div>",
+      "css": ".ds-alert{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 16px 12px 24px;border-radius:20px;background:#0F1113;color:#fff;font:400 14px/1.4 'Wix Madefor Display',system-ui,sans-serif}.ds-alert::before{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:repeating-linear-gradient(135deg,#F2E500 0 5px,#0F1113 5px 10px)}.ds-alert b{font-size:16px;font-weight:600}.ds-alert span{grid-column:1;color:rgba(255,255,255,.8)}.ds-alert i{grid-column:2;grid-row:1;font:500 12px/1.3 Tektur,sans-serif;font-style:normal;color:#F2E500}"
+    },
+    {
+      "name": "Instrument Panel",
+      "kind": "custom",
+      "refersTo": "instrument-panel",
+      "description": "Three measurements on glass over the photo.",
+      "html": "<div class=\"ds-panel\"><div><b>101<u>km</u></b><small>Distance</small></div><div><b>1,940<u>m</u></b><small>Ascent</small></div><div><b>~8<u>h</u></b><small>Longest day</small></div></div>",
+      "css": ".ds-panel{display:grid;grid-template-columns:repeat(3,1fr);padding:16px;border-radius:24px;background:rgba(250,250,250,.9);backdrop-filter:blur(16px) saturate(1.2);color:#0F1113}.ds-panel div{padding-left:12px;border-left:1px solid #D9DCDF}.ds-panel div:first-child{padding-left:0;border-left:0}.ds-panel b{display:block;font:600 24px/1 Tektur,sans-serif;letter-spacing:-.03em}.ds-panel u{text-decoration:none;font:500 12px/1 'Wix Madefor Display',sans-serif;color:#5E6368;margin-left:3px}.ds-panel small{display:block;margin-top:6px;font:500 10px/1.2 'Wix Madefor Display',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#5E6368}"
+    },
+    {
+      "name": "Grouped List Row",
+      "kind": "card",
+      "refersTo": "list-group",
+      "description": "Inset grouped list with icon, title, secondary line and chevron.",
+      "html": "<div class=\"ds-list\"><a class=\"ds-row\" href=\"#\"><span><b>Gear</b><small>23 items · 11.4 kg</small></span></a></div>",
+      "css": ".ds-list{padding:0 16px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1px #D9DCDF}.ds-row{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:12px 0;color:#0F1113;text-decoration:none;font-family:'Wix Madefor Display',system-ui,sans-serif}.ds-row b{display:block;font:600 16px/1.3 inherit}.ds-row small{display:block;margin-top:4px;font-size:12px;line-height:1.4;color:#5E6368}.ds-row:focus-visible{outline:3px solid #0F1113;outline-offset:3px}"
+    },
+    {
+      "name": "Avatar Row",
+      "kind": "card",
+      "refersTo": "avatar",
+      "description": "Grouped-list row with a round photo instead of a Solar icon — Profile.",
+      "html": "<div class=\"ds-list\"><div class=\"ds-row ds-row-avatar\"><img src=\"https://placehold.co/56x56\" alt=\"\" /><span><b>Kristin</b><small>DNT · STF member</small></span></div></div>",
+      "css": ".ds-row-avatar{display:flex;align-items:center;gap:16px;min-height:56px;padding:12px 0}.ds-row-avatar img{width:56px;height:56px;border-radius:50%;object-fit:cover;background:#D9DCDF;flex:none}.ds-row-avatar b{display:block;font:600 16px/1.3 'Wix Madefor Display',sans-serif;color:#0F1113}.ds-row-avatar small{display:block;margin-top:4px;font-size:12px;color:#5E6368}"
+    },
+    {
+      "name": "Card Photo",
+      "kind": "card",
+      "refersTo": "card-photo",
+      "description": "4:3 photo with credit on the image, plain title and subtitle below — presets, My trips, and the Guide/Safety article grid.",
+      "html": "<a class=\"ds-cardphoto\" href=\"#\"><div class=\"ds-cardphoto-img\"><img src=\"https://placehold.co/300x225\" alt=\"\" /><span class=\"ds-cardphoto-credit\">Christoph Strässler · CC BY-SA 2.0</span></div><b>STF huts</b><small>fjällstuga, the 18:00 rule</small></a>",
+      "css": ".ds-cardphoto{display:block;color:#0F1113;text-decoration:none;font-family:'Wix Madefor Display',sans-serif}.ds-cardphoto-img{position:relative;aspect-ratio:4/3;margin:0 0 8px;overflow:hidden;border-radius:20px;background:#F4F5F5}.ds-cardphoto-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.ds-cardphoto-credit{position:absolute;left:8px;right:8px;bottom:8px;color:rgba(255,255,255,.94);font:500 12px/1.2 Tektur,sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.6)}.ds-cardphoto b{display:block;font:600 16px/1.3 inherit}.ds-cardphoto small{display:block;margin-top:4px;font-size:12px;color:#5E6368}"
+    },
+    {
+      "name": "Avalanche Danger Scale",
+      "kind": "custom",
+      "refersTo": "scale",
+      "description": "Five-step position scale (not a fill bar): only the active step is Hi-vis Yellow, position carries the meaning, always paired with a word — Safety.",
+      "html": "<ul class=\"ds-scale\"><li></li><li class=\"on\"></li><li></li><li></li><li></li></ul>",
+      "css": ".ds-scale{display:flex;gap:4px;list-style:none;margin:8px 0 0;padding:0}.ds-scale li{flex:1;height:8px;border-radius:999px;background:#D9DCDF}.ds-scale li.on{background:#F2E500}"
+    },
+    {
+      "name": "Tab Bar",
+      "kind": "nav",
+      "refersTo": "tab-bar",
+      "description": "Floating glass capsule, five tabs, active tab ink.",
+      "html": "<nav class=\"ds-tabs\"><a aria-current=\"page\">Map</a><a>Plans</a><a>Guide</a><a>Safety</a><a>Profile</a></nav>",
+      "css": ".ds-tabs{display:grid;grid-template-columns:repeat(5,1fr);padding:8px 8px 12px;border-radius:999px;background:rgba(255,255,255,.88);backdrop-filter:blur(18px) saturate(1.3);box-shadow:0 12px 32px -16px rgba(15,17,19,.38)}.ds-tabs a{min-height:44px;display:flex;align-items:flex-end;justify-content:center;font:500 10px/1.1 'Wix Madefor Display',sans-serif;color:#5E6368}.ds-tabs a[aria-current]{color:#0F1113;font-weight:600}"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "Labelled text field, 52px, radius 12 — Booking number, field notes, sign-in email.",
+      "html": "<label class=\"ds-field\"><span>Booking number</span><input type=\"text\" placeholder=\"e.g. 4471829\" /></label>",
+      "css": ".ds-field{display:grid;gap:8px;font-family:'Wix Madefor Display',sans-serif}.ds-field span{font:600 14px/1.3 inherit;color:#0F1113}.ds-field input{min-height:52px;padding:0 16px;border:0;border-radius:12px;background:#fff;box-shadow:inset 0 0 0 1.5px #D9DCDF;font:400 16px/1 inherit;color:#0F1113}.ds-field input:focus{outline:none;box-shadow:inset 0 0 0 2px #2D5BFF,0 0 0 4px #E8EEFF}"
+    },
+    {
+      "name": "Switch",
+      "kind": "input",
+      "refersTo": "switch",
+      "description": "52×28 toggle track — Settings.",
+      "html": "<input type=\"checkbox\" class=\"ds-switch\" checked />",
+      "css": ".ds-switch{appearance:none;-webkit-appearance:none;position:relative;width:52px;height:28px;border-radius:999px;background:#D9DCDF;cursor:pointer;transition:background .2s}.ds-switch::after{content:'';position:absolute;top:2px;left:2px;width:24px;height:24px;border-radius:999px;background:#fff;box-shadow:0 12px 32px -16px rgba(15,17,19,.38);transition:transform .2s cubic-bezier(.2,.8,.2,1)}.ds-switch:checked{background:#2D5BFF}.ds-switch:checked::after{transform:translateX(22px)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Прилад — the Instrument",
+    "overview": "A landscape photo carries the screen; a frosted instrument panel of measurements sits on it; below it a light, dense register answers whether everything fits. Quiet by default, loud only when a decision is needed. Since the last recording, the language was consolidated into one token layer (ui/kit.css) and painted across all 33 wireframe pages / 20 screens, extending the vocabulary with hub short-hero screens, the card-photo pattern reused for the Guide/Safety article grid, the avatar row, and the avalanche-danger scale.",
+    "keyCharacteristics": [
+      "Photo-led hero with a frosted instrument panel",
+      "One action colour, one live-state colour",
+      "Large radii on containers, flat rows",
+      "Tektur digits, Wix Madefor Display language",
+      "Solar icons, no glyph icons",
+      "Light and dark first-class",
+      "A short hero photo carries the h1 directly on hub screens with no head block (Guide, Safety)"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Blue only on things that are pressed or actionable.", "section": "colors" },
+      { "name": "The Word First Rule", "body": "No state carried by colour alone — including the avalanche scale, read by its word, never by yellow alone.", "section": "colors" },
+      { "name": "The Closed Palette Rule", "body": "A colour not listed in ui/kit.css's :root is a defect.", "section": "colors" },
+      { "name": "The Floor Rule", "body": "Text 12px+; 10px only for the tab bar, badge, day-chain node number and uppercase measurement label.", "section": "typography" },
+      { "name": "The Number First Rule", "body": "A unit is never the size of its number.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Cards and lists never cast shadows.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do put the three key measurements on the photo in the instrument panel",
+      "Do print author and licence on every photo and ©Kartverket on every map",
+      "Do keep white text on photos on glass no lighter than rgba(15,17,19,.45), or behind the text shadow where a glass chip would be too heavy",
+      "Do reuse .card-photo for any future photo-led grid rather than inventing a new card shape"
+    ],
+    "donts": [
+      "Don't use blue for anything that isn't pressed or actionable",
+      "Don't box each measurement separately",
+      "Don't use a Unicode glyph as an icon",
+      "Don't add prev/next day buttons",
+      "Don't reuse the official difficulty grading's colours (green/blue/red/black) for anything else in the product",
+      "Don't add a kicker/eyebrow label — none of the 20 screens use one, and none is evidenced in ui/kit.css"
+    ]
+  }
+}
