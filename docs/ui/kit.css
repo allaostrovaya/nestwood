@@ -275,7 +275,7 @@
 .hero--short::after { content: ""; position: absolute; inset: auto 0 0 0; height: 46%; box-shadow: none; background: var(--scrim-bottom); }
 .hero__title { position: absolute; left: var(--photo-inset); bottom: var(--s-4); z-index: 2; color: var(--on-photo); font: var(--fw-semi) var(--fs-28)/var(--lh-title) var(--font-ui); text-shadow: var(--shadow-text); }
 /* поле пошуку, що наїжджає на нижній край фото-героя (Guide) */
-.search-float { position: relative; z-index: 2; margin: calc(var(--s-6) * -1) var(--gutter) 0; padding: 0 var(--s-4); min-height: var(--h-control); border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-float); display: flex; align-items: center; gap: var(--s-3); }
+.search-float { position: relative; z-index: 2; margin: calc(var(--s-6) * -1) 0 0; padding: 0 var(--s-4); min-height: var(--h-control); border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-float); display: flex; align-items: center; gap: var(--s-3); }
 .search-float .ic { color: var(--graphite); flex: none; }
 .search-float__input { flex: 1; min-width: 0; border: 0; background: none; font: var(--fw-regular) var(--fs-16)/var(--lh-1) var(--font-ui); color: var(--ink); }
 .search-float__input::placeholder { color: var(--graphite); }
