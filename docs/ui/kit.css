@@ -116,6 +116,7 @@
   --ic-sun: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M12 2V4%22/%3E%3Cpath d=%22M12 20V22%22/%3E%3Cpath d=%22M4 12L2 12%22/%3E%3Cpath d=%22M22 12L20 12%22/%3E%3Cpath d=%22M19.7778 4.22266L17.5558 6.25424%22/%3E%3Cpath d=%22M4.22217 4.22266L6.44418 6.25424%22/%3E%3Cpath d=%22M6.44434 17.5557L4.22211 19.7779%22/%3E%3Cpath d=%22M19.7778 19.7773L17.5558 17.5551%22/%3E%3C/g%3E%3C/svg%3E");
   --ic-check-mark: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%222.5%22 d=%22M5 12.9L9 17L19 7%22/%3E%3C/svg%3E");
   --ic-search: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2211%22 cy=%2211%22 r=%227%22/%3E%3Cpath d=%22M21 21L16.65 16.65%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-import: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M12 3V16%22/%3E%3Cpath d=%22M16.5 11.5L12 16L7.5 11.5%22/%3E%3Cpath d=%22M4 17.5C4 19.9853 4 21 12 21C20 21 20 19.9853 20 17.5%22/%3E%3C/g%3E%3C/svg%3E");
 }
 
 [data-theme="dark"] {
@@ -156,7 +157,7 @@
 .i-clock { --ic: var(--ic-clock); } .i-sun { --ic: var(--ic-sun); } .i-cloud-cross { --ic: var(--ic-cloud-cross); }
 .i-cloud-check { --ic: var(--ic-cloud-check); } .i-share { --ic: var(--ic-share); } .i-restart { --ic: var(--ic-restart); }
 .i-calendar { --ic: var(--ic-calendar); } .i-settings { --ic: var(--ic-settings); } .i-check { --ic: var(--ic-check); }
-.i-search { --ic: var(--ic-search); }
+.i-search { --ic: var(--ic-search); } .i-import { --ic: var(--ic-import); }
 
 /* ════════════════════════ ОБОЛОНКА ════════════════════════
    .shell — екран. Шар 1: .shell__bar (назад / закрити · назва · дія). [.shell__media — фото-герой.]
@@ -507,6 +508,7 @@ div.day::after { content: none; }
 .actions--split { flex-wrap: nowrap; gap: var(--s-2); }
 .actions--split > * { flex: var(--flex-secondary); }
 .actions--split > .btn--primary { flex: var(--flex-primary); }
+.actions--block { flex-direction: column; }
 .actions--block > .btn { flex: 1; width: 100%; }
 .actions--sos { position: absolute; top: var(--sos-top); right: var(--gutter); z-index: 3; margin: 0; }
 .actions--on-map { position: relative; z-index: 2; }
