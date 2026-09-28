@@ -369,6 +369,7 @@ div.row--loading { grid-template-columns: var(--ic-glass) 1fr auto; }
 
 /* ланцюжок днів: нитка — li::before, вузол — ::before рядка (номер з лічильника), шеврон — ::after */
 .days { margin: 0; padding: 0 var(--s-4); list-style: none; border-radius: var(--r-card); background: var(--surface); box-shadow: var(--e-hair); counter-reset: day -1; }
+.days + p { margin-top: var(--s-4); }
 .days > li { position: relative; counter-increment: day; }
 .days > li::before { content: ""; position: absolute; left: var(--thread-x); top: 0; bottom: 0; width: var(--stroke-strong); background: var(--hairline); }
 .days > li:first-child::before { top: calc(50% + var(--s-3)); }
