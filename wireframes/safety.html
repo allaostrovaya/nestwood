@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Safety · успіх</title>
 <link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
-<link rel="stylesheet" href="../ui/kit.css?v=20260928c" />
+<link rel="stylesheet" href="../ui/kit.css?v=20260928e" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -144,7 +144,7 @@
 
 <div class="device nw" data-screen="Safety" data-state="успіх">
 
-  <div class="screen shell shell--photo shell--pinned">
+  <div class="screen shell shell--photo">
   <header class="shell__bar"><span></span><span class="shell__title">Safety</span></header>
   <div class="shell__media">
     <div class="hero hero--short" data-fit="на всю ширину">
@@ -157,7 +157,10 @@
   <main class="shell__main">
     <section aria-labelledby="now" class="section">
       <h2 id="now" class="section__title">If it’s happening now</h2>
-      <p class="actions"><a class="btn btn--sos" href="./safety.html">SOS · 112</a></p>
+      <p class="actions actions--split">
+        <a class="btn btn--danger-fill" href="./safety.html">SOS · 112</a>
+        <a class="btn btn--secondary btn--icon-lead i-share" href="./share.html">Share my route</a>
+      </p>
       <ul class="list">
         <li><div class="row"><span class="row__text"><b class="row__title">Numbers</b><small class="row__sub">112 — all services · 113 — medical, Norway</small></span></div></li>
         <li><div class="row"><span class="row__text"><b class="row__title">My coordinates</b><small class="row__sub">67°55′14″N 18°37′02″E · 8 m · 3 min ago</small></span></div></li>
@@ -199,7 +202,6 @@
     <p>Last checked: 13 August 2026, 09:12</p>
   </footer>
   </div>
-  <p class="pinned-action"><a class="btn btn--secondary btn--icon-lead i-share" href="./share.html">Share my route</a></p>
   <nav class="tabbar" aria-label="Main navigation">
     <ul class="tabbar__list">
       <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html">Map</a></li>

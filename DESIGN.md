@@ -145,6 +145,11 @@ components:
     textColor: "{colors.conflict}"
     rounded: "{rounded.control}"
     height: "52px"
+  button-danger-fill:
+    backgroundColor: "{colors.conflict}"
+    textColor: "{colors.on-conflict}"
+    rounded: "{rounded.control}"
+    height: "52px"
   button-disabled:
     backgroundColor: "{colors.disabled-fill}"
     textColor: "{colors.on-disabled}"
@@ -318,7 +323,6 @@ Screen skeletons (four `.shell` variants, all defined once and shared across all
 
 A floating glass tab bar sits 10px from the screen edges; screens pad 96px at the bottom to clear it (hidden on modal and sheet variants).
 
-A screen that keeps its tab bar but needs one action always reachable — regardless of scroll position — gets a **pinned action** (`.pinned-action`, `.shell--pinned`): an edge-to-edge glass bar (`--bar-bg`, same family as the tab/nav bars) with a hairline top border, sitting outside the scrolling content, its bottom edge at the same 96px tab-bar clearance the screen already reserves (`--tab-clear`), so it reuses that token rather than a new offset. Same visual family as `.actionbar`, but `.actionbar` is sticky-within-scroll and replaces the tab bar in a modal; a pinned action is absolutely positioned so it never scrolls at all, and coexists with the tab bar above it. The shell gains extra bottom padding so scrolled content never sits underneath it. First use: "Share my route" on Safety, with a leading share icon (`.btn--icon-lead.i-share`).
 
 ## Elevation & Depth
 
@@ -391,7 +395,8 @@ A 4:3 (`--ratio-card`) photo, radius 20, with the credit printed on the image ov
 - **Tertiary / text action** (`.btn--text` / `.action-text`): Signal Blue text, no frame ("book", "buy", "change"); destructive text in Conflict (`.btn--danger`, "Change and reset", "Delete account").
 - **On a photo** (`.btn--glass`, `.btn--round`): round 44px glass buttons (back, share) or a glass capsule ("My trips"), Solar icon 18–22px, white.
 - **Disabled** (`:disabled` / `[aria-disabled="true"]`): #C9CDD1 fill, Graphite text, and it says what is missing ("Choose one of the options").
-- **SOS** (`.btn--sos`): Conflict capsule, 56px, Tektur 700, also floats absolutely over a photo/map (`.actions--sos`) on Day (in-trip) and Safety.
+- **SOS, urgent/floating** (`.btn--sos`): Conflict capsule, 56px, Tektur 700, floats absolutely over a photo/map (`.actions--sos`) on Day (in-trip).
+- **SOS, static** (`.btn--danger-fill`): the ordinary primary button shape (16px radius, 52px, Wix Madefor 600) filled Conflict instead of Signal Blue — used where SOS sits in the page flow next to a secondary action rather than floating alone, e.g. Safety's "If it's happening now" paired with "Share my route" (`.actions--split`).
 - **Focus:** 3px ink outline, 3px offset (`:focus-visible`).
 
 ### Chips (`.chip`)

@@ -517,6 +517,8 @@ div.day::after { content: none; }
 .btn--secondary:active { background: var(--glass); }
 .btn--text { min-height: var(--h-tap); padding: 0; background: none; color: var(--link); }
 .btn--danger { background: var(--surface); color: var(--conflict); box-shadow: var(--e-stroke); }
+.btn--danger-fill { background: var(--conflict); color: var(--on-conflict); }
+.btn--danger-fill:active { background: var(--conflict); transform: scale(var(--press-scale)); }
 .btn--sos { min-height: var(--h-sos); border-radius: var(--r-pill); background: var(--sos-bg); color: var(--sos-fg); font: var(--fw-bold) var(--fs-16)/var(--lh-1) var(--font-num); letter-spacing: var(--ls-sos); }
 .btn:disabled, .btn[aria-disabled="true"] { padding: 0 var(--s-4); background: var(--disabled); color: var(--on-disabled); box-shadow: none; transform: none; cursor: not-allowed;
   font-size: var(--fs-16); line-height: var(--lh-head); }
@@ -532,12 +534,6 @@ div.day::after { content: none; }
 .actionbar { position: sticky; bottom: 0; z-index: 4; margin: var(--s-6) calc(var(--gutter) * -1) 0; padding: var(--s-5) var(--gutter) var(--s-6);
   background: var(--bar-bg); border-top: var(--line) solid var(--hairline); -webkit-backdrop-filter: var(--blur-bar); backdrop-filter: var(--blur-bar); }
 .actionbar .actions { margin: 0; }
-/* закріплена дія над таб-баром: завжди на екрані, незалежно від скролу (Share my route на Safety) */
-.shell--pinned { padding-bottom: calc(var(--tab-clear) + var(--h-control) + var(--s-6) + var(--s-4)); }
-.pinned-action { position: absolute; left: 0; right: 0; bottom: var(--tab-clear); z-index: 5;
-  padding: var(--s-4) var(--gutter) var(--s-5); background: var(--bar-bg); border-top: var(--line) solid var(--hairline);
-  -webkit-backdrop-filter: var(--blur-bar); backdrop-filter: var(--blur-bar); }
-.pinned-action .btn { width: 100%; }
 
 /* чипи: 32 px, зона тапу 44 невидимим полем */
 .chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0; padding: 0; list-style: none; }
