@@ -62,7 +62,6 @@
   --e-float: 0 12px 32px -16px rgba(15,17,19,.38);
   --e-sheet: 0 -8px 24px -18px rgba(15,17,19,.35);
   --e-photo-floor: inset 0 -90px 60px -40px rgba(0,0,0,.35);
-  --e-badge-ring: 0 0 0 2px #FFFFFF;
   --e-focus-ring: 0 0 0 4px #E8EEFF;
   --shadow-text: 0 1px 3px rgba(0,0,0,.55);
   --map-dark: invert(.88) hue-rotate(180deg) saturate(.7);
@@ -129,7 +128,7 @@
   --panel-bg: rgba(28,30,33,.88); --bar-bg: rgba(28,30,33,.88);
   --sheet-list: #26292D; --e-hair-bottom: inset 0 -1px 0 #34383C;
   --e-hair: inset 0 0 0 1px #34383C; --e-stroke: inset 0 0 0 1.5px #34383C;
-  --e-badge-ring: 0 0 0 2px #1C1E21; --e-focus-ring: 0 0 0 4px #1D2A55;
+  --e-focus-ring: 0 0 0 4px #1D2A55;
   --shimmer: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.08), rgba(255,255,255,0));
 }
 
@@ -246,7 +245,7 @@
 .tabbar__item--safety { --ic: var(--ic-shield); --ic-on: var(--ic-shield); }
 .tabbar__item--profile { --ic: var(--ic-user); --ic-on: var(--ic-user); }
 .tabbar__badge { position: absolute; top: 0; left: calc(50% + var(--badge-offset)); min-width: var(--ic-glass); height: var(--ic-glass); padding: 0 var(--s-1);
-  border-radius: var(--r-pill); background: var(--yellow); color: var(--yellow-ink); box-shadow: var(--e-badge-ring);
+  border-radius: var(--r-pill); background: var(--yellow); color: var(--yellow-ink);
   font: var(--fw-semi) var(--fs-10)/var(--ic-glass) var(--font-num); text-align: center; }
 
 /* ════════════════════════ КАРТКИ Й СПИСКИ ════════════════════════ */
