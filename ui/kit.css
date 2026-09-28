@@ -532,6 +532,10 @@ div.day::after { content: none; }
 .actionbar { position: sticky; bottom: 0; z-index: 4; margin: var(--s-6) calc(var(--gutter) * -1) 0; padding: var(--s-5) var(--gutter) var(--s-6);
   background: var(--bar-bg); border-top: var(--line) solid var(--hairline); -webkit-backdrop-filter: var(--blur-bar); backdrop-filter: var(--blur-bar); }
 .actionbar .actions { margin: 0; }
+/* закріплена дія над таб-баром: завжди на екрані, незалежно від скролу (Share my route на Safety) */
+.shell--pinned { padding-bottom: calc(var(--tab-clear) + var(--h-control) + var(--s-3)); }
+.pinned-action { position: absolute; left: var(--gutter); right: var(--gutter); bottom: var(--tab-clear); z-index: 5; }
+.pinned-action .btn { width: 100%; box-shadow: var(--e-float); }
 
 /* чипи: 32 px, зона тапу 44 невидимим полем */
 .chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: 0; padding: 0; list-style: none; }

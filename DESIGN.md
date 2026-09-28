@@ -318,6 +318,8 @@ Screen skeletons (four `.shell` variants, all defined once and shared across all
 
 A floating glass tab bar sits 10px from the screen edges; screens pad 96px at the bottom to clear it (hidden on modal and sheet variants).
 
+A screen that keeps its tab bar but needs one action always reachable — regardless of scroll position — gets a **pinned action** (`.pinned-action`, `.shell--pinned`): the button sits outside the scrolling content, absolutely positioned over it, its bottom edge at the same 96px tab-bar clearance the screen already reserves, so it reuses that token rather than a new offset. The shell gains extra bottom padding (`--tab-clear` + button height + one gap step) so scrolled content never sits underneath it. Unlike `.actionbar` (sticky, full-width, replaces the tab bar in a modal), a pinned action coexists with the tab bar and is a floating layer, so it takes the Float shadow per the Flat-By-Default Rule. First use: "Share my route" on Safety.
+
 ## Elevation & Depth
 
 Flat with glass. Surfaces are defined by a 1px inset hairline, not by lift — lift reads as promotional. Depth appears only where something floats over content or photography.
