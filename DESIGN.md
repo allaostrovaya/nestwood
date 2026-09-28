@@ -398,6 +398,7 @@ A 4:3 (`--ratio-card`) photo, radius 20, with the credit printed on the image ov
 - **SOS, urgent/floating** (`.btn--sos`): Conflict capsule, 56px, Tektur 700, floats absolutely over a photo/map (`.actions--sos`) on Day (in-trip).
 - **SOS, static** (`.btn--danger-fill`): the ordinary primary button shape (16px radius, 52px, Wix Madefor 600) filled Conflict instead of Signal Blue — used where SOS sits in the page flow next to a secondary action rather than floating alone, e.g. Safety's "If it's happening now" paired with "Share my route" (`.actions--split`).
 - **Focus:** 3px ink outline, 3px offset (`:focus-visible`).
+- **Third-party sign-in** (`.btn--apple`, `.btn--google`): the one deliberate hole in the Closed Palette Rule. Apple and Google each require their own button colour and logo mark, so these two are hardcoded outside `ui/kit.css`'s `:root` — same reasoning as the mandatory ©Kartverket attribution string. `.btn--apple`: solid black (`#000`), white text and Apple glyph. `.btn--google`: white fill, `#1F1F1F` text, `#747775` 1px border, the official four-colour "G" mark — Google's own light-button spec, not our Signal Blue. Both keep the ordinary 16px/52px button shape and stay fixed in dark mode (brand identity, not a themed surface). Used on Sign in.
 
 ### Chips (`.chip`)
 32px, 14/500, pill; unselected Surface with 1.5px Hairline, selected Ink with Glass text (`[aria-pressed="true"]`). The 44px tap target comes from an invisible `::after`, not from a bigger chip. `.chips--on-map` variant floats chips over the catalogue map with the Float shadow on the unselected state.
@@ -416,7 +417,7 @@ A 4:3 (`--ratio-card`) photo, radius 20, with the credit printed on the image ov
 - **Loading skeleton** (`.skeleton`, `.skeleton--hero`, `.skeleton--block`): Hairline blocks with a shimmer (1.4s, off under reduced motion); the hero skeleton takes the photo's place and shape for the seconds it takes to generate — an animation, not a photo substitute.
 
 ### Forms
-- **Field** (`.field` / `.field__input`): label 14/600 above a 52px input, radius 12, 1.5px inset Hairline; focus is a 2px Signal Blue inset ring plus a 4px soft-blue halo (`--e-focus-ring`); error state swaps the ring and hint text to Conflict, a confirmed-ok state to Fixed. Used on Booking number, field notes, sign-in email.
+- **Field** (`.field` / `.field__input`): label 14/600 above a 52px input, radius 12, 1.5px inset Hairline; focus is a 2px Signal Blue inset ring plus a 4px soft-blue halo (`--e-focus-ring`); error state swaps the ring and hint text to Conflict, a confirmed-ok state to Fixed. Carries its own 16px top margin so it never sits flush against whatever precedes it (a button, another field, a chip row) — reset by nothing, since the base reset zeroes every native margin. Used on Booking number, field notes, sign-in email.
 - **Switch** (`.switch`, Settings): 52×28px pill track, Hairline when off, Signal Blue when on; a Surface knob with the Float shadow slides on a 0.2s ease transition.
 - **Checkbox** (`.check`, Gear checklist): 22px round, Hairline stroke off, Signal Blue fill with a white check mask when checked.
 - **Segmented control** (`.seg`, Notes and reviews): two-way toggle sharing the chip's ink-inversion principle, on a Surface track.

@@ -520,6 +520,12 @@ div.day::after { content: none; }
 .btn--danger-fill { background: var(--conflict); color: var(--on-conflict); }
 .btn--danger-fill:active { background: var(--conflict); transform: scale(var(--press-scale)); }
 .btn--sos { min-height: var(--h-sos); border-radius: var(--r-pill); background: var(--sos-bg); color: var(--sos-fg); font: var(--fw-bold) var(--fs-16)/var(--lh-1) var(--font-num); letter-spacing: var(--ls-sos); }
+/* фірмові кнопки входу — колір, форма й лого задані Apple/Google, навмисно поза закритою палітрою продукту (та сама логіка, що й обов'язкова атрибуція ©Kartverket) */
+.btn--apple { background: #000; color: #fff; }
+.btn--apple:active { background: #1a1a1a; }
+.btn--google { background: #fff; color: #1F1F1F; box-shadow: inset 0 0 0 var(--line) #747775; }
+.btn--google:active { background: #F7F8F8; }
+.btn .ic-brand { flex: none; }
 .btn:disabled, .btn[aria-disabled="true"] { padding: 0 var(--s-4); background: var(--disabled); color: var(--on-disabled); box-shadow: none; transform: none; cursor: not-allowed;
   font-size: var(--fs-16); line-height: var(--lh-head); }
 .btn--block { width: 100%; }
@@ -551,7 +557,8 @@ form + .chips, .field + .chips { margin-top: var(--s-3); }
 .seg > a[aria-current="page"] { background: var(--ink); color: var(--glass); }
 
 /* поле форми — зі стенду: підпис, поле 52 з радіусом 12, підказка; фокус синій, помилка червоним і словом */
-.field { display: grid; gap: var(--s-2); }
+.field { display: grid; gap: var(--s-2); margin-top: var(--s-4); }
+form + p { margin-top: var(--s-4); }
 .field__label { font: var(--fw-semi) var(--fs-14)/var(--lh-row) var(--font-ui); color: var(--ink); }
 .field__input { width: 100%; min-height: var(--h-control); padding: 0 var(--s-4); border: 0; border-radius: var(--r-field); background: var(--surface); color: var(--ink);
   box-shadow: var(--e-stroke); font: var(--fw-regular) var(--fs-16)/var(--lh-1) var(--font-ui); transition: box-shadow var(--dur-fast); }
