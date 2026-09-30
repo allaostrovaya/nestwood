@@ -1,0 +1,13 @@
+/* поле форми — зі стенду: підпис, поле 52 з радіусом 12, підказка; фокус синій, помилка червоним і словом */
+.field { display: grid; gap: var(--space-2); margin-top: var(--space-4); }
+form + p { margin-top: var(--space-4); }
+.field__label { font: var(--font-weight-semi) var(--font-size-14)/var(--line-height-row) var(--font-family-ui); color: var(--text-primary); }
+.field__input { width: 100%; min-height: var(--size-control); padding: 0 var(--space-4); border: 0; border-radius: var(--radius-xs); background: var(--bg-surface); color: var(--text-primary);
+  box-shadow: var(--effect-stroke); font: var(--font-weight-regular) var(--font-size-16)/var(--line-height-1) var(--font-family-ui); transition: box-shadow var(--dur-fast); }
+.field__input::placeholder { color: var(--text-muted); }
+.field__input:focus { outline: none; box-shadow: inset 0 0 0 var(--size-stroke-strong) var(--color-focus), var(--effect-focus-ring); }
+.field__hint { font: var(--font-weight-regular) var(--font-size-12)/var(--line-height-small) var(--font-family-ui); color: var(--text-muted); }
+.field--error .field__input { box-shadow: inset 0 0 0 var(--size-stroke-strong) var(--color-danger); }
+.field--error .field__hint { color: var(--color-danger); }
+.field--ok .field__input { box-shadow: inset 0 0 0 var(--size-stroke-strong) var(--color-verified); }
+.field--ok .field__hint { color: var(--color-verified); }

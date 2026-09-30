@@ -1,0 +1,5 @@
+/* шкала рівня (лавинна небезпека 1–5): рівень N — кроки 1..N усі несуть --active (кумулятивно, не лише
+   останній) — активні кроки жовті, як «живий стан на приладі», ніколи офіційна градація */
+.scale { display: flex; gap: var(--space-1); margin-top: var(--space-2); padding: 0 0 var(--space-3); list-style: none; }
+.scale__step { flex: 1; height: var(--space-2); border-radius: var(--radius-full); background: var(--bg-placeholder); }
+.scale__step--active { background: var(--color-live); }

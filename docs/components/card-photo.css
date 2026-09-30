@@ -1,0 +1,12 @@
+/* картка з фото */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4) var(--space-3); margin: 0; padding: 0; list-style: none; }
+.card-photo { position: relative; display: block; color: var(--text-primary); }
+.card-photo__img { position: relative; display: block; aspect-ratio: var(--size-ratio-card); margin: 0 0 var(--space-2); overflow: hidden; border-radius: var(--radius-md); background: var(--bg-page); }
+.card-photo__pic { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.card-photo__img::before { content: ""; position: absolute; inset: auto 0 0 0; z-index: 1; height: var(--size-card-scrim); background: var(--scrim-bottom); }
+.card-photo__credit { position: absolute; left: var(--space-2); right: var(--space-2); bottom: var(--space-2); z-index: 2; color: var(--on-photo-soft);
+  font: var(--font-weight-medium) var(--font-size-12)/var(--line-height-head) var(--font-family-num); letter-spacing: var(--letter-spacing-tag); text-shadow: var(--shadow-card); }
+.card-photo .pill--photo { position: absolute; top: var(--space-2); left: var(--space-2); z-index: 2; }
+.card-photo__title { display: block; font: var(--font-weight-semi) var(--font-size-16)/var(--line-height-row) var(--font-family-ui); }
+.card-photo__sub { display: block; margin-top: var(--space-1); font: var(--font-weight-regular) var(--font-size-12)/var(--line-height-small) var(--font-family-ui); color: var(--text-muted); }
+.cards > li.wide { grid-column: 1 / -1; }

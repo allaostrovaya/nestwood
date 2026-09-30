@@ -1,0 +1,5 @@
+/* сегментований перемикач (Field notes · Reviews) — той самий принцип інверсії, що в .chip */
+.seg { display: flex; gap: var(--space-1); margin: 0; padding: var(--space-1); border-radius: var(--radius-sm); background: var(--bg-surface); box-shadow: var(--effect-hair); }
+.seg > a { flex: 1; display: flex; align-items: center; justify-content: center; min-height: var(--size-tap); border-radius: var(--radius-xs); color: var(--text-muted);
+  font: var(--font-weight-semi) var(--font-size-14)/var(--line-height-1) var(--font-family-ui); text-align: center; }
+.seg > a[aria-current="page"] { background: var(--bg-selected); color: var(--text-on-selected); }

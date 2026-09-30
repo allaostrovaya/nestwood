@@ -1,0 +1,4 @@
+/* порожній стан */
+.empty { margin: 0 0 var(--space-3); padding: var(--space-4); text-align: center; border: var(--size-stroke) dashed var(--dash); border-radius: var(--radius-md); }
+.empty > p { margin: 0; font: var(--font-weight-regular) var(--font-size-16)/var(--line-height-body) var(--font-family-ui); color: var(--text-muted); }
+.empty + .list { margin-top: var(--space-3); }

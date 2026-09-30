@@ -1,0 +1,9 @@
+/* межа знання: дані лишились, але не свіжі; --done — підсумок пройденого */
+.limit { position: relative; display: block; margin: 0; padding: var(--space-4) var(--space-4) var(--space-4) var(--space-12); border: var(--size-stroke) dashed var(--dash); border-radius: var(--radius-md);
+  font: var(--font-weight-regular) var(--font-size-16)/var(--line-height-body) var(--font-family-ui); color: var(--text-muted); }
+.limit::before { content: ""; position: absolute; left: var(--space-4); top: var(--size-limit-ic-top); width: var(--size-ic-m); height: var(--size-ic-m); background: var(--color-mark);
+  -webkit-mask: var(--ic-cloud-cross) center / contain no-repeat; mask: var(--ic-cloud-cross) center / contain no-repeat; }
+.limit b { color: var(--text-primary); font-weight: var(--font-weight-semi); }
+.limit--done { padding: 0 var(--space-1) 0 var(--space-8); border: 0; }
+.limit--done + .actions { margin-top: var(--size-gap-legacy); }
+.limit--done::before { left: var(--space-1); top: var(--size-line); -webkit-mask-image: var(--ic-check); mask-image: var(--ic-check); }

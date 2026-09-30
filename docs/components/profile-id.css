@@ -1,0 +1,5 @@
+/* особистість профілю — без картки: великий круглий аватар прямо на тлі екрана, імʼя в масштабі заголовка (Profile) */
+.profile-id { display: flex; align-items: center; gap: var(--space-4); }
+.profile-id__avatar { flex: none; width: var(--space-18); height: var(--space-18); border-radius: var(--radius-round); object-fit: cover; background: var(--bg-placeholder); }
+.profile-id__name { display: block; font: var(--font-weight-semi) var(--font-size-24)/var(--line-height-title) var(--font-family-ui); letter-spacing: var(--letter-spacing-title); color: var(--text-primary); }
+.profile-id__sub { display: block; margin-top: var(--space-1); font: var(--font-weight-regular) var(--font-size-14)/var(--line-height-small) var(--font-family-ui); color: var(--text-muted); }

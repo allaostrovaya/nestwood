@@ -1,0 +1,7 @@
+/* аркуш пресетів над картою: дві висоти — прив'язка прокрутки */
+.sheet { position: relative; z-index: 1; margin: 0 calc(var(--space-gutter) * -1); padding: var(--space-4) var(--space-gutter) var(--space-2); background: var(--bg-surface); }
+.sheet--first { margin-top: var(--space-4); padding-top: var(--space-3); border-radius: var(--radius-lg) var(--radius-lg) var(--radius-none) var(--radius-none); box-shadow: var(--effect-sheet);
+  scroll-snap-align: start; scroll-margin-top: var(--size-sheet-snap); }
+.sheet--first::before { content: ""; display: block; width: var(--size-handle-w); height: var(--size-handle-h); margin: 0 auto var(--space-3); border-radius: var(--radius-full); background: var(--bg-placeholder); }
+.sheet--last { padding-bottom: var(--space-6); }
+.shell--map .shell__main > :first-child { scroll-snap-align: start; }

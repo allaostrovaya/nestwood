@@ -1,0 +1,19 @@
+/* тривога: інверсія зі штрихованим краєм; --color-danger — вердикт із червоним краєм; --static — без переходу */
+.alert { position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto var(--size-ic-s); gap: var(--space-3); align-items: center;
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-6); border-radius: var(--radius-md); background: var(--bg-alert); color: var(--text-on-alert); }
+.alert::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: var(--size-hatch-w); background: var(--effect-hatch); }
+.alert::after { content: ""; width: var(--size-ic-s); height: var(--size-ic-s); background: var(--alert-sub);
+  -webkit-mask: var(--ic-chevron-right) center / contain no-repeat; mask: var(--ic-chevron-right) center / contain no-repeat; }
+.alert__text { display: block; min-width: 0; }
+.alert__title { display: block; font: var(--font-weight-semi) var(--font-size-16)/var(--line-height-row) var(--font-family-ui); }
+.alert__body { display: block; margin-top: var(--space-1); font: var(--font-weight-regular) var(--font-size-14)/var(--line-height-small) var(--font-family-ui); color: var(--alert-sub); }
+.alert__body--short { font-size: var(--font-size-12); }
+.alert__tag { align-self: start; margin-left: var(--space-1); padding-top: var(--space-1); font: var(--font-weight-medium) var(--font-size-12)/var(--line-height-row) var(--font-family-num); letter-spacing: var(--letter-spacing-tag); color: var(--color-live); white-space: nowrap; }
+.alert__tag--wide { font-size: var(--font-size-14); }
+.alert--static { display: block; }
+.alert--static::after { content: none; }
+.alert--static .alert__body { font-size: var(--font-size-14); line-height: var(--line-height-body); }
+/* --alert-conflict-edge: один із 10 документованих одноразових кольорів (CLAUDE.md) — червоний край
+   вердикту на інверсній плашці. tokens.css лишив --red-400 лише primitive-шаром для цієї ролі. */
+.alert--conflict { --alert-conflict-edge: var(--red-400); }
+.alert--conflict::before { background: var(--alert-conflict-edge); }

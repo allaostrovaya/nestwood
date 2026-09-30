@@ -1,0 +1,4 @@
+/* панель дії внизу модального */
+.actionbar { position: sticky; bottom: 0; z-index: 4; margin: var(--space-6) calc(var(--space-gutter) * -1) 0; padding: var(--space-5) var(--space-gutter) var(--space-6);
+  background: var(--bar-bg); border-top: var(--size-line) solid var(--border-default); -webkit-backdrop-filter: var(--blur-bar); backdrop-filter: var(--blur-bar); }
+.actionbar .actions { margin: 0; }

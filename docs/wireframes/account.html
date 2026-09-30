@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Wireframe · Sign in · успіх</title>
 <link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
-<link rel="stylesheet" href="../ui/kit.css?v=20260928l" />
+<link rel="stylesheet" href="../tokens.css" />
+<link rel="stylesheet" href="../components/index.css" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -20,6 +21,7 @@
     <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/plan.html" aria-current="page"><span class="n">04</span><span><b>Вайрфрейми</b><small>33 сторінки, дерево праворуч</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/flow.html"><span class="n">05</span><span><b>Головний флоу</b><small>десять екранів підряд, MAIN JOB</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/tokens.html"><span class="n">06</span><span><b>Токени</b><small>дрейф, подвійні ролі, хардкод</small></span></a></li>
   </ul>
 </nav>
 
@@ -148,7 +150,8 @@
   <img class="shell__backdrop" src="./img/kungsleden-abiskojaure-birch-trail.jpg" alt="" />
   <header class="shell__bar"><a class="shell__close" href="./settings.html">Close</a><span class="shell__title">Sign in</span></header>
   <div class="shell__head">
-    <h1 class="shell__h1">Sign in to save your trip</h1>
+    <h1 class="shell__h1">Sign in</h1>
+    <p>To save your trip.</p>
   </div>
 
   <main class="shell__main">
@@ -159,10 +162,15 @@
 
     <section aria-labelledby="do" class="section">
       <h2 id="do" class="section__title">Sign in</h2>
+      <form action="./settings.html" method="get" class="actions">
+        <button class="btn btn--apple btn--block" type="submit"><svg class="ic-brand" width="16" height="20" viewBox="0 0 170 170" fill="currentColor" aria-hidden="true"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.197-2.12-9.973-3.17-14.34-3.17-4.58 0-9.492 1.05-14.746 3.17-5.262 2.13-9.501 3.24-12.742 3.35-4.929.21-9.842-1.96-14.746-6.52-3.13-2.73-7.045-7.41-11.735-14.04-5.032-7.08-9.169-15.29-12.41-24.65-3.471-10.11-5.211-19.9-5.211-29.378 0-10.857 2.346-20.221 7.045-28.068 3.693-6.303 8.606-11.275 14.755-14.925 6.149-3.65 12.793-5.51 19.948-5.629 3.915 0 9.049 1.211 15.429 3.591 6.362 2.388 10.447 3.599 12.238 3.599 1.339 0 5.877-1.416 13.57-4.239 7.275-2.618 13.415-3.702 18.445-3.275 13.63 1.1 23.87 6.473 30.68 16.153-12.19 7.386-18.22 17.731-18.1 31.002.11 10.337 3.86 18.939 11.23 25.769 3.34 3.17 7.07 5.62 11.22 7.36-.9 2.61-1.85 5.11-2.86 7.51ZM119.11 7.24c0 8.102-2.96 15.667-8.86 22.669-7.12 8.324-15.732 13.134-25.071 12.375a25.222 25.222 0 0 1-.188-3.07c0-7.778 3.386-16.102 9.399-22.908 3.002-3.446 6.82-6.311 11.45-8.597 4.62-2.253 8.99-3.499 13.1-3.71.12 1.083.17 2.166.17 3.24Z"/></svg>Continue with Apple</button>
+      </form>
+      <form action="./settings.html" method="get" class="actions">
+        <button class="btn btn--google btn--block" type="submit"><svg class="ic-brand" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="#4285F4" d="M17.64 9.2045c0-.6381-.0573-1.2518-.1636-1.8409H9v3.4814h4.8436c-.2086 1.125-.8427 2.0782-1.7959 2.7163v2.2581h2.9087c1.7018-1.5668 2.6836-3.874 2.6836-6.6149Z"/><path fill="#34A853" d="M9 18c2.43 0 4.4673-.806 5.9564-2.1805l-2.9087-2.2581c-.806.5399-1.8368.8618-3.0477.8618-2.3436 0-4.3282-1.5831-5.0359-3.7104H.9573v2.3318C2.4382 15.9832 5.4818 18 9 18Z"/><path fill="#FBBC05" d="M3.9641 10.71c-.18-.5399-.2827-1.1168-.2827-1.71s.1027-1.1701.2827-1.71V4.9582H.9573C.3477 6.1732 0 7.5477 0 9s.3477 2.8268.9573 4.0418L3.9641 10.71Z"/><path fill="#EA4335" d="M9 3.5795c1.3214 0 2.5077.4541 3.4405 1.346l2.5814-2.5814C13.4632.8918 11.4259 0 9 0 5.4818 0 2.4382 2.0168.9573 4.9582L3.9641 7.29C4.6718 5.1627 6.6564 3.5795 9 3.5795Z"/></svg>Continue with Google</button>
+      </form>
       <form action="./settings.html" method="get">
-        <p class="actions"><button class="btn btn--apple btn--block" type="submit"><svg class="ic-brand" width="16" height="20" viewBox="0 0 170 170" fill="currentColor" aria-hidden="true"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.197-2.12-9.973-3.17-14.34-3.17-4.58 0-9.492 1.05-14.746 3.17-5.262 2.13-9.501 3.24-12.742 3.35-4.929.21-9.842-1.96-14.746-6.52-3.13-2.73-7.045-7.41-11.735-14.04-5.032-7.08-9.169-15.29-12.41-24.65-3.471-10.11-5.211-19.9-5.211-29.378 0-10.857 2.346-20.221 7.045-28.068 3.693-6.303 8.606-11.275 14.755-14.925 6.149-3.65 12.793-5.51 19.948-5.629 3.915 0 9.049 1.211 15.429 3.591 6.362 2.388 10.447 3.599 12.238 3.599 1.339 0 5.877-1.416 13.57-4.239 7.275-2.618 13.415-3.702 18.445-3.275 13.63 1.1 23.87 6.473 30.68 16.153-12.19 7.386-18.22 17.731-18.1 31.002.11 10.337 3.86 18.939 11.23 25.769 3.34 3.17 7.07 5.62 11.22 7.36-.9 2.61-1.85 5.11-2.86 7.51ZM119.11 7.24c0 8.102-2.96 15.667-8.86 22.669-7.12 8.324-15.732 13.134-25.071 12.375a25.222 25.222 0 0 1-.188-3.07c0-7.778 3.386-16.102 9.399-22.908 3.002-3.446 6.82-6.311 11.45-8.597 4.62-2.253 8.99-3.499 13.1-3.71.12 1.083.17 2.166.17 3.24Z"/></svg>Continue with Apple</button></p>
-        <p class="actions"><button class="btn btn--google btn--block" type="submit"><svg class="ic-brand" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path fill="#4285F4" d="M17.64 9.2045c0-.6381-.0573-1.2518-.1636-1.8409H9v3.4814h4.8436c-.2086 1.125-.8427 2.0782-1.7959 2.7163v2.2581h2.9087c1.7018-1.5668 2.6836-3.874 2.6836-6.6149Z"/><path fill="#34A853" d="M9 18c2.43 0 4.4673-.806 5.9564-2.1805l-2.9087-2.2581c-.806.5399-1.8368.8618-3.0477.8618-2.3436 0-4.3282-1.5831-5.0359-3.7104H.9573v2.3318C2.4382 15.9832 5.4818 18 9 18Z"/><path fill="#FBBC05" d="M3.9641 10.71c-.18-.5399-.2827-1.1168-.2827-1.71s.1027-1.1701.2827-1.71V4.9582H.9573C.3477 6.1732 0 7.5477 0 9s.3477 2.8268.9573 4.0418L3.9641 10.71Z"/><path fill="#EA4335" d="M9 3.5795c1.3214 0 2.5077.4541 3.4405 1.346l2.5814-2.5814C13.4632.8918 11.4259 0 9 0 5.4818 0 2.4382 2.0168.9573 4.9582L3.9641 7.29C4.6718 5.1627 6.6564 3.5795 9 3.5795Z"/></svg>Continue with Google</button></p>
-        <div class="field"><label class="field__label" for="mail">Email</label><input class="field__input" type="email" id="mail" name="mail" placeholder="you@email" /></div>
+        <div class="field"><label class="field__label" for="mail">Email</label><input class="field__input" type="email" id="mail" name="mail" placeholder="you@gmail.com" /></div>
+        <p class="actions"><button class="btn btn--secondary btn--block" type="submit">Continue</button></p>
       </form>
       <p>Next, one notification request — so we can warn you two days before you set off.</p>
       <p class="actions"><a href="./settings.html" class="btn btn--text">Continue without signing in</a></p>

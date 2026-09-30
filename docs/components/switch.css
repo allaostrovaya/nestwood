@@ -1,0 +1,14 @@
+/* рядок-перемикач (Settings) і рядок-відмітка (Gear) */
+.switch { position: relative; flex: none; width: var(--size-switch-w); height: var(--size-switch-h); margin: 0; border-radius: var(--radius-full);
+  background: var(--bg-placeholder); appearance: none; -webkit-appearance: none; cursor: pointer; transition: background var(--dur); }
+.switch::after { content: ""; position: absolute; top: var(--size-switch-pad); left: var(--size-switch-pad); width: var(--size-switch-knob); height: var(--size-switch-knob);
+  border-radius: var(--radius-full); background: var(--bg-surface); box-shadow: var(--effect-float); transition: transform var(--dur) var(--ease); }
+.switch:checked { background: var(--color-toggle-on); }
+.switch:checked::after { transform: translateX(calc(var(--size-switch-w) - var(--size-switch-knob) - var(--size-switch-pad) * 2)); }
+.check { flex: none; width: var(--size-ic-l); height: var(--size-ic-l); margin: 0; border-radius: var(--radius-full); box-shadow: var(--effect-stroke); background: var(--bg-surface);
+  appearance: none; -webkit-appearance: none; cursor: pointer; }
+.check:checked { background: var(--color-toggle-on); box-shadow: none; }
+.check:checked::after { content: ""; display: block; width: 100%; height: 100%; background: var(--text-on-action);
+  -webkit-mask: var(--ic-check-mark) center / var(--size-w60) no-repeat; mask: var(--ic-check-mark) center / var(--size-w60) no-repeat; }
+.row--control { grid-template-columns: auto 1fr auto; }
+.row--toggle { grid-template-columns: 1fr auto; cursor: pointer; }

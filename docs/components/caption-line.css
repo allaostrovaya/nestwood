@@ -1,0 +1,2 @@
+/* підпис під приладом (градація) */
+.caption-line { margin: var(--space-3) var(--space-1) 0; font: var(--font-weight-medium) var(--font-size-14)/var(--line-height-small) var(--font-family-ui); color: var(--text-muted); }

@@ -1,0 +1,4 @@
+/* профіль висоти */
+.profile { position: relative; margin-top: var(--space-3); aspect-ratio: var(--size-ratio-profile); overflow: hidden; border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: var(--effect-hair); }
+.profile__img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: fill; }
+[data-theme="dark"] .profile { filter: var(--effect-profile-dark); }

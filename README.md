@@ -40,6 +40,12 @@ The visual side is written down in [concept.md](./concept.md), shown live on the
 
 The main flow of the wireframes — catalogue, new plan, another hut, plan, day, with every state, and [flow.html](./wireframes/flow.html) — is painted in this language by `wireframes/_prylad.css` without changing markup or copy; a «Світла · Темна» toggle at the top of every page switches the theme and remembers it.
 
+## Tokens
+
+The visual system lives in two files at the repo root, not scattered across pages: [tokens.css](./tokens.css) (a PRIMITIVE layer of raw values, then a SEMANTIC layer of colour roles that each point at exactly one PRIMITIVE) and [components/](./components) (one CSS file per UI component, assembled by `components/index.css`). All 33 wireframe pages, `ui/kit.html` and `ui/shell.html` link these two files; the earlier single `ui/kit.css` is retired.
+
+Full derivation, the read-only audit that drove the split, and the defect-fix pass that followed it: [tokens-audit.md](./tokens-audit.md), [wireframes/tokens.html](./wireframes/tokens.html), and [CLAUDE.md](./CLAUDE.md#токени).
+
 ## Repo index
 
 Phase pipeline — each folder tracks its own status; update the table below as phases progress.
@@ -48,9 +54,9 @@ Phase pipeline — each folder tracks its own status; update the table below as 
 |---|---|---|
 | 1. Concept | [concept/](./concept/) | Done — 2 personas + 2 axes, 12 jobs and 8 hypotheses; every claim audited against primary sources |
 | 2. Research | [research/](./research/) ([research.md](./research/research.md), [competitors.md](./research/competitors.md), [benchmark.md](./research/benchmark.md), [patterns.md](./research/patterns.md), [screens/](./research/screens/)) | Done — 15 competitors, benchmark, UX patterns, 8 data-source classes verified by direct request, tech stack decided. Interface pattern: catalogue, not wizard |
-| 3. Design system & tokens | [design-system/](./design-system/) ([voice.md](./design-system/voice.md)), [tokens/](./tokens/) | **Voice done and applied**; **visual language chosen — Прилад** ([concept.md](./concept.md), stand [concept.html](./concept.html)): closed palette, one type scale, 4 px spacing, radii scale, Solar icons. Tokens as a package not started |
+| 3. Design system & tokens | [design-system/](./design-system/) ([voice.md](./design-system/voice.md)), [tokens.css](./tokens.css) | **Voice done and applied**; **visual language chosen — Прилад** ([concept.md](./concept.md), stand [concept.html](./concept.html)): closed palette, one type scale, 4 px spacing, radii scale, Solar icons. **Tokens done** — `tokens.css` (PRIMITIVE + SEMANTIC), see «Tokens» above |
 | 4. Wireframes | [wireframes/](./wireframes/) ([sitemap.md](./wireframes/sitemap.md), [flows.md](./wireframes/flows.md), [ia.html](./wireframes/ia.html), [flow.html](./wireframes/flow.html), [microcopy.md](./wireframes/microcopy.md), [_conventions.md](./wireframes/_conventions.md)) | **Done** — 33 pages (20 screens × 13 states), English UI; the main flow (16 pages) and [flow.html](./wireframes/flow.html) painted in Прилад via `_prylad.css`, with a light/dark toggle. `_audit.py` prints zero |
-| 5. Components | [components/](./components/) | Not started |
+| 5. Components | [components/](./components/) | **Done** — one CSS file per component, assembled by `components/index.css`, consumed by all 33 wireframe pages |
 | 6. Handoff | [handoff/](./handoff/) | Not started |
 
 ## What's in each folder
