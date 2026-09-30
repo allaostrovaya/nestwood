@@ -1,0 +1,21 @@
+/* стан словом: нейтральна пігулка, «увага», закріплено, на фото; і текстова дія над своєю сутністю */
+.pill { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full);
+  background: var(--bg-page); color: var(--text-primary); box-shadow: var(--effect-hair); font: var(--font-weight-semi) var(--font-size-14)/var(--line-height-1) var(--font-family-ui); white-space: nowrap; }
+.pill--attention { padding-left: var(--space-2); background: var(--bg-alert); color: var(--text-on-alert); }
+.pill--attention::before { content: ""; width: var(--font-size-14); height: var(--font-size-14); background: var(--color-live);
+  -webkit-mask: var(--ic-danger) center / contain no-repeat; mask: var(--ic-danger) center / contain no-repeat; }
+/* --pill-fixed-bg: один із 10 документованих одноразових кольорів (CLAUDE.md) — фон .pill--fixed/
+   .field--ok. tokens.css лишив --fixed-soft лише primitive-шаром; локальна змінна пулить точний
+   primitive кожної теми напряму (--green-50 світла / --green-900 темна). */
+.pill--fixed { --pill-fixed-bg: var(--green-50); }
+[data-theme="dark"] .pill--fixed { --pill-fixed-bg: var(--green-900); }
+.pill--fixed { width: max-content; margin: 0; padding-left: var(--space-2); background: var(--pill-fixed-bg); color: var(--color-verified); box-shadow: none; }
+.pill--fixed::before { content: ""; width: var(--size-ic-s); height: var(--size-ic-s); background: currentColor;
+  -webkit-mask: var(--ic-check) center / contain no-repeat; mask: var(--ic-check) center / contain no-repeat; }
+/* --pill-photo-bg: «фото-чіп», ще один із 10 — --white-a92 в обох темах (не варіюється).
+   --pill-photo-ink: значення дослівно збігається з --text-on-live (--gray-950), але це інша роль —
+   темний текст на світлому фото-чіпі, не текст на живій жовтій позначці, тому НЕ переведено на
+   --text-on-live (той самий збіг значення, що вже колись плутав --ink і --selected-bg — §3.2). */
+.pill--photo { --pill-photo-bg: var(--white-a92); --pill-photo-ink: var(--gray-950); }
+.pill--photo { padding: var(--space-1) var(--space-2); background: var(--pill-photo-bg); color: var(--pill-photo-ink); box-shadow: none; font: var(--font-weight-semi) var(--font-size-12)/var(--line-height-1) var(--font-family-num); }
+.action-text { justify-self: end; margin-left: var(--space-1); color: var(--color-link); font: var(--font-weight-semi) var(--font-size-16)/var(--line-height-1) var(--font-family-ui); white-space: nowrap; }

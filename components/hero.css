@@ -1,0 +1,19 @@
+/* фото-герой: на всю ширину, нижні кути 32, джерело на знімку; .panel і .hero__hud лежать на ньому */
+.hero { position: relative; height: var(--size-hero); margin: 0 calc(var(--space-gutter) * -1); overflow: hidden; border-radius: var(--radius-none) var(--radius-none) var(--radius-xl) var(--radius-xl);
+  background: var(--bg-page); }
+.hero__img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center var(--size-hero-y); }
+.hero::before { content: ""; position: absolute; inset: 0 0 auto 0; z-index: 1; height: var(--size-scrim); background: var(--scrim-top); }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: 1; box-shadow: var(--effect-photo-floor); pointer-events: none; }
+.hero__credit { position: absolute; z-index: 2; top: calc(var(--size-bar) + var(--space-photo-inset)); right: var(--space-photo-inset); color: var(--on-photo-soft);
+  font: var(--font-weight-medium) var(--font-size-12)/var(--line-height-1) var(--font-family-num); letter-spacing: var(--letter-spacing-credit); text-shadow: var(--shadow-text); }
+.hero__hud { position: absolute; top: var(--size-hud-top); left: var(--space-photo-inset); z-index: 2; display: inline-flex; align-items: center; gap: var(--space-1);
+  color: var(--text-on-photo); font: var(--font-weight-medium) var(--font-size-12)/var(--line-height-row) var(--font-family-num); letter-spacing: var(--letter-spacing-hud); text-transform: uppercase;
+  text-shadow: var(--shadow-text); }
+.hero__hud::before { content: ""; width: var(--size-ic-s); height: var(--size-ic-s); background: currentColor;
+  -webkit-mask: var(--ic-cloud-check) center / contain no-repeat; mask: var(--ic-cloud-check) center / contain no-repeat; }
+.hero__hud--offline::before { -webkit-mask-image: var(--ic-cloud-cross); mask-image: var(--ic-cloud-cross); }
+/* коротший фото-герой із назвою екрана прямо на фото (хаб без окремого shell__head) — Guide, Safety.
+   Без скруглення: це головні екрани хабу, фото йде прямим краєм на всю ширину. */
+.hero--short { height: 190px; border-radius: var(--radius-none); }
+.hero--short::after { content: ""; position: absolute; inset: auto 0 0 0; height: 46%; box-shadow: none; background: var(--scrim-bottom); }
+.hero__title { position: absolute; left: var(--space-photo-inset); bottom: var(--space-4); z-index: 2; color: var(--text-on-photo); font: var(--font-weight-semi) var(--font-size-28)/var(--line-height-title) var(--font-family-ui); text-shadow: var(--shadow-text); }

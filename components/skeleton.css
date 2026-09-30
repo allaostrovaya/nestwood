@@ -1,0 +1,12 @@
+/* скелет і спінер генерації */
+.skeleton { display: block; height: var(--size-skel-line); margin-bottom: var(--space-3); border-radius: var(--radius-full); background: var(--bg-placeholder);
+  background-image: var(--effect-shimmer); background-size: 200% 100%; animation: kit-shimmer var(--dur-shimmer) linear infinite; }
+.skeleton--block { height: var(--size-skel-block); border-radius: var(--radius-md); }
+.skeleton--hero { height: var(--size-hero); margin: 0 calc(var(--space-gutter) * -1); border-radius: var(--radius-none) var(--radius-none) var(--radius-xl) var(--radius-xl); }
+.skeleton--brief { margin-top: var(--space-3); }
+.skeleton--w60 { width: var(--size-w60); } .skeleton--w40 { width: var(--size-w40); }
+.spinner { width: var(--size-ic-glass); height: var(--size-ic-glass); border-radius: var(--radius-round); border: var(--size-spin-w) solid var(--border-default); border-top-color: var(--color-loading);
+  animation: kit-spin var(--dur-spin) linear infinite; }
+@keyframes kit-shimmer { to { background-position: -200% 0; } }
+@keyframes kit-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .skeleton, .spinner, .row--loading::before { animation: none; } .spinner, .row--loading::before { border-right-color: var(--color-loading); } }

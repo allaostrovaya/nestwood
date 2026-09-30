@@ -7,6 +7,7 @@ DOCS = [
  ('ia',         'wireframes/ia.html',      'Архітектура',     'екрани, потоки, трасування'),
  ('wireframes', 'wireframes/plan.html',    'Вайрфрейми',      '33 сторінки, дерево праворуч'),
  ('flow',       'wireframes/flow.html',    'Головний флоу',   'десять екранів підряд, MAIN JOB'),
+ ('tokens',     'wireframes/tokens.html',  'Токени',          'дрейф, подвійні ролі, хардкод'),
 ]
 
 def gnav(active, prefix, home='wireframes/plan.html'):

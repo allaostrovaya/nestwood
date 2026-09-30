@@ -1,0 +1,6 @@
+/* ════════════════════════ КАРТКИ Й СПИСКИ ════════════════════════ */
+.section { padding-top: var(--space-5); }
+.section__title { margin: 0 0 var(--space-2); font: var(--font-weight-semi) var(--font-size-16)/var(--line-height-head) var(--font-family-ui); color: var(--text-primary); }
+.section--tight { padding-top: var(--space-3); }
+.section--bare { display: contents; }
+.section--last { order: 9; padding-top: var(--space-6); }

@@ -1,0 +1,37 @@
+/* згрупований список */
+.list { margin: 0; padding: 0 var(--space-4); list-style: none; border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: var(--effect-hair); }
+.list > li { border-bottom: var(--size-line) solid var(--border-default); }
+.list > li:last-child { border-bottom: 0; }
+.row { display: grid; grid-template-columns: 1fr auto var(--size-ic-s); gap: var(--space-3); align-items: center; min-height: var(--size-row);
+  padding: var(--space-3) 0; color: var(--text-primary); }
+div.row { grid-template-columns: 1fr auto; }
+.row::after { content: ""; width: var(--size-ic-s); height: var(--size-ic-s); background: var(--color-mark);
+  -webkit-mask: var(--ic-chevron-right) center / contain no-repeat; mask: var(--ic-chevron-right) center / contain no-repeat; }
+div.row::after, label.row::after { content: none; }
+.row__text { display: block; min-width: 0; }
+.row__title { display: block; font: var(--font-weight-semi) var(--font-size-16)/var(--line-height-row) var(--font-family-ui); }
+.row__sub { display: block; margin-top: var(--space-1); font: var(--font-weight-regular) var(--font-size-12)/var(--line-height-small) var(--font-family-ui); color: var(--text-muted); text-wrap: pretty; }
+.row__sub--roomy { font-size: var(--font-size-14); }
+.row__trail { justify-self: end; margin-left: var(--space-1); }
+/* рядок з іконкою змісту: іконку задає .i-* на рядку */
+.list--icons .row { column-gap: var(--space-4); grid-template-columns: var(--size-ic-l) 1fr auto var(--size-ic-s); }
+.list--icons div.row { grid-template-columns: var(--size-ic-l) 1fr; }
+.list--icons .row::before { content: ""; width: var(--size-ic-l); height: var(--size-ic-l); background: var(--color-mark);
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+/* стан рядка — під текстом, щоб текст мав усю ширину */
+.list--icons a.row:has(.row__trail) { grid-template-columns: var(--size-ic-l) 1fr var(--size-ic-s); row-gap: 0; }
+.list--icons a.row:has(.row__trail) > .row__text { grid-column: 2; grid-row: 1; }
+.list--icons a.row:has(.row__trail) > .row__trail { grid-column: 2; grid-row: 2; justify-self: start; margin: var(--space-2) 0 0; }
+.list--icons a.row:has(.row__trail)::before { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+.list--icons a.row:has(.row__trail)::after { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
+/* список без підкладки: під тривогою */
+.list--bare { padding: 0; background: none; box-shadow: none; border-radius: 0; }
+.list--bare > li { border: 0; }
+/* список, що плаває на карті */
+.list--float { position: relative; z-index: 2; margin-top: var(--size-float-pull); box-shadow: var(--effect-float); }
+.alert + .list { margin-top: var(--space-3); }
+/* рядок у процесі: спінер замість іконки */
+div.row--loading { grid-template-columns: var(--size-ic-glass) 1fr auto; }
+.row--loading::before { content: ""; width: var(--size-ic-glass); height: var(--size-ic-glass); border-radius: var(--radius-round); border: var(--size-spin-w) solid var(--border-default);
+  border-top-color: var(--color-loading); animation: kit-spin var(--dur-spin) linear infinite; }
+.row__count { justify-self: end; margin-left: var(--space-1); padding: var(--space-2) var(--space-3); font: var(--font-weight-semi) var(--font-size-14)/var(--line-height-1) var(--font-family-num); color: var(--text-muted); white-space: nowrap; }

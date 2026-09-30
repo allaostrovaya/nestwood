@@ -1,0 +1,22 @@
+/* панель приладу: три рівні стовпці на склі поверх фото; .panel--card — той самий компонент на білій картці */
+/* --panel-instrument-bg: один із 10 документованих одноразових кольорів (CLAUDE.md) — «frosted instrument
+   panel» лишився в tokens.css лише primitive-шаром, без глобальної semantic-ролі. Локальна змінна
+   пулить точний primitive кожної теми напряму. */
+.panel { --panel-instrument-bg: var(--gray-25-a90); }
+[data-theme="dark"] .panel { --panel-instrument-bg: var(--gray-900-a88); }
+.panel { position: absolute; left: var(--space-photo-inset); right: var(--space-photo-inset); bottom: var(--space-photo-inset); z-index: 2;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: var(--space-4); list-style: none;
+  border-radius: var(--radius-lg); background: var(--panel-instrument-bg); -webkit-backdrop-filter: var(--blur-glass); backdrop-filter: var(--blur-glass); }
+.panel__item { display: flex; flex-direction: column; min-width: 0; padding-left: var(--space-3); border-left: var(--size-line) solid var(--border-default); }
+.panel__item:first-child { padding-left: 0; border-left: 0; }
+.panel__item--hidden { display: none; }
+.panel__value { font: var(--font-weight-semi) var(--font-size-24)/var(--line-height-1) var(--font-family-num); letter-spacing: var(--letter-spacing-num-tight); color: var(--text-primary); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.panel__unit { margin: 0 var(--size-line) 0 var(--size-unit-gap); font: var(--font-weight-medium) var(--font-size-12)/var(--line-height-1) var(--font-family-ui); letter-spacing: 0; color: var(--text-muted); }
+.panel__label { margin-top: var(--size-label-gap); font: var(--font-weight-medium) var(--font-size-10)/var(--line-height-head) var(--font-family-ui); letter-spacing: var(--letter-spacing-caps); text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
+.panel--card { position: static; grid-template-columns: var(--size-day-cols); margin-top: var(--space-3); background: var(--bg-surface); box-shadow: var(--effect-hair);
+  border-radius: var(--radius-md); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.panel--card .panel__item { padding-left: var(--space-4); }
+.panel--card .panel__item:first-child { padding-left: 0; }
+.panel--card .panel__value { letter-spacing: var(--letter-spacing-title); }
+.panel--card .panel__unit { margin: 0 var(--size-line); font-size: var(--font-size-14); }
+.panel--even { grid-template-columns: repeat(3, 1fr); }

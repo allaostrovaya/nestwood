@@ -1,0 +1,10 @@
+/* ════════════════════════ ФОРМИ Й ДІЇ ════════════════════════ */
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); margin: var(--space-3) 0 0; }
+.actions + .list { margin-top: var(--space-4); }
+.actions--split { flex-wrap: nowrap; gap: var(--space-2); }
+.actions--split > * { flex: var(--size-flex-secondary); }
+.actions--split > .btn--primary { flex: var(--size-flex-primary); }
+.actions--block { flex-direction: column; }
+.actions--block > .btn { flex: 1; width: 100%; }
+.actions--sos { position: absolute; top: var(--size-sos-top); right: var(--space-gutter); z-index: 3; margin: 0; }
+.actions--on-map { position: relative; z-index: 2; }

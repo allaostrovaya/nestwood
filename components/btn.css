@@ -1,0 +1,36 @@
+/* --btn-primary-pressed: один із 10 документованих одноразових кольорів (CLAUDE.md) —
+   `:active` головної кнопки. tokens.css лишив його лише primitive-шаром (--blue-700/--blue-800),
+   без глобальної semantic-ролі; локальна змінна пулить точний primitive кожної теми напряму. */
+.btn--primary { --btn-primary-pressed: var(--blue-800); }
+[data-theme="dark"] .btn--primary { --btn-primary-pressed: var(--blue-700); }
+/* --btn-sos-bg/--btn-sos-fg: другий із 10 — кнопка SOS, заморожений колір в обох темах. */
+.btn--sos { --btn-sos-bg: var(--red-700); --btn-sos-fg: var(--white); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: var(--size-control); padding: 0 var(--space-5); border: 0;
+  border-radius: var(--radius-sm); font: var(--font-weight-semi) var(--font-size-16)/var(--line-height-1) var(--font-family-ui); cursor: pointer;
+  transition: background var(--dur-fast), transform var(--dur-fast); }
+.btn--primary { background: var(--color-action); color: var(--text-on-action); }
+.btn--primary:active { background: var(--btn-primary-pressed); transform: scale(var(--press-scale)); }
+.btn--secondary { background: var(--bg-surface); color: var(--text-primary); box-shadow: var(--effect-stroke); }
+.btn--secondary:active { background: var(--bg-page); }
+.btn--text { min-height: var(--size-tap); padding: 0; background: none; color: var(--color-link); }
+.btn--danger { background: var(--bg-surface); color: var(--color-danger); box-shadow: var(--effect-stroke); }
+.btn--danger-fill { background: var(--color-danger); color: var(--text-on-danger); }
+.btn--danger-fill:active { background: var(--color-danger); transform: scale(var(--press-scale)); }
+.btn--sos { min-height: var(--size-sos); border-radius: var(--radius-full); background: var(--btn-sos-bg); color: var(--btn-sos-fg); font: var(--font-weight-bold) var(--font-size-16)/var(--line-height-1) var(--font-family-num); letter-spacing: var(--letter-spacing-sos); }
+/* фірмові кнопки входу — колір, форма й лого задані Apple/Google, навмисно поза закритою палітрою продукту (та сама логіка, що й обов'язкова атрибуція ©Kartverket) */
+.btn--apple { background: #000; color: #fff; }
+.btn--apple:active { background: #1a1a1a; }
+.btn--google { background: #fff; color: #1F1F1F; box-shadow: inset 0 0 0 var(--size-line) #747775; }
+.btn--google:active { background: #F7F8F8; }
+.btn--strava { background: #FC4C02; color: #fff; }
+.btn--strava:active { background: #E34402; }
+.btn .ic-brand { flex: none; }
+.btn:disabled, .btn[aria-disabled="true"] { padding: 0 var(--space-4); background: var(--bg-disabled); color: var(--text-on-disabled); box-shadow: none; transform: none; cursor: not-allowed;
+  font-size: var(--font-size-16); line-height: var(--line-height-head); }
+.btn--block { width: 100%; }
+.btn .ic { width: var(--size-ic-m); height: var(--size-ic-m); }
+.btn--icon-lead::before { content: ""; flex: none; width: var(--size-ic-m); height: var(--size-ic-m); background: currentColor;
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+/* кнопка на фото — скло */
+.btn--glass { min-height: var(--size-tap); padding: 0 var(--space-4); border-radius: var(--radius-full); background: var(--effect-glass-btn); color: var(--text-on-photo);
+  -webkit-backdrop-filter: var(--blur-btn); backdrop-filter: var(--blur-btn); }

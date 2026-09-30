@@ -1,0 +1,470 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   Nestwood — дизайн-токени, двошарова архітектура (PRIMITIVE + SEMANTIC)
+
+   Похідне від:
+   - ui/kit.css                — єдине джерело справжніх значень (нічого не
+                                  вигадано; кожне значення тут дослівне з кіта,
+                                  крім ОДНОГО явно позначеного винятку нижче).
+   - tokens-audit.md            — повний аудит 211 токенів кіта, розділи
+                                  1 (таблиця), 2 (дрейф), 3 (одна змінна —
+                                  кілька ролей), 5 (кандидати в семантичні ролі).
+   - DESIGN.md, запис 2026-09-28 «token-audit remediation pass» — зафіксовані
+                                  рішення по кожному з 5 дрейфів і 4 подвійних
+                                  ролей (alias-токени --focus-color,
+                                  --loading-color, --toggle-on, --selected-bg,
+                                  --selected-fg, --mark, --placeholder).
+
+   Цей файл — ЄДИНЕ джерело токенів продукту. `ui/kit.css` видалено після
+   переходу: усі 33 сторінки wireframes/, `ui/kit.html` і `ui/shell.html`
+   підключають `tokens.css` + `components/index.css` замість нього
+   (перевірено грепом по всіх продуктових сторінках).
+
+   Правило шару: PRIMITIVE — сирі значення (плаский список, без ролей).
+   SEMANTIC — ЛИШЕ кольорові ролі, кожна посилається на PRIMITIVE (ніколи на
+   інший semantic-токен). Геометрія, шрифт і рух семантичного шару не мають:
+   компонент читає їх напряму з PRIMITIVE.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ════════════════════════════════════════════════════════════════════════
+   1. PRIMITIVE
+   ════════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── колір: сірий / нейтральний ──────────────────────────────────────
+     Один пласкій список рангів світлості на всі значення, що реально
+     зустрічаються в обох темах ui/kit.css — не два окремі набори. */
+  --white:    #FFFFFF;
+  --gray-25:  #FAFAFA; /* база --panel-bg — ледь сіре скло приладу, навмисно не чисто біле (concept.md, «frosted instrument glass») */
+  --gray-50:  #F4F5F5; /* light --glass / --sheet-list */
+  --gray-100: #F2F3F4; /* dark --ink / dark --alert-fg */
+  --gray-200: #D9DCDF; /* light --hairline */
+  --gray-300: #C9CDD1; /* light --disabled */
+  --gray-400: #A3A9AE; /* dark --graphite / dark --on-disabled */
+  --gray-600: #5E6368; /* light --graphite / --dash / light --on-disabled / --attrib-fg */
+  --gray-700: #34383C; /* dark --hairline / dark --disabled */
+  --gray-800: #26292D; /* dark --alert-bg / dark --sheet-list */
+  --gray-900: #1C1E21; /* dark --surface */
+  --gray-950: #0F1113; /* light --ink / dark --glass / light --alert-bg / --yellow-ink / dark --on-conflict — «ink», канонічна база для консолідації тіней нижче */
+
+  /* альфа на --white */
+  --white-a0:  rgba(255,255,255,0);
+  --white-a8:  rgba(255,255,255,.08);  /* dark --shimmer, середня зупинка */
+  --white-a45: rgba(255,255,255,.45);  /* light --shimmer, середня зупинка */
+  --white-a70: rgba(255,255,255,.7);   /* --attrib-bg */
+  --white-a80: rgba(255,255,255,.8);   /* light --alert-sub */
+  --white-a88: rgba(255,255,255,.88);  /* light --bar-bg */
+  --white-a92: rgba(255,255,255,.92);  /* --chip-photo */
+  --white-a94: rgba(255,255,255,.94);  /* --on-photo-soft */
+
+  /* альфа на --gray-25 / --gray-100 / --gray-900 */
+  --gray-25-a90:  rgba(250,250,250,.9);   /* light --panel-bg */
+  --gray-100-a80: rgba(242,243,244,.8);   /* dark --alert-sub */
+  --gray-900-a88: rgba(28,30,33,.88);     /* dark --panel-bg / dark --bar-bg */
+
+  /* альфа на --gray-950 («ink») — консолідована база затемнень/тіней.
+     tokens-audit.md §2.3: дві бази чорного (rgba(0,0,0,…) на «чистому
+     чорному» і rgba(15,17,19,…) на ink) для однієї фактичної ролі
+     «затемнення/тінь» зведено тут до ОДНІЄЇ — ink-based. Кожне колишнє
+     rgba(0,0,0,X) (scrim-top/bottom, shadow-text/title/card, e-photo-floor)
+     тепер бере ту саму альфу X на базі --gray-950. Це ЄДИНЕ місце у файлі,
+     де значення відрізняється від буквального значення в ui/kit.css —
+     мінімальна візуальна різниця (#0F1113 проти #000000) прийнята як
+     свідома плата за одне джерело істини замість двох баз чорного. */
+  --gray-950-a35: rgba(15,17,19,.35); /* було: --e-sheet (ink), --shadow-title / --e-photo-floor (чистий чорний) */
+  --gray-950-a38: rgba(15,17,19,.38); /* було: --e-float (ink) */
+  --gray-950-a42: rgba(15,17,19,.42); /* було: --scrim-top (чистий чорний) */
+  --gray-950-a45: rgba(15,17,19,.45); /* було: --glass-btn (ink), --scrim-bottom (чистий чорний) */
+  --gray-950-a50: rgba(15,17,19,.5);  /* було: --dim (ink) */
+  --gray-950-a55: rgba(15,17,19,.55); /* було: --shadow-text (чистий чорний) */
+  --gray-950-a60: rgba(15,17,19,.6);  /* було: --glass-btn-strong (ink), --shadow-card (чистий чорний) */
+
+  /* ── колір: синій ─────────────────────────────────────────────────── */
+  --blue-50:  #E8EEFF; /* light --blue-soft */
+  --blue-100: #CFE0EA; /* --map-water */
+  --blue-300: #7C9BFF; /* dark --link — навмисно світліший за dark --blue, DESIGN.md 2026-09-28 (текст посилання на темному тлі потребує вищого контрасту, ніж заливка кнопки) */
+  --blue-500: #3A66F5; /* dark --blue */
+  --blue-600: #2D5BFF; /* light --blue / light --link */
+  --blue-700: #2E57E0; /* dark --blue-pressed */
+  --blue-800: #2149E0; /* light --blue-pressed */
+  --blue-900: #1D2A55; /* dark --blue-soft */
+
+  /* ── колір: жовтий ────────────────────────────────────────────────── */
+  --yellow-500: #F2E500; /* --yellow — «жива позначка на приладі», не перевизначається в темній темі (навмисний інваріант) */
+  /* --yellow-ink дослівно дорівнює --gray-950 — окремого primitive не заведено, щоб не дублювати те саме сире значення під двома іменами */
+
+  /* ── колір: червоний ──────────────────────────────────────────────── */
+  --red-400: #FF7A6B; /* dark --conflict / light --conflict-on-ink */
+  --red-700: #B42318; /* light --conflict / --sos-bg (заморожений в обох темах) */
+
+  /* ── колір: зелений ───────────────────────────────────────────────── */
+  --green-50:  #E7F4EC; /* light --fixed-soft */
+  --green-100: #E8ECE3; /* --map-land */
+  --green-400: #4CC38A; /* dark --fixed */
+  --green-700: #0B7A4B; /* light --fixed */
+  --green-900: #12301F; /* dark --fixed-soft */
+
+  /* ── колір: іменовані контекстні значення, перенесені з kit.css без
+     перейменування (не «сирий» відтінок шкали, а вже специфічна для
+     контексту заливка — «скло на фото», карта, підпис на фото тощо).
+     Кожен далі посилається лише на swatch-кольори вище. Там, де в
+     ui/kit.css є [data-theme="dark"]-перевизначення, воно повторене в
+     дальшому дарк-блоці цього ж розділу PRIMITIVE (це не SEMANTIC-роль —
+     ці токени не увійшли до списку обов'язкових ролей завдання, див.
+     критику в wireframes/tokens.html). ── */
+  --panel-bg:   var(--gray-25-a90);  /* «frosted instrument panel» на фото; --panel_bg (день/новий план) — лише .panel */
+  --bar-bg:     var(--white-a88);    /* нижня панель / таб-бар / шапка на склі */
+  --chip-photo: var(--white-a92);    /* --pill--photo — лише .pill--photo */
+  --attrib-bg:  var(--white-a70);    /* --map__attrib, .map__badge */
+  --attrib-fg:  var(--gray-600);     /* текст плашки атрибуції карти */
+  --map-land:   var(--green-100);    /* фон .map (суша) */
+  --map-water:  var(--blue-100);     /* не використовується жодним класом продукту; збережено — читається showcase-таблицею ui/kit.html */
+  --sos-bg:     var(--red-700);      /* .btn--sos — заморожений колір, однаковий в обох темах (впізнаваність в екстреній ситуації важливіша за узгодженість із темою) */
+  --sos-fg:     var(--white);        /* .btn--sos — заморожений колір */
+  --fixed-soft: var(--green-50);     /* .pill--fixed фон / .field--ok */
+  --alert-sub:  var(--white-a80);    /* другорядний текст на .alert / .pill--attention */
+  --dash:       var(--gray-600);     /* пунктирна межа .limit/.empty — у ui/kit.css не має dark-перевизначення (лишається світлим значенням графіту в обох темах, перенесено як є) */
+  --sheet-list: var(--gray-50);      /* фон списку всередині .shell--sheet */
+  --on-photo-soft: var(--white-a94); /* підпис автора фото (.hero__credit, .card-photo__credit) */
+
+  /* ── відступи — крок 4 ────────────────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-18: 72px;
+  /* поза числовою шкалою, значення точково збігаються з існуючими --space-N вище — не нові числа, окремі точкові primitive-імена */
+  --space-gutter:      16px; /* = --space-4 */
+  --space-photo-inset: 12px; /* = --space-3 */
+
+  /* ── радіуси — абстрактна шкала за розміром ──────────────────────── */
+  --radius-xl:   32px; /* --r-photo */
+  --radius-lg:   24px; /* --r-panel */
+  --radius-md:   20px; /* --r-card */
+  --radius-sm:   16px; /* --r-control */
+  --radius-xs:   12px; /* --r-field */
+  --radius-full: 999px; /* --r-pill */
+  --radius-none: 0;     /* --r-0 */
+  --radius-round: 50%;  /* --r-round — восьме, поза 7-ранговою шкалою: коло (аватар, спінер, ручка перемикача) */
+
+  /* ── розміри ──────────────────────────────────────────────────────── */
+  --size-control:      52px;  /* --h-control */
+  --size-tap:          44px;  /* --h-tap */
+  --size-chip:         32px;  /* --h-chip */
+  --size-sos:          56px;  /* --h-sos */
+  --size-row:          56px;  /* --h-row */
+  --size-hero:         300px; /* --h-hero */
+  --size-bar:          52px;  /* --h-bar */
+  --size-skel-line:    16px;  /* --h-skel-line */
+  --size-skel-block:   120px; /* --h-skel-block */
+  --size-handle-w:     36px;  /* --w-handle */
+  --size-handle-h:     4px;   /* --h-handle */
+  --size-node:         24px;  /* --node */
+  --size-hatch-w:      8px;   /* --hatch-w */
+  --size-ic-s:         16px;  /* --ic-s */
+  --size-ic-m:         20px;  /* --ic-m */
+  --size-ic-l:         22px;  /* --ic-l */
+  --size-ic-glass:     18px;  /* --ic-glass */
+  --size-line:         1px;   /* --line */
+  --size-stroke:       1.5px; /* --stroke */
+  --size-stroke-strong: 2px;  /* --stroke-strong */
+  --size-focus:        3px;   /* --focus */
+  --size-tab-clear:    96px;  /* --tab-clear */
+  --size-scrim:        110px; /* --h-scrim */
+  --size-card-scrim:   40%;   /* --h-card-scrim */
+  --size-w60:          60%;   /* --w-60 */
+  --size-w40:          40%;   /* --w-40 */
+  --size-flex-primary:   1.4; /* --flex-primary */
+  --size-flex-secondary: 1;   /* --flex-secondary */
+  --size-ratio-card:    4 / 3;  /* --ratio-card */
+  --size-ratio-map:     16 / 11; /* --ratio-map */
+  --size-ratio-profile: 5 / 1;   /* --ratio-profile */
+  --size-sheet-bar:      60px; /* --h-sheet-bar */
+  --size-sheet-offset:   40px; /* --sheet-offset */
+  --size-handle-top:     6px;  /* --handle-top */
+  --size-sheet-foot-min: 40vh; /* --sheet-foot-min */
+  --size-sheet-snap:     88px; /* --sheet-snap */
+  --size-tab-inset:      10px; /* --tab-inset */
+  --size-badge-offset:   6px;  /* --badge-offset */
+  --size-hero-y:         62%;  /* --hero-y */
+  --size-hud-top:        188px; /* --hud-top */
+  --size-unit-gap:       3px;  /* --unit-gap */
+  --size-day-cols:       .82fr 1.09fr 1.09fr; /* --day-cols */
+  --size-thread-x:       11px; /* --thread-x */
+  --size-spin-w:         2.5px; /* --spin-w */
+  --size-limit-ic-top:   15px; /* --limit-ic-top */
+  --size-map-mini:       170px; /* --h-map-mini */
+  --size-map-surface:    470px; /* --h-map-surface */
+  --size-map-surface-pull: -114px; /* --map-surface-pull */
+  --size-map-attrib-lift:  96px;   /* --map-attrib-lift */
+  --size-float-pull:     -84px; /* --float-pull */
+  --size-search-cols:    1.3fr 1fr 1fr; /* --search-cols */
+  --size-sos-top:        64px;  /* --sos-top */
+  --size-sos-clear:      120px; /* --sos-clear */
+  --size-label-gap:      6px;   /* --label-gap */
+  --size-gap-legacy:     18px;  /* --gap-legacy */
+  --size-gap-legacy-10:  10px;  /* --gap-legacy-10 */
+  --size-switch-w:       52px;  /* --w-switch */
+  --size-switch-h:       28px;  /* --h-switch */
+  --size-switch-pad:     2px;   /* --switch-pad */
+  --size-switch-knob:    24px;  /* --switch-knob */
+
+  /* ── шрифт: сімейства, шкала 10 · 12 · 14 · 16 · 18 · 24 · 28 · 32 ── */
+  --font-family-ui:  "Wix Madefor Display", system-ui, sans-serif;  /* --font-ui */
+  --font-family-num: "Tektur", "Wix Madefor Display", system-ui, sans-serif; /* --font-num */
+  --font-size-10: 10px; --font-size-12: 12px; --font-size-14: 14px; --font-size-16: 16px;
+  --font-size-18: 18px; --font-size-24: 24px; --font-size-28: 28px; --font-size-32: 32px;
+  --font-weight-regular: 400; --font-weight-medium: 500; --font-weight-semi: 600; --font-weight-bold: 700;
+  --line-height-1:      1;    /* --lh-1 */
+  --line-height-title:  1.12; /* --lh-title */
+  --line-height-head:   1.2;  /* --lh-head */
+  --line-height-row:    1.3;  /* --lh-row */
+  --line-height-small:  1.4;  /* --lh-small */
+  --line-height-body:   1.45; /* --lh-body */
+  --line-height-footer:   1.5;  /* --lh-footer */
+  --line-height-footer-p: 1.45; /* --lh-footer-p */
+  --line-height-tab:      1.1;  /* --lh-tab */
+  --line-height-search:   1.25; /* --lh-search */
+  --letter-spacing-title:     -0.02em; /* --ls-title */
+  --letter-spacing-caps:       0.06em; /* --ls-caps */
+  --letter-spacing-hud:        0.07em; /* --ls-hud */
+  --letter-spacing-credit:     .04em;  /* --ls-credit */
+  --letter-spacing-tag:        .03em;  /* --ls-tag */
+  --letter-spacing-num-tight: -.04em;  /* --ls-num-tight */
+  --letter-spacing-sos:        .04em;  /* --ls-sos */
+  --letter-spacing-bar-title:  .01em;  /* --ls-bar-title */
+
+  /* ── тіні / глибина — композитні ефекти; лишаються складеними
+     значеннями (box-shadow/gradient/filter), лише посилання на кольори
+     всередині оновлено на нові primitive-імена ── */
+  --effect-hair:        inset 0 0 0 var(--size-line) var(--gray-200);   /* --e-hair */
+  --effect-stroke:      inset 0 0 0 var(--size-stroke) var(--gray-200); /* --e-stroke */
+  --effect-hair-bottom: inset 0 -1px 0 var(--gray-200);                 /* --e-hair-bottom */
+  --effect-focus-ring:  0 0 0 4px var(--blue-50);                       /* --e-focus-ring */
+  --effect-float: 0 12px 32px -16px var(--gray-950-a38);   /* --e-float */
+  --effect-sheet: 0 -8px 24px -18px var(--gray-950-a35);   /* --e-sheet */
+  --effect-photo-floor: inset 0 -90px 60px -40px var(--gray-950-a35); /* --e-photo-floor */
+  --shadow-text:  0 1px 3px var(--gray-950-a55);  /* --shadow-text */
+  --shadow-title: 0 1px 3px var(--gray-950-a35);  /* --shadow-title */
+  --shadow-card:  0 1px 3px var(--gray-950-a60);  /* --shadow-card */
+  --scrim-top:    linear-gradient(180deg, var(--gray-950-a42), transparent); /* --scrim-top */
+  --scrim-bottom: linear-gradient(transparent, var(--gray-950-a45));        /* --scrim-bottom */
+  --effect-dim:              var(--gray-950-a50); /* --dim */
+  --effect-glass-btn:        var(--gray-950-a45); /* --glass-btn */
+  --effect-glass-btn-strong: var(--gray-950-a60); /* --glass-btn-strong */
+  --effect-hatch: repeating-linear-gradient(135deg, var(--yellow-500) 0 5px, var(--gray-950) 5px 10px); /* --hatch */
+  --effect-shimmer: linear-gradient(90deg, var(--white-a0), var(--white-a45), var(--white-a0)); /* --shimmer, світла тема */
+  --effect-map-dark:     invert(.88) hue-rotate(180deg) saturate(.7); /* --map-dark — числовий фільтр, кольорів усередині немає */
+  --effect-profile-dark: invert(.9) hue-rotate(180deg);               /* --profile-dark */
+  --blur-glass: blur(16px) saturate(1.2); /* --blur-glass */
+  --blur-bar:   blur(18px) saturate(1.3); /* --blur-bar */
+  --blur-btn:   blur(12px);               /* --blur-btn */
+
+  /* ── рух — вже генеричні, без перейменування ─────────────────────── */
+  --dur-fast: .15s;
+  --dur: .2s;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --dur-shimmer: 1.4s;
+  --dur-spin: .8s;
+  --press-scale: .985;
+
+  /* ── іконки Solar (CC BY 4.0) — SVG-маски, перенесені verbatim,
+     без перейменування (перейменування 30 великих data-URI не додає
+     цінності й ризикує помилками копіювання) ── */
+  --ic-chevron-right: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M9 5L15 12L9 19%22/%3E%3C/svg%3E");
+  --ic-chevron-left: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M15 5L9 12L15 19%22/%3E%3C/svg%3E");
+  --ic-chevron-down: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M19 9L12 15L5 9%22/%3E%3C/svg%3E");
+  --ic-close: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M19.0068 5L5.00684 19%22/%3E%3Cpath d=%22M19 19L5 5%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-share: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M19.5 5.5C19.5 6.88071 18.3807 8 17 8C15.6193 8 14.5 6.88071 14.5 5.5C14.5 4.11929 15.6193 3 17 3C18.3807 3 19.5 4.11929 19.5 5.5Z%22/%3E%3Cpath d=%22M17 16C15.6193 16 14.5 17.1193 14.5 18.5C14.5 19.8807 15.6193 21 17 21C18.3807 21 19.5 19.8807 19.5 18.5C19.5 17.1193 18.3807 16 17 16Z%22/%3E%3Cpath d=%22M7 9.5C5.61929 9.5 4.5 10.6193 4.5 12C4.5 13.3807 5.61929 14.5 7 14.5C8.38071 14.5 9.5 13.3807 9.5 12C9.5 10.6193 8.38071 9.5 7 9.5Z%22/%3E%3Cpath d=%22M9.09668 13.3628C11.0324 14.621 12.9681 15.8792 14.9038 17.1374%22/%3E%3Cpath d=%22M9.09668 10.6372C11.0324 9.379 12.9681 8.12079 14.9039 6.86258%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-danger: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M5.31171 10.7615C8.23007 5.58716 9.68925 3 12 3C14.3107 3 15.7699 5.58716 18.6883 10.7615L19.0519 11.4063C21.4771 15.7061 22.6897 17.856 21.5937 19.428C20.4978 21 17.7864 21 12.3637 21H11.6363C6.21356 21 3.50217 21 2.40626 19.428C1.31034 17.856 2.52291 15.7061 4.94805 11.4063L5.31171 10.7615ZM12 7.25C12.4142 7.25 12.75 7.58579 12.75 8V13C12.75 13.4142 12.4142 13.75 12 13.75C11.5858 13.75 11.25 13.4142 11.25 13V8C11.25 7.58579 11.5858 7.25 12 7.25ZM12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E");
+  --ic-check: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M8.5 12.5L10.5 14.5L15.5 9.5%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-cloud-cross: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath d=%22M13.5 17.5L12 19M12 19L10.5 20.5M12 19L10.5 17.5M12 19L13.5 20.5%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-cloud-check: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 17.1038 3.91878 19 6.28571 19M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 16.0599 20.0726 18.3221 17.5 18.8722%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M10 19.8L11.1429 21L14 18%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-restart: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22 d=%22M18.364 8.04928L17.6569 7.34217C14.5327 4.21798 9.46734 4.21798 6.34315 7.34217C3.21895 10.4664 3.21895 15.5317 6.34315 18.6559C9.46734 21.7801 14.5327 21.7801 17.6569 18.6559C19.4737 16.8391 20.234 14.3658 19.9377 11.9995M18.364 3.80664V8.04928H14.1213%22/%3E%3C/svg%3E");
+  --ic-calendar: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z%22/%3E%3Cpath d=%22M7 4V2.5%22/%3E%3Cpath d=%22M17 4V2.5%22/%3E%3Cpath d=%22M2.5 9H21.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 13H17.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 13H12.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 13H7.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 17.0234H17.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 17.0234H12.0001%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 17.0234H7.0001%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-settings: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%223%22/%3E%3Cpath d=%22M13.7654 2.15224C13.3978 2 12.9319 2 12 2C11.0681 2 10.6022 2 10.2346 2.15224C9.74457 2.35523 9.35522 2.74458 9.15223 3.23463C9.05957 3.45834 9.0233 3.7185 9.00911 4.09799C8.98826 4.65568 8.70226 5.17189 8.21894 5.45093C7.73564 5.72996 7.14559 5.71954 6.65219 5.45876C6.31645 5.2813 6.07301 5.18262 5.83294 5.15102C5.30704 5.08178 4.77518 5.22429 4.35436 5.5472C4.03874 5.78938 3.80577 6.1929 3.33983 6.99993C2.87389 7.80697 2.64092 8.21048 2.58899 8.60491C2.51976 9.1308 2.66227 9.66266 2.98518 10.0835C3.13256 10.2756 3.3397 10.437 3.66119 10.639C4.1338 10.936 4.43789 11.4419 4.43786 12C4.43783 12.5581 4.13375 13.0639 3.66118 13.3608C3.33965 13.5629 3.13248 13.7244 2.98508 13.9165C2.66217 14.3373 2.51966 14.8691 2.5889 15.395C2.64082 15.7894 2.87379 16.193 3.33973 17C3.80568 17.807 4.03865 18.2106 4.35426 18.4527C4.77508 18.7756 5.30694 18.9181 5.83284 18.8489C6.07289 18.8173 6.31632 18.7186 6.65204 18.5412C7.14547 18.2804 7.73556 18.27 8.2189 18.549C8.70224 18.8281 8.98826 19.3443 9.00911 19.9021C9.02331 20.2815 9.05957 20.5417 9.15223 20.7654C9.35522 21.2554 9.74457 21.6448 10.2346 21.8478C10.6022 22 11.0681 22 12 22C12.9319 22 13.3978 22 13.7654 21.8478C14.2554 21.6448 14.6448 21.2554 14.8477 20.7654C14.9404 20.5417 14.9767 20.2815 14.9909 19.902C15.0117 19.3443 15.2977 18.8281 15.781 18.549C16.2643 18.2699 16.8544 18.2804 17.3479 18.5412C17.6836 18.7186 17.927 18.8172 18.167 18.8488C18.6929 18.9181 19.2248 18.7756 19.6456 18.4527C19.9612 18.2105 20.1942 17.807 20.6601 16.9999C21.1261 16.1929 21.3591 15.7894 21.411 15.395C21.4802 14.8691 21.3377 14.3372 21.0148 13.9164C20.8674 13.7243 20.6602 13.5628 20.3387 13.3608C19.8662 13.0639 19.5621 12.558 19.5621 11.9999C19.5621 11.4418 19.8662 10.9361 20.3387 10.6392C20.6603 10.4371 20.8675 10.2757 21.0149 10.0835C21.3378 9.66273 21.4803 9.13087 21.4111 8.60497C21.3592 8.21055 21.1262 7.80703 20.6602 7C20.1943 6.19297 19.9613 5.78945 19.6457 5.54727C19.2249 5.22436 18.693 5.08185 18.1671 5.15109C17.9271 5.18269 17.6837 5.28136 17.3479 5.4588C16.8545 5.71959 16.2644 5.73002 15.7811 5.45096C15.2977 5.17191 15.0117 4.65566 14.9909 4.09794C14.9767 3.71848 14.9404 3.45833 14.8477 3.23463C14.6448 2.74458 14.2554 2.35523 13.7654 2.15224Z%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-map: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 8.70938C3 7.23584 3 6.49907 3.39264 6.06935C3.53204 5.91678 3.70147 5.79466 3.89029 5.71066C4.42213 5.47406 5.12109 5.70705 6.51901 6.17302C7.58626 6.52877 8.11989 6.70665 8.6591 6.68823C8.85714 6.68147 9.05401 6.65511 9.24685 6.60952C9.77191 6.48541 10.2399 6.1734 11.176 5.54937L12.5583 4.62778C13.7574 3.82843 14.3569 3.42876 15.0451 3.3366C15.7333 3.24444 16.4168 3.47229 17.7839 3.92799L18.9487 4.31624C19.9387 4.64625 20.4337 4.81126 20.7169 5.20409C21 5.59692 21 6.11871 21 7.16229V15.2907C21 16.7642 21 17.501 20.6074 17.9307C20.468 18.0833 20.2985 18.2054 20.1097 18.2894C19.5779 18.526 18.8789 18.293 17.481 17.827C16.4137 17.4713 15.8801 17.2934 15.3409 17.3118C15.1429 17.3186 14.946 17.3449 14.7532 17.3905C14.2281 17.5146 13.7601 17.8266 12.824 18.4507L11.4417 19.3722C10.2426 20.1716 9.64311 20.5713 8.95493 20.6634C8.26674 20.7556 7.58319 20.5277 6.21609 20.072L5.05132 19.6838C4.06129 19.3538 3.56627 19.1888 3.28314 18.7959C3 18.4031 3 17.8813 3 16.8377V8.70938Z%22/%3E%3Cpath d=%22M9 6.65723V20.6569%22/%3E%3Cpath d=%22M15 3.34277V17.3425%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-map-bold: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22%23000%22%3E%3Cpath d=%22M2.43627 5.14686C2 5.64345 2 6.49488 2 8.19773V17.591C2 18.797 2 19.4 2.3146 19.854C2.62919 20.3079 3.17921 20.4986 4.27924 20.88L5.57343 21.3286C6.27436 21.5717 6.81371 21.7586 7.26633 21.879C7.5616 21.9576 7.83333 21.7258 7.83333 21.4203V6.2701C7.83333 6.02118 7.64964 5.81111 7.40837 5.74991C7.01914 5.65118 6.55127 5.48897 5.91002 5.26666C4.35676 4.72817 3.58014 4.45893 2.98922 4.73235C2.77941 4.82942 2.59116 4.97054 2.43627 5.14686Z%22/%3E%3Cpath d=%22M12.6204 3.48096L11.0844 4.54596C10.5287 4.93124 10.1215 5.2136 9.77375 5.41491C9.60895 5.51032 9.5 5.68291 9.5 5.87334V20.9203C9.5 21.2909 9.88398 21.5222 10.1962 21.3225C10.5312 21.1082 10.9149 20.8422 11.3796 20.5199L12.9156 19.4549C13.4712 19.0697 13.8785 18.7873 14.2262 18.586C14.3911 18.4906 14.5 18.318 14.5 18.1276V3.08063C14.5 2.71004 14.116 2.47866 13.8038 2.67836C13.4688 2.89271 13.0851 3.15874 12.6204 3.48096Z%22/%3E%3Cpath d=%22M19.7208 3.12093L18.4266 2.67226C17.7256 2.42923 17.1863 2.24228 16.7337 2.12187C16.4384 2.04333 16.1667 2.2751 16.1667 2.58064V17.7308C16.1667 17.9797 16.3504 18.1898 16.5916 18.251C16.9809 18.3497 17.4488 18.5119 18.09 18.7342C19.6432 19.2727 20.4199 19.542 21.0108 19.2686C21.2206 19.1715 21.4088 19.0304 21.5637 18.854C22 18.3575 22 17.506 22 15.8032V6.40988C22 5.2039 22 4.60091 21.6854 4.14695C21.3708 3.69298 20.8208 3.5023 19.7208 3.12093Z%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-doc: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z%22/%3E%3Cpath d=%22M8 12H16%22/%3E%3Cpath d=%22M8 8H16%22/%3E%3Cpath d=%22M8 16H13%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-doc-bold: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22%23000%22 fill-rule=%22evenodd%22 d=%22M4.17157 3.17157C3 4.34315 3 6.22876 3 10V14C3 17.7712 3 19.6569 4.17157 20.8284C5.34315 22 7.22876 22 11 22H13C16.7712 22 18.6569 22 19.8284 20.8284C21 19.6569 21 17.7712 21 14V10C21 6.22876 21 4.34315 19.8284 3.17157C18.6569 2 16.7712 2 13 2H11C7.22876 2 5.34315 2 4.17157 3.17157ZM7.25 8C7.25 7.58579 7.58579 7.25 8 7.25H16C16.4142 7.25 16.75 7.58579 16.75 8C16.75 8.41421 16.4142 8.75 16 8.75H8C7.58579 8.75 7.25 8.41421 7.25 8ZM7.25 12C7.25 11.5858 7.58579 11.25 8 11.25H16C16.4142 11.25 16.75 11.5858 16.75 12C16.75 12.4142 16.4142 12.75 16 12.75H8C7.58579 12.75 7.25 12.4142 7.25 12ZM8 15.25C7.58579 15.25 7.25 15.5858 7.25 16C7.25 16.4142 7.58579 16.75 8 16.75H13C13.4142 16.75 13.75 16.4142 13.75 16C13.75 15.5858 13.4142 15.25 13 15.25H8Z%22 clip-rule=%22evenodd%22/%3E%3C/svg%3E");
+  --ic-book: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 8C4 5.17157 4 3.75736 4.87868 2.87868C5.75736 2 7.17157 2 10 2H14C16.8284 2 18.2426 2 19.1213 2.87868C20 3.75736 20 5.17157 20 8V16C20 18.8284 20 20.2426 19.1213 21.1213C18.2426 22 16.8284 22 14 22H10C7.17157 22 5.75736 22 4.87868 21.1213C4 20.2426 4 18.8284 4 16V8Z%22/%3E%3Cpath d=%22M19.9997 16H7.89749C6.96751 16 6.50253 16 6.12103 16.1022C5.08575 16.3796 4.29986 17.1212 4.02246 18.1564%22/%3E%3Cpath d=%22M8 7H16%22/%3E%3Cpath d=%22M8 10.5H13%22/%3E%3Cpath d=%22M19.9239 19H8%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-shield: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M9.5 12.4L10.9286 14L14.5 10%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-user: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%229%22 r=%223%22/%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath d=%22M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-card: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z%22/%3E%3Cpath d=%22M10 16.5H6%22/%3E%3Cpath d=%22M8 13.5H6%22/%3E%3Cpath d=%22M2 10L22 10%22/%3E%3Cpath d=%22M14 15C14 14.0572 14 13.5858 14.2929 13.2929C14.5858 13 15.0572 13 16 13C16.9428 13 17.4142 13 17.7071 13.2929C18 13.5858 18 14.0572 18 15C18 15.9428 18 16.4142 17.7071 16.7071C17.4142 17 16.9428 17 16 17C15.0572 17 14.5858 17 14.2929 16.7071C14 16.4142 14 15.9428 14 15Z%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-backpack: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M3 10.9112C3 10.8182 3 10.7717 3.00057 10.7303C3.0385 7.98021 4.94139 5.60803 7.61778 4.97443C7.65803 4.9649 7.70344 4.95481 7.79425 4.93463C7.87787 4.91605 7.91968 4.90675 7.96109 4.89775C10.6226 4.31875 13.3774 4.31875 16.0389 4.89775C16.0803 4.90675 16.1221 4.91605 16.2057 4.93463C16.2966 4.95481 16.342 4.9649 16.3822 4.97443C19.0586 5.60803 20.9615 7.98021 20.9994 10.7303C21 10.7717 21 10.8182 21 10.9112V16.3752C21 18.4931 19.529 20.3269 17.4615 20.7864C13.8644 21.5857 10.1356 21.5857 6.53853 20.7864C4.47101 20.3269 3 18.4931 3 16.3752V10.9112Z%22/%3E%3Cpath d=%22M17.5 15.5V17%22/%3E%3Cpath d=%22M15.9585 4.5C15.7205 3.08114 14.4865 2 13 2H11C9.51353 2 8.27954 3.08114 8.0415 4.5%22/%3E%3Cpath d=%22M3 14C8.72979 16.5466 15.2702 16.5466 21 14%22/%3E%3Cpath d=%22M10 13H14%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-cloud-rain: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M14.381 8.02721C14.9767 7.81911 15.6178 7.70588 16.2857 7.70588C16.9404 7.70588 17.5693 7.81468 18.1551 8.01498M8.66667 11.2426C8.20528 10.9374 7.68059 10.7184 7.11616 10.6089C6.8475 10.5567 6.56983 10.5294 6.28571 10.5294C3.91878 10.5294 2 12.4256 2 14.7647C2 16.0746 2.60178 17.2457 3.54704 18.0226M7.11616 10.6089C6.88706 9.9978 6.7619 9.33687 6.7619 8.64706C6.7619 5.52827 9.32028 3 12.4762 3C15.4159 3 17.8371 5.19371 18.1551 8.01498M18.1551 8.01498C20.393 8.78024 22 10.8811 22 13.3529C22 15.2939 21.0091 17.0061 19.5 18.0226%22/%3E%3Cpath d=%22M17 19L15 21%22/%3E%3Cpath d=%22M16 15.5L14 17.5%22/%3E%3Cpath d=%22M12 20L10 22%22/%3E%3Cpath d=%22M11.5 15.5L9.5 17.5%22/%3E%3Cpath d=%22M7.5 19L5.5 21%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-wallet: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath stroke-linejoin=%22round%22 d=%22M6 8H10%22/%3E%3Cpath d=%22M20.8333 9H18.2308C16.4465 9 15 10.3431 15 12C15 13.6569 16.4465 15 18.2308 15H20.8333C20.9167 15 20.9583 15 20.9935 14.9979C21.5328 14.965 21.9623 14.5662 21.9977 14.0654C22 14.0327 22 13.994 22 13.9167V10.0833C22 10.006 22 9.96726 21.9977 9.9346C21.9623 9.43384 21.5328 9.03496 20.9935 9.00214C20.9583 9 20.9167 9 20.8333 9Z%22/%3E%3Cpath d=%22M20.965 9C20.8873 7.1277 20.6366 5.97975 19.8284 5.17157C18.6569 4 16.7712 4 13 4L10 4C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20H13C16.7712 20 18.6569 20 19.8284 18.8284C20.6366 18.0203 20.8873 16.8723 20.965 15%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17.9912 12H18.0002%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-tram: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10V12C20 15.7712 20 17.6569 18.8284 18.8284C17.6569 20 15.7712 20 12 20C8.22876 20 6.34315 20 5.17157 18.8284C4 17.6569 4 15.7712 4 12V10Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 13H20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M15.5 16H17%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 16H8.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 20L6 22%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M17 20L18 22%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M10 2V2.5C10 3.60457 10.8954 4.5 12 4.5C13.1046 4.5 14 3.60457 14 2.5V2%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-bus: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M4 10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10V12C20 15.7712 20 17.6569 18.8284 18.8284C17.6569 20 15.7712 20 12 20C8.22876 20 6.34315 20 5.17157 18.8284C4 17.6569 4 15.7712 4 12V10Z%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 13H20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M15.5 16H17%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M7 16H8.5%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M6 19.5V21C6 21.5523 6.44772 22 7 22H8.5C9.05228 22 9.5 21.5523 9.5 21V20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M18 19.5V21C18 21.5523 17.5523 22 17 22H15.5C14.9477 22 14.5 21.5523 14.5 21V20%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M20 9H21C21.5523 9 22 9.44772 22 10V11C22 11.3148 21.8518 11.6111 21.6 11.8L20 13%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M4 9H3C2.44772 9 2 9.44772 2 10V11C2 11.3148 2.14819 11.6111 2.4 11.8L4 13%22/%3E%3Cpath d=%22M19.5 5H4.5%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-clock: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%2210%22/%3E%3Cpath stroke-linejoin=%22round%22 d=%22M12 8V12L14.5 14.5%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-sun: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M12 2V4%22/%3E%3Cpath d=%22M12 20V22%22/%3E%3Cpath d=%22M4 12L2 12%22/%3E%3Cpath d=%22M22 12L20 12%22/%3E%3Cpath d=%22M19.7778 4.22266L17.5558 6.25424%22/%3E%3Cpath d=%22M4.22217 4.22266L6.44418 6.25424%22/%3E%3Cpath d=%22M6.44434 17.5557L4.22211 19.7779%22/%3E%3Cpath d=%22M19.7778 19.7773L17.5558 17.5551%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-check-mark: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%222.5%22 d=%22M5 12.9L9 17L19 7%22/%3E%3C/svg%3E");
+  --ic-search: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2211%22 cy=%2211%22 r=%227%22/%3E%3Cpath d=%22M21 21L16.65 16.65%22/%3E%3C/g%3E%3C/svg%3E");
+  --ic-import: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cg fill=%22none%22 stroke=%22%23000%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22 stroke-width=%221.5%22%3E%3Cpath d=%22M12 3V16%22/%3E%3Cpath d=%22M16.5 11.5L12 16L7.5 11.5%22/%3E%3Cpath d=%22M4 17.5C4 19.9853 4 21 12 21C20 21 20 19.9853 20 17.5%22/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Примітка: @import шрифтів і @font-face з ui/kit.css (Wix Madefor Display,
+   Tektur) — це завантаження ресурсу, не токен, і навмисно не продубльовано
+   тут; --font-family-ui/--font-family-num вище лишаються самодостатніми
+   іменами шрифтів для будь-якого споживача цього файлу. */
+
+/* Токени, підтверджено мертві в ui/kit.css й тому відсутні тут навмисно
+   (DESIGN.md, «token-audit remediation pass», 2026-09-28): --ls-num, --ls-0,
+   --s-14, --h-map, --h-panel, --dim-layer, компонент .btn--round. */
+
+/* Обіцяний коментарем вище дарк-блок цього ж розділу PRIMITIVE — виявлено
+   відсутнім і дописано заднім числом 2026-09-29 (знахідка з пиксель-диф
+   перевірки wireframes/*.html: .shell__bar/.tabbar/.actionbar лишались
+   світлими, .shell--sheet .list лишався світлим, а .effect-hair/-stroke/
+   -hair-bottom/-focus-ring узагалі не мали темного значення — в ui/kit.css
+   усі ці ролі МАЛИ dark-перевизначення). Значення — дослівно ті самі
+   primitive-ранги, що вже описані в коментарях вище (dark --bar-bg,
+   dark --sheet-list, dark --hairline, dark --blue-soft). */
+[data-theme="dark"] {
+  --bar-bg:     var(--gray-900-a88);
+  --sheet-list: var(--gray-800);
+  --effect-hair:        inset 0 0 0 var(--size-line) var(--gray-700);
+  --effect-stroke:      inset 0 0 0 var(--size-stroke) var(--gray-700);
+  --effect-hair-bottom: inset 0 -1px 0 var(--gray-700);
+  --effect-focus-ring:  0 0 0 4px var(--blue-900);
+}
+
+
+/* ════════════════════════════════════════════════════════════════════════
+   2. SEMANTIC — лише кольорові ролі.
+   Кожен токен посилається виключно на PRIMITIVE (ніколи на інший
+   semantic-токен — без ланцюжків semantic→semantic). Геометрія, шрифт і
+   рух семантичного шару не мають: компонент читає їх напряму з PRIMITIVE
+   (розділ 1 вище).
+   ════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Фон сторінки — tokens-audit.md §5 «Фон сторінки»: .nw, .shell */
+  --bg-page: var(--gray-50);
+
+  /* Фон картки — §5 «Фон картки»: .panel--card, .list, .days, .day,
+     .profile, .sheet, .field__input, .chip, .seg, .check, .disclosure */
+  --bg-surface: var(--white);
+
+  /* Текст основний — §5 «Текст основний» (--ink) */
+  --text-primary: var(--gray-950);
+
+  /* Текст другорядний — §5 «Текст другорядний» (--graphite) */
+  --text-muted: var(--gray-600);
+
+  /* Дія — §5 «Дія»: .btn--primary. (--link у світлій темі є тим самим
+     значенням, що й --blue — §2.1; тут узято роль --blue: заливка/дія) */
+  --color-action: var(--blue-600);
+
+  /* Дія, виражена текстом — §2.1: .shell__back/.shell__close, .brief__action,
+     .action-text, .btn--text. Той самий колір, що --color-action, У СВІТЛІЙ
+     темі — але навмисно СВІТЛІШИЙ за --color-action в темній (DESIGN.md
+     2026-09-28: текст посилання на темному тлі потребує вищого контрасту,
+     ніж заливка кнопки). Виявлено відсутнім заднім числом 2026-09-29 —
+     компоненти помилково взяли --color-action для цієї ролі, що загубило
+     навмисну відмінність у темній темі. */
+  --color-link: var(--blue-600);
+
+  /* Довіра/підтвердження — §5 «Довіра/підтвердження» (--fixed) */
+  --color-verified: var(--green-700);
+
+  /* Небезпека/конфлікт — §5 «Небезпека/конфлікт» (--conflict) */
+  --color-danger: var(--red-700);
+
+  /* Жива позначка на приладі / увага — §5 «Додаткові ролі»: --yellow,
+     єдиний явний власник ролі, без конкуренції; не перевизначається в
+     темній темі (навмисний інваріант, узгоджений з CLAUDE.md) */
+  --color-live: var(--yellow-500);
+
+  /* Підролі --blue (§3.1): та сама заливка, три різні задачі, розведені
+     іменем ще в ui/kit.css (--focus-color/--loading-color/--toggle-on) —
+     тут вони повноцінні semantic-токени, що посилаються на primitive-синій */
+  --color-focus:     var(--blue-600);
+  --color-loading:   var(--blue-600);
+  --color-toggle-on: var(--blue-600);
+
+  /* Фон вибраного стану контролу — §3.2, вже виокремлено в kit.css як
+     --selected-bg/--selected-fg (натиснутий .chip, активний .seg > a) */
+  --bg-selected:      var(--gray-950);
+  --text-on-selected: var(--gray-50);
+
+  /* Декоративна заливка-позначка — §3.3, вже --mark у kit.css (стрілки,
+     крапки-маркери, лінії — не колір тексту) */
+  --color-mark: var(--gray-600);
+
+  /* Нейтральний плейсхолдер-заглушка — §3.4, вже --placeholder у kit.css
+     (аватар-заглушка, скелет, невибраний крок шкали, трек перемикача) */
+  --bg-placeholder: var(--gray-200);
+
+  /* Інверсна алерт-панель — «inverted ink panel with hatched edge»
+     (concept.html); окрема визнана роль, --alert-bg/--alert-fg в kit.css */
+  --bg-alert:      var(--gray-950);
+  --text-on-alert: var(--white);
+
+  /* Текст/іконка поверх кольорового фону — роль «--on-*» у kit.css */
+  --text-on-action:   var(--white);     /* --on-blue */
+  --text-on-danger:   var(--white);     /* --on-conflict, світла тема */
+  --text-on-disabled: var(--gray-600);  /* --on-disabled, світла тема */
+  --text-on-photo:    var(--white);     /* --on-photo */
+
+  /* Фон вимкненого контролу — --disabled у kit.css */
+  --bg-disabled: var(--gray-300);
+
+  /* Межа/hairline — виявлена вживанням, а не в аудиті напряму: --hairline
+     сидів лише коментарем біля --gray-200/--gray-700 без власного semantic-
+     імені, тому сім окремих компонентів (list, search, panel, shell--sheet,
+     spinner, row--loading, actionbar) завели однакову локальну змінну під
+     сімома різними іменами для тієї самої ролі — саме той дрейф іменування,
+     проти якого весь цей файл. Додано заднім числом, промоутнуто з
+     components/ 2026-09-28. */
+  --border-default: var(--gray-200);
+
+  /* «yellow-ink» — текст/іконка поверх --color-live, фіксований темний колір,
+     що НЕ змінюється в темній темі (той самий навмисний інваріант, що й у
+     --color-live). Три компоненти (tabbar__badge, pill--photo, day--warn)
+     завели однакову локальну змінну під трьома різними іменами — та сама
+     причина промоції, що й вище. Додано заднім числом 2026-09-28. */
+  --text-on-live: var(--gray-950);
+}
+
+[data-theme="dark"] {
+  --bg-page:      var(--gray-950);
+  --bg-surface:   var(--gray-900);
+  --text-primary: var(--gray-100);
+  --text-muted:   var(--gray-400);
+  --color-action: var(--blue-500);
+  --color-link:   var(--blue-300);
+  --color-verified: var(--green-400);
+  --color-danger:   var(--red-400);
+  /* --color-live: без перевизначення — навмисний інваріант, як і в ui/kit.css */
+
+  --color-focus:     var(--blue-500);
+  --color-loading:   var(--blue-500);
+  --color-toggle-on: var(--blue-500);
+
+  --bg-selected:      var(--gray-100);
+  --text-on-selected: var(--gray-950);
+
+  --color-mark: var(--gray-400);
+
+  --bg-placeholder: var(--gray-700);
+
+  --bg-alert:      var(--gray-800);
+  --text-on-alert: var(--gray-100);
+
+  /* --text-on-action, --text-on-photo: без перевизначення (--on-blue,
+     --on-photo не мають dark-варіанту в ui/kit.css) */
+  --text-on-danger:   var(--gray-950); /* --on-conflict, темна тема */
+  --text-on-disabled: var(--gray-400); /* --on-disabled, темна тема */
+
+  --bg-disabled: var(--gray-700);
+
+  --border-default: var(--gray-700);
+  /* --text-on-live: без перевизначення — той самий навмисний інваріант, що й --color-live. */
+}

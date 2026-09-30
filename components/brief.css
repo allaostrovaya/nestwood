@@ -1,0 +1,6 @@
+/* бриф: «дати · хто» під назвою; --edit — з дією «change» */
+.brief { display: block; margin: 0; padding: 0 var(--space-1); }
+.brief__text { font: var(--font-weight-medium) var(--font-size-16)/var(--line-height-small) var(--font-family-ui); color: var(--text-primary); }
+.brief--edit { padding-top: var(--space-1); }
+.brief--edit .brief__text { font-size: var(--font-size-14); color: var(--text-muted); }
+.brief__action { margin-left: var(--space-1); color: var(--color-link); font: var(--font-weight-semi) var(--font-size-14)/var(--line-height-1) var(--font-family-ui); }

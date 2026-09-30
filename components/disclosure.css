@@ -1,0 +1,15 @@
+/* розкривач; --quiet — у футері */
+.disclosure { padding: 0 var(--space-4); border-radius: var(--radius-md); background: var(--bg-surface); box-shadow: var(--effect-hair); }
+.disclosure > summary { display: flex; align-items: center; justify-content: space-between; min-height: var(--size-control); list-style: none; cursor: pointer;
+  font: var(--font-weight-semi) var(--font-size-16)/var(--line-height-1) var(--font-family-ui); color: var(--text-primary); }
+.disclosure > summary::-webkit-details-marker { display: none; }
+.disclosure > summary::after { content: ""; width: var(--size-ic-s); height: var(--size-ic-s); background: var(--color-mark); transition: transform var(--dur) var(--ease);
+  -webkit-mask: var(--ic-chevron-down) center / contain no-repeat; mask: var(--ic-chevron-down) center / contain no-repeat; }
+.disclosure[open] > summary::after { transform: rotate(180deg); }
+.disclosure > p { margin: 0 0 var(--space-3); font: var(--font-weight-regular) var(--font-size-16)/var(--line-height-body) var(--font-family-ui); color: var(--text-muted); }
+.disclosure > .actions { margin: 0 0 var(--space-4); }
+.disclosure > .actions { flex-wrap: nowrap; }
+.disclosure--quiet { margin: var(--space-2) 0; padding: 0 var(--space-3); background: none; border-radius: var(--radius-sm); }
+.disclosure--quiet > summary { min-height: var(--size-tap); font-size: var(--font-size-14); color: var(--text-muted); }
+.disclosure--quiet > p { font-size: var(--font-size-14); line-height: var(--line-height-footer-p); }
+@media (prefers-reduced-motion: reduce) { .disclosure > summary::after, .switch, .switch::after { transition: none; } }

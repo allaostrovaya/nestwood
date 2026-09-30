@@ -1,0 +1,2 @@
+/* виносне попередження або уточнення (_conventions.md, словник компонентів) — тон нижчий за .cond/.limit, без рамки й іконки */
+.note { margin: var(--space-2) 0 0; font: var(--font-weight-regular) var(--font-size-12)/var(--line-height-small) var(--font-family-ui); color: var(--text-muted); }

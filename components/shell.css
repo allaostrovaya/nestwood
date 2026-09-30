@@ -1,0 +1,69 @@
+/* ════════════════════════ ОБОЛОНКА ════════════════════════
+   .shell — екран. Шар 1: .shell__bar (назад / закрити · назва · дія). [.shell__media — фото-герой.]
+   Шар 2: .shell__head (h1 + бриф). Далі .shell__main, .shell__footer; .tabbar — сусід .shell. */
+.shell { position: relative; display: block; background: var(--bg-page); padding-bottom: var(--size-tab-clear); }
+.shell__bar { position: sticky; top: 0; z-index: 3; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  min-height: var(--size-bar); padding: 0 var(--space-3); background: var(--bar-bg); box-shadow: var(--effect-hair-bottom);
+  -webkit-backdrop-filter: var(--blur-bar); backdrop-filter: var(--blur-bar); }
+.shell__back, .shell__close { justify-self: start; display: inline-flex; align-items: center; gap: var(--space-1); min-height: var(--size-tap);
+  margin-left: calc(var(--space-2) * -1); padding: 0 var(--space-2); border-radius: var(--radius-sm); color: var(--color-link);
+  font: var(--font-weight-semi) var(--font-size-16)/var(--line-height-1) var(--font-family-ui); }
+.shell__back::before, .shell__close::before { content: ""; flex: none; width: var(--size-ic-glass); height: var(--size-ic-glass); background: currentColor;
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.shell__back { --ic: var(--ic-chevron-left); }
+.shell__back::before { margin-left: calc(var(--space-1) * -1); }
+.shell__close { --ic: var(--ic-close); }
+.shell__title { grid-column: 2; font: var(--font-weight-semi) var(--font-size-16)/var(--line-height-1) var(--font-family-ui); color: var(--text-primary); }
+.shell__action { grid-column: 3; justify-self: end; display: inline-flex; align-items: center; justify-content: center;
+  width: var(--size-tap); height: var(--size-tap); color: var(--text-primary); }
+.shell__action .ic { width: var(--size-ic-l); height: var(--size-ic-l); }
+.shell__media { padding: 0 var(--space-gutter); }
+.shell__head { padding: var(--space-5) var(--space-gutter) 0; display: flow-root; }
+.shell__h1 { margin: 0 0 var(--space-1); font: var(--font-weight-semi) var(--font-size-24)/var(--line-height-title) var(--font-family-ui); letter-spacing: var(--letter-spacing-title); text-wrap: balance; }
+.shell__main { display: flex; flex-direction: column; padding: 0 var(--space-gutter); }
+.shell__main > *, .shell__main > .section--bare > * { order: 2; }
+.shell__footer { padding: var(--space-6) var(--space-5); font: var(--font-weight-regular) var(--font-size-14)/var(--line-height-footer) var(--font-family-ui); color: var(--text-muted); }
+.shell__footer > p { margin: 0 0 var(--size-gap-legacy-10); }
+
+/* на фото: шар 1 склом поверх фото-героя; назва — в h1 */
+.shell--photo .shell__bar { position: absolute; left: 0; right: 0; padding: var(--space-photo-inset); background: none; box-shadow: none;
+  -webkit-backdrop-filter: none; backdrop-filter: none; }
+.shell--photo .shell__back { margin-left: 0; padding: 0 var(--space-4); border-radius: var(--radius-full); color: var(--text-on-photo); background: var(--effect-glass-btn);
+  -webkit-backdrop-filter: var(--blur-btn); backdrop-filter: var(--blur-btn); }
+.shell--photo .shell__title { position: absolute; width: var(--size-line); height: var(--size-line); overflow: hidden; clip: rect(0 0 0 0); }
+.shell--photo .shell__action { border-radius: var(--radius-round); color: var(--text-on-photo); background: var(--effect-glass-btn);
+  -webkit-backdrop-filter: var(--blur-btn); backdrop-filter: var(--blur-btn); }
+.shell--photo .shell__head { padding-top: var(--space-4); }
+/* модальне: «назад» — кругла скляна іконка, назва по центру білим, таб-бару немає */
+.shell--modal { padding-bottom: 0; }
+.shell--modal + .tabbar { display: none; }
+.shell--modal .shell__bar { justify-content: center; }
+.shell--modal .shell__h1 { margin-bottom: 0; }
+.shell--modal .shell__title { letter-spacing: var(--letter-spacing-bar-title); }
+.shell--modal .shell__back { width: var(--size-tap); padding: 0; justify-content: center; font-size: 0; gap: 0; }
+.shell--modal .shell__back::before { width: var(--size-ic-l); height: var(--size-ic-l); margin: 0; }
+.shell--modal .shell__title { position: static; width: auto; height: var(--size-tap); overflow: visible; clip: auto; display: inline-flex; align-items: center;
+  color: var(--text-on-photo); text-shadow: var(--shadow-title); }
+.shell--loading .shell__back { background: var(--effect-glass-btn-strong); }
+.shell--loading .shell__title { color: var(--text-primary); text-shadow: none; }
+/* аркуш: лежить поверх затемненого екрана-джерела, з ручкою, перекриває таб-бар */
+.shell--sheet { padding-bottom: 0; }
+.shell__backdrop { position: absolute; top: 0; left: 0; z-index: 0; display: block; width: 100%; height: auto; }
+.shell--sheet::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--effect-dim); }
+.shell--sheet > :not(.shell__backdrop) { position: relative; z-index: 2; }
+.shell--sheet + .tabbar { display: none; }
+.shell--sheet .shell__bar { position: relative; min-height: var(--size-sheet-bar); margin-top: var(--size-sheet-offset); padding: var(--space-4) var(--space-3) 0;
+  background: var(--bg-surface); box-shadow: none; border-radius: var(--radius-lg) var(--radius-lg) var(--radius-none) var(--radius-none);
+  -webkit-backdrop-filter: none; backdrop-filter: none; }
+.shell--sheet .shell__bar::before { content: ""; position: absolute; top: var(--size-handle-top); left: 50%; width: var(--size-handle-w); height: var(--size-handle-h);
+  margin-left: calc(var(--size-handle-w) / -2); border-radius: var(--radius-full); background: var(--border-default); }
+.shell--sheet .shell__head, .shell--sheet .shell__main { background: var(--bg-surface); }
+.shell--sheet .shell__head { padding-top: var(--space-5); }
+.shell--sheet .shell__footer { background: var(--bg-surface); padding-bottom: var(--space-10); min-height: var(--size-sheet-foot-min); }
+.shell--sheet .list { background: var(--sheet-list); box-shadow: none; }
+/* карта-поверхня: шапки й назви не видно — вхід це сама карта */
+.shell--map .shell__bar, .shell--map .shell__head { position: absolute; width: var(--size-line); height: var(--size-line); overflow: hidden; clip: rect(0 0 0 0); padding: 0; margin: 0; }
+.shell--map .shell__footer { background: var(--bg-surface); }
+.shell--map { scroll-snap-type: y proximity; }
+/* сьогодні: SOS поруч із назвою дня */
+.shell--today .shell__h1 { padding-right: var(--size-sos-clear); }

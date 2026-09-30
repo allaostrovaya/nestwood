@@ -192,6 +192,8 @@ The audit trail is in `wireframes/_screens.md` (which states are real and why), 
 
 **UI language of the wireframes is English** (translated 2026-09-24); review chrome stays Ukrainian — see the note under Scope for v1.
 
+**«Залишаємо» rule for a visual fix.** `ui/kit.css` was split (2026-09-28 onward) into `tokens.css` (PRIMITIVE + SEMANTIC layer, repo root) and one file per component under `components/` (assembled by `components/index.css`) — full derivation and rationale in `tokens-audit.md` and `wireframes/tokens.html`. The rule is unchanged, only the file names move: when the designer says «залишаємо» about a visual correction, a value lives in `tokens.css` and a component's markup lives in the showcase `ui/kit.html` — a `tokens.css` value change propagates to all 33 screens by itself, but a markup change does not, so it has to be carried by hand to every screen where that component appears; a fix applied on one screen only is a desync, not a fix. So «залишаємо»: (1) update `tokens.css` and/or the component's file in `components/` and/or `ui/kit.html`, (2) record the reason in `DESIGN.md`, (3) carry any markup change to every screen that uses the component.
+
 ## Voice
 
 Full text: [design-system/voice.md](./design-system/voice.md). The audit trail of every string in the product: [wireframes/microcopy.md](./wireframes/microcopy.md) — 3 523 rows, one per interface line, regenerated from the pages by `_microcopy.py`.

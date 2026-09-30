@@ -6,7 +6,8 @@
 <title>Nestwood — головний флоу</title>
 <link rel="stylesheet" href="./_wireframe.css?v=20260925k" />
 <link rel="stylesheet" href="./_flow.css" />
-<link rel="stylesheet" href="../ui/kit.css?v=20260928l" />
+<link rel="stylesheet" href="../tokens.css" />
+<link rel="stylesheet" href="../components/index.css" />
 <link rel="stylesheet" href="../design-system/docs/globalnav.css" />
 </head>
 <body>
@@ -21,6 +22,7 @@
     <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/plan.html"><span class="n">04</span><span><b>Вайрфрейми</b><small>33 сторінки, дерево праворуч</small></span></a></li>
     <li><a class="gnav-item" href="../wireframes/flow.html" aria-current="page"><span class="n">05</span><span><b>Головний флоу</b><small>десять екранів підряд, MAIN JOB</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/tokens.html"><span class="n">06</span><span><b>Токени</b><small>дрейф, подвійні ролі, хардкод</small></span></a></li>
   </ul>
 </nav>
 
@@ -90,9 +92,9 @@
     <section aria-labelledby="s1-search" class="section section--bare">
       <h2 id="s1-search" class="section__title sr">Where, when, who</h2>
       <ul class="search">
-        <li><a class="search__field" href="./catalogue.html"><span class="search__text"><b class="search__label">Where</b><small class="search__value">Lapland, Sweden — or your own route: from → to</small></span></a></li>
-        <li><a class="search__field" href="./catalogue.html"><span class="search__text"><b class="search__label">When</b><small class="search__value">17–22 August</small></span></a></li>
-        <li><a class="search__field" href="./catalogue.html"><span class="search__text"><b class="search__label">Who</b><small class="search__value">2 people · 1 STF member</small></span></a></li>
+        <li><span class="search__field" aria-disabled="true"><span class="search__text"><b class="search__label">Where</b><small class="search__value">Lapland, Sweden — or your own route: from → to</small></span></span></li>
+        <li><span class="search__field" aria-disabled="true"><span class="search__text"><b class="search__label">When</b><small class="search__value">17–22 August</small></span></span></li>
+        <li><span class="search__field" aria-disabled="true"><span class="search__text"><b class="search__label">Who</b><small class="search__value">2 people · 1 STF member</small></span></span></li>
       </ul>
       <ul class="chips chips--on-map">
         <li><button class="chip" type="button" aria-pressed="true">huts</button></li>
@@ -202,9 +204,6 @@
   </div>
 
   <main class="shell__main">
-    <section aria-labelledby="s2-hero" class="section section--bare">
-      <h2 id="s2-hero" class="section__title sr">Overview</h2>
-      </section>
 
     <section aria-labelledby="s2-health" class="section section--tight">
       <h2 id="s2-health" class="section__title sr">Plan status</h2>
@@ -260,7 +259,7 @@
   <nav class="tabbar" aria-label="Main navigation">
     <ul class="tabbar__list">
       <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html" aria-current="page">Map</a></li>
-      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html">Plans</a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
       <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
       <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
       <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>
@@ -307,7 +306,6 @@
       <ul class="panel">
         <li class="panel__item"><b class="panel__value">101<span class="panel__unit"> km</span></b><small class="panel__label">distance</small></li>
         <li class="panel__item"><b class="panel__value">1,940<span class="panel__unit"> m</span></b><small class="panel__label">ascent</small></li>
-        <li class="panel__item panel__item--hidden"><b class="panel__value">6</b><small class="panel__label">days</small></li>
         <li class="panel__item"><b class="panel__value">~8<span class="panel__unit"> h</span></b><small class="panel__label">longest day</small></li>
       </ul>
     </div>
@@ -318,13 +316,10 @@
   </div>
 
   <main class="shell__main">
-    <section aria-labelledby="s3-hero" class="section section--bare">
-      <h2 id="s3-hero" class="section__title sr">Overview</h2>
-      </section>
 
     <section aria-labelledby="s3-health" class="section section--tight">
       <h2 id="s3-health" class="section__title sr">Plan status</h2>
-      <p class="pill pill--fixed"><b>Everything fits.</b></p>
+      <p class="pill"><b>Everything fits.</b></p>
     </section>
 
     <section aria-labelledby="s3-route" class="section">
@@ -345,7 +340,7 @@
 
     <section aria-labelledby="s3-days" class="section">
       <h2 id="s3-days" class="section__title">Days</h2>
-      <ul class="days">
+      <ol class="days">
         <li><div class="day day--transport i-tram"><span class="day__text"><b class="row__title">Getting there · Sun 16 Aug</b><small class="row__sub">night train 94 · Stockholm C → Abisko</small></span></div></li>
         <li><a class="day" href="./huts.html"><span class="day__text"><b class="row__title">1 · Abisko → Abiskojaure</b><small class="row__sub">14 km · ~4 h 30 · Abiskojaure fjällstuga</small></span></a></li>
         <li><a class="day" href="./huts.html"><span class="day__text"><b class="row__title">2 · Abiskojaure → Alesjaure</b><small class="row__sub">22 km · ~7 h · Alesjaure fjällstuga</small></span></a></li>
@@ -354,7 +349,7 @@
         <li><a class="day" href="./huts.html"><span class="day__text"><b class="row__title">5 · Sälka → Kebnekaise</b><small class="row__sub">26 km · ~8 h · Kebnekaise fjällstation</small></span></a></li>
         <li><div class="day"><span class="day__text"><b class="row__title">6 · Kebnekaise → Nikkaluokta</b><small class="row__sub">19 km · ~5 h</small></span></div></li>
         <li><div class="day day--transport i-bus"><span class="day__text"><b class="row__title">Getting back · Sat 22 Aug</b><small class="row__sub">bus 91 Nikkaluokta → Kiruna · train 92</small></span></div></li>
-      </ul>
+      </ol>
     </section>
 
     <section aria-labelledby="s3-notes" class="section">
@@ -383,7 +378,7 @@
   <nav class="tabbar" aria-label="Main navigation">
     <ul class="tabbar__list">
       <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html" aria-current="page">Map</a></li>
-      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html">Plans</a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
       <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
       <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
       <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>
@@ -509,14 +504,13 @@
       <ul class="panel">
         <li class="panel__item"><b class="panel__value">101<span class="panel__unit"> km</span></b><small class="panel__label">distance</small></li>
         <li class="panel__item"><b class="panel__value">1,940<span class="panel__unit"> m</span></b><small class="panel__label">ascent</small></li>
-        <li class="panel__item panel__item--hidden"><b class="panel__value">6</b><small class="panel__label">days</small></li>
         <li class="panel__item"><b class="panel__value">~8<span class="panel__unit"> h</span></b><small class="panel__label">longest day</small></li>
       </ul>
     </div>
   </div>
   <div class="shell__head">
     <h1 class="shell__h1">Kungsleden · Abisko → Nikkaluokta</h1>
-    <p class="brief"><span class="brief__text">17–22 August · 2 people · 1 STF member</span></p>
+    <a class="brief brief--edit" href="./new-plan.html"><span class="brief__text">17–22 August · 2 people · 1 STF member</span><span class="brief__action">change</span></a>
   </div>
 
   <main class="shell__main">
@@ -525,14 +519,14 @@
       <details class="disclosure">
         <summary>Change plan</summary>
         <p>Booking and ticket marks in the plan will be reset. They stay in STF and SJ — cancel there if you need to.</p>
-        <p class="actions"><a href="./new-plan.html" class="btn btn--danger">Change and reset</a></p>
+        <p class="actions"><a href="./new-plan.html" class="btn btn--secondary">Change and reset</a></p>
       </details>
     </section>
 
     <section aria-labelledby="s5-health" class="section">
       <h2 id="s5-health" class="section__title">Needs attention</h2>
       <ul class="list list--bare">
-        <li><a class="alert" href="./day.html"><span class="alert__text"><b class="alert__title">Flooding on Abiskojåkka</b><small class="alert__body">day 2: you won’t reach Alesjaure by 18:00 · decide by 15 Aug</small></span><span class="alert__tag">day 2</span></a></li>
+        <li><a class="alert" href="./day.html" role="alert"><span class="alert__text"><b class="alert__title">Flooding on Abiskojåkka</b><small class="alert__body">day 2: you won’t reach Alesjaure by 18:00 · decide by 15 Aug</small></span><span class="alert__tag">day 2</span></a></li>
       </ul>
     </section>
 
@@ -545,7 +539,7 @@
       <h2 id="s5-general" class="section__title">About the trip</h2>
       <ul class="list list--icons">
         <li><a class="row i-card" href="./membership.html"><span class="row__text"><b class="row__title">Membership and key</b><small class="row__sub">both STF members</small></span></a></li>
-        <li><a class="row i-backpack" href="./gear.html"><span class="row__text"><b class="row__title">Gear</b><small class="row__sub">23 items · 11.4 kg</small></span><span class="row__trail pill pill--attention">1 missing</span></a></li>
+        <li><a class="row i-backpack" href="./gear.html"><span class="row__text"><b class="row__title">Gear</b><small class="row__sub">23 items · 11.4 kg</small></span><span class="row__trail pill pill--attention">2 missing</span></a></li>
         <li><div class="row i-cloud-rain"><span class="row__text"><b class="row__title">Weather</b><small class="row__sub">met.no forecast · 13 Aug 09:12</small></span></div></li>
         <li><div class="row i-wallet"><span class="row__text"><b class="row__title">Cost</b><small class="row__sub">2,500 SEK nights per person · transport 1,430 SEK</small></span></div></li>
       </ul>
@@ -553,7 +547,7 @@
 
     <section aria-labelledby="s5-days" class="section">
       <h2 id="s5-days" class="section__title">Days</h2>
-      <ul class="days">
+      <ol class="days">
         <li><div class="day day--transport i-tram"><span class="day__text"><b class="row__title">Getting there · Sun 16 Aug</b><small class="row__sub">night train 94 · Stockholm C → Abisko</small></span></div></li>
         <li><a class="day" href="./day.html"><span class="day__text"><b class="row__title">1 · Abisko → Abiskojaure</b><small class="row__sub">14 km · ~4 h 30</small></span></a></li>
         <li><a class="day day--warn" href="./day.html"><span class="day__text"><b class="row__title">2 · Abiskojaure → Alesjaure</b><small class="row__sub">22 km · ~7 h</small></span><span class="pill pill--attention">flood</span></a></li>
@@ -562,7 +556,7 @@
         <li><a class="day" href="./day.html"><span class="day__text"><b class="row__title">5 · Sälka → Kebnekaise</b><small class="row__sub">26 km · ~8 h</small></span></a></li>
         <li><a class="day" href="./day.html"><span class="day__text"><b class="row__title">6 · Kebnekaise → Nikkaluokta</b><small class="row__sub">19 km · ~5 h</small></span></a></li>
         <li><a class="day day--transport i-bus" href="./booking.html"><span class="day__text"><b class="row__title">Getting back · Sat 22 Aug</b><small class="row__sub">bus 91 → Kiruna · ticket not bought</small></span><span class="action-text">buy</span></a></li>
-      </ul>
+      </ol>
     </section>
   </main>
 
@@ -578,7 +572,7 @@
   <nav class="tabbar" aria-label="Main navigation">
     <ul class="tabbar__list">
       <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html">Map</a></li>
-      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html" aria-current="page">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html" aria-current="page">Plans<span class="tabbar__badge" aria-label="2 steps left">2</span></a></li>
       <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
       <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
       <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>
@@ -671,7 +665,7 @@
   <nav class="tabbar" aria-label="Main navigation">
     <ul class="tabbar__list">
       <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html">Map</a></li>
-      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html" aria-current="page">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html" aria-current="page">Plans<span class="tabbar__badge" aria-label="2 steps left">2</span></a></li>
       <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
       <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
       <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>
@@ -708,6 +702,7 @@
       <div class="flow-dev">
 <div class="device nw" data-screen="Day" data-state="сьогодні">
 
+  <!-- відступ від _conventions.md: shell--today — навмисний layout-варіант для in-trip режиму (SOS поруч із заголовком дії, панель to-go/walking/arrive-by), а не помилка розмітки -->
   <div class="screen shell shell--today">
   <header class="shell__bar"><a class="shell__back" href="./plan.html">Plan</a><span class="shell__title">Day</span></header>
   <div class="shell__head">
@@ -715,6 +710,7 @@
   </div>
 
   <main class="shell__main">
+    <!-- відступ від _conventions.md: intrip-стан показує "куди йти зараз", а не повний профіль дня (base "Leg" з distance/ascent/walking) — тому заголовок тут "Now", а стати панелі інші: to-go/walking/arrive-by замість distance/ascent/walking -->
     <section aria-labelledby="s7-leg" class="section">
       <h2 id="s7-leg" class="section__title">Now</h2>
       <p class="actions actions--sos"><a class="btn btn--sos" href="./safety.html">SOS · 112</a></p>
@@ -736,7 +732,7 @@
     <section aria-labelledby="s7-cond" class="section">
       <h2 id="s7-cond" class="section__title">On this section</h2>
       <ul class="list list--bare">
-        <li><a class="alert" href="./notes.html"><span class="alert__text"><b class="alert__title">Ford before the hut</b><small class="alert__body alert__body--short">higher after rain — cross before 15:00</small></span><span class="alert__tag alert__tag--wide">ford</span></a></li>
+        <li><a class="alert" href="./notes.html" role="alert"><span class="alert__text"><b class="alert__title">Ford before the hut</b><small class="alert__body alert__body--short">higher after rain — cross before 15:00</small></span><span class="alert__tag alert__tag--wide">ford</span></a></li>
       </ul>
       <p class="actions actions--block"><a href="./notes.html" class="btn btn--secondary">Write a field note</a></p>
     </section>
@@ -759,7 +755,7 @@
   <nav class="tabbar" aria-label="Main navigation">
     <ul class="tabbar__list">
       <li><a class="tabbar__item tabbar__item--map" href="./catalogue.html">Map</a></li>
-      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html" aria-current="page">Plans<span class="tabbar__badge" aria-label="4 steps left">4</span></a></li>
+      <li><a class="tabbar__item tabbar__item--plans" href="./plans.html" aria-current="page">Plans<span class="tabbar__badge" aria-label="2 steps left">2</span></a></li>
       <li><a class="tabbar__item tabbar__item--guide" href="./guide.html">Guide</a></li>
       <li><a class="tabbar__item tabbar__item--safety" href="./safety.html">Safety</a></li>
       <li><a class="tabbar__item tabbar__item--profile" href="./me.html">Profile</a></li>

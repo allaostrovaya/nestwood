@@ -1,0 +1,17 @@
+/* рамка карти; --bg-surface — карта на весь екран під пошуком; --mini — «сьогодні» */
+/* --map-land-bg / --map-attrib-bg / --map-attrib-fg: три з 10 документованих одноразових кольорів
+   (CLAUDE.md) — суша карти й плашка атрибуції. tokens.css лишив їх лише primitive-шаром; локальні
+   змінні пулять точний primitive напряму. */
+.map { --map-land-bg: var(--green-100); }
+.map__attrib, .map__badge { --map-attrib-bg: var(--white-a70); --map-attrib-fg: var(--gray-600); }
+.map { position: relative; aspect-ratio: var(--size-ratio-map); overflow: hidden; border-radius: var(--radius-md); background: var(--map-land-bg); }
+.map__img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+.map__attrib, .map__badge { position: absolute; z-index: 1; padding: var(--space-1) var(--space-2); border-radius: var(--radius-full); background: var(--map-attrib-bg); color: var(--map-attrib-fg);
+  font: var(--font-weight-medium) var(--font-size-12)/var(--line-height-1) var(--font-family-ui); }
+.map__attrib { left: var(--space-2); bottom: var(--space-2); }
+.map__badge { right: var(--space-2); top: var(--space-2); font-family: var(--font-family-num); letter-spacing: var(--letter-spacing-tag); }
+.map--mini { aspect-ratio: auto; height: var(--size-map-mini); margin-top: var(--space-3); }
+.map--surface { position: sticky; top: 0; z-index: 0; aspect-ratio: auto; height: var(--size-map-surface); margin: var(--size-map-surface-pull) calc(var(--space-gutter) * -1) 0; border-radius: 0; }
+.map--surface .map__attrib { left: var(--space-3); bottom: var(--size-map-attrib-lift); }
+.map + .panel--card, .profile + .panel--card { margin-top: var(--space-3); }
+[data-theme="dark"] .map { filter: var(--effect-map-dark); }

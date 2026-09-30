@@ -1,0 +1,19 @@
+/* ── таб-бар ── */
+.tabbar { position: absolute; left: var(--size-tab-inset); right: var(--size-tab-inset); bottom: var(--size-tab-inset); z-index: 10;
+  padding: var(--space-2) var(--space-2) var(--space-3); border-radius: var(--radius-full); background: var(--bar-bg); box-shadow: var(--effect-float);
+  -webkit-backdrop-filter: var(--blur-bar); backdrop-filter: var(--blur-bar); }
+.tabbar__list { display: flex; margin: 0; padding: 0; list-style: none; }
+.tabbar__list > li { flex: 1; }
+.tabbar__item { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-1);
+  min-height: var(--size-tap); color: var(--text-muted); font: var(--font-weight-medium) var(--font-size-10)/var(--line-height-tab) var(--font-family-ui); }
+.tabbar__item::before { content: ""; width: var(--size-ic-l); height: var(--size-ic-l); background: currentColor;
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.tabbar__item[aria-current="page"] { color: var(--text-primary); font-weight: var(--font-weight-semi); --ic: var(--ic-on); }
+.tabbar__item--map { --ic: var(--ic-map); --ic-on: var(--ic-map-bold); }
+.tabbar__item--plans { --ic: var(--ic-doc); --ic-on: var(--ic-doc-bold); }
+.tabbar__item--guide { --ic: var(--ic-book); --ic-on: var(--ic-book); }
+.tabbar__item--safety { --ic: var(--ic-shield); --ic-on: var(--ic-shield); }
+.tabbar__item--profile { --ic: var(--ic-user); --ic-on: var(--ic-user); }
+.tabbar__badge { position: absolute; top: 0; left: calc(50% + var(--size-badge-offset)); min-width: var(--size-ic-glass); height: var(--size-ic-glass); padding: 0 var(--space-1);
+  border-radius: var(--radius-full); background: var(--color-live); color: var(--text-on-live);
+  font: var(--font-weight-semi) var(--font-size-10)/var(--size-ic-glass) var(--font-family-num); text-align: center; }

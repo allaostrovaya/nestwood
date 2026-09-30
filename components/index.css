@@ -1,0 +1,47 @@
+/* Nestwood UI kit — components/index.css
+   Один файл на компонент, розібраний з ui/kit.css (єдине джерело розмітки й значень) проти
+   двошарової архітектури токенів у tokens.css (PRIMITIVE + SEMANTIC, корінь репозиторію).
+   Порядок: спершу базовий шар (шрифти, скидання, утиліти), далі компоненти — у порядку появи
+   в оболонці застосунку (ОСНОВА → ОБОЛОНКА → КАРТКИ Й СПИСКИ → ФОРМИ Й ДІЇ), як у kit.css. */
+
+/* базовий шар */
+@import url("./base.css");
+
+/* ОБОЛОНКА */
+@import url("./shell.css");
+@import url("./tabbar.css");
+
+/* КАРТКИ Й СПИСКИ */
+@import url("./section.css");
+@import url("./hero.css");
+@import url("./search-float.css");
+@import url("./panel.css");
+@import url("./brief.css");
+@import url("./list.css");
+@import url("./profile-id.css");
+@import url("./pill.css");
+@import url("./scale.css");
+@import url("./days.css");
+@import url("./alert.css");
+@import url("./limit.css");
+@import url("./empty.css");
+@import url("./cond.css");
+@import url("./caption-line.css");
+@import url("./note.css");
+@import url("./card-photo.css");
+@import url("./map.css");
+@import url("./profile.css");
+@import url("./search.css");
+@import url("./float-card.css");
+@import url("./sheet.css");
+@import url("./skeleton.css");
+
+/* ФОРМИ Й ДІЇ */
+@import url("./actions.css");
+@import url("./btn.css");
+@import url("./actionbar.css");
+@import url("./chip.css");
+@import url("./seg.css");
+@import url("./field.css");
+@import url("./switch.css");
+@import url("./disclosure.css");

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nestwood — Аудит токенів</title>
+<link rel="stylesheet" href="../design-system/docs/doc.css" />
+<link rel="stylesheet" href="../design-system/docs/globalnav.css" />
+</head>
+<body>
+
+<nav class="gnav" aria-label="Документи проєкту">
+  <a class="gnav-brand" href="./plan.html">Nestwood<span>ДОКУМЕНТИ</span></a>
+  <p class="gnav-label">Проєкт</p>
+  <ul>
+    <li><a class="gnav-item" href="../research/research.html"><span class="n">01</span><span><b>Ресерч</b><small>ринок, конкуренти, джерела даних</small></span></a></li>
+    <li><a class="gnav-item" href="../concept/personas.html"><span class="n">02</span><span><b>Персони & JTBD</b><small>хто це і які в них jobs</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/ia.html"><span class="n">03</span><span><b>Архітектура</b><small>екрани, потоки, трасування</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/plan.html"><span class="n">04</span><span><b>Вайрфрейми</b><small>33 сторінки, дерево праворуч</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/flow.html"><span class="n">05</span><span><b>Головний флоу</b><small>десять екранів підряд, MAIN JOB</small></span></a></li>
+    <li><a class="gnav-item" href="../wireframes/tokens.html" aria-current="page"><span class="n">06</span><span><b>Токени</b><small>дрейф, подвійні ролі, хардкод</small></span></a></li>
+  </ul>
+</nav>
+
+<div class="shell wide">
+
+  <aside class="rail">
+    <div class="rail-brand">Nestwood<span>АУДИТ ТОКЕНІВ</span></div>
+    <nav>
+      <a href="#table"><span class="num">1</span> Таблиця токенів</a>
+      <a href="#drift"><span class="num">2</span> Дрейф значень</a>
+      <a href="#roles"><span class="num">3</span> Одна змінна — кілька ролей</a>
+      <a href="#raw"><span class="num">4</span> Значення повз змінні</a>
+      <a href="#candidates"><span class="num">5</span> Семантичні ролі</a>
+      <a href="#one-off"><span class="num">6</span> Однократні кольори</a>
+      <a href="#summary"><span class="num">7</span> Підсумок</a>
+    </nav>
+    <div class="rail-foot">
+      211 токенів · 33 сторінки · read-only<br>
+      Джерело: <a href="../tokens-audit.md">tokens-audit.md</a><br>
+      Кіт (архів на момент аудиту, видалений після переходу на tokens.css/components): <code>ui/kit.css</code><br>
+      Токени: <a href="../tokens.css">tokens.css</a> · Компоненти: <a href="../components/index.css">components/index.css</a>
+    </div>
+  </aside>
+
+  <main>
+
+    <div class="masthead">
+      <div class="eyebrow">Аудит дизайн-токенів</div>
+      <h1 class="title">211 токенів, п'ять дрейфів і чотири змінні на кілька ролей — де кіт ще не єдине джерело істини</h1>
+      <p class="dek">Read-only дослідження: жоден файл проєкту не змінено. `ui/kit.css` розібрано програмно — 211 токенів у `:root`, для кожного знайдено всі місця вживання `var()`, для кожного класу перевірено, у яких із 33 сторінок `wireframes/*.html` він реально присутній. Це дає ланцюжок «токен → властивість CSS → клас → сторінка», а не здогад.</p>
+      <div class="meta-row">
+        <span class="pill">211 токенів</span>
+        <span class="pill">9 не використовується</span>
+        <span class="pill">5 дрейфів</span>
+        <span class="pill">4 подвійні ролі</span>
+        <a class="xlink" href="../tokens-audit.md">Повний звіт <span class="arrow">→</span></a>
+      </div>
+    </div>
+
+    <blockquote class="pain">
+      <p><b>Розмітка продукту чиста.</b> 0 inline <code>style=</code>, 0 локальних <code>&lt;style&gt;</code> на всіх 33 сторінках — усе оформлення йде виключно через класи з <code>ui/kit.css</code>. Дрейф, який тут описаний, сидить не в розмітці, а в самому наборі токенів: та сама роль, іменована двома різними способами, або та сама змінна, що тихо несе кілька несумісних смислів.</p>
+    </blockquote>
+
+    <!-- ============ 1. ТАБЛИЦЯ ТОКЕНІВ ============ -->
+    <section class="block" id="table">
+      <div class="block-head"><span class="block-num mono">01</span><h2 class="block-title">Таблиця токенів</h2></div>
+      <p class="block-sub">211 токенів: 181 «звичайний» (колір, шрифт, відступ, радіус, розмір, тінь, рух) + 30 SVG-іконок-масок. Для кожного токена в повній таблиці зафіксовано значення в світлій і темній темі, усі місця вживання `var()` у `ui/kit.css` та сторінки, де відповідний клас реально присутній у розмітці. Нижче — лише токени, які фігурують у знахідках розділів 2–5; решта 211 рядків — у джерелі.</p>
+
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:150px;">Змінна</th><th style="width:180px;">Light</th><th style="width:180px;">Dark</th><th>Де вживається</th><th style="width:170px;">Роль</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead mono">--link</td><td class="country">#2D5BFF</td><td class="country">#7C9BFF</td><td>.shell__back/.close, .brief__action, .action-text, .btn--text</td><td>дія, виражена текстом</td></tr>
+            <tr><td class="rowhead mono">--blue</td><td class="country">#2D5BFF</td><td class="country">#3A66F5</td><td>.btn--primary, фокус-кільця, .switch/.check «увімкнено», .spinner</td><td>дія / увімкнено / фокус / завантаження</td></tr>
+            <tr><td class="rowhead mono">--e-hair</td><td class="country">inset 0 0 0 1px #D9DCDF</td><td class="country">inset 0 0 0 1px #34383C</td><td>.panel--card, .list, .pill, .days, .profile, .seg, .disclosure</td><td>дублює --hairline hex-літералом</td></tr>
+            <tr><td class="rowhead mono">--e-stroke</td><td class="country">inset 0 0 0 1.5px #D9DCDF</td><td class="country">inset 0 0 0 1.5px #34383C</td><td>.day, .btn--secondary, .btn--danger, .chip, .field__input, .check</td><td>дублює --hairline hex-літералом</td></tr>
+            <tr><td class="rowhead mono">--e-hair-bottom</td><td class="country">inset 0 -1px 0 #D9DCDF</td><td class="country">inset 0 -1px 0 #34383C</td><td>.shell__bar</td><td>дублює --hairline hex-літералом</td></tr>
+            <tr><td class="rowhead mono">--e-focus-ring</td><td class="country">0 0 0 4px #E8EEFF</td><td class="country">0 0 0 4px #1D2A55</td><td>.search-float__input, .field__input</td><td>дублює --blue-soft hex-літералом</td></tr>
+            <tr><td class="rowhead mono">--hairline</td><td class="country">#D9DCDF</td><td class="country">#34383C</td><td>межі карток/списків/панелей + фон-заглушка (аватар, .scale__step, .skeleton, .switch трек)</td><td>межа / нейтральний плейсхолдер</td></tr>
+            <tr><td class="rowhead mono">--blue-soft</td><td class="country">#E8EEFF</td><td class="country">#1D2A55</td><td>.nw (фон)</td><td>джерело для --e-focus-ring</td></tr>
+            <tr><td class="rowhead mono">--dim</td><td class="country">rgba(15,17,19,.5)</td><td class="country">— (не перевизначено)</td><td>.shell--sheet</td><td>затемнення на базі ink</td></tr>
+            <tr><td class="rowhead mono">--glass-btn</td><td class="country">rgba(15,17,19,.45)</td><td class="country">— (не перевизначено)</td><td>.shell--photo .shell__back/.action, .btn--glass</td><td>затемнення на базі ink</td></tr>
+            <tr><td class="rowhead mono">--glass-btn-strong</td><td class="country">rgba(15,17,19,.6)</td><td class="country">— (не перевизначено)</td><td>.shell--loading .shell__back</td><td>затемнення на базі ink</td></tr>
+            <tr><td class="rowhead mono">--dim-layer</td><td class="country">linear-gradient(rgba(15,17,19,.5), rgba(15,17,19,.5))</td><td class="country">— (не перевизначено)</td><td>—</td><td><b>не використовується жодним класом</b></td></tr>
+            <tr><td class="rowhead mono">--scrim-top</td><td class="country">linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,0))</td><td class="country">— (не перевизначено)</td><td>.hero</td><td>затемнення на базі чистого чорного</td></tr>
+            <tr><td class="rowhead mono">--scrim-bottom</td><td class="country">linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.45))</td><td class="country">— (не перевизначено)</td><td>.hero--short, .card-photo__img</td><td>затемнення на базі чистого чорного</td></tr>
+            <tr><td class="rowhead mono">--e-float</td><td class="country">0 12px 32px -16px rgba(15,17,19,.38)</td><td class="country">— (не перевизначено)</td><td>.tabbar, .search-float, .list--float, .chip, .switch</td><td>тінь на базі чистого чорного (rgba(0,0,0,…) в інших тінях)</td></tr>
+            <tr><td class="rowhead mono">--e-sheet</td><td class="country">0 -8px 24px -18px rgba(15,17,19,.35)</td><td class="country">— (не перевизначено)</td><td>.sheet--first</td><td>тінь на базі чистого чорного</td></tr>
+            <tr><td class="rowhead mono">--e-photo-floor</td><td class="country">inset 0 -90px 60px -40px rgba(0,0,0,.35)</td><td class="country">— (не перевизначено)</td><td>.hero</td><td>тінь на базі чистого чорного</td></tr>
+            <tr><td class="rowhead mono">--shadow-text</td><td class="country">0 1px 3px rgba(0,0,0,.55)</td><td class="country">— (не перевизначено)</td><td>.hero__credit, .hero__hud, .hero__title</td><td>text-shadow на базі чистого чорного</td></tr>
+            <tr><td class="rowhead mono">--shadow-title</td><td class="country">0 1px 3px rgba(0,0,0,.35)</td><td class="country">— (не перевизначено)</td><td>.shell--modal .shell__title</td><td>text-shadow на базі чистого чорного</td></tr>
+            <tr><td class="rowhead mono">--shadow-card</td><td class="country">0 1px 3px rgba(0,0,0,.6)</td><td class="country">— (не перевизначено)</td><td>.card-photo__credit</td><td>text-shadow на базі чистого чорного</td></tr>
+            <tr><td class="rowhead mono">--sos-bg</td><td class="country">#B42318</td><td class="country">— (не перевизначено)</td><td>.btn--sos</td><td>застиглий дублікат --conflict light</td></tr>
+            <tr><td class="rowhead mono">--sos-fg</td><td class="country">#FFFFFF</td><td class="country">— (не перевизначено)</td><td>.btn--sos</td><td>застиглий, без dark-варіанта</td></tr>
+            <tr><td class="rowhead mono">--conflict</td><td class="country">#B42318</td><td class="country">#FF7A6B</td><td>.btn--danger, .btn--danger-fill, .field--error</td><td>помилка (прив'язана до теми)</td></tr>
+            <tr><td class="rowhead mono">--panel-bg</td><td class="country">rgba(250,250,250,.9)</td><td class="country">rgba(28,30,33,.88)</td><td>.panel</td><td>скло — єдине не суто біле з п'яти</td></tr>
+            <tr><td class="rowhead mono">--bar-bg</td><td class="country">rgba(255,255,255,.88)</td><td class="country">rgba(28,30,33,.88)</td><td>.shell__bar, .tabbar, .actionbar</td><td>скло</td></tr>
+            <tr><td class="rowhead mono">--chip-photo</td><td class="country">rgba(255,255,255,.92)</td><td class="country">— (не перевизначено)</td><td>.pill--photo</td><td>скло</td></tr>
+            <tr><td class="rowhead mono">--attrib-bg</td><td class="country">rgba(255,255,255,.7)</td><td class="country">— (не перевизначено)</td><td>.map__attrib, .map__badge</td><td>скло</td></tr>
+            <tr><td class="rowhead mono">--surface</td><td class="country">#FFFFFF</td><td class="country">#1C1E21</td><td>.panel--card, .list, .days, .day, .profile, .sheet, .chip, .seg, .disclosure</td><td>фон непрозорої картки — єдиний явний переможець</td></tr>
+            <tr><td class="rowhead mono">--ink</td><td class="country">#0F1113</td><td class="country">#F2F3F4</td><td>переважна більшість тексту; .chip[aria-pressed], .seg a[aria-current] (фон); .alert-bg збігається light</td><td>текст / фон «натиснутого» / випадковий збіг із alert-bg</td></tr>
+            <tr><td class="rowhead mono">--alert-bg</td><td class="country">#0F1113</td><td class="country">#26292D</td><td>.pill--attention, .alert</td><td>фон інверсної плашки — окремо відділена в dark</td></tr>
+            <tr><td class="rowhead mono">--graphite</td><td class="country">#5E6368</td><td class="country">#A3A9AE</td><td>другорядний текст; .row::after, .day::after, .disclosure summary::after (декоративні заливки)</td><td>текст другорядний / декоративна заливка</td></tr>
+            <tr><td class="rowhead mono">--dash</td><td class="country">#5E6368</td><td class="country">— (не перевизначено)</td><td>.limit, .empty (обвідка)</td><td>alias --graphite для пунктиру</td></tr>
+            <tr><td class="rowhead mono">--on-disabled</td><td class="country">#5E6368</td><td class="country">#A3A9AE</td><td>.btn (вимкнена)</td><td>alias --graphite</td></tr>
+            <tr><td class="rowhead mono">--attrib-fg</td><td class="country">#5E6368</td><td class="country">— (не перевизначено)</td><td>.map__attrib, .map__badge</td><td>alias --graphite</td></tr>
+            <tr><td class="rowhead mono">--fixed</td><td class="country">#0B7A4B</td><td class="country">#4CC38A</td><td>.pill--fixed, .field--ok</td><td>успіх — чисте, неконкуруюче рішення</td></tr>
+            <tr><td class="rowhead mono">--fixed-soft</td><td class="country">#E7F4EC</td><td class="country">#12301F</td><td>.pill--fixed</td><td>успіх, м'який фон</td></tr>
+            <tr><td class="rowhead mono">--yellow</td><td class="country">#F2E500</td><td class="country">— (не перевизначено, навмисно)</td><td>.tabbar__badge, .pill--attention, .scale__step--active, .day--warn, .alert__tag</td><td>жива позначка — єдина роль, жодної конкуренції</td></tr>
+            <tr><td class="rowhead mono">--map-water</td><td class="country">#CFE0EA</td><td class="country">— (не перевизначено)</td><td>—</td><td><b>не використовується жодним класом</b></td></tr>
+            <tr><td class="rowhead mono">--fs-18</td><td class="country">18px</td><td class="country">— (не перевизначено)</td><td>—</td><td><b>не використовується жодним класом</b></td></tr>
+            <tr><td class="rowhead mono">--fs-32</td><td class="country">32px</td><td class="country">— (не перевизначено)</td><td>—</td><td><b>не використовується жодним класом</b></td></tr>
+            <tr><td class="rowhead mono">--ls-num</td><td class="country">-0.03em</td><td class="country">— (не перевизначено)</td><td>—</td><td><b>не використовується жодним класом</b></td></tr>
+            <tr><td class="rowhead mono">--ls-0</td><td class="country">0</td><td class="country">— (не перевизначено)</td><td>—</td><td><b>не використовується жодним класом</b></td></tr>
+            <tr><td class="rowhead mono">--s-14</td><td class="country">56px</td><td class="country">— (не перевизначено)</td><td>—</td><td><b>не використовується жодним класом</b></td></tr>
+            <tr><td class="rowhead mono">--h-map</td><td class="country">222px</td><td class="country">— (не перевизначено)</td><td>—</td><td><b>не використовується жодним класом</b></td></tr>
+            <tr><td class="rowhead mono">--h-panel</td><td class="country">74px</td><td class="country">— (не перевизначено)</td><td>—</td><td><b>не використовується жодним класом</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Повна таблиця всіх 211 токенів → <a href="../tokens-audit.md">tokens-audit.md</a>, розділ 1 (плюс окрема таблиця 30 SVG-іконок-масок у 1.1 — включно зі знахідкою, що 3 з 5 вкладок таб-бару не мають окремої «жирної» іконки активного стану).</p>
+    </section>
+
+    <!-- ============ 2. ДРЕЙФ ЗНАЧЕНЬ ============ -->
+    <section class="block" id="drift">
+      <div class="block-head"><span class="block-num mono">02</span><h2 class="block-title">Дрейф значень</h2></div>
+      <p class="block-sub">П'ять місць, де та сама роль записана в токенах більш ніж одним способом — де-факто узгоджено сьогодні, але без єдиного джерела істини на майбутнє.</p>
+
+      <h3 class="sub">2.1. `--link` і `--blue` розходяться саме там, де мали б збігатися</h3>
+      <p>Світла тема: `--blue: #2D5BFF`, `--link: #2D5BFF` — однакові. Темна тема: `--blue: #3A66F5`, `--link: #7C9BFF` — <b>різні</b>. Обидва токени в світлій темі описують один і той самий відтінок «сигнального синього» — `--link` для дії, вираженої текстом (`.shell__back`, `.shell__close`, `.brief__action`, `.action-text`, `.btn--text`), `--blue` для дії, вираженої заливкою/обвідкою (`.btn--primary`, фокус-кільця, `.switch`/`.check` «увімкнено», `.spinner`). У темній темі хтось підняв `--link` до світлішого, більш блідого відтінку (заради контрасту на темному тлі), але не поширив цю зміну на `--blue`. Це або недокументований намір, або забуте оновлення — у будь-якому разі та сама роль «акцентний синій, дія» в одній темі це один колір, в іншій — два різні.</p>
+
+      <h3 class="sub">2.2. Дублювання кольору hex-літералом замість `var()` у складених токенах — системний патерн</h3>
+      <p>Чотири «тіньові/обвідкові» шорткоди в `:root` не посилаються на вже наявні кольорові токени через `var()`, а дослівно повторюють їхнє hex-значення, і це дублювання доводиться вручну синхронізувати в обох темах:</p>
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th>Складений токен</th><th>Значення light</th><th>Дублює</th><th>Значення dark</th><th>Дублює</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead mono">--e-hair</td><td class="country">inset 0 0 0 1px #D9DCDF</td><td>--hairline (#D9DCDF)</td><td class="country">inset 0 0 0 1px #34383C</td><td>--hairline dark (#34383C)</td></tr>
+            <tr><td class="rowhead mono">--e-stroke</td><td class="country">inset 0 0 0 1.5px #D9DCDF</td><td>--hairline</td><td class="country">inset 0 0 0 1.5px #34383C</td><td>--hairline dark</td></tr>
+            <tr><td class="rowhead mono">--e-hair-bottom</td><td class="country">inset 0 -1px 0 #D9DCDF</td><td>--hairline</td><td class="country">inset 0 -1px 0 #34383C</td><td>--hairline dark</td></tr>
+            <tr><td class="rowhead mono">--e-focus-ring</td><td class="country">0 0 0 4px #E8EEFF</td><td>--blue-soft (#E8EEFF)</td><td class="country">0 0 0 4px #1D2A55</td><td>--blue-soft dark</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Наразі всі чотири синхронізовані правильно (значення дійсно збігаються в обох темах), тож це не помилка сьогодні — але це крихка конструкція: якщо колись `--hairline` або `--blue-soft` зміняться, ці чотири композитні токени доведеться згадати й підняти вручну окремо, бо CSS-змінні тут не посилаються одна на одну.</p>
+
+      <h3 class="sub">2.3. Дві різні бази «майже чорного» для однієї ролі «затемнення/тінь»</h3>
+      <p>Роль «напівпрозоре затемнення фото чи підкладки» представлена в токенах двома різними базовими кольорами: на основі <b>ink</b> (`#0F1113`) — `--dim`, `--glass-btn`, `--glass-btn-strong`, `--dim-layer` (не використовується, теж на основі `15,17,19`); на основі <b>чистого чорного</b> (`#000000`, ніде не визначеного як токен кольору) — `--scrim-top`, `--scrim-bottom`, `--shadow-text`, `--e-float`, `--e-sheet`, `--e-photo-floor`, `--shadow-title`, `--shadow-card`. Візуально відмінність мінімальна (`#0F1113` vs `#000000`), але це буквально два різні джерела істини для «яким чорним затемнювати» — скляні кнопки й діммер модалки одним, а скрими фото й усі тіні глибини іншим. Жодного текстового обґрунтування цього поділу в самому файлі немає.</p>
+
+      <h3 class="sub">2.4. `--sos-bg` — застиглий дублікат `--conflict`, не прив'язаний до теми</h3>
+      <p>`--sos-bg: #B42318` дослівно дорівнює світлому `--conflict` (`#B42318`), але, на відміну від `--conflict` (який у темній темі стає `#FF7A6B`), `--sos-bg` не перевизначений у `[data-theme="dark"]` і залишається `#B42318` в обох темах. Те саме стосується `--sos-fg` (`#FFFFFF`, теж без dark-перевизначення). Це може бути свідомим рішенням («SOS завжди такий самий тривожний червоний, незалежно від теми») — цілком захисна логіка для безпекового елемента — але текстом це рішення ніде не зафіксовано, і сам факт, що один токен виведений з іншого лише значенням, а не посиланням, і поводиться інакше в темі, це дрейф на межі з навмисною відмінністю.</p>
+
+      <h3 class="sub">2.5. Чотири «майже білих поверхні» з різними альфа й відтінком</h3>
+      <p>Роль «світла напівпрозора підкладка/скло» представлена чотирма токенами з чотирма різними точними значеннями: `--surface: #FFFFFF` (непрозорий, чиста картка), `--panel-bg: rgba(250,250,250,.9)` (не білий — трохи сірий, і напівпрозорий), `--bar-bg: rgba(255,255,255,.88)`, `--chip-photo: rgba(255,255,255,.92)`, `--attrib-bg: rgba(255,255,255,.7)`. Кожен зі своєю роллю (картка / панель complications на фото / нижня панель-бар / чіп на фото / плашка атрибуції) — тобто це, найімовірніше, <b>навмисна</b> диференціація «наскільки прозоре скло» залежно від контексту, а не помилка. Але `--panel-bg` вирізняється тим, що це єдиний з п'яти не суто білий, а зміщений у `250,250,250` — варто перевірити, чи це навмисний ледь сірий відтінок панелі «Прилад», чи випадкове відхилення при копіюванні значення.</p>
+    </section>
+
+    <!-- ============ 3. ОДНА ЗМІННА — КІЛЬКА РОЛЕЙ ============ -->
+    <section class="block" id="roles">
+      <div class="block-head"><span class="block-num mono">03</span><h2 class="block-title">Одна змінна на кілька несумісних ролей</h2></div>
+      <p class="block-sub">Чотири токени, кожен з яких у самому CSS відповідає за більше ніж одну комунікативну задачу.</p>
+
+      <h3 class="sub">3.1. `--blue` — не лише «дія»</h3>
+      <p>CLAUDE.md/concept.md фіксують: «Signal blue #2D5BFF = action colour (buttons, links)». У коді `--blue` (не `--link`) реально відповідає за чотири різні задачі: <b>дію/CTA</b> — `.btn--primary` фон; <b>стан «увімкнено»</b> перемикача й чекбокса — `.switch:checked`, `.check:checked` (семантично ближче до «підтвердження вибору», ніж до «натисни, щоб щось сталося»); <b>фокус-кільце полів</b> — `.field__input:focus`, `.search-float__input:focus-visible` (роль «фокус клавіатури/доступності»); <b>індикатор завантаження</b> — `.spinner`, `.row--loading::before`. Для акцентного кольору бренду це звична практика (одна «синя нитка» скрізь), але це не одна роль «дія», як сформульовано в дизайн-документах — якщо колись знадобиться відрізнити наприклад «фокус» від «дія» (напр. у темному in-trip режимі, де синій зчитується гірше), доведеться розплутувати одну змінну на чотири.</p>
+
+      <h3 class="sub">3.2. `--ink` — текст, фон «натиснутого» стану і фон інверсної плашки одночасно</h3>
+      <p><b>Текст</b>: майже всі `color: var(--ink)` — заголовки, значення, підписи. <b>Фон вибраного стану контролу</b>: `.chip[aria-pressed="true"]`, `.seg > a[aria-current="page"]` — тут ink стає заливкою «натиснутого» чіпа/сегмента, а колір тексту на ній переходить у `--glass` — пара ink/glass інвертується як типова пара «фон/текст на активному контролі». <b>Фон інверсної алерт-панелі</b>: `--alert-bg: #0F1113` світлому дорівнює `--ink` дослівно, і використовується як фон інверсної плашки-алерту («inverted ink panel with hatched edge») — це третя роль, зафіксована окремим токеном, що просто випадково дорівнює `--ink` у світлій темі, але в темній темі вже НЕ дорівнює (`--alert-bg: #26292D` ≠ `--ink` dark `#F2F3F4`) — тобто в темній темі роль «інверсна панель» коректно відокремлена від ролі «текст», а в світлій випадково збігається значенням, хоч і різними іменами.</p>
+
+      <h3 class="sub">3.3. `--graphite` — другорядний текст і заливка декоративних елементів</h3>
+      <p>Основна роль — колір другорядного тексту (підписи, лічильники, підказки полів — більшість використань). Але той самий токен також вживається як <b>фон</b>, а не колір, у кількох місцях: `.row::after` (роздільник/лінія), `.list--icons .row::before` (маркер-крапка), `.day::after`, `.day--transport::before`, `.limit::before`, `.cond::before`, `.disclosure > summary::after` (стрілка розкриття) — друга роль ближче до «нейтральний елемент інтерфейсу», ніж до «текст».</p>
+
+      <h3 class="sub">3.4. `--hairline` — межа і «порожня» заливка одночасно</h3>
+      <p>Основна роль — колір тонкої лінії-межі (`border-*: var(--hairline)` на картках, списках, панелях). Але вживається і як <b>фон</b>: `.profile-id__avatar` (заглушка аватара), `.scale__step` (невибраний крок шкали складності), `.days > li::before`, `.sheet--first::before`, `.switch` (трек вимкненого перемикача), `.skeleton` (заглушка завантаження) — тут роль «нейтральний, майже непомітний плейсхолдер», семантично інше, ніж «межа/розділювач», хоч і той самий відтінок логічно підходить для обох.</p>
+    </section>
+
+    <!-- ============ 4. ЗНАЧЕННЯ ПОВЗ ЗМІННІ ============ -->
+    <section class="block" id="raw">
+      <div class="block-head"><span class="block-num mono">04</span><h2 class="block-title">Значення повз змінні</h2></div>
+      <p class="block-sub">Результат грепу hex-кольорів, inline `style="…"` і `&lt;style&gt;`-блоків по всіх 33 сторінках `wireframes/*.html`.</p>
+      <ul class="plainlist">
+        <li><b>Жодна з 33 сторінок не містить inline `style="…"` атрибутів і жодна не містить локального `&lt;style&gt;`-блоку.</b> Підтверджено грепом: `style="` по всіх 33 файлах — 0 збігів; `&lt;style` по всіх 33 файлах — 0 збігів. На рівні розмітки продукту хардкодів немає взагалі — усе оформлення йде виключно через класи з `ui/kit.css`. Це саме по собі сильний позитивний результат аудиту.</li>
+        <li><b>`wireframes/account.html`, рядок 167</b> — єдине місце в усіх 33 сторінках, де в розмітці зустрічається hex-колір: `#4285F4`, `#34A853`, `#FBBC05`, `#EA4335` у `fill="…"` атрибутах усередині inline-SVG логотипа Google (кнопка «Continue with Google»). Це не хардкод токена дизайн-системи — офіційні бренд-кольори чужого логотипа, які за визначенням не можуть бути токенізовані під наш кіт.</li>
+        <li><b>`ui/kit.html`</b> (не входить у 33 сторінки, окремий споживач-вітрина) має власний `&lt;style&gt;`-блок із доброю дюжиною hex-кольорів і px-значень — сам файл документує це коментарем: «Рамка вітрини — не частина кіта». Свідомо визнаний виняток: хром сторінки-вітрини навмисно не побудований на токенах кіта. Єдине трохи неоднозначне місце — точне значення `--blue-pressed` (`#2149E0`) згадане в тексті пояснення для читача вітрини, не в CSS-декларації.</li>
+        <li><b>`wireframes/ia.html`</b> (документ-рідбек мапи ІА, не входить у список 33 продуктових сторінок) містить 15 inline `style="width:…px"` (ширини колонок таблиць) і кілька hex для кольорових прямокутників легенди в самому документі. Поза скоупом аудиту.</li>
+      </ul>
+      <p><b>Підсумок розділу.</b> Жодного реального хардкоду токена (кольору, відступу, радіуса) у розмітці 33 аудійованих сторінок не знайдено — дисципліна «усе через класи кіту» витримана повністю. Єдині винятки — чужий бренд-колір (Google-логотип у account.html) і явно позначена рамка вітрини kit.html, яка сама себе виключає коментарем.</p>
+    </section>
+
+    <!-- ============ 5. КАНДИДАТИ В СЕМАНТИЧНІ РОЛІ ============ -->
+    <section class="block" id="candidates">
+      <div class="block-head"><span class="block-num mono">05</span><h2 class="block-title">Кандидати в семантичні ролі</h2></div>
+      <p class="block-sub">Для кожної ролі — чи в неї один явний токен-переможець, чи кілька конкурентів на ту саму підроль.</p>
+
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:150px;">Роль</th><th style="width:170px;">Токен(и)-кандидат(и)</th><th>Де фактично несе роль</th><th>Один явний переможець чи конкуренція</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead">Фон сторінки</td><td class="country mono">--glass</td><td>.nw (корінь продукту), .shell (кожен екран)</td><td>Один явний токен, конкурентів немає.</td></tr>
+            <tr><td class="rowhead">Фон картки</td><td class="country mono">--surface</td><td>.panel--card, .list, .days, .day, .profile, .sheet, .field__input, .chip, .seg, .check, .disclosure, усі .shell--sheet шари</td><td>Один явний токен для «непрозорої картки». Поруч існує сімейство напівпрозорих «скляних» поверхонь (--panel-bg, --bar-bg, --chip-photo, --attrib-bg, --glass-btn, --glass-btn-strong) — це <b>інша, сусідня роль</b> («скло на фото»), не заміна --surface, і в кожного своя альфа (див. 2.5) — тобто в межах «скла» переможця нема, там п'ять конкурентів на одну підроль.</td></tr>
+            <tr><td class="rowhead">Текст основний</td><td class="country mono">--ink</td><td>Переважна більшість `color:` у кіті (заголовки, значення, підписи, лейбли)</td><td>Один явний токен — але той самий токен подвоює роль «фон вибраного стану» (див. 3.2), тож як «чистий» токен тексту він не ізольований.</td></tr>
+            <tr><td class="rowhead">Текст другорядний</td><td class="country mono">--graphite (+ --dash, --on-disabled, --attrib-fg)</td><td>.shell__footer, .tabbar__item, .row__sub, .panel__unit/__label, .note, .field__hint, .disclosure &gt; p тощо</td><td>Один явний «головний» токен (--graphite), але навколо нього — щонайменше три токени з тим самим hex (--dash, --on-disabled light, --attrib-fg), кожен під своєю назвою для своєї підролі. Це не дрейф (значення всюди узгоджені), але «другорядний сірий» насправді іменований чотирма різними способами.</td></tr>
+            <tr><td class="rowhead">Дія (accent/CTA)</td><td class="country mono">--blue та --link</td><td>--blue: .btn--primary, фокус-кільця, .switch/.check увімкнено, спінер; --link: .shell__back/.close, .brief__action, .action-text, .btn--text</td><td>Два конкуруючі токени, що в світлій темі — один колір під двома іменами, а в темній темі реально розходяться (розділ 2.1). Це рівно той випадок «кілька токенів з майже однаковим hex», який шукає розділ 2.</td></tr>
+            <tr><td class="rowhead">Довіра/підтвердження (успіх/fixed)</td><td class="country mono">--fixed + --fixed-soft</td><td>.pill--fixed (колір і фон), .field--ok (обвідка й текст підказки)</td><td>Пара токенів (насичений + м'який фон) з чіткими, неконкуруючими ролями — на відміну від «дії», приклад чистого, без дрейфу, розв'язання ролі.</td></tr>
+            <tr><td class="rowhead">Небезпека/конфлікт (error)</td><td class="country mono">--conflict, --conflict-on-ink, --on-conflict, --sos-bg/--sos-fg</td><td>--conflict: .btn--danger, .btn--danger-fill, .field--error; --conflict-on-ink: .alert--conflict (навмисний «конфлікт на темному тлі»); --sos-bg/--sos-fg: лише .btn--sos</td><td>Три-чотири токени на одну загальну роль «тривога», кожен свідомо прив'язаний до свого контексту — але жоден не документований як «навмисно незалежний від теми», крім самого факту відсутності dark-перевизначення в --sos-bg/--sos-fg/--conflict-on-ink. Явного єдиного «переможця» нема — це сімейство, а не один токен, і межі навмисності варто зафіксувати текстом.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Додаткові ролі, виявлені за фактом вживання (не було у вихідному списку)</h3>
+      <ul class="plainlist">
+        <li><b>Жива позначка на приладі / увага</b> — `--yellow` + `--yellow-ink`. Чітко одна роль, один явний переможець, жодної конкуренції (`.tabbar__badge`, `.pill--attention::before`, `.scale__step--active`, `.day--warn::before`, `.alert__tag`) — саме так, як і задекларовано в CLAUDE.md («hi-vis yellow = only live state on the instrument»). Єдиний токен цієї ролі не перевизначається в темній темі, і це узгоджено з написаним правилом «hi-vis yellow ніколи не змінюється» — задокументований, а не випадковий інваріант.</li>
+        <li><b>Скло на фото / підкладка над зображенням</b> — сімейство `--glass-btn`, `--glass-btn-strong`, `--on-photo`, `--on-photo-soft`, `--scrim-top`, `--scrim-bottom`, `--panel-bg`, `--bar-bg`, `--chip-photo`, `--attrib-bg`/`--attrib-fg`. Найбільш «розгалужена» роль у всій системі — 10+ токенів, кожен із власною алгеброю прозорості, без жодного явно «головного». Вартий окремого проходу, якщо колись знадобиться уніфікувати кількість відтінків скла.</li>
+        <li><b>Розмежувач/плейсхолдер (нейтральний, не межа й не текст)</b> — `--hairline`, коли він вживається як `background`, а не `border-color` (розділ 3.4). Ця підроль ще не має власного імені, хоч і використовує чужий токен.</li>
+      </ul>
+    </section>
+
+    <!-- ============ 6. ОДНОКРАТНІ КОЛЬОРИ ============ -->
+    <section class="block" id="one-off">
+      <div class="block-head"><span class="block-num mono">06</span><h2 class="block-title">Однократні кольори — можлива унікальна роль</h2></div>
+      <p class="block-sub">`tokens.css` будує двошарову архітектуру PRIMITIVE + SEMANTIC поверх цього аудиту. Перед тим, як давати кольору окрему semantic-роль (кшталт `--color-danger` чи `--bg-alert`), кожен кандидат перевірено: чи він реально несе роль лише в ОДНОМУ селекторі `ui/kit.css`, а не розсіяний по кількох незалежних компонентах. Для підтверджених одноразових кольорів semantic-токена свідомо НЕ заведено — вони лишились тільки в PRIMITIVE (кожен під власним, перенесеним з кіта ім'ям, що посилається на primitive-шкалу), бо роль, яку несе рівно один клас, ще не довела, що вона узагальнена, а не випадковий збіг. Список нижче — саме ці кольори, з поясненням, чому кожен із них МІГ БИ стати окремою роллю, якби повторився ще десь.</p>
+
+      <div class="tablewrap">
+        <table class="wide">
+          <thead><tr><th style="width:170px;">Токен(и)</th><th style="width:150px;">Де вживається (єдиний клас)</th><th>Чому це може бути унікальна роль, що ще не повторилась</th></tr></thead>
+          <tbody>
+            <tr><td class="rowhead mono">--sos-bg / --sos-fg</td><td class="country">.btn--sos</td><td>Єдина заливка в продукті, яка свідомо заморожена й не йде за темою (tokens-audit.md §2.4) — це вже сама по собі відмінна від «--color-danger» роль «безпековий колір, незалежний від теми», а не проста дія кнопки. Якщо колись з'явиться другий «завжди тривожний, завжди однаковий» елемент (напр. кнопка SOS на іншому екрані з іншою розміткою), варто підняти в semantic як `--color-emergency`.</td></tr>
+            <tr><td class="rowhead mono">--conflict-on-ink</td><td class="country">.alert--conflict</td><td>Це «--conflict», але спеціально відкалібрований для читання на інверсній ink-панелі (та сама роль danger, інший контраст-контекст). Поки в продукті лише один такий контекст (вердикт-конфлікт на алерт-панелі) — якщо з'явиться другий інверсний компонент з помилкою, це стане роллю «--color-danger-on-ink».</td></tr>
+            <tr><td class="rowhead mono">--blue-pressed</td><td class="country">.btn--primary:active</td><td>Це «--color-action», притиснутий на один тон темніше — по суті стан, а не окремий колір. Якщо колись з'явиться друга основна кнопка з власним pressed-станом (не .btn--primary), варто підняти як `--color-action-pressed`.</td></tr>
+            <tr><td class="rowhead mono">--chip-photo</td><td class="country">.pill--photo</td><td>Підродина «скла на фото» (tokens-audit.md §5, «Додаткові ролі») — білий чіп поверх зображення, своя альфа серед п'яти близьких. Єдиний живий кандидат на роль «--bg-chip-on-photo», якщо колись знадобиться друга піктограма-чіп на фото за межами .pill--photo.</td></tr>
+            <tr><td class="rowhead mono">--attrib-bg / --attrib-fg</td><td class="country">.map__attrib, .map__badge</td><td>Обов'язкова ©Kartverket-атрибуція (CLAUDE.md — юридична вимога CC BY 4.0) заслуговує окремої ролі «--bg-attribution»/«--text-attribution» вже сьогодні, і єдина причина не заводити її зараз — вона фігурує рівно в одному компоненті на карті; якщо атрибуція з'явиться поза .map (наприклад, на фото-фоні), роль варто підняти.</td></tr>
+            <tr><td class="rowhead mono">--panel-bg</td><td class="country">.panel</td><td>Найпомітніший кандидат: єдине не суто біле скло з п'яти (rgba 250,250,250 — tokens-audit.md §2.5), задокументоване як навмисне «frosted instrument glass» рішення в DESIGN.md 2026-09-28. Це найсильніша заявка на власну роль «--bg-instrument-glass» серед усього списку — стримує лише те, що .panel і так єдиний компонент цього типу в продукті.</td></tr>
+            <tr><td class="rowhead mono">--fixed-soft</td><td class="country">.pill--fixed</td><td>М'який фон «довіри/підтвердження», парний до `--color-verified`, але задіяний лише в одній пігулці. Друга «успішна» поверхня (наприклад, картка підтвердженого бронювання) перетворила б це на повноцінну `--bg-verified-soft`.</td></tr>
+            <tr><td class="rowhead mono">--map-land</td><td class="country">.map</td><td>Фон карти — єдиний колір, що представляє «сушу» в усьому продукті; в темній темі роль виконує не окремий колір, а `filter: var(--effect-map-dark)`. Якщо колись з'явиться друга картографічна поверхня з власною палітрою (наприклад, міні-карта іншого стилю), варто підняти як `--bg-map-land`.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote">Ці кольори живуть у `tokens.css` тільки в розділі PRIMITIVE, кожен під іменем, перенесеним із `ui/kit.css` (не перейменований під конвенцію родина+ранг, бо це вже контекстно-специфічна назва, а не сирий відтінок шкали), і посилаються лише на primitive-кольори з таблиці 1.1 (--white/--gray-N/--blue-N/--red-N/--green-N).</p>
+    </section>
+
+    <!-- ============ ПІДСУМОК ============ -->
+    <section class="block" id="summary">
+      <div class="block-head"><span class="block-num mono">07</span><h2 class="block-title">Підсумок</h2></div>
+      <ul class="plainlist">
+        <li><b>211 токенів</b> у `:root` (`ui/kit.css`): 181 «звичайний» (колір/шрифт/відступ/радіус/розмір/тінь/рух) + 30 SVG-іконок-масок.</li>
+        <li><b>9 токенів не використовуються</b> жодним класом ніде в `ui/kit.css`, а отже й на жодній із 33 сторінок: `--map-water`, `--fs-18`, `--fs-32` (останні два — тільки в демонстраційному `ui/kit.html`, у продуктових класах не задіяні), `--ls-num`, `--ls-0`, `--s-14`, `--h-map`, `--h-panel`, `--dim-layer`.</li>
+        <li><b>Компонент без застосування</b>: `.btn--round` (`ui/kit.css:550`) визначений, але не зустрічається в жодній з 33 сторінок і навіть у `ui/kit.html`.</li>
+        <li><b>Розмітка продукту чиста</b>: 0 inline `style=`, 0 локальних `&lt;style&gt;` на всіх 33 сторінках; єдиний hex поза кітом — бренд-кольори логотипа Google в `account.html` (легітимний виняток, не токен дизайн-системи).</li>
+        <li><b>5 знахідок дрейфу</b> (розділ 2): розбіжність `--link`/`--blue` між темами; системне дублювання hex замість `var()` у чотирьох композитних тінях (`--e-hair`, `--e-stroke`, `--e-hair-bottom`, `--e-focus-ring`); дві різні бази «чорного» для затемнень і тіней (ink-based vs чистий `#000`); `--sos-bg`/`--sos-fg` як застиглий, не прив'язаний до теми дублікат `--conflict`; чотири близькі, але не ідентичні «майже білих» скляних поверхні.</li>
+        <li><b>4 випадки «одна змінна — кілька ролей»</b> (розділ 3): `--blue` (дія / стан «увімкнено» / фокус / завантаження), `--ink` (текст / фон вибраного стану / випадковий збіг з фоном алерту), `--graphite` (другорядний текст / декоративні заливки-крапки-лінії), `--hairline` (межа / нейтральний плейсхолдер-заливка).</li>
+        <li><b>Додаткова знахідка в іконках</b>: 3 з 5 вкладок таб-бару (`guide`, `safety`, `profile`) не мають окремої «жирної» іконки для активного стану — `--ic-on` дорівнює звичайному `--ic` дослівно, на відміну від `map` і `plans`.</li>
+      </ul>
+      <p class="footnote">Повний перелік усіх 211 токенів зі значеннями, вживанням і роллю — <a href="../tokens-audit.md">tokens-audit.md</a>, розділ 1.</p>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

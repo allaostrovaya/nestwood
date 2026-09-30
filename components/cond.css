@@ -1,0 +1,6 @@
+/* рядок-умова: іконка + текст (нічліг, погода) */
+.cond { position: relative; margin: var(--space-3) 0 0; padding: 0 var(--space-1) 0 var(--space-8); font: var(--font-weight-regular) var(--font-size-16)/var(--line-height-body) var(--font-family-ui); color: var(--text-primary); }
+.cond::before { content: ""; position: absolute; left: var(--space-1); top: 0; width: var(--size-ic-m); height: var(--size-ic-m); background: var(--color-mark);
+  -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.section__title + .cond { margin-top: 0; }
+.cond--muted { color: var(--text-muted); }
